@@ -1,0 +1,282 @@
+body {
+	width: 750px;
+	padding : 10px;
+	border: solid 1px #000000;
+	border-bottom : solid 20px #000000;
+	position: absolute;
+	left: 50%;
+	margin-left: -375px;
+}
+
+a {
+    font: 12px Sans, Verdana;
+    color: black;
+    padding : 8px;
+    padding-left : 30px;
+    border: solid 2px #A0A0A0;
+    background-color : #FFFFFF;
+}
+
+a:hover {
+    /*text-decoration: none;*/
+    color :#000000;
+    border: 2px solid #000000;
+}
+
+a.imprimir {
+    background: url("/images/imprimir_miniatura.png") no-repeat;
+    background-position: 10px center;
+}
+
+a.voltar {
+    background: url("/images/voltar_miniatura.png") no-repeat;
+    background-position: 10px center;
+}
+
+a.ver_regras {
+    background: url("/images/documento_miniatura.png") no-repeat;
+    background-position: 10px center;
+    border: 0px;
+}
+
+h1 {
+	padding-top : 20px;
+	font: bold 20px Verdana;
+}
+
+fieldset {
+	border: solid 1px #000000;
+	margin-bottom : 50px;
+}
+
+legend {
+	font: bold 12px Verdana;
+}
+
+.label {
+	width : 180px;
+	margin : 2px;
+	padding : 3px;
+	background-color : #EEEEEE;
+	font: bold 12px Verdana;
+	float : left;
+	text-align : right;
+}
+.label_obrigatorio {
+	width : 180px;
+	margin : 2px;
+	padding : 3px;
+	background-color : #EEEEEE;
+	font: bold 12px Verdana;
+	float : left;
+	text-align : right;
+	color: red
+}
+
+input {
+    margin : 2px;
+	width : 500px;
+	border : 1px solid #AAAAAA;
+	clear : both;
+}
+
+input:focus {
+	border : 1px solid #222222;
+	background-color : #FFFACD;
+}
+
+textarea {
+    margin : 2px;
+	width : 500px;
+	height : 280px;
+	border : 1px solid #AAAAAA;
+}
+
+textarea:focus {
+	border : 1px solid #222222;
+	background-color : #FFFACD;
+}
+
+select{
+	border : 1px solid #AAAAAA;
+	clear : both;
+}
+
+.radio {
+    height: auto;
+    width: auto
+}
+
+#cabecalho {
+    clear : both;
+    width : 750px;
+    height : 138px;
+    background-image : url("/images/topo.jpg");
+    background-repeat : no-repeat;
+    background-position : center;
+}
+
+#matricula{
+	width : 100px;
+}
+
+#requisicao_telefone_ou_ramal{
+	width : 100px;
+}
+
+#requisicao_celular{
+	width : 100px;
+}
+
+#requisicao_sala{
+	width : 100px;
+}
+
+#requisicao_data_de_reserva_br {
+    width : 80px;
+}
+
+#data_de_reserva_ida_volta_br {
+    width : 80px;
+}
+
+#requisicao_submit {
+	float : right;
+	width : auto;
+}
+
+.campo_obrigatorio {
+	color : red;
+}
+
+p.legenda_obrigatorio strong{
+	font: 10px Verdana;
+	font-weight: normal;
+	color : red;
+}
+
+.label_lateral {
+    margin : 2px;
+    margin-bottom : 20px;
+    float : left;
+    width : 180px;
+    height : 280px;
+	background-color : #EEEEEE;
+}
+
+.label_lateral h1{
+    margin : 0px;
+    padding : 3px;
+    text-align : right;
+	font: bold 12px Verdana;
+}
+
+.label_lateral ul{
+    padding-left : 20px;
+    font: bold 10px Verdana;
+}
+
+.label_lateral ul li{
+    padding : 3px;
+    font: normal 10px Verdana;
+}
+
+.pular_linha {
+    clear : both;
+}
+
+div.sucesso {
+    font-family: verdana,arial,helvetica,sans-serif;;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background :#DFFFDF url(../images/verdadeiro.png) no-repeat scroll 8px 5px;
+    color :#005F00;
+    border: 2px solid #9FCF9F;
+    padding: 3px 3px 3px 30px;
+}
+
+.invisivel
+{
+    display: none
+}
+
+.visivel
+{
+    display: block
+}
+
+.label_confirmacao {
+    font-weight: bold;
+}
+
+#confirmar_requisicao {
+    font-family: Sans, Verdana;
+}
+
+#errorExplanation {
+  margin-top: 15px;
+  margin-left: 170px;
+  width: 400px;
+  border: 2px solid #c00;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 35px;
+  font-size: 16px;
+  margin: -7px;
+  background: #ff8989 url(../images/erro.png) no-repeat scroll 8px 5px;;
+  border-bottom: 2px solid #c00;
+  color: #c00;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+  font-size: 14px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+#radioDataIda {
+    float: left;
+    margin-right: 300px;
+    margin-left: 120px;
+	font: 12px Verdana
+}
+
+#radioDataIdaVolta {
+    float: left;
+   	font: 12px Verdana
+}
+
+#clear {
+    clear: both
+}
+
+.termo {
+    color: blue;
+    font: bold 12px Verdana
+}
+#requisicao_termo {
+    width: auto;
+    height: auto;
+}
+.label_ida {
+    float: left !important;
+    margin-left: 20px
+}
+.label_volta {
+    float: left !important
+}
+

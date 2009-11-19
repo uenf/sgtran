@@ -1,0 +1,17 @@
+<h1>Editar combustível</h1>
+
+<% form_for(@combustivel) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </p>
+  <p>
+    <%= f.submit 'Aplicar mudanças' %>
+  </p>
+<% end %>
+
+<%= link_to 'Mostrar', @combustivel %> |
+<%= link_to 'Voltar', combustiveis_path %>
+

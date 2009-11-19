@@ -1,0 +1,35 @@
+<h1>Lista de veículos</h1>
+
+<table>
+  <tr>
+    <th>Marca</th>
+    <th>Modelo</th>
+    <th>Cor</th>
+    <th>Ano</th>
+    <th>Placa</th>
+    <th>Numero de ordem</th>
+    <th>Renavam</th>
+    <th>Categoria</th>
+  </tr>
+
+<% @veiculos.each do |veiculo| %>
+  <tr>
+    <td><%=h veiculo.marca %></td>
+    <td><%=h veiculo.modelo %></td>
+    <td><%=h veiculo.cor %></td>
+    <td><%=h veiculo.ano %></td>
+    <td><%=h veiculo.placa %></td>
+    <td><%=h veiculo.numero_de_ordem %></td>
+    <td><%=h veiculo.renavam %></td>
+    <td><%=h CategoriaDeVeiculo.find(veiculo.categoria_de_veiculo_id).nome %></td>
+    <td><%= link_to 'Mostrar', veiculo %></td>
+    <td><%= link_to 'Modificar', edit_veiculo_path(veiculo) %></td>
+    <td><%= link_to 'Apagar', veiculo, :confirm => 'Tem certeza?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Novo veículo', new_veiculo_path %>
+

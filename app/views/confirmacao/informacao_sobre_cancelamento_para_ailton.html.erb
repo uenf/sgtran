@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Ailton, a requisição de número <%=h @requisicao.nome_do_solicitante %></h1> com os seguintes dados:
+    <table class="tabela_padrao">
+
+    <tr>
+      <tr>
+        <th colspan="2">Dados gerais</th>
+      </tr>
+    </tr>
+
+    <tr>
+      <td class="celula_label"><strong>Matricula:</strong></td>
+      <td><%=h @requisicao.matricula %></td>
+    </tr>
+
+    <tr>
+      <td class="celula_label"><strong>Nome do solicitante:</strong></td>
+      <td><%=h @requisicao.nome_do_solicitante %></td>
+    </tr>
+
+    <tr>
+      <td class="celula_label"><strong>Email:</strong></td>
+      <td><%=h @requisicao.email %></td>
+    </tr>
+
+    <tr>
+      <td class="celula_label"><strong>Cargo ou funcao:</strong></td>
+      <td><%=h @requisicao.cargo_ou_funcao %></td>
+    </tr>
+
+    <tr>
+      <td class="celula_label"><strong>Telefone ou ramal:</strong></td>
+      <td><%=h @requisicao.telefone_ou_ramal %></td>
+    </tr>
+
+    <tr>
+      <td class="celula_label"><strong>Celular:</strong></td>
+      <td><%=h @requisicao.celular %></td>
+    </tr>
+
+    <tr>
+      <td class="celula_label"><strong>Laboratorio ou setor:</strong></td>
+      <td><%=h @requisicao.laboratorio_ou_setor %></td>
+    </tr>
+
+    <tr>
+      <td class="celula_label"><strong>Predio:</strong></td>
+      <td><%=h @requisicao.predio %></td>
+    </tr>
+
+    <tr>
+      <td class="celula_label"><strong>Andar:</strong></td>
+      <td><%=h @requisicao.andar %></td>
+    </tr>
+
+    <tr>
+      <td class="celula_label"><strong>Sala:</strong></td>
+      <td><%=h @requisicao.sala %></td>
+    </tr>
+
+    <tr>
+      <tr>
+        <th colspan="2">Dados da reserva</th>
+      </tr>
+    </tr>
+
+    <tr>
+      <td class="celula_label"><strong>Data de reserva:</strong></td>
+      <td><%=h @requisicao.data_de_reserva.strftime("%d/%m/%Y")%></td>
+    </tr>
+
+    <tr>
+      <td class="celula_label"><strong>Veiculo:</strong></td>
+      <td><%=h @requisicao.veiculo %></td>
+    </tr>
+
+    <tr>
+      <td class="celula_label"><strong>Objetivo da reserva:</strong></td>
+      <td><%=h @requisicao.objetivo_da_reserva %></td>
+    </tr>
+
+    <tr>
+      <td class="celula_label"><strong>Outros:</strong></td>
+      <td><%=h @requisicao.outros %></td>
+    </tr>
+
+    <tr>
+      <td class="celula_label"><strong>Nome telefone passageiros:</strong></td>
+      <td><%=h @requisicao.nome_telefone_passageiros %></td>
+    </tr>
+
+    <tr>
+      <td class="celula_label"><strong>Roteiro da agenda:</strong></td>
+      <td><%=h @requisicao.roteiro_da_agenda %></td>
+    </tr>
+
+    <tr>
+      <td class="celula_label"><strong>Observacao:</strong></td>
+      <td><<%=h @requisicao.observacao %>/td>
+    </tr>
+
+  </table>
+  </body>
+</html>
+

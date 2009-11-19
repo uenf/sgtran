@@ -1,0 +1,3 @@
+Factory.define :usuario_session do |usuario_session|
+end
+

@@ -1,0 +1,121 @@
+<% form_for @requisicao, :url => { :action => "cancelar_requisicao_pelo_professor", :id => @requisicao } do |f| %>
+
+  <%= f.error_messages %>
+
+<div id="exibir_requisicao">
+
+  <table class="tabela_padrao">
+
+  <h1>Cancelamento de reserva de ve&iacute;culos</h1>
+  <p class="legenda_obrigatorio"><strong>* Os campos em vermelho s&atilde;o obrigat&oacute;rios</strong><p>
+
+    <tr>
+      <tr>
+        <th colspan="2">Dados gerais</th>
+      </tr>
+    </tr>
+
+    <tr>
+      <td class="celula_label"><strong>Matricula:</strong></td>
+      <td><%=h @solicitante.matricula %></td>
+    </tr>
+
+    <tr>
+      <td class="celula_label"><strong>Nome do solicitante:</strong></td>
+      <td><%=h @solicitante.nome %></td>
+    </tr>
+
+    <tr>
+      <td class="celula_label"><strong>Email:</strong></td>
+      <td><%=h @solicitante.email %></td>
+    </tr>
+
+    <tr>
+      <td class="celula_label"><strong>Cargo ou funcao:</strong></td>
+      <td><%=h @requisicao.cargo_ou_funcao %></td>
+    </tr>
+
+    <tr>
+      <td class="celula_label"><strong>Telefone ou ramal:</strong></td>
+      <td><%=h @requisicao.telefone_ou_ramal %></td>
+    </tr>
+
+    <tr>
+      <td class="celula_label"><strong>Celular:</strong></td>
+      <td><%=h @requisicao.celular %></td>
+    </tr>
+
+    <tr>
+      <td class="celula_label"><strong>Laboratorio ou setor:</strong></td>
+      <td><%=h @requisicao.laboratorio_ou_setor %></td>
+    </tr>
+
+    <tr>
+      <td class="celula_label"><strong>Predio:</strong></td>
+      <td><%=h @requisicao.predio %></td>
+    </tr>
+
+    <tr>
+      <td class="celula_label"><strong>Andar:</strong></td>
+      <td><%=h @requisicao.andar %></td>
+    </tr>
+
+    <tr>
+      <td class="celula_label"><strong>Sala:</strong></td>
+      <td><%=h @requisicao.sala %></td>
+    </tr>
+
+    <tr>
+      <tr>
+        <th colspan="2">Dados da reserva</th>
+      </tr>
+    </tr>
+
+    <tr>
+      <td class="celula_label"><strong>Data de reserva:</strong></td>
+      <td><%=h @requisicao.data_de_reserva.strftime("%d/%m/%Y")%></td>
+    </tr>
+
+    <tr>
+      <td class="celula_label"><strong>Categoria de veículo:</strong></td>
+      <td><%=h CategoriaDeVeiculo.find(@requisicao.categoria_de_veiculo_id).nome %></td>
+    </tr>
+
+    <tr>
+      <td class="celula_label"><strong>Objetivo da reserva:</strong></td>
+      <td><%=h @requisicao.objetivo_da_reserva %></td>
+    </tr>
+
+    <tr>
+      <td class="celula_label"><strong>Outros:</strong></td>
+      <td><%=h @requisicao.outros %></td>
+    </tr>
+
+    <tr>
+      <td class="celula_label"><strong>Nome telefone passageiros:</strong></td>
+      <td><%=h @requisicao.nome_telefone_passageiros %></td>
+    </tr>
+
+    <tr>
+      <td class="celula_label"><strong>Roteiro da agenda:</strong></td>
+      <td><%=h @requisicao.roteiro_da_agenda %></td>
+    </tr>
+
+    <tr>
+      <td class="celula_label"><strong>Observacao:</strong></td>
+      <td><%=h @requisicao.observacao %></td>
+    </tr>
+
+  </table>
+
+<br/>
+
+  <%= f.label :motivo, "Motivo do Cancelamento:", :class => "campo_obrigatorio" %>
+  <%= f.text_area :motivo, :cols => nil, :rows => nil %>
+
+  <%= f.submit 'Cancelar requisição' %>
+
+<% end %>
+
+</div>
+

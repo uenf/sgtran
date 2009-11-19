@@ -1,0 +1,111 @@
+<div class="show_padrao">
+
+    <h1>Dados gerais</h1>
+
+
+    <div class="show_linha">
+      <div class="linha_titulo"> Matricula: </div> <div class="linha_texto"> <%=h @solicitante.matricula %> </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo"> Nome do solicitante: </div> <div class="linha_texto"> <%=h @solicitante.nome %> </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo"> Email: </div> <div class="linha_texto"> <%=h @solicitante.email %> </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo"> Cargo ou funcao: </div> <div class="linha_texto"> <%=h @requisicao.cargo_ou_funcao %> </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo"> Telefone ou ramal: </div> <div class="linha_texto"> <%=h @requisicao.telefone_ou_ramal %> </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo"> Celular: </div> <div class="linha_texto"> <%=h @requisicao.celular %> </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo"> Laboratorio ou setor: </div> <div class="linha_texto"> <%=h @requisicao.laboratorio_ou_setor %> </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo"> Predio: </div> <div class="linha_texto"> <%=h @requisicao.predio %> </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo"> Andar: </div> <div class="linha_texto"> <%=h @requisicao.andar %> </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo"> Sala: </div> <div class="linha_texto"> <%=h @requisicao.sala %> </div>
+    </div>
+
+    <h1>Dados da reserva</h1>
+
+    <div class="show_linha">
+      <div class="linha_titulo"> Data de reserva: </div> <div class="linha_texto"> <%=h @requisicao.data_de_reserva.strftime("%d/%m/%Y")%> </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo"> Categoria de veículo: </div> <div class="linha_texto"> <%=h CategoriaDeVeiculo.find(@requisicao.categoria_de_veiculo_id).nome %> </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo"> Objetivo da reserva: </div> <div class="linha_texto"> <%=h @requisicao.objetivo_da_reserva %> </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo"> Outros: </div> <div class="linha_texto"> <%=h @requisicao.outros %> </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo"> Nome e telefone dos passageiros: </div> <div class="linha_texto"> <%=h @requisicao.nome_telefone_passageiros %> </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo"> Roteiro da agenda: </div> <div class="linha_texto"> <%=h @requisicao.roteiro_da_agenda %> </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo"> Observacao: </div> <div class="linha_texto"> <%=h @requisicao.observacao %> </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo"> Estado: </div> <div class="linha_texto"> <%=h @requisicao.estado.to_s %> </div>
+    </div>
+
+</div>
+
+<!-- ======================================================================= -->
+
+<div id="opcoes_da_visao">
+  <ul>
+    <li id="opcao_voltar"><%= link_to 'Voltar', requisicoes_path %></li>
+    <li id="opcao_imprimir"><a href="javaScript:window.print()">Imprimir</a></li>
+
+    <!-- <li id="opcao_aceitar"><%= link_to 'Aceitar', :controller => 'requisicoes', :action => 'aceitar', :id => @requisicao %></li>
+    <li id="opcao_rejeitar"><%= link_to 'Rejeitar'%></li>
+    <li id="opcao_cancelar"><%= link_to 'Cancelar' %></li> -->
+
+    <% if requisicao_pode_ser_aceita(@requisicao.estado) %>
+      <li id="opcao_aceitar"><%= link_to 'Aceitar', :controller => 'requisicoes', :action => 'aceitar', :id => @requisicao %>
+      </li>
+    <% end %>
+
+    <% if requisicao_pode_ser_cancelada(@requisicao.estado) %>
+      <li id="opcao_cancelar"><%= link_to 'Cancelar_pelo_sistema', :controller => 'requisicoes', :action => 'cancelar_pelo_sistema', :id => @requisicao %>
+      </li>
+    <% end %>
+
+    <% if requisicao_pode_ser_rejeitada(@requisicao.estado) %>
+      <li id="opcao_rejeitar"><%= link_to 'Rejeitar', :controller => 'requisicoes', :action => 'rejeitar', :id => @requisicao %>
+      </li>
+    <% end %>
+
+  </ul>
+  <div class="pular_linha"></li>
+</div>
+

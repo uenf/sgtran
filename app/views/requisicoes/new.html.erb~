@@ -1,0 +1,194 @@
+<%= javascript_include_tag :defaults %>
+<%= calendar_date_select_includes "red", :locale => "pt"%>
+<%= javascript_include_tag "calendar_date_select/format_italian" %>
+<% form_for @requisicao do |f| %>
+  <%= f.error_messages %>
+
+  <h1>Solicita&ccedil;&atilde;o de reserva de ve&iacute;culos</h1>
+  <p class="legenda_obrigatorio"><strong>* Os campos em vermelho s&atilde;o obrigat&oacute;rios</strong><p>
+
+  <fieldset><legend>Dados do solicitante</legend>
+
+  <p>
+    <%= label_tag :matricula, "Matr&iacute;cula:", :class => "label_obrigatorio" %>
+    <%= text_field_tag :matricula %>
+  </p>
+  <p>
+    <%= label_tag :email, "E-mail:", :class => "label_obrigatorio" %>
+    <%= text_field_tag :email %>
+  </p>
+  <p>
+    <%= f.label :cargo_ou_funcao, "Cargo ou Fun&ccedil;&atilde;o:", :class => "label_obrigatorio" %>
+    <%= f.text_field :cargo_ou_funcao %>
+  </p>
+  <p>
+    <%= f.label :telefone_ou_ramal, "Telefone ou ramal:", :class => "label_obrigatorio" %>
+    <%= f.text_field :telefone_ou_ramal %>
+  </p>
+  <p>
+    <%= f.label :celular, "Celular:", :class => "label" %>
+    <%= f.text_field :celular %>
+  </p>
+  <p>
+    <%= f.label :laboratorio_ou_setor, "Laborat&oacute;rio ou Setor:", :class => "label_obrigatorio" %>
+    <%= f.text_field :laboratorio_ou_setor %>
+  </p>
+  <p>
+    <%= f.label :predio, "Pr&eacute;dio:", :class => "label_obrigatorio" %>
+    <%= f.select :predio, Requisicao.predio %>
+  </p>
+  <p>
+    <%= f.label :andar, "Andar:", :class => "label_obrigatorio" %>
+    <%= f.select :andar, Requisicao.andar %>
+  </p>
+  <p>
+    <%= f.label :sala , "Sala:", :class => "label_obrigatorio" %>
+    <%= f.text_field :sala %>
+  </p>
+
+  </fieldset>
+
+  <fieldset><legend>Dados da reserva</legend>
+
+  <p>
+    <div id="radioDataIda">
+      <%= label_tag :data_de_reserva_ida, "Ida:", :id => "label_ida" %>
+      <%= radio_button_tag 'data_de_reserva', 'ida', true, :onclick => "idaeVolta()", :class => "radio" %>
+    </div>
+    <div id="radioDataIdaVolta">
+      <%= label_tag :data_de_reserva_volta, "Ida e Volta:", :id => "label_volta" %>
+      <%= radio_button_tag 'data_de_reserva', 'volta', false, :onclick => "idaeVolta()", :class => "radio" %>
+    </div>
+    <div id="clear"></div>
+  </p>
+
+
+
+  <p>
+    <%= f.label :data_de_reserva_br, "Data de Reserva de Ida:", :class => "label_obrigatorio" %>
+    <%= calendar_date_select_tag "requisicao_data_de_reserva_br",
+                                  @requisicao.data_de_reserva ? @requisicao.data_de_reserva.to_date.to_s_br : "",
+                                  :name => "requisicao[data_de_reserva_br]",
+                                  :year_range => [Time.now.year],
+                                  :month_year => "label" %>
+  </p>
+  <p id="data_volta">
+    <%= label_tag :data_de_reserva_ida_volta_br, "Data de Reserva de Volta:", :class => "label_obrigatorio" %>
+    <%= calendar_date_select_tag "data_de_reserva_ida_volta_br",
+                                  @requisicao.data_de_reserva ? @requisicao.data_de_reserva.to_date.to_s_br : "",
+                                  :name => "data_de_reserva_ida_volta_br",
+                                  :year_range => [Time.now.year],
+                                  :month_year => "label" %>
+  </p>
+  <p>
+    <%= f.label :veiculo, "Ve&iacute;culo:", :class => "label_obrigatorio" %>
+    <%= f.select :veiculo, Requisicao.veiculo %>
+  </p>
+  <p>
+    <%= f.label :objetivo_da_reserva, "Objetivo da reserva:", :class => "label_obrigatorio" %>
+    <%= f.select :objetivo_da_reserva, Requisicao.objetivo, {}, :onchange => "verificarOutros()" %>
+  </p>
+  <p>
+    <%= f.label :outros, "Outros:", :class => "invisivel", :id => 'requisicao_outros_label' %>
+    <%= f.text_field :outros, :class => "invisivel" %>
+  </p>
+  <p class="pular_linha">
+    <div class="label_lateral">
+      <%= f.label :nome_telefone_passageiros, "Nome(s) e telefone do(s) passageiro(s):", :class => "label_obrigatorio" %>
+
+      <ul>Informar:
+        <li>Nome completo;</li>
+        <li>Telefone de contato.</li>
+      </ul>
+    </div>
+    <%= f.text_area :nome_telefone_passageiros, :rows => nil, :cols => nil %>
+  </p>
+  <p class="pular_linha">
+    <div class="label_lateral">
+      <%= f.label :roteiro_da_agenda, "Roteiro da Agenda:", :class => "label_obrigatorio" %>
+      <ul>Informar:
+        <li>Endereço;</li>
+        <li>Cidade;</li>
+        <li>Local de Destino;</li>
+        <li>Local que irá buscar passageiro (com referência);</li>
+        <li>Data e Horário previstos de Saída e Chegada do Passageiro;</li>
+        <li>Data e Horário previstos de Retorno do Passageiro.</li>
+      </ul>
+    </div>
+    <%= f.text_area :roteiro_da_agenda, :rows => nil, :cols => nil %>
+  </p>
+  <div id="roteiro_de_volta">
+  <p class="pular_linha">
+    <div class="label_lateral">
+      <%= label_tag :roteiro_da_agenda_volta, "Roteiro da Agenda de volta:", :class => "label_obrigatorio" %>
+      <ul>Informar:
+        <li>Endereço;</li>
+        <li>Cidade;</li>
+        <li>Local de Destino;</li>
+        <li>Local que irá buscar passageiro (com referência);</li>
+        <li>Data e Horário previstos de Saída e Chegada do Passageiro;</li>
+        <li>Data e Horário previstos de Retorno do Passageiro.</li>
+      </ul>
+    </div>
+    <%= text_area_tag :roteiro_da_agenda_volta %>
+  </p>
+  </div>
+  <p class="pular_linha">
+    <div class="label_lateral">
+      <%= f.label :observacao, "Observa&ccedil;&atilde;o:", :class => "label" %>
+      <ul>Utilizar este espaço para:
+        <li>Quando for buscar ou
+            levar passageiro ao Aeroporto, informando o Aeroporto,
+            Número do Vôo, Companhia Aérea, Horário de chegada do vôo.</li>
+        <li>No caso de participações em reuniões ou eventos, informar
+            o horário de inicio e previsão de término do evento.</li>
+        <li>Nas solicitações de microônibus, informar a lista de
+            passageiros com nome completo, matrícula e CPF.</li>
+      </ul>
+    </div>
+    <%= f.text_area :observacao, :rows => nil, :cols => nil %>
+  </p>
+
+  <p>
+    <div class="label_lateral">
+      <%= f.label :termo, "Termos:", :class => "label_obrigatorio" %>
+    </div>
+
+    <textarea readonly="readonly">REGRAS DA ASTRAN PARA UTILIZAÇÃO DE VEÍCULOS
+
+
+1.DOS VEÍCULOS:
+  1.1.ÔNIBUS, MICRO-ÔNIBUS E VAN
+    a) O limite máximo de afastamento dos ônibus do campus Leonel Brizola será de 800 km de raio e não serão permitidos afastamentos dos veículos em períodos superiores a 10 (dez) dias;
+    b) Será cancelada a saída do veículo que estiver com menos da metade de sua capacidade total, ou seja, veículo com capacidade para 16 passageiros deverá ter no mínimo 8 passageiros.
+
+2.DO AGENDAMENTO:
+  a) Os agendamentos de veículos deverão ser solicitados via formulário on-line na página da ASTRAN e poderão ser solicitados com mínimo de 2 (dois) dias úteis e máximo de 15 (quinze) dias. Exceto os ônibus, micro-ônibus e Van que poderão ser requisitados a qualquer tempo (dentro do corrente ano);
+  b) Serão considerados os formulários que constar as seguintes informações:
+    - Data, horário e local da saída e de retorno;
+    - Responsável e destino da viagem;
+    - Nome e Telefone dos passageiros. E nas reservas dos Ônibus, Micro-ônibus e Van, a listagem com nome, CPF e contato telefônico dos passageiros, em até 24 horas antes da partida;
+  c) É responsabilidade do motorista decidir em quais locais será possível ter acesso com o veículo.
+  d) É vedado ingresso e permanência no ônibus de passageiros trajando roupas de banho, sem camisa, estando molhado; bem como o transporte e/ou ingestão de bebidas alcoólicas ou fumar no interior do veículo;
+  e) É responsabilidade de cada passageiro a conservação e guarda da bagagem pessoal;
+  f) O trajeto a ser realizado será aquele definido na solicitação. Qualquer alteração deverá ter autorização da chefia da ASTRAN;
+  g) O cancelamento da agenda deverá ser notificado à ASTRAN via e-mail (astran@uenf.br) com, no mínimo, 24 horas de antecedência;
+  h) O responsável solicitante da reserva deverá arcar com as despesas inerentes a viagem, tais como: combustível, motoristas, entre outras;
+  i) O passageiro ou motorista devem obedecer aos dispositivos disciplinares previstos no Decreto N° 41.952, de 16 de julho de 2009." %></textarea><br />
+
+    <div>
+      <%= f.check_box :termo, :class => "label_obrigatorio" %>
+      <span class="campo_obrigatorio">Li e concordo com os termos.</span>
+    </div>
+
+  </p>
+
+  </fieldset>
+
+  <p>
+    <%= f.submit 'Enviar' %>
+  </p>
+<% end %>
+
+<%= link_to 'Voltar', requisicoes_path, :class => "voltar" %>
+

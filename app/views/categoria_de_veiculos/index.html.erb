@@ -1,0 +1,21 @@
+<h1>Lista de categorias de veículo</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+  </tr>
+
+<% @categoria_de_veiculos.each do |categoria_de_veiculo| %>
+  <tr>
+    <td><%=h categoria_de_veiculo.nome %></td>
+    <td><%= link_to 'Mostrar', categoria_de_veiculo %></td>
+    <td><%= link_to 'Editar', edit_categoria_de_veiculo_path(categoria_de_veiculo) %></td>
+    <td><%= link_to 'Apagar', categoria_de_veiculo, :confirm => 'Tem certeza?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nova categoria de veículo', new_categoria_de_veiculo_path %>
+

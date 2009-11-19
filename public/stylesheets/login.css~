@@ -1,0 +1,37 @@
+body {
+    position : absolute;
+    width : 1020px;
+    left : 50%;
+    margin-top : 0px;
+    margin-left : -510px;
+    text-align: center
+}
+#corpo {
+    width: 1020px;
+    text-align: left
+
+}
+
+label {
+    margin : 2px;
+    margin-bottom : 20px;
+    float : left;
+    width : 180px;
+	background-color : #EEEEEE;
+	text-align: right
+}
+input {
+    margin : 2px;
+	width : 500px;
+	border : 1px solid #AAAAAA;
+}
+p {
+    clear: both
+}
+.submit {
+    width: 80px
+}
+.text {
+    width: 120px
+}
+

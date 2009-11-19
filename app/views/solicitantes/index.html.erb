@@ -1,0 +1,27 @@
+<h1>Listing solicitantes</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Email</th>
+    <th>Matricula</th>
+    <th>Cargo</th>
+  </tr>
+
+<% @solicitantes.each do |solicitante| %>
+  <tr>
+    <td><%=h solicitante.nome %></td>
+    <td><%=h solicitante.email %></td>
+    <td><%=h solicitante.matricula %></td>
+    <td><%=h solicitante.cargo %></td>
+    <td><%= link_to 'Show', solicitante %></td>
+    <td><%= link_to 'Edit', edit_solicitante_path(solicitante) %></td>
+    <td><%= link_to 'Destroy', solicitante, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New solicitante', new_solicitante_path %>
+

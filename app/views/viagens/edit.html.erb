@@ -1,0 +1,13 @@
+<h1>Editing viagem</h1>
+
+<% form_for(@viagem) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @viagem %> |
+<%= link_to 'Back', viagens_path %>
+

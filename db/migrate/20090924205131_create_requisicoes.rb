@@ -1,0 +1,38 @@
+class CreateRequisicoes < ActiveRecord::Migration
+  def self.up
+    create_table :requisicoes do |t|
+      t.references :solicitante
+      t.references :viagem
+      t.references :categoria_de_veiculo
+      t.string :cargo_ou_funcao
+      t.string :telefone_ou_ramal
+      t.string :celular
+      t.string :laboratorio_ou_setor
+      t.string :predio
+      t.string :andar
+      t.string :sala
+      t.date :data_de_reserva
+      t.string :objetivo_da_reserva
+      t.string :outros
+      t.text :nome_telefone_passageiros
+      t.text :roteiro_da_agenda
+      t.text :observacao
+
+      t.string :estado, :default => Requisicao::ESPERA
+
+      t.string :chave_de_seguranca
+      t.string :motivo
+      t.string :tipo
+      t.string :referencia_id
+
+
+      t.timestamps
+    end
+
+  end
+
+  def self.down
+    drop_table :requisicoes
+  end
+end
+

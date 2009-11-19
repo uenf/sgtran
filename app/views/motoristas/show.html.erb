@@ -1,0 +1,17 @@
+<p>
+  <b>Matrícula:</b>
+  <%=h @motorista.matricula %>
+</p>
+
+<p>
+  <b>Nome do Motorista:</b>
+  <%=h @motorista.nome_do_motorista %>
+</p>
+<p>
+  <b>Telefone:</b>
+  <%=h @motorista.telefone_do_motorista %>
+</p>
+
+<%= link_to 'Edit', edit_motorista_path(@motorista) %> |
+<%= link_to 'Back', motoristas_path %>
+

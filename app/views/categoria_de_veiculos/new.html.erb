@@ -1,0 +1,16 @@
+<h1>Nova categoria de veículo</h1>
+
+<% form_for(@categoria_de_veiculo) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </p>
+  <p>
+    <%= f.submit 'Criar' %>
+  </p>
+<% end %>
+
+<%= link_to 'Voltar', categoria_de_veiculos_path %>
+

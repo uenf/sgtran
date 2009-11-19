@@ -1,0 +1,28 @@
+<h1>Editing motorista</h1>
+
+<% form_for(@motorista) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :matricula %><br />
+    <%= f.text_field :matricula %>
+  </p>
+  <p>
+    <%= f.label :nome_do_motorista %><br />
+    <%= f.text_field :nome_do_motorista %>
+  </p>
+  <p>
+    <%= f.label :telefone_do_motorista %><br />
+    <%= f.text_field :telefone_do_motorista %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @motorista %> |
+<%= link_to 'Back', motoristas_path %>
+

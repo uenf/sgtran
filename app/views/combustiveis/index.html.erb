@@ -1,0 +1,21 @@
+<h1>Lista de combustíveis</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+  </tr>
+
+<% @combustiveis.each do |combustivel| %>
+  <tr>
+    <td><%=h combustivel.nome %></td>
+    <td><%= link_to 'Mostar', combustivel %></td>
+    <td><%= link_to 'Editar', edit_combustivel_path(combustivel) %></td>
+    <td><%= link_to 'Apagar', combustivel, :confirm => 'Tem certeza?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Novo combustível', new_combustivel_path %>
+

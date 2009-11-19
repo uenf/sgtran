@@ -1,0 +1,483 @@
+
+/*
+** estilos gerais
+*/
+
+body {
+    position : absolute;
+    width : 1020px;
+    left : 50%;
+    margin-top : 0px;
+    margin-left : -510px;
+}
+
+/*
+** CABEÇALHO
+*/
+
+#cabecalho {
+    padding : 0px;
+    margin : 0px;
+    clear : both;
+    display : table;
+    width : 100%;
+    background : url("/images/fundo_topo.png");
+}
+
+#cabecalho #logotipo {
+    padding : 0px;
+    margin : 0px;
+    width : 350px;
+    height : 100px;
+    float : left;
+    background-image : url("/images/sgtran.png");
+    background-position : center;
+    background-repeat : no-repeat;
+}
+
+#cabecalho #nome_sistema {
+    float : left;
+    margin-top : 15px;
+}
+
+#cabecalho #nome_sistema h1{
+    font: bold 20px Verdana;
+    color : #1A60B0;
+    margin : 0px;
+}
+
+#cabecalho #nome_sistema h2{
+    font: bold 12px Verdana;
+    color : #999999;
+    margin : 0px;
+}
+
+#cabecalho #nome_sistema h3{
+    font: bold 10px Verdana;
+    color : #999999;
+    margin : 0px;
+}
+
+#cabecalho #nome_sistema h4{
+    font: bold 10px Verdana;
+    color : #999999;
+    margin : 0px;
+}
+
+#cabecalho #opcoes_gerais {
+    float : right;
+}
+
+/*
+** VISÕES DO SISTEMA
+*/
+
+#visoes_do_sistema {
+    clear : both;
+}
+
+#visoes_do_sistema ul {
+    margin : 0px;
+    margin-top : 15px;
+    padding-left : 10px;
+}
+
+#visoes_do_sistema ul li {
+    float : left;
+    margin : 0px;
+    margin-right : 5px;
+    padding : 5px;
+
+    list-style-position : inside;
+
+    font: 14px Sans;
+    color : #000000;
+
+    border : solid 1px #999999;
+    border-bottom : solid 1px #F5F5F5;
+    background-color : #F5F5F5;
+}
+
+    /*********************************************/
+
+#visoes_do_sistema ul #opcao_requisicao {
+    list-style-image : url("/images/requisicoes.png");
+}
+
+#visoes_do_sistema ul #opcao_viagem {
+    list-style-image : url("/images/viagens.png");
+}
+
+#visoes_do_sistema ul #opcao_base_de_dados {
+    list-style-image : url("/images/base_de_dados.png");
+}
+
+    /*********************************************/
+
+#visoes_do_sistema ul li a {
+    font: 14px Sans;
+    color : #000000;
+    text-decoration : none;
+}
+
+
+#visoes_do_sistema ul li a:hover {
+    font: 14px Sans;
+    color : #000000;
+    text-decoration : none;
+    background-color : #DCDCDC;
+}
+
+#visoes_do_sistema ul li:hover {
+    background-color : #DCDCDC;
+}
+
+/*
+** TABELA DE REQUISIÇÕES
+*/
+
+#tabela_exibir {
+    width : 1020px;
+    margin : 0px;
+    margin-top : -1px;
+    padding : 0px;
+    height : auto;
+    background-color : #F5F5F5;
+    border : solid 1px #999999;
+}
+
+#exibir {
+    margin-top : -1px;
+    padding : 0px;
+    border : solid 1px #999999;
+    background-color : #F5F5F5;
+
+}
+
+#exibir p{
+    margin : 0px;
+    padding : 2px;
+    font: 12px Sans;
+}
+
+/*
+** SHOW PADRÃO
+*/
+
+.show_padrao {
+    width : 1018px;
+    background-color : #EEEEEE;
+    border : solid 1px #999999;
+    padding : 2px;
+    margin-top : -1px;
+    display : table;
+}
+
+.show_padrao h1 {
+    text-align : center;
+    font : bold 14px Sans;
+    background-image : url("/images/fundo_tabela_01.jpg");
+    padding : 5px;
+    margin : 0px;
+    clear : both;
+}
+
+.show_padrao .show_linha {
+    font : 13px Sans;
+    margin : 2px;
+    padding : 0px;
+    clear : both;
+}
+
+.show_padrao .show_linha .linha_titulo {
+    text-align : right;
+    font : bold 13px Sans;
+    width : 200px;
+    background-color : #EFEFEF;
+    padding : 2px;
+    margin : 1px;
+
+    min-height : 17px;
+    height : auto !important;
+    height : 17px;
+
+    float : left;
+}
+
+.show_padrao .show_linha .linha_texto {
+    width : 800px;
+    padding : 2px;
+    margin : 1px;
+    background-color : #FFFFFF;
+
+    min-height : 17px;
+    height : auto !important;
+    height : 17px;
+
+    float : left;
+}
+
+.show_padrao .show_linha .linha_texto:hover {
+    background-color : #B9CEE4;
+}
+
+/*
+** TABELA PADRÃO
+*/
+
+table.tabela_padrao {
+    width : 1018px;
+    background-color : #EEEEEE;
+}
+
+table.tabela_padrao tr {
+    padding : 2px;
+    font : 14px Sans;
+    background-color : #FFFFFF;
+}
+
+table.tabela_padrao tr:hover {
+    background-color : #B9CEE4;
+}
+
+table.tabela_padrao tr th {
+    background-image : url("/images/fundo_tabela_01.jpg");
+    padding : 5px;
+}
+
+table.tabela_padrao tr td {
+    font: 13px Sans;
+}
+
+table.tabela_padrao tr td.celula_label {
+    width : 200px;
+    text-align : right;
+    background-color : #EFEFEF;
+}
+
+table.tabela_padrao tr td.celula_destaque {
+    background-color : #EFEFEF;
+}
+
+table.tabela_padrao tr td.celula_neutra {
+    background-color : #FFFFFF;
+}
+
+table.tabela_padrao tr td.espera {
+    background : url("/images/espera.png") no-repeat 0px center;
+    padding-left : 23px;
+}
+
+table.tabela_padrao tr td.aceita {
+    background : url("/images/aceita.png") no-repeat 0px center;
+    padding-left : 23px;
+}
+
+table.tabela_padrao tr td.cancelado_pelo_professor {
+    background : url("/images/cancelado_pelo_professor.png") no-repeat 0px center;
+    padding-left : 23px;
+}
+
+table.tabela_padrao tr td.cancelado_pelo_sistema {
+    background : url("/images/cancelado_pelo_sistema.png") no-repeat 0px center;
+    padding-left : 23px;
+}
+
+table.tabela_padrao tr td.atendida {
+    background : url("/images/atendida.png") no-repeat 0px center;
+    padding-left : 23px;
+}
+
+table.tabela_padrao tr td.aguardando {
+    background : url("/images/espera.png") no-repeat 0px center;
+    padding-left : 23px;
+}
+
+table.tabela_padrao tr td.cancelada {
+    background : url("/images/cancelado_pelo_sistema.png") no-repeat 0px center;
+    padding-left : 23px;
+}
+
+/*
+** OPÇÕES DA VISÃO
+*/
+
+#opcoes_da_visao {
+    clear : both;
+}
+
+#opcoes_da_visao ul {
+    margin : 0px;
+    margin-bottom : 10px;
+    margin-top : -11px;
+    padding-left : 10px;
+}
+
+#opcoes_da_visao ul li {
+    height : auto;
+    float : left;
+    margin : 0px;
+    margin-right : 5px;
+    padding : 5px;
+
+    list-style-position : inside;
+
+    font: 14px Sans;
+    color : #000000;
+
+    border : solid 1px #999999;
+    border-top : solid 1px #F5F5F5;
+    background-color : #F5F5F5;
+}
+
+
+    /*********************************************/
+
+#opcoes_da_visao ul #opcao_voltar {
+    list-style-image : url("/images/voltar.png");
+}
+
+#opcoes_da_visao ul #opcao_imprimir {
+    list-style-image : url("/images/imprimir.png");
+}
+
+#opcoes_da_visao ul #opcao_aceitar {
+    list-style-image : url("/images/aceitar.png");
+}
+
+#opcoes_da_visao ul #opcao_editar {
+    list-style-image : url("/images/editar.png");
+}
+
+#opcoes_da_visao ul #opcao_cancelar {
+    list-style-image : url("/images/cancelar.png");
+}
+
+#opcoes_da_visao ul #opcao_rejeitar {
+    list-style-image : url("/images/rejeitar.png");
+}
+
+    /*********************************************/
+
+#opcoes_da_visao ul li a {
+    font: 14px Sans;
+    color : #000000;
+    text-decoration : none;
+}
+
+
+#opcoes_da_visao ul li a:hover {
+    font: 14px Sans;
+    color : #000000;
+    text-decoration : none;
+    background-color : #DCDCDC;
+}
+
+#opcoes_da_visao ul li:hover {
+    background-color : #DCDCDC;
+}
+
+/*
+** RODAPE
+*/
+
+#rodape {
+    width : 1020px;
+    margin-top : 10px;
+    padding : 5px;
+    height : auto;
+    display : table;
+    background-color : #1A60B0;
+}
+
+#rodape #dados_gerais p {
+    float : left;
+    margin : 0px;
+    padding : 0px;
+    font: 10px Sans;
+    color : #FFFFFF;
+}
+
+#rodape #tecnologias{
+    float : right;
+}
+
+.pular_linha {
+    clear : both;
+}
+
+
+
+/*
+** LINK EXIBIR DETALHES
+*/
+
+a.link_exibir_detalhes {
+    text-decoration : none;
+    color : #1A60B0;
+}
+
+a.link_exibir_detalhes:hover {
+    background-color : #DB3333;
+    color : #FFFFFF;
+}
+
+div.sucesso {
+    font-family: verdana,arial,helvetica,sans-serif;;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background :#DFFFDF url(../images/verdadeiro.png) no-repeat scroll 8px 5px;
+    color :#005F00;
+    border: 2px solid #9FCF9F;
+    padding: 3px 3px 3px 30px;
+}
+
+/*
+** FORMULÁRIOS EMBUTIDOS
+*/
+
+.formularios_embutidos {
+    padding : 5px;
+    margin : 0px;
+    margin-top : 5px;
+    font: 14px Verdana;
+    background-color : #B9CEE4;
+}
+
+.formularios_embutidos form fieldset {
+    border : solid 1px #999999;
+    background : #FFFFFF url("/images/formulario_embutido_fundo.png") repeat-x center bottom;
+}
+
+.formularios_embutidos form fieldset legend {
+    margin-bottom : 28px;
+    padding : 5px;
+    font: bold 14px Verdana;
+    color : #000000;
+    border : solid 1px #999999;
+    border-bottom : solid 1px #FFFFFF;
+    background-color : #FFFFFF;
+}
+
+.formularios_embutidos label {
+    width : 180px;
+    float : left;
+    padding : 3px;
+    text-align : right;
+    color : #000000;
+}
+
+.formularios_embutidos .campo_data {
+    width : 80px;
+}
+
+.formularios_embutidos .campo_hora {
+    width : 80px;
+}
+
+.formularios_embutidos .botao_comcluir {
+    clear : both;
+    float : right;
+}
+

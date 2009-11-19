@@ -1,0 +1,52 @@
+
+<!-- ======================================================================= -->
+
+
+<div class="show_padrao">
+
+  <h1>Dados gerais</h1>
+
+  <div class="show_linha">
+    <div class="linha_titulo">Data de sa&iacute;da: </div><div class="linha_texto"><%=h @viagem.data_partida.strftime("%d/%m/%Y") if @viagem.data_partida %></div>
+  </div>
+
+
+  <div class="show_linha">
+    <div class="linha_titulo">Data de chegada: </div><div class="linha_texto"><%=h @viagem.data_chegada.strftime("%d/%m/%Y") if @viagem.data_chegada %></div>
+  </div>
+
+
+  <div class="show_linha">
+    <div class="linha_titulo">Hor&aacute;rio de partida: </div><div class="linha_texto"><%=h @viagem.horario_partida.strftime("%H:%M") if @viagem.horario_partida %></div>
+  </div>
+
+
+  <div class="show_linha">
+    <div class="linha_titulo">Motorista: </div><div class="linha_texto"><%=h @motorista.nome_do_motorista if not @motorista.nil?%></div>
+  </div>
+
+  <div class="show_linha">
+    <div class="linha_titulo">Veículo: </div><div class="linha_texto"></div>
+  </div>
+
+  <div class="show_linha">
+    <div class="linha_titulo">Estado: </div><div class="linha_texto"><%=h @viagem.estado %></div>
+  </div>
+
+  <h1>Requisi&ccedil;&otilde;es atendidas</h1><div class="linha_texto"></div>
+
+</div>
+
+<!-- ======================================================================= -->
+
+<div id="opcoes_da_visao">
+  <ul>
+    <li id="opcao_voltar"><%= link_to 'Voltar', viagens_path %></li>
+    <li id="opcao_imprimir"><a href="javaScript:window.print()">Imprimir</a></li>
+    <li id="opcao_editar"><%= link_to 'Editar', edit_viagem_path(@viagem) %></li>
+  </ul>
+  <div class="pular_linha"></li>
+</div>
+
+<!-- ======================================================================= -->
+

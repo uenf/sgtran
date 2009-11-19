@@ -1,0 +1,51 @@
+<p>
+  <b>Marca:</b>
+  <%=h @veiculo.marca %>
+</p>
+
+<p>
+  <b>Modelo:</b>
+  <%=h @veiculo.modelo %>
+</p>
+
+<p>
+  <b>Cor:</b>
+  <%=h @veiculo.cor %>
+</p>
+
+<p>
+  <b>Ano:</b>
+  <%=h @veiculo.ano %>
+</p>
+
+<p>
+  <b>Placa:</b>
+  <%=h @veiculo.placa %>
+</p>
+
+<p>
+  <b>Numero de ordem:</b>
+  <%=h @veiculo.numero_de_ordem %>
+</p>
+
+<p>
+  <b>Renavam:</b>
+  <%=h @veiculo.renavam %>
+</p>
+
+<p>
+  <b>Combustíveis:</b>
+  <% @veiculo.combustiveis.each do |combustivel| %>
+    <%= combustivel.nome %>;
+  <% end %>
+</p>
+
+<p>
+  <b>Categoria:</b>
+  <%=h CategoriaDeVeiculo.find(@veiculo.categoria_de_veiculo_id).nome %>
+</p>
+
+
+<%= link_to 'Modificar', edit_veiculo_path(@veiculo) %> |
+<%= link_to 'Voltar', veiculos_path %>
+

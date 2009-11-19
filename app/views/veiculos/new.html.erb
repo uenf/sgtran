@@ -1,0 +1,58 @@
+<h1>Cadastrar novo veículo</h1>
+
+<% form_for(@veiculo) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :marca %><br />
+    <%= f.text_field :marca %>
+  </p>
+  <p>
+    <%= f.label :modelo %><br />
+    <%= f.text_field :modelo %>
+  </p>
+  <p>
+    <%= f.label :cor %><br />
+    <%= f.text_field :cor %>
+  </p>
+  <p>
+    <%= f.label :ano %><br />
+    <%= f.text_field :ano %>
+  </p>
+
+  <p>
+  <label for="categoria_de_veiculo_id">Categoria</label>
+  <%= collection_select :categoria_de_veiculo, :id, CategoriaDeVeiculo.all, :id,
+                        :nome, {:prompt => "Selecione uma categoria"},
+                        :name => "veiculo[categoria_de_veiculo_id]"%>
+  </p>
+
+  <fieldset><legend>Combustíveis</legend>
+    <% Combustivel.all.each do |combustivel| %>
+    <div>
+      <%= check_box_tag "veiculo[combustivel_ids][]", combustivel.id,
+          @veiculo.combustiveis.include?(combustivel), :id => combustivel.nome %>
+      <%= label_tag combustivel.nome %>
+    </div>
+    <% end %>
+  </fieldset>
+
+  <p>
+    <%= f.label :placa %><br />
+    <%= f.text_field :placa %>
+  </p>
+  <p>
+    <%= f.label :numero_de_ordem %><br />
+    <%= f.text_field :numero_de_ordem %>
+  </p>
+  <p>
+    <%= f.label :renavam %><br />
+    <%= f.text_field :renavam %>
+  </p>
+  <p>
+    <%= f.submit 'Cadastrar' %>
+  </p>
+<% end %>
+
+<%= link_to 'Voltar', veiculos_path %>
+
