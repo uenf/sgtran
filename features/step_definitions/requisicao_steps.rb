@@ -66,6 +66,10 @@ Quando /^eu preencho "([^\"]*)" com uma data de um dia seguinte a partir de hoje
   fill_in(campo, :with => Date.tomorrow)
 end
 
+Quando /^eu preencho "([^\"]*)" com uma data de "([^\"]*)" dias seguintes a partir de hoje$/ do |campo, dias|
+  fill_in(campo, :with => (Date.today + dias.to_i.days))
+end
+
 Quando /^eu escolho requisição de "([^\"]*)"$/ do |field|
 
   choose(field)

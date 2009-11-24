@@ -3,6 +3,7 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe Requisicao do
 
   before(:each) do
+    categoria_de_veiculo = Factory.create :categoria_de_veiculo
     @valid_attributes = {
       :solicitante_id => "5",
       :cargo_ou_funcao => "professor",
@@ -13,7 +14,7 @@ describe Requisicao do
       :andar => "3º",
       :sala => "109",
       :data_de_reserva => Date.tomorrow.tomorrow,
-      :categoria_de_veiculo_id => nil,
+      :categoria_de_veiculo_id => categoria_de_veiculo.id,
       :objetivo_da_reserva => "gasvchgsvchjsvdc",
       :outros => "vfdsvdfvfdv",
       :nome_telefone_passageiros => "fhjdsvcdsvghsvd",
@@ -34,8 +35,13 @@ describe Requisicao do
 
 
   it "deve aceitar uma requisição" do
-    requisicao = Factory.create :requisicao
-    requisicao.aceitar(mock_model(Motorista), Date.tomorrow.tomorrow, Date.tomorrow.tomorrow, "10:00")
+    categoria_de_veiculo = Factory.create :categoria_de_veiculo
+    requisicao = Factory.create :requisicao,
+                                :categoria_de_veiculo_id => categoria_de_veiculo.id
+    requisicao.aceitar(mock_model(Motorista),
+                                  Date.tomorrow.tomorrow,
+                                  Date.tomorrow.tomorrow,
+                                  "10:00")
 
     requisicao.estado.should == Requisicao::ACEITA
   end
@@ -51,13 +57,17 @@ describe Requisicao do
                                   :roteiro_da_agenda
 
     it "O campo Prédio deve ser diferente de Selecione um Prédio" do
-      requisicao = Factory.build :requisicao, :predio => "Selecione um Prédio"
+      categoria_de_veiculo = Factory.create :categoria_de_veiculo
+      requisicao = Factory.build :requisicao, :predio => "Selecione um Prédio",
+                                 :categoria_de_veiculo_id => categoria_de_veiculo.id
       requisicao.save.should be_false
       requisicao.errors.invalid?(:predio).should be_true
     end
 
     it "O campo Andar deve ser diferente de Selecione um Andar" do
-      requisicao = Factory.build :requisicao, :andar => "Selecione um Andar"
+      categoria_de_veiculo = Factory.create :categoria_de_veiculo
+      requisicao = Factory.build :requisicao, :andar => "Selecione um Andar",
+                                 :categoria_de_veiculo_id => categoria_de_veiculo.id
       requisicao.save.should be_false
       requisicao.errors.invalid?(:andar).should be_true
     end
@@ -69,34 +79,63 @@ describe Requisicao do
     end
 
     it "O campo Objetivo da reserva deve ser diferente de Selecione um Objetivo" do
-      requisicao = Factory.build :requisicao, :objetivo_da_reserva => "Selecione um Objetivo"
+      categoria_de_veiculo = Factory.create :categoria_de_veiculo
+      requisicao = Factory.build :requisicao,
+                                 :objetivo_da_reserva => "Selecione um Objetivo",
+                                 :categoria_de_veiculo_id => categoria_de_veiculo.id
       requisicao.save.should be_false
       requisicao.errors.invalid?(:objetivo_da_reserva).should be_true
     end
 
-    it "O campo Descrição de Outros não deve ser nulo quando Objetivo da reserva for Outros" do
-      requisicao = Factory.build :requisicao, :outros => "", :objetivo_da_reserva => "Outros"
+    it "O campo Descrição de Outros não deve ser nulo quando Objetivo da reserva
+        for Outros" do
+      categoria_de_veiculo = Factory.create :categoria_de_veiculo
+      requisicao = Factory.build :requisicao,
+                                 :outros => "",
+                                 :objetivo_da_reserva => "Outros",
+                                 :categoria_de_veiculo_id => categoria_de_veiculo.id
       requisicao.save.should be_false
       requisicao.errors.invalid?(:outros).should be_true
     end
 
-    it "O campo Motivo não deve ser nulo quando Estado for Cancelado pelo Professor" do
-      requisicao = Factory.build :requisicao, :estado => Requisicao::CANCELADO_PELO_PROFESSOR, :motivo => ""
+    it "O campo Motivo não deve ser nulo quando Estado for Cancelado pelo
+        Professor" do
+      categoria_de_veiculo = Factory.create :categoria_de_veiculo
+      requisicao = Factory.build :requisicao,
+                                 :estado => Requisicao::CANCELADO_PELO_PROFESSOR,
+                                 :motivo => "",
+                                 :categoria_de_veiculo_id => categoria_de_veiculo.id
       requisicao.save.should be_false
       requisicao.errors.invalid?(:motivo).should be_true
     end
 
     it "A data de requisição deve ser marcada com no mínimo 2 dias de antecedência" do
-      requisicao = Factory.build :requisicao, :data_de_reserva => Date.tomorrow.tomorrow
+      categoria_de_veiculo = Factory.create :categoria_de_veiculo
+      requisicao = Factory.build :requisicao,
+                                 :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                 :data_de_reserva => Date.tomorrow.tomorrow
       requisicao.save.should be_true
     end
 
     it "O ano da data de requisição tem que ser o mesmo do ano corrente" do
-      requisicao = Factory.build :requisicao, :data_de_reserva => Date.today.years_since(1)
+      categoria_de_veiculo = Factory.create :categoria_de_veiculo
+      requisicao = Factory.build :requisicao,
+                                 :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                 :data_de_reserva => Date.today.years_since(1)
       requisicao.save.should be_false
       requisicao.errors.invalid?(:data_de_reserva).should be_true
     end
 
+    it "Para veículos diferentes de Ônibus, Micro-ônibus e Vans a data de
+        requisição deve ser marcada com no máximo 15 dias de antecedência" do
+      categoria_de_veiculo = Factory.create :categoria_de_veiculo,
+                                            :nome => "Automóvel até 4 passageiros"
+      requisicao = Factory.build :requisicao,
+                                 :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                 :data_de_reserva => Date.today + 16.days
+      requisicao.save.should be_false
+      requisicao.errors.invalid?(:data_de_reserva).should be_true
+    end
   end
 
   it "deve fornecer a lista de prédios" do
@@ -145,7 +184,8 @@ describe Requisicao do
                                         "Outros")
   end
 
-  it "deve instanciar um objeto requisição dados os atributos próprios, os dados do solicitante e a categoria de veículo" do
+  it "deve instanciar um objeto requisição dados os atributos próprios, os dados
+      do solicitante e a categoria de veículo" do
     dados_solicitante = {:matricula => "01210", :email => "professor@uenf.br"}
     solicitante = Factory.create :solicitante, dados_solicitante
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
@@ -154,7 +194,7 @@ describe Requisicao do
                                         :telefone_ou_ramal => "asdasdasd",
                                         :laboratorio_ou_setor => "asdasdasd",
                                         :sala => "asdasdasd",
-                                        :data_de_reserva_br => Date.tomorrow.tomorrow.to_date.to_s_br,
+                                        :data_de_reserva_br => (Date.today + 2.days).to_date.to_s_br,
                                         :nome_telefone_passageiros  => "asdasdasd",
                                         :roteiro_da_agenda  => "asdasdasd",
                                         :andar => "asdasdasd",
@@ -168,12 +208,18 @@ describe Requisicao do
 
 
   it "Deve retornar falso caso não tenha marcado as regras" do
-    requisicao = Factory.build :requisicao, :termo => "0"
+    categoria_de_veiculo = Factory.create :categoria_de_veiculo
+    requisicao = Factory.build :requisicao,
+                               :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                               :termo => "0"
     requisicao.save.should be_false
   end
 
   it "Deve retornar verdadeiro caso tenha marcado as regras" do
-    requisicao = Factory.build :requisicao, :termo => "1"
+    categoria_de_veiculo = Factory.create :categoria_de_veiculo
+    requisicao = Factory.build :requisicao,
+                               :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                               :termo => "1"
     requisicao.save.should be_true
   end
 
@@ -186,7 +232,7 @@ describe Requisicao do
                         :predio => "Reitoria - E1",
                         :andar => "Térreo",
                         :sala => "asdasdasd",
-                        :data_de_reserva_br => Date.tomorrow.tomorrow.to_date.to_s_br,
+                        :data_de_reserva_br => (Date.today + 2.days).to_date.to_s_br,
                         :nome_telefone_passageiros  => "asdasdasd",
                         :roteiro_da_agenda  => "asdasdasd"
                         }
@@ -206,7 +252,7 @@ describe Requisicao do
                         :predio => "Reitoria - E1",
                         :andar => "Térreo",
                         :sala => "asdasdasd",
-                        :data_de_reserva_br => Date.tomorrow.tomorrow.to_date.to_s_br,
+                        :data_de_reserva_br => (Date.today + 2.days).to_date.to_s_br,
                         :nome_telefone_passageiros  => "asdasdasd",
                         :roteiro_da_agenda  => "asdasdasd"
                         }
@@ -225,9 +271,13 @@ describe Requisicao do
   end
 
 
-  it "Deve salvar a requisição de ida e volta com os respectivos protocolos para a referência" do
-    requisicao_ida = Factory.build :requisicao
-    requisicao_volta = Factory.build :requisicao
+  it "Deve salvar a requisição de ida e volta com os respectivos protocolos para
+      a referência" do
+    categoria_de_veiculo = Factory.create :categoria_de_veiculo
+    requisicao_ida = Factory.build :requisicao,
+                                   :categoria_de_veiculo_id => categoria_de_veiculo.id
+    requisicao_volta = Factory.build :requisicao,
+                                     :categoria_de_veiculo_id => categoria_de_veiculo.id
 
     confirmacao = requisicao_ida.registrarVolta requisicao_volta
 
@@ -242,8 +292,13 @@ describe Requisicao do
   end
 
   it "Deve retornar um objeto com erros caso a requisição não seja válida" do
-    requisicao_ida = Factory.build :requisicao, :cargo_ou_funcao => ""
-    requisicao_volta = Factory.build :requisicao, :cargo_ou_funcao => "Selecione um cargo"
+    categoria_de_veiculo = Factory.create :categoria_de_veiculo
+    requisicao_ida = Factory.build :requisicao,
+                                   :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                   :cargo_ou_funcao => ""
+    requisicao_volta = Factory.build :requisicao,
+                                     :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                     :cargo_ou_funcao => "Selecione um cargo"
     confirmacao = requisicao_ida.registrarVolta requisicao_volta
 
     confirmacao.valid?.should be false
