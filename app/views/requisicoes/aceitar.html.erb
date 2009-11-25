@@ -33,10 +33,10 @@
                                   :class => "campo_data"%> <br class="pular_linha"/>
 
       <label for="horario_partida">Hor&aacute;rio de saída:</label>
-      <%= time_select :horario, :partida, {:time_separator => ':', :minute_step => 5, :include_blank => true}%> <br class="pular_linha"/>
+      <%= time_select :horario, :partida, {:time_separator => ':', :minute_step => 5, :prompt => "-"}%> <br class="pular_linha"/>
 
       <label for="motorista_id">Motorista:</label>
-      <%= collection_select :motorista, :id, Motorista.all, :id, :nome_do_motorista, {:include_blank => true} %> <br class="pular_linha"/>
+      <%= collection_select :motorista, :id, Motorista.all, :id, :nome_do_motorista, {:prompt => "Selecione um motorista"} %> <br class="pular_linha"/>
 
       <label for="veiculo">Ve&iacute;culo:</label> <br class="pular_linha"/>
 
