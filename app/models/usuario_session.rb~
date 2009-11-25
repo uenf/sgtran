@@ -1,8 +1,0 @@
-class UsuarioSession < Authlogic::Session::Base
-
-
-  validates_presence_of :password, :message => "Senha não pode ser vazio."
-
-
-end
-
