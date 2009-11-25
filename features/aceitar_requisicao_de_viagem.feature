@@ -19,22 +19,22 @@ Funcionalidade: Aceitar requisição de viagem
     E eu preencho "Data de saída" com a data "<data de saída>"
     E eu preencho "Data de chegada" com a data "<data de chegada>"
     E eu seleciono "<horario>" no campo hora "Horário de saída"
-    E eu seleciono "<motorista>" em "Motorista"
+    E eu seleciono "<motorista_selecao>" em "Motorista"
 
     E eu pressiono "Concluir"
 
     Então eu devo ver "Data de saída: " com a data "<data de saída>"
     E eu devo ver "Data de chegada: " com a data "<data de chegada>"
     E eu devo ver "Horário de partida: <horario>"
-    E eu devo ver "Motorista: <motorista>"
+    E eu devo ver "Motorista: <motorista_visao>"
     E eu devo ver "Estado: Aguardando"
 
     Exemplos: (preenchimento dos dados da viagem)
 
-    | data de saída   | data de chegada | horario | motorista      |
-    |                 | Daqui a 2 dias  | 13:00   | Gustavo Santos |
-    | Daqui a 2 dias  |                 | 14:00   | Gustavo Santos |
-    | Daqui a 2 dias  | Daqui a 2 dias  | 13:00   |                |
-    | Daqui a 2 dias  |                 | 10:00   | Eduardo Silva  |
-    |                 |                 | 10:00   |                |
+    | data de saída   | data de chegada | horario | motorista_selecao       | motorista_visao   |
+    |                 | Daqui a 2 dias  | 13:00   | Gustavo Santos          | Gustavo Santos    |
+    | Daqui a 2 dias  |                 | 14:00   | Gustavo Santos          | Gustavo Santos    |
+    | Daqui a 2 dias  | Daqui a 2 dias  | 13:00   | Selecione um motorista  |                   |
+    | Daqui a 2 dias  |                 | 10:00   | Eduardo Silva           | Eduardo Silva     |
+    |                 |                 | 10:00   | Selecione um motorista  |                   |
 
