@@ -41,9 +41,9 @@
 
 <div id="opcoes_da_visao">
   <ul>
-    <li id="opcao_voltar"><%= link_to 'Voltar', viagens_path %></li>
-    <li id="opcao_imprimir"><a href="javaScript:window.print()">Imprimir</a></li>
-    <li id="opcao_editar"><%= link_to 'Editar', edit_viagem_path(@viagem) %></li>
+    <li id="opcao_voltar" onclick="location.href='<%= viagens_path %>'" onmouseover="this.style.cursor='pointer'"><%= link_to 'Voltar', viagens_path %></li>
+    <li id="opcao_imprimir" onclick="window.print()" onmouseover="this.style.cursor='pointer'"><a href="javaScript:window.print()">Imprimir</a></li>
+    <li id="opcao_editar" onclick="location.href='<%= edit_viagem_path(@viagem) %>'" onmouseover="this.style.cursor='pointer'"><%= link_to 'Editar', edit_viagem_path(@viagem) %></li>
   </ul>
   <div class="pular_linha"></li>
 </div>
