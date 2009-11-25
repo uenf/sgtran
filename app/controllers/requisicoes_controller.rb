@@ -147,8 +147,15 @@ class RequisicoesController < ApplicationController
   end
 
   def aceitar
+    @viagem       = session[:viagem]
     @requisicao   = Requisicao.find(params[:id])
     @solicitante  = Solicitante.find(@requisicao.solicitante_id)
+
+    if @viagem.nil?
+      @viagem = Viagem.new :data_partida => @requisicao.data_de_reserva, :data_chegada => @requisicao.data_de_reserva
+    end
+
+    session.delete :viagem
   end
 
   def fechar_viagem
@@ -162,7 +169,12 @@ class RequisicoesController < ApplicationController
         data_nula(params[:data_chegada]),
         (params[:horario]["partida(4i)"].blank? and params[:horario]["partida(5i)"].blank?) ? nil : params[:horario]["partida(4i)"] + ":" + params[:horario]["partida(5i)"])
 
-      redirect_to :controller => "viagem", :action => "show", :id => viagem.id
+      if viagem.errors.empty?
+        redirect_to :controller => "viagem", :action => "show", :id => viagem.id
+      else
+        session[:viagem] = viagem
+        redirect_to :action => "aceitar"
+      end
 
     else
       redirect_to :action => "show"

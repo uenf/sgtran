@@ -199,8 +199,16 @@ class Requisicao < ActiveRecord::Base
     viagem.data_chegada    = data_chegada
     viagem.horario_partida = horario_partida
     viagem.motorista       = motorista
+    viagem.estado          = Viagem::AGUARDANDO
 
-    viagem.estado = Viagem::AGUARDANDO
+    if !data_partida.nil? && !data_chegada.nil?
+      if data_partida > data_chegada
+          viagem.errors.add(:data_partida, "posterior a data de chegada");
+          viagem.errors.add(:data_chegada, "anterior a data de partida");
+
+          return viagem
+      end
+    end
 
     viagem.save!
 

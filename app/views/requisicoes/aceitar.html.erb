@@ -10,13 +10,13 @@
   <% form_tag :controller => "requisicoes", :action => "fechar_viagem", :id => @requisicao.id do %>
     <fieldset>
       <legend>Detalhes da viagem</legend>
-
+      <%= mensagem_de_erro(@viagem) %>
       <%= radio_button "modo_criacao","viagem", "Atender com uma nova viagem", :checked => true %>
         Atender com uma nova viagem <br />
 
       <label for="viagem_data_de_saida">Data de sa&iacute;da:</label>
       <%= calendar_date_select_tag "viagem_data_de_saida",
-                                  @requisicao.data_de_reserva ? @requisicao.data_de_reserva.to_date.to_s_br : "",
+                                  @viagem.data_partida ? @viagem.data_partida.to_date.to_s_br : "",
                                   :name => "data_saida",
                                   :year_range => [0.years.ago, 2.years.from_now],
                                   :month_year => "label",
@@ -26,7 +26,7 @@
 
       <label for="viagem_data_de_chegada">Data de chegada:</label>
       <%= calendar_date_select_tag "viagem_data_de_chegada",
-                                  @requisicao.data_de_reserva ? @requisicao.data_de_reserva.to_date.to_s_br : "",
+                                  @viagem.data_chegada ? @viagem.data_chegada.to_date.to_s_br : "",
                                   :name => "data_chegada",
                                   :year_range => [0.years.ago, 2.years.from_now],
                                   :month_year => "label",

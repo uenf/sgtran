@@ -439,6 +439,7 @@ div.sucesso {
 
 .formularios_embutidos {
     padding : 5px;
+    padding-top : 1px;
     margin : 0px;
     margin-top : 5px;
     font: 14px Verdana;
@@ -446,18 +447,22 @@ div.sucesso {
 }
 
 .formularios_embutidos form fieldset {
+    /*padding-top : -20px;*/
+    padding-top : 30px;
     border : solid 1px #999999;
     background : #FFFFFF url("/images/formulario_embutido_fundo.png") repeat-x center bottom;
 }
 
 .formularios_embutidos form fieldset legend {
-    margin-bottom : 28px;
+    margin-bottom : -23px;
+    margin-left : -10px;
+    margin-top : 5px;
     padding : 5px;
     font: bold 14px Verdana;
     color : #000000;
-    border : solid 1px #999999;
-    border-bottom : solid 1px #FFFFFF;
-    background-color : #FFFFFF;
+    border-bottom : solid 1px #999999;
+    border-right : solid 1px #999999;
+    background-color : #B9CEE4;
 }
 
 .formularios_embutidos label {
@@ -479,5 +484,43 @@ div.sucesso {
 .formularios_embutidos .botao_comcluir {
     clear : both;
     float : right;
+}
+
+/*
+** MENSAGENS DE ERRO
+*/
+
+#error_messages {
+    width : 93%;
+    margin : 4px;
+    padding : 2px;
+    padding-left : 60px;
+    background : #ed6969 url("/images/erro_alerta.png") no-repeat center left;
+    display : table;
+    clear : both;
+}
+
+#error_messages ul {
+    min-height : 50px;
+    list-style-type : none;
+    background : transparent;
+    margin : 0px;
+    padding : 0px;
+}
+
+#error_messages ul li {
+    margin : 0px;
+    padding : 0px;
+    background : transparent;
+    font-weight : bold;
+    clear : both;
+    font-family : verdana,arial,helvetica,sans-serif;;
+    font-size : 14px;
+    color : #FFFFFF;
+    border : none;
+}
+
+#error_messages ul li:hover {
+    background : transparent;
 }
 

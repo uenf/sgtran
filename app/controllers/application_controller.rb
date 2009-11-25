@@ -25,7 +25,6 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   private
-
   def current_session
     return @current_session if defined?(@current_session)
     @current_session = UsuarioSession.find

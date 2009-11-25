@@ -1,0 +1,983 @@
+# language: pt
+Funcionalidade: Aceitar requisição de viagem
+
+    Como um administrador
+    Eu quero aceitar uma requisição de viagem
+    Para que o professor possa ter sua requisição executada
+
+  Esquema do Cenário: Aceitar requisição                             # features/aceitar_requisicao_de_viagem.feature:9
+    Dado que eu tenha uma requisição em espera                       # features/step_definitions/requisicao_steps.rb:27
+    E que eu tenho "Gustavo Santos" em Motorista                     # features/step_definitions/requisicao_steps.rb:42
+    E que eu tenho "Eduardo Silva" em Motorista                      # features/step_definitions/requisicao_steps.rb:42
+    E que eu estou na página de detalhes da requisição               # features/step_definitions/webrat_steps.rb:11
+    Quando eu clico em "Aceitar"                                     # features/step_definitions/webrat_steps.rb:15
+    Então eu devo estar na página de editar detalhes da viagem       # features/step_definitions/webrat_steps.rb:32
+    Quando eu escolho "Atender com uma nova viagem"                  # features/step_definitions/requisicao_steps.rb:38
+    E eu preencho "Data de saída" com a data "<data de saída>"       # features/step_definitions/webrat_steps.rb:27
+    E eu preencho "Data de chegada" com a data "<data de chegada>"   # features/step_definitions/webrat_steps.rb:27
+    E eu seleciono "<horario>" no campo hora "Horário de saída"      # features/step_definitions/webrat_steps.rb:51
+    E eu seleciono "<motorista>" em "Motorista"                      # features/step_definitions/requisicao_steps.rb:81
+    E eu pressiono "Concluir"                                        # features/step_definitions/webrat_steps.rb:19
+    Então eu devo ver "Data de saída: " com a data "<data de saída>" # features/step_definitions/webrat_steps.rb:63
+    E eu devo ver "Data de chegada: " com a data "<data de chegada>" # features/step_definitions/webrat_steps.rb:63
+    E eu devo ver "Horário de partida: <horario>"                    # features/step_definitions/webrat_steps.rb:59
+    E eu devo ver "Motorista: <motorista>"                           # features/step_definitions/webrat_steps.rb:59
+    E eu devo ver "Estado: Aguardando"                               # features/step_definitions/webrat_steps.rb:59
+
+    Exemplos: (preenchimento dos dados da viagem)
+      | data de saída  | data de chegada | horario | motorista      |
+      |                | Daqui a 2 dias  | 13:00   | Gustavo Santos |
+      Page load was not successful (Code: 500):
+      <html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+        <title>Action Controller: Exception caught</title>
+        <style>
+          body { background-color: #fff; color: #333; }
+      
+          body, p, ol, ul, td {
+            font-family: verdana, arial, helvetica, sans-serif;
+            font-size:   13px;
+            line-height: 18px;
+          }
+      
+          pre {
+            background-color: #eee;
+            padding: 10px;
+            font-size: 11px;
+          }
+      
+          a { color: #000; }
+          a:visited { color: #666; }
+          a:hover { color: #fff; background-color:#000; }
+        </style>
+      </head>
+      <body>
+      
+      <h1>
+        NoMethodError
+        
+          in RequisicoesController#fechar_viagem
+        
+      </h1>
+      <pre>You have a nil object when you didn't expect it!
+      The error occurred while evaluating nil.&gt;</pre>
+      
+      
+      
+      <p><code>RAILS_ROOT: /home/herond/sgtran</code></p>
+      
+      <div id="traces">
+        
+          
+          <a href="#" onclick="document.getElementById('Framework-Trace').style.display='none';document.getElementById('Full-Trace').style.display='none';document.getElementById('Application-Trace').style.display='block';; return false;">Application Trace</a> |
+        
+          
+          <a href="#" onclick="document.getElementById('Application-Trace').style.display='none';document.getElementById('Full-Trace').style.display='none';document.getElementById('Framework-Trace').style.display='block';; return false;">Framework Trace</a> |
+        
+          
+          <a href="#" onclick="document.getElementById('Application-Trace').style.display='none';document.getElementById('Framework-Trace').style.display='none';document.getElementById('Full-Trace').style.display='block';; return false;">Full Trace</a> 
+        
+      
+        
+          <div id="Application-Trace" style="display: block;">
+            <pre><code>/home/herond/sgtran/app/models/requisicao.rb:204:in `aceitar'
+      /home/herond/sgtran/app/controllers/requisicoes_controller.rb:166:in `fechar_viagem'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:1331:in `send'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:1331:in `perform_action_without_filters'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/filters.rb:617:in `call_filters'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+      /var/lib/gems/1.8/gems/activesupport-2.3.4/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+      /var/lib/gems/1.8/gems/activesupport-2.3.4/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/flash.rb:146:in `perform_action'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:532:in `send'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:532:in `process_without_filters'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/filters.rb:606:in `process'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:391:in `process'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:386:in `call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/routing/route_set.rb:437:in `call'</code></pre>
+          </div>
+        
+          <div id="Framework-Trace" style="display: none;">
+            <pre><code>/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:87:in `dispatch'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:121:in `_call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:106:in `call'
+      /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `each_with_index'</code></pre>
+          </div>
+        
+          <div id="Full-Trace" style="display: none;">
+            <pre><code>/home/herond/sgtran/app/models/requisicao.rb:204:in `aceitar'
+      /home/herond/sgtran/app/controllers/requisicoes_controller.rb:166:in `fechar_viagem'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:1331:in `send'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:1331:in `perform_action_without_filters'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/filters.rb:617:in `call_filters'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+      /var/lib/gems/1.8/gems/activesupport-2.3.4/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+      /usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+      /var/lib/gems/1.8/gems/activesupport-2.3.4/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/flash.rb:146:in `perform_action'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:532:in `send'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:532:in `process_without_filters'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/filters.rb:606:in `process'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:391:in `process'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:386:in `call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/routing/route_set.rb:437:in `call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:87:in `dispatch'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:121:in `_call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+      /var/lib/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+      /var/lib/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+      /var/lib/gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+      /var/lib/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:9:in `cache'
+      /var/lib/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:28:in `call'
+      /var/lib/gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+      /var/lib/gems/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+      /var/lib/gems/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/params_parser.rb:15:in `call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/session/cookie_store.rb:93:in `call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/failsafe.rb:26:in `call'
+      /var/lib/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+      /var/lib/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+      /var/lib/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:106:in `call'
+      /var/lib/gems/1.8/gems/rack-1.0.1/lib/rack/lint.rb:47:in `_call'
+      /var/lib/gems/1.8/gems/rack-1.0.1/lib/rack/lint.rb:35:in `call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/integration.rb:313:in `process'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/integration.rb:202:in `post'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/integration.rb:491:in `__send__'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/integration.rb:491:in `post'
+      /var/lib/gems/1.8/gems/webrat-0.5.3/lib/webrat/rails.rb:68:in `send'
+      /var/lib/gems/1.8/gems/webrat-0.5.3/lib/webrat/rails.rb:68:in `do_request'
+      /var/lib/gems/1.8/gems/webrat-0.5.3/lib/webrat/rails.rb:41:in `post'
+      (__FORWARDABLE__):3:in `__send__'
+      (__FORWARDABLE__):3:in `post'
+      /var/lib/gems/1.8/gems/webrat-0.5.3/lib/webrat/core/session.rb:282:in `send'
+      /var/lib/gems/1.8/gems/webrat-0.5.3/lib/webrat/core/session.rb:282:in `process_request'
+      /var/lib/gems/1.8/gems/webrat-0.5.3/lib/webrat/core/session.rb:122:in `request_page'
+      /var/lib/gems/1.8/gems/webrat-0.5.3/lib/webrat/core/elements/form.rb:20:in `submit'
+      /var/lib/gems/1.8/gems/webrat-0.5.3/lib/webrat/core/elements/field.rb:203:in `click'
+      /var/lib/gems/1.8/gems/webrat-0.5.3/lib/webrat/core/scope.rb:275:in `click_button'
+      (__FORWARDABLE__):3:in `__send__'
+      (__FORWARDABLE__):3:in `click_button'
+      (eval):2:in `click_button'
+      features/step_definitions/webrat_steps.rb:20
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/core_ext/instance_exec.rb:48:in `instance_exec'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/core_ext/instance_exec.rb:48:in `cucumber_instance_exec'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/core_ext/instance_exec.rb:69:in `cucumber_run_with_backtrace_filtering'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/core_ext/instance_exec.rb:36:in `cucumber_instance_exec'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/rb_support/rb_step_definition.rb:55:in `invoke'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/step_match.rb:24:in `invoke'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/step_invocation.rb:59:in `invoke'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/outline_table.rb:90:in `accept_plain'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/step_collection.rb:37:in `each'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/step_collection.rb:37:in `each'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/outline_table.rb:89:in `accept_plain'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/step_mother.rb:279:in `before_and_after'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/outline_table.rb:88:in `accept_plain'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/outline_table.rb:78:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:147:in `visit_table_row'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:180:in `broadcast'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:146:in `visit_table_row'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/outline_table.rb:17:in `accept'
+      /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `each_with_index'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/outline_table.rb:13:in `each'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/outline_table.rb:13:in `each_with_index'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/outline_table.rb:13:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:99:in `visit_outline_table'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:180:in `broadcast'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:98:in `visit_outline_table'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/examples.rb:12:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:73:in `visit_examples'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:180:in `broadcast'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:72:in `visit_examples'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/scenario_outline.rb:10:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/scenario_outline.rb:9:in `each'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/scenario_outline.rb:9:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:67:in `visit_examples_array'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:180:in `broadcast'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:66:in `visit_examples_array'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/scenario_outline.rb:49:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:51:in `visit_feature_element'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:180:in `broadcast'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:50:in `visit_feature_element'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/feature.rb:25:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/feature.rb:24:in `each'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/feature.rb:24:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:20:in `visit_feature'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:180:in `broadcast'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:19:in `visit_feature'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/features.rb:29:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/features.rb:17:in `each'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/features.rb:17:in `each'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/features.rb:28:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:14:in `visit_features'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:180:in `broadcast'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:13:in `visit_features'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/cli/main.rb:56:in `execute!'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/cli/main.rb:24:in `execute'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/bin/cucumber:8
+      /var/lib/gems/1.8/bin/cucumber:19:in `load'
+      /var/lib/gems/1.8/bin/cucumber:19</code></pre>
+          </div>
+        
+      </div>
+      
+      
+      
+      
+      
+      
+      <h2 style="margin-top: 30px">Request</h2>
+      <p><b>Parameters</b>: <pre>{&quot;commit&quot;=&gt;&quot;Concluir&quot;,
+       &quot;horario&quot;=&gt;{&quot;partida(4i)&quot;=&gt;&quot;13&quot;,
+       &quot;partida(5i)&quot;=&gt;&quot;00&quot;,
+       &quot;partida(1i)&quot;=&gt;&quot;&quot;,
+       &quot;partida(2i)&quot;=&gt;&quot;&quot;,
+       &quot;partida(3i)&quot;=&gt;&quot;&quot;},
+       &quot;data_chegada&quot;=&gt;&quot;26/11/2009&quot;,
+       &quot;id&quot;=&gt;&quot;21&quot;,
+       &quot;motorista&quot;=&gt;{&quot;id&quot;=&gt;&quot;41&quot;},
+       &quot;modo_criacao&quot;=&gt;{&quot;viagem&quot;=&gt;&quot;Atender com uma nova viagem&quot;},
+       &quot;data_saida&quot;=&gt;&quot;&quot;}</pre></p>
+      
+      <p><a href="#" onclick="document.getElementById('session_dump').style.display='block'; return false;">Show session dump</a></p>
+      <div id="session_dump" style="display:none"><pre class='debug_dump'>--- 
+      </pre></div>
+      
+      
+      <h2 style="margin-top: 30px">Response</h2>
+      <p><b>Headers</b>: <pre>{&quot;Content-Type&quot;=&gt;&quot;&quot;,
+       &quot;Cache-Control&quot;=&gt;&quot;no-cache&quot;}</pre></p>
+      
+      
+      
+      </body>
+      </html> (Webrat::PageLoadError)
+      (eval):2:in `click_button'
+      ./features/step_definitions/webrat_steps.rb:20:in `/^eu pressiono "([^\"]*)"$/'
+      features/aceitar_requisicao_de_viagem.feature:24:in `E eu pressiono "Concluir"'
+      | Daqui a 2 dias |                 | 14:00   | Gustavo Santos |
+      Page load was not successful (Code: 500):
+      <html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+        <title>Action Controller: Exception caught</title>
+        <style>
+          body { background-color: #fff; color: #333; }
+      
+          body, p, ol, ul, td {
+            font-family: verdana, arial, helvetica, sans-serif;
+            font-size:   13px;
+            line-height: 18px;
+          }
+      
+          pre {
+            background-color: #eee;
+            padding: 10px;
+            font-size: 11px;
+          }
+      
+          a { color: #000; }
+          a:visited { color: #666; }
+          a:hover { color: #fff; background-color:#000; }
+        </style>
+      </head>
+      <body>
+      
+      <h1>
+        ArgumentError
+        
+          in RequisicoesController#fechar_viagem
+        
+      </h1>
+      <pre>comparison of Date with nil failed</pre>
+      
+      
+      
+      <p><code>RAILS_ROOT: /home/herond/sgtran</code></p>
+      
+      <div id="traces">
+        
+          
+          <a href="#" onclick="document.getElementById('Framework-Trace').style.display='none';document.getElementById('Full-Trace').style.display='none';document.getElementById('Application-Trace').style.display='block';; return false;">Application Trace</a> |
+        
+          
+          <a href="#" onclick="document.getElementById('Application-Trace').style.display='none';document.getElementById('Full-Trace').style.display='none';document.getElementById('Framework-Trace').style.display='block';; return false;">Framework Trace</a> |
+        
+          
+          <a href="#" onclick="document.getElementById('Application-Trace').style.display='none';document.getElementById('Framework-Trace').style.display='none';document.getElementById('Full-Trace').style.display='block';; return false;">Full Trace</a> 
+        
+      
+        
+          <div id="Application-Trace" style="display: block;">
+            <pre><code>/home/herond/sgtran/app/models/requisicao.rb:204:in `>'
+      /home/herond/sgtran/app/models/requisicao.rb:204:in `aceitar'
+      /home/herond/sgtran/app/controllers/requisicoes_controller.rb:166:in `fechar_viagem'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:1331:in `send'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:1331:in `perform_action_without_filters'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/filters.rb:617:in `call_filters'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+      /var/lib/gems/1.8/gems/activesupport-2.3.4/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+      /var/lib/gems/1.8/gems/activesupport-2.3.4/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/flash.rb:146:in `perform_action'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:532:in `send'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:532:in `process_without_filters'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/filters.rb:606:in `process'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:391:in `process'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:386:in `call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/routing/route_set.rb:437:in `call'</code></pre>
+          </div>
+        
+          <div id="Framework-Trace" style="display: none;">
+            <pre><code>/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:87:in `dispatch'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:121:in `_call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:106:in `call'
+      /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `each_with_index'</code></pre>
+          </div>
+        
+          <div id="Full-Trace" style="display: none;">
+            <pre><code>/home/herond/sgtran/app/models/requisicao.rb:204:in `>'
+      /home/herond/sgtran/app/models/requisicao.rb:204:in `aceitar'
+      /home/herond/sgtran/app/controllers/requisicoes_controller.rb:166:in `fechar_viagem'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:1331:in `send'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:1331:in `perform_action_without_filters'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/filters.rb:617:in `call_filters'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+      /var/lib/gems/1.8/gems/activesupport-2.3.4/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+      /usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+      /var/lib/gems/1.8/gems/activesupport-2.3.4/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/flash.rb:146:in `perform_action'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:532:in `send'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:532:in `process_without_filters'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/filters.rb:606:in `process'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:391:in `process'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:386:in `call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/routing/route_set.rb:437:in `call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:87:in `dispatch'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:121:in `_call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+      /var/lib/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+      /var/lib/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+      /var/lib/gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+      /var/lib/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:9:in `cache'
+      /var/lib/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:28:in `call'
+      /var/lib/gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+      /var/lib/gems/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+      /var/lib/gems/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/params_parser.rb:15:in `call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/session/cookie_store.rb:93:in `call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/failsafe.rb:26:in `call'
+      /var/lib/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+      /var/lib/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+      /var/lib/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:106:in `call'
+      /var/lib/gems/1.8/gems/rack-1.0.1/lib/rack/lint.rb:47:in `_call'
+      /var/lib/gems/1.8/gems/rack-1.0.1/lib/rack/lint.rb:35:in `call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/integration.rb:313:in `process'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/integration.rb:202:in `post'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/integration.rb:491:in `__send__'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/integration.rb:491:in `post'
+      /var/lib/gems/1.8/gems/webrat-0.5.3/lib/webrat/rails.rb:68:in `send'
+      /var/lib/gems/1.8/gems/webrat-0.5.3/lib/webrat/rails.rb:68:in `do_request'
+      /var/lib/gems/1.8/gems/webrat-0.5.3/lib/webrat/rails.rb:41:in `post'
+      (__FORWARDABLE__):3:in `__send__'
+      (__FORWARDABLE__):3:in `post'
+      /var/lib/gems/1.8/gems/webrat-0.5.3/lib/webrat/core/session.rb:282:in `send'
+      /var/lib/gems/1.8/gems/webrat-0.5.3/lib/webrat/core/session.rb:282:in `process_request'
+      /var/lib/gems/1.8/gems/webrat-0.5.3/lib/webrat/core/session.rb:122:in `request_page'
+      /var/lib/gems/1.8/gems/webrat-0.5.3/lib/webrat/core/elements/form.rb:20:in `submit'
+      /var/lib/gems/1.8/gems/webrat-0.5.3/lib/webrat/core/elements/field.rb:203:in `click'
+      /var/lib/gems/1.8/gems/webrat-0.5.3/lib/webrat/core/scope.rb:275:in `click_button'
+      (__FORWARDABLE__):3:in `__send__'
+      (__FORWARDABLE__):3:in `click_button'
+      (eval):2:in `click_button'
+      features/step_definitions/webrat_steps.rb:20
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/core_ext/instance_exec.rb:48:in `instance_exec'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/core_ext/instance_exec.rb:48:in `cucumber_instance_exec'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/core_ext/instance_exec.rb:69:in `cucumber_run_with_backtrace_filtering'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/core_ext/instance_exec.rb:36:in `cucumber_instance_exec'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/rb_support/rb_step_definition.rb:55:in `invoke'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/step_match.rb:24:in `invoke'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/step_invocation.rb:59:in `invoke'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/outline_table.rb:90:in `accept_plain'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/step_collection.rb:37:in `each'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/step_collection.rb:37:in `each'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/outline_table.rb:89:in `accept_plain'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/step_mother.rb:279:in `before_and_after'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/outline_table.rb:88:in `accept_plain'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/outline_table.rb:78:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:147:in `visit_table_row'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:180:in `broadcast'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:146:in `visit_table_row'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/outline_table.rb:17:in `accept'
+      /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `each_with_index'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/outline_table.rb:13:in `each'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/outline_table.rb:13:in `each_with_index'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/outline_table.rb:13:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:99:in `visit_outline_table'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:180:in `broadcast'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:98:in `visit_outline_table'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/examples.rb:12:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:73:in `visit_examples'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:180:in `broadcast'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:72:in `visit_examples'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/scenario_outline.rb:10:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/scenario_outline.rb:9:in `each'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/scenario_outline.rb:9:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:67:in `visit_examples_array'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:180:in `broadcast'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:66:in `visit_examples_array'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/scenario_outline.rb:49:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:51:in `visit_feature_element'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:180:in `broadcast'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:50:in `visit_feature_element'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/feature.rb:25:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/feature.rb:24:in `each'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/feature.rb:24:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:20:in `visit_feature'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:180:in `broadcast'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:19:in `visit_feature'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/features.rb:29:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/features.rb:17:in `each'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/features.rb:17:in `each'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/features.rb:28:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:14:in `visit_features'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:180:in `broadcast'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:13:in `visit_features'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/cli/main.rb:56:in `execute!'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/cli/main.rb:24:in `execute'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/bin/cucumber:8
+      /var/lib/gems/1.8/bin/cucumber:19:in `load'
+      /var/lib/gems/1.8/bin/cucumber:19</code></pre>
+          </div>
+        
+      </div>
+      
+      
+      
+      
+      
+      
+      <h2 style="margin-top: 30px">Request</h2>
+      <p><b>Parameters</b>: <pre>{&quot;commit&quot;=&gt;&quot;Concluir&quot;,
+       &quot;horario&quot;=&gt;{&quot;partida(4i)&quot;=&gt;&quot;14&quot;,
+       &quot;partida(5i)&quot;=&gt;&quot;00&quot;,
+       &quot;partida(1i)&quot;=&gt;&quot;&quot;,
+       &quot;partida(2i)&quot;=&gt;&quot;&quot;,
+       &quot;partida(3i)&quot;=&gt;&quot;&quot;},
+       &quot;data_chegada&quot;=&gt;&quot;&quot;,
+       &quot;id&quot;=&gt;&quot;22&quot;,
+       &quot;motorista&quot;=&gt;{&quot;id&quot;=&gt;&quot;43&quot;},
+       &quot;modo_criacao&quot;=&gt;{&quot;viagem&quot;=&gt;&quot;Atender com uma nova viagem&quot;},
+       &quot;data_saida&quot;=&gt;&quot;26/11/2009&quot;}</pre></p>
+      
+      <p><a href="#" onclick="document.getElementById('session_dump').style.display='block'; return false;">Show session dump</a></p>
+      <div id="session_dump" style="display:none"><pre class='debug_dump'>--- 
+      </pre></div>
+      
+      
+      <h2 style="margin-top: 30px">Response</h2>
+      <p><b>Headers</b>: <pre>{&quot;Content-Type&quot;=&gt;&quot;&quot;,
+       &quot;Cache-Control&quot;=&gt;&quot;no-cache&quot;}</pre></p>
+      
+      
+      
+      </body>
+      </html> (Webrat::PageLoadError)
+      (eval):2:in `click_button'
+      ./features/step_definitions/webrat_steps.rb:20:in `/^eu pressiono "([^\"]*)"$/'
+      features/aceitar_requisicao_de_viagem.feature:24:in `E eu pressiono "Concluir"'
+      | Daqui a 2 dias | Daqui a 2 dias  | 13:00   |                |
+      | Daqui a 2 dias |                 | 10:00   | Eduardo Silva  |
+      Page load was not successful (Code: 500):
+      <html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+        <title>Action Controller: Exception caught</title>
+        <style>
+          body { background-color: #fff; color: #333; }
+      
+          body, p, ol, ul, td {
+            font-family: verdana, arial, helvetica, sans-serif;
+            font-size:   13px;
+            line-height: 18px;
+          }
+      
+          pre {
+            background-color: #eee;
+            padding: 10px;
+            font-size: 11px;
+          }
+      
+          a { color: #000; }
+          a:visited { color: #666; }
+          a:hover { color: #fff; background-color:#000; }
+        </style>
+      </head>
+      <body>
+      
+      <h1>
+        ArgumentError
+        
+          in RequisicoesController#fechar_viagem
+        
+      </h1>
+      <pre>comparison of Date with nil failed</pre>
+      
+      
+      
+      <p><code>RAILS_ROOT: /home/herond/sgtran</code></p>
+      
+      <div id="traces">
+        
+          
+          <a href="#" onclick="document.getElementById('Framework-Trace').style.display='none';document.getElementById('Full-Trace').style.display='none';document.getElementById('Application-Trace').style.display='block';; return false;">Application Trace</a> |
+        
+          
+          <a href="#" onclick="document.getElementById('Application-Trace').style.display='none';document.getElementById('Full-Trace').style.display='none';document.getElementById('Framework-Trace').style.display='block';; return false;">Framework Trace</a> |
+        
+          
+          <a href="#" onclick="document.getElementById('Application-Trace').style.display='none';document.getElementById('Framework-Trace').style.display='none';document.getElementById('Full-Trace').style.display='block';; return false;">Full Trace</a> 
+        
+      
+        
+          <div id="Application-Trace" style="display: block;">
+            <pre><code>/home/herond/sgtran/app/models/requisicao.rb:204:in `>'
+      /home/herond/sgtran/app/models/requisicao.rb:204:in `aceitar'
+      /home/herond/sgtran/app/controllers/requisicoes_controller.rb:166:in `fechar_viagem'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:1331:in `send'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:1331:in `perform_action_without_filters'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/filters.rb:617:in `call_filters'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+      /var/lib/gems/1.8/gems/activesupport-2.3.4/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+      /var/lib/gems/1.8/gems/activesupport-2.3.4/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/flash.rb:146:in `perform_action'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:532:in `send'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:532:in `process_without_filters'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/filters.rb:606:in `process'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:391:in `process'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:386:in `call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/routing/route_set.rb:437:in `call'</code></pre>
+          </div>
+        
+          <div id="Framework-Trace" style="display: none;">
+            <pre><code>/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:87:in `dispatch'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:121:in `_call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:106:in `call'
+      /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `each_with_index'</code></pre>
+          </div>
+        
+          <div id="Full-Trace" style="display: none;">
+            <pre><code>/home/herond/sgtran/app/models/requisicao.rb:204:in `>'
+      /home/herond/sgtran/app/models/requisicao.rb:204:in `aceitar'
+      /home/herond/sgtran/app/controllers/requisicoes_controller.rb:166:in `fechar_viagem'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:1331:in `send'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:1331:in `perform_action_without_filters'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/filters.rb:617:in `call_filters'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+      /var/lib/gems/1.8/gems/activesupport-2.3.4/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+      /usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+      /var/lib/gems/1.8/gems/activesupport-2.3.4/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/flash.rb:146:in `perform_action'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:532:in `send'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:532:in `process_without_filters'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/filters.rb:606:in `process'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:391:in `process'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:386:in `call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/routing/route_set.rb:437:in `call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:87:in `dispatch'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:121:in `_call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+      /var/lib/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+      /var/lib/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+      /var/lib/gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+      /var/lib/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:9:in `cache'
+      /var/lib/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:28:in `call'
+      /var/lib/gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+      /var/lib/gems/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+      /var/lib/gems/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/params_parser.rb:15:in `call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/session/cookie_store.rb:93:in `call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/failsafe.rb:26:in `call'
+      /var/lib/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+      /var/lib/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+      /var/lib/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:106:in `call'
+      /var/lib/gems/1.8/gems/rack-1.0.1/lib/rack/lint.rb:47:in `_call'
+      /var/lib/gems/1.8/gems/rack-1.0.1/lib/rack/lint.rb:35:in `call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/integration.rb:313:in `process'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/integration.rb:202:in `post'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/integration.rb:491:in `__send__'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/integration.rb:491:in `post'
+      /var/lib/gems/1.8/gems/webrat-0.5.3/lib/webrat/rails.rb:68:in `send'
+      /var/lib/gems/1.8/gems/webrat-0.5.3/lib/webrat/rails.rb:68:in `do_request'
+      /var/lib/gems/1.8/gems/webrat-0.5.3/lib/webrat/rails.rb:41:in `post'
+      (__FORWARDABLE__):3:in `__send__'
+      (__FORWARDABLE__):3:in `post'
+      /var/lib/gems/1.8/gems/webrat-0.5.3/lib/webrat/core/session.rb:282:in `send'
+      /var/lib/gems/1.8/gems/webrat-0.5.3/lib/webrat/core/session.rb:282:in `process_request'
+      /var/lib/gems/1.8/gems/webrat-0.5.3/lib/webrat/core/session.rb:122:in `request_page'
+      /var/lib/gems/1.8/gems/webrat-0.5.3/lib/webrat/core/elements/form.rb:20:in `submit'
+      /var/lib/gems/1.8/gems/webrat-0.5.3/lib/webrat/core/elements/field.rb:203:in `click'
+      /var/lib/gems/1.8/gems/webrat-0.5.3/lib/webrat/core/scope.rb:275:in `click_button'
+      (__FORWARDABLE__):3:in `__send__'
+      (__FORWARDABLE__):3:in `click_button'
+      (eval):2:in `click_button'
+      features/step_definitions/webrat_steps.rb:20
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/core_ext/instance_exec.rb:48:in `instance_exec'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/core_ext/instance_exec.rb:48:in `cucumber_instance_exec'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/core_ext/instance_exec.rb:69:in `cucumber_run_with_backtrace_filtering'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/core_ext/instance_exec.rb:36:in `cucumber_instance_exec'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/rb_support/rb_step_definition.rb:55:in `invoke'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/step_match.rb:24:in `invoke'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/step_invocation.rb:59:in `invoke'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/outline_table.rb:90:in `accept_plain'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/step_collection.rb:37:in `each'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/step_collection.rb:37:in `each'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/outline_table.rb:89:in `accept_plain'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/step_mother.rb:279:in `before_and_after'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/outline_table.rb:88:in `accept_plain'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/outline_table.rb:78:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:147:in `visit_table_row'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:180:in `broadcast'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:146:in `visit_table_row'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/outline_table.rb:17:in `accept'
+      /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `each_with_index'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/outline_table.rb:13:in `each'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/outline_table.rb:13:in `each_with_index'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/outline_table.rb:13:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:99:in `visit_outline_table'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:180:in `broadcast'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:98:in `visit_outline_table'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/examples.rb:12:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:73:in `visit_examples'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:180:in `broadcast'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:72:in `visit_examples'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/scenario_outline.rb:10:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/scenario_outline.rb:9:in `each'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/scenario_outline.rb:9:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:67:in `visit_examples_array'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:180:in `broadcast'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:66:in `visit_examples_array'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/scenario_outline.rb:49:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:51:in `visit_feature_element'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:180:in `broadcast'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:50:in `visit_feature_element'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/feature.rb:25:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/feature.rb:24:in `each'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/feature.rb:24:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:20:in `visit_feature'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:180:in `broadcast'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:19:in `visit_feature'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/features.rb:29:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/features.rb:17:in `each'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/features.rb:17:in `each'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/features.rb:28:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:14:in `visit_features'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:180:in `broadcast'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:13:in `visit_features'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/cli/main.rb:56:in `execute!'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/cli/main.rb:24:in `execute'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/bin/cucumber:8
+      /var/lib/gems/1.8/bin/cucumber:19:in `load'
+      /var/lib/gems/1.8/bin/cucumber:19</code></pre>
+          </div>
+        
+      </div>
+      
+      
+      
+      
+      
+      
+      <h2 style="margin-top: 30px">Request</h2>
+      <p><b>Parameters</b>: <pre>{&quot;commit&quot;=&gt;&quot;Concluir&quot;,
+       &quot;horario&quot;=&gt;{&quot;partida(4i)&quot;=&gt;&quot;10&quot;,
+       &quot;partida(5i)&quot;=&gt;&quot;00&quot;,
+       &quot;partida(1i)&quot;=&gt;&quot;&quot;,
+       &quot;partida(2i)&quot;=&gt;&quot;&quot;,
+       &quot;partida(3i)&quot;=&gt;&quot;&quot;},
+       &quot;data_chegada&quot;=&gt;&quot;&quot;,
+       &quot;id&quot;=&gt;&quot;24&quot;,
+       &quot;motorista&quot;=&gt;{&quot;id&quot;=&gt;&quot;48&quot;},
+       &quot;modo_criacao&quot;=&gt;{&quot;viagem&quot;=&gt;&quot;Atender com uma nova viagem&quot;},
+       &quot;data_saida&quot;=&gt;&quot;26/11/2009&quot;}</pre></p>
+      
+      <p><a href="#" onclick="document.getElementById('session_dump').style.display='block'; return false;">Show session dump</a></p>
+      <div id="session_dump" style="display:none"><pre class='debug_dump'>--- 
+      </pre></div>
+      
+      
+      <h2 style="margin-top: 30px">Response</h2>
+      <p><b>Headers</b>: <pre>{&quot;Content-Type&quot;=&gt;&quot;&quot;,
+       &quot;Cache-Control&quot;=&gt;&quot;no-cache&quot;}</pre></p>
+      
+      
+      
+      </body>
+      </html> (Webrat::PageLoadError)
+      (eval):2:in `click_button'
+      ./features/step_definitions/webrat_steps.rb:20:in `/^eu pressiono "([^\"]*)"$/'
+      features/aceitar_requisicao_de_viagem.feature:24:in `E eu pressiono "Concluir"'
+      |                |                 | 10:00   |                |
+      Page load was not successful (Code: 500):
+      <html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+        <title>Action Controller: Exception caught</title>
+        <style>
+          body { background-color: #fff; color: #333; }
+      
+          body, p, ol, ul, td {
+            font-family: verdana, arial, helvetica, sans-serif;
+            font-size:   13px;
+            line-height: 18px;
+          }
+      
+          pre {
+            background-color: #eee;
+            padding: 10px;
+            font-size: 11px;
+          }
+      
+          a { color: #000; }
+          a:visited { color: #666; }
+          a:hover { color: #fff; background-color:#000; }
+        </style>
+      </head>
+      <body>
+      
+      <h1>
+        NoMethodError
+        
+          in RequisicoesController#fechar_viagem
+        
+      </h1>
+      <pre>You have a nil object when you didn't expect it!
+      The error occurred while evaluating nil.&gt;</pre>
+      
+      
+      
+      <p><code>RAILS_ROOT: /home/herond/sgtran</code></p>
+      
+      <div id="traces">
+        
+          
+          <a href="#" onclick="document.getElementById('Framework-Trace').style.display='none';document.getElementById('Full-Trace').style.display='none';document.getElementById('Application-Trace').style.display='block';; return false;">Application Trace</a> |
+        
+          
+          <a href="#" onclick="document.getElementById('Application-Trace').style.display='none';document.getElementById('Full-Trace').style.display='none';document.getElementById('Framework-Trace').style.display='block';; return false;">Framework Trace</a> |
+        
+          
+          <a href="#" onclick="document.getElementById('Application-Trace').style.display='none';document.getElementById('Framework-Trace').style.display='none';document.getElementById('Full-Trace').style.display='block';; return false;">Full Trace</a> 
+        
+      
+        
+          <div id="Application-Trace" style="display: block;">
+            <pre><code>/home/herond/sgtran/app/models/requisicao.rb:204:in `aceitar'
+      /home/herond/sgtran/app/controllers/requisicoes_controller.rb:166:in `fechar_viagem'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:1331:in `send'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:1331:in `perform_action_without_filters'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/filters.rb:617:in `call_filters'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+      /var/lib/gems/1.8/gems/activesupport-2.3.4/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+      /var/lib/gems/1.8/gems/activesupport-2.3.4/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/flash.rb:146:in `perform_action'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:532:in `send'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:532:in `process_without_filters'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/filters.rb:606:in `process'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:391:in `process'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:386:in `call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/routing/route_set.rb:437:in `call'</code></pre>
+          </div>
+        
+          <div id="Framework-Trace" style="display: none;">
+            <pre><code>/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:87:in `dispatch'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:121:in `_call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:106:in `call'
+      /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `each_with_index'</code></pre>
+          </div>
+        
+          <div id="Full-Trace" style="display: none;">
+            <pre><code>/home/herond/sgtran/app/models/requisicao.rb:204:in `aceitar'
+      /home/herond/sgtran/app/controllers/requisicoes_controller.rb:166:in `fechar_viagem'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:1331:in `send'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:1331:in `perform_action_without_filters'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/filters.rb:617:in `call_filters'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+      /var/lib/gems/1.8/gems/activesupport-2.3.4/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+      /usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+      /var/lib/gems/1.8/gems/activesupport-2.3.4/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/flash.rb:146:in `perform_action'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:532:in `send'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:532:in `process_without_filters'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/filters.rb:606:in `process'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:391:in `process'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/base.rb:386:in `call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/routing/route_set.rb:437:in `call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:87:in `dispatch'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:121:in `_call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+      /var/lib/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+      /var/lib/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:29:in `call'
+      /var/lib/gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+      /var/lib/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:9:in `cache'
+      /var/lib/gems/1.8/gems/activerecord-2.3.4/lib/active_record/query_cache.rb:28:in `call'
+      /var/lib/gems/1.8/gems/activerecord-2.3.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+      /var/lib/gems/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+      /var/lib/gems/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/params_parser.rb:15:in `call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/session/cookie_store.rb:93:in `call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/failsafe.rb:26:in `call'
+      /var/lib/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+      /var/lib/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+      /var/lib/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/dispatcher.rb:106:in `call'
+      /var/lib/gems/1.8/gems/rack-1.0.1/lib/rack/lint.rb:47:in `_call'
+      /var/lib/gems/1.8/gems/rack-1.0.1/lib/rack/lint.rb:35:in `call'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/integration.rb:313:in `process'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/integration.rb:202:in `post'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/integration.rb:491:in `__send__'
+      /var/lib/gems/1.8/gems/actionpack-2.3.4/lib/action_controller/integration.rb:491:in `post'
+      /var/lib/gems/1.8/gems/webrat-0.5.3/lib/webrat/rails.rb:68:in `send'
+      /var/lib/gems/1.8/gems/webrat-0.5.3/lib/webrat/rails.rb:68:in `do_request'
+      /var/lib/gems/1.8/gems/webrat-0.5.3/lib/webrat/rails.rb:41:in `post'
+      (__FORWARDABLE__):3:in `__send__'
+      (__FORWARDABLE__):3:in `post'
+      /var/lib/gems/1.8/gems/webrat-0.5.3/lib/webrat/core/session.rb:282:in `send'
+      /var/lib/gems/1.8/gems/webrat-0.5.3/lib/webrat/core/session.rb:282:in `process_request'
+      /var/lib/gems/1.8/gems/webrat-0.5.3/lib/webrat/core/session.rb:122:in `request_page'
+      /var/lib/gems/1.8/gems/webrat-0.5.3/lib/webrat/core/elements/form.rb:20:in `submit'
+      /var/lib/gems/1.8/gems/webrat-0.5.3/lib/webrat/core/elements/field.rb:203:in `click'
+      /var/lib/gems/1.8/gems/webrat-0.5.3/lib/webrat/core/scope.rb:275:in `click_button'
+      (__FORWARDABLE__):3:in `__send__'
+      (__FORWARDABLE__):3:in `click_button'
+      (eval):2:in `click_button'
+      features/step_definitions/webrat_steps.rb:20
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/core_ext/instance_exec.rb:48:in `instance_exec'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/core_ext/instance_exec.rb:48:in `cucumber_instance_exec'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/core_ext/instance_exec.rb:69:in `cucumber_run_with_backtrace_filtering'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/core_ext/instance_exec.rb:36:in `cucumber_instance_exec'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/rb_support/rb_step_definition.rb:55:in `invoke'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/step_match.rb:24:in `invoke'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/step_invocation.rb:59:in `invoke'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/outline_table.rb:90:in `accept_plain'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/step_collection.rb:37:in `each'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/step_collection.rb:37:in `each'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/outline_table.rb:89:in `accept_plain'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/step_mother.rb:279:in `before_and_after'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/outline_table.rb:88:in `accept_plain'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/outline_table.rb:78:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:147:in `visit_table_row'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:180:in `broadcast'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:146:in `visit_table_row'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/outline_table.rb:17:in `accept'
+      /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `each_with_index'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/outline_table.rb:13:in `each'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/outline_table.rb:13:in `each_with_index'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/outline_table.rb:13:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:99:in `visit_outline_table'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:180:in `broadcast'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:98:in `visit_outline_table'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/examples.rb:12:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:73:in `visit_examples'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:180:in `broadcast'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:72:in `visit_examples'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/scenario_outline.rb:10:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/scenario_outline.rb:9:in `each'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/scenario_outline.rb:9:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:67:in `visit_examples_array'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:180:in `broadcast'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:66:in `visit_examples_array'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/scenario_outline.rb:49:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:51:in `visit_feature_element'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:180:in `broadcast'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:50:in `visit_feature_element'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/feature.rb:25:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/feature.rb:24:in `each'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/feature.rb:24:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:20:in `visit_feature'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:180:in `broadcast'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:19:in `visit_feature'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/features.rb:29:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/features.rb:17:in `each'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/features.rb:17:in `each'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/features.rb:28:in `accept'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:14:in `visit_features'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:180:in `broadcast'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/ast/tree_walker.rb:13:in `visit_features'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/cli/main.rb:56:in `execute!'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/lib/cucumber/cli/main.rb:24:in `execute'
+      /var/lib/gems/1.8/gems/cucumber-0.4.4/bin/cucumber:8
+      /var/lib/gems/1.8/bin/cucumber:19:in `load'
+      /var/lib/gems/1.8/bin/cucumber:19</code></pre>
+          </div>
+        
+      </div>
+      
+      
+      
+      
+      
+      
+      <h2 style="margin-top: 30px">Request</h2>
+      <p><b>Parameters</b>: <pre>{&quot;commit&quot;=&gt;&quot;Concluir&quot;,
+       &quot;horario&quot;=&gt;{&quot;partida(4i)&quot;=&gt;&quot;10&quot;,
+       &quot;partida(5i)&quot;=&gt;&quot;00&quot;,
+       &quot;partida(1i)&quot;=&gt;&quot;&quot;,
+       &quot;partida(2i)&quot;=&gt;&quot;&quot;,
+       &quot;partida(3i)&quot;=&gt;&quot;&quot;},
+       &quot;data_chegada&quot;=&gt;&quot;&quot;,
+       &quot;id&quot;=&gt;&quot;25&quot;,
+       &quot;motorista&quot;=&gt;{&quot;id&quot;=&gt;&quot;&quot;},
+       &quot;modo_criacao&quot;=&gt;{&quot;viagem&quot;=&gt;&quot;Atender com uma nova viagem&quot;},
+       &quot;data_saida&quot;=&gt;&quot;&quot;}</pre></p>
+      
+      <p><a href="#" onclick="document.getElementById('session_dump').style.display='block'; return false;">Show session dump</a></p>
+      <div id="session_dump" style="display:none"><pre class='debug_dump'>--- 
+      </pre></div>
+      
+      
+      <h2 style="margin-top: 30px">Response</h2>
+      <p><b>Headers</b>: <pre>{&quot;Content-Type&quot;=&gt;&quot;&quot;,
+       &quot;Cache-Control&quot;=&gt;&quot;no-cache&quot;}</pre></p>
+      
+      
+      
+      </body>
+      </html> (Webrat::PageLoadError)
+      (eval):2:in `click_button'
+      ./features/step_definitions/webrat_steps.rb:20:in `/^eu pressiono "([^\"]*)"$/'
+      features/aceitar_requisicao_de_viagem.feature:24:in `E eu pressiono "Concluir"'
+
+5 scenarios (4 failed, 1 passed)
+85 steps (4 failed, 20 skipped, 61 passed)
+0m1.919s
