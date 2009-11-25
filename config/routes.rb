@@ -24,6 +24,9 @@ ActionController::Routing::Routes.draw do |map|
   map.imprimir_requisicao "imprimir", :controller => "requisicoes", :action => "imprimir_requisicao"
   map.cancelar_requisicao "requisicoes/cancelar/:id/:chave_de_seguranca", :controller => "requisicoes", :action => "cancelar_requisicao"
   map.visualizar_requisicao "requisicoes/visualizar/:id/:chave_de_seguranca", :controller => "requisicoes", :action => "visualizar_requisicao"
+  map.aceitar_viagem "requisicoes/:id/aceitar", :controller => "requisicoes", :action => "aceitar"
+  map.cancelar_viagem_pelo_sistema "requisicoes/cancelar_pelo_sistema/:id", :controller => "requisicoes", :action => "cancelar_pelo_sistema"
+  map.rejeitar "requisicoes/rejeitar/:id", :controller => "requisicoes", :action => "rejeitar"
 
   map.resources :requisicoes
   map.regras "/regras", :controller => "requisicoes", :action => "regras"

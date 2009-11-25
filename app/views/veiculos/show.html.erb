@@ -1,51 +1,60 @@
-<p>
-  <b>Marca:</b>
-  <%=h @veiculo.marca %>
-</p>
+<div class="show_padrao">
 
-<p>
-  <b>Modelo:</b>
-  <%=h @veiculo.modelo %>
-</p>
+  <h1>Dados do Veículo</h1>
 
-<p>
-  <b>Cor:</b>
-  <%=h @veiculo.cor %>
-</p>
+  <div class="show_linha">
+    <div class="linha_titulo">Marca:</div>
+    <div class="linha_texto"><%=h @veiculo.marca %></div>
+  </div>
 
-<p>
-  <b>Ano:</b>
-  <%=h @veiculo.ano %>
-</p>
+  <div class="show_linha">
+    <div class="linha_titulo">Modelo:</div>
+    <div class="linha_texto"><%=h @veiculo.modelo %></div>
+  </div>
 
-<p>
-  <b>Placa:</b>
-  <%=h @veiculo.placa %>
-</p>
+  <div class="show_linha">
+    <div class="linha_titulo">Cor:</div>
+    <div class="linha_texto"><%=h @veiculo.cor %></div>
+  </div>
 
-<p>
-  <b>Numero de ordem:</b>
-  <%=h @veiculo.numero_de_ordem %>
-</p>
+  <div class="show_linha">
+    <div class="linha_titulo">Ano:</div>
+    <div class="linha_texto"><%=h @veiculo.ano %></div>
+  </div>
 
-<p>
-  <b>Renavam:</b>
-  <%=h @veiculo.renavam %>
-</p>
+  <div class="show_linha">
+    <div class="linha_titulo">Placa:</div>
+    <div class="linha_texto"><%=h @veiculo.placa %></div>
+  </div>
 
-<p>
-  <b>Combustíveis:</b>
-  <% @veiculo.combustiveis.each do |combustivel| %>
-    <%= combustivel.nome %>;
-  <% end %>
-</p>
+  <div class="show_linha">
+    <div class="linha_titulo">Numero de ordem:</div>
+    <div class="linha_texto"><%=h @veiculo.numero_de_ordem %></div>
+  </div>
 
-<p>
-  <b>Categoria:</b>
-  <%=h CategoriaDeVeiculo.find(@veiculo.categoria_de_veiculo_id).nome %>
-</p>
+  <div class="show_linha">
+    <div class="linha_titulo">Renavam:</div>
+    <div class="linha_texto"><%=h @veiculo.renavam %></div>
+  </div>
 
+  <div class="show_linha">
+    <div class="linha_titulo">Combustível(is):</div>
+    <div class="linha_texto">
+    <% @veiculo.combustiveis.each do |combustivel| %>
+      <%= combustivel.nome %><br />
+    <% end %>
+    </div>
+  </div>
 
-<%= link_to 'Modificar', edit_veiculo_path(@veiculo) %> |
-<%= link_to 'Voltar', veiculos_path %>
+  <div class="show_linha">
+    <div class="linha_titulo">Categoria:</div>
+    <div class="linha_texto"><%=h CategoriaDeVeiculo.find(@veiculo.categoria_de_veiculo_id).nome %></div>
+  </div>
+</div>
+
+<div id="opcoes_da_visao">
+  <ul>
+    <li id="opcao_voltar" onclick="location.href='<%= veiculos_path %>'" onmouseover="this.style.cursor = 'pointer'"><%= link_to 'Voltar', veiculos_path %></li>
+  </ul>
+</div>
 

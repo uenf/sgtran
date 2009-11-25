@@ -83,25 +83,25 @@
 
 <div id="opcoes_da_visao">
   <ul>
-    <li id="opcao_voltar"><%= link_to 'Voltar', requisicoes_path %></li>
-    <li id="opcao_imprimir"><a href="javaScript:window.print()">Imprimir</a></li>
+    <li id="opcao_voltar" onclick="location.href='<%= requisicoes_path %>'" onmouseover="this.style.cursor = 'pointer'"><%= link_to 'Voltar', requisicoes_path %></li>
+    <li id="opcao_imprimir" onclick="window.print()" onmouseover="this.style.cursor = 'pointer'"><a href="javaScript:window.print()">Imprimir</a></li>
 
     <!-- <li id="opcao_aceitar"><%= link_to 'Aceitar', :controller => 'requisicoes', :action => 'aceitar', :id => @requisicao %></li>
     <li id="opcao_rejeitar"><%= link_to 'Rejeitar'%></li>
     <li id="opcao_cancelar"><%= link_to 'Cancelar' %></li> -->
 
     <% if requisicao_pode_ser_aceita(@requisicao.estado) %>
-      <li id="opcao_aceitar"><%= link_to 'Aceitar', :controller => 'requisicoes', :action => 'aceitar', :id => @requisicao %>
+      <li id="opcao_aceitar" onclick="location.href='<%= aceitar_viagem_path(@requisicao) %>'" onmouseover="this.style.cursor = 'pointer'"><%= link_to 'Aceitar', aceitar_viagem_path(@requisicao) %>
       </li>
     <% end %>
 
     <% if requisicao_pode_ser_cancelada(@requisicao.estado) %>
-      <li id="opcao_cancelar"><%= link_to 'Cancelar_pelo_sistema', :controller => 'requisicoes', :action => 'cancelar_pelo_sistema', :id => @requisicao %>
+      <li id="opcao_cancelar" onclick="location.href='<%= cancelar_viagem_pelo_sistema_path(@requisicao) %>'" onmouseover="this.style.cursor = 'pointer'"><%= link_to 'Cancelar_pelo_sistema', cancelar_viagem_pelo_sistema_path(@requisicao) %>
       </li>
     <% end %>
 
     <% if requisicao_pode_ser_rejeitada(@requisicao.estado) %>
-      <li id="opcao_rejeitar"><%= link_to 'Rejeitar', :controller => 'requisicoes', :action => 'rejeitar', :id => @requisicao %>
+      <li id="opcao_rejeitar" onclick="location.href='<%= rejeitar_path(@requisicao) %>'" onmouseover="this.style.cursor = 'pointer'"><%= link_to 'Rejeitar', rejeitar_path(@requisicao) %>
       </li>
     <% end %>
 

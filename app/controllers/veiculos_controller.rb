@@ -2,8 +2,17 @@ class VeiculosController < ApplicationController
   # GET /veiculos
   # GET /veiculos.xml
 
+  access_control do
+    allow :admin, :to => [:index, :new, :show, :create, :edit, :destroy, :update]
+    allow :visit, :to => [:index, :show]
+  end
+
+
+  layout "sistema"
+
   def index
     @veiculos = Veiculo.all
+    @sub_layout = "base"
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,6 +25,7 @@ class VeiculosController < ApplicationController
   def show
     @veiculo = Veiculo.find(params[:id])
     @categoria = CategoriaDeVeiculo.find(@veiculo.categoria_de_veiculo_id)
+    @sub_layout = "base"
 
     respond_to do |format|
       format.html # show.html.erb
@@ -27,6 +37,7 @@ class VeiculosController < ApplicationController
   # GET /veiculos/new.xml
   def new
     @veiculo = Veiculo.new
+    @sub_layout = "base"
 
     respond_to do |format|
       format.html # new.html.erb
@@ -37,6 +48,7 @@ class VeiculosController < ApplicationController
   # GET /veiculos/1/edit
   def edit
     @veiculo = Veiculo.find(params[:id])
+    @sub_layout = "base"
   end
 
   # POST /veiculos
@@ -50,6 +62,7 @@ class VeiculosController < ApplicationController
         format.html { redirect_to(@veiculo) }
         format.xml  { render :xml => @veiculo, :status => :created, :location => @veiculo }
       else
+        @sub_layout = "base"
         format.html { render :action => "new" }
         format.xml  { render :xml => @veiculo.errors, :status => :unprocessable_entity }
       end
@@ -67,6 +80,7 @@ class VeiculosController < ApplicationController
         format.html { redirect_to(@veiculo) }
         format.xml  { head :ok }
       else
+        @sub_layout = "base"
         format.html { render :action => "edit" }
         format.xml  { render :xml => @veiculo.errors, :status => :unprocessable_entity }
       end
@@ -78,6 +92,7 @@ class VeiculosController < ApplicationController
   def destroy
     @veiculo = Veiculo.find(params[:id])
     @veiculo.destroy
+    @sub_layout = "base"
 
     respond_to do |format|
       format.html { redirect_to(veiculos_url) }

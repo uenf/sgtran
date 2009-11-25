@@ -1,24 +1,30 @@
-<p>
-  <b>Nome:</b>
-  <%=h @solicitante.nome %>
-</p>
+<div class="show_padrao">
 
-<p>
-  <b>Email:</b>
-  <%=h @solicitante.email %>
-</p>
+<h1>Dados do Solicitante</h1>
+  <div class="show_linha">
+    <div class="linha_titulo">Nome:</div>
+    <div class="linha_texto"><%=h @solicitante.nome %></div>
+  </div>
 
-<p>
-  <b>Matricula:</b>
-  <%=h @solicitante.matricula %>
-</p>
+  <div class="show_linha">
+    <div class="linha_titulo">Email:</div>
+    <div class="linha_texto"><%=h @solicitante.email %></div>
+  </div>
 
-<p>
-  <b>Cargo:</b>
-  <%=h @solicitante.cargo %>
-</p>
+  <div class="show_linha">
+    <div class="linha_titulo">Matricula:</div>
+    <div class="linha_texto"><%=h @solicitante.matricula %></div>
+  </div>
 
+  <div class="show_linha">
+    <div class="linha_titulo">Cargo:</div>
+    <div class="linha_texto"><%=h @solicitante.cargo %></div>
+  </div>
 
-<%= link_to 'Edit', edit_solicitante_path(@solicitante) %> |
-<%= link_to 'Back', solicitantes_path %>
+</div>
+<div id="opcoes_da_visao">
+  <ul>
+    <li id="opcao_voltar" onclick="location.href='<%= solicitantes_path %>'" onmouseover="this.style.cursor = 'pointer'"><%= link_to 'Voltar', solicitantes_path %></li>
+  </ul>
+</div>
 

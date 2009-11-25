@@ -1,17 +1,27 @@
-<p>
-  <b>Matrícula:</b>
-  <%=h @motorista.matricula %>
-</p>
+<div class="show_padrao">
 
-<p>
-  <b>Nome do Motorista:</b>
-  <%=h @motorista.nome_do_motorista %>
-</p>
-<p>
-  <b>Telefone:</b>
-  <%=h @motorista.telefone_do_motorista %>
-</p>
+  <h1>Dados do Motorista</h1>
 
-<%= link_to 'Edit', edit_motorista_path(@motorista) %> |
-<%= link_to 'Back', motoristas_path %>
+  <div class="show_linha">
+    <div class="linha_titulo">Matrícula:</div>
+    <div class="linha_texto"><%=h @motorista.matricula %></div>
+  </div>
+
+  <div class="show_linha">
+    <div class="linha_titulo">Nome do Motorista:</div>
+    <div class="linha_texto"><%=h @motorista.nome_do_motorista %></div>
+  </div>
+
+  <div class="show_linha">
+    <div class="linha_titulo">Telefone:</div>
+    <div class="linha_texto"><%=h @motorista.telefone_do_motorista %></div>
+  </div>
+
+</div>
+
+<div id="opcoes_da_visao">
+  <ul>
+    <li id="opcao_voltar" onclick="location.href='<%= motoristas_path %>'" onmouseover="this.style.cursor = 'pointer'"><%= link_to 'Voltar', motoristas_path %></li>
+  </ul>
+</div>
 

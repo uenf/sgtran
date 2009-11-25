@@ -9,7 +9,7 @@ Factory.define :requisicao do |requisicao|
   requisicao.andar "3º"
   requisicao.sala "109"
   requisicao.data_de_reserva Date.tomorrow.tomorrow
-  requisicao.categoria_de_veiculo nil
+  requisicao.categoria_de_veiculo_id nil
   requisicao.objetivo_da_reserva "gasvchgsvchjsvdc"
   requisicao.outros "vfdsvdfvfdv"
   requisicao.nome_telefone_passageiros "fhjdsvcdsvghsvd"

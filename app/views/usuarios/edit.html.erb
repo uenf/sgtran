@@ -1,28 +1,57 @@
-<h1>Editing usuario</h1>
+<div class="show_padrao">
+<h1>Editar Usuário</h1>
 
 <% form_for(@usuario) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label :nome %><br />
-    <%= f.text_field :nome %>
-  </p>
-  <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :login %><br />
-    <%= f.text_field :login %>
-  </p>
-  <p>
-    <%= f.label :password %><br />
-    <%= f.text_field :password %>
-  </p>
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
-<% end %>
+  <div class="show_linha">
+    <div class="linha_titulo"><%= f.label :nome, "Nome:" %></div>
+    <div class="linha_texto_neutro"><%= f.text_field :nome %></div>
+  </div>
 
-<%= link_to 'Show', @usuario %> |
-<%= link_to 'Back', usuarios_path %>
+  <div class="show_linha">
+    <div class="linha_titulo"><%= f.label :email, "E-mail:" %></div>
+    <div class="linha_texto_neutro"><%= f.text_field :email %></div>
+  </div>
+
+  <div class="show_linha">
+    <div class="linha_titulo"><%= f.label :login, "Login:" %></div>
+    <div class="linha_texto_neutro"><%= f.text_field :login %></div>
+  </div>
+
+  <div class="show_linha">
+    <div class="linha_titulo"><%= f.label :password, "Senha:" %></div>
+    <div class="linha_texto_neutro"><%= f.password_field :password %></div>
+  </div>
+
+  <div class="show_linha">
+    <div class="linha_titulo"><%= f.label :password_confirmation, "Confirmação da senha:" %></div>
+    <div class="linha_texto_neutro"><%= f.password_field :password_confirmation %></div>
+  </div>
+
+  <% if current_user and current_user.has_role? :admin %>
+    <div class="show_linha">
+      <div class="linha_titulo">
+        <label for="role_">Privilégio:</label>
+      </div>
+      <div class="linha_texto_neutro">
+        <select name="role" id="role_">
+          <option value="admin">Administrador</option>
+          <option value="visit">Visitante</option>
+        </select>
+      </div>
+    </div>
+  <% end %>
+
+
+    <div class="botao_concluir"><%= f.submit 'Atualizar' %></div>
+
+<% end %>
+</div>
+
+<div id="opcoes_da_visao">
+  <ul>
+    <li id="opcao_voltar" onclick="location.href='<%= usuarios_path %>'" onmouseover="this.style.cursor = 'pointer'"><%= link_to 'Voltar', usuarios_path %></li>
+  </ul>
+</div>
+

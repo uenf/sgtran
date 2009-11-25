@@ -2,8 +2,9 @@ class UsuarioSessionsController < ApplicationController
 
 
   access_control do
-    allow all, :to => [:new, :create]
+    allow anonymous, :to => [:new, :create]
     allow :admin, :to => [:destroy]
+    allow :visit, :to => [:destroy]
   end
 
   # GET /usuario_sessions/new

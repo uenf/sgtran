@@ -1,8 +1,17 @@
 class CategoriaDeVeiculosController < ApplicationController
   # GET /categoria_de_veiculos
   # GET /categoria_de_veiculos.xml
+  access_control do
+    allow :admin, :to => [:index, :new, :show, :create, :edit, :destroy, :update]
+    allow :visit, :to => [:index, :show]
+  end
+
+  layout "sistema"
+
+
   def index
     @categoria_de_veiculos = CategoriaDeVeiculo.all
+    @sub_layout = "base"
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +23,7 @@ class CategoriaDeVeiculosController < ApplicationController
   # GET /categoria_de_veiculos/1.xml
   def show
     @categoria_de_veiculo = CategoriaDeVeiculo.find(params[:id])
+    @sub_layout = "base"
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,6 +35,7 @@ class CategoriaDeVeiculosController < ApplicationController
   # GET /categoria_de_veiculos/new.xml
   def new
     @categoria_de_veiculo = CategoriaDeVeiculo.new
+    @sub_layout = "base"
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +46,7 @@ class CategoriaDeVeiculosController < ApplicationController
   # GET /categoria_de_veiculos/1/edit
   def edit
     @categoria_de_veiculo = CategoriaDeVeiculo.find(params[:id])
+    @sub_layout = "base"
   end
 
   # POST /categoria_de_veiculos
@@ -48,6 +60,7 @@ class CategoriaDeVeiculosController < ApplicationController
         format.html { redirect_to(@categoria_de_veiculo) }
         format.xml  { render :xml => @categoria_de_veiculo, :status => :created, :location => @categoria_de_veiculo }
       else
+        @sub_layout = "base"
         format.html { render :action => "new" }
         format.xml  { render :xml => @categoria_de_veiculo.errors, :status => :unprocessable_entity }
       end
@@ -65,6 +78,7 @@ class CategoriaDeVeiculosController < ApplicationController
         format.html { redirect_to(@categoria_de_veiculo) }
         format.xml  { head :ok }
       else
+        @sub_layout = "base"
         format.html { render :action => "edit" }
         format.xml  { render :xml => @categoria_de_veiculo.errors, :status => :unprocessable_entity }
       end
@@ -76,6 +90,7 @@ class CategoriaDeVeiculosController < ApplicationController
   def destroy
     @categoria_de_veiculo = CategoriaDeVeiculo.find(params[:id])
     @categoria_de_veiculo.destroy
+    @sub_layout = "base"
 
     respond_to do |format|
       format.html { redirect_to(categoria_de_veiculos_url) }
@@ -83,3 +98,4 @@ class CategoriaDeVeiculosController < ApplicationController
     end
   end
 end
+

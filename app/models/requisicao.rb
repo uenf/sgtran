@@ -26,6 +26,11 @@ class Requisicao < ActiveRecord::Base
       if self.data_de_reserva.year != Date.today.year
         errors.add(:data_de_reserva, "deve estar no ano corrente")
       end
+      if self.categoria_de_veiculo_id != 0 and CategoriaDeVeiculo.find(self.categoria_de_veiculo_id).nome !~ /^(((M|m)icro-)?(Ô|ô)nibus)|(V|v)(an|AN)/
+        if self.data_de_reserva > (Date.today + 15.days)
+          errors.add(:data_de_reserva, "deve ser no máximo 15 dias posterior à data atual, para a categoria de veículo selecionada")
+        end
+      end
     end
   end
 

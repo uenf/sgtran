@@ -1,25 +1,33 @@
-<h1>New motorista</h1>
+<div class="show_padrao">
+<h1>Novo Motorista</h1>
 
 <% form_for(@motorista) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label :matricula %><br />
-    <%= f.text_field :matricula %>
-  </p>
-  <p>
-    <%= f.label :nome_do_motorista %><br />
-    <%= f.text_field :nome_do_motorista %>
-  </p>
-  <p>
-    <%= f.label :telefone_do_motorista %><br />
-    <%= f.text_field :telefone_do_motorista %>
-  </p>
+  <div class="show_linha">
+    <div class="linha_titulo"><%= f.label :matricula, "Matrícula:" %></div>
+    <div class="linha_texto_neutro"><%= f.text_field :matricula %></div>
+</div>
 
-  <p>
-    <%= f.submit 'Create' %>
-  </p>
+  <div class="show_linha">
+    <div class="linha_titulo"><%= f.label :nome_do_motorista, "Nome:" %></div>
+    <div class="linha_texto_neutro"><%= f.text_field :nome_do_motorista %></div>
+</div>
+
+  <div class="show_linha">
+    <div class="linha_titulo"><%= f.label :telefone_do_motorista, "Telefone:" %></div>
+    <div class="linha_texto_neutro"><%= f.text_field :telefone_do_motorista %></div>
+</div>
+
+
+    <%= f.submit 'Criar Motorista', :class => "botao_concluir" %>
+
 <% end %>
+</div>
 
-<%= link_to 'Back', motoristas_path %>
+<div id="opcoes_da_visao">
+  <ul>
+    <li id="opcao_voltar" onclick="location.href='<%= solicitantes_path %>'" onmouseover="this.style.cursor = 'pointer'"><%= link_to 'Voltar', solicitantes_path %></li>
+  </ul>
+</div>
 

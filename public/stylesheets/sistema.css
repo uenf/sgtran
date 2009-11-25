@@ -9,6 +9,7 @@ body {
     left : 50%;
     margin-top : 0px;
     margin-left : -510px;
+    font-family: Verdana, Arial
 }
 
 /*
@@ -74,6 +75,7 @@ body {
 
 #visoes_do_sistema {
     clear : both;
+
 }
 
 #visoes_do_sistema ul {
@@ -133,6 +135,78 @@ body {
 }
 
 /*
+** VISÕES DA BASE DE DADOS
+*/
+
+#visoes_da_base_de_dados {
+    clear : both;
+    padding: 10px;
+    display: table
+}
+
+#visoes_da_base_de_dados ul {
+    margin : 0px;
+    margin-top : 15px;
+    padding-left : 10px;
+
+}
+
+#visoes_da_base_de_dados ul li {
+    float : left;
+    margin : 0px;
+    margin-right : 5px;
+    padding : 5px;
+
+    list-style-position : inside;
+
+    font: 14px Sans;
+    color : #000000;
+
+    border : solid 1px #999999;
+    border-bottom : solid 1px #F5F5F5;
+    background-color : #F5F5F5;
+
+}
+
+#tabela_exibir_base_de_dados {
+    width : 978px;
+    margin : 0px;
+    margin-top : -1px;
+    padding : 10px;
+    height : auto;
+    background-color : #F5F5F5;
+    border : solid 1px #999999;
+    display: table
+}
+
+#base_de_dados {
+    margin-top: 10px
+}
+table.tabela_base_de_dados {
+    width : 977px;
+    background-color : #EEEEEE;
+}
+
+table.tabela_base_de_dados tr {
+    padding : 2px;
+    font : 14px Sans;
+    background-color : #FFFFFF;
+}
+
+table.tabela_base_de_dados tr:hover {
+    background-color : #B9CEE4;
+}
+
+table.tabela_base_de_dados tr th {
+    background-image : url("/images/fundo_tabela_01.jpg");
+    padding : 5px;
+}
+
+table.tabela_base_de_dados tr td {
+    font: 13px Sans;
+}
+
+/*
 ** TABELA DE REQUISIÇÕES
 */
 
@@ -165,7 +239,7 @@ body {
 */
 
 .show_padrao {
-    width : 1018px;
+    width : 100%;
     background-color : #EEEEEE;
     border : solid 1px #999999;
     padding : 2px;
@@ -192,7 +266,7 @@ body {
 .show_padrao .show_linha .linha_titulo {
     text-align : right;
     font : bold 13px Sans;
-    width : 200px;
+    width : 16%;
     background-color : #EFEFEF;
     padding : 2px;
     margin : 1px;
@@ -204,8 +278,21 @@ body {
     float : left;
 }
 
+.show_padrao .show_linha .linha_texto_neutro {
+    width : 80%;
+    padding : 2px;
+    margin : 1px;
+
+
+    min-height : 17px;
+    height : auto !important;
+    height : 17px;
+
+    float : left;
+}
+
 .show_padrao .show_linha .linha_texto {
-    width : 800px;
+    width : 80%;
     padding : 2px;
     margin : 1px;
     background-color : #FFFFFF;
@@ -332,6 +419,25 @@ table.tabela_padrao tr td.cancelada {
 
 
     /*********************************************/
+#opcao_motorista {
+    list-style-image : url("/images/motorista.png");
+}
+
+#opcao_solicitante {
+    list-style-image : url("/images/solicitante.png");
+}
+
+#opcao_veiculo {
+    list-style-image : url("/images/veiculo.png");
+}
+
+#opcao_usuario {
+    list-style-image : url("/images/usuario.png");
+}
+
+#opcao_combustivel {
+    list-style-image : url("/images/combustivel.png");
+}
 
 #opcoes_da_visao ul #opcao_voltar {
     list-style-image : url("/images/voltar.png");
@@ -481,7 +587,7 @@ div.sucesso {
     width : 80px;
 }
 
-.formularios_embutidos .botao_comcluir {
+.botao_concluir {
     clear : both;
     float : right;
 }

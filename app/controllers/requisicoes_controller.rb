@@ -13,6 +13,7 @@ class RequisicoesController < ApplicationController
       allow all, :to => [:new, :create, :confirmar_requisicao, :requisicao_ja_foi_cancelada, :cancelar_requisicao, :visualizar_requisicao,
                           :cancelar_requisicao_pelo_professor]
       allow :admin, :to => [:index, :show, :aceitar, :fechar_viagem]
+      allow :visit, :to => [:index, :show]
   end
 
 

@@ -1,26 +1,42 @@
-<h1>Listing usuarios</h1>
+<% if current_user.has_role? :admin %>
+  <a href="/usuarios/new"><img border="0" src="/images/adicionar_dado.png">Adicionar Usuário</a>
+<% end %>
 
-<table>
+<table id="base_de_dados" class="tabela_base_de_dados">
   <tr>
     <th>Nome</th>
     <th>Email</th>
     <th>Login</th>
-    <th>Password</th>
+    <th>Permissão</th>
+    <th></th>
+    <th></th>
   </tr>
 
 <% @usuarios.each do |usuario| %>
-  <tr>
-    <td><%=h usuario.nome %></td>
-    <td><%=h usuario.email %></td>
-    <td><%=h usuario.login %></td>
-    <td><%=h usuario.password %></td>
-    <td><%= link_to 'Show', usuario %></td>
-    <td><%= link_to 'Edit', edit_usuario_path(usuario) %></td>
-    <td><%= link_to 'Destroy', usuario, :confirm => 'Are you sure?', :method => :delete %></td>
+  <tr >
+    <td onclick="location.href='<%= usuario_path(usuario) %>'" onmouseover="this.style.cursor='pointer'"><%=h usuario.nome %></td>
+    <td onclick="location.href='<%= usuario_path(usuario) %>'" onmouseover="this.style.cursor='pointer'"><%=h usuario.email %></td>
+    <td onclick="location.href='<%= usuario_path(usuario) %>'" onmouseover="this.style.cursor='pointer'"><%=h usuario.login %></td>
+    <td onclick="location.href='<%= usuario_path(usuario) %>'" onmouseover="this.style.cursor='pointer'">
+    <% role = Role.find_by_sql("SELECT name FROM roles_usuarios, roles WHERE roles_usuarios.usuario_id='"+usuario.id.to_s+"' AND roles_usuarios.role_id=roles.id") %>
+      <% role.each do |r| %>
+        <% if r.name == "visit" %>
+          <%= "Visitante" %>
+        <% else %>
+          <% if r.name == "admin" %>
+            <%= "Administrador" %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </td>
+    <% if current_user.has_role? :admin %>
+      <td onclick="location.href='<%= edit_usuario_path(usuario) %>'" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("editar_dado.png", :border => 0, :alt => "Editar"), edit_usuario_path(usuario) %></td>
+      <td onclick="" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("deletar_dado.png", :border => 0, :alt => "Deletar"), usuario, :confirm => 'Tem certeza que deseja apagar?', :method => :delete %></td>
+    <% else %>
+      <td></td>
+      <td></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
-<br />
-
-<%= link_to 'New usuario', new_usuario_path %>
