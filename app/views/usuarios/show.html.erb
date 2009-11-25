@@ -1,23 +1,42 @@
-<p>
-  <b>Nome:</b>
-  <%=h @usuario.nome %>
-</p>
+<div class="show_padrao">
 
-<p>
-  <b>Email:</b>
-  <%=h @usuario.email %>
-</p>
+  <h1>Dados do Usuários</h1>
 
-<p>
-  <b>Login:</b>
-  <%=h @usuario.login %>
-</p>
+  <div class="show_linha">
+    <div class="linha_titulo">Nome:</div>
+    <div class="linha_texto"><%=h @usuario.nome %></div>
+  </div>
 
-<p>
-  <b>Password:</b>
-  <%=h @usuario.password %>
-</p>
+  <div class="show_linha">
+    <div class="linha_titulo">Email:</div>
+    <div class="linha_texto"><%=h @usuario.email %></div>
+  </div>
 
+  <div class="show_linha">
+    <div class="linha_titulo">Login:</div>
+    <div class="linha_texto"><%=h @usuario.login %></div>
+  </div>
 
-<%= link_to 'Edit', edit_usuario_path(@usuario) %> |
-<%= link_to 'Back', usuarios_path %>
+  <div class="show_linha">
+    <div class="linha_titulo">Permissão:</div>
+    <% @roles.each do |r| %>
+      <div class="linha_texto">
+      <% if r.name == "admin" %>
+        <%= "Administrador" %>
+      <% else %>
+        <% if r.name == "visit" %>
+          <%= "Visitante" %>
+        <% end %>
+      <% end %>
+      </div>
+    <% end %>
+  </div>
+
+</div>
+
+<div id="opcoes_da_visao">
+  <ul>
+    <li id="opcao_voltar" onclick="location.href='<%= usuarios_path %>'" onmouseover="this.style.cursor = 'pointer'"><%= link_to 'Voltar', usuarios_path %></li>
+  </ul>
+</div>
+

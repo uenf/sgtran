@@ -1,38 +1,55 @@
-<h1>New usuario</h1>
+<div class="show_padrao">
+<h1>Novo Usuário</h1>
 
 <% form_for(@usuario) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label :nome, "Nome: " %>
-    <%= f.text_field :nome %>
-  </p>
-  <p>
-    <%= f.label :email, "E-mail: " %>
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :login, "Login:" %>
-    <%= f.text_field :login %>
-  </p>
-  <p>
-    <%= f.label :password, "Senha:" %>
-    <%= f.password_field :password %>
-  </p>
-  <p>
-    <%= f.label :password_confirmation, "Confirmação da senha:" %>
-    <%= f.password_field :password_confirmation %>
-  </p>
+  <div class="show_linha">
+    <div class="linha_titulo"><%= f.label :nome, "Nome: " %></div>
+    <div class="linha_texto_neutro"><%= f.text_field :nome %></div>
+  </div>
+
+  <div class="show_linha">
+    <div class="linha_titulo"><%= f.label :email, "E-mail: " %></div>
+    <div class="linha_texto_neutro"><%= f.text_field :email %></div>
+  </div>
+
+  <div class="show_linha">
+    <div class="linha_titulo"><%= f.label :login, "Login:" %></div>
+    <div class="linha_texto_neutro"><%= f.text_field :login %></div>
+  </div>
+
+  <div class="show_linha">
+    <div class="linha_titulo"><%= f.label :password, "Senha:" %></div>
+    <div class="linha_texto_neutro"><%= f.password_field :password %></div>
+  </div>
+
+  <div class="show_linha">
+    <div class="linha_titulo"><%= f.label :password_confirmation, "Confirmação da senha:" %></div>
+    <div class="linha_texto_neutro"><%= f.password_field :password_confirmation %></div>
+  </div>
+
   <% if current_user and current_user.has_role? :admin %>
-    <p>
-      <label for="role_">Privilégio:</label>
-      <select name="role" id="role_">
-        <option value="admin">Administrador</option>
-        <option value="visit">Visitante</option>
-      </select>
-    </p>
+    <div class="show_linha">
+      <div class="linha_titulo">
+        <label for="role_">Privilégio:</label>
+      </div>
+      <div class="linha_texto_neutro">
+        <select name="role" id="role_">
+          <option value="admin">Administrador</option>
+          <option value="visit">Visitante</option>
+        </select>
+      </div>
+    </div>
   <% end %>
-    <%= f.submit 'Criar' %>
-  </p>
+    <div class="botao_concluir"><%= f.submit 'Criar' %></div>
+
 <% end %>
+</div>
+
+<div id="opcoes_da_visao">
+  <ul>
+    <li id="opcao_voltar" onclick="location.href='<%= usuarios_path %>'" onmouseover="this.style.cursor = 'pointer'"><%= link_to 'Voltar', usuarios_path %></li>
+  </ul>
+</div>
 

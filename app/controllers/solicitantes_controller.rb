@@ -3,11 +3,16 @@ class SolicitantesController < ApplicationController
   # GET /solicitantes.xml
 
   access_control do
-    allow :admin, :to => [:index, :show, :new, :edit, :destroy, :create, :update]
+    allow :admin, :to => [:index, :new, :show, :create, :edit, :destroy, :update]
+    allow :visit, :to => [:index, :show]
   end
+
+  layout "sistema"
+
 
   def index
     @solicitantes = Solicitante.all
+    @sub_layout = "base"
 
     respond_to do |format|
       format.html # index.html.erb
@@ -19,6 +24,7 @@ class SolicitantesController < ApplicationController
   # GET /solicitantes/1.xml
   def show
     @solicitante = Solicitante.find(params[:id])
+    @sub_layout = "base"
 
     respond_to do |format|
       format.html # show.html.erb
@@ -30,6 +36,7 @@ class SolicitantesController < ApplicationController
   # GET /solicitantes/new.xml
   def new
     @solicitante = Solicitante.new
+    @sub_layout = "base"
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,6 +47,7 @@ class SolicitantesController < ApplicationController
   # GET /solicitantes/1/edit
   def edit
     @solicitante = Solicitante.find(params[:id])
+    @sub_layout = "base"
   end
 
   # POST /solicitantes
@@ -53,6 +61,7 @@ class SolicitantesController < ApplicationController
         format.html { redirect_to(@solicitante) }
         format.xml  { render :xml => @solicitante, :status => :created, :location => @solicitante }
       else
+        @sub_layout = "base"
         format.html { render :action => "new" }
         format.xml  { render :xml => @solicitante.errors, :status => :unprocessable_entity }
       end
@@ -70,6 +79,7 @@ class SolicitantesController < ApplicationController
         format.html { redirect_to(@solicitante) }
         format.xml  { head :ok }
       else
+        @sub_layout = "base"
         format.html { render :action => "edit" }
         format.xml  { render :xml => @solicitante.errors, :status => :unprocessable_entity }
       end
@@ -81,6 +91,7 @@ class SolicitantesController < ApplicationController
   def destroy
     @solicitante = Solicitante.find(params[:id])
     @solicitante.destroy
+    @sub_layout = "base"
 
     respond_to do |format|
       format.html { redirect_to(solicitantes_url) }

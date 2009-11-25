@@ -1,27 +1,31 @@
-<h1>Listing solicitantes</h1>
+<% if current_user.has_role? :admin %>
+  <a href="/solicitantes/new"><img border="0" src="/images/adicionar_dado.png">Adicionar Solicitante</a>
+<% end %>
 
-<table>
+<table id="base_de_dados" class="tabela_base_de_dados">
   <tr>
     <th>Nome</th>
     <th>Email</th>
     <th>Matricula</th>
     <th>Cargo</th>
+    <th class="celula_neutra"></th>
+    <th class="celula_neutra"></th>
   </tr>
 
 <% @solicitantes.each do |solicitante| %>
-  <tr>
-    <td><%=h solicitante.nome %></td>
-    <td><%=h solicitante.email %></td>
-    <td><%=h solicitante.matricula %></td>
-    <td><%=h solicitante.cargo %></td>
-    <td><%= link_to 'Show', solicitante %></td>
-    <td><%= link_to 'Edit', edit_solicitante_path(solicitante) %></td>
-    <td><%= link_to 'Destroy', solicitante, :confirm => 'Are you sure?', :method => :delete %></td>
+  <tr >
+    <td onclick="location.href='<%= solicitante_path(solicitante) %>'" onmouseover="this.style.cursor='pointer'"><%=h solicitante.nome %></td>
+    <td onclick="location.href='<%= solicitante_path(solicitante) %>'" onmouseover="this.style.cursor='pointer'"><%=h solicitante.email %></td>
+    <td onclick="location.href='<%= solicitante_path(solicitante) %>'" onmouseover="this.style.cursor='pointer'"><%=h solicitante.matricula %></td>
+    <td onclick="location.href='<%= solicitante_path(solicitante) %>'" onmouseover="this.style.cursor='pointer'"><%=h solicitante.cargo %></td>
+    <% if current_user.has_role? :admin %>
+      <td onclick="location.href='<%= edit_solicitante_path(solicitante) %>'" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("editar_dado.png", :border => 0, :alt => "Editar"), edit_solicitante_path(solicitante) %></td>
+      <td onclick="" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("deletar_dado.png", :border => 0, :alt => "Deletar"), solicitante, :confirm => 'Tem certeza que deseja apagar?', :method => :delete %></td>
+    <% else %>
+      <td></td>
+      <td></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New solicitante', new_solicitante_path %>
 

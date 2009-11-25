@@ -1,24 +1,29 @@
-<h1>Listing motoristas</h1>
+<% if current_user.has_role? :admin %>
+  <a href="/motoristas/new"><img border="0" src="/images/adicionar_dado.png">Adicionar Motorista</a>
+<% end %>
 
-<table>
+<table id="base_de_dados" class="tabela_base_de_dados">
   <tr>
     <th>Matricula</th>
     <th>Nome do Motorista</th>
     <th>Telefone</th>
+    <th></th>
+    <th></th>
   </tr>
+
 <% @motoristas.each do |motorista| %>
-  <tr>
-    <td><%=h motorista.matricula %></td>
-    <td><%=h motorista.nome_do_motorista %></td>
-    <td><%=h motorista.telefone_do_motorista %></td>
-    <td><%= link_to 'Show', motorista %></td>
-    <td><%= link_to 'Edit', edit_motorista_path(motorista) %></td>
-    <td><%= link_to 'Destroy', motorista, :confirm => 'Are you sure?', :method => :delete %></td>
+  <tr >
+    <td onclick="location.href='<%= motorista_path(motorista) %>'" onmouseover="this.style.cursor='pointer'"><%=h motorista.matricula %></td>
+    <td onclick="location.href='<%= motorista_path(motorista) %>'" onmouseover="this.style.cursor='pointer'"><%=h motorista.nome_do_motorista %></td>
+    <td onclick="location.href='<%= motorista_path(motorista) %>'" onmouseover="this.style.cursor='pointer'"><%=h motorista.telefone_do_motorista %></td>
+    <% if current_user.has_role? :admin  %>
+      <td onclick="location.href='<%= edit_motorista_path(motorista) %>'" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("editar_dado.png", :border => 0, :alt => "Editar"), edit_motorista_path(motorista) %></td>
+      <td onclick="" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("deletar_dado.png", :border => 0, :alt => "Deletar"), motorista, :confirm => 'Tem certeza que deseja apagar?', :method => :delete %></td>
+    <% else %>
+      <td></td>
+      <td></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New motorista', new_motorista_path %>
 

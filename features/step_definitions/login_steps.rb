@@ -25,7 +25,7 @@ Dado /^que eu tenho uma requisição com solicitante "([^\"]*)"$/ do |solicitant
   Factory.create :requisicao, :solicitante_id => solicitante.id, :categoria_de_veiculo_id => categoria_de_veiculo.id
 end
 
-Dado /^que eu estou não estou logado$/ do
+Dado /^que eu não estou logado$/ do
   logout
 end
 

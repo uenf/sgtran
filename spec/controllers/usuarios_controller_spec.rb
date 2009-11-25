@@ -92,13 +92,13 @@ describe UsuariosController do
       end
 
       it "assigns the requested usuario as @usuario" do
-        Usuario.stub!(:find).and_return(mock_usuario(:update_attributes => true))
+        Usuario.stub!(:find).and_return(mock_usuario(:update_attributes => true, :has_role! => nil))
         put :update, :id => "1"
         assigns[:usuario].should equal(mock_usuario)
       end
 
       it "redirects to the usuario" do
-        Usuario.stub!(:find).and_return(mock_usuario(:update_attributes => true))
+        Usuario.stub!(:find).and_return(mock_usuario(:update_attributes => true, :has_role! => nil))
         put :update, :id => "1"
         response.should redirect_to(usuario_url(mock_usuario))
       end

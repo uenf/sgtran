@@ -19,13 +19,13 @@ Para que eu possa utiliza-lo no sistema
     E eu marco "<Combustivel2>"
     E eu seleciono "<Categoria>" em "Categoria"
     E eu preencho "Placa" com "<Placa>"
-    E eu preencho "Numero de ordem" com "<Ordem>"
+    E eu preencho "Número de ordem" com "<Ordem>"
     E eu preencho "Renavam" com "<Renavam>"
-    E eu pressiono "Cadastrar"
+    E eu pressiono "Criar Veículo"
     Então eu devo ver "<Sentença>"
 
     Exemplos:(Veiculo criado com sucesso)
 
     | Marca     | Modelo        | Cor       | Ano   | Combustivel1  | Combustivel2  | Categoria                     | Placa     | Ordem     | Renavam   | Sentença                          |
-    | Fiat      | Uno           | Azul      | 2008  | Gasolina      | Alcool        | Automóvel até 4 passageiros   | LAC-4583  | 145623    | 7961313   | Veículo cadastrado com sucesso!   |
+    | Fiat      | Uno           | Azul      | 2008  | Gasolina      | Alcool        | Automóvel até 4 passageiros   | LAC-4583  | 145623    | 7961313   | LAC-4583                          |
 

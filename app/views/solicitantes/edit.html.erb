@@ -1,29 +1,37 @@
-<h1>Editing solicitante</h1>
+<div class="show_padrao">
+<h1>Editar Solicitante</h1>
 
 <% form_for(@solicitante) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label :nome %><br />
-    <%= f.text_field :nome %>
-  </p>
-  <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :matricula %><br />
-    <%= f.text_field :matricula %>
-  </p>
-  <p>
-    <%= f.label :cargo %><br />
-    <%= f.text_field :cargo %>
-  </p>
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
-<% end %>
+  <div class="show_linha">
+    <div class="linha_titulo"><%= f.label :nome, "Nome:" %></div>
+    <div class="linha_texto_neutro"><%= f.text_field :nome %></div>
+  </div>
 
-<%= link_to 'Show', @solicitante %> |
-<%= link_to 'Back', solicitantes_path %>
+  <div class="show_linha">
+    <div class="linha_titulo"><%= f.label :email, "E-mail:" %></div>
+    <div class="linha_texto_neutro"><%= f.text_field :email %></div>
+  </div>
+
+  <div class="show_linha">
+    <div class="linha_titulo"><%= f.label :matricula, "Matrícula" %></div>
+    <div class="linha_texto_neutro"><%= f.text_field :matricula %></div>
+  </div>
+
+  <div class="show_linha">
+    <div class="linha_titulo"><%= f.label :cargo, "Cargo:" %></div>
+    <div class="linha_texto_neutro"><%= f.text_field :cargo %></div>
+  </div>
+
+    <div class="botao_concluir"><%= f.submit 'Atualizar' %></div>
+
+<% end %>
+</div>
+
+<div id="opcoes_da_visao">
+  <ul>
+    <li id="opcao_voltar" onclick="location.href='<%= solicitantes_path %>'" onmouseover="this.style.cursor = 'pointer'"><%= link_to 'Voltar', solicitantes_path %></li>
+  </ul>
+</div>
 

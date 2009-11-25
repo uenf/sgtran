@@ -2,6 +2,10 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe VeiculosController do
 
+  before(:each) do
+    login({}, { :roles => {'admin' => nil} })
+  end
+
   def mock_veiculo(stubs={})
     @mock_veiculo ||= mock_model(Veiculo, stubs)
   end
@@ -129,7 +133,7 @@ describe VeiculosController do
     it "redirects to the veiculos list" do
       Veiculo.stub!(:find).and_return(mock_veiculo(:destroy => true))
       delete :destroy, :id => "1"
-      response.should redirect_to(veiculos_url)
+      response.should redirect_to(veiculos_path)
     end
   end
 

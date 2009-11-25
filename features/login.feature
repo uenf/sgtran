@@ -8,6 +8,7 @@ Funcionalidade: Login para o sistema
 
     Esquema do Cenário:
     Dado que eu tenho uma requisição com solicitante "<Solicitante>"
+    E que eu não estou logado
     E que eu estou na página de login
     Quando eu preencho "Login" com "<Login>"
     E eu preencho "Senha" com "<Senha>"
@@ -29,7 +30,7 @@ Funcionalidade: Login para o sistema
     Quando eu vou para "<Página desejada>"
     Então eu devo estar na <Página desejada>
 
-    Dado que eu estou não estou logado
+    Dado que eu não estou logado
     Quando eu vou para "<Página desejada>"
     Então eu devo estar na página de requisição
 
