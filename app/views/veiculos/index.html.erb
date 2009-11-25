@@ -1,5 +1,5 @@
 <% if current_user.has_role? :admin %>
-  <a href="/veiculos/new"><img border="0" src="/images/adicionar_dado.png">Adicionar Veiculo</a>
+  <a href="/veiculos/new" class="link_botao">Adicionar Veiculo</a>
 <% end %>
 
 <table id="base_de_dados" class="tabela_base_de_dados">
@@ -12,13 +12,13 @@
     <th>N&#186; de ordem</th>
     <th>Renavam</th>
     <th>Categoria</th>
-    <th></th>
-    <th></th>
+    <th class="celula_neutra_estatica"></th>
+    <th class="celula_neutra_estatica"></th>
   </tr>
 
 <% @veiculos.each do |veiculo| %>
   <tr >
-    <td  onclick="location.href='<%= veiculo_path(veiculo) %>'" onmouseover="this.style.cursor='pointer'"><%=h veiculo.marca %></td>
+    <td onclick="location.href='<%= veiculo_path(veiculo) %>'" onmouseover="this.style.cursor='pointer'"><%=h veiculo.marca %></td>
     <td onclick="location.href='<%= veiculo_path(veiculo) %>'" onmouseover="this.style.cursor='pointer'"><%=h veiculo.modelo %></td>
     <td onclick="location.href='<%= veiculo_path(veiculo) %>'" onmouseover="this.style.cursor='pointer'"><%=h veiculo.cor %></td>
     <td onclick="location.href='<%= veiculo_path(veiculo) %>'" onmouseover="this.style.cursor='pointer'"><%=h veiculo.ano %></td>

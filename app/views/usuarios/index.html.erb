@@ -1,5 +1,5 @@
 <% if current_user.has_role? :admin %>
-  <a href="/usuarios/new"><img border="0" src="/images/adicionar_dado.png">Adicionar Usuário</a>
+  <a href="/usuarios/new" class="link_botao">Adicionar Usuário</a>
 <% end %>
 
 <table id="base_de_dados" class="tabela_base_de_dados">
@@ -8,8 +8,8 @@
     <th>Email</th>
     <th>Login</th>
     <th>Permissão</th>
-    <th></th>
-    <th></th>
+    <th class="celula_neutra_estatica"></th>
+    <th class="celula_neutra_estatica"></th>
   </tr>
 
 <% @usuarios.each do |usuario| %>

@@ -1,3 +1,4 @@
+/*
 body {
     position : absolute;
     width : 1020px;
@@ -33,5 +34,80 @@ p {
 }
 .text {
     width: 180px
+}
+*/
+
+body {
+    position : absolute;
+    width : 350px;
+    left : 50%;
+    margin-top : 100px;
+    margin-left : -175px;
+    font-family: Verdana, Arial;
+    font-size : 13px;
+}
+
+p {
+    clear: both
+}
+
+label {
+    margin : 2px;
+    margin-bottom : 20px;
+    float : left;
+    width : 100px;
+	text-align: right
+}
+
+input {
+	width : 200px;
+	border : 1px solid #AAAAAA;
+}
+
+#janela_login {
+    width : 360px;
+}
+
+#janela_login #login_usuario_senha {
+    margin-left : -10px;
+    background-image : url("/images/login_fundo.jpg");
+    background-repeat : repeat-y;
+    border-bottom : 0px;
+    border-top : 0px;
+    padding : 5px;
+}
+
+#submit {
+    background-image : url("/images/fundo_botao_01.jpg");
+    padding : 2px;
+    margin-left : 105px;
+    width: 80px
+}
+
+#janela_login #login_logotipo {
+    margin-left : -10px;
+    background-image : url("/images/login_topo.jpg");
+    background-repeat : no-repeat;
+    width : 360px;
+    height : 100px;
+}
+
+#janela_login #login_inferior {
+    margin-left : -10px;
+    background-image : url("/images/login_inferior.jpg");
+    background-repeat : no-repeat;
+    width : 360px;
+    height : 53px;
+}
+
+#errorExplanation {
+    width : 300px;
+    padding : 20px;
+    color : #444444;
+}
+
+#errorExplanation h2 {
+    font-family: Verdana, Arial;
+    font-size : 15px;
 }
 

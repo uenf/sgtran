@@ -1,19 +1,27 @@
-<div id="corpo">
-  <h1>SGTRAN</h1>
-  <% form_for(@usuario_session) do |f| %>
-    <%= f.error_messages %>
+<div id="janela_login">
 
-    <p>
-      <%= f.label :login, "Login:" %>
-      <%= f.text_field :login, :class => "text" %>
-    </p>
-    <p>
-      <%= f.label :password, "Senha:" %>
-      <%= f.password_field :password, :class => "text" %>
-    </p>
-    <p>
-      <%= f.submit 'Entrar', :class => "submit" %>
-    </p>
-  <% end %>
+  <div id="login_logotipo">
+  </div>
+
+  <div id="login_usuario_senha">
+    <% form_for(@usuario_session) do |f| %>
+      <%= f.error_messages %>
+      <p>
+        <%= f.label :login, "Login:" %>
+        <%= f.text_field :login %>
+      </p>
+      <p>
+        <%= f.label :password, "Senha:" %>
+        <%= f.password_field :password %>
+      </p>
+      <p>
+        <%= f.submit 'Entrar', :id => "submit" %>
+      </p>
+    <% end %>
+  </div>
+
+    <div id="login_inferior">
+  </div>
+
 </div>
 

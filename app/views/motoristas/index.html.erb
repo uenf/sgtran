@@ -1,5 +1,5 @@
 <% if current_user.has_role? :admin %>
-  <a href="/motoristas/new"><img border="0" src="/images/adicionar_dado.png">Adicionar Motorista</a>
+  <a href="/motoristas/new" class="link_botao">Adicionar Motorista</a>
 <% end %>
 
 <table id="base_de_dados" class="tabela_base_de_dados">
@@ -7,8 +7,8 @@
     <th>Matr&iacute;cula</th>
     <th>Nome</th>
     <th>Telefone</th>
-    <th></th>
-    <th></th>
+    <th class="celula_neutra_estatica"></th>
+    <th class="celula_neutra_estatica"></th>
   </tr>
 
 <% @motoristas.each do |motorista| %>

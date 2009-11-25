@@ -12,6 +12,17 @@ body {
     font-family: Verdana, Arial
 }
 
+a {
+    font-family : verdana;
+    font-size : 13px;
+    text-decoration : none;
+    color : #000000;
+}
+
+a:hover {
+    text-decoration : underline;
+}
+
 /*
 ** CABEÇALHO
 */
@@ -65,8 +76,16 @@ body {
     margin : 0px;
 }
 
-#cabecalho #opcoes_gerais {
+#cabecalho #login {
+    padding : 20px;
     float : right;
+}
+
+#cabecalho #login #logout {
+    background-image : url("/images/logout.png");
+    background-repeat : no-repeat;
+    background-position : center left;
+    padding-left : 20px;
 }
 
 /*
@@ -117,7 +136,7 @@ body {
     /*********************************************/
 
 #visoes_do_sistema ul li a {
-    font: 14px Sans;
+    font : 14px Sans;
     color : #000000;
     text-decoration : none;
 }
@@ -159,7 +178,7 @@ body {
 
     list-style-position : inside;
 
-    font: 14px Sans;
+    font : 14px Sans;
     color : #000000;
 
     border : solid 1px #999999;
@@ -167,6 +186,10 @@ body {
     background-color : #F5F5F5;
 
 }
+
+/*
+** TABELA DA BASE DE DADOS
+*/
 
 #tabela_exibir_base_de_dados {
     width : 978px;
@@ -180,8 +203,9 @@ body {
 }
 
 #base_de_dados {
-    margin-top: 10px
+    margin-top : 10px
 }
+
 table.tabela_base_de_dados {
     width : 977px;
     background-color : #EEEEEE;
@@ -202,12 +226,18 @@ table.tabela_base_de_dados tr th {
     padding : 5px;
 }
 
+table.tabela_base_de_dados tr th.celula_neutra_estatica {
+    background-color : #EEEEEE;
+    background-image : none;
+    width : 15px;
+}
+
 table.tabela_base_de_dados tr td {
     font: 13px Sans;
 }
 
 /*
-** TABELA DE REQUISIÇÕES
+** TABELA DE EXIBIÇĨOES
 */
 
 #tabela_exibir {
@@ -231,7 +261,7 @@ table.tabela_base_de_dados tr td {
 #exibir p{
     margin : 0px;
     padding : 2px;
-    font: 12px Sans;
+    font : 12px Sans;
 }
 
 /*
@@ -628,5 +658,39 @@ div.sucesso {
 
 #error_messages ul li:hover {
     background : transparent;
+}
+
+/*
+** LINK BOTÃO
+*/
+
+a.link_botao {
+    font-family : verdana;
+    font-size : 13px;
+    text-decoration : none;
+    color : #000000;
+    padding : 2px;
+    padding-left : 22px;
+    background-image : url("/images/adicionar_dado.png");
+    background-color : #FFFFFF;
+    background-repeat : no-repeat;
+    background-position : 2px center;
+    border : 1px solid #BBBBBB;
+}
+
+a.link_botao:hover {
+    background-color : #B9CEE4;
+}
+
+/*
+** JANELA DE LOGIN
+*/
+
+#janela_login {
+    width : 500px;
+}
+
+#janela_login #login_usuario_senha {
+    border : solid 1px #1d5bd3;
 }
 
