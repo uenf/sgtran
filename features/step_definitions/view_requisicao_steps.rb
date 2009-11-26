@@ -10,11 +10,14 @@ Given /^que eu tenha ([0-9]+) requisições em espera$/ do |quantidade|
 end
 
 Then /^eu devo ver a tabela "(.+)" com$/ do |tabela_id, tabela_esperada|
-  tabela_esperada.map_column!('Data') do |data|
-    if data == 'Daqui a dois dias'
-      data = Date.tomorrow.tomorrow.strftime("%d/%m/%Y")
+  begin
+    tabela_esperada.map_column!('Data') do |data|
+      if data == 'Daqui a dois dias'
+        data = Date.tomorrow.tomorrow.strftime("%d/%m/%Y")
+      end
+      data
     end
-    data
+  rescue
   end
   tabela_esperada.diff!(table_at("#" + tabela_id).to_a)
 end

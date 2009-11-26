@@ -702,3 +702,13 @@ a.link_botao:hover {
     border : solid 1px #1d5bd3;
 }
 
+.invisivel
+{
+    display: none
+}
+
+.visivel
+{
+    display: block
+}
+

@@ -38,3 +38,20 @@ Funcionalidade: Aceitar requisição de viagem
     | Daqui a 2 dias  |                 | 10:00   | Eduardo Silva           | Eduardo Silva     |
     |                 |                 | 10:00   | Selecione um motorista  |                   |
 
+
+    Esquema do Cenário: Aceitar com uma viagem já existente
+      Dado que eu tenha uma viagem
+      E que eu tenha uma requisição em espera
+      E que eu estou na página de detalhes da requisição
+      Quando eu clico em "Aceitar"
+      Então eu devo estar na página de editar detalhes da viagem
+      Quando eu escolho "Atender com uma viagem já existente"
+      E <ação>
+      E eu pressiono "Concluir"
+      Então <resposta>
+
+      Exemplos:
+        | ação                          | resposta                                           |
+        | eu escolho a viagem existente | eu devo estar na página de visualização de viagens |
+        | eu não escolho nenhuma viagem | eu devo ver "Viagem não foi selecionada"           |
+
