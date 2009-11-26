@@ -3,7 +3,7 @@
 <h1>Modificar veículo</h1>
 
 <% form_for(@veiculo) do |f| %>
-  <%= f.error_messages %>
+  <%= mensagem_de_erro(@veiculo) %>
 
   <div class="show_linha">
     <div class="linha_titulo"><%= f.label :marca, "Marca:" %></div>

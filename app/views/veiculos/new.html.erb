@@ -3,7 +3,7 @@
 <h1>Novo Veículo</h1>
 
 <% form_for(@veiculo) do |f| %>
-  <%= f.error_messages %>
+  <%= mensagem_de_erro(@veiculo) %>
 
   <div class="show_linha">
     <div class="linha_titulo"><%= f.label :marca, "Marca:" %></div>
@@ -60,7 +60,7 @@
 
 <div id="opcoes_da_visao">
   <ul>
-    <li id="opcao_voltar" onclick="location.href='<%= solicitantes_path %>'" onmouseover="this.style.cursor = 'pointer'"><%= link_to 'Voltar', solicitantes_path %></li>
+    <li id="opcao_voltar" onclick="location.href='<%= veiculos_path %>'" onmouseover="this.style.cursor = 'pointer'"><%= link_to 'Voltar', veiculos_path %></li>
   </ul>
 </div>
 

@@ -30,5 +30,10 @@ describe Solicitante do
       solicitante = Solicitante.verificarExistencia({:matricula => "0121001", :email => "professor@uenf.br"})
       solicitante.should be_nil
   end
+
+  it "Deve invalidar caso o nome seja vazio" do
+    solicitante = Factory.build :solicitante, :nome => ""
+    solicitante.valid?.should be_false
+  end
 end
 

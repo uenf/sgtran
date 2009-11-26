@@ -2,7 +2,7 @@
   <h1>Editar Motorista</h1>
 
   <% form_for(@motorista) do |f| %>
-    <%= f.error_messages %>
+    <%= mensagem_de_erro(@motorista) %>
 
   <div class="show_linha">
     <div class="linha_titulo"><%= f.label :matricula, "Matrícula:" %></div>

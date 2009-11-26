@@ -2,7 +2,7 @@
 <h1>Novo Usuário</h1>
 
 <% form_for(@usuario) do |f| %>
-  <%= f.error_messages %>
+  <%= mensagem_de_erro(@usuario) %>
 
   <div class="show_linha">
     <div class="linha_titulo"><%= f.label :nome, "Nome: " %></div>
