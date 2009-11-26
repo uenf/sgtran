@@ -35,8 +35,13 @@ Dado /^que eu estou logado com o login "([^\"]*)" e a senha "([^\"]*)"$/ do |log
   Factory.create :usuario_session, :login => usuario.login, :senha => usuario.password
 end
 
+Dado /^que eu tenha uma viagem$/ do
+  @viagem = Factory.create :viagem
+  @viagem_id = @viagem.id
+end
+
 Quando /^eu escolho "([^\"]*)"$/ do |field|
-  choose(path_to(field))
+  choose(field)
 end
 
 Dado /^que eu tenho "([^\"]*)" em Motorista$/ do |nome|

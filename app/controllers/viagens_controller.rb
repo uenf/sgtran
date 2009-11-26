@@ -3,7 +3,7 @@ class ViagensController < ApplicationController
   # GET /viagens.xml
 
   access_control do
-    allow :admin, :to => [:index, :show, :new, :edit, :create, :update, :destroy]
+    allow :admin, :to => [:index, :show, :new, :edit, :create, :update, :destroy, :viagens_existentes]
   end
 
   layout "sistema"
@@ -90,5 +90,6 @@ class ViagensController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
 end
 

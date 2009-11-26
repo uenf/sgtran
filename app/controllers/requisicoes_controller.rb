@@ -148,21 +148,22 @@ class RequisicoesController < ApplicationController
   end
 
   def aceitar
-    @viagem       = session[:viagem]
-    @requisicao   = Requisicao.find(params[:id])
+    @requisicao = session[:requisicao] ? session[:requisicao] : Requisicao.find(params[:id])
     @solicitante  = Solicitante.find(@requisicao.solicitante_id)
 
+    @viagem       = session[:viagem]
     if @viagem.nil?
       @viagem = Viagem.new :data_partida => @requisicao.data_de_reserva, :data_chegada => @requisicao.data_de_reserva
     end
-
     session.delete :viagem
+
+    @viagens      = Viagem.all
   end
 
   def fechar_viagem
     @requisicao = Requisicao.find(params[:id])
 
-    if @requisicao.viagem_id == nil
+    if @requisicao.viagem_id == nil && params[:escolha_de_viagem].eql?("nova")
 
       viagem = @requisicao.aceitar(
         Motorista.find_by_id(params[:motorista][:id]),
@@ -174,6 +175,18 @@ class RequisicoesController < ApplicationController
         redirect_to :controller => "viagem", :action => "show", :id => viagem.id
       else
         session[:viagem] = viagem
+        redirect_to :action => "aceitar"
+      end
+
+    elsif params[:escolha_de_viagem].eql?("existente")
+      if not params[:id_da_viagem].blank?
+        viagem = @requisicao.aceitar_com_viagem_existente(params[:id_da_viagem])
+        redirect_to :controller => "viagem", :action => "show", :id => viagem.id
+      else
+        @requisicao.errors.add(:viagem, "não foi selecionada.")
+        session[:requisicao] = @requisicao
+#        @solicitante  = Solicitante.find(@requisicao.solicitante_id)
+#        @viagens      = Viagem.all
         redirect_to :action => "aceitar"
       end
 

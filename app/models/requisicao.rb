@@ -217,13 +217,26 @@ class Requisicao < ActiveRecord::Base
 
     viagem.save!
 
+    self.estado = ACEITA
+    self.viagem_id = viagem.id
+
+#    Requisicao.update(self.id, :estado => ACEITA, :viagem_id => viagem.id)
+
+    self.save(perform_validation = false)
+
+    return viagem
+    # enviar e-mail aqui
+  end
+
+  def aceitar_com_viagem_existente(viagem_id)
+    viagem = Viagem.find(viagem_id)
+
     self.estado    = ACEITA
     self.viagem_id = viagem.id
 
     self.save!
 
     return viagem
-    # enviar e-mail aqui
   end
 
 end
