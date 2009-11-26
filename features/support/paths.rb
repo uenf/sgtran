@@ -20,9 +20,6 @@ module NavigationHelpers
     when /^página de editar detalhes da viagem$/
       aceitar_path(@requisicao)
 
-    when /^Atender com uma nova viagem$/
-      "modo_criacao[viagem]"
-
     when /^página de visualização de viagens$/
       viagem_path(:id => @viagem_id)
 
