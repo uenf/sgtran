@@ -10,13 +10,13 @@ Para que eu possa utiliza-lo no sistema
     Dado que eu tenho o combustivel "Gasolina"
     E que eu tenho o combustivel "Alcool"
     E que eu tenho a categoria de veiculo "Automóvel até 4 passageiros"
-    E que eu estou na pagina de adição de veículo
+    E que eu estou na página de adição de veículo
     Quando eu preencho "Marca" com "<Marca>"
     E eu preencho "Modelo" com "<Modelo>"
     E eu preencho "Cor" com "<Cor>"
     E eu preencho "Ano" com "<Ano>"
-    E eu marco "<Combustivel1>"
-    E eu marco "<Combustivel2>"
+    E eu <Combustivel1> "Gasolina"
+    E eu <Combustivel2> "Alcool"
     E eu seleciono "<Categoria>" em "Categoria"
     E eu preencho "Placa" com "<Placa>"
     E eu preencho "Número de ordem" com "<Ordem>"
@@ -26,6 +26,20 @@ Para que eu possa utiliza-lo no sistema
 
     Exemplos:(Veiculo criado com sucesso)
 
-    | Marca     | Modelo        | Cor       | Ano   | Combustivel1  | Combustivel2  | Categoria                     | Placa     | Ordem     | Renavam   | Sentença                          |
-    | Fiat      | Uno           | Azul      | 2008  | Gasolina      | Alcool        | Automóvel até 4 passageiros   | LAC-4583  | 145623    | 7961313   | LAC-4583                          |
+    | Marca | Modelo | Cor  | Ano  | Combustivel1 | Combustivel2 | Categoria                   | Placa    | Ordem  | Renavam | Sentença                       |
+    | Fiat  | Uno    | Azul | 2008 | marco        | marco        | Automóvel até 4 passageiros | LAC-4583 | 145623 | 7961313 | Veículo cadastrado com sucesso |
+
+
+    Exemplos:(Veiculo não criado)
+
+    | Marca | Modelo | Cor  | Ano  | Combustivel1 | Combustivel2 | Categoria                   | Placa    | Ordem  | Renavam | Sentença                             |
+    |       | Uno    | Azul | 2008 | marco        | marco        | Automóvel até 4 passageiros | LAC-4583 | 145623 | 7961313 | Marca não pode ser vazio             |
+    | Fiat  |        | Azul | 2008 | marco        | marco        | Automóvel até 4 passageiros | LAC-4583 | 145623 | 7961313 | Modelo não pode ser vazio            |
+    | Fiat  | Uno    |      | 2008 | marco        | marco        | Automóvel até 4 passageiros | LAC-4583 | 145623 | 7961313 | Cor não pode ser vazio               |
+    | Fiat  | Uno    | Azul |      | marco        | marco        | Automóvel até 4 passageiros | LAC-4583 | 145623 | 7961313 | Ano não pode ser vazio               |
+    | Fiat  | Uno    | Azul | 2008 | não marco    | não marco    | Automóvel até 4 passageiros | LAC-4583 | 145623 | 7961313 | Combustiveis não selecionados        |
+    | Fiat  | Uno    | Azul | 2008 | marco        | marco        | Selecione uma categoria     | LAC-4583 | 145623 | 7961313 | Categoria de veiculo não selecionada |
+    | Fiat  | Uno    | Azul | 2008 | marco        | marco        | Automóvel até 4 passageiros |          | 145623 | 7961313 | Placa não pode ser vazio             |
+    | Fiat  | Uno    | Azul | 2008 | marco        | marco        | Automóvel até 4 passageiros | LAC-4583 |        | 7961313 | Numero de ordem não pode ser vazio   |
+    | Fiat  | Uno    | Azul | 2008 | marco        | marco        | Automóvel até 4 passageiros | LAC-4583 | 145623 |         | Renavam não pode ser vazio           |
 

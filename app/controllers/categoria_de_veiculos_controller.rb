@@ -56,7 +56,7 @@ class CategoriaDeVeiculosController < ApplicationController
 
     respond_to do |format|
       if @categoria_de_veiculo.save
-        flash[:notice] = 'CategoriaDeVeiculo was successfully created.'
+        flash[:sucesso] = 'Categoria de veículo criada com sucesso!'
         format.html { redirect_to(@categoria_de_veiculo) }
         format.xml  { render :xml => @categoria_de_veiculo, :status => :created, :location => @categoria_de_veiculo }
       else
@@ -74,7 +74,7 @@ class CategoriaDeVeiculosController < ApplicationController
 
     respond_to do |format|
       if @categoria_de_veiculo.update_attributes(params[:categoria_de_veiculo])
-        flash[:notice] = 'CategoriaDeVeiculo was successfully updated.'
+        flash[:sucesso] = 'Categoria de veículo modificada com sucesso!'
         format.html { redirect_to(@categoria_de_veiculo) }
         format.xml  { head :ok }
       else

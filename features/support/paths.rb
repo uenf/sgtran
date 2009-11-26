@@ -32,7 +32,7 @@ module NavigationHelpers
     when /^página de cancelamento de requisição$/
       cancelar_requisicao_path(:id => @id, :chave_de_seguranca => @chave_de_seguranca)
 
-    when /^pagina de adição de veículo$/
+    when /^página de adição de veículo$/
       new_veiculo_path
 
     when /^página da lista de requisições$/
@@ -45,16 +45,22 @@ module NavigationHelpers
       solicitantes_path
 
     when /^página de visualização de motoristas$/
-        motoristas_path
+      motoristas_path
 
     when /^página de visualização de usuarios$/
-        usuarios_path
+      usuarios_path
 
     when /^página de visualização de viagens$/
-        viagens_path
+      viagens_path
 
     when /^página de usuário$/
-        new_usuario_path
+      new_usuario_path
+
+    when /^página de adição de categoria de veículo$/
+      new_categoria_de_veiculo_path
+
+    when /^página de adição de combustível$/
+      new_combustivel_path
 
     # Add more mappings here.
     # Here is a more fancy example:

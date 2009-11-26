@@ -56,7 +56,7 @@ class CombustiveisController < ApplicationController
 
     respond_to do |format|
       if @combustivel.save
-        flash[:notice] = 'Combustivel was successfully created.'
+        flash[:sucesso] = 'Combustível criado com sucesso!'
         format.html { redirect_to(@combustivel) }
         format.xml  { render :xml => @combustivel, :status => :created, :location => @combustivel }
       else
@@ -74,7 +74,7 @@ class CombustiveisController < ApplicationController
 
     respond_to do |format|
       if @combustivel.update_attributes(params[:combustivel])
-        flash[:notice] = 'Combustivel was successfully updated.'
+        flash[:sucesso] = 'Combustível modificado com sucesso!'
         format.html { redirect_to(@combustivel) }
         format.xml  { head :ok }
       else

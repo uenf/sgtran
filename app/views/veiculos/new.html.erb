@@ -25,7 +25,7 @@
 <div class="show_linha">
   <div class="linha_titulo"><label for="categoria_de_veiculo_id">Categoria:</label></div>
   <div class="linha_texto_neutro"><%= collection_select :categoria_de_veiculo, :id, CategoriaDeVeiculo.all, :id,
-                        :nome, {:prompt => "Selecione uma categoria"},
+                        :nome, {:include_blank => "Selecione uma categoria"},
                         :name => "veiculo[categoria_de_veiculo_id]"%></div>
 </div>
   <div class="show_linha">

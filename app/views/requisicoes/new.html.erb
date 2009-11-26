@@ -82,7 +82,7 @@
   </p>
   <p>
   <%= f.label :categoria_de_veiculo_id, "Categoria de veículo:", :class => "label_obrigatorio" %>
-  <%= f.select :categoria_de_veiculo_id, CategoriaDeVeiculo.all.collect {|categoria| [categoria.nome, categoria.id]}, {:prompt => "Selecione uma categoria de veículo" } %>
+  <%= f.select :categoria_de_veiculo_id, CategoriaDeVeiculo.all.collect {|categoria| [categoria.nome, categoria.id]}, {:include_blank => "Selecione uma categoria de veículo"} %>
   </p>
   <p>
     <%= f.label :objetivo_da_reserva, "Objetivo da reserva:", :class => "label_obrigatorio" %>
