@@ -1,16 +1,23 @@
-<h1>Novo combustível</h1>
+<div class="show_padrao">
 
-<% form_for(@combustivel) do |f| %>
-  <%= f.error_messages %>
+  <h1>Novo Combustível</h1>
 
-  <p>
-    <%= f.label :nome %><br />
-    <%= f.text_field :nome %>
-  </p>
-  <p>
-    <%= f.submit 'Criar' %>
-  </p>
-<% end %>
+  <% form_for(@combustivel) do |f| %>
+    <%= mensagem_de_erro(@combustivel) %>
 
-<%= link_to 'Voltar', combustiveis_path %>
+    <div class="show_linha">
+      <div class="linha_titulo"><%= f.label :nome, "Nome:" %></div>
+      <div class="linha_texto_neutro"><%= f.text_field :nome %></div>
+    </div>
+
+      <div class=botao_concluir><%= f.submit 'Criar Combustível' %></div>
+
+  <% end %>
+</div>
+
+<div id="opcoes_da_visao">
+  <ul>
+    <li id="opcao_voltar" onclick="location.href='<%= solicitantes_path %>'" onmouseover="this.style.cursor = 'pointer'"><%= link_to 'Voltar', solicitantes_path %></li>
+  </ul>
+</div>
 

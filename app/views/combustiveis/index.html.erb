@@ -1,21 +1,25 @@
-<h1>Lista de combustíveis</h1>
+<% if current_user.has_role? :admin %>
+  <a href="/combustiveis/new" class="link_botao">Adicionar Combustível</a>
+<% end %>
 
-<table>
+<table id="base_de_dados" class="tabela_base_de_dados">
   <tr>
     <th>Nome</th>
+    <th class="celula_neutra_estatica"></th>
+    <th class="celula_neutra_estatica"></th>
   </tr>
 
 <% @combustiveis.each do |combustivel| %>
   <tr>
-    <td><%=h combustivel.nome %></td>
-    <td><%= link_to 'Mostar', combustivel %></td>
-    <td><%= link_to 'Editar', edit_combustivel_path(combustivel) %></td>
-    <td><%= link_to 'Apagar', combustivel, :confirm => 'Tem certeza?', :method => :delete %></td>
+    <td onclick="location.href='<%= combustivel_path(combustivel) %>'" onmouseover="this.style.cursor='pointer'"><%=h combustivel.nome %></td>
+    <% if current_user.has_role? :admin %>
+      <td onclick="location.href='<%= edit_combustivel_path(combustivel) %>'" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("editar_dado.png", :border => 0, :alt => "Editar"), edit_combustivel_path(combustivel) %></td>
+      <td onclick="" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("deletar_dado.png", :border => 0, :alt => "Deletar"), combustivel, :confirm => 'Tem certeza que deseja apagar?', :method => :delete %></td>
+    <% else %>
+      <td></td>
+      <td></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'Novo combustível', new_combustivel_path %>
 
