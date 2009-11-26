@@ -431,7 +431,7 @@ table.tabela_padrao tr td.cancelada {
 }
 
 #opcoes_da_visao ul li {
-    height : auto;
+    height: 30px;
     float : left;
     margin : 0px;
     margin-right : 5px;
@@ -467,6 +467,14 @@ table.tabela_padrao tr td.cancelada {
 
 #opcao_combustivel {
     list-style-image : url("/images/combustivel.png");
+}
+
+#opcao_editar {
+    list-style-image: url("/images/editar_big.png");
+}
+
+#opcao_excluir {
+    list-style: url("/images/cancelar.png");
 }
 
 #opcoes_da_visao ul #opcao_voltar {
