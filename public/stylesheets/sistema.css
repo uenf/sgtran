@@ -273,6 +273,7 @@ table.tabela_base_de_dados tr td {
     background-color : #EEEEEE;
     border : solid 1px #999999;
     padding : 2px;
+    padding-bottom: 10px;
     margin-top : -1px;
     display : table;
 }
