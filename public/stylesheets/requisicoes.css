@@ -6,6 +6,8 @@ body {
 	position: absolute;
 	left: 50%;
 	margin-left: -375px;
+	font-family: Verdana, Arial;
+	font-size: 13px
 }
 
 a {
@@ -95,6 +97,24 @@ textarea {
 textarea:focus {
 	border : 1px solid #222222;
 	background-color : #FFFACD;
+}
+
+.requisicao_termo {
+    color: red;
+    margin-left: 0;
+    margin-top: 5px
+}
+.termo_area {
+	width : 686px;
+	height : 280px;
+	border : 1px solid #AAAAAA;
+	margin: 0
+}
+.termo_align {
+    float: left;
+}
+.clear {
+    clear: both
 }
 
 select{

@@ -25,7 +25,13 @@
     <td onclick="location.href='<%= veiculo_path(veiculo) %>'" onmouseover="this.style.cursor='pointer'"><%=h veiculo.placa %></td>
     <td onclick="location.href='<%= veiculo_path(veiculo) %>'" onmouseover="this.style.cursor='pointer'"><%=h veiculo.numero_de_ordem %></td>
     <td onclick="location.href='<%= veiculo_path(veiculo) %>'" onmouseover="this.style.cursor='pointer'"><%=h veiculo.renavam %></td>
-    <td onclick="location.href='<%= veiculo_path(veiculo) %>'" onmouseover="this.style.cursor='pointer'"><%=h CategoriaDeVeiculo.find(veiculo.categoria_de_veiculo_id).nome %></td>
+    <td onclick="location.href='<%= veiculo_path(veiculo) %>'" onmouseover="this.style.cursor='pointer'">
+      <% if veiculo.categoria_de_veiculo_id %>
+        <%=h CategoriaDeVeiculo.find(veiculo.categoria_de_veiculo_id).nome %>
+      <% else %>
+        -
+      <% end %>
+    </td>
     <% if current_user.has_role? :admin %>
       <td onclick="location.href='<%= edit_veiculo_path(veiculo) %>'" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("editar_dado.png", :border => 0, :alt => "Editar"), edit_veiculo_path(veiculo) %></td>
       <td onclick="" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("deletar_dado.png", :border => 0, :alt => "Deletar"), veiculo, :confirm => 'Tem certeza que deseja apagar?', :method => :delete %></td>

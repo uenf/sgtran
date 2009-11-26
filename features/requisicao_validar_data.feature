@@ -19,7 +19,7 @@
     E eu seleciono "Aula de Campo" em "Objetivo da Reserva"
     E eu preencho "Nome(s) e telefone do(s) passageiro(s):" com "Zina, Ronaldo e Alfinete"
     E eu preencho "Roteiro da agenda:" com "Ir ao Pacaembu"
-    E eu marco "Termos"
+    E eu marco "Li e concordo com os termos"
     E eu pressiono "Enviar"
     Então <Sentença>
 
