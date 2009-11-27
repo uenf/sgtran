@@ -1,0 +1,3 @@
+Administrador|admin@uenf.br|admin|admin|admin
+Reitor|reitor@uenf.br|reitor|reitor|visit
+
