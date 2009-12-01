@@ -86,7 +86,6 @@ open("#{Rails.root}/db/seeds_files/requisicoes_seed.txt") do |requisicoes|
       data = Date.tomorrow.tomorrow
       solicitante = Solicitante.find_by_nome(sol)
       categoria_de_veiculo = CategoriaDeVeiculo.find_by_nome(categoria_veiculo)
-      puts categoria_de_veiculo.id
       Requisicao.create!(:solicitante_id => solicitante.id,
                           :categoria_de_veiculo_id => categoria_de_veiculo.id,
                           :cargo_ou_funcao => cargo,
