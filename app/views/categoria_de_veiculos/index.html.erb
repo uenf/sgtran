@@ -1,21 +1,25 @@
-<h1>Lista de categorias de veículo</h1>
+<% if current_user.has_role? :admin %>
+  <a href="/categoria_de_veiculos/new" class="link_botao">Adicionar Categoria de Veículo</a>
+<% end %>
 
-<table>
+<table id="base_de_dados" class="tabela_base_de_dados">
   <tr>
     <th>Nome</th>
+    <th class="celula_neutra_estatica"></th>
+    <th class="celula_neutra_estatica"></th>
   </tr>
 
 <% @categoria_de_veiculos.each do |categoria_de_veiculo| %>
   <tr>
-    <td><%=h categoria_de_veiculo.nome %></td>
-    <td><%= link_to 'Mostrar', categoria_de_veiculo %></td>
-    <td><%= link_to 'Editar', edit_categoria_de_veiculo_path(categoria_de_veiculo) %></td>
-    <td><%= link_to 'Apagar', categoria_de_veiculo, :confirm => 'Tem certeza?', :method => :delete %></td>
+    <td onclick="location.href='<%= categoria_de_veiculo_path(categoria_de_veiculo) %>'" onmouseover="this.style.cursor='pointer'"><%=h categoria_de_veiculo.nome %></td>
+    <% if current_user.has_role? :admin %>
+      <td onclick="location.href='<%= edit_categoria_de_veiculo_path(categoria_de_veiculo) %>'" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("editar_dado.png", :border => 0, :alt => "Editar"), edit_categoria_de_veiculo_path(categoria_de_veiculo) %></td>
+      <td onclick="" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("deletar_dado.png", :border => 0, :alt => "Deletar"), categoria_de_veiculo, :confirm => 'Tem certeza que deseja apagar?', :method => :delete %></td>
+    <% else %>
+      <td></td>
+      <td></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'Nova categoria de veículo', new_categoria_de_veiculo_path %>
 
