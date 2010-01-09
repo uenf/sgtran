@@ -52,6 +52,7 @@
   <fieldset><legend>Dados da reserva</legend>
 
   <p>
+    <p>Em caso de ida e volta no mesmo dia ou se o carro tiver que permanecer no local durante a estada, marque a opção <strong>Ida</strong>.</p>
     <div id="radioDataIda">
       <%= label_tag :data_de_reserva_ida, "Ida:", :id => "label_ida" %>
       <%= radio_button_tag 'data_de_reserva', 'ida', true, :onclick => "idaeVolta()", :class => "radio" %>
