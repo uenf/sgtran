@@ -15,7 +15,7 @@ class Requisicao < ActiveRecord::Base
 
   before_create :gerar_chave_de_seguranca
 
-  validate :validar_predio, :validar_andar, :validar_categoria_de_veiculo, :validar_objetivo, :validar_outros, :validar_motivo, :validar_data
+  validate :validar_categoria_de_veiculo, :validar_objetivo, :validar_outros, :validar_motivo, :validar_data
 
   protected
   def validar_data
@@ -48,20 +48,6 @@ class Requisicao < ActiveRecord::Base
   end
 
   protected
-  def validar_predio
-    if self.predio == "Selecione um Prédio"
-      errors.add(:predio, 'não selecionado')
-    end
-  end
-
-  protected
-  def validar_andar
-    if self.andar == "Selecione um Andar"
-      errors.add(:andar, 'não selecionado')
-    end
-  end
-
-  protected
   def validar_categoria_de_veiculo
     if self.categoria_de_veiculo_id == 0
       errors.add(:categoria_de_veiculo, 'não selecionada')
@@ -76,11 +62,7 @@ class Requisicao < ActiveRecord::Base
   end
 
 
-  validates_presence_of :cargo_ou_funcao,
-                        :telefone_ou_ramal,
-                        :laboratorio_ou_setor,
-                        :sala,
-                        :nome_telefone_passageiros,
+  validates_presence_of :nome_telefone_passageiros,
                         :roteiro_da_agenda,
                         :data_de_reserva
 
@@ -89,32 +71,7 @@ class Requisicao < ActiveRecord::Base
   validates_acceptance_of :termo
 
 
-  def self.predio
-    ["Selecione um Prédio",
-    "Reitoria - E1",
-    "CCT - Prédio",
-    "CCT - Anexo",
-    "CCT - Oficinas",
-    "CBB - Prédio",
-    "CBB - Anexo",
-    "CCTA - Prédio",
-    "CCTA - Anexo",
-    "CCTA - Pesagro",
-    "CCTA - Escola Agrícola",
-    "CCTA - Itaocara",
-    "CCH - Prédio",
-    "P4",
-    "P5",
-    "Villa Maria",
-    "LENEP - Macaé"]
-  end
 
-  def self.andar
-    ["Selecione um Andar",
-    "Térreo",
-    "1º andar",
-    "2º andar"]
-  end
 
   def self.objetivo
     ["Selecione um Objetivo",
@@ -173,6 +130,7 @@ class Requisicao < ActiveRecord::Base
     else
       @requisicao = Requisicao.new(dados_requisicao)
       @requisicao.solicitante_id = id_solicitante
+      @requisicao.tipo = "Ida"
       [@requisicao]
     end
 
@@ -186,6 +144,7 @@ class Requisicao < ActiveRecord::Base
         requisicao_volta.referencia_id = self.id
         self.save
         requisicao_volta.save
+        self
       else
         requisicao_volta
       end

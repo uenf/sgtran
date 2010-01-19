@@ -49,6 +49,8 @@ class RequisicoesController < ApplicationController
 
   # POST /requisicoes
   # POST /requisicoes.xml
+
+  # FAZER TESTES!!!!
   def create
 
     dados_solicitante = {:matricula => params[:matricula], :email => params[:email]}
@@ -68,7 +70,7 @@ class RequisicoesController < ApplicationController
             session[:requisicao] = @requisicao
             #Confirmacao.deliver_email_com_confirmacao_de_cadastro_de_requisicao(@requisicao, @solicitante)
             flash[:sucesso] = 'Requisição enviada com sucesso!'
-            format.html { redirect_to(confirmar_requisicao_path) }
+            format.html { render :action => "confirmar_requisicao" }
             format.xml  { render :xml => @requisicao, :status => :created, :location => @requisicao }
           else
             @requisicao = @requisicao[IDA]

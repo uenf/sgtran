@@ -19,32 +19,8 @@
     <%= text_field_tag :email %>
   </p>
   <p>
-    <%= f.label :cargo_ou_funcao, "Cargo ou Fun&ccedil;&atilde;o:", :class => "label_obrigatorio" %>
-    <%= f.text_field :cargo_ou_funcao %>
-  </p>
-  <p>
-    <%= f.label :telefone_ou_ramal, "Telefone ou ramal:", :class => "label_obrigatorio" %>
-    <%= f.text_field :telefone_ou_ramal %>
-  </p>
-  <p>
     <%= f.label :celular, "Celular:", :class => "label" %>
     <%= f.text_field :celular %>
-  </p>
-  <p>
-    <%= f.label :laboratorio_ou_setor, "Laborat&oacute;rio ou Setor:", :class => "label_obrigatorio" %>
-    <%= f.text_field :laboratorio_ou_setor %>
-  </p>
-  <p>
-    <%= f.label :predio, "Pr&eacute;dio:", :class => "label_obrigatorio" %>
-    <%= f.select :predio, Requisicao.predio %>
-  </p>
-  <p>
-    <%= f.label :andar, "Andar:", :class => "label_obrigatorio" %>
-    <%= f.select :andar, Requisicao.andar %>
-  </p>
-  <p>
-    <%= f.label :sala , "Sala:", :class => "label_obrigatorio" %>
-    <%= f.text_field :sala %>
   </p>
 
   </fieldset>
@@ -145,7 +121,7 @@
         <li>No caso de participações em reuniões ou eventos, informar
             o horário de inicio e previsão de término do evento.</li>
         <li>Nas solicitações de microônibus, informar a lista de
-            passageiros com nome completo, matrícula e CPF.</li>
+            passageiros com nome completo, matrícula ou CPF. A lista deverá ser entregue à ASTRAN 1 dia antes da agenda.</li>
       </ul>
     </div>
     <%= f.text_area :observacao, :rows => nil, :cols => nil %>

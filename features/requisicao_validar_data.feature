@@ -6,12 +6,6 @@
     E que eu estou na página de requisição
     Quando eu preencho "Matrícula" com "01210"
     E eu preencho "E-mail" com "ronaldo@corinthians.com"
-    E eu preencho "Cargo ou Função" com "Aluno"
-    E eu preencho "Telefone ou Ramal" com "2739-1689"
-    E eu preencho "Laboratório ou Setor" com "LCMAT"
-    E eu seleciono "P5" em "Prédio"
-    E eu seleciono "1º andar" em "Andar"
-    E eu preencho "Sala" com "121"
     E <Ida_e_Volta>
     E <Opção>
     E eu preencho "Data de Reserva de Ida" com <Data>

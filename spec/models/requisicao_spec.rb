@@ -6,13 +6,7 @@ describe Requisicao do
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     @valid_attributes = {
       :solicitante_id => "5",
-      :cargo_ou_funcao => "professor",
-      :telefone_ou_ramal => "22222",
       :celular => "2020202",
-      :laboratorio_ou_setor => "LBR",
-      :predio => "P5",
-      :andar => "3º",
-      :sala => "109",
       :data_de_reserva => Date.tomorrow.tomorrow,
       :categoria_de_veiculo_id => categoria_de_veiculo.id,
       :objetivo_da_reserva => "gasvchgsvchjsvdc",
@@ -48,29 +42,9 @@ describe Requisicao do
 
   context "Validações:" do
 
-      should_validate_presence_of :cargo_ou_funcao,
-                                  :telefone_ou_ramal,
-                                  :laboratorio_ou_setor,
-                                  :sala,
-                                  :data_de_reserva,
+      should_validate_presence_of :data_de_reserva,
                                   :nome_telefone_passageiros,
                                   :roteiro_da_agenda
-
-    it "O campo Prédio deve ser diferente de Selecione um Prédio" do
-      categoria_de_veiculo = Factory.create :categoria_de_veiculo
-      requisicao = Factory.build :requisicao, :predio => "Selecione um Prédio",
-                                 :categoria_de_veiculo_id => categoria_de_veiculo.id
-      requisicao.save.should be_false
-      requisicao.errors.invalid?(:predio).should be_true
-    end
-
-    it "O campo Andar deve ser diferente de Selecione um Andar" do
-      categoria_de_veiculo = Factory.create :categoria_de_veiculo
-      requisicao = Factory.build :requisicao, :andar => "Selecione um Andar",
-                                 :categoria_de_veiculo_id => categoria_de_veiculo.id
-      requisicao.save.should be_false
-      requisicao.errors.invalid?(:andar).should be_true
-    end
 
     it "O campo Categoria de veículo deve ser selecionado" do
       requisicao = Factory.build :requisicao, :categoria_de_veiculo_id => 0
@@ -138,35 +112,6 @@ describe Requisicao do
     end
   end
 
-  it "deve fornecer a lista de prédios" do
-    Requisicao.predio.should have(17).predio
-    Requisicao.predio.should include("Selecione um Prédio",
-                                      "Reitoria - E1",
-                                      "CCT - Prédio",
-                                      "CCT - Anexo",
-                                      "CCT - Oficinas",
-                                      "CBB - Prédio",
-                                      "CBB - Anexo",
-                                      "CCTA - Prédio",
-                                      "CCTA - Anexo",
-                                      "CCTA - Pesagro",
-                                      "CCTA - Escola Agrícola",
-                                      "CCTA - Itaocara",
-                                      "CCH - Prédio",
-                                      "P4",
-                                      "P5",
-                                      "Villa Maria",
-                                      "LENEP - Macaé")
-  end
-
-  it "deve fornecer a lista de andares" do
-    Requisicao.andar.should have(4).andar
-    Requisicao.andar.should include("Selecione um Andar",
-                                    "Térreo",
-                                    "1º andar",
-                                    "2º andar")
-  end
-
   it "deve fornecer a lista de objetivos" do
     Requisicao.objetivo.should have(13).objetivo
     Requisicao.objetivo.should include("Selecione um Objetivo",
@@ -190,15 +135,9 @@ describe Requisicao do
     solicitante = Factory.create :solicitante, dados_solicitante
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     requisicao = Requisicao.verificarSolicitante dados_solicitante,
-                                      {:cargo_ou_funcao => "asdasdasd",
-                                        :telefone_ou_ramal => "asdasdasd",
-                                        :laboratorio_ou_setor => "asdasdasd",
-                                        :sala => "asdasdasd",
-                                        :data_de_reserva_br => (Date.today + 2.days).to_date.to_s_br,
+                                      { :data_de_reserva_br => (Date.today + 2.days).to_date.to_s_br,
                                         :nome_telefone_passageiros  => "asdasdasd",
                                         :roteiro_da_agenda  => "asdasdasd",
-                                        :andar => "asdasdasd",
-                                        :predio => "asdasdasd",
                                         :categoria_de_veiculo_id => categoria_de_veiculo.id
                                       }
     requisicao.should_not be_nil
@@ -226,13 +165,7 @@ describe Requisicao do
   it "Deve retornar uma lista contendo 2 objetos de requisição" do
     dados_solicitante = {:matricula => "01210", :email => "professor@uenf.br"}
     solicitante = Factory.create :solicitante, dados_solicitante
-    dados_requisicao = {:cargo_ou_funcao => "asdasdasd",
-                        :telefone_ou_ramal => "asdasdasd",
-                        :laboratorio_ou_setor => "asdasdasd",
-                        :predio => "Reitoria - E1",
-                        :andar => "Térreo",
-                        :sala => "asdasdasd",
-                        :data_de_reserva_br => (Date.today + 2.days).to_date.to_s_br,
+    dados_requisicao = {:data_de_reserva_br => (Date.today + 2.days).to_date.to_s_br,
                         :nome_telefone_passageiros  => "asdasdasd",
                         :roteiro_da_agenda  => "asdasdasd"
                         }
@@ -246,13 +179,7 @@ describe Requisicao do
   it "Deve retornar uma lista contendo 1 objetos de requisição" do
     dados_solicitante = {:matricula => "01210", :email => "professor@uenf.br"}
     solicitante = Factory.create :solicitante, dados_solicitante
-    dados_requisicao = {:cargo_ou_funcao => "asdasdasd",
-                        :telefone_ou_ramal => "asdasdasd",
-                        :laboratorio_ou_setor => "asdasdasd",
-                        :predio => "Reitoria - E1",
-                        :andar => "Térreo",
-                        :sala => "asdasdasd",
-                        :data_de_reserva_br => (Date.today + 2.days).to_date.to_s_br,
+    dados_requisicao = {:data_de_reserva_br => (Date.today + 2.days).to_date.to_s_br,
                         :nome_telefone_passageiros  => "asdasdasd",
                         :roteiro_da_agenda  => "asdasdasd"
                         }
@@ -294,11 +221,10 @@ describe Requisicao do
   it "Deve retornar um objeto com erros caso a requisição não seja válida" do
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     requisicao_ida = Factory.build :requisicao,
-                                   :categoria_de_veiculo_id => categoria_de_veiculo.id,
-                                   :cargo_ou_funcao => ""
+                                   :categoria_de_veiculo_id => categoria_de_veiculo.id
     requisicao_volta = Factory.build :requisicao,
                                      :categoria_de_veiculo_id => categoria_de_veiculo.id,
-                                     :cargo_ou_funcao => "Selecione um cargo"
+                                     :objetivo_da_reserva => "Selecione um Objetivo"
     confirmacao = requisicao_ida.registrarVolta requisicao_volta
 
     confirmacao.valid?.should be false
