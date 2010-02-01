@@ -144,12 +144,12 @@ class Requisicao < ActiveRecord::Base
         requisicao_volta.referencia_id = self.id
         self.save
         requisicao_volta.save
-        self
+        return self
       else
-        requisicao_volta
+        return requisicao_volta
       end
     else
-      self
+      return self
     end
 
   end

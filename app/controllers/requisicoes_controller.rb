@@ -83,7 +83,7 @@ class RequisicoesController < ApplicationController
 
        confirmacao = @requisicao[IDA].registrarVolta @requisicao[VOLTA]
 
-        if confirmacao
+        if confirmacao.valid?
             session[:requisicao] = @requisicao
             flash[:sucesso] = 'Requisição enviada com sucesso!'
             redirect_to(confirmar_requisicao_path)
