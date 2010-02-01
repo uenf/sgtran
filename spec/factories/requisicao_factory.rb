@@ -1,13 +1,7 @@
 Factory.define :requisicao do |requisicao|
 
   requisicao.solicitante_id "5"
-  requisicao.cargo_ou_funcao "Professor"
-  requisicao.telefone_ou_ramal "22222"
   requisicao.celular "2020202"
-  requisicao.laboratorio_ou_setor "LBR"
-  requisicao.predio "P5"
-  requisicao.andar "3º"
-  requisicao.sala "109"
   requisicao.data_de_reserva Date.tomorrow.tomorrow
   requisicao.categoria_de_veiculo_id nil
   requisicao.objetivo_da_reserva "gasvchgsvchjsvdc"

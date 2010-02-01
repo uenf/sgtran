@@ -6,7 +6,7 @@ describe Solicitante do
       :nome => "value for nome",
       :email => "fulano@uenf.br",
       :matricula => "value for matricula",
-      :cargo => "Professor"
+      :cargo_ou_funcao => "Professor"
     }
   end
 
@@ -33,6 +33,19 @@ describe Solicitante do
 
   it "Deve invalidar caso o nome seja vazio" do
     solicitante = Factory.build :solicitante, :nome => ""
+    solicitante.valid?.should be_false
+  end
+
+  it "deve retornar o número de prédios" do
+    Solicitante.predios.should have(17).predios
+  end
+
+  it "deve retornar o número de andares" do
+    Solicitante.andar.should have(4).andar
+  end
+
+  it "deve invalidar caso o prédio seja inválido" do
+    solicitante = Factory.build :solicitante, :predio => "Selecione um Prédio"
     solicitante.valid?.should be_false
   end
 end

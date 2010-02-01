@@ -3,8 +3,13 @@ class CreateSolicitantes < ActiveRecord::Migration
     create_table :solicitantes do |t|
       t.string :nome
       t.string :email
+      t.string :cargo_ou_funcao
       t.string :matricula
-      t.string :cargo
+      t.string :telefone_ou_ramal
+      t.string :laboratorio_ou_setor
+      t.string :predio
+      t.string :andar
+      t.string :sala
 
       t.timestamps
     end

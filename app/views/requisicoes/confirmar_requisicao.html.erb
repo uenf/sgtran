@@ -5,22 +5,22 @@
   <h2>Número de Protocolo: <%= requisicao.id %></h2>
 </p>
 <p>
-<span class="label_confirmacao">Telefone ou Ramal: </span><%= requisicao.telefone_ou_ramal %>
+<span class="label_confirmacao">Telefone ou Ramal: </span><%= @solicitante.telefone_ou_ramal %>
 </p>
 <p>
 <span class="label_confirmacao">Celular: </span><%= requisicao.celular %>
 </p>
 <p>
-<span class="label_confirmacao">Laboratório ou Setor: </span><%= requisicao.laboratorio_ou_setor %>
+<span class="label_confirmacao">Laboratório ou Setor: </span><%= @solicitante.laboratorio_ou_setor %>
 </p>
 <p>
-<span class="label_confirmacao">Prédio: </span><%= requisicao.predio %>
+<span class="label_confirmacao">Prédio: </span><%= @solicitante.predio %>
 </p>
 <p>
-<span class="label_confirmacao">Andar: </span><%= requisicao.andar %>
+<span class="label_confirmacao">Andar: </span><%= @solicitante.andar %>
 </p>
 <p>
-<span class="label_confirmacao">Sala: </span><%= requisicao.sala %>
+<span class="label_confirmacao">Sala: </span><%= @solicitante.sala %>
 </p>
 <p>
 <span class="label_confirmacao">Data de Reserva: </span><%= requisicao.data_de_reserva.strftime("%d/%m/%Y") %>

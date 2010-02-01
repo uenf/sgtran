@@ -61,7 +61,7 @@ open("#{Rails.root}/db/seeds_files/solicitantes_seed.txt") do |solicitantes|
       Solicitante.create!(:nome => nome,
                           :email => email,
                           :matricula => matricula,
-                          :cargo => cargo)
+                          :cargo_ou_funcao => cargo)
     end
   end
 end
@@ -82,25 +82,20 @@ Requisicao.delete_all
 open("#{Rails.root}/db/seeds_files/requisicoes_seed.txt") do |requisicoes|
   requisicoes.read.each do |r|
     if r != "\n"
-      sol, categoria_veiculo, cargo, telefone, celular, laboratorio, predio, andar, sala, objetivo, outros, passageiros, roteiro, observacao = r.chomp.split("|")
+      sol, categoria_veiculo, celular, objetivo, outros, passageiros, roteiro, observacao, tipo = r.chomp.split("|")
       data = Date.tomorrow.tomorrow
       solicitante = Solicitante.find_by_nome(sol)
       categoria_de_veiculo = CategoriaDeVeiculo.find_by_nome(categoria_veiculo)
       Requisicao.create!(:solicitante_id => solicitante.id,
                           :categoria_de_veiculo_id => categoria_de_veiculo.id,
-                          :cargo_ou_funcao => cargo,
-                          :telefone_ou_ramal => telefone,
                           :celular => celular,
-                          :laboratorio_ou_setor => laboratorio,
-                          :predio => predio,
-                          :andar => andar,
-                          :sala => sala,
                           :data_de_reserva => data,
                           :objetivo_da_reserva => objetivo,
                           :outros => outros,
                           :nome_telefone_passageiros => passageiros,
                           :roteiro_da_agenda => roteiro,
-                          :observacao => observacao)
+                          :observacao => observacao,
+                          :tipo => tipo)
     end
   end
 end
