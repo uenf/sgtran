@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(:version => 20091105211408) do
     t.string   "estado",                    :default => "Espera"
     t.string   "chave_de_seguranca"
     t.string   "motivo"
-    t.string   "tipo"
+    t.string   "tipo",                      :default => "Ida"
     t.string   "referencia_id"
     t.datetime "created_at"
     t.datetime "updated_at"

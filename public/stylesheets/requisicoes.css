@@ -10,6 +10,10 @@ body {
 	font-size: 13px
 }
 
+p {
+    clear: both;
+}
+
 a {
     font: 12px Sans, Verdana;
     color: black;
@@ -90,7 +94,7 @@ input:focus {
 textarea {
     margin : 2px;
 	width : 500px;
-	height : 300px;
+	height : 305px;
 	border : 1px solid #AAAAAA;
 }
 
@@ -113,18 +117,10 @@ textarea:focus {
 .termo_align {
     float: left;
 }
-.clear {
-    clear: both
-}
 
 select{
 	border : 1px solid #AAAAAA;
 	clear : both;
-}
-
-.radio {
-    height: auto;
-    width: auto
 }
 
 #cabecalho {
@@ -169,7 +165,7 @@ select{
 	color : red;
 }
 
-p.legenda_obrigatorio strong{
+p.legenda_obrigatorio {
 	font: 10px Verdana;
 	font-weight: normal;
 	color : red;
@@ -180,7 +176,7 @@ p.legenda_obrigatorio strong{
     margin-bottom : 20px;
     float : left;
     width : 180px;
-    height : 300px;
+    height : 305px;
 	background-color : #EEEEEE;
 }
 
@@ -192,17 +188,15 @@ p.legenda_obrigatorio strong{
 }
 
 .label_lateral ul{
-    padding-left : 20px;
+    padding-left : 15px;
     font: bold 10px Verdana;
 }
 
 .label_lateral ul li{
+/*    text-align: justify;*/
+    margin-left: 15px;
     padding : 3px;
     font: normal 10px Verdana;
-}
-
-.pular_linha {
-    clear : both;
 }
 
 div.sucesso {
@@ -268,20 +262,16 @@ div.sucesso {
   list-style: square;
 }
 
-#radioDataIda {
-    float: left;
-    margin-right: 300px;
-    margin-left: 120px;
-	font: 12px Verdana
+#ida_e_volta span{
+    margin-right: 80%;
+    float: right;
+    font: 12px Verdana;
+    padding-bottom: 5px;
 }
 
-#radioDataIdaVolta {
-    float: left;
-   	font: 12px Verdana
-}
-
-#clear {
-    clear: both
+#ida_e_volta {
+    background-color: #EEEEEE;
+    padding: 0px 5px 0px 5px;
 }
 
 .termo {
