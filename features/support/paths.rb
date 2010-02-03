@@ -3,7 +3,7 @@ module NavigationHelpers
   #
   #   When /^I go to (.+)$/ do |page_name|
   #
-  # step definition in webrat_steps.rb
+  # step definition in web_steps.rb
   #
   def path_to(page_name)
     case page_name
@@ -21,7 +21,7 @@ module NavigationHelpers
       aceitar_path(@requisicao)
 
     when /^página de visualização de viagens$/
-      viagem_path(:id => @viagem_id)
+      viagens_path
 
     when /^página de confirmação de requisição$/
       confirmar_requisicao_path
@@ -50,6 +50,9 @@ module NavigationHelpers
     when /^página de visualização de viagens$/
       viagens_path
 
+    when /^página de visualização da viagem$/
+      viagem_path(:id => @viagem)
+
     when /^página de usuário$/
       new_usuario_path
 
@@ -60,7 +63,7 @@ module NavigationHelpers
       new_combustivel_path
 
     # Add more mappings here.
-    # Here is a more fancy example:
+    # Here is an example that pulls values out of the Regexp:
     #
     #   when /^(.*)'s profile page$/i
     #     user_profile_path(User.find_by_login($1))

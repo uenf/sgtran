@@ -5,16 +5,17 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
+  rescue_from 'Acl9::AccessDenied', :with => :access_denied
 
   def access_denied
-    if !current_user
+    if current_user.nil?
       redirect_to(new_requisicao_path)
     else
       redirect_to(requisicoes_path)
     end
   end
 
-  rescue_from Acl9::AccessDenied, :with => :access_denied
+
 
 
   # Scrub sensitive parameters from your log

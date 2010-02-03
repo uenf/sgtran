@@ -24,7 +24,6 @@ a {
 }
 
 a:hover {
-    /*text-decoration: none;*/
     color :#000000;
     border: 2px solid #000000;
 }
@@ -68,6 +67,7 @@ legend {
 	float : left;
 	text-align : right;
 }
+
 .label_obrigatorio {
 	width : 180px;
 	margin : 2px;
@@ -108,12 +108,14 @@ textarea:focus {
     margin-left: 0;
     margin-top: 5px
 }
+
 .termo_area {
 	width : 686px;
 	height : 280px;
 	border : 1px solid #AAAAAA;
 	margin: 0
 }
+
 .termo_align {
     float: left;
 }
@@ -193,7 +195,6 @@ p.legenda_obrigatorio {
 }
 
 .label_lateral ul li{
-/*    text-align: justify;*/
     margin-left: 15px;
     padding : 3px;
     font: normal 10px Verdana;
@@ -265,8 +266,12 @@ div.sucesso {
 #ida_e_volta span{
     margin-right: 80%;
     float: right;
-    font: 12px Verdana;
     padding-bottom: 5px;
+}
+
+#ida_e_volta label{
+    font: 12px Verdana;
+    font-weight: bold;
 }
 
 #ida_e_volta {

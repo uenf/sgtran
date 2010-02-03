@@ -33,7 +33,3 @@ Dado /^que eu estou logado$/ do
 
 end
 
-Quando /^eu vou para "([^\"]*)"$/ do |page|
-  visit path_to(page)
-end
-

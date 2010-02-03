@@ -27,11 +27,11 @@ Funcionalidade: Login para o sistema
     Esquema do Cenário:
 
     Dado que eu estou logado
-    Quando eu vou para "<Página desejada>"
+    Quando eu vou para a "<Página desejada>"
     Então eu devo estar na <Página desejada>
 
     Dado que eu não estou logado
-    Quando eu vou para "<Página desejada>"
+    Quando eu vou para a "<Página desejada>"
     Então eu devo estar na página de requisição
 
     Exemplos:

@@ -1,4 +1,5 @@
 log/
 config/database.yml
 webrat-*.html
+rerun.txt
 

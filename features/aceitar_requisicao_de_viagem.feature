@@ -52,6 +52,6 @@ Funcionalidade: Aceitar requisição de viagem
 
       Exemplos:
         | ação                          | resposta                                           |
-        | eu escolho a viagem existente | eu devo estar na página de visualização de viagens |
+        | eu escolho a viagem existente | eu devo estar na página de visualização da viagem |
         | eu não escolho nenhuma viagem | eu devo ver "Viagem não foi selecionada"           |
 

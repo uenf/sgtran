@@ -36,7 +36,8 @@ Dado /^que eu estou logado com o login "([^\"]*)" e a senha "([^\"]*)"$/ do |log
 end
 
 Dado /^que eu tenha uma viagem$/ do
-  @viagem = Factory.create :viagem
+  motorista = Factory.create :motorista
+  @viagem = Factory.create :viagem, :motorista_id => motorista.id
   @viagem_id = @viagem.id
 end
 
@@ -53,7 +54,8 @@ Dado /^que eu tenha uma categoria de veículo "([^\"]*)"$/ do |nome|
 end
 
 Entao /^eu devo ter uma nova viagem$/ do
-  viagem = Factory.create :viagem
+  motorista = Factory.create :motorista
+  viagem = Factory.create :viagem, :motorista_id => motorista.id
   Requisicao.update(@requisicao.id, :viagem_id => viagem.id)
   @requisicao.viagem = viagem
   @viagem_id = viagem.id + 1
