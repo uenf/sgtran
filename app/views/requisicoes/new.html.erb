@@ -40,7 +40,7 @@
         </span>
         <span>
           <%= label_tag :data_de_reserva_volta, "Ida e Volta:",
-                        :id => "label_volta" %>
+                        :id => "label_volta"%>
           <%= radio_button_tag 'data_de_reserva', 'volta', false,
                                 :onclick => "idaeVolta()"%>
         </span>
@@ -112,7 +112,7 @@
           <li>Local de destino;</li>
           <li>Local que irá buscar passageiro (com referência);</li>
           <li>Data e horário previstos de saída e chegada do passageiro;</li>
-          <li>Data e hHorário previstos de retorno do passageiro.</li>
+          <li>Data e horário previstos de retorno do passageiro.</li>
         </ul>
       </div>
       <%= f.text_area :roteiro_da_agenda, :rows => nil, :cols => nil %>
