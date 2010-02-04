@@ -52,7 +52,7 @@
         document.getElementById("opcao_categoria_de_veiculo").style.backgroundColor = '#DCDCDC'
         document.getElementById("opcao_categoria_de_veiculo").style.borderBottom = '#DCDCDC'
       }
-      else if (url.search(/[^categoria_de_]veiculos/) != -1)
+      else if (url.search(/\/veiculos/) != -1)
       {
         document.getElementById("opcao_requisicao").style.backgroundColor = '#DCDCDC'
         document.getElementById("opcao_requisicao").style.borderBottom = '#DCDCDC'
