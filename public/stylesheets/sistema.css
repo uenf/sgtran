@@ -466,6 +466,10 @@ table.tabela_padrao tr td.cancelada {
     list-style-image : url("/images/categoria_de_veiculo.png");
 }
 
+#opcao_motivo {
+    list-style-image : url("/images/motivo.png");
+}
+
 #opcao_editar {
     list-style-image: url("/images/editar_big.png");
 }
