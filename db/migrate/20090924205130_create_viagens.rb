@@ -2,6 +2,7 @@ class CreateViagens < ActiveRecord::Migration
   def self.up
     create_table :viagens do |t|
       t.references :motorista
+      t.references :veiculo
       t.date :data_partida
       t.date :data_chegada
       t.time :horario_partida

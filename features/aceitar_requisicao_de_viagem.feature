@@ -8,8 +8,9 @@ Funcionalidade: Aceitar requisição de viagem
 
     Esquema do Cenário: Aceitar requisição
     Dado que eu tenha uma requisição em espera
-    E que eu tenho "Gustavo Santos" em Motorista
-    E que eu tenho "Eduardo Silva" em Motorista
+    E que eu tenha "Gustavo Santos" em Motorista
+    E que eu tenha "Eduardo Silva" em Motorista
+    E que eu tenha um veículo da categoria "Automóvel até 4 passageiros", modelo "Gol" e placa "KQI 5899"
     E que eu estou na página de detalhes da requisição
 
     Quando eu clico em "Aceitar"
@@ -20,6 +21,7 @@ Funcionalidade: Aceitar requisição de viagem
     E eu preencho "Data de chegada" com a data "<data de chegada>"
     E eu seleciono "<horario>" no campo hora "Horário de saída"
     E eu seleciono "<motorista_selecao>" em "Motorista"
+    E eu seleciono "<veiculo_selecao>" em "Veículo"
 
     E eu pressiono "Concluir"
 
@@ -27,16 +29,20 @@ Funcionalidade: Aceitar requisição de viagem
     E eu devo ver "Data de chegada: " com a data "<data de chegada>"
     E eu devo ver "Horário de partida: <horario>"
     E eu devo ver "Motorista: <motorista_visao>"
+    E eu devo ver "Veículo: <veiculo_visao>"
     E eu devo ver "Estado: Aguardando"
+
 
     Exemplos: (preenchimento dos dados da viagem)
 
-    | data de saída   | data de chegada | horario | motorista_selecao       | motorista_visao   |
-    |                 | Daqui a 2 dias  | 13:00   | Gustavo Santos          | Gustavo Santos    |
-    | Daqui a 2 dias  |                 | 14:00   | Gustavo Santos          | Gustavo Santos    |
-    | Daqui a 2 dias  | Daqui a 2 dias  | 13:00   | Selecione um motorista  |                   |
-    | Daqui a 2 dias  |                 | 10:00   | Eduardo Silva           | Eduardo Silva     |
-    |                 |                 | 10:00   | Selecione um motorista  |                   |
+    | data de saída   | data de chegada | horario | motorista_selecao       | motorista_visao   | veiculo_selecao                               | veiculo_visao                                  |
+    |                 | Daqui a 2 dias  | 13:00   | Gustavo Santos          | Gustavo Santos    | Automóvel até 4 passageiros - Gol - KQI 5899  | Automóvel até 4 passageiros - Gol - KQI 5899   |
+    | Daqui a 2 dias  |                 | 14:00   | Gustavo Santos          | Gustavo Santos    | Automóvel até 4 passageiros - Gol - KQI 5899  | Automóvel até 4 passageiros - Gol - KQI 5899   |
+    | Daqui a 2 dias  | Daqui a 2 dias  | 13:00   | Selecione um motorista  |                   | Automóvel até 4 passageiros - Gol - KQI 5899  | Automóvel até 4 passageiros - Gol - KQI 5899   |
+    | Daqui a 2 dias  |                 | 10:00   | Eduardo Silva           | Eduardo Silva     | Automóvel até 4 passageiros - Gol - KQI 5899  | Automóvel até 4 passageiros - Gol - KQI 5899   |
+    |                 |                 | 10:00   | Selecione um motorista  |                   | Automóvel até 4 passageiros - Gol - KQI 5899  | Automóvel até 4 passageiros - Gol - KQI 5899   |
+    |                 |                 | 10:00   | Gustavo Santos          | Gustavo Santos    | Selecione um veículo                          |                                                |
+    |                 |                 | 10:00   | Gustavo Santos          | Gustavo Santos    | Automóvel até 4 passageiros - Gol - KQI 5899  | Automóvel até 4 passageiros - Gol - KQI 5899  |
 
 
     Esquema do Cenário: Aceitar com uma viagem já existente
@@ -52,6 +58,6 @@ Funcionalidade: Aceitar requisição de viagem
 
       Exemplos:
         | ação                          | resposta                                           |
-        | eu escolho a viagem existente | eu devo estar na página de visualização da viagem |
+        | eu escolho a viagem existente | eu devo estar na página de visualização da viagem  |
         | eu não escolho nenhuma viagem | eu devo ver "Viagem não foi selecionada"           |
 

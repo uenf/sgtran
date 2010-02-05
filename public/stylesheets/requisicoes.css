@@ -195,6 +195,7 @@ p.legenda_obrigatorio {
 }
 
 .label_lateral ul li{
+    list-style-type: lower-roman;
     margin-left: 15px;
     padding : 3px;
     font: normal 10px Verdana;
@@ -227,7 +228,7 @@ div.sucesso {
 
 #confirmar_requisicao {
     font-family: Sans, Verdana;
-}
+}height: 2px;
 
 #errorExplanation {
   margin-top: 15px;
@@ -263,20 +264,25 @@ div.sucesso {
   list-style: square;
 }
 
-#ida_e_volta span{
-    margin-right: 80%;
-    float: right;
-    padding-bottom: 5px;
+#ida_e_volta {
+    background-color: #EEEEEE;
+    padding: 1px 5px 1px 5px;
+}
+
+.ida {
+    margin: 0px 0px 0px 50px;
+    float: left;
+}
+
+.volta {
+    margin: 0px 0px 0px 50px;
+    float: left;
+    margin-bottom: 10px;
 }
 
 #ida_e_volta label{
     font: 12px Verdana;
     font-weight: bold;
-}
-
-#ida_e_volta {
-    background-color: #EEEEEE;
-    padding: 0px 5px 0px 5px;
 }
 
 .termo {
@@ -286,12 +292,5 @@ div.sucesso {
 #requisicao_termo {
     width: auto;
     height: auto;
-}
-.label_ida {
-    float: left !important;
-    margin-left: 20px
-}
-.label_volta {
-    float: left !important
 }
 

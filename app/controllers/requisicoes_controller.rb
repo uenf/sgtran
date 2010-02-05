@@ -150,16 +150,18 @@ class RequisicoesController < ApplicationController
   end
 
   def aceitar
+    @lista_motoristas = opcaoMotorista()
+    @lista_veiculos = opcaoVeiculo()
     @requisicao = session[:requisicao] ? session[:requisicao] : Requisicao.find(params[:id])
     @solicitante  = Solicitante.find(@requisicao.solicitante_id)
 
-    @viagem       = session[:viagem]
+    @viagem = session[:viagem]
     if @viagem.nil?
       @viagem = Viagem.new :data_partida => @requisicao.data_de_reserva, :data_chegada => @requisicao.data_de_reserva
     end
     session.delete :viagem
 
-    @viagens      = Viagem.all
+    @viagens = Viagem.all
   end
 
   def fechar_viagem
@@ -168,7 +170,8 @@ class RequisicoesController < ApplicationController
     if @requisicao.viagem_id == nil && params[:escolha_de_viagem].eql?("nova")
 
       viagem = @requisicao.aceitar(
-        Motorista.find_by_id(params[:motorista][:id]),
+        Motorista.find_by_id(params[:motorista_id]),
+        Veiculo.find_by_id(params[:veiculo_id]),
         data_nula(params[:data_saida]),
         data_nula(params[:data_chegada]),
         (params[:horario]["partida(4i)"].blank? and params[:horario]["partida(5i)"].blank?) ? nil : params[:horario]["partida(4i)"] + ":" + params[:horario]["partida(5i)"])
@@ -187,8 +190,6 @@ class RequisicoesController < ApplicationController
       else
         @requisicao.errors.add(:viagem, "não foi selecionada.")
         session[:requisicao] = @requisicao
-#        @solicitante  = Solicitante.find(@requisicao.solicitante_id)
-#        @viagens      = Viagem.all
         redirect_to :action => "aceitar"
       end
 
@@ -217,6 +218,44 @@ class RequisicoesController < ApplicationController
 
   def regras
     render :layout => "regras"
+  end
+
+  def opcaoMotorista
+    motoristas = Motorista.all
+    motoristas_ocupados = []
+    motoristas_desocupados = []
+
+    motoristas.each do |m|
+      busca = Viagem.find_by_data_partida_and_motorista_id(params[:viagem_data_de_saida], m.id)
+      if busca
+        motoristas_ocupados << [m.nome_do_motorista, m.id]
+      else
+        motoristas_desocupados << [m.nome_do_motorista, m.id]
+      end
+    end
+    @lista_motoristas = [['Motoristas desocupados', motoristas_desocupados], ['Motoristas ocupados',motoristas_ocupados]]
+  end
+
+  def opcaoVeiculo
+    veiculos = Veiculo.all
+    veiculos_ocupados = []
+    veiculos_desocupados = []
+
+    veiculos.each do |v|
+      busca = Viagem.find_by_data_partida_and_veiculo_id(params[:viagem_data_de_saida], v.id)
+      if busca
+        veiculos_ocupados <<
+          [CategoriaDeVeiculo.find(v.categoria_de_veiculo_id).nome + " - " +
+            v.modelo + " - " + v.placa,
+            v.id]
+      else
+        veiculos_desocupados <<
+          [CategoriaDeVeiculo.find(v.categoria_de_veiculo_id).nome + " - " +
+            v.modelo + " - " + v.placa,
+            v.id]
+      end
+    end
+    @lista_veiculos = [['Veículos desocupados', veiculos_desocupados], ['Veículos ocupados',veiculos_ocupados]]
   end
 
   private

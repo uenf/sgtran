@@ -6,6 +6,7 @@ class Viagem < ActiveRecord::Base
 
   has_many   :requisicoes
   belongs_to :motorista
+  belongs_to :veiculo
 
   AGUARDANDO = "Aguardando"
   ATENDIDA   = "Atendida"

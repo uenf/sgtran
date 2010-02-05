@@ -121,6 +121,7 @@ ActiveRecord::Schema.define(:version => 20091105211408) do
 
   create_table "viagens", :force => true do |t|
     t.integer  "motorista_id"
+    t.integer  "veiculo_id"
     t.date     "data_partida"
     t.date     "data_chegada"
     t.time     "horario_partida"

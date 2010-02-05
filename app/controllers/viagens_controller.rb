@@ -22,6 +22,7 @@ class ViagensController < ApplicationController
   def show
     @viagem = Viagem.find(params[:id])
     @motorista = Motorista.find(@viagem.motorista_id) if not @viagem.motorista_id.nil?
+    @veiculo = Veiculo.find(@viagem.veiculo_id) if not @viagem.veiculo_id.nil?
 
     respond_to do |format|
       format.html # show.html.erb

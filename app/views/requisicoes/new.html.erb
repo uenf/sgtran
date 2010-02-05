@@ -33,17 +33,16 @@
       <div id="ida_e_volta">
         <p>Selecione uma das opções:</p>
 
-        <span>
-          <%= label_tag :data_de_reserva_ida, "Ida:", :id => "label_ida" %>
+        <p class="ida">
           <%= radio_button_tag 'data_de_reserva', 'ida', true,
-                                :onclick => "idaeVolta()"%>
-        </span>
-        <span>
-          <%= label_tag :data_de_reserva_volta, "Ida e Volta:",
-                        :id => "label_volta"%>
+                                :onclick => "idaeVolta()", object_id => "teste"%>
+          <%= label_tag :data_de_reserva_ida, "Ida", :id => "label_ida" %>
+        </p>
+        <p class="volta">
           <%= radio_button_tag 'data_de_reserva', 'volta', false,
                                 :onclick => "idaeVolta()"%>
-        </span>
+          <%= label_tag :data_de_reserva_volta, "Ida e Volta", :id => "label_volta"%>
+        </p>
         <p>
           Obs.: Em caso de <strong>ida e volta no mesmo dia</strong> ou se
           <strong>o carro tiver que permanecer no local durante a estada</strong>,

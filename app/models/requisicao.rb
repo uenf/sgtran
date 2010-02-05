@@ -156,14 +156,15 @@ class Requisicao < ActiveRecord::Base
 
 
   public
-  def aceitar(motorista, data_partida, data_chegada, horario_partida)
+  def aceitar(motorista, veiculo, data_partida, data_chegada, horario_partida)
     viagem = Viagem.new
 
-    viagem.data_partida    = data_partida
-    viagem.data_chegada    = data_chegada
+    viagem.data_partida = data_partida
+    viagem.data_chegada = data_chegada
     viagem.horario_partida = horario_partida
-    viagem.motorista       = motorista
-    viagem.estado          = Viagem::AGUARDANDO
+    viagem.motorista = motorista
+    viagem.veiculo = veiculo
+    viagem.estado = Viagem::AGUARDANDO
 
     if !data_partida.nil? && !data_chegada.nil?
       if data_partida > data_chegada

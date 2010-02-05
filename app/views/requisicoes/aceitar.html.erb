@@ -33,7 +33,17 @@
                                     :month_year => "label",
                                     :class => "campo_data"%> <br class="pular_linha"/>
 
+        <%= observe_field :viagem_data_de_saida,
+                          :url => { :controller => :requisicoes,
+                            :action => :opcaoMotorista },
+                          :update => :motorista_id
+                          %>
 
+        <%= observe_field :viagem_data_de_saida,
+                          :url => { :controller => :requisicoes,
+                            :action => :opcaoVeiculo },
+                          :update => :veiculo_id
+                          %>
 
         <label for="viagem_data_de_chegada">Data de chegada:</label>
         <%= calendar_date_select_tag "viagem_data_de_chegada",
@@ -41,15 +51,26 @@
                                     :name => "data_chegada",
                                     :year_range => [0.years.ago, 2.years.from_now],
                                     :month_year => "label",
-                                    :class => "campo_data"%> <br class="pular_linha"/>
+                                    :class => "campo_data"%>
+        <br class="pular_linha"/>
 
         <label for="horario_partida">Hor&aacute;rio de saída:</label>
-        <%= time_select :horario, :partida, {:time_separator => ':', :minute_step => 5, :include_blank => "-"}%> <br class="pular_linha"/>
+        <%= time_select :horario, :partida, {:time_separator => ':', :minute_step => 5, :include_blank => "-"}%>
+        <br class="pular_linha"/>
 
         <label for="motorista_id">Motorista:</label>
-        <%= collection_select :motorista, :id, Motorista.all, :id, :nome_do_motorista, {:include_blank => "Selecione um motorista"} %> <br class="pular_linha"/>
+        <select name="motorista_id" id="motorista_id">
+          <%= grouped_options_for_select(@lista_motoristas, "", "Selecione um motorista") %>
+        </select>
+        <br class="pular_linha"/>
 
-        <label for="veiculo">Ve&iacute;culo:</label> <br class="pular_linha"/>
+
+        <label for="veiculo_id">Ve&iacute;culo:</label>
+        <select name="veiculo_id" id="veiculo_id">
+          <%= grouped_options_for_select(@lista_veiculos, "", "Selecione um veículo") %>
+        </select>
+        <!--<%= collection_select :veiculo, :id, Veiculo.all, :id, :itens_da_view, {:include_blank => "Selecione um veículo"} %>-->
+        <br class="pular_linha"/>
       </div>
 
       <!-- VIAGEM EXISTENTE ------------------------------------------------ -->
@@ -181,3 +202,4 @@
   </ul>
   <div class="pular_linha"></li>
 </div>
+
