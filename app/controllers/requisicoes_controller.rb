@@ -70,7 +70,7 @@ class RequisicoesController < ApplicationController
             session[:requisicao] = @requisicao
             #Confirmacao.deliver_email_com_confirmacao_de_cadastro_de_requisicao(@requisicao, @solicitante)
             flash[:sucesso] = 'Requisição enviada com sucesso!'
-            format.html { render :action => "confirmar_requisicao" }
+            format.html { render :action => "confirmar_requisicao", :layout => "requisicoes" }
             format.xml  { render :xml => @requisicao, :status => :created, :location => @requisicao }
           else
             @requisicao = @requisicao[IDA]
