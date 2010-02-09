@@ -179,6 +179,10 @@ div.sucesso {
     padding: 3px 3px 3px 30px;
 }
 
+#confirmar_requisicao {
+    margin-bottom: 30px;
+}
+
 /* errorExplanation */
 
 #errorExplanation {
