@@ -33,16 +33,18 @@
       <div id="ida_e_volta">
         <p>Selecione uma das opções:</p>
 
-        <p class="ida">
+        <span>
           <%= radio_button_tag 'data_de_reserva', 'ida', true,
                                 :onclick => "idaeVolta()", object_id => "teste"%>
           <%= label_tag :data_de_reserva_ida, "Ida", :id => "label_ida" %>
-        </p>
-        <p class="volta">
+        </span>
+        <br/>
+        <span>
           <%= radio_button_tag 'data_de_reserva', 'volta', false,
                                 :onclick => "idaeVolta()"%>
           <%= label_tag :data_de_reserva_volta, "Ida e Volta", :id => "label_volta"%>
-        </p>
+        </span>
+
         <p>
           Obs.: Em caso de <strong>ida e volta no mesmo dia</strong> ou se
           <strong>o carro tiver que permanecer no local durante a estada</strong>,
@@ -158,8 +160,8 @@
       <%= f.text_area :observacao, :rows => nil, :cols => nil %>
     </p>
 
-    <div id="termo">
-      <textarea readonly="readonly" class="termo_area">REGRAS DA ASTRAN PARA UTILIZAÇÃO DE VEÍCULOS
+    <div class="termo">
+      <textarea readonly="readonly">REGRAS DA ASTRAN PARA UTILIZAÇÃO DE VEÍCULOS
 
 
   1.DOS VEÍCULOS:
@@ -181,11 +183,8 @@
     h) O responsável solicitante da reserva deverá arcar com as despesas inerentes a viagem, tais como: combustível, motoristas, entre outras;
     i) O passageiro ou motorista devem obedecer aos dispositivos disciplinares previstos no Decreto N° 41.952, de 16 de julho de 2009." %>
       </textarea><br />
-      <div class="requisicao_termo">
-        <%= f.check_box :termo, :class => "termo_align" %>
-        <%= f.label :termo, "Li e concordo com os termos",
-                    :class => "termo_align" %>
-      </div>
+      <%= f.check_box :termo %>
+      <%= f.label :termo, "Li e concordo com os termos" %>
     </div>
   </fieldset>
   <p>
