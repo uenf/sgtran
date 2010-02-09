@@ -134,14 +134,10 @@ textarea {
 }
 
 #matricula,
-#requisicao_celular {
-	width: 100px;
-}
-
-
+#requisicao_celular,
 #requisicao_data_de_reserva_br,
 #data_de_reserva_ida_volta_br {
-    width: 80px;
+	width: 100px;
 }
 
 #requisicao_submit {
