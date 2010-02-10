@@ -12,7 +12,7 @@ function verificarOutros()
     if (campo == "Outros")
     {
         document.getElementById("requisicao_outros").className = ''
-        document.getElementById("requisicao_outros_label").className = 'campo_obrigatorio'
+        document.getElementById("requisicao_outros_label").className = 'label_obrigatorio'
     }
     else
     {
