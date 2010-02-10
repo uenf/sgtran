@@ -12,5 +12,13 @@ class Viagem < ActiveRecord::Base
   ATENDIDA   = "Atendida"
   CANCELADA  = "Cancelada"
 
+  def requisicoes_atendidas
+    atendidas = []
+    Requisicao.all.each do |requisicao|
+      (atendidas << requisicao.id) if (requisicao.viagem_id == self.id)
+    end
+    atendidas
+  end
+
 end
 
