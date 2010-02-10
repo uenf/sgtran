@@ -1,12 +1,6 @@
 function initialize()
 {
-    setarViagensExistentesInvisivel();
     viagemNovaOuExistente();
-}
-
-function setarViagensExistentesInvisivel()
-{
-    document.getElementById("viagens_existentes").className = "invisivel"
 }
 
 function viagemNovaOuExistente()
