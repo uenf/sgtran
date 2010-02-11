@@ -55,6 +55,8 @@ fieldset {
 }
 
 legend {
+    margin-left: 5px;
+    margin-bottom: 5px;
     float: left;
 	font: bold 12px Verdana;
 }
@@ -160,8 +162,9 @@ textarea {
 }
 
 #ida_e_volta {
+    clear: both;
     background-color: #EEEEEE;
-    padding: 1px 20px 1px 20px;
+    padding: 1px 15px 1px 15px;
 }
 
 #ida_e_volta span {
