@@ -224,13 +224,20 @@ class RequisicoesController < ApplicationController
     motoristas = Motorista.all
     motoristas_ocupados = []
     motoristas_desocupados = []
+    data = session[:requisicao][:data_de_reserva]
 
-    motoristas.each do |m|
-      busca = Viagem.find_by_data_partida_and_motorista_id(params[:viagem_data_de_saida], m.id)
-      if busca
-        motoristas_ocupados << [m.nome_do_motorista, m.id]
+    motoristas.each do |motorista|
+      viagens = Viagem.find_all_by_motorista_id(motorista.id)
+      if not viagens.empty?
+        viagens.each do |viagem|
+          if (data >= viagem.data_partida and data <= viagem.data_chegada)
+            motoristas_ocupados << [motorista.nome_do_motorista, motorista.id]
+          else
+            motoristas_desocupados << [motorista.nome_do_motorista, motorista.id]
+          end
+        end
       else
-        motoristas_desocupados << [m.nome_do_motorista, m.id]
+        motoristas_desocupados << [motorista.nome_do_motorista, motorista.id]
       end
     end
     @lista_motoristas = [['Motoristas desocupados', motoristas_desocupados], ['Motoristas ocupados',motoristas_ocupados]]

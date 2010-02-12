@@ -54,6 +54,18 @@
                                     :class => "campo_data"%>
         <br class="pular_linha"/>
 
+        <%= observe_field :viagem_data_de_chegada,
+                          :url => { :controller => :requisicoes,
+                            :action => :opcaoMotorista },
+                          :update => :motorista_id
+                          %>
+
+        <%= observe_field :viagem_data_de_chegada,
+                          :url => { :controller => :requisicoes,
+                            :action => :opcaoVeiculo },
+                          :update => :veiculo_id
+                          %>
+
         <label for="horario_partida">Hor&aacute;rio de saída:</label>
         <%= time_select :horario, :partida, {:time_separator => ':', :minute_step => 5, :include_blank => "-"}%>
         <br class="pular_linha"/>
@@ -69,7 +81,6 @@
         <select name="veiculo_id" id="veiculo_id">
           <%= grouped_options_for_select(@lista_veiculos, "", "Selecione um veículo") %>
         </select>
-        <!--<%= collection_select :veiculo, :id, Veiculo.all, :id, :itens_da_view, {:include_blank => "Selecione um veículo"} %>-->
         <br class="pular_linha"/>
       </div>
 
