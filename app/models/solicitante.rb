@@ -54,5 +54,14 @@ class Solicitante < ActiveRecord::Base
     "2º andar"]
   end
 
+  def self.verificar_solicitante dados
+    solicitante = Solicitante.find_by_matricula_and_email(dados[:matricula], dados[:email])
+    if solicitante.blank?
+      return false
+    else
+      return true
+    end
+  end
+
 end
 

@@ -16,7 +16,8 @@ describe Requisicao do
       :observacao => "bfdbfdbdfbfdbd",
       :chave_de_seguranca => "a6170a5d995e53fe01f9b02f60e3bbc1c2bfcc74",
       :estado => Requisicao::ESPERA,
-      :motivo => "",
+      :motivo_id => nil,
+      :motivo_professor => "",
       :tipo => nil,
       :referencia_id => nil,
       :viagem_id => "12"
@@ -47,7 +48,7 @@ describe Requisicao do
                                   :roteiro_da_agenda
 
     it "O campo Categoria de veículo deve ser selecionado" do
-      requisicao = Factory.build :requisicao, :categoria_de_veiculo_id => 0
+      requisicao = Factory.build :requisicao, :categoria_de_veiculo_id => ""
       requisicao.save.should be_false
       requisicao.errors.invalid?(:categoria_de_veiculo).should be_true
     end
@@ -77,7 +78,7 @@ describe Requisicao do
       categoria_de_veiculo = Factory.create :categoria_de_veiculo
       requisicao = Factory.build :requisicao,
                                  :estado => Requisicao::CANCELADO_PELO_PROFESSOR,
-                                 :motivo => "",
+                                 :motivo_id => nil,
                                  :categoria_de_veiculo_id => categoria_de_veiculo.id
       requisicao.save.should be_false
       requisicao.errors.invalid?(:motivo).should be_true
@@ -129,23 +130,6 @@ describe Requisicao do
                                         "Outros")
   end
 
-  it "deve instanciar um objeto requisição dados os atributos próprios, os dados
-      do solicitante e a categoria de veículo" do
-    dados_solicitante = {:matricula => "01210", :email => "professor@uenf.br"}
-    solicitante = Factory.create :solicitante, dados_solicitante
-    categoria_de_veiculo = Factory.create :categoria_de_veiculo
-    requisicao = Requisicao.verificarSolicitante dados_solicitante,
-                                      { :data_de_reserva_br => (Date.today + 2.days).to_date.to_s_br,
-                                        :nome_telefone_passageiros  => "asdasdasd",
-                                        :roteiro_da_agenda  => "asdasdasd",
-                                        :categoria_de_veiculo_id => categoria_de_veiculo.id
-                                      }
-    requisicao.should_not be_nil
-    requisicao.should be_valid
-    requisicao.solicitante_id.should == solicitante.id
-  end
-
-
   it "Deve retornar falso caso não tenha marcado as regras" do
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     requisicao = Factory.build :requisicao,
@@ -163,32 +147,25 @@ describe Requisicao do
   end
 
   it "Deve retornar uma lista contendo 2 objetos de requisição" do
-    dados_solicitante = {:matricula => "01210", :email => "professor@uenf.br"}
-    solicitante = Factory.create :solicitante, dados_solicitante
-    dados_requisicao = {:data_de_reserva_br => (Date.today + 2.days).to_date.to_s_br,
-                        :nome_telefone_passageiros  => "asdasdasd",
-                        :roteiro_da_agenda  => "asdasdasd"
-                        }
-
-    requisicao = Requisicao.instanciarRequisicoes(dados_requisicao,
-                Date.tomorrow.tomorrow.tomorrow.to_date.to_s_br,
-                "volta", dados_requisicao[:roteiro_da_agenda], solicitante.id)
+    solicitante = Factory.create :solicitante
+    categoria_de_veiculo = Factory.create :categoria_de_veiculo
+    dados = {:matricula => solicitante.matricula,
+              :email => solicitante.email,
+              :requisicao => {
+                :nome_telefone_passageiros => "algum nome",
+                :roteiro_da_agenda => "alguma agenda",
+                :data_de_reserva => Date.today + 2.days,
+                :categoria_de_veiculo_id => categoria_de_veiculo.id
+              },
+              :data_de_reserva_volta => Date.today + 3.days,
+              :roteiro_da_agenda_volta => "roteiro de volta"
+    }
+    requisicao = Requisicao.analisar_requisicao dados
     requisicao.should have(2).requisicoes
   end
 
   it "Deve retornar uma lista contendo 1 objetos de requisição" do
-    dados_solicitante = {:matricula => "01210", :email => "professor@uenf.br"}
-    solicitante = Factory.create :solicitante, dados_solicitante
-    dados_requisicao = {:data_de_reserva_br => (Date.today + 2.days).to_date.to_s_br,
-                        :nome_telefone_passageiros  => "asdasdasd",
-                        :roteiro_da_agenda  => "asdasdasd"
-                        }
 
-        requisicao = Requisicao.instanciarRequisicoes(dados_requisicao,
-                "",
-                "ida", dados_requisicao[:roteiro_da_agenda], solicitante.id)
-
-    requisicao.should have(1).requisicoes
   end
 
   it "Deve dar erro caso a data seja vazia" do
@@ -229,6 +206,42 @@ describe Requisicao do
 
     confirmacao.valid?.should be false
   end
+
+  it "Deve filtrar a requisição e retornar apenas as requisições com o estado selecionado" do
+    categoria_de_veiculo = Factory.create :categoria_de_veiculo
+    motivo = Factory.create :motivo, :descricao => "algum motivo"
+    requisicao1 = Factory.create :requisicao, :estado => Requisicao::ESPERA, :categoria_de_veiculo_id => categoria_de_veiculo.id
+    requisicao2 = Factory.create :requisicao, :estado => Requisicao::REJEITADA, :categoria_de_veiculo_id => categoria_de_veiculo.id, :motivo_id => motivo.id
+    requisicao3 = Factory.create :requisicao, :estado => Requisicao::CANCELADO_PELO_PROFESSOR, :categoria_de_veiculo_id => categoria_de_veiculo.id, :motivo_professor => "algum motivo"
+    requisicao4 = Factory.create :requisicao, :motivo_id => motivo.id, :estado => Requisicao::CANCELADO_PELO_SISTEMA, :categoria_de_veiculo_id => categoria_de_veiculo.id
+    requisicao5 = Factory.create :requisicao, :estado => Requisicao::ACEITA, :categoria_de_veiculo_id => categoria_de_veiculo.id
+    filtro = {:espera => "Espera",
+              :rejeitada => "Rejeitada",
+              :cancelada_pelo_professor => "Cancelada pelo Professor",
+              :cancelada_pelo_sistema => "Cancelada pelo Sistema",
+              :aceita => "Aceita"}
+    Requisicao.filtrar(filtro[:espera]).should include(requisicao1)
+    Requisicao.filtrar(filtro[:rejeitada]).should == requisicao2
+    Requisicao.filtrar(filtro[:cancelada_pelo_professor]).should == requisicao3
+    Requisicao.filtrar(filtro[:cancelada_pelo_sistema]).should == requisicao4
+    Requisicao.filtrar(filtro[:aceita]).should == requisicao5
+  end
+
+  it "Deve verificar se uma requisição está em espera" do
+    categoria_de_veiculo = Factory.create :categoria_de_veiculo
+    requisicao = Factory.create :requisicao, :estado => Requisicao::ESPERA, :categoria_de_veiculo_id => categoria_de_veiculo.id
+    Requisicao.em_espera?(requisicao).should be_true
+  end
+
+  it "Deve mudar o estado de uma requisição para Rejeitada" do
+    motivo = Factory.create :motivo
+    categoria_de_veiculo = Factory.create :categoria_de_veiculo
+    requisicao = Factory.create :requisicao, :estado => Requisicao::ESPERA, :categoria_de_veiculo_id => categoria_de_veiculo.id
+    requisicao.rejeitar motivo.id
+    requisicao.estado.should == Requisicao::REJEITADA
+    requisicao.motivo_id.should == motivo.id
+  end
+
 
 end
 

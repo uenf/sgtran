@@ -294,4 +294,7 @@ div.sucesso {
 .label_volta {
     float: left !important
 }
+#teste {
+    clear: both
+}
 

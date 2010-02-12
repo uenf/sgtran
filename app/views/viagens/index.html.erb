@@ -1,6 +1,18 @@
 <div id="tabela_exibir">
+<% form_tag("/filtrar_viagem") do -%>
+<p>
+<%= label_tag :filtro, "Filtrar por:" %>
+  <select name="filtro" id="filtro">
+    <option>Todos</option>
+    <option>Aguardando</option>
+    <option>Cancelada</option>
+    <option>Atendida</option>
+  </select>
+  <%= submit_tag "OK" %>
+  </p>
+<% end -%>
 
-  <table class="tabela_padrao">
+  <table class="tabela_padrao" id="viagens">
     <tr>
       <th>Estado</th>
       <th>Data de partida</th>
@@ -10,22 +22,37 @@
       <th>Ve&iacute;culo</th>
       <th>Requisi&ccedil;&atilde;o(s) atendida(s)</th>
     </tr>
+<% if !@viagens.nil? %>
+  <% if @viagens.is_a? Array %>
+    <% @viagens.each do |viagem| %>
 
-  <% @viagens.each do |viagem| %>
+      <tr onmouseover="this.style.cursor='pointer'" onclick="location.href='<%= viagem_path(viagem) %>'">
+        <%= "<td class=\""%><%=h viagem.estado.downcase.gsub(" ", "_") %><%= "\">"%>
+          <%=h viagem.estado %>
+        <%= "</td>"%>
+        <td><%=h (viagem.data_partida.strftime("%d/%m/%Y")) if viagem.data_partida %></td>
+        <td><%=h (viagem.data_chegada.strftime("%d/%m/%Y")) if viagem.data_chegada %></td>
+        <td><%=h (viagem.horario_partida.strftime("%H : %M")) if (viagem.horario_partida) %></td>
+        <td><%=h (viagem.motorista.nome_do_motorista) if viagem.motorista  %></td>
+        <td></td>
+        <td></td>
+      </tr>
 
-    <tr onmouseover="this.style.cursor='pointer'" onclick="location.href='<%= viagem_path(viagem) %>'">
-      <%= "<td class=\""%><%=h viagem.estado.downcase.gsub(" ", "_") %><%= "\">"%>
-        <%=h viagem.estado %>
+    <% end %>
+  <% else %>
+    <tr onmouseover="this.style.cursor='pointer'" onclick="location.href='<%= viagem_path(@viagens) %>'">
+      <%= "<td class=\""%><%=h @viagens.estado.downcase.gsub(" ", "_") %><%= "\">"%>
+        <%=h @viagens.estado %>
       <%= "</td>"%>
-      <td><%=h (viagem.data_partida.strftime("%d/%m/%Y")) if viagem.data_partida %></td>
-      <td><%=h (viagem.data_chegada.strftime("%d/%m/%Y")) if viagem.data_chegada %></td>
-      <td><%=h (viagem.horario_partida.strftime("%H : %M")) if (viagem.horario_partida) %></td>
-      <td><%=h (viagem.motorista.nome_do_motorista) if viagem.motorista  %></td>
+      <td><%=h (@viagens.data_partida.strftime("%d/%m/%Y")) if @viagens.data_partida %></td>
+      <td><%=h (@viagens.data_chegada.strftime("%d/%m/%Y")) if @viagens.data_chegada %></td>
+      <td><%=h (@viagens.horario_partida.strftime("%H : %M")) if (@viagens.horario_partida) %></td>
+      <td><%=h (@viagens.motorista.nome_do_motorista) if @viagens.motorista  %></td>
       <td></td>
       <td></td>
-    </tr>
-
+    </tr>  
   <% end %>
+<% end %>
 
   </table>
 

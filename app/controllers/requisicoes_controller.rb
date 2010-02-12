@@ -12,8 +12,8 @@ class RequisicoesController < ApplicationController
   access_control do
       allow all, :to => [:new, :create, :confirmar_requisicao, :requisicao_ja_foi_cancelada, :cancelar_requisicao, :visualizar_requisicao,
                           :cancelar_requisicao_pelo_professor]
-      allow :admin, :to => [:index, :show, :aceitar, :fechar_viagem]
-      allow :visit, :to => [:index, :show]
+      allow :admin, :to => [:index, :show, :aceitar, :fechar_viagem, :filtrar, :rejeitar, :rejeitar_requisicao]
+      allow :visit, :to => [:index, :show, :filtrar]
   end
 
 
@@ -24,6 +24,12 @@ class RequisicoesController < ApplicationController
       format.html # index.html.erb
       format.xml  { render :xml => @requisicoes }
     end
+  end
+
+  def filtrar
+    filtro = params[:filtro]
+    @requisicoes = Requisicao.filtrar(filtro.to_s)
+    render :action => "index"
   end
 
   # GET /requisicoes/1
@@ -50,54 +56,85 @@ class RequisicoesController < ApplicationController
   # POST /requisicoes
   # POST /requisicoes.xml
 
-  # FAZER TESTES!!!!
   def create
-
-    dados_solicitante = {:matricula => params[:matricula], :email => params[:email]}
-
-    @verificarSolicitante = Requisicao.verificarSolicitante(dados_solicitante, params[:requisicao])
-
-    if @verificarSolicitante.valid?
-
-      @requisicao = Requisicao.instanciarRequisicoes(params[:requisicao], params[:data_de_reserva_ida_volta_br],
-                    params[:data_de_reserva], params[:roteiro_da_agenda_volta], @verificarSolicitante.solicitante_id)
-      if @requisicao.length == 1
-        respond_to do |format|
-          if @requisicao[IDA].save
-            #incluindo linha para enviar o emailtesteuenf
-            #comentado temporariamente, porta bloqueada
-            @solicitante = Solicitante.find(@requisicao[IDA].solicitante_id)
-            session[:requisicao] = @requisicao
-            #Confirmacao.deliver_email_com_confirmacao_de_cadastro_de_requisicao(@requisicao, @solicitante)
-            flash[:sucesso] = 'Requisição enviada com sucesso!'
-            format.html { render :action => "confirmar_requisicao" }
-            format.xml  { render :xml => @requisicao, :status => :created, :location => @requisicao }
-          else
-            @requisicao = @requisicao[IDA]
-            format.html { render :action => "new", :layout => "requisicoes" }
-            format.xml  { render :xml => @requisicao.errors, :status => :processable_entity }
-          end
-       end
-
-     else
-
-       confirmacao = @requisicao[IDA].registrarVolta @requisicao[VOLTA]
-
-        if confirmacao.valid?
-            session[:requisicao] = @requisicao
-            flash[:sucesso] = 'Requisição enviada com sucesso!'
-            redirect_to(confirmar_requisicao_path)
+    if params[:data_de_reserva] == "volta"
+      dados = {:matricula => params[:matricula],
+                :email => params[:email],
+                :requisicao => params[:requisicao],
+                :roteiro_da_agenda_volta => params[:roteiro_da_agenda_volta],
+                :data_de_reserva_ida_volta => params[:data_de_reserva_ida_volta_br],
+                :tipo => "Ida e Volta"}
+    else
+      dados = {:matricula => params[:matricula], :email => params[:email], :requisicao => params[:requisicao], :tipo => "Ida"}
+    end
+    @requisicao = Requisicao.analisar_requisicao dados
+    if @requisicao.length == 1
+      if @requisicao[IDA].valid?
+        session[:requisicao] = @requisicao
+        redirect_to(confirmar_requisicao_path)
+      else
+        @requisicao = @requisicao[IDA]
+        render :action => "new"
+      end
+    else
+      if @requisicao[IDA].valid?
+        if @requisicao[VOLTA].valid?
+          session[:requisicao] = @requisicao
+          redirect_to(confirmar_requisicao_path)
         else
-          @requisicao = confirmacao
-          render :action => "new", :layout => "requisicoes"
+          @requisicao = @requisicao[VOLTA]
+          render :action => "new"
         end
+      else
+        @requisicao = @requisicao[IDA]
+        render :action => "new"
+      end
+    end
+#   Confirmacao.deliver_email_com_confirmacao_de_cadastro_de_requisicao(@requisicao, @solicitante)
 
-     end
+#    @verificarSolicitante = Requisicao.verificarSolicitante(dados_solicitante, params[:requisicao])
 
-   else
-    @requisicao = @verificarSolicitante
-    render :action => "new", :layout => "requisicoes"
-   end
+#    if @verificarSolicitante.valid?
+
+#      @requisicao = Requisicao.instanciarRequisicoes(params[:requisicao], params[:data_de_reserva_ida_volta_br],
+#                    params[:data_de_reserva], params[:roteiro_da_agenda_volta], @verificarSolicitante.solicitante_id)
+#      if @requisicao.length == 1
+#        respond_to do |format|
+#          if @requisicao[IDA].save
+#            @solicitante = Solicitante.find(@requisicao[IDA].solicitante_id)
+#            session[:requisicao] = @requisicao
+#            #Confirmacao.deliver_email_com_confirmacao_de_cadastro_de_requisicao(@requisicao, @solicitante)
+#            flash[:sucesso] = 'Requisição enviada com sucesso!'
+#            format.html { render :action => "confirmar_requisicao" }
+#            format.xml  { render :xml => @requisicao, :status => :created, :location => @requisicao }
+#          else
+#            @requisicao = @requisicao[IDA]
+#            format.html { render :action => "new", :layout => "requisicoes" }
+#            format.xml  { render :xml => @requisicao.errors, :status => :processable_entity }
+#          end
+#       end
+
+#     else
+
+#       confirmacao = @requisicao[IDA].registrarVolta @requisicao[VOLTA]
+
+
+#        if confirmacao.valid?
+#            @solicitante = Solicitante.find(confirmacao.solicitante_id)
+#            session[:requisicao] = confirmacao
+#            flash[:sucesso] = 'Requisição enviada com sucesso!'
+#            render :action => "confirmar_requisicao"
+#        else
+#          @requisicao = confirmacao
+#          render :action => "new", :layout => "requisicoes"
+#        end
+
+#     end
+
+#   else
+#    @requisicao = @verificarSolicitante
+#    render :action => "new", :layout => "requisicoes"
+#   end
 
   end
 
@@ -107,6 +144,7 @@ class RequisicoesController < ApplicationController
     @solicitante = Solicitante.find_by_matricula_and_email(params[:matricula], params[:email])
 
     session.delete :requisicao
+    flash[:sucesso] = "Requisição enviada com sucesso!"
     render :action => "confirmar_requisicao", :layout => "requisicoes"
   end
 
@@ -201,7 +239,7 @@ class RequisicoesController < ApplicationController
     @requisicao = Requisicao.find(params[:id])
     @solicitante = Solicitante.find(@requisicao.solicitante_id)
 
-    if @requisicao.cancelar_pelo_professor(params[:requisicao][:motivo])
+    if @requisicao.cancelar_pelo_professor(params[:requisicao][:motivo_professor])
       flash[:sucesso] = 'Requisição cancelada com sucesso!'
       session[:requisicao] = @requisicao
       #incluindo linha para enviar o emailtesteuenf para ailton informando que professor cancelou a requisição
@@ -218,6 +256,20 @@ class RequisicoesController < ApplicationController
   def regras
     render :layout => "regras"
   end
+
+  def rejeitar
+    @requisicao = Requisicao.find(params[:id])
+    @solicitante = Solicitante.find(@requisicao.solicitante_id)
+    @motivos = Motivo.all
+  end
+
+  def rejeitar_requisicao
+    @requisicao = Requisicao.find(params[:requisicao])
+    motivo = params[:motivo]
+    @requisicao.rejeitar motivo
+    redirect_to requisicao_path(@requisicao)
+  end
+
 
   private
 

@@ -1,4 +1,33 @@
-require "factory_girl"
+Dado /^que eu tenho uma requisição com estado "([^\"]*)"$/ do |estado|
+  veiculo = Factory.create :categoria_de_veiculo
+  solicitante = Factory.create :solicitante
+  motivo = Factory.create :motivo
+  case estado.to_s
+    when "Em Espera" then
+      @requisicao_filtro = Factory.create :requisicao, :estado => Requisicao::ESPERA, :categoria_de_veiculo_id => veiculo.id, :solicitante_id => solicitante.id
+    when "Rejeitada" then
+      @requisicao_filtro = Factory.create :requisicao, :estado => Requisicao::REJEITADA, :categoria_de_veiculo_id => veiculo.id, :solicitante_id => solicitante.id, :motivo_id => motivo.id
+    when "Cancelada pelo Professor" then
+      @requisicao_filtro = Factory.create :requisicao, :estado => Requisicao::CANCELADO_PELO_PROFESSOR, :categoria_de_veiculo_id => veiculo.id, :solicitante_id => solicitante.id, :motivo_professor => "Algum motivo"
+    when "Cancelada pelo Sistema" then
+      @requisicao_filtro = Factory.create :requisicao, :estado => Requisicao::CANCELADO_PELO_SISTEMA, :categoria_de_veiculo_id => veiculo.id, :solicitante_id => solicitante.id, :motivo_id => motivo.id
+    when "Aceita" then
+      @requisicao_filtro = Factory.create :requisicao, :estado => Requisicao::ACEITA, :categoria_de_veiculo_id => veiculo.id, :solicitante_id => solicitante.id
+  end
+end
+
+Dado /^que eu tenho uma viagem com estado "([^\"]*)"$/ do |estado|
+  veiculo = Factory.create :categoria_de_veiculo
+  solicitante = Factory.create :solicitante
+  case estado.to_s
+    when "Aguardando" then
+      @viagem = Factory.create :viagem, :estado => Viagem::AGUARDANDO
+    when "Cancelada" then
+      @viagem = Factory.create :viagem, :estado => Viagem::CANCELADA
+    when "Atendida" then
+      @viagem = Factory.create :viagem, :estado => Viagem::ATENDIDA
+  end
+end
 
 Dado /^que eu tenho uma requisição de ida com número de protocolo ([^\"]*)$/ do |protocolo|
   veiculo = Factory.create :categoria_de_veiculo
@@ -24,7 +53,7 @@ Dado /^que eu tenha um solicitante com e-mail "([^\"]*)" e matricula "([^\"]*)"$
   @solicitante = Factory.create :solicitante, :email => email, :matricula => matricula
 end
 
-Dado /^que eu tenha uma requisição em espera$/ do
+Dado /^que eu tenho uma requisição em espera$/ do
   solicitante = Factory.create :solicitante
   veiculo = Factory.create :categoria_de_veiculo
   @requisicao = Factory.create :requisicao, :solicitante_id => solicitante.id, :categoria_de_veiculo_id => veiculo.id

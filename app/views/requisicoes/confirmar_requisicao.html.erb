@@ -1,4 +1,5 @@
 <% @requisicao.each do |requisicao| %>
+<% @solicitante = Solicitante.find(requisicao.solicitante_id) %>
 
 <div id="confirmar_requisicao">
 <p>

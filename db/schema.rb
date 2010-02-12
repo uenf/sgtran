@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091105211408) do
+ActiveRecord::Schema.define(:version => 20100208170107) do
 
   create_table "categoria_de_veiculos", :force => true do |t|
     t.string   "nome"
@@ -27,6 +27,12 @@ ActiveRecord::Schema.define(:version => 20091105211408) do
   create_table "combustiveis_veiculos", :id => false, :force => true do |t|
     t.integer  "combustivel_id"
     t.integer  "veiculo_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "motivos", :force => true do |t|
+    t.string   "descricao"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -52,7 +58,8 @@ ActiveRecord::Schema.define(:version => 20091105211408) do
     t.text     "observacao"
     t.string   "estado",                    :default => "Espera"
     t.string   "chave_de_seguranca"
-    t.string   "motivo"
+    t.integer  "motivo_id"
+    t.string   "motivo_professor"
     t.string   "tipo",                      :default => "Ida"
     t.string   "referencia_id"
     t.datetime "created_at"

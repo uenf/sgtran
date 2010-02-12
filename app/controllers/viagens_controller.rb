@@ -3,7 +3,7 @@ class ViagensController < ApplicationController
   # GET /viagens.xml
 
   access_control do
-    allow :admin, :to => [:index, :show, :new, :edit, :create, :update, :destroy, :viagens_existentes]
+    allow :admin, :to => [:index, :show, :new, :edit, :create, :update, :destroy, :viagens_existentes, :filtrar]
   end
 
   layout "sistema"
@@ -15,6 +15,13 @@ class ViagensController < ApplicationController
       format.html # index.html.erb
       format.xml  { render :xml => @viagens }
     end
+  end
+  
+  def filtrar
+    filtro = params[:filtro]
+    @viagens = Viagem.filtrar(filtro)
+    render :action => "index"
+    
   end
 
   # GET /viagens/1

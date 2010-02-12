@@ -11,16 +11,35 @@ end
 
 Then /^eu devo ver a tabela "(.+)" com$/ do |tabela_id, tabela_esperada|
   begin
-    tabela_esperada.map_column!('Data') do |data|
+    tabela_esperada.map_column!("Protocolo") do |data|
+      if data == "ID"
+        data = @requisicao_filtro.id.to_s
+      end
+      data
+    end  
+    tabela_esperada.map_column!("Data") do |data|
       if data == 'Daqui a dois dias'
         data = Date.tomorrow.tomorrow.strftime("%d/%m/%Y")
       end
       data
-    end
+    end      
   rescue
   end
-  tabela_esperada.diff!(table_at("#" + tabela_id).to_a)
+  tabela_esperada.diff!(tableish("table#" + tabela_id + " tr", "td, th"))
 end
+
+#Then /^eu devo ver a tabela (.+) com$/ do |tabela_id, tabela_esperada|
+#  begin
+#    tabela_esperada.map_column!('Data') do |data|
+#      if data == 'Daqui a dois dias'
+#        data = Date.tomorrow.tomorrow.strftime("%d/%m/%Y")
+#      end
+#      data
+#    end
+#  rescue
+#  end
+#  tabela_esperada.diff!(tableish("table#" + tabela_id + " tr", "td, th"))
+#end
 
 When /^eu aceito a requisição ([0-9]+)$/ do |requisicao_id|
   requisicao = Requisicao.find(requisicao_id)

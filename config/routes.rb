@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :motivos
+
   map.resources :usuario_sessions
 
   map.resources :usuarios
@@ -33,6 +35,12 @@ ActionController::Routing::Routes.draw do |map|
 
   map.admin "/admin", :controller => "usuario_sessions", :action => "new"
   map.sair "/sair", :controller => "usuario_sessions", :action => "destroy"
+  
+  map.filtrar_requisicao "/filtrar_requisicao", :controller => "requisicoes", :action => "filtrar"
+  
+  map.filtrar_viagem "filtrar_viagem", :controller => "viagens", :action => "filtrar"
+  
+  map.rejeitar_requisicao "rejeitar_requisicao", :controller => "requisicoes", :action => "rejeitar_requisicao"
 
 
   # The priority is based upon order of creation: first created -> highest priority.

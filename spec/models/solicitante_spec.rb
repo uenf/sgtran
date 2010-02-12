@@ -48,5 +48,11 @@ describe Solicitante do
     solicitante = Factory.build :solicitante, :predio => "Selecione um Prédio"
     solicitante.valid?.should be_false
   end
+
+  it "deve verificar se um solicitante existe" do
+    solicitante = Factory.create :solicitante
+    dados = {:email => solicitante.email, :matricula => solicitante.matricula}
+    Solicitante.verificar_solicitante(dados).should be_true
+  end
 end
 

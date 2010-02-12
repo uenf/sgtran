@@ -10,6 +10,22 @@ class Viagem < ActiveRecord::Base
   AGUARDANDO = "Aguardando"
   ATENDIDA   = "Atendida"
   CANCELADA  = "Cancelada"
+  
+  
+  def self.filtrar opcao
+    case opcao.to_s
+      when "Aguardando" then
+        return Viagem.find_by_estado(Viagem::AGUARDANDO, :order => "id ASC")
+      when "Cancelada" then
+        return Viagem.find_by_estado(Viagem::CANCELADA, :order => "id ASC")
+      when "Atendida" then
+        return Viagem.find_by_estado(Viagem::ATENDIDA, :order => "id ASC")
+      when "Todos" then
+        return Viagem.all(:order => "id ASC")
+      else
+        return Viagem.all(:conditions => "estado = '" + Viagem::AGUARDANDO + "'", :order => "id ASC")
+    end    
+  end
 
 end
 

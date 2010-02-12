@@ -7,7 +7,7 @@ Funcionalidade: Aceitar requisição de viagem
     Para que o professor possa ter sua requisição executada
 
     Esquema do Cenário: Aceitar requisição
-    Dado que eu tenha uma requisição em espera
+    Dado que eu tenho uma requisição em espera
     E que eu tenho "Gustavo Santos" em Motorista
     E que eu tenho "Eduardo Silva" em Motorista
     E que eu estou na página de detalhes da requisição
@@ -41,7 +41,7 @@ Funcionalidade: Aceitar requisição de viagem
 
     Esquema do Cenário: Aceitar com uma viagem já existente
       Dado que eu tenha uma viagem
-      E que eu tenha uma requisição em espera
+      E que eu tenho uma requisição em espera
       E que eu estou na página de detalhes da requisição
       Quando eu clico em "Aceitar"
       Então eu devo estar na página de editar detalhes da viagem
