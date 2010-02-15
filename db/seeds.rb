@@ -100,3 +100,13 @@ open("#{Rails.root}/db/seeds_files/requisicoes_seed.txt") do |requisicoes|
   end
 end
 
+Motivo.delete_all
+open("#{Rails.root}/db/seeds_files/motivos_seed.txt") do |motivos|
+  motivos.read.each do |m|
+    if m != "\n"
+      descricao = m.chomp.split("|")
+      Motivo.create!(:descricao => descricao)
+    end
+  end
+end
+

@@ -1,0 +1,104 @@
+<div class="show_padrao">
+<% form_tag("/rejeitar_requisicao") do -%>
+  <%= hidden_field_tag "requisicao", "#{@requisicao.id}" %>
+  <p>
+    <% @motivos.each do |m| %>
+      <input type="radio" name="motivo" value="<%= m.id %>" checked="checked" /><%= m.descricao %><br />
+    <% end %>
+  </p>
+  <p>
+    <%= submit_tag "Rejeitar requisição", :confirm => "Deseja realmente rejeitar essa requisição?" %>
+  </p>
+<% end -%>
+
+        <!---------------------------------------------------------------------------->
+
+    <h1>Dados gerais</h1>
+
+    <div class="show_linha">
+      <div class="linha_titulo"> Matricula: </div> <div class="linha_texto"> <%=h @solicitante.matricula %> </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo"> Nome do solicitante: </div> <div class="linha_texto"> <%=h @solicitante.nome %> </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo"> Email: </div> <div class="linha_texto"> <%=h @solicitante.email %> </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo"> Cargo ou funcao: </div> <div class="linha_texto"> <%=h @solicitante.cargo_ou_funcao %> </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo"> Telefone ou ramal: </div> <div class="linha_texto"> <%=h @solicitante.telefone_ou_ramal %> </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo"> Celular: </div> <div class="linha_texto"> <%=h @requisicao.celular %> </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo"> Laboratorio ou setor: </div> <div class="linha_texto"> <%=h @solicitante.laboratorio_ou_setor %> </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo"> Predio: </div> <div class="linha_texto"> <%=h @solicitante.predio %> </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo"> Andar: </div> <div class="linha_texto"> <%=h @solicitante.andar %> </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo"> Sala: </div> <div class="linha_texto"> <%=h @solicitante.sala %> </div>
+    </div>
+
+    <h1>Dados da reserva</h1>
+
+    <div class="show_linha">
+      <div class="linha_titulo"> Data de reserva: </div> <div class="linha_texto"> <%=h @requisicao.data_de_reserva.strftime("%d/%m/%Y")%> </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo"> Categoria do veículo: </div> <div class="linha_texto"> <%=h CategoriaDeVeiculo.find(@requisicao.categoria_de_veiculo_id).nome %> </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo"> Objetivo da reserva: </div> <div class="linha_texto"> <%=h @requisicao.objetivo_da_reserva %> </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo"> Outros: </div> <div class="linha_texto"> <%=h @requisicao.outros %> </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo"> Nome e telefone dos passageiros: </div> <div class="linha_texto"> <%=h @requisicao.nome_telefone_passageiros %> </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo"> Roteiro da agenda: </div> <div class="linha_texto"> <%=h @requisicao.roteiro_da_agenda %> </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo"> Observacao: </div> <div class="linha_texto"> <%=h @requisicao.observacao %> </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo"> Estado: </div> <div class="linha_texto"> <%=h @requisicao.estado.to_s %> </div>
+    </div>
+
+</div>
+
+<!---------------------------------------------------------------------------->
+
+<div id="opcoes_da_visao">
+  <ul>
+    <li id="opcao_voltar" onclick="location.href='<%= requisicoes_path %>'" onmouseover="this.style.cursor='pointer'"><%= link_to 'Voltar', requisicoes_path %></li>
+  </ul>
+  <div class="pular_linha"></li>
+</div>
+
+</div>
+

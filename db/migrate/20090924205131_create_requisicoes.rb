@@ -15,7 +15,8 @@ class CreateRequisicoes < ActiveRecord::Migration
       t.string :estado, :default => Requisicao::ESPERA
 
       t.string :chave_de_seguranca
-      t.string :motivo
+      t.references :motivo
+      t.string :motivo_professor
       t.string :tipo, :default => "Ida"
       t.string :referencia_id
 
