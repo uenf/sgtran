@@ -154,13 +154,29 @@ describe Requisicao do
                 :categoria_de_veiculo_id => categoria_de_veiculo.id
               },
               :data_de_reserva_volta => Date.today + 3.days,
-              :roteiro_da_agenda_volta => "roteiro de volta"
+              :roteiro_da_agenda_volta => "roteiro de volta",
+              :tipo => "Ida e Volta"
     }
     requisicao = Requisicao.analisar_requisicao dados
     requisicao.should have(2).requisicoes
   end
 
   it "Deve retornar uma lista contendo 1 objetos de requisição" do
+    
+    solicitante = Factory.create :solicitante
+    categoria_de_veiculo = Factory.create :categoria_de_veiculo
+    dados = {:matricula => solicitante.matricula,
+              :email => solicitante.email,
+              :requisicao => {
+                :nome_telefone_passageiros => "algum nome",
+                :roteiro_da_agenda => "alguma agenda",
+                :data_de_reserva => Date.today + 2.days,
+                :categoria_de_veiculo_id => categoria_de_veiculo.id
+              },
+              :tipo => "Ida"
+    }
+    requisicao = Requisicao.analisar_requisicao dados
+    requisicao.should have(1).requisicoes
 
   end
 
