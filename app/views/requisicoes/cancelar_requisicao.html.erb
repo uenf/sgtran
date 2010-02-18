@@ -83,7 +83,7 @@
 
     <tr>
       <td class="celula_label"><strong>Objetivo da reserva:</strong></td>
-      <td><%=h @requisicao.objetivo_da_reserva %></td>
+      <td><%=h ObjetivoDeReserva.find(@requisicao.objetivo_de_reserva_id).texto %></td>
     </tr>
 
     <tr>

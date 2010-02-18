@@ -43,7 +43,7 @@
         <td><%=h solicitante.telefone_ou_ramal %></td>
         <td><%=h requisicao.data_de_reserva.strftime("%d/%m/%Y") %></td>
         <td><%=h CategoriaDeVeiculo.find(requisicao.categoria_de_veiculo_id).nome %></td>
-        <td><%=h requisicao.objetivo_da_reserva %></td>
+        <td><%=h ObjetivoDeReserva.find(requisicao.objetivo_de_reserva_id).texto %></td>
         <td><%=h requisicao.tipo ? requisicao.tipo : "-" %></td>
         <td><%=h requisicao.referencia_id ? requisicao.referencia_id : "-" %></td>
       </tr>
@@ -62,7 +62,7 @@
           <td><%=h solicitante.telefone_ou_ramal %></td>
           <td><%=h @requisicoes.data_de_reserva.strftime("%d/%m/%Y") %></td>
           <td><%=h CategoriaDeVeiculo.find(@requisicoes.categoria_de_veiculo_id).nome %></td>
-          <td><%=h @requisicoes.objetivo_da_reserva %></td>
+          <td><%=h ObjetivoDeReserva.find(@requisicoes.objetivo_de_reserva_id).texto %></td>
           <td><%=h @requisicoes.tipo ? @requisicoes.tipo : "-" %></td>
           <td><%=h @requisicoes.referencia_id ? @requisicoes.referencia_id : "-" %></td>
         </tr>

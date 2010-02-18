@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100208170107) do
+ActiveRecord::Schema.define(:version => 20100218134654) do
 
   create_table "categoria_de_veiculos", :force => true do |t|
     t.string   "nome"
@@ -45,13 +45,19 @@ ActiveRecord::Schema.define(:version => 20100208170107) do
     t.datetime "updated_at"
   end
 
+  create_table "objetivos_de_reserva", :force => true do |t|
+    t.string   "texto"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "requisicoes", :force => true do |t|
     t.integer  "solicitante_id"
     t.integer  "viagem_id"
     t.integer  "categoria_de_veiculo_id"
+    t.integer  "objetivo_de_reserva_id"
     t.string   "celular"
     t.date     "data_de_reserva"
-    t.string   "objetivo_da_reserva"
     t.string   "outros"
     t.text     "nome_telefone_passageiros"
     t.text     "roteiro_da_agenda"

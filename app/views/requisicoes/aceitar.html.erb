@@ -183,7 +183,7 @@
     </div>
 
     <div class="show_linha">
-      <div class="linha_titulo"> Objetivo da reserva: </div> <div class="linha_texto"> <%=h @requisicao.objetivo_da_reserva %> </div>
+      <div class="linha_titulo"> Objetivo da reserva: </div> <div class="linha_texto"> <%=h ObjetivoDeReserva.find(@requisicao.objetivo_de_reserva_id).texto %> </div>
     </div>
 
     <div class="show_linha">

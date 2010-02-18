@@ -1,0 +1,17 @@
+<h1>Editing objetivo_de_reserva</h1>
+
+<% form_for(@objetivo_de_reserva) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :texto %><br />
+    <%= f.text_field :texto %>
+  </p>
+  <p>
+    <%= f.submit 'Modificar' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @objetivo_de_reserva %> |
+<%= link_to 'Back', objetivos_de_reserva_path %>
+

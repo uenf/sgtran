@@ -3,9 +3,14 @@ require "factory_girl"
 
 Given /^que eu tenha ([0-9]+) requisições em espera$/ do |quantidade|
   for pos in (1..quantidade.to_i) do
-    veiculo = Factory.create :categoria_de_veiculo
+    categoria_de_veiculo = Factory.create :categoria_de_veiculo
+    objetivo_de_reserva = Factory.create :objetivo_de_reserva
     solicitante = Factory.create :solicitante, :nome => 'fulano ' + pos.to_s
-    requisicao = Factory.create :requisicao, :id => pos, :solicitante_id => solicitante.id, :categoria_de_veiculo_id => veiculo.id
+    requisicao = Factory.create :requisicao,
+                                :id => pos,
+                                :solicitante_id => solicitante.id,
+                                :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                :objetivo_de_reserva_id => objetivo_de_reserva.id
   end
 end
 
@@ -16,13 +21,13 @@ Then /^eu devo ver a tabela "(.+)" com$/ do |tabela_id, tabela_esperada|
         data = @requisicao_filtro.id.to_s
       end
       data
-    end  
+    end
     tabela_esperada.map_column!("Data") do |data|
       if data == 'Daqui a dois dias'
         data = Date.tomorrow.tomorrow.strftime("%d/%m/%Y")
       end
       data
-    end      
+    end
   rescue
   end
   tabela_esperada.diff!(tableish("table#" + tabela_id + " tr", "td, th"))

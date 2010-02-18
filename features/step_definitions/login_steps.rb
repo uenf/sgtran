@@ -22,7 +22,11 @@ end
 Dado /^que eu tenho uma requisição com solicitante "([^\"]*)"$/ do |solicitante|
   solicitante = Factory.create :solicitante, :nome => solicitante
   categoria_de_veiculo = Factory.create :categoria_de_veiculo
-  Factory.create :requisicao, :solicitante_id => solicitante.id, :categoria_de_veiculo_id => categoria_de_veiculo.id
+  objetivo_de_reserva = Factory.create :objetivo_de_reserva
+  Factory.create :requisicao,
+                 :solicitante_id => solicitante.id,
+                 :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                 :objetivo_de_reserva_id => objetivo_de_reserva.id
 end
 
 Dado /^que eu não estou logado$/ do

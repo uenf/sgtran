@@ -61,15 +61,21 @@ module NavigationHelpers
 
     when /^página de adição de combustível$/
       new_combustivel_path
-      
+
     when /página de filtragem de requisições/
       filtrar_requisicao_path
-      
+
     when /página de filtragem de viagens/
-      filtrar_viagem_path  
+      filtrar_viagem_path
 
     when /página de rejeitar uma requisição/
-      rejeitar_path(:id => @requisicao)    
+      rejeitar_path(:id => @requisicao)
+
+  when /^página de adição de objetivo de reserva$/
+      new_objetivo_de_reserva_path
+
+  when /^página de edição de objetivo de reserva$/
+      edit_objetivo_de_reserva_path(:id => @objetivo_de_reserva)
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

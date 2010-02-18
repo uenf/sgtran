@@ -8,6 +8,8 @@ Funcionalidade: Solicitar viagem
 
   Esquema do Cenário: Envio de requisição
     Dado que eu tenha uma categoria de veículo "Micro-ônibus - até 32 passageiros"
+    E que eu tenha um objetivo de reserva "Aula de Campo"
+    E que eu tenha um objetivo de reserva "Outros"
     E que eu tenha um solicitante com e-mail "ronaldo@corinthians.com" e matricula "01210"
     E que eu estou na página de requisição
     Quando eu preencho "Matrícula" com "<Matrícula>"
@@ -39,7 +41,7 @@ Funcionalidade: Solicitar viagem
     |           | ronaldo@corinthians.com   | 9997-3421 | Micro-ônibus - até 32 passageiros | Aula de Campo         |           | Zina, Ronaldo e Alfinete  | Ir ao Pacaembu    |               | eu marco "Li e concordo com os termos"     | eu pressiono "Enviar" | eu devo ver "Solicitante não existe"                          |
     | 01210     |                           | 9997-3421 | Micro-ônibus - até 32 passageiros | Aula de Campo         |           | Zina, Ronaldo e Alfinete  | Ir ao Pacaembu    |               | eu marco "Li e concordo com os termos"     | eu pressiono "Enviar" | eu devo ver "Solicitante não existe"                          |
     | 01210     | ronaldo@corinthians.com   | 9997-3421 | Selecione uma categoria de veículo| Aula de Campo         |           | Zina, Ronaldo e Alfinete  | Ir ao Pacaembu    |               | eu marco "Li e concordo com os termos"     | eu pressiono "Enviar" | eu devo ver "Categoria de veiculo não selecionada"            |
-    | 01210     | ronaldo@corinthians.com   | 9997-3421 | Micro-ônibus - até 32 passageiros | Selecione um Objetivo |           | Zina, Ronaldo e Alfinete  | Ir ao Pacaembu    |               | eu marco "Li e concordo com os termos"     | eu pressiono "Enviar" | eu devo ver "Objetivo da reserva não selecionado"             |
+    | 01210     | ronaldo@corinthians.com   | 9997-3421 | Micro-ônibus - até 32 passageiros | Selecione um objetivo |           | Zina, Ronaldo e Alfinete  | Ir ao Pacaembu    |               | eu marco "Li e concordo com os termos"     | eu pressiono "Enviar" | eu devo ver "Objetivo de reserva não selecionado"             |
     | 01210     | ronaldo@corinthians.com   | 9997-3421 | Micro-ônibus - até 32 passageiros | Aula de Campo         |           |                           | Ir ao Pacaembu    |               | eu marco "Li e concordo com os termos"     | eu pressiono "Enviar" | eu devo ver "Nome telefone passageiros não pode ser vazio"    |
     | 01210     | ronaldo@corinthians.com   | 9997-3421 | Micro-ônibus - até 32 passageiros | Aula de Campo         |           | Zina, Ronaldo e Alfinete  |                   |               | eu marco "Li e concordo com os termos"     | eu pressiono "Enviar" | eu devo ver "Roteiro da agenda não pode ser vazio"            |
     | 01210     | ronaldo@corinthians.com   | 9997-3421 | Micro-ônibus - até 32 passageiros | Outros                |           | Zina, Ronaldo e Alfinete  | Ir ao Pacaembu    |               | eu marco "Li e concordo com os termos"     | eu pressiono "Enviar" | eu devo ver "Outros não pode ser vazio"                       |
@@ -53,6 +55,7 @@ Funcionalidade: Solicitar viagem
 
   Esquema do Cenário: Envio de requisição com datas inválidas
     Dado que eu tenha uma categoria de veículo "Automóvel até 4 passageiros"
+    E que eu tenha um objetivo de reserva "Aula de Campo"
     E que eu tenha um solicitante com e-mail "ronaldo@corinthians.com" e matricula "01210"
     E que eu estou na página de requisição
     Quando eu preencho "Matrícula" com "01210"

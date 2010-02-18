@@ -8,7 +8,7 @@ function initialize()
 
 function verificarOutros()
 {
-    var campo = document.getElementById("requisicao_objetivo_da_reserva").value
+    var campo = document.getElementById("requisicao_objetivo_de_reserva_id").value
     if (campo == "Outros")
     {
         document.getElementById("requisicao_outros").className = ''

@@ -2,6 +2,7 @@
 
   Esquema do Cenário: Envio de requisição com datas inválidas
     Dado que eu tenha uma categoria de veículo "Micro-ônibus - até 32 passageiros"
+    E que eu tenha um objetivo de reserva "Aula de Campo"
     E que eu tenha um solicitante com e-mail "ronaldo@corinthians.com" e matricula "01210"
     E que eu estou na página de requisição
     Quando eu preencho "Matrícula" com "01210"

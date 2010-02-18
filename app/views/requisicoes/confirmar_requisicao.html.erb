@@ -16,7 +16,7 @@
       <label>Categoria de veículo: </label><%= CategoriaDeVeiculo.find(requisicao.categoria_de_veiculo_id).nome %>
     </p>
     <p>
-      <label>Objetivo da Reserva: </label><%= requisicao.objetivo_da_reserva %>
+      <label>Objetivo da Reserva: </label><%= ObjetivoDeReserva.find(requisicao.objetivo_de_reserva_id).texto %>
     </p>
 
     <% unless requisicao.outros.blank? %>

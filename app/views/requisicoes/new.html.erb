@@ -78,9 +78,11 @@
                   {:include_blank => "Selecione uma categoria de veículo"} %>
     </p>
     <p>
-      <%= f.label :objetivo_da_reserva, "Objetivo da reserva:",
+      <%= f.label :objetivo_de_reserva_id, "Objetivo da reserva:",
                   :class => "label_obrigatorio" %>
-      <%= f.select :objetivo_da_reserva, Requisicao.objetivo, {},
+      <%= f.select :objetivo_de_reserva_id,
+                    ObjetivoDeReserva.all.collect {|objetivo| [objetivo.texto, objetivo.id]},
+                    {:include_blank => "Selecione um objetivo"},
                     :onchange => "verificarOutros()" %>
     </p>
 

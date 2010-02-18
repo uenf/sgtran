@@ -12,8 +12,8 @@ Para que eu possa ter uma visão mais personalizada
     E eu pressiono "OK"
     Então eu devo estar na página de filtragem de requisições
     E eu devo ver a tabela "requisicoes" com
-      | Estado    | Protocolo | Solicitante | Cargo     | Email           | Telefone  | Data              | Veículo                           | Objetivo          | Tipo  | Referência  |
-      | Espera    | ID        | Fulano      | Professor | fulano@uenf.br  | 2222-2222 | Daqui a dois dias | Micro-ônibus - até 32 passageiros | gasvchgsvchjsvdc  | Ida   | -           |
+      | Estado    | Protocolo | Solicitante | Cargo     | Email           | Telefone  | Data              | Veículo                           | Objetivo        | Tipo  | Referência  |
+      | Espera    | ID        | Fulano      | Professor | fulano@uenf.br  | 2222-2222 | Daqui a dois dias | Micro-ônibus - até 32 passageiros | Aula de Campo   | Ida   | -           |
 
 
   Cenário: Filtrar as requisições Rejeitadas
@@ -23,8 +23,8 @@ Para que eu possa ter uma visão mais personalizada
     E eu pressiono "OK"
     Então eu devo estar na página de filtragem de requisições
     E eu devo ver a tabela "requisicoes" com
-      | Estado    | Protocolo | Solicitante | Cargo     | Email           | Telefone  | Data              | Veículo                           | Objetivo          | Tipo  | Referência  |
-      | Rejeitada | ID        | Fulano      | Professor | fulano@uenf.br  | 2222-2222 | Daqui a dois dias | Micro-ônibus - até 32 passageiros | gasvchgsvchjsvdc  | Ida   | -           |
+      | Estado    | Protocolo | Solicitante | Cargo     | Email           | Telefone  | Data              | Veículo                           | Objetivo        | Tipo  | Referência  |
+      | Rejeitada | ID        | Fulano      | Professor | fulano@uenf.br  | 2222-2222 | Daqui a dois dias | Micro-ônibus - até 32 passageiros | Aula de Campo   | Ida   | -           |
 
 
   Cenário: Filtrar as requisições Canceladas pelo Professor
@@ -34,8 +34,8 @@ Para que eu possa ter uma visão mais personalizada
     E eu pressiono "OK"
     Então eu devo estar na página de filtragem de requisições
     E eu devo ver a tabela "requisicoes" com
-      | Estado    | Protocolo | Solicitante | Cargo     | Email           | Telefone  | Data              | Veículo                           | Objetivo          | Tipo  | Referência  |
-      | Cancelado | ID        | Fulano      | Professor | fulano@uenf.br  | 2222-2222 | Daqui a dois dias | Micro-ônibus - até 32 passageiros | gasvchgsvchjsvdc  | Ida   | -           |
+      | Estado    | Protocolo | Solicitante | Cargo     | Email           | Telefone  | Data              | Veículo                           | Objetivo        | Tipo  | Referência  |
+      | Cancelado | ID        | Fulano      | Professor | fulano@uenf.br  | 2222-2222 | Daqui a dois dias | Micro-ônibus - até 32 passageiros | Aula de Campo   | Ida   | -           |
 
 
 
@@ -46,8 +46,8 @@ Para que eu possa ter uma visão mais personalizada
     E eu pressiono "OK"
     Então eu devo estar na página de filtragem de requisições
     E eu devo ver a tabela "requisicoes" com
-      | Estado    | Protocolo | Solicitante | Cargo     | Email           | Telefone  | Data              | Veículo                           | Objetivo          | Tipo  | Referência  |
-      | Cancelado | ID        | Fulano      | Professor | fulano@uenf.br  | 2222-2222 | Daqui a dois dias | Micro-ônibus - até 32 passageiros | gasvchgsvchjsvdc  | Ida   | -           |
+      | Estado    | Protocolo | Solicitante | Cargo     | Email           | Telefone  | Data              | Veículo                           | Objetivo        | Tipo  | Referência  |
+      | Cancelado | ID        | Fulano      | Professor | fulano@uenf.br  | 2222-2222 | Daqui a dois dias | Micro-ônibus - até 32 passageiros | Aula de Campo   | Ida   | -           |
 
 
   Cenário: Filtrar as requisições Aceitas
@@ -57,6 +57,6 @@ Para que eu possa ter uma visão mais personalizada
     E eu pressiono "OK"
     Então eu devo estar na página de filtragem de requisições
     E eu devo ver a tabela "requisicoes" com
-      | Estado    | Protocolo | Solicitante | Cargo     | Email           | Telefone  | Data              | Veículo                           | Objetivo          | Tipo  | Referência  |
-      | Aceita    | ID        | Fulano      | Professor | fulano@uenf.br  | 2222-2222 | Daqui a dois dias | Micro-ônibus - até 32 passageiros | gasvchgsvchjsvdc  | Ida   | -           |
+      | Estado    | Protocolo | Solicitante | Cargo     | Email           | Telefone  | Data              | Veículo                           | Objetivo        | Tipo  | Referência  |
+      | Aceita    | ID        | Fulano      | Professor | fulano@uenf.br  | 2222-2222 | Daqui a dois dias | Micro-ônibus - até 32 passageiros | Aula de Campo   | Ida   | -           |
 

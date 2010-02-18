@@ -4,7 +4,7 @@ Factory.define :requisicao do |requisicao|
   requisicao.celular "2020202"
   requisicao.data_de_reserva Date.today + 2.days
   requisicao.categoria_de_veiculo_id nil
-  requisicao.objetivo_da_reserva "gasvchgsvchjsvdc"
+  requisicao.objetivo_de_reserva_id nil
   requisicao.outros "vfdsvdfvfdv"
   requisicao.nome_telefone_passageiros "fhjdsvcdsvghsvd"
   requisicao.roteiro_da_agenda "djvsdghvsvdsv"

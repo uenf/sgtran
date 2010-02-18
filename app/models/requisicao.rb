@@ -3,6 +3,7 @@ require "brazilian_date"
 class Requisicao < ActiveRecord::Base
   belongs_to :viagem
   has_one :categoria_de_veiculo
+  has_one :objetivo_de_reserva
 
   ESPERA                   = "Espera"
   ACEITA                   = "Aceita"
@@ -19,7 +20,6 @@ class Requisicao < ActiveRecord::Base
 
   validate :validar_categoria_de_veiculo, :validar_objetivo, :validar_outros, :validar_motivo_professor, :validar_motivo_id, :validar_data
 
-  protected
   def validar_data
     unless self.data_de_reserva == nil
       if self.data_de_reserva < Date.tomorrow.tomorrow
@@ -37,41 +37,38 @@ class Requisicao < ActiveRecord::Base
     end
   end
 
-  protected
   def validar_motivo_professor
     if self.motivo_professor.blank? and estado == CANCELADO_PELO_PROFESSOR
       errors.add(:motivo, "nao pode ser vazio")
     end
   end
 
-  protected
   def validar_motivo_id
     if self.motivo_id.nil? and self.estado == REJEITADA || self.estado == CANCELADO_PELO_SISTEMA
       errors.add(:motivo, "não pode ser vazio")
     end
-
   end
 
   def validar_outros
-    if self.objetivo_da_reserva == 'Outros' and self.outros.empty?
-      errors.add(:outros, 'não pode ser vazio')
+    if not self.objetivo_de_reserva_id.blank?
+      objetivo_de_reserva = ObjetivoDeReserva.find(self.objetivo_de_reserva_id)
+      if objetivo_de_reserva.texto == "Outros" and (self.outros.empty?)
+        errors.add(:outros, 'não pode ser vazio')
+      end
     end
   end
 
-  protected
+  def validar_objetivo
+    if self.objetivo_de_reserva_id.blank?
+      errors.add(:objetivo_de_reserva, 'não selecionado')
+    end
+  end
+
   def validar_categoria_de_veiculo
     if self.categoria_de_veiculo_id.blank?
       errors.add(:categoria_de_veiculo, 'não selecionada')
     end
   end
-
-  protected
-  def validar_objetivo
-    if self.objetivo_da_reserva == "Selecione um Objetivo"
-      errors.add(:objetivo_da_reserva, 'não selecionado')
-    end
-  end
-
 
   validates_presence_of :nome_telefone_passageiros,
                         :roteiro_da_agenda,
@@ -80,27 +77,6 @@ class Requisicao < ActiveRecord::Base
   validates_presence_of :solicitante_id, :message => 'não existe'
 
   validates_acceptance_of :termo
-
-
-
-
-  def self.objetivo
-    ["Selecione um Objetivo",
-    "Aula de Campo",
-    "Compras",
-    "Malote ou Correspondência",
-    "Trabalho de Campo",
-    "Visita Técnica",
-    "Transporte de Pessoal",
-    "Transporte de Equipamento Natural",
-    "Participações em Eventos (micro-ônibus",
-    "Participações em Reuniões",
-    "Serviços Administrativos",
-    "Serviços Técnicos",
-    "Outros"]
-  end
-
-
 
   def self.analisar_requisicao dados
     dados_solicitante = {:matricula => dados[:matricula], :email => dados[:email] }

@@ -86,7 +86,7 @@
               <td><%=h solicitante.telefone_ou_ramal %></td>
               <td><%=h requisicao.data_de_reserva.strftime("%d/%m/%Y") %></td>
               <td><%=h CategoriaDeVeiculo.find(requisicao.categoria_de_veiculo_id).nome %></td>
-              <td><%=h requisicao.objetivo_da_reserva %></td>
+              <td><%=h ObjetivoDeReserva.find(requisicao.objetivo_de_reserva_id).texto %></td>
               <td><%=h requisicao.tipo ? requisicao.tipo : "-" %></td>
               <td><%=h requisicao.referencia_id ? requisicao.referencia_id : "-" %></td>
             </tr>
