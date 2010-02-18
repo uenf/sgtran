@@ -1,5 +1,5 @@
 <div class="show_padrao">
-  <h1>Modificar Categoria de Veículo</h1>
+  <h1>Editar Categoria de Veículo</h1>
 
   <% form_for(@categoria_de_veiculo) do |f| %>
     <%= mensagem_de_erro(@categoria_de_veiculo) %>
@@ -9,7 +9,7 @@
       <div class="linha_texto_neutro"><%= f.text_field :nome %></div>
     </div>
 
-      <div class="botao_concluir"><%= f.submit 'Aplicar mudanças' %></div>
+      <div class="botao_concluir"><%= f.submit 'Atualizar' %></div>
   <% end %>
 </div>
 

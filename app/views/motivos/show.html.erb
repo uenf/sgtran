@@ -1,8 +1,21 @@
-<p>
-  <b>Descricao:</b>
-  <%=h @motivo.descricao %>
-</p>
+<div class="show_padrao">
 
+  <h1>Dados do Motivo</h1>
 
-<%= link_to 'Edit', edit_motivo_path(@motivo) %> |
-<%= link_to 'Back', motivos_path %>
+  <div class="show_linha">
+    <div class="linha_titulo">Descrição:</div>
+    <div class="linha_texto"><%=h @motivo.descricao %></div>
+  </div>
+
+</div>
+
+<div id="opcoes_da_visao">
+  <ul>
+    <li id="opcao_voltar" onclick="location.href='<%= motivos_path %>'" onmouseover="this.style.cursor = 'pointer'"><%= link_to 'Voltar', motivos_path %></li>
+    <li id="opcao_editar" onclick="location.href='<%= edit_motivo_path(@motivo) %>'" onmouseover="this.style.cursor = 'pointer'"><%= link_to 'Editar', edit_motivo_path(@motivo) %></li>
+    <li id="opcao_excluir" onclick="if (confirm('Tem certeza que deseja apagar?')) { var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = '/motivos/<%= @motivo.id %>';var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method'); m.setAttribute('value', 'delete'); f.appendChild(m);var s = document.createElement('input'); s.setAttribute('type', 'hidden'); s.setAttribute('name', 'authenticity_token'); s.setAttribute('value', 'eVQGS/RJESVifJmId7HPFEBHkkxCb5UD50OwBvk/K7c='); f.appendChild(s);f.submit(); };return false;" onmouseover="this.style.cursor = 'pointer'">
+      <%= link_to "Excluir", @motivo, :confirm => 'Tem certeza que deseja apagar?', :method => :delete %>
+    </li>
+  </ul>
+</div>
+
