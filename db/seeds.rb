@@ -102,9 +102,9 @@ end
 
 Motivo.delete_all
 open("#{Rails.root}/db/seeds_files/motivos_seed.txt") do |motivos|
-  motivos.read.each do |m|
-    if m != "\n"
-      descricao = m.chomp.split("|")
+  motivos.read.each_line do |motivo|
+    if motivo != "\n"
+      descricao = motivo.chomp
       Motivo.create!(:descricao => descricao)
     end
   end

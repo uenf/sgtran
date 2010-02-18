@@ -1,8 +1,16 @@
 class MotivosController < ApplicationController
   # GET /motivos
   # GET /motivos.xml
+    access_control do
+    allow :admin, :to => [:index, :new, :show, :create, :edit, :destroy, :update]
+    allow :visit, :to => [:index, :show]
+  end
+
+  layout "sistema"
+
   def index
     @motivos = Motivo.all
+    @sub_layout = "base"
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +22,7 @@ class MotivosController < ApplicationController
   # GET /motivos/1.xml
   def show
     @motivo = Motivo.find(params[:id])
+    @sub_layout = "base"
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,6 +34,7 @@ class MotivosController < ApplicationController
   # GET /motivos/new.xml
   def new
     @motivo = Motivo.new
+    @sub_layout = "base"
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +45,7 @@ class MotivosController < ApplicationController
   # GET /motivos/1/edit
   def edit
     @motivo = Motivo.find(params[:id])
+    @sub_layout = "base"
   end
 
   # POST /motivos
@@ -76,6 +87,7 @@ class MotivosController < ApplicationController
   def destroy
     @motivo = Motivo.find(params[:id])
     @motivo.destroy
+    @sub_layout = "base"
 
     respond_to do |format|
       format.html { redirect_to(motivos_url) }
@@ -83,3 +95,4 @@ class MotivosController < ApplicationController
     end
   end
 end
+

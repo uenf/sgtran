@@ -34,9 +34,10 @@ describe Requisicao do
     requisicao = Factory.create :requisicao,
                                 :categoria_de_veiculo_id => categoria_de_veiculo.id
     requisicao.aceitar(mock_model(Motorista),
-                                  Date.tomorrow.tomorrow,
-                                  Date.tomorrow.tomorrow,
-                                  "10:00")
+                       mock_model(Veiculo),
+                       Date.tomorrow.tomorrow,
+                       Date.tomorrow.tomorrow,
+                       "10:00")
 
     requisicao.estado.should == Requisicao::ACEITA
   end

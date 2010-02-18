@@ -6,6 +6,7 @@ class Viagem < ActiveRecord::Base
 
   has_many   :requisicoes
   belongs_to :motorista
+  belongs_to :veiculo
 
   AGUARDANDO = "Aguardando"
   ATENDIDA   = "Atendida"
@@ -25,6 +26,14 @@ class Viagem < ActiveRecord::Base
       else
         return Viagem.all(:conditions => "estado = '" + Viagem::AGUARDANDO + "'", :order => "id ASC")
     end    
+  end
+
+  def requisicoes_atendidas
+    atendidas = []
+    Requisicao.all.each do |requisicao|
+      (atendidas << requisicao.id) if (requisicao.viagem_id == self.id)
+    end
+    atendidas
   end
 
 end

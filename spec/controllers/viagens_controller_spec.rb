@@ -14,6 +14,10 @@ describe ViagensController do
     @mock_motorista ||= mock_model(Motorista, stubs)
   end
 
+  def mock_veiculo(stubs={})
+    @mock_veiculo ||= mock_model(Veiculo, stubs)
+  end
+
   describe "GET index" do
     it "assigns all viagens as @viagens" do
       Viagem.stub!(:find).with(:all).and_return([mock_viagem])
@@ -25,7 +29,8 @@ describe ViagensController do
   describe "GET show" do
     it "assigns the requested viagem as @viagem" do
       Motorista.stub!(:find).with("10").and_return(mock_motorista)
-      Viagem.stub!(:find).with("37").and_return(mock_viagem(:motorista_id => "10"))
+      Veiculo.stub!(:find).with("1").and_return(mock_veiculo)
+      Viagem.stub!(:find).with("37").and_return(mock_viagem(:motorista_id => "10", :veiculo_id => "1"))
       get :show, :id => "37"
       assigns[:viagem].should equal(mock_viagem)
     end

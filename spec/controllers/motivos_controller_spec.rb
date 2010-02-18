@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe MotivosController do
 
+  before(:each) do
+    login({}, { :roles => {'admin' => nil} })
+  end
+
   def mock_motivo(stubs={})
     @mock_motivo ||= mock_model(Motivo, stubs)
   end
@@ -129,3 +133,4 @@ describe MotivosController do
   end
 
 end
+

@@ -30,19 +30,19 @@ Dado /^que eu tenho uma viagem com estado "([^\"]*)"$/ do |estado|
 end
 
 Dado /^que eu tenho uma requisição de ida com número de protocolo ([^\"]*)$/ do |protocolo|
-  veiculo = Factory.create :categoria_de_veiculo
+  categoria_de_veiculo = Factory.create :categoria_de_veiculo
   @requisicao_ida = Factory.create :requisicao, :tipo => "Ida",
                                    :id => protocolo,
                                    :solicitante_id => @solicitante.id,
-                                   :categoria_de_veiculo_id => veiculo.id
+                                   :categoria_de_veiculo_id => categoria_de_veiculo.id
 end
 
 Dado /^que eu tenho uma requisição de volta com número de protocolo ([^\"]*)$/ do |protocolo|
-  veiculo = Factory.create :categoria_de_veiculo
+  categoria_de_veiculo = Factory.create :categoria_de_veiculo
   @requisicao_volta = Factory.create :requisicao, :tipo => "Volta",
                                      :id => protocolo,
                                      :solicitante_id => @solicitante.id,
-                                     :categoria_de_veiculo_id => veiculo.id
+                                     :categoria_de_veiculo_id => categoria_de_veiculo.id
   @requisicao_volta.referencia_id = @requisicao_ida.id
   @requisicao_ida.referencia_id = @requisicao_volta.id
   @requisicao_volta.save!
@@ -55,8 +55,8 @@ end
 
 Dado /^que eu tenho uma requisição em espera$/ do
   solicitante = Factory.create :solicitante
-  veiculo = Factory.create :categoria_de_veiculo
-  @requisicao = Factory.create :requisicao, :solicitante_id => solicitante.id, :categoria_de_veiculo_id => veiculo.id
+  categoria_de_veiculo = Factory.create :categoria_de_veiculo
+  @requisicao = Factory.create :requisicao, :solicitante_id => solicitante.id, :categoria_de_veiculo_id => categoria_de_veiculo.id
 end
 
 Dado /^que eu estou logado com o login "([^\"]*)" e a senha "([^\"]*)"$/ do |login, senha|
@@ -65,8 +65,20 @@ Dado /^que eu estou logado com o login "([^\"]*)" e a senha "([^\"]*)"$/ do |log
 end
 
 Dado /^que eu tenha uma viagem$/ do
+  categoria_de_veiculo = Factory.create :categoria_de_veiculo
+  combustivel = Factory.create :combustivel
+  veiculo = Factory.create :veiculo,
+                  :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                  :combustivel_ids => [combustivel.id]
   motorista = Factory.create :motorista
-  @viagem = Factory.create :viagem, :motorista_id => motorista.id
+  requisicao = Factory.create :requisicao,
+                              :categoria_de_veiculo_id => categoria_de_veiculo.id
+  @viagem = Factory.create :viagem,
+                           :motorista_id => motorista.id,
+                           :veiculo_id => veiculo.id,
+                           :data_partida => requisicao.data_de_reserva,
+                           :data_chegada => requisicao.data_de_reserva + 3.days
+  requisicao.viagem_id = @viagem.id
   @viagem_id = @viagem.id
 end
 
@@ -74,9 +86,20 @@ Quando /^eu escolho "([^\"]*)"$/ do |field|
   choose(field)
 end
 
-Dado /^que eu tenho "([^\"]*)" em Motorista$/ do |nome|
+Dado /^que eu tenha "([^\"]*)" em Motorista$/ do |nome|
   Factory.create :motorista, :nome_do_motorista => nome
 end
+
+Dado /^que eu tenha um veículo da categoria "([^\"]*)", modelo "([^\"]*)" e placa "([^\"]*)"$/ do |categoria, modelo, placa|
+  categoria_de_veiculo = Factory.create :categoria_de_veiculo, :nome => categoria
+  combustivel = Factory.create :combustivel
+  Factory.create :veiculo,
+                  :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                  :modelo => modelo,
+                  :placa => placa,
+                  :combustivel_ids => [combustivel.id]
+end
+
 
 Dado /^que eu tenha uma categoria de veículo "([^\"]*)"$/ do |nome|
   Factory.create :categoria_de_veiculo, :nome => nome

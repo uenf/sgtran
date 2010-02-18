@@ -1,20 +1,25 @@
-<h1>Listing motivos</h1>
+<% if current_user.has_role? :admin %>
+  <a href="/motivos/new" class="link_botao">Adicionar Motivos</a>
+<% end %>
 
-<table>
+<table id="base_de_dados" class="tabela_base_de_dados">
   <tr>
-    <th>Descricao</th>
+    <th>Descrição</th>
+    <th class="celula_neutra_estatica"></th>
+    <th class="celula_neutra_estatica"></th>
   </tr>
 
 <% @motivos.each do |motivo| %>
   <tr>
-    <td><%=h motivo.descricao %></td>
-    <td><%= link_to 'Show', motivo %></td>
-    <td><%= link_to 'Edit', edit_motivo_path(motivo) %></td>
-    <td><%= link_to 'Destroy', motivo, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td onclick="location.href='<%= motivo_path(motivo) %>'" onmouseover="this.style.cursor='pointer'"><%=h motivo.descricao %></td>
+    <% if current_user.has_role? :admin %>
+      <td onclick="location.href='<%= edit_motivo_path(motivo) %>'" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("editar_dado.png", :border => 0, :alt => "Editar"), edit_motivo_path(motivo) %></td>
+      <td onclick="" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("deletar_dado.png", :border => 0, :alt => "Deletar"), motivo, :confirm => 'Tem certeza que deseja apagar?', :method => :delete %></td>
+    <% else %>
+      <td></td>
+      <td></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
-<br />
-
-<%= link_to 'New motivo', new_motivo_path %>
