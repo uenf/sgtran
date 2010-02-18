@@ -65,6 +65,9 @@ module NavigationHelpers
     when /^página de adição de combustível$/
       new_combustivel_path
 
+    when /^página de edição de combustível$/
+      edit_combustivel_path(:id => @combustivel)
+
     when /página de filtragem de requisições/
       filtrar_requisicao_path
 
