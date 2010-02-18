@@ -9,7 +9,7 @@ Para que eu possa utiliza-la no sistema
   Esquema do Cenário: Adicionar categoria de veículo
     Dado que eu estou na página de adição de categoria de veículo
     Quando eu preencho "Nome" com "<nome>"
-    E eu pressiono "Criar"
+    E eu pressiono "Criar Categoria de veículo"
     Então eu devo ver "<sentença>"
 
     Exemplos:

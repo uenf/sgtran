@@ -55,7 +55,7 @@ class MotivosController < ApplicationController
 
     respond_to do |format|
       if @motivo.save
-        flash[:notice] = 'Motivo was successfully created.'
+        flash[:sucesso] = 'Motivo criado com sucesso!'
         format.html { redirect_to(@motivo) }
         format.xml  { render :xml => @motivo, :status => :created, :location => @motivo }
       else
@@ -72,7 +72,7 @@ class MotivosController < ApplicationController
 
     respond_to do |format|
       if @motivo.update_attributes(params[:motivo])
-        flash[:notice] = 'Motivo was successfully updated.'
+        flash[:sucesso] = 'Motivo modificado com sucesso!'
         format.html { redirect_to(@motivo) }
         format.xml  { head :ok }
       else

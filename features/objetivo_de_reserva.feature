@@ -28,7 +28,7 @@ Para que eu possa adicinar, editar e utilizar no sistema
 
     Exemplos:
 
-    | texto         | sentença                                     |
-    | Aula de Campo | Objetivo de reserva modificado com sucesso!  |
-    |               | Texto não pode ser vazio                     |
+    | texto             | sentença                                     |
+    | Aula de Campo 2   | Objetivo de reserva modificado com sucesso!  |
+    |                   | Texto não pode ser vazio                     |
 

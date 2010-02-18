@@ -77,6 +77,12 @@ module NavigationHelpers
   when /^página de edição de objetivo de reserva$/
       edit_objetivo_de_reserva_path(:id => @objetivo_de_reserva)
 
+  when /^página de adição de motivo$/
+      new_motivo_path
+
+  when /^página de edição de motivo$/
+      edit_motivo_path(:id => @motivo)
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
