@@ -19,7 +19,7 @@ Para que eu possa adicinar, editar e utilizar no sistema
     |               | Texto não pode ser vazio                 |
 
 
-  Esquema do Cenário: Adicionar objetivo de reserva
+  Esquema do Cenário: Editar objetivo de reserva
     Dado que eu tenha um objetivo de reserva "Aula de Campo"
     E que eu estou na página de edição de objetivo de reserva
     Quando eu preencho "Texto" com "<texto>"

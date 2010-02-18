@@ -19,7 +19,7 @@ Para que eu possa adicinar, editar e utilizar no sistema
     |                           | Descricao não pode ser vazio  |
 
 
-  Esquema do Cenário: Adicionar objetivo de reserva
+  Esquema do Cenário: Editar motivo
     Dado que eu tenho um motivo com descrição "Não há carro disponível"
     E que eu estou na página de edição de motivo
     Quando eu preencho "Descrição" com "<descricao>"

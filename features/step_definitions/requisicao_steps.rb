@@ -17,7 +17,7 @@ Dado /^que eu tenho uma requisição com estado "([^\"]*)"$/ do |estado|
                                           :solicitante_id => solicitante.id,
                                           :motivo_id => motivo.id,
                                           :objetivo_de_reserva_id => objetivo_de_reserva.id
-    when "Cancelada pelo Professor" then
+  when "Cancelada pelo Professor" then
       @requisicao_filtro = Factory.create :requisicao,
                                           :estado => Requisicao::CANCELADO_PELO_PROFESSOR,
                                           :categoria_de_veiculo_id => categoria_de_veiculo.id,
@@ -138,7 +138,7 @@ end
 
 
 Dado /^que eu tenha uma categoria de veículo "([^\"]*)"$/ do |nome|
-  Factory.create :categoria_de_veiculo, :nome => nome
+  @categoria_de_veiculo = Factory.create :categoria_de_veiculo, :nome => nome
 end
 
 Entao /^eu devo ter uma nova viagem$/ do

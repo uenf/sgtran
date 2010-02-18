@@ -7,7 +7,11 @@ describe Motivo do
     }
   end
 
+  should_validate_presence_of :descricao
+
   it "should create a new instance given valid attributes" do
     Motivo.create!(@valid_attributes)
   end
+
 end
+

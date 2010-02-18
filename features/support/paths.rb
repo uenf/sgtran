@@ -59,6 +59,9 @@ module NavigationHelpers
     when /^página de adição de categoria de veículo$/
       new_categoria_de_veiculo_path
 
+    when /^página de edição de categoria de veículo$/
+      edit_categoria_de_veiculo_path(:id => @categoria_de_veiculo)
+
     when /^página de adição de combustível$/
       new_combustivel_path
 
