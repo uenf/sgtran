@@ -23,8 +23,8 @@
   <ul>
     <li id="opcao_voltar" onclick="location.href='<%= motoristas_path %>'" onmouseover="this.style.cursor = 'pointer'"><%= link_to 'Voltar', motoristas_path %></li>
     <li id="opcao_editar" onclick="location.href='<%= edit_motorista_path(@motorista) %>'" onmouseover="this.style.cursor = 'pointer'"><%= link_to 'Editar', edit_motorista_path(@motorista) %></li>
-    <li id="opcao_excluir" onclick="if (confirm('Tem certeza que deseja apagar?')) { var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = '/motoristas/<%= @motorista.id %>';var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method'); m.setAttribute('value', 'delete'); f.appendChild(m);var s = document.createElement('input'); s.setAttribute('type', 'hidden'); s.setAttribute('name', 'authenticity_token'); s.setAttribute('value', 'eVQGS/RJESVifJmId7HPFEBHkkxCb5UD50OwBvk/K7c='); f.appendChild(s);f.submit(); };return false;" onmouseover="this.style.cursor = 'pointer'">
-      <%= link_to "Excluir", @motoristas, :confirm => 'Tem certeza que deseja apagar?', :method => :delete %>
+    <li id="opcao_excluir" onclick="if (confirm('Tem certeza que deseja apagar?')) { var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = '/motoristas/<%= @motorista.id %>';var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method'); m.setAttribute('value', 'delete'); f.appendChild(m);var s = document.createElement('input'); s.setAttribute('type', 'hidden'); s.setAttribute('name', 'authenticity_token'); s.setAttribute('value', '<%= form_authenticity_token %>'); f.appendChild(s);f.submit(); };return false;" onmouseover="this.style.cursor = 'pointer'">
+      Excluir
     </li>
   </ul>
 </div>
