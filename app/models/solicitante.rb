@@ -1,12 +1,12 @@
 class Solicitante < ActiveRecord::Base
 
-  validates_presence_of :matricula,
+  validates_presence_of :nome,
                         :email,
-                        :cargo_ou_funcao,
-                        :nome
+                        :matricula,
+                        :cargo_ou_funcao
 
   validates_format_of :email,
-                        :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+                      :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
 
   validate :validar_predio, :validar_andar
 
@@ -17,13 +17,13 @@ class Solicitante < ActiveRecord::Base
 
   def validar_predio
     if self.predio == "Selecione um Prédio"
-      errors.add(:predio, "inválido.")
+      errors.add(:predio, "não selecionado.")
     end
   end
 
   def validar_andar
     if self.andar == "Selecione um Andar"
-      errors.add(:sala, "inválida.")
+      errors.add(:andar, "não selecionado.")
     end
   end
 
