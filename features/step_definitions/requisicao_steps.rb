@@ -123,7 +123,7 @@ Quando /^eu escolho "([^\"]*)"$/ do |field|
 end
 
 Dado /^que eu tenha "([^\"]*)" em Motorista$/ do |nome|
-  Factory.create :motorista, :nome_do_motorista => nome
+  @motorista = Factory.create :motorista, :nome_do_motorista => nome
 end
 
 Dado /^que eu tenha um veículo da categoria "([^\"]*)", modelo "([^\"]*)" e placa "([^\"]*)"$/ do |categoria, modelo, placa|

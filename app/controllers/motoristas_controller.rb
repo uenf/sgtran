@@ -55,7 +55,7 @@ class MotoristasController < ApplicationController
 
     respond_to do |format|
       if @motorista.save
-        flash[:notice] = 'Motorista was successfully created.'
+        flash[:sucesso] = 'Motorista criado com sucesso!'
         format.html { redirect_to(@motorista) }
         format.xml  { render :xml => @motorista, :status => :created, :location => @motorista }
       else
@@ -73,7 +73,7 @@ class MotoristasController < ApplicationController
 
     respond_to do |format|
       if @motorista.update_attributes(params[:motorista])
-        flash[:notice] = 'Motorista was successfully updated.'
+        flash[:sucesso] = 'Motorista modificado com sucesso!'
         format.html { redirect_to(@motorista) }
         format.xml  { head :ok }
       else

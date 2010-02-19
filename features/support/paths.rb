@@ -89,6 +89,12 @@ module NavigationHelpers
   when /^página de edição de motivo$/
       edit_motivo_path(:id => @motivo)
 
+  when /^página de adição de motorista$/
+      new_motorista_path
+
+  when /^página de edição de motorista$/
+      edit_motorista_path(:id => @motorista)
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

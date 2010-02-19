@@ -9,6 +9,10 @@ describe Motorista do
     }
   end
 
+  should_validate_presence_of :matricula,
+                              :nome_do_motorista,
+                              :telefone_do_motorista
+
   it "should create a new instance given valid attributes" do
     Motorista.create!(@valid_attributes)
   end
