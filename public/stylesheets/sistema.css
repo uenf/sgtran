@@ -392,8 +392,8 @@ table.tabela_padrao tr td.cancelado_pelo_sistema {
     padding-left : 23px;
 }
 
-table.tabela_padrao tr td.atendida {
-    background : url("/images/atendida.png") no-repeat 0px center;
+table.tabela_padrao tr td.rejeitada {
+    background : url("/images/rejeitada.png") no-repeat 0px center;
     padding-left : 23px;
 }
 
