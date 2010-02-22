@@ -210,7 +210,7 @@ class Requisicao < ActiveRecord::Base
     end
   end
 
-  def self.em_espera? requisicao
+  def self.requisicao_em_espera? requisicao
     if requisicao.estado == Requisicao::ESPERA
       return true
     else
@@ -220,7 +220,7 @@ class Requisicao < ActiveRecord::Base
   end
 
   def rejeitar motivo_id
-    if Requisicao.em_espera? self
+    if Requisicao.requisicao_em_espera? self
       self.estado = Requisicao::REJEITADA
       self.motivo_id = motivo_id.to_i
       self.save
@@ -235,6 +235,28 @@ class Requisicao < ActiveRecord::Base
       return false
     end
     
+  end
+  
+  def esta_aceita?
+    if self.estado == Requisicao::ACEITA
+      return true
+    else
+      return false
+    end
+    
+  end
+  
+  def cancelar_requisicao motivo_id
+    if self.esta_aceita?
+      self.estado = Requisicao::CANCELADO_PELO_SISTEMA
+      self.motivo_id = motivo_id.to_i      
+      if self.save
+        return true
+      else
+        return false
+      end
+    end
+    return false
   end
 
 end

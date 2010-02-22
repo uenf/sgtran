@@ -101,6 +101,12 @@ Dado /^que eu tenho uma requisição (.+)$/ do |estado|
                                :objetivo_de_reserva_id => objetivo_de_reserva.id,
                                :motivo_id => motivo.id,
                                :estado => Requisicao::CANCELADO_PELO_SISTEMA
+    when "aceita"
+      @requisicao = Factory.create :requisicao,
+                               :solicitante_id => solicitante.id,
+                               :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                               :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                               :estado => Requisicao::ACEITA      
   end    
 end
 

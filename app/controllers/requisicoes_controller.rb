@@ -12,7 +12,7 @@ class RequisicoesController < ApplicationController
   access_control do
       allow all, :to => [:new, :create, :confirmar_requisicao, :requisicao_ja_foi_cancelada, :cancelar_requisicao, :visualizar_requisicao,
                           :cancelar_requisicao_pelo_professor]
-      allow :admin, :to => [:index, :show, :aceitar, :fechar_viagem, :filtrar, :rejeitar, :rejeitar_requisicao]
+      allow :admin, :to => [:index, :show, :aceitar, :fechar_viagem, :filtrar, :rejeitar, :rejeitar_requisicao, :cancelar_requisicao_pelo_sistema, :cancelar_pelo_sistema]
       allow :visit, :to => [:index, :show, :filtrar]
   end
 
@@ -204,7 +204,7 @@ class RequisicoesController < ApplicationController
       render :action => "aceitar"
     else
       @solicitante = Solicitante.find(@requisicao.solicitante_id)
-      flash[:erro] = "A requisição deve estar no estado 'Em Espera' para ser aceita"
+      flash[:erro] = "A requisição deve estar no estado 'Em Espera' para ser aceita."
       redirect_to(requisicao_path(@requisicao))
     end
   end
@@ -329,8 +329,26 @@ class RequisicoesController < ApplicationController
     @requisicao.rejeitar motivo
     redirect_to requisicao_path(@requisicao)
   end
+  
+  def cancelar_requisicao_pelo_sistema
+    @motivos = Motivo.all
+    @requisicao = Requisicao.find(params[:id])
+    @solicitante = Solicitante.find(@requisicao.solicitante_id)
+  end
+  
+  def cancelar_pelo_sistema
+    @requisicao = Requisicao.find(params[:requisicao_id])
+    motivo = params[:motivo]
+    if @requisicao.esta_aceita?
+      @requisicao.cancelar_requisicao motivo.to_i
+      redirect_to(requisicao_path(@requisicao))
+    else
+      flash[:erro] = "A requisição deve estar no estado 'Aceita' para ser cancelada."
+      redirect_to(requisicao_path(@requisicao))
+    end
+  end
 
-private
+  private
 
   def data_nula(str_data)
     begin
