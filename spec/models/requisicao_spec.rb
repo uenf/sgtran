@@ -270,7 +270,7 @@ describe Requisicao do
                                 :estado => Requisicao::ESPERA,
                                 :categoria_de_veiculo_id => categoria_de_veiculo.id,
                                 :objetivo_de_reserva_id => objetivo_de_reserva.id
-    Requisicao.em_espera?(requisicao).should be_true
+    Requisicao.requisicao_em_espera?(requisicao).should be_true
   end
 
   it "Deve mudar o estado de uma requisição para Rejeitada" do
@@ -305,6 +305,42 @@ describe Requisicao do
     
     requisicao.estado = Requisicao::REJEITADA
     requisicao.esta_em_espera?.should be_false
+  end
+  
+  it "Deve verificar se o estado da requisição é Aceita" do
+    categoria_de_veiculo = Factory.create :categoria_de_veiculo
+    objetivo_de_reserva = Factory.create :objetivo_de_reserva  
+    motivo = Factory.create :motivo
+    requisicao = Factory.create :requisicao, :categoria_de_veiculo_id => categoria_de_veiculo.id, 
+                                             :objetivo_de_reserva_id => objetivo_de_reserva.id, 
+                                             :estado => Requisicao::ACEITA
+    requisicao.esta_aceita?.should be_true
+    requisicao.motivo_id = motivo.id
+    
+    requisicao.estado = Requisicao::CANCELADO_PELO_SISTEMA
+    requisicao.esta_aceita?.should be_false
+    
+    requisicao.estado = Requisicao::CANCELADO_PELO_PROFESSOR
+    requisicao.esta_aceita?.should be_false
+    
+    requisicao.estado = Requisicao::ESPERA
+    requisicao.esta_aceita?.should be_false
+    
+    requisicao.estado = Requisicao::REJEITADA
+    requisicao.esta_aceita?.should be_false
+  end
+  
+  it "Deve cancelar uma requisição" do
+    categoria_de_veiculo = Factory.create :categoria_de_veiculo
+    objetivo_de_reserva = Factory.create :objetivo_de_reserva  
+    motivo = Factory.create :motivo
+    requisicao = Factory.create :requisicao, :categoria_de_veiculo_id => categoria_de_veiculo.id, 
+                                             :objetivo_de_reserva_id => objetivo_de_reserva.id, 
+                                             :estado => Requisicao::ACEITA
+                                             
+    requisicao.cancelar_requisicao motivo.id
+    requisicao.estado.should == Requisicao::CANCELADO_PELO_SISTEMA
+    requisicao.motivo_id.should == motivo.id
   end
 
 

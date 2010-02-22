@@ -29,7 +29,7 @@ ActionController::Routing::Routes.draw do |map|
   map.cancelar_requisicao "requisicoes/cancelar/:id/:chave_de_seguranca", :controller => "requisicoes", :action => "cancelar_requisicao"
   map.visualizar_requisicao "requisicoes/visualizar/:id/:chave_de_seguranca", :controller => "requisicoes", :action => "visualizar_requisicao"
   map.aceitar_viagem "requisicoes/:id/aceitar", :controller => "requisicoes", :action => "aceitar"
-  map.cancelar_viagem_pelo_sistema "requisicoes/cancelar_pelo_sistema/:id", :controller => "requisicoes", :action => "cancelar_pelo_sistema"
+  map.cancelar_requisicao_pelo_sistema "requisicoes/:id/cancelar_requisicao_pelo_sistema", :controller => "requisicoes", :action => "cancelar_requisicao_pelo_sistema"
   map.rejeitar "requisicoes/rejeitar/:id", :controller => "requisicoes", :action => "rejeitar"
 
   map.resources :requisicoes
@@ -43,6 +43,8 @@ ActionController::Routing::Routes.draw do |map|
   map.filtrar_viagem "filtrar_viagem", :controller => "viagens", :action => "filtrar"
   
   map.rejeitar_requisicao "rejeitar_requisicao", :controller => "requisicoes", :action => "rejeitar_requisicao"
+  
+  map.cancelar_pelo_sistema "requisicoes/cancelar_pelo_sistema", :controller => "requisicoes", :action => "cancelar_pelo_sistema"
 
 
   # The priority is based upon order of creation: first created -> highest priority.

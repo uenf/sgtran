@@ -8,13 +8,14 @@ body {
     left : 50%;
     margin-top : 0px;
     margin-left : -510px;
-    font-family: Verdana, Arial
+    font-family: Verdana, Arial;
+    font-size: 13px
 }
 
 a {
     font-family : verdana;
     font-size : 13px;
-    text-decoration : none;
+    text-decoration : underline;
     color : #000000;
 }
 

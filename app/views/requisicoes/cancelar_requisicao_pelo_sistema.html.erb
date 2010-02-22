@@ -1,7 +1,25 @@
 <div class="show_padrao">
 
-    <h1>Dados gerais</h1>
+<% form_tag("/requisicoes/cancelar_pelo_sistema") do -%>
+  <fieldset>
+    <legend>Cancelar pelo Sistema</legend>
+    <p>
+      Para cancelar a requisição, selecione o motivo abaixo. Caso o motivo que você deseja não esteja na lista abaixo, <%= link_to "adicione", new_motivo_path %> outros motivos.
+    </p>
+    <label for="motivo_cancelamento">Motivo:</label>
+    <select name="motivo" id="motivo_cancelamento">
+      <%= options_from_collection_for_select(@motivos, 'id', 'descricao') %>
+    </select>
+    <input type="hidden" name="requisicao_id" value="<%= @requisicao.id %>">
+    <%= submit_tag "Cancelar requisição" %>
+  </fieldset>
+<% end -%>
 
+
+
+        <!---------------------------------------------------------------------------->
+
+    <h1>Dados gerais</h1>
 
     <div class="show_linha">
       <div class="linha_titulo"> Matricula: </div> <div class="linha_texto"> <%=h @solicitante.matricula %> </div>
@@ -50,7 +68,7 @@
     </div>
 
     <div class="show_linha">
-      <div class="linha_titulo"> Categoria de veículo: </div> <div class="linha_texto"> <%=h CategoriaDeVeiculo.find(@requisicao.categoria_de_veiculo_id).nome %> </div>
+      <div class="linha_titulo"> Categoria do veículo: </div> <div class="linha_texto"> <%=h CategoriaDeVeiculo.find(@requisicao.categoria_de_veiculo_id).nome %> </div>
     </div>
 
     <div class="show_linha">
@@ -62,7 +80,7 @@
     </div>
 
     <div class="show_linha">
-      <div class="linha_titulo"> Passageiros: </div> <div class="linha_texto"> <%=h @requisicao.nome_telefone_passageiros %> </div>
+      <div class="linha_titulo"> Nome e telefone dos passageiros: </div> <div class="linha_texto"> <%=h @requisicao.nome_telefone_passageiros %> </div>
     </div>
 
     <div class="show_linha">
@@ -79,32 +97,14 @@
 
 </div>
 
-<!-- ======================================================================= -->
+<!---------------------------------------------------------------------------->
 
 <div id="opcoes_da_visao">
   <ul>
-    <li id="opcao_voltar" onclick="location.href='<%= requisicoes_path %>'" onmouseover="this.style.cursor = 'pointer'"><%= link_to 'Voltar', requisicoes_path %></li>
-    <li id="opcao_imprimir" onclick="window.print()" onmouseover="this.style.cursor = 'pointer'"><a href="javaScript:window.print()">Imprimir</a></li>
-
-    <!-- <li id="opcao_aceitar"><%= link_to 'Aceitar', :controller => 'requisicoes', :action => 'aceitar', :id => @requisicao %></li>
-    <li id="opcao_rejeitar"><%= link_to 'Rejeitar'%></li>
-    <li id="opcao_cancelar"><%= link_to 'Cancelar' %></li> -->
-
-    <% if requisicao_pode_ser_aceita(@requisicao.estado) %>
-      <li id="opcao_aceitar" onclick="location.href='<%= aceitar_viagem_path(@requisicao) %>'" onmouseover="this.style.cursor = 'pointer'"><%= link_to 'Aceitar', aceitar_viagem_path(@requisicao) %>
-      </li>
-    <% end %>
-
-    <% if requisicao_pode_ser_cancelada(@requisicao.estado) %>
-      <li id="opcao_cancelar" onclick="location.href='<%= cancelar_requisicao_pelo_sistema_path(@requisicao) %>'" onmouseover="this.style.cursor = 'pointer'"><%= link_to "Cancelar requisição", cancelar_requisicao_pelo_sistema_path(@requisicao) %></li>
-    <% end %>
-
-    <% if requisicao_pode_ser_rejeitada(@requisicao.estado) %>
-      <li id="opcao_rejeitar" onclick="location.href='<%= rejeitar_path(@requisicao) %>'" onmouseover="this.style.cursor = 'pointer'"><%= link_to 'Rejeitar', rejeitar_path(@requisicao) %>
-      </li>
-    <% end %>
-
+    <li id="opcao_voltar" onclick="location.href='<%= requisicoes_path %>'" onmouseover="this.style.cursor='pointer'"><%= link_to 'Voltar', requisicoes_path %></li>
   </ul>
   <div class="pular_linha"></li>
+</div>
+
 </div>
 
