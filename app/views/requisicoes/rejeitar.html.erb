@@ -1,14 +1,22 @@
 <div class="show_padrao">
 <% form_tag("/rejeitar_requisicao") do -%>
   <%= hidden_field_tag "requisicao", "#{@requisicao.id}" %>
-  <p>
-    <% @motivos.each do |m| %>
-      <input type="radio" name="motivo" value="<%= m.id %>" checked="checked" /><%= m.descricao %><br />
-    <% end %>
-  </p>
-  <p>
-    <%= submit_tag "Rejeitar requisição", :confirm => "Deseja realmente rejeitar essa requisição?" %>
-  </p>
+  <fieldset>
+    <legend>Rejeitar requisição</legend>
+    <p>
+      Para rejeitar a requisição, selecione o motivo abaixo. Caso o motivo que
+      você deseja não esteja na lista abaixo,
+      <%= link_to "adicione", new_motivo_path %> outro motivo.
+    </p>
+    <label for="motivo_rejeicao">Motivo:</label>
+    <select name="motivo" id="motivo_rejeicao">
+      <%= options_from_collection_for_select(@motivos, 'id', 'descricao') %>
+    </select>
+    <input type="hidden" name="requisicao_id" value="<%= @requisicao.id %>">
+    <p>
+      <%= submit_tag "Rejeitar requisição", :confirm => "Deseja realmente rejeitar essa requisição?" %>
+    <p>
+  </fieldset>
 <% end -%>
 
         <!---------------------------------------------------------------------------->
