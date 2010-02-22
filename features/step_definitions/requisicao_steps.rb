@@ -83,15 +83,27 @@ Dado /^que eu tenha um solicitante com e-mail "([^\"]*)" e matricula "([^\"]*)"$
   @solicitante = Factory.create :solicitante, :email => email, :matricula => matricula
 end
 
-Dado /^que eu tenho uma requisição em espera$/ do
+Dado /^que eu tenho uma requisição (.+)$/ do |estado|
   solicitante = Factory.create :solicitante
   categoria_de_veiculo = Factory.create :categoria_de_veiculo
   objetivo_de_reserva = Factory.create :objetivo_de_reserva
-  @requisicao = Factory.create :requisicao,
+  case estado
+    when "em espera"
+      @requisicao = Factory.create :requisicao,
                                :solicitante_id => solicitante.id,
                                :categoria_de_veiculo_id => categoria_de_veiculo.id,
                                :objetivo_de_reserva_id => objetivo_de_reserva.id
+    when "cancelada pelo sistema"
+      motivo = Factory.create :motivo
+      @requisicao = Factory.create :requisicao,
+                               :solicitante_id => solicitante.id,
+                               :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                               :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                               :motivo_id => motivo.id,
+                               :estado => Requisicao::CANCELADO_PELO_SISTEMA
+  end    
 end
+
 
 Dado /^que eu estou logado com o login "([^\"]*)" e a senha "([^\"]*)"$/ do |login, senha|
   usuario = Factory.create :usuario, :login => login, :password => senha, :password_confirmation => senha

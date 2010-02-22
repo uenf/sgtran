@@ -7,30 +7,30 @@ Funcionalidade: Aceitar requisição de viagem
     Para que o professor possa ter sua requisição executada
 
     Esquema do Cenário: Aceitar requisição
-    Dado que eu tenho uma requisição em espera
-    E que eu tenha "Gustavo Santos" em Motorista
-    E que eu tenha "Eduardo Silva" em Motorista
-    E que eu tenha um veículo da categoria "Automóvel até 4 passageiros", modelo "Gol" e placa "KQI 5899"
-    E que eu estou na página de detalhes da requisição
+      Dado que eu tenho uma requisição em espera
+      E que eu tenha "Gustavo Santos" em Motorista
+      E que eu tenha "Eduardo Silva" em Motorista
+      E que eu tenha um veículo da categoria "Automóvel até 4 passageiros", modelo "Gol" e placa "KQI 5899"
+      E que eu estou na página de detalhes da requisição
 
-    Quando eu clico em "Aceitar"
-    Então eu devo estar na página de editar detalhes da viagem
+      Quando eu clico em "Aceitar"
+      Então eu devo estar na página de editar detalhes da viagem
 
-    Quando eu escolho "Atender com uma nova viagem"
-    E eu preencho "Data de saída" com a data "<data de saída>"
-    E eu preencho "Data de chegada" com a data "<data de chegada>"
-    E eu seleciono "<horario>" no campo hora "Horário de saída"
-    E eu seleciono "<motorista_selecao>" em "Motorista"
-    E eu seleciono "<veiculo_selecao>" em "Veículo"
+      Quando eu escolho "Atender com uma nova viagem"
+      E eu preencho "Data de saída" com a data "<data de saída>"
+      E eu preencho "Data de chegada" com a data "<data de chegada>"
+      E eu seleciono "<horario>" no campo hora "Horário de saída"
+      E eu seleciono "<motorista_selecao>" em "Motorista"
+      E eu seleciono "<veiculo_selecao>" em "Veículo"
 
-    E eu pressiono "Concluir"
+      E eu pressiono "Concluir"
 
-    Então eu devo ver "Data de saída: " com a data "<data de saída>"
-    E eu devo ver "Data de chegada: " com a data "<data de chegada>"
-    E eu devo ver "Horário de partida: <horario>"
-    E eu devo ver "Motorista: <motorista_visao>"
-    E eu devo ver "Veículo: <veiculo_visao>"
-    E eu devo ver "Estado: Aguardando"
+      Então eu devo ver "Data de saída: " com a data "<data de saída>"
+      E eu devo ver "Data de chegada: " com a data "<data de chegada>"
+      E eu devo ver "Horário de partida: <horario>"
+      E eu devo ver "Motorista: <motorista_visao>"
+      E eu devo ver "Veículo: <veiculo_visao>"
+      E eu devo ver "Estado: Aguardando"
 
 
     Exemplos: (preenchimento dos dados da viagem)
@@ -60,4 +60,10 @@ Funcionalidade: Aceitar requisição de viagem
         | ação                          | resposta                                           |
         | eu escolho a viagem existente | eu devo estar na página de visualização da viagem  |
         | eu não escolho nenhuma viagem | eu devo ver "Viagem não foi selecionada"           |
+        
+    Cenário: Aceitar uma requisição apenas se o estado for Em Espera
+      Dado que eu tenho uma requisição cancelada pelo sistema
+      E que eu estou na página de aceitar a requisição
+      Então eu devo ver "A requisição deve estar no estado 'Em Espera' para ser aceita"
+      E eu devo estar na página de detalhes da requisição
 

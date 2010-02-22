@@ -145,46 +145,50 @@ class Requisicao < ActiveRecord::Base
 
   public
   def aceitar(motorista, veiculo, data_partida, data_chegada, horario_partida)
-    viagem = Viagem.new
+    if self.esta_em_espera?
+      viagem = Viagem.new
 
-    viagem.data_partida = data_partida
-    viagem.data_chegada = data_chegada
-    viagem.horario_partida = horario_partida
-    viagem.motorista = motorista
-    viagem.veiculo = veiculo
-    viagem.estado = Viagem::AGUARDANDO
+      viagem.data_partida = data_partida
+      viagem.data_chegada = data_chegada
+      viagem.horario_partida = horario_partida
+      viagem.motorista = motorista
+      viagem.veiculo = veiculo
+      viagem.estado = Viagem::AGUARDANDO
 
-    if !data_partida.nil? && !data_chegada.nil?
-      if data_partida > data_chegada
-          viagem.errors.add(:data_partida, "posterior a data de chegada");
-          viagem.errors.add(:data_chegada, "anterior a data de partida");
+      if !data_partida.nil? && !data_chegada.nil?
+        if data_partida > data_chegada
+            viagem.errors.add(:data_partida, "posterior a data de chegada");
+            viagem.errors.add(:data_chegada, "anterior a data de partida");
 
-          return viagem
+            return viagem
+        end
       end
+
+      viagem.save!
+
+      self.estado = ACEITA
+      self.viagem_id = viagem.id
+
+  #    Requisicao.update(self.id, :estado => ACEITA, :viagem_id => viagem.id)
+
+      self.save(perform_validation = false)
+
+      return viagem
+      # enviar e-mail aqui
     end
-
-    viagem.save!
-
-    self.estado = ACEITA
-    self.viagem_id = viagem.id
-
-#    Requisicao.update(self.id, :estado => ACEITA, :viagem_id => viagem.id)
-
-    self.save(perform_validation = false)
-
-    return viagem
-    # enviar e-mail aqui
   end
 
   def aceitar_com_viagem_existente(viagem_id)
-    viagem = Viagem.find(viagem_id)
+    if self.esta_em_espera?
+      viagem = Viagem.find(viagem_id)
 
-    self.estado    = ACEITA
-    self.viagem_id = viagem.id
+      self.estado    = ACEITA
+      self.viagem_id = viagem.id
 
-    self.save!
+      self.save!
 
-    return viagem
+      return viagem
+    end
   end
 
   def self.filtrar opcao
@@ -222,6 +226,15 @@ class Requisicao < ActiveRecord::Base
       self.save
       #Confirmacao.deliver_email_motivo_de_rejeitar(@requisicao)
     end
+  end
+  
+  def esta_em_espera?
+    if self.estado == Requisicao::ESPERA
+      return true
+    else
+      return false
+    end
+    
   end
 
 end

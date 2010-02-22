@@ -285,6 +285,27 @@ describe Requisicao do
     requisicao.estado.should == Requisicao::REJEITADA
     requisicao.motivo_id.should == motivo.id
   end
+  
+  it "Deve verificar se o estado da requisição é Em Espera" do
+    categoria_de_veiculo = Factory.create :categoria_de_veiculo
+    objetivo_de_reserva = Factory.create :objetivo_de_reserva  
+    motivo = Factory.create :motivo
+    requisicao = Factory.create :requisicao, :categoria_de_veiculo_id => categoria_de_veiculo.id, :objetivo_de_reserva_id => objetivo_de_reserva.id
+    requisicao.esta_em_espera?.should be_true
+    requisicao.motivo_id = motivo.id
+    
+    requisicao.estado = Requisicao::CANCELADO_PELO_SISTEMA
+    requisicao.esta_em_espera?.should be_false
+    
+    requisicao.estado = Requisicao::CANCELADO_PELO_PROFESSOR
+    requisicao.esta_em_espera?.should be_false
+    
+    requisicao.estado = Requisicao::ACEITA
+    requisicao.esta_em_espera?.should be_false
+    
+    requisicao.estado = Requisicao::REJEITADA
+    requisicao.esta_em_espera?.should be_false
+  end
 
 
 end

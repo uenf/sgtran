@@ -188,18 +188,25 @@ class RequisicoesController < ApplicationController
   end
 
   def aceitar
-    @lista_motoristas = opcaoMotorista()
-    @lista_veiculos = opcaoVeiculo()
-    @requisicao = session[:requisicao] ? session[:requisicao] : Requisicao.find(params[:id])
-    @solicitante  = Solicitante.find(@requisicao.solicitante_id)
+    @requisicao = session[:requisicao] ? session[:requisicao] : Requisicao.find(params[:id])    
+    if @requisicao.esta_em_espera?
+      @lista_motoristas = opcaoMotorista()
+      @lista_veiculos = opcaoVeiculo()
+      @solicitante  = Solicitante.find(@requisicao.solicitante_id)
 
-    @viagem = session[:viagem]
-    if @viagem.nil?
-      @viagem = Viagem.new :data_partida => @requisicao.data_de_reserva, :data_chegada => @requisicao.data_de_reserva
+      @viagem = session[:viagem]
+      if @viagem.nil?
+        @viagem = Viagem.new :data_partida => @requisicao.data_de_reserva, :data_chegada => @requisicao.data_de_reserva
+      end
+      session.delete :viagem
+
+      @viagens = Viagem.all
+      render :action => "aceitar"
+    else
+      @solicitante = Solicitante.find(@requisicao.solicitante_id)
+      flash[:erro] = "A requisição deve estar no estado 'Em Espera' para ser aceita"
+      redirect_to(requisicao_path(@requisicao))
     end
-    session.delete :viagem
-
-    @viagens = Viagem.all
   end
 
   def fechar_viagem
@@ -262,7 +269,7 @@ class RequisicoesController < ApplicationController
     motoristas = Motorista.all
     motoristas_ocupados = []
     motoristas_desocupados = []
-    data = session[:requisicao][:data_de_reserva]
+    data = Date.today + 2.days #session[:requisicao][:data_de_reserva]
 
     motoristas.each do |motorista|
       viagens = Viagem.find_all_by_motorista_id(motorista.id)
@@ -285,7 +292,7 @@ class RequisicoesController < ApplicationController
     veiculos = Veiculo.all
     veiculos_ocupados = []
     veiculos_desocupados = []
-    data = session[:requisicao][:data_de_reserva]
+    data = Date.today + 2.days #session[:requisicao][:data_de_reserva]
 
     veiculos.each do |veiculo|
       viagens = Viagem.find_all_by_veiculo_id(veiculo.id)
