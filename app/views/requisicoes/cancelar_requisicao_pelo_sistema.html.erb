@@ -11,7 +11,9 @@
       <%= options_from_collection_for_select(@motivos, 'id', 'descricao') %>
     </select>
     <input type="hidden" name="requisicao_id" value="<%= @requisicao.id %>">
-    <%= submit_tag "Cancelar requisição" %>
+    <p>
+      <%= submit_tag "Cancelar requisição", :confirm => "Deseja realmente cancelar essa requisição?" %>
+    <p>
   </fieldset>
 <% end -%>
 
