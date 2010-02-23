@@ -101,9 +101,9 @@
 
 <div id="opcoes_da_visao">
   <ul>
-    <li id="opcao_voltar" onclick="location.href='<%= viagens_path %>'"
+    <li id="opcao_voltar" onclick="history.back(-1)"
     onmouseover="this.style.cursor='pointer'">
-      <%= link_to 'Voltar', viagens_path %>
+      Voltar
     </li>
     <li id="opcao_imprimir" onclick="window.print()"
     onmouseover="this.style.cursor='pointer'">

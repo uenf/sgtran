@@ -36,13 +36,17 @@ class RequisicoesController < ApplicationController
   # GET /requisicoes/1.xml
   def show
     @requisicao = Requisicao.find(params[:id])
-    @solicitante = Solicitante.find(@requisicao.solicitante_id)
+    if @requisicao.blank?
+      redirect_to(requisicoes_path)
+    else
+      @solicitante = Solicitante.find(@requisicao.solicitante_id)
 
-    session[:requisicao] = @requisicao
+      session[:requisicao] = @requisicao
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @requisicao }
+      respond_to do |format|
+        format.html # show.html.erb
+        format.xml  { render :xml => @requisicao }
+      end
     end
   end
 

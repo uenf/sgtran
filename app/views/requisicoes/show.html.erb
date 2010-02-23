@@ -83,7 +83,7 @@
 
 <div id="opcoes_da_visao">
   <ul>
-    <li id="opcao_voltar" onclick="location.href='<%= requisicoes_path %>'" onmouseover="this.style.cursor = 'pointer'"><%= link_to 'Voltar', requisicoes_path %></li>
+    <li id="opcao_voltar" onclick="history.back(-1)" onmouseover="this.style.cursor = 'pointer'">Voltar</li>
     <li id="opcao_imprimir" onclick="window.print()" onmouseover="this.style.cursor = 'pointer'"><a href="javaScript:window.print()">Imprimir</a></li>
 
     <!-- <li id="opcao_aceitar"><%= link_to 'Aceitar', :controller => 'requisicoes', :action => 'aceitar', :id => @requisicao %></li>

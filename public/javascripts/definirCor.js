@@ -2,7 +2,7 @@
     {
       var url = document.location.pathname
 
-      if (url.search(/requisicoes/) != -1)
+      if (url.search(/requisic(ao|oes)/) != -1)
       {
         document.getElementById("opcao_viagem").style.backgroundColor = '#DCDCDC'
         document.getElementById("opcao_base_de_dados").style.backgroundColor = '#DCDCDC'
