@@ -1,8 +1,16 @@
 class ObjetivosDeReservaController < ApplicationController
   # GET /objetivos_de_reserva
   # GET /objetivos_de_reserva.xml
+  access_control do
+    allow :admin, :to => [:index, :new, :show, :create, :edit, :destroy, :update]
+    allow :visit, :to => [:index, :show]
+  end
+
+  layout "sistema"
+
   def index
     @objetivos_de_reserva = ObjetivoDeReserva.all
+    @sub_layout = "base"
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +22,7 @@ class ObjetivosDeReservaController < ApplicationController
   # GET /objetivos_de_reserva/1.xml
   def show
     @objetivo_de_reserva = ObjetivoDeReserva.find(params[:id])
+    @sub_layout = "base"
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,6 +34,7 @@ class ObjetivosDeReservaController < ApplicationController
   # GET /objetivos_de_reserva/new.xml
   def new
     @objetivo_de_reserva = ObjetivoDeReserva.new
+    @sub_layout = "base"
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +45,7 @@ class ObjetivosDeReservaController < ApplicationController
   # GET /objetivos_de_reserva/1/edit
   def edit
     @objetivo_de_reserva = ObjetivoDeReserva.find(params[:id])
+    @sub_layout = "base"
   end
 
   # POST /objetivos_de_reserva
@@ -44,7 +55,7 @@ class ObjetivosDeReservaController < ApplicationController
 
     respond_to do |format|
       if @objetivo_de_reserva.save
-        flash[:notice] = 'Objetivo de reserva criado com sucesso!'
+        flash[:sucesso] = 'Objetivo de reserva criado com sucesso!'
         format.html { redirect_to(@objetivo_de_reserva) }
         format.xml  { render :xml => @objetivo_de_reserva, :status => :created, :location => @objetivo_de_reserva }
       else
@@ -61,7 +72,7 @@ class ObjetivosDeReservaController < ApplicationController
 
     respond_to do |format|
       if @objetivo_de_reserva.update_attributes(params[:objetivo_de_reserva])
-        flash[:notice] = 'Objetivo de reserva modificado com sucesso!'
+        flash[:sucesso] = 'Objetivo de reserva modificado com sucesso!'
         format.html { redirect_to(@objetivo_de_reserva) }
         format.xml  { head :ok }
       else
@@ -76,6 +87,7 @@ class ObjetivosDeReservaController < ApplicationController
   def destroy
     @objetivo_de_reserva = ObjetivoDeReserva.find(params[:id])
     @objetivo_de_reserva.destroy
+    @sub_layout = "base"
 
     respond_to do |format|
       format.html { redirect_to(objetivos_de_reserva_url) }

@@ -23,7 +23,7 @@ Para que eu possa adicinar, editar e utilizar no sistema
     Dado que eu tenha um objetivo de reserva "Aula de Campo"
     E que eu estou na página de edição de objetivo de reserva
     Quando eu preencho "Texto" com "<texto>"
-    E eu pressiono "Modificar"
+    E eu pressiono "Atualizar"
     Então eu devo ver "<sentença>"
 
     Exemplos:

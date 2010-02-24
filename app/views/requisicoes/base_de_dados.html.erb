@@ -43,6 +43,12 @@
           <span><%= link_to "Adicionar", new_motivo_path %></span>
         <% end %>
       </li>
+      <li>
+        <%= link_to "Objetivos de reserva", objetivos_de_reserva_path %>
+        <% if current_user.has_role? :admin %>
+          <span><%= link_to "Adicionar", new_objetivo_de_reserva_path %></span>
+        <% end %>
+      </li>
     </ul>
   </div>
 </div>

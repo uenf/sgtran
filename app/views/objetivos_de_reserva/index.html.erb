@@ -1,20 +1,25 @@
-<h1>Listing objetivos_de_reserva</h1>
+<% if current_user.has_role? :admin %>
+  <a href="/objetivos_de_reserva/new" class="link_botao">Adicionar Objetivo de reserva</a>
+<% end %>
 
-<table>
+<table id="base_de_dados" class="tabela_base_de_dados">
   <tr>
     <th>Texto</th>
+    <th class="celula_neutra_estatica"></th>
+    <th class="celula_neutra_estatica"></th>
   </tr>
 
 <% @objetivos_de_reserva.each do |objetivo_de_reserva| %>
   <tr>
-    <td><%=h objetivo_de_reserva.texto %></td>
-    <td><%= link_to 'Show', objetivo_de_reserva %></td>
-    <td><%= link_to 'Edit', edit_objetivo_de_reserva_path(objetivo_de_reserva) %></td>
-    <td><%= link_to 'Destroy', objetivo_de_reserva, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td onclick="location.href='<%= objetivo_de_reserva_path(objetivo_de_reserva) %>'" onmouseover="this.style.cursor='pointer'"><%=h objetivo_de_reserva.texto %></td>
+    <% if current_user.has_role? :admin %>
+      <td onclick="location.href='<%= edit_objetivo_de_reserva_path(objetivo_de_reserva) %>'" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("editar_dado.png", :border => 0, :alt => "Editar"), edit_objetivo_de_reserva_path(objetivo_de_reserva) %></td>
+      <td onclick="" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("deletar_dado.png", :border => 0, :alt => "Deletar"), objetivo_de_reserva, :confirm => 'Tem certeza que deseja apagar?', :method => :delete %></td>
+    <% else %>
+      <td></td>
+      <td></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
-<br />
-
-<%= link_to 'New objetivo_de_reserva', new_objetivo_de_reserva_path %>

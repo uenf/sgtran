@@ -1,17 +1,23 @@
-<h1>Editing objetivo_de_reserva</h1>
+<div class="show_padrao">
+
+<h1>Editar Objetivo de reserva</h1>
 
 <% form_for(@objetivo_de_reserva) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label :texto %><br />
-    <%= f.text_field :texto %>
-  </p>
-  <p>
-    <%= f.submit 'Modificar' %>
-  </p>
-<% end %>
+  <div class="show_linha">
+    <div class="linha_titulo"><%= f.label :texto, "Texto:" %></div>
+    <div class="linha_texto_neutro"><%= f.text_field :texto %></div>
+  </div>
 
-<%= link_to 'Show', @objetivo_de_reserva %> |
-<%= link_to 'Back', objetivos_de_reserva_path %>
+  <div class="botao_concluir"><%= f.submit 'Atualizar' %></div>
+
+<% end %>
+</div>
+
+<div id="opcoes_da_visao">
+  <ul>
+    <li id="opcao_voltar" onclick="history.back(-1)" onmouseover="this.style.cursor = 'pointer'">Voltar</li>
+  </ul>
+</div>
 

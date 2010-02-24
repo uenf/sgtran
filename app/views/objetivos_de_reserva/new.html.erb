@@ -1,16 +1,23 @@
-<h1>New objetivo_de_reserva</h1>
+<div class="show_padrao">
+
+<h1>Novo Objetivo de reserva</h1>
 
 <% form_for(@objetivo_de_reserva) do |f| %>
-  <%= f.error_messages %>
+  <%= mensagem_de_erro(@objetivo_de_reserva) %>
 
-  <p>
-    <%= f.label :texto %><br />
-    <%= f.text_field :texto %>
-  </p>
-  <p>
-    <%= f.submit 'Criar' %>
-  </p>
+  <div class="show_linha">
+    <div class="linha_titulo"><%= f.label :texto, "Texto:" %></div>
+    <div class="linha_texto_neutro"><%= f.text_field :texto %></div>
+  </div>
+
+  <div class="botao_concluir"><%= f.submit 'Criar Objetivo de reserva' %></div>
+
 <% end %>
+</div>
 
-<%= link_to 'Back', objetivos_de_reserva_path %>
+<div id="opcoes_da_visao">
+  <ul>
+    <li id="opcao_voltar" onclick="history.back(-1)" onmouseover="this.style.cursor='pointer'">Voltar</li>
+  </ul>
+</div>
 

@@ -1,7 +1,7 @@
 class MotivosController < ApplicationController
   # GET /motivos
   # GET /motivos.xml
-    access_control do
+  access_control do
     allow :admin, :to => [:index, :new, :show, :create, :edit, :destroy, :update]
     allow :visit, :to => [:index, :show]
   end
