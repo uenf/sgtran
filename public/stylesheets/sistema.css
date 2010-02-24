@@ -442,33 +442,6 @@ table.tabela_padrao tr td.cancelada {
 
 
     /*********************************************/
-#opcao_motorista {
-    list-style-image : url("/images/motorista.png");
-}
-
-#opcao_solicitante {
-    list-style-image : url("/images/solicitante.png");
-}
-
-#opcao_veiculo {
-    list-style-image : url("/images/veiculo.png");
-}
-
-#opcao_usuario {
-    list-style-image : url("/images/usuario.png");
-}
-
-#opcao_combustivel {
-    list-style-image : url("/images/combustivel.png");
-}
-
-#opcao_categoria_de_veiculo {
-    list-style-image : url("/images/categoria_de_veiculo.png");
-}
-
-#opcao_motivo {
-    list-style-image : url("/images/motivo.png");
-}
 
 #opcao_editar {
     list-style-image: url("/images/editar_big.png");

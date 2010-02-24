@@ -1,18 +1,6 @@
 <div id="visoes_da_base_de_dados">
-  <ul>
-    <li id="opcao_solicitante" onclick="location.href='<%= solicitantes_path %>'" onmouseover="this.style.cursor='pointer'"><%= link_to "Solicitantes", solicitantes_path %></li>
-    <li id="opcao_motorista" onclick="location.href='<%= motoristas_path %>'" onmouseover="this.style.cursor='pointer'"><%= link_to "Motoristas", motoristas_path %></li>
-    <li id="opcao_veiculo" onclick="location.href='<%= veiculos_path %>'" onmouseover="this.style.cursor='pointer'"><%= link_to "Veículos", veiculos_path %></li>
-    <li id="opcao_usuario" onclick="location.href='<%= usuarios_path %>'" onmouseover="this.style.cursor='pointer'"><%= link_to "Usuários", usuarios_path %></li>
-    <li id="opcao_combustivel" onclick="location.href='<%= combustiveis_path %>'" onmouseover="this.style.cursor='pointer'"><%= link_to "Combustíveis", combustiveis_path %></li>
-    <li id="opcao_categoria_de_veiculo" onclick="location.href='<%= categoria_de_veiculos_path %>'" onmouseover="this.style.cursor='pointer'"><%= link_to "Categorias de veículo", categoria_de_veiculos_path %></li>
-    <li id="opcao_motivo" onclick="location.href='<%= motivos_path %>'" onmouseover="this.style.cursor='pointer'"><%= link_to "Motivos", motivos_path %></li>
-  </ul>
-  <div class="pular_linha"></div>
-
   <div id="tabela_exibir_base_de_dados">
     <%= yield %>
   </div>
-
 </div>
 

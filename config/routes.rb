@@ -37,14 +37,16 @@ ActionController::Routing::Routes.draw do |map|
 
   map.admin "/admin", :controller => "usuario_sessions", :action => "new"
   map.sair "/sair", :controller => "usuario_sessions", :action => "destroy"
-  
+
   map.filtrar_requisicao "/filtrar_requisicao", :controller => "requisicoes", :action => "filtrar"
-  
+
   map.filtrar_viagem "filtrar_viagem", :controller => "viagens", :action => "filtrar"
-  
+
   map.rejeitar_requisicao "rejeitar_requisicao", :controller => "requisicoes", :action => "rejeitar_requisicao"
-  
+
   map.cancelar_pelo_sistema "requisicoes/cancelar_pelo_sistema", :controller => "requisicoes", :action => "cancelar_pelo_sistema"
+
+  map.base_de_dados "base_de_dados", :controller => "requisicoes", :action => "base_de_dados"
 
 
   # The priority is based upon order of creation: first created -> highest priority.

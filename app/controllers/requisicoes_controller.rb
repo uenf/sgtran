@@ -10,10 +10,26 @@ class RequisicoesController < ApplicationController
   layout "sistema"
 
   access_control do
-      allow all, :to => [:new, :create, :confirmar_requisicao, :requisicao_ja_foi_cancelada, :cancelar_requisicao, :visualizar_requisicao,
-                          :cancelar_requisicao_pelo_professor]
-      allow :admin, :to => [:index, :show, :aceitar, :fechar_viagem, :filtrar, :rejeitar, :rejeitar_requisicao, :cancelar_requisicao_pelo_sistema, :cancelar_pelo_sistema]
-      allow :visit, :to => [:index, :show, :filtrar]
+      allow all, :to => [:new,
+                         :create,
+                         :confirmar_requisicao,
+                         :requisicao_ja_foi_cancelada,
+                         :cancelar_requisicao,
+                         :visualizar_requisicao,
+                         :cancelar_requisicao_pelo_professor]
+      allow :admin, :to => [:index,
+                            :show,
+                            :aceitar,
+                            :fechar_viagem,
+                            :filtrar,
+                            :rejeitar,
+                            :rejeitar_requisicao,
+                            :cancelar_requisicao_pelo_sistema,
+                            :cancelar_pelo_sistema,
+                            :base_de_dados]
+      allow :visit, :to => [:index,
+                            :show,
+                            :filtrar]
   end
 
 
@@ -192,7 +208,7 @@ class RequisicoesController < ApplicationController
   end
 
   def aceitar
-    @requisicao = session[:requisicao] ? session[:requisicao] : Requisicao.find(params[:id])    
+    @requisicao = session[:requisicao] ? session[:requisicao] : Requisicao.find(params[:id])
     if @requisicao.esta_em_espera?
       @lista_motoristas = opcaoMotorista()
       @lista_veiculos = opcaoVeiculo()
@@ -333,13 +349,13 @@ class RequisicoesController < ApplicationController
     @requisicao.rejeitar motivo
     redirect_to requisicao_path(@requisicao)
   end
-  
+
   def cancelar_requisicao_pelo_sistema
     @motivos = Motivo.all
     @requisicao = Requisicao.find(params[:id])
     @solicitante = Solicitante.find(@requisicao.solicitante_id)
   end
-  
+
   def cancelar_pelo_sistema
     @requisicao = Requisicao.find(params[:requisicao_id])
     motivo = params[:motivo]
@@ -360,6 +376,9 @@ class RequisicoesController < ApplicationController
     rescue
       nil
     end
+  end
+
+  def base_de_dados
   end
 
 end

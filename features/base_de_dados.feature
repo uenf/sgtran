@@ -7,9 +7,15 @@ Funcionalidade: Verificar a aba Base de Dados
     Esquema do Cenário:
     Dado que eu estou logado
     Quando eu clico em "Base de Dados"
-    Então eu devo ver "<Campo>"
+    Então eu devo ver "<item>"
 
     Exemplos:
-    | Campo         |
-    | Email  |
+    | item                  |
+    | Usuários              |
+    | Solicitantes          |
+    | Motoristas            |
+    | Veículos              |
+    | Combustíveis          |
+    | Categorias de veículo |
+    | Motivos               |
 
