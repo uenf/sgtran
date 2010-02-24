@@ -92,18 +92,18 @@ a:hover {
 ** VISÕES DO SISTEMA
 */
 
-#visoes_do_sistema {
+#abas_do_sistema {
     clear : both;
 
 }
 
-#visoes_do_sistema ul {
+#abas_do_sistema ul {
     margin : 0px;
     margin-top : 15px;
     padding-left : 10px;
 }
 
-#visoes_do_sistema ul li {
+#abas_do_sistema ul li {
     float : left;
     margin : 0px;
     margin-right : 5px;
@@ -121,27 +121,27 @@ a:hover {
 
     /*********************************************/
 
-#visoes_do_sistema ul #opcao_requisicao {
+#abas_do_sistema ul #opcao_requisicao {
     list-style-image : url("/images/requisicoes.png");
 }
 
-#visoes_do_sistema ul #opcao_viagem {
+#abas_do_sistema ul #opcao_viagem {
     list-style-image : url("/images/viagens.png");
 }
 
-#visoes_do_sistema ul #opcao_base_de_dados {
+#abas_do_sistema ul #opcao_base_de_dados {
     list-style-image : url("/images/base_de_dados.png");
 }
 
     /*********************************************/
 
-#visoes_do_sistema ul li a {
+#abas_do_sistema ul li a {
     font : 14px Sans;
     color : #000000;
     text-decoration : none;
 }
 
-#visoes_do_sistema ul li:hover {
+#abas_do_sistema ul li:hover {
     background-color : #F5F5F5;
 }
 
@@ -162,26 +162,35 @@ a:hover {
 
 }
 
-#visoes_da_base_de_dados ul li {
-    float : left;
-    margin : 0px;
-    margin-right : 5px;
-    padding : 5px;
-
-    list-style-position : inside;
-
-    font : 14px Sans;
-    color : #000000;
-
-    border : solid 1px #999999;
-    border-bottom : solid 1px #F5F5F5;
-    background-color : #F5F5F5;
-
-}
 
 /*
-** TABELA DA BASE DE DADOS
+** BASE DE DADOS
 */
+
+div.index_base_de_dados {
+    margin-right: 50%;
+}
+
+div.index_base_de_dados ul li {
+    list-style: none;
+    font-size: 12px;
+    font-weight: bold;
+    border-bottom: 1px solid #d2d2d2;
+    padding: 2px;
+}
+
+div.index_base_de_dados a:link,
+div.index_base_de_dados a:visited {
+    color: #5B80B2;
+    text-decoration: none;
+}
+
+div.index_base_de_dados span a {
+    background: transparent url("/images/add.gif") no-repeat scroll 0 0.2em;
+    padding-left: 13px;
+    float: right;
+    font-weight: normal;
+}
 
 #tabela_exibir_base_de_dados {
     width : 978px;
@@ -360,7 +369,9 @@ table.tabela_padrao tr td {
 }
 
 table.tabela_padrao tr td.celula_label {
-    width : 200px;
+    width : 200px;div.base_de_dados {
+
+}
     text-align : right;
     background-color : #EFEFEF;
 }
@@ -576,7 +587,6 @@ div.erro {
 }
 
 .formularios_embutidos form fieldset {
-    /*padding-top : -20px;*/
     padding-top : 30px;
     border : solid 1px #999999;
     background : #FFFFFF url("/images/formulario_embutido_fundo.png") repeat-x center bottom;
