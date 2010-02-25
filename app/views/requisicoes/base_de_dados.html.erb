@@ -49,6 +49,12 @@
           <span><%= link_to "Adicionar", new_objetivo_de_reserva_path %></span>
         <% end %>
       </li>
+      <li>
+        <%= link_to "Prédios", predios_path %>
+        <% if current_user.has_role? :admin %>
+          <span><%= link_to "Adicionar", new_predio_path %></span>
+        <% end %>
+      </li>
     </ul>
   </div>
 </div>

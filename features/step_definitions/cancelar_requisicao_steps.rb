@@ -3,7 +3,8 @@ require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "pat
 require 'factory_girl'
 
 Given /^que eu tenho uma requisição do solicitante com matricula "(.+)" e com o nome "(.+)"$/ do |matricula, nome|
-  solicitante = Factory.create :solicitante, :matricula => matricula, :nome => nome
+  predio = Factory.create :predio
+  solicitante = Factory.create :solicitante, :matricula => matricula, :nome => nome, :predio_id => predio.id
   categoria_de_veiculo = Factory.create :categoria_de_veiculo
   objetivo_de_reserva = Factory.create :objetivo_de_reserva
   requisicao = Factory.create :requisicao,

@@ -100,10 +100,15 @@ module NavigationHelpers
 
     when /^página de edição de solicitante$/
       edit_solicitante_path(:id => @solicitante)
-        
+
     when /^página de aceitar a requisição$/
       aceitar_path(:id => @requisicao)
-      
+
+    when /^página de adição de prédio$/
+      new_predio_path
+
+    when /^página de edição de prédio$/
+      edit_predio_path(:id => @predio)
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

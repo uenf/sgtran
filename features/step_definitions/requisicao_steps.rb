@@ -1,38 +1,39 @@
 Dado /^que eu tenho uma requisição com estado "([^\"]*)"$/ do |estado|
   categoria_de_veiculo = Factory.create :categoria_de_veiculo
-  solicitante = Factory.create :solicitante
+  predio = Factory.create :predio
+  solicitante = Factory.create :solicitante, :predio_id => predio.id
   motivo = Factory.create :motivo
   objetivo_de_reserva = Factory.create :objetivo_de_reserva
   case estado.to_s
     when "Em Espera" then
-      @requisicao_filtro = Factory.create :requisicao,
+      @requisicao = Factory.create :requisicao,
                                           :estado => Requisicao::ESPERA,
                                           :categoria_de_veiculo_id => categoria_de_veiculo.id,
                                           :solicitante_id => solicitante.id,
                                           :objetivo_de_reserva_id => objetivo_de_reserva.id
     when "Rejeitada" then
-      @requisicao_filtro = Factory.create :requisicao,
+      @requisicao = Factory.create :requisicao,
                                           :estado => Requisicao::REJEITADA,
                                           :categoria_de_veiculo_id => categoria_de_veiculo.id,
                                           :solicitante_id => solicitante.id,
                                           :motivo_id => motivo.id,
                                           :objetivo_de_reserva_id => objetivo_de_reserva.id
   when "Cancelada pelo Professor" then
-      @requisicao_filtro = Factory.create :requisicao,
+      @requisicao = Factory.create :requisicao,
                                           :estado => Requisicao::CANCELADO_PELO_PROFESSOR,
                                           :categoria_de_veiculo_id => categoria_de_veiculo.id,
                                           :solicitante_id => solicitante.id,
                                           :motivo_professor => "Algum motivo",
                                           :objetivo_de_reserva_id => objetivo_de_reserva.id
     when "Cancelada pelo Sistema" then
-      @requisicao_filtro = Factory.create :requisicao,
+      @requisicao = Factory.create :requisicao,
                                           :estado => Requisicao::CANCELADO_PELO_SISTEMA,
                                           :categoria_de_veiculo_id => categoria_de_veiculo.id,
                                           :solicitante_id => solicitante.id,
                                           :motivo_id => motivo.id,
                                           :objetivo_de_reserva_id => objetivo_de_reserva.id
     when "Aceita" then
-      @requisicao_filtro = Factory.create :requisicao,
+      @requisicao = Factory.create :requisicao,
                                           :estado => Requisicao::ACEITA,
                                           :categoria_de_veiculo_id => categoria_de_veiculo.id,
                                           :solicitante_id => solicitante.id,
@@ -42,7 +43,8 @@ end
 
 Dado /^que eu tenho uma viagem com estado "([^\"]*)"$/ do |estado|
   categoria_de_veiculo = Factory.create :categoria_de_veiculo
-  solicitante = Factory.create :solicitante
+  predio = Factory.create :predio
+  solicitante = Factory.create :solicitante, :predio_id => predio.id
   case estado.to_s
     when "Aguardando" then
       @viagem = Factory.create :viagem, :estado => Viagem::AGUARDANDO
@@ -79,37 +81,13 @@ Dado /^que eu tenho uma requisição de volta com número de protocolo ([^\"]*)$
   @requisicao_ida.save!
 end
 
-Dado /^que eu tenha um solicitante com e-mail "([^\"]*)" e matricula "([^\"]*)"$/ do |email, matricula|
-  @solicitante = Factory.create :solicitante, :email => email, :matricula => matricula
+Dado /^que eu tenha um solicitante com e-mail "([^\"]*)", matrícula "([^\"]*)" e prédio "([^\"]*)"$/ do |email, matricula, predio_nome|
+  predio = Factory.create :predio, :nome => predio_nome
+  @solicitante = Factory.create :solicitante,
+                                :email => email,
+                                :matricula => matricula,
+                                :predio_id => predio.id
 end
-
-Dado /^que eu tenho uma requisição (.+)$/ do |estado|
-  solicitante = Factory.create :solicitante
-  categoria_de_veiculo = Factory.create :categoria_de_veiculo
-  objetivo_de_reserva = Factory.create :objetivo_de_reserva
-  case estado
-    when "em espera"
-      @requisicao = Factory.create :requisicao,
-                               :solicitante_id => solicitante.id,
-                               :categoria_de_veiculo_id => categoria_de_veiculo.id,
-                               :objetivo_de_reserva_id => objetivo_de_reserva.id
-    when "cancelada pelo sistema"
-      motivo = Factory.create :motivo
-      @requisicao = Factory.create :requisicao,
-                               :solicitante_id => solicitante.id,
-                               :categoria_de_veiculo_id => categoria_de_veiculo.id,
-                               :objetivo_de_reserva_id => objetivo_de_reserva.id,
-                               :motivo_id => motivo.id,
-                               :estado => Requisicao::CANCELADO_PELO_SISTEMA
-    when "aceita"
-      @requisicao = Factory.create :requisicao,
-                               :solicitante_id => solicitante.id,
-                               :categoria_de_veiculo_id => categoria_de_veiculo.id,
-                               :objetivo_de_reserva_id => objetivo_de_reserva.id,
-                               :estado => Requisicao::ACEITA      
-  end    
-end
-
 
 Dado /^que eu estou logado com o login "([^\"]*)" e a senha "([^\"]*)"$/ do |login, senha|
   usuario = Factory.create :usuario, :login => login, :password => senha, :password_confirmation => senha

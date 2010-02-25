@@ -4,3 +4,5 @@ webrat-*.html
 rerun.txt
 log.txt
 rake.sh
+public/stylesheets/scaffold.css
+

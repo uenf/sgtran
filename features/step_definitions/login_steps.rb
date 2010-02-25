@@ -1,7 +1,10 @@
 Before do
   username = "sgtran"
   senha = "teste"
-  usuario = Factory.create :usuario, :login => username, :password => senha, :password_confirmation => senha
+  usuario = Factory.create :usuario,
+                           :login => username,
+                           :password => senha,
+                           :password_confirmation => senha
   usuario.has_role! :admin
   login(username, senha)
 end
@@ -20,7 +23,10 @@ end
 
 
 Dado /^que eu tenho uma requisição com solicitante "([^\"]*)"$/ do |solicitante|
-  solicitante = Factory.create :solicitante, :nome => solicitante
+  predio = Factory.create :predio
+  solicitante = Factory.create :solicitante,
+                               :nome => solicitante,
+                               :predio_id => predio.id
   categoria_de_veiculo = Factory.create :categoria_de_veiculo
   objetivo_de_reserva = Factory.create :objetivo_de_reserva
   Factory.create :requisicao,

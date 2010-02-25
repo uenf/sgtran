@@ -1,0 +1,23 @@
+<div class="show_padrao">
+
+<h1>Novo Prédio</h1>
+
+<% form_for(@predio) do |f| %>
+  <%= mensagem_de_erro(@predio) %>
+
+  <div class="show_linha">
+    <div class="linha_titulo"><%= f.label :nome, "Nome:" %></div>
+    <div class="linha_texto_neutro"><%= f.text_field :nome %></div>
+  </div>
+
+  <div class="botao_concluir"><%= f.submit 'Criar Prédio' %></div>
+
+<% end %>
+</div>
+
+<div id="opcoes_da_visao">
+  <ul>
+    <li id="opcao_voltar" onclick="history.back(-1)" onmouseover="this.style.cursor='pointer'">Voltar</li>
+  </ul>
+</div>
+

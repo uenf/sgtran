@@ -52,7 +52,7 @@
 
     <tr>
       <td class="celula_label"><strong>Predio:</strong></td>
-      <td><%=h @solicitante.predio %></td>
+      <td><%=h Predio.find(@solicitante.predio_id).nome %></td>
     </tr>
 
     <tr>

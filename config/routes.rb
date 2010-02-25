@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :predios
+
   map.resources :objetivos_de_reserva
 
   map.resources :motivos

@@ -6,7 +6,7 @@ Funcionalidade: Verificar se a requisição de ida e volta estão corretas
     Para que eu possa ter um maior melhor controle
 
     Esquema do Cenário: Devo ver a requisição de ida e de volta
-      Dado que eu tenha um solicitante com e-mail "ronaldo@corinthians.com" e matricula "01210"
+      Dado que eu tenha um solicitante com e-mail "ronaldo@corinthians.com", matrícula "01210" e prédio "P5"
       E que eu tenho uma requisição de ida com número de protocolo <id_ida>
       E que eu tenho uma requisição de volta com número de protocolo <id_volta>
       Quando eu vou para a "página da lista de requisições"

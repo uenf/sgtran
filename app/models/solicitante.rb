@@ -1,5 +1,7 @@
 class Solicitante < ActiveRecord::Base
 
+  has_one :predio
+
   validates_presence_of :nome,
                         :email,
                         :matricula,
@@ -8,7 +10,7 @@ class Solicitante < ActiveRecord::Base
   validates_format_of :email,
                       :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
 
-  validate :validar_predio, :validar_andar
+  validate :validar_andar, :validar_predio
 
 
   def self.verificarExistencia dados
@@ -16,8 +18,8 @@ class Solicitante < ActiveRecord::Base
   end
 
   def validar_predio
-    if self.predio == "Selecione um Prédio"
-      errors.add(:predio, "não selecionado.")
+    if self.predio_id.blank?
+      errors.add(:predio, 'não selecionado')
     end
   end
 
@@ -25,26 +27,6 @@ class Solicitante < ActiveRecord::Base
     if self.andar == "Selecione um Andar"
       errors.add(:andar, "não selecionado.")
     end
-  end
-
-  def self.predios
-    ["Selecione um Prédio",
-    "Reitoria - E1",
-    "CCT - Prédio",
-    "CCT - Anexo",
-    "CCT - Oficinas",
-    "CBB - Prédio",
-    "CBB - Anexo",
-    "CCTA - Prédio",
-    "CCTA - Anexo",
-    "CCTA - Pesagro",
-    "CCTA - Escola Agrícola",
-    "CCTA - Itaocara",
-    "CCH - Prédio",
-    "P4",
-    "P5",
-    "Villa Maria",
-    "LENEP - Macaé"]
   end
 
   def self.andar

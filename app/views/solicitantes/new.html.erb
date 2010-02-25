@@ -35,8 +35,14 @@
   </div>
 
   <div class="show_linha">
-    <div class="linha_titulo"><%= f.label :predio, "Prédio:" %></div>
-    <div class="linha_texto_neutro"><%= f.select :predio, Solicitante.predios %></div>
+    <div class="linha_titulo">
+      <%= f.label :predio_id, "Prédio:"%>
+    </div>
+    <div class="linha_texto_neutro">
+      <%= f.select :predio_id,
+                    Predio.all.collect {|predio| [predio.nome, predio.id]},
+                    {:include_blank => "Selecione um Prédio"} %>
+    </div>
   </div>
 
   <div class="show_linha">

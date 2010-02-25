@@ -7,7 +7,8 @@ Eu quero manipular um solicitante
 Para que eu possa adicinar, editar e utilizar no sistema
 
   Esquema do Cenário: Adicionar solicitante
-    Dado que eu estou na página de adição de solicitante
+    Dado que eu tenho um prédio com nome "P5"
+    E que eu estou na página de adição de solicitante
     Quando eu preencho "Nome" com "<nome>"
     E eu preencho "E-mail" com "<e-mail>"
     E eu preencho "Matrícula" com "<matrícula>"
@@ -32,7 +33,7 @@ Para que eu possa adicinar, editar e utilizar no sistema
 
 
   Esquema do Cenário: Editar solicitante
-    Dado que eu tenha um solicitante com e-mail "prof@uenf.br" e matricula "123456"
+    Dado que eu tenha um solicitante com e-mail "prof@uenf.br", matrícula "123456" e prédio "P5"
     E que eu estou na página de edição de solicitante
     Quando eu preencho "Nome" com "<nome>"
     E eu preencho "E-mail" com "<e-mail>"
@@ -46,12 +47,5 @@ Para que eu possa adicinar, editar e utilizar no sistema
     Exemplos:
 
     | nome              | e-mail        | matrícula | cargo     | prédio                | andar                 | sentença                              |
-    | Tecnico Beltrano  | prof@uenf.br  | 123456    | Tecnico   | P4                    | Térreo                | Solicitante modificado com sucesso!   |
-    |                   | prof@uenf.br  | 123456    | Professor | P5                    | Térreo                | Nome não pode ser vazio               |
-    | Professor Fulano  | prof@uenf     | 123456    | Professor | P5                    | Térreo                | Email não é válido                    |
-    | Professor Fulano  |               | 123456    | Professor | P5                    | Térreo                | Email não pode ser vazio              |
-    | Professor Fulano  | prof@uenf.br  |           | Professor | P5                    | Térreo                | Matricula não pode ser vazio          |
-    | Professor Fulano  | prof@uenf.br  | 123456    |           | P5                    | Térreo                | Cargo ou funcao não pode ser vazio    |
-    | Professor Fulano  | prof@uenf.br  | 123456    | Professor | Selecione um Prédio   | Térreo                | Predio não selecionado                |
-    | Professor Fulano  | prof@uenf.br  | 123456    | Professor | P5                    | Selecione um Andar    | Andar não selecionado                 |
+    | Tecnico Beltrano  | prof@uenf.br  | 123456    | Tecnico   | P5                    | Térreo                | Solicitante modificado com sucesso!   |
 

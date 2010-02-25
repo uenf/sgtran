@@ -5,7 +5,10 @@ Given /^que eu tenha ([0-9]+) requisições em espera$/ do |quantidade|
   for pos in (1..quantidade.to_i) do
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     objetivo_de_reserva = Factory.create :objetivo_de_reserva
-    solicitante = Factory.create :solicitante, :nome => 'fulano ' + pos.to_s
+    predio = Factory.create :predio
+    solicitante = Factory.create :solicitante,
+                                 :predio_id => predio.id,
+                                 :nome => 'fulano ' + pos.to_s
     requisicao = Factory.create :requisicao,
                                 :id => pos,
                                 :solicitante_id => solicitante.id,
@@ -18,7 +21,7 @@ Then /^eu devo ver a tabela "(.+)" com$/ do |tabela_id, tabela_esperada|
   begin
     tabela_esperada.map_column!("Protocolo") do |data|
       if data == "ID"
-        data = @requisicao_filtro.id.to_s
+        data = @requisicao.id.to_s
       end
       data
     end

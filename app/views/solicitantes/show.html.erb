@@ -33,7 +33,7 @@
 
   <div class="show_linha">
     <div class="linha_titulo">Prédio:</div>
-    <div class="linha_texto"><%=h @solicitante.predio %></div>
+    <div class="linha_texto"><%=h Predio.find(@solicitante.predio_id).nome %></div>
   </div>
 
   <div class="show_linha">
