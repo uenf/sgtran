@@ -1,4 +1,4 @@
-# This file is auto-generated from the current state of the database. Instead of editing this file, 
+# This file is auto-generated from the current state of the database. Instead of editing this file,
 # please use the migrations feature of Active Record to incrementally modify your database, and
 # then regenerate this schema definition.
 #
@@ -101,7 +101,6 @@ ActiveRecord::Schema.define(:version => 20101022184205) do
     t.string   "matricula"
     t.string   "telefone_ou_ramal"
     t.string   "laboratorio_ou_setor"
-    t.string   "andar"
     t.string   "sala"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -152,3 +151,4 @@ ActiveRecord::Schema.define(:version => 20101022184205) do
   add_index "viagens", ["motorista_id"], :name => "fk_viagem_motorista"
 
 end
+

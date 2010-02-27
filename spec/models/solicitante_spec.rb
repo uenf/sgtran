@@ -55,10 +55,6 @@ describe Solicitante do
     solicitante.valid?.should be_false
   end
 
-  it "deve retornar o número de andares" do
-    Solicitante.andar.should have(4).andar
-  end
-
   it "deve invalidar caso o prédio não seja selecionado" do
     solicitante = Factory.build :solicitante,
                                 :predio_id => ""

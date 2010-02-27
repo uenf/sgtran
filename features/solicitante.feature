@@ -14,21 +14,19 @@ Para que eu possa adicinar, editar e utilizar no sistema
     E eu preencho "Matrícula" com "<matrícula>"
     E eu preencho "Cargo" com "<cargo>"
     E eu seleciono "<prédio>" em "Prédio"
-    E eu seleciono "<andar>" em "Andar"
     E eu pressiono "Criar Solicitante"
     Então eu devo ver "<sentença>"
 
     Exemplos:
 
-    | nome              | e-mail        | matrícula | cargo     | prédio                | andar                 | sentença                              |
-    | Professor Fulano  | prof@uenf.br  | 123456    | Professor | P5                    | Térreo                | Solicitante criado com sucesso!       |
-    |                   | prof@uenf.br  | 123456    | Professor | P5                    | Térreo                | Nome não pode ser vazio               |
-    | Professor Fulano  | prof@uenf     | 123456    | Professor | P5                    | Térreo                | Email não é válido                    |
-    | Professor Fulano  |               | 123456    | Professor | P5                    | Térreo                | Email não pode ser vazio              |
-    | Professor Fulano  | prof@uenf.br  |           | Professor | P5                    | Térreo                | Matricula não pode ser vazio          |
-    | Professor Fulano  | prof@uenf.br  | 123456    |           | P5                    | Térreo                | Cargo ou funcao não pode ser vazio    |
-    | Professor Fulano  | prof@uenf.br  | 123456    | Professor | Selecione um Prédio   | Térreo                | Predio não selecionado                |
-    | Professor Fulano  | prof@uenf.br  | 123456    | Professor | P5                    | Selecione um Andar    | Andar não selecionado                 |
+    | nome              | e-mail        | matrícula | cargo     | prédio                | sentença                              |
+    | Professor Fulano  | prof@uenf.br  | 123456    | Professor | P5                    | Solicitante criado com sucesso!       |
+    |                   | prof@uenf.br  | 123456    | Professor | P5                    | Nome não pode ser vazio               |
+    | Professor Fulano  | prof@uenf     | 123456    | Professor | P5                    | Email não é válido                    |
+    | Professor Fulano  |               | 123456    | Professor | P5                    | Email não pode ser vazio              |
+    | Professor Fulano  | prof@uenf.br  |           | Professor | P5                    | Matricula não pode ser vazio          |
+    | Professor Fulano  | prof@uenf.br  | 123456    |           | P5                    | Cargo ou funcao não pode ser vazio    |
+    | Professor Fulano  | prof@uenf.br  | 123456    | Professor | Selecione um Prédio   | Predio não selecionado                |
 
 
 
@@ -40,12 +38,11 @@ Para que eu possa adicinar, editar e utilizar no sistema
     E eu preencho "Matrícula" com "<matrícula>"
     E eu preencho "Cargo" com "<cargo>"
     E eu seleciono "<prédio>" em "Prédio"
-    E eu seleciono "<andar>" em "Andar"
     E eu pressiono "Atualizar"
     Então eu devo ver "<sentença>"
 
     Exemplos:
 
-    | nome              | e-mail        | matrícula | cargo     | prédio                | andar                 | sentença                              |
-    | Tecnico Beltrano  | prof@uenf.br  | 123456    | Tecnico   | P5                    | Térreo                | Solicitante modificado com sucesso!   |
+    | nome              | e-mail        | matrícula | cargo     | prédio                | sentença                              |
+    | Tecnico Beltrano  | prof@uenf.br  | 123456    | Tecnico   | P5                    | Solicitante modificado com sucesso!   |
 
