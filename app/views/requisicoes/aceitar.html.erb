@@ -20,7 +20,7 @@
       <br class="pular_linha"/>
 
       <%= radio_button_tag :escolha_de_viagem, "existente", false, :onclick => "viagemNovaOuExistente()" %>
-      <%= label_tag :escolha_de_viagem_existente, "Atender com uma viagem já existente: ", :id => "label_viagem_existente" %>
+      <%= label_tag :escolha_de_viagem_existente, "Atender com uma viagem j&aacute; existente: ", :id => "label_viagem_existente" %>
       <br class="pular_linha"/>
 
       <!-- VIAGEM NOVA ----------------------------------------------------- -->
@@ -66,7 +66,7 @@
                           :update => :veiculo_id
                           %>
 
-        <label for="horario_partida">Hor&aacute;rio de saída:</label>
+        <label for="horario_partida">Hor&aacute;rio de sa&iacute;da:</label>
         <%= time_select :horario, :partida, {:time_separator => ':', :minute_step => 5, :include_blank => "-"}%>
         <br class="pular_linha"/>
 
@@ -79,7 +79,7 @@
 
         <label for="veiculo_id">Ve&iacute;culo:</label>
         <select name="veiculo_id" id="veiculo_id">
-          <%= grouped_options_for_select(@lista_veiculos, "", "Selecione um veículo") %>
+          <%= grouped_options_for_select(@lista_veiculos, "", "Selecione um ve&iacute;culo") %>
         </select>
         <br class="pular_linha"/>
       </div>
@@ -179,7 +179,7 @@
     </div>
 
     <div class="show_linha">
-      <div class="linha_titulo"> Categoria do veículo: </div> <div class="linha_texto"> <%=h CategoriaDeVeiculo.find(@requisicao.categoria_de_veiculo_id).nome %> </div>
+      <div class="linha_titulo"> Categoria do ve&iacute;culo: </div> <div class="linha_texto"> <%=h CategoriaDeVeiculo.find(@requisicao.categoria_de_veiculo_id).nome %> </div>
     </div>
 
     <div class="show_linha">

@@ -2,10 +2,10 @@
 <% form_tag("/rejeitar_requisicao") do -%>
   <%= hidden_field_tag "requisicao", "#{@requisicao.id}" %>
   <fieldset>
-    <legend>Rejeitar requisição</legend>
+    <legend>Rejeitar requisi&ccedil;&atilde;o</legend>
     <p>
-      Para rejeitar a requisição, selecione o motivo abaixo. Caso o motivo que
-      você deseja não esteja na lista abaixo,
+      Para rejeitar a requisi&ccedil;&atilde;o, selecione o motivo abaixo. Caso o motivo que
+      voc&ecirc; deseja n&atilde;o esteja na lista abaixo,
       <%= link_to "adicione", new_motivo_path %> outro motivo.
     </p>
     <label for="motivo_rejeicao">Motivo:</label>
@@ -14,7 +14,7 @@
     </select>
     <input type="hidden" name="requisicao_id" value="<%= @requisicao.id %>">
     <p>
-      <%= submit_tag "Rejeitar requisição", :confirm => "Deseja realmente rejeitar essa requisição?" %>
+      <%= submit_tag "Rejeitar requisi&ccedil;&atilde;o", :confirm => "Deseja realmente rejeitar essa requisi&ccedil;&atilde;o?" %>
     <p>
   </fieldset>
 <% end -%>
@@ -70,7 +70,7 @@
     </div>
 
     <div class="show_linha">
-      <div class="linha_titulo"> Categoria do veículo: </div> <div class="linha_texto"> <%=h CategoriaDeVeiculo.find(@requisicao.categoria_de_veiculo_id).nome %> </div>
+      <div class="linha_titulo"> Categoria do ve&iacute;culo: </div> <div class="linha_texto"> <%=h CategoriaDeVeiculo.find(@requisicao.categoria_de_veiculo_id).nome %> </div>
     </div>
 
     <div class="show_linha">

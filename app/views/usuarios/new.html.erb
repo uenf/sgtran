@@ -1,5 +1,5 @@
 <div class="show_padrao">
-<h1>Novo Usuário</h1>
+<h1>Novo Usu&aacute;rio</h1>
 
 <% form_for(@usuario) do |f| %>
   <%= mensagem_de_erro(@usuario) %>
@@ -25,14 +25,14 @@
   </div>
 
   <div class="show_linha">
-    <div class="linha_titulo"><%= f.label :password_confirmation, "Confirmação da senha:" %></div>
+    <div class="linha_titulo"><%= f.label :password_confirmation, "Confirma&ccedil;&atilde;o da senha:" %></div>
     <div class="linha_texto_neutro"><%= f.password_field :password_confirmation %></div>
   </div>
 
   <% if current_user and current_user.has_role? :admin %>
     <div class="show_linha">
       <div class="linha_titulo">
-        <label for="role_">Privilégio:</label>
+        <label for="role_">Privil&eacute;gio:</label>
       </div>
       <div class="linha_texto_neutro">
         <select name="role" id="role_">
@@ -42,7 +42,7 @@
       </div>
     </div>
   <% end %>
-    <div class="botao_concluir"><%= f.submit 'Criar Usuário' %></div>
+    <div class="botao_concluir"><%= f.submit 'Criar Usu&aacute;rio' %></div>
 
 <% end %>
 </div>

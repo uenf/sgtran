@@ -4,7 +4,7 @@
   <fieldset>
     <legend>Cancelar pelo Sistema</legend>
     <p>
-      Para cancelar a requisição, selecione o motivo abaixo. Caso o motivo que você deseja não esteja na lista abaixo, <%= link_to "adicione", new_motivo_path %> outros motivos.
+      Para cancelar a requisi&ccedil;&atilde;o, selecione o motivo abaixo. Caso o motivo que voc&ecirc; deseja n&atilde;o esteja na lista abaixo, <%= link_to "adicione", new_motivo_path %> outros motivos.
     </p>
     <label for="motivo_cancelamento">Motivo:</label>
     <select name="motivo" id="motivo_cancelamento">
@@ -12,7 +12,7 @@
     </select>
     <input type="hidden" name="requisicao_id" value="<%= @requisicao.id %>">
     <p>
-      <%= submit_tag "Cancelar requisição", :confirm => "Deseja realmente cancelar essa requisição?" %>
+      <%= submit_tag "Cancelar requisi&ccedil;&atilde;o", :confirm => "Deseja realmente cancelar essa requisi&ccedil;&atilde;o?" %>
     <p>
   </fieldset>
 <% end -%>
@@ -70,7 +70,7 @@
     </div>
 
     <div class="show_linha">
-      <div class="linha_titulo"> Categoria do veículo: </div> <div class="linha_texto"> <%=h CategoriaDeVeiculo.find(@requisicao.categoria_de_veiculo_id).nome %> </div>
+      <div class="linha_titulo"> Categoria do ve&iacute;culo: </div> <div class="linha_texto"> <%=h CategoriaDeVeiculo.find(@requisicao.categoria_de_veiculo_id).nome %> </div>
     </div>
 
     <div class="show_linha">

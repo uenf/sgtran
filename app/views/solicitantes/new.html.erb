@@ -15,7 +15,7 @@
   </div>
 
   <div class="show_linha">
-    <div class="linha_titulo"><%= f.label :matricula, "Matrícula:" %></div>
+    <div class="linha_titulo"><%= f.label :matricula, "Matr&iacute;cula:" %></div>
     <div class="linha_texto_neutro"><%= f.text_field :matricula %></div>
   </div>
 
@@ -30,18 +30,18 @@
   </div>
 
   <div class="show_linha">
-    <div class="linha_titulo"><%= f.label :laboratorio_ou_setor, "Laboratório ou Setor:" %></div>
+    <div class="linha_titulo"><%= f.label :laboratorio_ou_setor, "Laborat&oacute;rio ou Setor:" %></div>
     <div class="linha_texto_neutro"><%= f.text_field :laboratorio_ou_setor %></div>
   </div>
 
   <div class="show_linha">
     <div class="linha_titulo">
-      <%= f.label :predio_id, "Prédio:"%>
+      <%= f.label :predio_id, "Pr&eacute;dio:"%>
     </div>
     <div class="linha_texto_neutro">
       <%= f.select :predio_id,
                     Predio.all.collect {|predio| [predio.nome, predio.id]},
-                    {:include_blank => "Selecione um Prédio"} %>
+                    {:include_blank => "Selecione um Pr&eacute;dio"} %>
     </div>
   </div>
 

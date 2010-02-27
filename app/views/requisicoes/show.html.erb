@@ -50,7 +50,7 @@
     </div>
 
     <div class="show_linha">
-      <div class="linha_titulo"> Categoria de veículo: </div> <div class="linha_texto"> <%=h CategoriaDeVeiculo.find(@requisicao.categoria_de_veiculo_id).nome %> </div>
+      <div class="linha_titulo"> Categoria de ve&iacute;culo: </div> <div class="linha_texto"> <%=h CategoriaDeVeiculo.find(@requisicao.categoria_de_veiculo_id).nome %> </div>
     </div>
 
     <div class="show_linha">
@@ -96,7 +96,7 @@
     <% end %>
 
     <% if requisicao_pode_ser_cancelada(@requisicao.estado) %>
-      <li id="opcao_cancelar" onclick="location.href='<%= cancelar_requisicao_pelo_sistema_path(@requisicao) %>'" onmouseover="this.style.cursor = 'pointer'"><%= link_to "Cancelar requisição", cancelar_requisicao_pelo_sistema_path(@requisicao) %></li>
+      <li id="opcao_cancelar" onclick="location.href='<%= cancelar_requisicao_pelo_sistema_path(@requisicao) %>'" onmouseover="this.style.cursor = 'pointer'"><%= link_to "Cancelar requisi&ccedil;&atilde;o", cancelar_requisicao_pelo_sistema_path(@requisicao) %></li>
     <% end %>
 
     <% if requisicao_pode_ser_rejeitada(@requisicao.estado) %>

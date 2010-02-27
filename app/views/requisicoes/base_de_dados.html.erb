@@ -2,7 +2,7 @@
   <div class="index_base_de_dados">
     <ul>
       <li>
-        <%= link_to "Usuários", usuarios_path %>
+        <%= link_to "Usu&aacute;rios", usuarios_path %>
         <% if current_user.has_role? :admin %>
           <span><%= link_to "Adicionar", new_usuario_path %></span>
         <% end %>
@@ -20,19 +20,19 @@
         <% end %>
       </li>
       <li>
-        <%= link_to "Veículos", veiculos_path %>
+        <%= link_to "Ve&iacute;culos", veiculos_path %>
         <% if current_user.has_role? :admin %>
           <span><%= link_to "Adicionar", new_veiculo_path %></span>
         <% end %>
       </li>
       <li>
-        <%= link_to "Combustíveis", combustiveis_path %>
+        <%= link_to "Combust&iacute;veis", combustiveis_path %>
         <% if current_user.has_role? :admin %>
           <span><%= link_to "Adicionar", new_combustivel_path %></span>
         <% end %>
       </li>
       <li>
-        <%= link_to "Categorias de veículo", categoria_de_veiculos_path %>
+        <%= link_to "Categorias de ve&iacute;culo", categoria_de_veiculos_path %>
         <% if current_user.has_role? :admin %>
           <span><%= link_to "Adicionar", new_categoria_de_veiculo_path %></span>
         <% end %>
@@ -50,7 +50,7 @@
         <% end %>
       </li>
       <li>
-        <%= link_to "Prédios", predios_path %>
+        <%= link_to "Pr&eacute;dios", predios_path %>
         <% if current_user.has_role? :admin %>
           <span><%= link_to "Adicionar", new_predio_path %></span>
         <% end %>

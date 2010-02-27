@@ -1,7 +1,7 @@
 <% @requisicao.each do |requisicao| %>
   <div id="confirmar_requisicao">
     <p>
-      <h2>Número de Protocolo: <%= requisicao.id %></h2>
+      <h2>N&uacute;mero de Protocolo: <%= requisicao.id %></h2>
     </p>
     <p>
       <label>Solicitante: </label><%= Solicitante.find(requisicao.solicitante_id).nome %>
@@ -13,7 +13,7 @@
       <label>Data de Reserva: </label><%= requisicao.data_de_reserva.strftime("%d/%m/%Y") %>
     </p>
     <p>
-      <label>Categoria de veículo: </label><%= CategoriaDeVeiculo.find(requisicao.categoria_de_veiculo_id).nome %>
+      <label>Categoria de ve&iacute;culo: </label><%= CategoriaDeVeiculo.find(requisicao.categoria_de_veiculo_id).nome %>
     </p>
     <p>
       <label>Objetivo da Reserva: </label><%= ObjetivoDeReserva.find(requisicao.objetivo_de_reserva_id).texto %>
@@ -30,11 +30,11 @@
       <label>Roteiro da agenda: </label><%= requisicao.roteiro_da_agenda %>
     </p>
     <p>
-      <label>Observação:</label> <%= requisicao.observacao %>&nbsp;
+      <label>Observa&ccedil;&atilde;o:</label> <%= requisicao.observacao %>&nbsp;
     </p>
   </div>
 <% end %>
 
-<%= link_to 'Preencher outra requisição', new_requisicao_path, :class => "voltar" %>
-<a href="javaScript:window.print()" class="imprimir">Imprimir Requisição</a>
+<%= link_to 'Preencher outra requisi&ccedil;&atilde;o', new_requisicao_path, :class => "voltar" %>
+<a href="javaScript:window.print()" class="imprimir">Imprimir Requisi&ccedil;&atilde;o</a>
 
