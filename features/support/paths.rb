@@ -47,9 +47,6 @@ module NavigationHelpers
     when /^página de visualização de usuarios$/
       usuarios_path
 
-    when /^página de visualização de viagens$/
-      viagens_path
-
     when /^página de visualização da viagem$/
       viagem_path(:id => @viagem)
 
@@ -109,6 +106,9 @@ module NavigationHelpers
 
     when /^página de edição de prédio$/
       edit_predio_path(:id => @predio)
+
+    when /^página de cancelamento da viagem$/
+      cancelar_viagem_path(:id => @viagem)
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

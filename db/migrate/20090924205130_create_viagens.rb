@@ -7,6 +7,7 @@ class CreateViagens < ActiveRecord::Migration
       t.date :data_chegada
       t.time :horario_partida
       t.string :estado, :default => Viagem::AGUARDANDO
+      t.references :motivo
 
       t.timestamps
     end

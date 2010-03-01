@@ -3,7 +3,8 @@ class ViagensController < ApplicationController
   # GET /viagens.xml
 
   access_control do
-    allow :admin, :to => [:index, :show, :new, :edit, :create, :update, :destroy, :viagens_existentes, :filtrar]
+    allow :admin, :to => [:index, :show, :new, :edit, :create, :update, :destroy,
+                          :viagens_existentes, :filtrar, :cancelar_viagem, :cancelamento_da_viagem]
   end
 
   layout "sistema"
@@ -16,12 +17,12 @@ class ViagensController < ApplicationController
       format.xml  { render :xml => @viagens }
     end
   end
-  
+
   def filtrar
     filtro = params[:filtro]
     @viagens = Viagem.filtrar(filtro)
     render :action => "index"
-    
+
   end
 
   # GET /viagens/1
@@ -97,6 +98,17 @@ class ViagensController < ApplicationController
       format.html { redirect_to(viagens_url) }
       format.xml  { head :ok }
     end
+  end
+
+  def cancelar_viagem
+    @viagem = Viagem.find(params[:id])
+  end
+
+  def cancelamento_da_viagem
+    motivo = params[:motivo]
+    @viagem = Viagem.find(params[:viagem_id])
+    @viagem.cancelar_viagem motivo
+    redirect_to(viagens_path)
   end
 
 end

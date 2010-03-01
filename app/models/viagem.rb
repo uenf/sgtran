@@ -11,8 +11,8 @@ class Viagem < ActiveRecord::Base
   AGUARDANDO = "Aguardando"
   ATENDIDA   = "Atendida"
   CANCELADA  = "Cancelada"
-  
-  
+
+
   def self.filtrar opcao
     case opcao.to_s
       when "Aguardando" then
@@ -25,7 +25,7 @@ class Viagem < ActiveRecord::Base
         return Viagem.all(:order => "id ASC")
       else
         return Viagem.all(:conditions => "estado = '" + Viagem::AGUARDANDO + "'", :order => "id ASC")
-    end    
+    end
   end
 
   def requisicoes_atendidas
@@ -34,6 +34,19 @@ class Viagem < ActiveRecord::Base
       (atendidas << requisicao.id) if (requisicao.viagem_id == self.id)
     end
     atendidas
+#    return Requisicao.find_all_by_viagem_id(self.id)
+  end
+
+  def cancelar_viagem motivo_id
+    requisicoes = Requisicao.find_all_by_viagem_id(self.id)
+    requisicoes.each do |r|
+      r.estado = Requisicao::ESPERA
+      r.viagem_id = nil
+      r.save
+    end
+    self.estado = Viagem::CANCELADA
+    self.motivo_id = motivo_id
+    self.save
   end
 
 end
