@@ -19,8 +19,8 @@ class ViagensController < ApplicationController
   end
 
   def filtrar
-    filtro = params[:filtro]
-    @viagens = Viagem.filtrar(filtro)
+    @filtro = params[:filtro]
+    @viagens = Viagem.filtrar(@filtro)
     render :action => "index"
 
   end

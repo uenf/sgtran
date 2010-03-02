@@ -43,8 +43,8 @@ class RequisicoesController < ApplicationController
   end
 
   def filtrar
-    filtro = params[:filtro]
-    @requisicoes = Requisicao.filtrar(filtro.to_s)
+    @filtro = params[:filtro]
+    @requisicoes = Requisicao.filtrar(@filtro.to_s)
     render :action => "index"
   end
 

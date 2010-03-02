@@ -3,10 +3,10 @@
 <p>
 <%= label_tag :filtro, "Filtrar por:" %>
   <select name="filtro" id="filtro">
-    <option>Todos</option>
-    <option>Aguardando</option>
-    <option>Cancelada</option>
-    <option>Atendida</option>
+    <option value="Todos" <%= "selected='selected'" if @filtro == "Todos" %>>Todos</option>
+    <option value="Aguardando" <%= "selected='selected'" if @filtro == "Aguardando" %>>Aguardando</option>
+    <option value="Cancelada" <%= "selected='selected'" if @filtro == "Cancelada" %>>Cancelada</option>
+    <option value="Atendida" <%= "selected='selected'" if @filtro == "Atendida" %>>Atendida</option>
   </select>
   <%= submit_tag "OK" %>
   </p>
