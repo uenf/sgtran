@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>SGTRAN - Sistema de gerenciamento de trasporte</title>
+  <%= stylesheet_link_tag 'sistema' %>
+  <%= javascript_include_tag "definirCor" %>
+</head>
+
+<body>
+<div id="cabecalho">
+  <div id="logotipo"></div>
+  <div id="nome_sistema">
+    <h1>Sistema de gerenciamento de trasporte</h1>
+    <h2>Universidade Estadual do Norte Fluminense Darcy Ribeiro</h2>
+    <h3>Prefeitura da UENF</h3>
+    <h4>Assessoria de Transporte</h4>
+  </div>
+</div>
+
+<%= yield %>
+
+<div id="rodape">
+  <div id="dados_gerais">
+    <p>
+      SGTRAN - Sistema de Gerenciamento de Transporte v.:0.0.1 <br />
+      <!--&copy; 2009 - Universidae Estadual do Norte Fluminense Dary Ribeiro-->
+    </p>
+  </div>
+  <div id="tecnologias">
+    <img src="/images/rails_powered.jpg" />
+    <img src="/images/mysql_powered.gif" />
+  </div>
+</div>
+
+</body>
+</html>
+

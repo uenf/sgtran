@@ -663,6 +663,17 @@ div.erro {
     background : transparent;
 }
 
+div.erro_404 {
+/*    background-color: #ececec;*/
+    background: #ececec url("/images/warning.png") no-repeat 18% 50%;
+    padding: 20px;
+    border: solid 1px #dbdbdb;
+    font-size: 15px;
+    color: #1A60B0;
+    text-align: center;
+}
+
+
 /*
 ** LINK BOTÃO
 */

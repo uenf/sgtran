@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
   rescue_from 'Acl9::AccessDenied', :with => :access_denied
+  rescue_from ActiveRecord::RecordNotFound, :with => :render_404
 
   def access_denied
     if current_user.nil?
@@ -15,6 +16,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def render_404
+    render :template => "erros/erro_404", :status => "404 Not Found", :layout => "erros"
+  end
 
 
 
