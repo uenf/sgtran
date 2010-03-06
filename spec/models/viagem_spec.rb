@@ -18,9 +18,9 @@ describe Viagem do
     filtro = {:aguardando => "Aguardando",
               :cancelada => "Cancelada",
               :atendida => "Atendida"}
-    Viagem.filtrar(filtro[:aguardando]).should == viagem1
-    Viagem.filtrar(filtro[:cancelada]).should == viagem2
-    Viagem.filtrar(filtro[:atendida]).should == viagem3
+    Viagem.filtrar(filtro[:aguardando]).should include viagem1
+    Viagem.filtrar(filtro[:cancelada]).should include viagem2
+    Viagem.filtrar(filtro[:atendida]).should include viagem3
 
   end
 

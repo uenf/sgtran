@@ -258,10 +258,10 @@ describe Requisicao do
               :cancelada_pelo_sistema => "Cancelada pelo Sistema",
               :aceita => "Aceita"}
     Requisicao.filtrar(filtro[:espera]).should include(requisicao1)
-    Requisicao.filtrar(filtro[:rejeitada]).should == requisicao2
-    Requisicao.filtrar(filtro[:cancelada_pelo_professor]).should == requisicao3
-    Requisicao.filtrar(filtro[:cancelada_pelo_sistema]).should == requisicao4
-    Requisicao.filtrar(filtro[:aceita]).should == requisicao5
+    Requisicao.filtrar(filtro[:rejeitada]).should include requisicao2
+    Requisicao.filtrar(filtro[:cancelada_pelo_professor]).should include requisicao3
+    Requisicao.filtrar(filtro[:cancelada_pelo_sistema]).should include requisicao4
+    Requisicao.filtrar(filtro[:aceita]).should include requisicao5
   end
 
   it "Deve verificar se uma requisição está em espera" do
