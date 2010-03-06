@@ -51,6 +51,15 @@
       <%=h @viagem.estado %>
     </div>
   </div>
+  
+  <% if !@viagem.motivo_id.nil? %>
+    <div class="show_linha">
+      <div class="linha_titulo">Motivo: </div>
+      <div class="linha_texto">
+        <%=h Motivo.find(@viagem.motivo_id).descricao %>
+      </div>
+    </div>
+  <% end %>   
 
   <h1>Requisi&ccedil;&otilde;es atendidas</h1>
     <div id="tabela_exibir">

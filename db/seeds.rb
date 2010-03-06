@@ -131,4 +131,5 @@ open("#{Rails.root}/db/seeds_files/motivos_seed.txt") do |motivos|
     end
   end
 end
+Viagem.delete_all
 

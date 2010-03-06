@@ -109,9 +109,9 @@ class ViagensController < ApplicationController
   end
 
   def cancelamento_da_viagem
-    motivo = params[:motivo]
+    motivo = params[:viagem][:motivo_id]
     @viagem = Viagem.find(params[:viagem_id])
-    @viagem.cancelar_viagem motivo
+    @viagem.cancelar_viagem motivo.to_i
     redirect_to(viagens_path)
   end
 

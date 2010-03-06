@@ -49,11 +49,11 @@ class Viagem < ActiveRecord::Base
       requisicoes.each do |r|
         r.estado = Requisicao::ESPERA
         r.viagem_id = nil
-        r.save
+        r.save!
       end
       self.estado = Viagem::CANCELADA
-      self.motivo_id = motivo_id
-      self.save
+      self.motivo_id = motivo_id.to_i
+      self.save!
     end
   end
 
