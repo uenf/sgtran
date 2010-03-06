@@ -15,10 +15,10 @@ Funcionalidade: Visualizar botões de mudança de estado corretos
 
       Exemplos:(Botões que devem ser vistos)
 
-      | Estado                        | Botão Aceitar             | Botão Rejeitar             | Botão Cancelar              |
-      | "Em Espera"                   | eu devo ver "Aceitar"     | eu devo ver "Rejeitar"     | eu não devo ver "Cancelar"  |
-      | "Aceita"                      | eu não devo ver "Aceitar" | eu não devo ver "Rejeitar" | eu devo ver "Cancelar"      |
-      | "Rejeitada"                   | eu devo ver "Aceitar"     | eu não devo ver "Rejeitar" | eu não devo ver "Cancelar"  |
-      | "Cancelada pelo Professor"    | eu não devo ver "Aceitar" | eu não devo ver "Rejeitar" | eu não devo ver "Cancelar"  |
-      | "Cancelada pelo Sistema"      | eu devo ver "Aceitar"     | eu não devo ver "Rejeitar" | eu não devo ver "Cancelar"  |
+      | Estado                        | Botão Aceitar                 | Botão Rejeitar             | Botão Cancelar              |
+      | "Em Espera"                   | eu devo ver "Aceitar"         | eu devo ver "Rejeitar"     | eu não devo ver "Cancelar"  |
+      | "Aceita"                      | eu não devo ver "Aceitar"     | eu não devo ver "Rejeitar" | eu devo ver "Cancelar"      |
+      | "Rejeitada"                   | eu devo ver "Aceitar"         | eu não devo ver "Rejeitar" | eu não devo ver "Cancelar"  |
+      | "Cancelada pelo Professor"    | eu não devo ver "Aceitar"     | eu não devo ver "Rejeitar" | eu não devo ver "Cancelar"  |
+      | "Cancelada pelo Sistema"      | eu não devo ver "Aceitar"     | eu não devo ver "Rejeitar" | eu não devo ver "Cancelar"  |
 

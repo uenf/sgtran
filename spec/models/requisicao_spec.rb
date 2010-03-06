@@ -342,6 +342,18 @@ describe Requisicao do
     requisicao.cancelar_requisicao motivo.id
     requisicao.estado.should == Requisicao::CANCELADO_PELO_SISTEMA
     requisicao.motivo_id.should == motivo.id
+    requisicao.viagem_id.should == nil
+  end
+  
+  it "Deve verificar se uma requisição está no estado Rejeitada" do
+    categoria_de_veiculo = Factory.create :categoria_de_veiculo
+    objetivo_de_reserva = Factory.create :objetivo_de_reserva
+    motivo = Factory.create :motivo
+    requisicao = Factory.create :requisicao, :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                             :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                                             :estado => Requisicao::REJEITADA,
+                                             :motivo_id => motivo.id
+    requisicao.esta_rejeitada?.should be_true                                             
   end
 
 

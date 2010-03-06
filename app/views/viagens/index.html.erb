@@ -1,6 +1,6 @@
 <div id="tabela_exibir">
 <% form_tag("/filtrar_viagem") do -%>
-<p>
+<p class="filtro">
 <%= label_tag :filtro, "Filtrar por:" %>
   <select name="filtro" id="filtro">
     <option value="Todos" <%= "selected='selected'" if @filtro == "Todos" %>>Todos</option>

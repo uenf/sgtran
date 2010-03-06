@@ -75,6 +75,11 @@ describe Viagem do
     requisicao_2.viagem_id.should == nil
 
   end
+  
+  it "Deve verificar se o estado da viagem é Aguardando" do
+    viagem = Factory.create :viagem
+    viagem.esta_aguardando?.should be_true
+  end
 
   describe "associações" do
     should_have_many :requisicoes

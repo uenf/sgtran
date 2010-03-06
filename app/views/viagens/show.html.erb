@@ -114,10 +114,12 @@
       <%= link_to 'Editar', edit_viagem_path(@viagem) %>
     </li>
     <% if current_user and current_user.has_role? :admin %>
-      <li id="opcao_excluir" onclick="location.href='<%= cancelar_viagem_path(@viagem) %>'"
-      onmouseover="this.style.cursor='pointer'">
-        <%= link_to "Cancelar viagem", cancelar_viagem_path(@viagem) %>
-      </li>
+      <% if viagem_pode_ser_cancelada(@viagem.estado) %>
+        <li id="opcao_excluir" onclick="location.href='<%= cancelar_viagem_path(@viagem) %>'"
+        onmouseover="this.style.cursor='pointer'">
+          <%= link_to "Cancelar viagem", cancelar_viagem_path(@viagem) %>
+        </li>
+      <% end %>
     <% end %>
   </ul>
   <div class="pular_linha"></li>

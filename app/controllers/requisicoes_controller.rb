@@ -111,51 +111,6 @@ class RequisicoesController < ApplicationController
       end
     end
 #   Confirmacao.deliver_email_com_confirmacao_de_cadastro_de_requisicao(@requisicao, @solicitante)
-
-#    @verificarSolicitante = Requisicao.verificarSolicitante(dados_solicitante, params[:requisicao])
-
-#    if @verificarSolicitante.valid?
-
-#      @requisicao = Requisicao.instanciarRequisicoes(params[:requisicao], params[:data_de_reserva_ida_volta_br],
-#                    params[:data_de_reserva], params[:roteiro_da_agenda_volta], @verificarSolicitante.solicitante_id)
-#      if @requisicao.length == 1
-#        respond_to do |format|
-#          if @requisicao[IDA].save
-#            @solicitante = Solicitante.find(@requisicao[IDA].solicitante_id)
-#            session[:requisicao] = @requisicao
-#            #Confirmacao.deliver_email_com_confirmacao_de_cadastro_de_requisicao(@requisicao, @solicitante)
-#            flash[:sucesso] = 'Requisição enviada com sucesso!'
-#            format.html { render :action => "confirmar_requisicao" }
-#            format.xml  { render :xml => @requisicao, :status => :created, :location => @requisicao }
-#          else
-#            @requisicao = @requisicao[IDA]
-#            format.html { render :action => "new", :layout => "requisicoes" }
-#            format.xml  { render :xml => @requisicao.errors, :status => :processable_entity }
-#          end
-#       end
-
-#     else
-
-#       confirmacao = @requisicao[IDA].registrarVolta @requisicao[VOLTA]
-
-
-#        if confirmacao.valid?
-#            @solicitante = Solicitante.find(confirmacao.solicitante_id)
-#            session[:requisicao] = confirmacao
-#            flash[:sucesso] = 'Requisição enviada com sucesso!'
-#            render :action => "confirmar_requisicao"
-#        else
-#          @requisicao = confirmacao
-#          render :action => "new", :layout => "requisicoes"
-#        end
-
-#     end
-
-#   else
-#    @requisicao = @verificarSolicitante
-#    render :action => "new", :layout => "requisicoes"
-#   end
-
   end
 
 
@@ -209,7 +164,7 @@ class RequisicoesController < ApplicationController
 
   def aceitar
     @requisicao = session[:requisicao] ? session[:requisicao] : Requisicao.find(params[:id])
-    if @requisicao.esta_em_espera?
+    if @requisicao.esta_em_espera? or @requisicao.esta_rejeitada?
       @lista_motoristas = opcaoMotorista()
       @lista_veiculos = opcaoVeiculo()
       @solicitante  = Solicitante.find(@requisicao.solicitante_id)

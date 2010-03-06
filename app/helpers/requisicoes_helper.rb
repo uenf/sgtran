@@ -5,7 +5,7 @@ module RequisicoesHelper
   end
 
   def requisicao_pode_ser_aceita(estado)
-    [Requisicao::ESPERA, Requisicao::REJEITADA, Requisicao::CANCELADO_PELO_SISTEMA].include? estado
+    [Requisicao::ESPERA, Requisicao::REJEITADA].include? estado
   end
 
   def requisicao_pode_ser_rejeitada(estado)

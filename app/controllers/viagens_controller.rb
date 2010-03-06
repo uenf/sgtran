@@ -102,6 +102,10 @@ class ViagensController < ApplicationController
 
   def cancelar_viagem
     @viagem = Viagem.find(params[:id])
+    if !@viagem.esta_aguardando?
+      flash[:erro] = "A viagem deve possuir o estado 'Aguardando' para ser cancelada."
+      redirect_to(@viagem)
+    end
   end
 
   def cancelamento_da_viagem

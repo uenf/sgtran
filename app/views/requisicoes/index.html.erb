@@ -1,17 +1,17 @@
 <div id="tabela_exibir">
 <% form_tag("/filtrar_requisicao") do -%>
-<p>
+<p class="filtro">
 <%= label_tag :filtro, "Filtrar por:" %>
   <select name="filtro" id="filtro">
     <option value="Todos" <%= "selected='selected'" if @filtro == "Todos" %>>Todos</option>
-    <option value="Em Espera" <%= "selected='selected'" if @filtro == "Em Espera" %>>Em Espera</option>
+    <option value="Em Espera" <%= "selected='selected'" if @filtro == "Em Espera" or !@filtro %>>Em Espera</option>
     <option value="Rejeitada" <%= "selected='selected'" if @filtro == "Rejeitada" %>>Rejeitada</option>
     <option value="Cancelada pelo Professor" <%= "selected='selected'" if @filtro == "Cancelada pelo Professor" %>>Cancelada pelo Professor</option>
     <option value="Cancelada pelo Sistema" <%= "selected='selected'" if @filtro == "Cancelada pelo Sistema" %>>Cancelada pelo Sistema</option>
     <option value="Aceita" <%= "selected='selected'" if @filtro == "Aceita" %>>Aceita</option>
   </select>
   <%= submit_tag "OK" %>
-  </p>
+</p>
 <% end -%>
 
 

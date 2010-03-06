@@ -16,11 +16,11 @@ class Viagem < ActiveRecord::Base
   def self.filtrar opcao
     case opcao.to_s
       when "Aguardando" then
-        return Viagem.find_by_estado(Viagem::AGUARDANDO, :order => "id ASC")
+        return Viagem.find_all_by_estado(Viagem::AGUARDANDO, :order => "id ASC")
       when "Cancelada" then
-        return Viagem.find_by_estado(Viagem::CANCELADA, :order => "id ASC")
+        return Viagem.find_all_by_estado(Viagem::CANCELADA, :order => "id ASC")
       when "Atendida" then
-        return Viagem.find_by_estado(Viagem::ATENDIDA, :order => "id ASC")
+        return Viagem.find_all_by_estado(Viagem::ATENDIDA, :order => "id ASC")
       when "Todos" then
         return Viagem.all(:order => "id ASC")
       else
@@ -30,23 +30,31 @@ class Viagem < ActiveRecord::Base
 
   def requisicoes_atendidas
     atendidas = []
-    Requisicao.all.each do |requisicao|
-      (atendidas << requisicao.id) if (requisicao.viagem_id == self.id)
+    Requisicao.find_all_by_viagem_id(self.id).each do |requisicao|
+      (atendidas << requisicao.id)
     end
     atendidas
-#    return Requisicao.find_all_by_viagem_id(self.id)
+  end
+  
+  def esta_aguardando?
+    if self.estado == Viagem::AGUARDANDO
+      return true
+    end
+    return false
   end
 
   def cancelar_viagem motivo_id
-    requisicoes = Requisicao.find_all_by_viagem_id(self.id)
-    requisicoes.each do |r|
-      r.estado = Requisicao::ESPERA
-      r.viagem_id = nil
-      r.save
+    if self.esta_aguardando?
+      requisicoes = Requisicao.find_all_by_viagem_id(self.id)
+      requisicoes.each do |r|
+        r.estado = Requisicao::ESPERA
+        r.viagem_id = nil
+        r.save
+      end
+      self.estado = Viagem::CANCELADA
+      self.motivo_id = motivo_id
+      self.save
     end
-    self.estado = Viagem::CANCELADA
-    self.motivo_id = motivo_id
-    self.save
   end
 
 end

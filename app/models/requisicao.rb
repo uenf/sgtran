@@ -145,7 +145,7 @@ class Requisicao < ActiveRecord::Base
 
   public
   def aceitar(motorista, veiculo, data_partida, data_chegada, horario_partida)
-    if self.esta_em_espera?
+    if self.esta_em_espera? or self.esta_rejeitada?
       viagem = Viagem.new
 
       viagem.data_partida = data_partida
@@ -168,6 +168,7 @@ class Requisicao < ActiveRecord::Base
 
       self.estado = ACEITA
       self.viagem_id = viagem.id
+      self.motivo_id = nil
 
   #    Requisicao.update(self.id, :estado => ACEITA, :viagem_id => viagem.id)
 
@@ -179,11 +180,12 @@ class Requisicao < ActiveRecord::Base
   end
 
   def aceitar_com_viagem_existente(viagem_id)
-    if self.esta_em_espera?
+    if self.esta_em_espera? or self.esta_rejeitada?
       viagem = Viagem.find(viagem_id)
 
       self.estado    = ACEITA
       self.viagem_id = viagem.id
+      self.motivo_id = nil
 
       self.save!
 
@@ -194,15 +196,15 @@ class Requisicao < ActiveRecord::Base
   def self.filtrar opcao
     case opcao.to_s
       when "Em Espera" then
-        return Requisicao.find_by_estado(Requisicao::ESPERA, :order => "id ASC")
+        return Requisicao.find_all_by_estado(Requisicao::ESPERA, :order => "id ASC")
       when "Rejeitada" then
-        return Requisicao.find_by_estado(Requisicao::REJEITADA, :order => "id ASC")
+        return Requisicao.find_all_by_estado(Requisicao::REJEITADA, :order => "id ASC")
       when "Cancelada pelo Professor" then
-        return Requisicao.find_by_estado(Requisicao::CANCELADO_PELO_PROFESSOR, :order => "id ASC")
+        return Requisicao.find_all_by_estado(Requisicao::CANCELADO_PELO_PROFESSOR, :order => "id ASC")
       when "Cancelada pelo Sistema" then
-        return Requisicao.find_by_estado(Requisicao::CANCELADO_PELO_SISTEMA, :order => "id ASC")
+        return Requisicao.find_all_by_estado(Requisicao::CANCELADO_PELO_SISTEMA, :order => "id ASC")
       when "Aceita" then
-        return Requisicao.find_by_estado(Requisicao::ACEITA, :order => "id ASC")
+        return Requisicao.find_all_by_estado(Requisicao::ACEITA, :order => "id ASC")
       when "Todos" then
         return Requisicao.all(:order => "id ASC")
       else
@@ -246,10 +248,18 @@ class Requisicao < ActiveRecord::Base
     
   end
   
+  def esta_rejeitada?
+    if self.estado == Requisicao::REJEITADA
+      return true
+    end
+    return false
+  end
+  
   def cancelar_requisicao motivo_id
     if self.esta_aceita?
       self.estado = Requisicao::CANCELADO_PELO_SISTEMA
-      self.motivo_id = motivo_id.to_i      
+      self.motivo_id = motivo_id.to_i
+      self.viagem_id = nil  
       if self.save
         return true
       else
