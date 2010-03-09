@@ -5,6 +5,7 @@ class ViagensController < ApplicationController
   access_control do
     allow :admin, :to => [:index, :show, :new, :edit, :create, :update, :destroy,
                           :viagens_existentes, :filtrar, :cancelar_viagem, :cancelamento_da_viagem]
+    allow :visit, :to => [:index, :filtrar, :show, :viagens_existentes]
   end
 
   layout "sistema"

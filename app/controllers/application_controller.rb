@@ -12,7 +12,8 @@ class ApplicationController < ActionController::Base
     if current_user.nil?
       redirect_to(new_requisicao_path)
     else
-      redirect_to(requisicoes_path)
+      render :template => "erros/acesso_negado"
+#      redirect_to(requisicoes_path)
     end
   end
 

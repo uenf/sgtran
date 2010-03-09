@@ -663,6 +663,23 @@ div.erro {
     background : transparent;
 }
 
+#acesso_negado
+{
+    padding-left: 5px
+}
+#acesso_negado h2
+{
+    color: #ff0000
+}
+#acesso_negado .descricao
+{
+    font-size: 15px
+}
+#acesso_negado .descricao a
+{
+    font-size: 15px
+}
+
 div.erro_404 {
 /*    background-color: #ececec;*/
     background: #ececec url("/images/warning.png") no-repeat 18% 50%;

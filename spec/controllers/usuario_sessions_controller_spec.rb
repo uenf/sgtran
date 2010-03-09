@@ -17,7 +17,7 @@ describe UsuarioSessionsController do
       UsuarioSession.stub!(:new).and_return(mock_usuario_session)
       get :new
       #assigns[:usuario_session].should == mock_usuario_session
-      response.should redirect_to(requisicoes_path)
+      response.should render_template("erros/acesso_negado")
     end
   end
 
@@ -28,13 +28,13 @@ describe UsuarioSessionsController do
         UsuarioSession.stub!(:new).with({'these' => 'params'}).and_return(mock_usuario_session(:save => true))
         post :create, :usuario_session => {:these => 'params'}
         #assigns[:usuario_session].should equal(mock_usuario_session)
-        response.should redirect_to(requisicoes_path)
+        response.should render_template("erros/acesso_negado")
       end
 
       it "redirects to the created usuario_session" do
         UsuarioSession.stub!(:new).and_return(mock_usuario_session(:save => true))
         post :create, :usuario_session => {}
-        response.should redirect_to(requisicoes_path)
+        response.should render_template("erros/acesso_negado")
       end
     end
 
@@ -43,13 +43,13 @@ describe UsuarioSessionsController do
 
         UsuarioSession.stub!(:new).with({'these' => 'params'}).and_return(mock_usuario_session(:save => false))
         post :create, :usuario_session => {:these => 'params'}
-        response.should redirect_to(requisicoes_path)
+        response.should render_template("erros/acesso_negado")
       end
 
       it "re-renders the 'new' template" do
         UsuarioSession.stub!(:new).and_return(mock_usuario_session(:save => false))
         post :create, :usuario_session => {}
-        response.should redirect_to(requisicoes_path)
+        response.should render_template("erros/acesso_negado")
       end
     end
 
