@@ -3,6 +3,7 @@ config/database.yml
 webrat-*.html
 rerun.txt
 log.txt
-rake.sh
 public/stylesheets/scaffold.css
+config/deploy.rb
+Capfile
 

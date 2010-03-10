@@ -28,8 +28,8 @@ config.action_mailer.delivery_method = :test
 # config.active_record.schema_format = :sql
 
 
-config.gem "remarkable_rails", :lib => false, :version => ">=3.1.10"
-config.gem "factory_girl", :lib => "factory_girl", :source => "http://gems.github.com"
+#config.gem "remarkable_rails", :lib => false, :version => ">=3.1.10"
+#config.gem "factory_girl", :lib => "factory_girl", :source => "http://gems.github.com"
 
 require 'brI18n'
 
