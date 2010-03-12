@@ -741,23 +741,20 @@ a.link_botao:hover {
 
 /* Aceitar requisicão */
 
-div#viagem_nova_existente {
-    margin-left: 50px
-}
-
-div#viagem_nova_existente fieldset {
+div#viagem_nova_existente fieldset,
+div#viagem_nova fieldset {
 	border: solid 1px #000000;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 	background: none !important;
-	padding: 2px !important;
+	padding: 5px !important;
 }
 
-div#viagem_nova_existente fieldset legend {
+div#viagem_nova_existente fieldset legend,
+div#viagem_nova fieldset legend {
     margin-left: 5px;
+	font: bold 12px Verdana;
     margin-bottom: 0px !important;
     margin-top: 0px !important;
-    float: left;
-	font: bold 12px Verdana;
 	background-color: white !important;
 	border: 0px !important;
 	padding:0px !important;
