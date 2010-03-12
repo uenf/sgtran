@@ -165,8 +165,15 @@ class RequisicoesController < ApplicationController
   def aceitar
     @requisicao = session[:requisicao] ? session[:requisicao] : Requisicao.find(params[:id])
     if @requisicao.esta_em_espera? or @requisicao.esta_rejeitada?
-      @lista_motoristas = opcaoMotorista()
-      @lista_veiculos = opcaoVeiculo()
+      data = @requisicao.data_de_reserva
+      @lista_motoristas = [
+                            ['Motoristas desocupados', Motorista.desocupados_entre(data,data)],
+                            ['Motoristas ocupados', Motorista.ocupados_entre(data,data)]
+                          ]
+      @lista_veiculos = [
+                          ['Veículos desocupados', Veiculo.desocupados_entre_datas_e_com_categoria(data,data,@requisicao.categoria_de_veiculo_id)],
+                          ['Veículos ocupados', Veiculo.ocupados_entre_datas_e_com_categoria(data,data,@requisicao.categoria_de_veiculo_id)]
+                        ]
       @solicitante  = Solicitante.find(@requisicao.solicitante_id)
 
       @viagem = session[:viagem]
@@ -240,56 +247,20 @@ class RequisicoesController < ApplicationController
     render :layout => "regras"
   end
 
-  def opcaoMotorista
-    motoristas = Motorista.all
-    motoristas_ocupados = []
-    motoristas_desocupados = []
-    data = Date.today + 2.days #session[:requisicao][:data_de_reserva]
-
-    motoristas.each do |motorista|
-      viagens = Viagem.find_all_by_motorista_id(motorista.id)
-      if not viagens.empty?
-        viagens.each do |viagem|
-          if (data >= viagem.data_partida and data <= viagem.data_chegada)
-            motoristas_ocupados << [motorista.nome_do_motorista, motorista.id]
-          else
-            motoristas_desocupados << [motorista.nome_do_motorista, motorista.id]
-          end
-        end
-      else
-        motoristas_desocupados << [motorista.nome_do_motorista, motorista.id]
-      end
-    end
-    @lista_motoristas = [['Motoristas desocupados', motoristas_desocupados], ['Motoristas ocupados',motoristas_ocupados]]
+  def opcoes_motoristas(data_partida, data_chegada)
+    @lista_motoristas = [
+                          ['Motoristas desocupados', Motorista.desocupados_entre(data_partida,data_chegada)],
+                          ['Motoristas ocupados', Motorista.ocupados_entre(data_partida,data_chegada)]
+                        ]
+    render :partial => 'opcoes_motoristas', :object => @lista_motoristas
   end
 
-  def opcaoVeiculo
-    veiculos = Veiculo.all
-    veiculos_ocupados = []
-    veiculos_desocupados = []
-    data = Date.today + 2.days #session[:requisicao][:data_de_reserva]
-
-    veiculos.each do |veiculo|
-      viagens = Viagem.find_all_by_veiculo_id(veiculo.id)
-      if not viagens.empty?
-        viagens.each do |viagem|
-          if (data >= viagem.data_partida and data <= viagem.data_chegada)
-            veiculos_ocupados <<
-              [CategoriaDeVeiculo.find(veiculo.categoria_de_veiculo_id).nome +
-                " - " + veiculo.modelo + " - " + veiculo.placa, veiculo.id]
-          else
-            veiculos_desocupados <<
-              [CategoriaDeVeiculo.find(veiculo.categoria_de_veiculo_id).nome +
-                " - " + veiculo.modelo + " - " + veiculo.placa, veiculo.id]
-          end
-      end
-      else
-        veiculos_desocupados <<
-          [CategoriaDeVeiculo.find(veiculo.categoria_de_veiculo_id).nome +
-            " - " + veiculo.modelo + " - " + veiculo.placa, veiculo.id]
-      end
-    end
-    @lista_veiculos = [['Veículos desocupados', veiculos_desocupados], ['Veículos ocupados',veiculos_ocupados]]
+  def opcoes_veiculos(data_partida, data_chegada, categoria_de_veiculo_id)
+    @lista_veiculos = [
+                        ['Veículos desocupados', Veiculo.desocupados_entre_datas_e_com_categoria(data_chegada,data_partida,categoria_de_veiculo_id)],
+                        ['Veículos ocupados', Veiculo.ocupados_entre_datas_e_com_categoria(data_chegada,data_partida,categoria_de_veiculo_id)]
+                      ]
+    render :partial => 'opcoes_veiculos', :object => @lista_veiculos
   end
 
   def rejeitar

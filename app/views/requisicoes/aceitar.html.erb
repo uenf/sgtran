@@ -35,14 +35,16 @@
 
         <%= observe_field :viagem_data_de_saida,
                           :url => { :controller => :requisicoes,
-                            :action => :opcaoMotorista },
-                          :update => :motorista_id
+                            :action => :opcoes_motoristas },
+                          :update => :motorista_id,
+                          :with => "data_partida=@viagem.data_partida.to_s&data_chegada=@viagem.data_partida.to_s"
                           %>
 
         <%= observe_field :viagem_data_de_saida,
                           :url => { :controller => :requisicoes,
-                            :action => :opcaoVeiculo },
-                          :update => :veiculo_id
+                            :action => :opcoes_veiculos },
+                          :update => :veiculo_id,
+                          :with => "data_partida=@viagem.data_partida.to_s&data_chegada=@viagem.data_partida.to_s"
                           %>
 
         <label for="viagem_data_de_chegada">Data de chegada:</label>
@@ -56,14 +58,16 @@
 
         <%= observe_field :viagem_data_de_chegada,
                           :url => { :controller => :requisicoes,
-                            :action => :opcaoMotorista },
-                          :update => :motorista_id
+                            :action => :opcoes_motoristas },
+                          :update => :motorista_id,
+                          :with => "data_partida=@viagem.data_partida.to_s&data_chegada=@viagem.data_partida.to_s"
                           %>
 
         <%= observe_field :viagem_data_de_chegada,
                           :url => { :controller => :requisicoes,
-                            :action => :opcaoVeiculo },
-                          :update => :veiculo_id
+                            :action => :opcoes_veiculos },
+                          :update => :veiculo_id,
+                          :with => "data_partida=@viagem.data_partida.to_s&data_chegada=@viagem.data_partida.to_s"
                           %>
 
         <label for="horario_partida">Hor&aacute;rio de sa&iacute;da:</label>
