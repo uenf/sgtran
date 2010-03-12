@@ -16,7 +16,7 @@ Funcionalidade: Aceitar requisição de viagem
       Quando eu clico em "Aceitar"
       Então eu devo estar na página de editar detalhes da viagem
 
-      Quando eu escolho "Atender com uma nova viagem"
+      Quando eu escolho "Nova"
       E eu preencho "Data de saída" com a data "<data de saída>"
       E eu preencho "Data de chegada" com a data "<data de chegada>"
       E eu seleciono "<horario>" no campo hora "Horário de saída"
@@ -51,7 +51,7 @@ Funcionalidade: Aceitar requisição de viagem
       E que eu estou na página de detalhes da requisição
       Quando eu clico em "Aceitar"
       Então eu devo estar na página de editar detalhes da viagem
-      Quando eu escolho "Atender com uma viagem já existente"
+      Quando eu escolho "Existente"
       E <ação>
       E eu pressiono "Concluir"
       Então <resposta>

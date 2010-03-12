@@ -15,14 +15,18 @@
       <%= mensagem_de_erro(@viagem) %>
       <%= mensagem_de_erro @requisicao %>
 
-      <%= radio_button_tag :escolha_de_viagem, "nova", true, :onclick => "viagemNovaOuExistente()" %>
-      <%= label_tag :escolha_de_viagem_nova, "Atender com uma nova viagem: ", :id => "label_viagem_nova" %>
-      <br class="pular_linha"/>
+    <div id="viagem_nova_existente">
+      <fieldset>
+        <legend>Atender com uma viagem:</legend>
+          <%= radio_button_tag :escolha_de_viagem, "nova", true, :onclick => "viagemNovaOuExistente()" %>
+          <%= label_tag :escolha_de_viagem_nova, "Nova: ", :id => "label_viagem_nova" %>
+          <br class="pular_linha"/>
 
-      <%= radio_button_tag :escolha_de_viagem, "existente", false, :onclick => "viagemNovaOuExistente()" %>
-      <%= label_tag :escolha_de_viagem_existente, "Atender com uma viagem j&aacute; existente: ", :id => "label_viagem_existente" %>
-      <br class="pular_linha"/>
-
+          <%= radio_button_tag :escolha_de_viagem, "existente", false, :onclick => "viagemNovaOuExistente()" %>
+          <%= label_tag :escolha_de_viagem_existente, "Existente: ", :id => "label_viagem_existente" %>
+          <br class="pular_linha"/>
+      </fieldset>
+    </div>
       <!-- VIAGEM NOVA ----------------------------------------------------- -->
       <div id="viagem_nova">
         <label for="viagem_data_de_saida">Data de sa&iacute;da:</label>
