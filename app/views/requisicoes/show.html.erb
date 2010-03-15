@@ -80,6 +80,13 @@
       </div>
     <% end %>
     
+    <% if !@requisicao.motivo_observacao.nil? %>
+      <div class="show_linha">
+        <div class="linha_titulo">Observações do motivo: </div> 
+        <div class="linha_texto"> <%=h @requisicao.motivo_observacao %> </div>
+      </div>
+    <% end %>    
+    
     <% if !@requisicao.motivo_professor.nil? %>
       <div class="show_linha">
         <div class="linha_titulo"> Motivo informado pelo Professor: </div> 

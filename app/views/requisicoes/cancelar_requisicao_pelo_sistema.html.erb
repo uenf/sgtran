@@ -10,7 +10,9 @@
     <select name="motivo" id="motivo_cancelamento">
       <%= options_from_collection_for_select(@motivos, 'id', 'descricao') %>
     </select>
-    <input type="hidden" name="requisicao_id" value="<%= @requisicao.id %>">
+    <input type="hidden" name="requisicao_id" value="<%= @requisicao.id %>"><br />
+    <%= label_tag "motivo_observacao", "Observações:" %>
+    <%= text_area_tag "motivo_observacao" %>
     <p>
       <%= submit_tag "Cancelar requisi&ccedil;&atilde;o", :confirm => "Deseja realmente cancelar essa requisi&ccedil;&atilde;o?" %>
     <p>

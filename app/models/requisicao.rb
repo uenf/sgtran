@@ -169,6 +169,7 @@ class Requisicao < ActiveRecord::Base
       self.estado = ACEITA
       self.viagem_id = viagem.id
       self.motivo_id = nil
+      self.motivo_observacao = nil
 
   #    Requisicao.update(self.id, :estado => ACEITA, :viagem_id => viagem.id)
 
@@ -221,10 +222,11 @@ class Requisicao < ActiveRecord::Base
 
   end
 
-  def rejeitar motivo_id
+  def rejeitar motivo_id, observacao
     if Requisicao.requisicao_em_espera? self
       self.estado = Requisicao::REJEITADA
       self.motivo_id = motivo_id.to_i
+      self.motivo_observacao = observacao
       self.save
       #Confirmacao.deliver_email_motivo_de_rejeitar(@requisicao)
     end
@@ -255,11 +257,12 @@ class Requisicao < ActiveRecord::Base
     return false
   end
   
-  def cancelar_requisicao motivo_id
+  def cancelar_requisicao motivo_id, observacao
     if self.esta_aceita?
       self.estado = Requisicao::CANCELADO_PELO_SISTEMA
       self.motivo_id = motivo_id.to_i
-      self.viagem_id = nil  
+      self.viagem_id = nil
+      self.motivo_observacao = observacao
       if self.save
         return true
       else

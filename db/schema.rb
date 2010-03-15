@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(:version => 20101022184205) do
     t.string   "chave_de_seguranca"
     t.integer  "motivo_id"
     t.string   "motivo_professor"
+    t.string   "motivo_observacao"
     t.string   "tipo",                      :default => "Ida"
     t.string   "referencia_id"
     t.datetime "created_at"

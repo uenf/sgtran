@@ -272,7 +272,8 @@ class RequisicoesController < ApplicationController
   def rejeitar_requisicao
     @requisicao = Requisicao.find(params[:requisicao])
     motivo = params[:motivo]
-    @requisicao.rejeitar motivo
+    observacao = params[:motivo_observacao]
+    @requisicao.rejeitar motivo, observacao
     redirect_to requisicao_path(@requisicao)
   end
 
@@ -285,8 +286,9 @@ class RequisicoesController < ApplicationController
   def cancelar_pelo_sistema
     @requisicao = Requisicao.find(params[:requisicao_id])
     motivo = params[:motivo]
+    observacao = params[:motivo_observacao]
     if @requisicao.esta_aceita?
-      @requisicao.cancelar_requisicao motivo.to_i
+      @requisicao.cancelar_requisicao motivo.to_i, observacao.to_s
       redirect_to(requisicao_path(@requisicao))
     else
       flash[:erro] = "A requisição deve estar no estado 'Aceita' para ser cancelada."

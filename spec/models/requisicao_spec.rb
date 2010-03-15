@@ -278,13 +278,15 @@ describe Requisicao do
     motivo = Factory.create :motivo
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     objetivo_de_reserva = Factory.create :objetivo_de_reserva
+    observacao = "Alguma observacao"
     requisicao = Factory.create :requisicao,
                                 :estado => Requisicao::ESPERA,
                                 :categoria_de_veiculo_id => categoria_de_veiculo.id,
                                 :objetivo_de_reserva_id => objetivo_de_reserva.id
-    requisicao.rejeitar motivo.id
+    requisicao.rejeitar motivo.id, observacao
     requisicao.estado.should == Requisicao::REJEITADA
     requisicao.motivo_id.should == motivo.id
+    requisicao.motivo_observacao == observacao
   end
 
   it "Deve verificar se o estado da requisição é Em Espera" do
@@ -335,14 +337,16 @@ describe Requisicao do
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     objetivo_de_reserva = Factory.create :objetivo_de_reserva
     motivo = Factory.create :motivo
+    observacao = "Alguma observacao"
     requisicao = Factory.create :requisicao, :categoria_de_veiculo_id => categoria_de_veiculo.id,
                                              :objetivo_de_reserva_id => objetivo_de_reserva.id,
                                              :estado => Requisicao::ACEITA
 
-    requisicao.cancelar_requisicao motivo.id
+    requisicao.cancelar_requisicao motivo.id, observacao
     requisicao.estado.should == Requisicao::CANCELADO_PELO_SISTEMA
     requisicao.motivo_id.should == motivo.id
     requisicao.viagem_id.should == nil
+    requisicao.motivo_observacao == observacao
   end
   
   it "Deve verificar se uma requisição está no estado Rejeitada" do

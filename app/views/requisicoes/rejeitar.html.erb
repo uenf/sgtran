@@ -8,11 +8,17 @@
       voc&ecirc; deseja n&atilde;o esteja na lista abaixo,
       <%= link_to "adicione", new_motivo_path %> outro motivo.
     </p>
+    <p>
     <label for="motivo_rejeicao">Motivo:</label>
     <select name="motivo" id="motivo_rejeicao">
       <%= options_from_collection_for_select(@motivos, 'id', 'descricao') %>
     </select>
+    </p>
     <input type="hidden" name="requisicao_id" value="<%= @requisicao.id %>">
+    <p>
+      <%= label_tag "motivo_observacao", "Observações:" %>
+      <%= text_area_tag "motivo_observacao" %>
+    </p>
     <p>
       <%= submit_tag "Rejeitar requisi&ccedil;&atilde;o", :confirm => "Deseja realmente rejeitar essa requisi&ccedil;&atilde;o?" %>
     <p>
