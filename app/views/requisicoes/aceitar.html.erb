@@ -43,14 +43,14 @@
                             :url => { :controller => :requisicoes,
                               :action => :opcoes_motoristas },
                             :update => :motorista_id,
-                            :with => "data_partida=@viagem.data_partida.to_s&data_chegada=@viagem.data_partida.to_s"
+                            :with => "'data_partida=' + document.getElementById('viagem_data_de_saida').value + '&data_chegada=' + document.getElementById('viagem_data_de_chegada').value"
                             %>
 
           <%= observe_field :viagem_data_de_saida,
                             :url => { :controller => :requisicoes,
                               :action => :opcoes_veiculos },
                             :update => :veiculo_id,
-                            :with => "data_partida=@viagem.data_partida.to_s&data_chegada=@viagem.data_partida.to_s"
+                            :with => "'data_partida=' + document.getElementById('viagem_data_de_saida').value + '&data_chegada=' + document.getElementById('viagem_data_de_chegada').value"
                             %>
 
           <label for="viagem_data_de_chegada">Data de chegada:</label>
@@ -66,14 +66,14 @@
                             :url => { :controller => :requisicoes,
                               :action => :opcoes_motoristas },
                             :update => :motorista_id,
-                            :with => "data_partida=@viagem.data_partida.to_s&data_chegada=@viagem.data_partida.to_s"
+                            :with => "'data_partida=' + document.getElementById('viagem_data_de_saida').value + '&data_chegada=' + document.getElementById('viagem_data_de_chegada').value"
                             %>
 
           <%= observe_field :viagem_data_de_chegada,
                             :url => { :controller => :requisicoes,
                               :action => :opcoes_veiculos },
                             :update => :veiculo_id,
-                            :with => "data_partida=@viagem.data_partida.to_s&data_chegada=@viagem.data_partida.to_s"
+                            :with => "'data_partida=' + document.getElementById('viagem_data_de_saida').value + '&data_chegada=' + document.getElementById('viagem_data_de_chegada').value"
                             %>
 
           <label for="horario_partida">Hor&aacute;rio de sa&iacute;da:</label>

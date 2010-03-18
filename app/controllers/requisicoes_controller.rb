@@ -26,7 +26,9 @@ class RequisicoesController < ApplicationController
                             :rejeitar_requisicao,
                             :cancelar_requisicao_pelo_sistema,
                             :cancelar_pelo_sistema,
-                            :base_de_dados]
+                            :base_de_dados,
+                            :opcoes_veiculos,
+                            :opcoes_motoristas]
       allow :visit, :to => [:index,
                             :show,
                             :filtrar]
@@ -247,7 +249,8 @@ class RequisicoesController < ApplicationController
     render :layout => "regras"
   end
 
-  def opcoes_motoristas(data_partida, data_chegada)
+  def opcoes_motoristas
+    data_partida, data_chegada = params[:data_partida], params[:data_chegada]
     @lista_motoristas = [
                           ['Motoristas desocupados', Motorista.desocupados_entre(data_partida,data_chegada)],
                           ['Motoristas ocupados', Motorista.ocupados_entre(data_partida,data_chegada)]
@@ -255,7 +258,9 @@ class RequisicoesController < ApplicationController
     render :partial => 'opcoes_motoristas', :object => @lista_motoristas
   end
 
-  def opcoes_veiculos(data_partida, data_chegada, categoria_de_veiculo_id)
+  def opcoes_veiculos
+    data_partida, data_chegada = params[:data_partida], params[:data_chegada]
+    categoria_de_veiculo_id = params[:categoria_de_veiculo_id]
     @lista_veiculos = [
                         ['Veículos desocupados', Veiculo.desocupados_entre_datas_e_com_categoria(data_chegada,data_partida,categoria_de_veiculo_id)],
                         ['Veículos ocupados', Veiculo.ocupados_entre_datas_e_com_categoria(data_chegada,data_partida,categoria_de_veiculo_id)]
