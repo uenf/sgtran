@@ -3,18 +3,22 @@ class UsuarioSessionsController < ApplicationController
 
   access_control do
     allow anonymous, :to => [:new, :create]
-    allow :admin, :to => [:destroy]
-    allow :visit, :to => [:destroy]
+    allow :admin, :to => [:new, :destroy]
+    allow :visit, :to => [:new, :destroy]
   end
 
   # GET /usuario_sessions/new
   # GET /usuario_sessions/new.xml
   def new
-    @usuario_session = UsuarioSession.new
+    if current_user
+      redirect_to(requisicoes_path)
+    else
+      @usuario_session = UsuarioSession.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @usuario_session }
+      respond_to do |format|
+        format.html # new.html.erb
+        format.xml  { render :xml => @usuario_session }
+      end
     end
   end
 

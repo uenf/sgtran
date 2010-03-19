@@ -17,7 +17,7 @@ describe UsuarioSessionsController do
       UsuarioSession.stub!(:new).and_return(mock_usuario_session)
       get :new
       #assigns[:usuario_session].should == mock_usuario_session
-      response.should render_template("erros/acesso_negado")
+      response.should redirect_to(requisicoes_path)
     end
   end
 

@@ -41,4 +41,14 @@ Funcionalidade: Login para o sistema
     | página de visualização de solicitantes                    |
     | página de visualização de usuarios                        |
     | página de visualização de viagens                         |
+    
+    Cenário: Usuário logado deve ser redirecionado caso acesse a página de login
+      Dado que eu estou logado
+      Quando eu vou para a "página de login"
+      Então eu devo estar na página de visualização de requisições
+      
+    Cenário: Usuário que não esteja logado deve ver a página de login
+      Dado que eu não estou logado
+      Quando eu vou para a "página de login"
+      Então eu devo estar na página de login
 
