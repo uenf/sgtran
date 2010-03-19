@@ -1,6 +1,6 @@
 <div class="show_padrao">
 
-    <h1>Dados gerais</h1>
+    <h1>Dados do solicitante</h1>
 
 
     <div class="show_linha">
@@ -72,27 +72,27 @@
     <div class="show_linha">
       <div class="linha_titulo"> Estado: </div> <div class="linha_texto"> <%=h @requisicao.estado.to_s %> </div>
     </div>
-    
+
     <% if !@requisicao.motivo_id.nil? %>
       <div class="show_linha">
-        <div class="linha_titulo"> Motivo informado pelo Sistema: </div> 
+        <div class="linha_titulo"> Motivo informado pelo Sistema: </div>
         <div class="linha_texto"> <%=h Motivo.find(@requisicao.motivo_id).descricao %> </div>
       </div>
     <% end %>
-    
+
     <% if !@requisicao.motivo_observacao.nil? %>
       <div class="show_linha">
-        <div class="linha_titulo">Observações do motivo: </div> 
+        <div class="linha_titulo">Observações do motivo: </div>
         <div class="linha_texto"> <%=h @requisicao.motivo_observacao %> </div>
       </div>
-    <% end %>    
-    
+    <% end %>
+
     <% if !@requisicao.motivo_professor.nil? %>
       <div class="show_linha">
-        <div class="linha_titulo"> Motivo informado pelo Professor: </div> 
+        <div class="linha_titulo"> Motivo informado pelo Professor: </div>
         <div class="linha_texto"> <%=h @requisicao.motivo_professor.to_s %> </div>
       </div>
-    <% end %>    
+    <% end %>
 
 </div>
 
