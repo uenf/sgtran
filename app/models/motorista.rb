@@ -13,8 +13,6 @@ class Motorista < ActiveRecord::Base
 ################################################################################
 
   def self.ocupados_entre(data_partida, data_chegada)
-    data_partida = data_partida.to_date
-    data_chegada = data_chegada.to_date
     motoristas = Motorista.all
     motoristas_ocupados = []
 
@@ -33,8 +31,6 @@ class Motorista < ActiveRecord::Base
   end
 
   def self.desocupados_entre(data_partida, data_chegada)
-    data_partida = data_partida.to_date
-    data_chegada = data_chegada.to_date
     motoristas = Motorista.all
     motoristas_desocupados = []
 

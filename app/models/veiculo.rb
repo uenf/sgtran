@@ -26,8 +26,6 @@ class Veiculo < ActiveRecord::Base
   end
 
   def self.ocupados_entre_datas_e_com_categoria(data_partida, data_chegada, categoria_de_veiculo_da_requisicao_id)
-    data_partida = data_partida.to_date
-    data_chegada = data_chegada.to_date
     veiculos = Veiculo.all
     veiculos_ocupados = []
 
@@ -55,8 +53,6 @@ class Veiculo < ActiveRecord::Base
   end
 
   def self.desocupados_entre_datas_e_com_categoria(data_partida, data_chegada, categoria_de_veiculo_da_requisicao_id)
-    data_partida = data_partida.to_date
-    data_chegada = data_chegada.to_date
     veiculos = Veiculo.all
     veiculos_desocupados = []
 
