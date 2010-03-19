@@ -68,7 +68,7 @@ class Veiculo < ActiveRecord::Base
 
       if not viagens.empty?
         viagens.each do |viagem|
-          if not (data_partida >= viagem.data_partida and data_partida <= viagem.data_chegada) or
+          if not (data_partida >= viagem.data_partida and data_partida <= viagem.data_chegada) and
            not (data_chegada >= viagem.data_partida and data_chegada <= viagem.data_chegada)
 
             veiculos_desocupados << [marcador + categoria_de_veiculo.nome + " - " + veiculo.modelo + " - " + veiculo.placa,

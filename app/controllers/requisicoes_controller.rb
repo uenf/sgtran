@@ -260,7 +260,7 @@ class RequisicoesController < ApplicationController
 
   def opcoes_veiculos
     data_partida, data_chegada = params[:data_partida], params[:data_chegada]
-    categoria_de_veiculo_id = params[:categoria_de_veiculo_id]
+    categoria_de_veiculo_id = params[:categoria_de_veiculo_id].to_i
     @lista_veiculos = [
                         ['Veículos desocupados', Veiculo.desocupados_entre_datas_e_com_categoria(data_chegada,data_partida,categoria_de_veiculo_id)],
                         ['Veículos ocupados', Veiculo.ocupados_entre_datas_e_com_categoria(data_chegada,data_partida,categoria_de_veiculo_id)]

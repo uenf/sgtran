@@ -42,7 +42,7 @@ class Motorista < ActiveRecord::Base
       viagens = Viagem.find_all_by_motorista_id(motorista.id)
       if not viagens.empty?
         viagens.each do |viagem|
-          if not (data_partida >= viagem.data_partida and data_partida <= viagem.data_chegada) or
+          if not (data_partida >= viagem.data_partida and data_partida <= viagem.data_chegada) and
                 not (data_chegada >= viagem.data_partida and data_chegada <= viagem.data_chegada)
             motoristas_desocupados << [motorista.nome_do_motorista, motorista.id]
           end
