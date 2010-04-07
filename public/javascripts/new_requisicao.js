@@ -65,6 +65,7 @@ function verificarDataIdaeVolta()
   if (data_de_ida == data_de_volta)
   {
     alert("Para ir e voltar no mesmo dia, selecione \"Ida\" ao invés de \"Ida e Volta\".")
+    document.getElementById("data_de_reserva_ida_volta_br").value = ""
   }
 }
 
