@@ -21,7 +21,7 @@ Funcionalidade: Solicitar viagem
     E eu seleciono "<Objetivo>" em "Objetivo da Reserva"
     E eu preencho "Outros" com "<Outros>"
     E eu preencho "Nome(s) e telefone do(s) passageiro(s):" com "<Nome_passageiros>"
-    E eu preencho "Roteiro da agenda:" com "<Roteiro>"
+    E eu preencho "Roteiro da agenda (ida):" com "<Roteiro>"
     E eu preencho "Observação" com "<Observação>"
     E <Termo>
     E <Ação>
@@ -64,7 +64,7 @@ Funcionalidade: Solicitar viagem
     E eu seleciono "Automóvel até 4 passageiros" em "Categoria de veículo"
     E eu seleciono "Aula de Campo" em "Objetivo da Reserva"
     E eu preencho "Nome(s) e telefone do(s) passageiro(s):" com "Zina, Ronaldo e Alfinete"
-    E eu preencho "Roteiro da agenda:" com "Ir ao Pacaembu"
+    E eu preencho "Roteiro da agenda (ida):" com "Ir ao Pacaembu"
     E eu pressiono "Enviar"
     E eu marco "Li e concordo com os termos"
     Então <Sentença>

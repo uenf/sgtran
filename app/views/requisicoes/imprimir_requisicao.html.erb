@@ -11,7 +11,7 @@ Categoria de ve&iacute;culo: <%= CategoriaDeVeiculo.find(@requisicao.categoria_d
 Objetivo da Reserva: <%= ObjetivoDeReserva.find(@requisicao.objetivo_de_reserva_id).texto %><br />
 Outros: <%= @requisicao.outros %><br />
 Nome(s) e telefone do(s) passageiro(s): <%= @requisicao.nome_telefone_passageiros %><br />
-Roteiro da agenda: <%= @requisicao.roteiro_da_agenda %><br />
+Roteiro da agenda (ida): <%= @requisicao.roteiro_da_agenda %><br />
 Observa&ccedil;&atilde;o: <%= @requisicao.observacao %><br />
 
 <%= link_to 'Preencher outra requisi&ccedil;&atilde;o', new_requisicao_path %> |
