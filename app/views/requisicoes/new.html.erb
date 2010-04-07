@@ -68,7 +68,8 @@
                                     @requisicao.data_de_reserva ? @requisicao.data_de_reserva.to_date.to_s_br : "",
                                     :name => "data_de_reserva_ida_volta_br",
                                     :year_range => [Time.now.year],
-                                    :month_year => "label" %>
+                                    :month_year => "label",
+                                    :after_close => "verificarDataIdaeVolta();" %>
     </p>
     <p>
     <%= f.label :categoria_de_veiculo_id, "Categoria de ve&iacute;culo:",
