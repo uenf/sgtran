@@ -10,9 +10,38 @@ Funcionalidade: Cancelar uma requisição pelo sistema
     E que eu estou na página de detalhes da requisição
     Quando eu clico em "Cancelar requisição"
     E eu seleciono "Falta de verba" em "Motivo"
-    E eu preencho "Observações" com "Algumas observações"    
+    E eu preencho "Observações" com "Algumas observações"
     E eu pressiono "Cancelar requisição"
     Então eu devo estar na página de detalhes da requisição
     E eu devo ver "Estado: Cancelado pelo sistema"
     E eu devo ver "Observações do motivo: Algumas observações"
+
+
+  Cenário: Viagem com apenas uma requisição e a requisição é cancelada
+    Dado que eu tenho uma requisição com estado "Aceita"
+    E que eu tenho um motivo com descrição "Falta de verba"
+    E que eu tenho uma viagem com estado "Aguardando"
+    E que a requisição esteja ligada à viagem
+    E que eu estou na página de detalhes da requisição
+    Quando eu clico em "Cancelar requisição"
+    E eu seleciono "Falta de verba" em "Motivo"
+    E eu preencho "Observações" com "Algumas observações"
+    E eu pressiono "Cancelar requisição"
+    Dado que eu estou na página de visualização da viagem
+    Então eu devo ver "Estado: Cancelada"
+
+  Cenário: Viagem com mais de uma requisição e uma requisição é cancelada
+    Dado que eu tenho uma requisição com estado "Aceita"
+    E que eu tenho uma viagem com estado "Aguardando"
+    E que a requisição esteja ligada à viagem
+    E que eu tenho uma requisição com estado "Aceita"
+    E que a requisição esteja ligada à viagem
+    E que eu tenho um motivo com descrição "Falta de verba"
+    E que eu estou na página de detalhes da requisição
+    Quando eu clico em "Cancelar requisição"
+    E eu seleciono "Falta de verba" em "Motivo"
+    E eu preencho "Observações" com "Algumas observações"
+    E eu pressiono "Cancelar requisição"
+    Dado que eu estou na página de visualização da viagem
+    Então eu devo ver "Estado: Aguardando"
 

@@ -22,46 +22,25 @@
       <th>Ve&iacute;culo</th>
       <th>Requisi&ccedil;&atilde;o(s) atendida(s)</th>
     </tr>
-<% if !@viagens.nil? %>
-  <% if @viagens.is_a? Array %>
-    <% @viagens.each do |viagem| %>
-      <% (veiculo = Veiculo.find(viagem.veiculo_id)) if viagem.veiculo_id%>
-      <tr onmouseover="this.style.cursor='pointer'" onclick="location.href='<%= viagem_path(viagem) %>'">
-        <%= "<td class=\""%><%=h viagem.estado.downcase.gsub(" ", "_") %><%= "\">"%>
-          <%=h viagem.estado %>
-        <%= "</td>"%>
-        <td><%=h (viagem.data_partida.strftime("%d/%m/%Y")) if viagem.data_partida %></td>
-        <td><%=h (viagem.data_chegada.strftime("%d/%m/%Y")) if viagem.data_chegada %></td>
-        <td><%=h (viagem.horario_partida.strftime("%H : %M")) if (viagem.horario_partida) %></td>
-        <td><%=h (viagem.motorista.nome_do_motorista) if viagem.motorista  %></td>
-        <td>
-        <%=h veiculo.modelo + " - " +
-            veiculo.placa + " - " +
-            CategoriaDeVeiculo.find(veiculo.categoria_de_veiculo_id).nome if veiculo
-            %>
-      </td>
-      <td><%=h viagem.requisicoes_atendidas.to_sentence %></td>
-      <td onclick="location.href='<%= edit_viagem_path(viagem) %>'" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("editar_dado.png", :border => 0, :alt => "Editar"), edit_viagem_path(viagem) %></td>
-      </tr>
-    <% end %>
-  <% else %>
-    <% (veiculo = Veiculo.find(@viagens.veiculo_id)) if @viagens.veiculo_id%>
-    <tr onmouseover="this.style.cursor='pointer'" onclick="location.href='<%= viagem_path(@viagens) %>'">
-      <%= "<td class=\""%><%=h @viagens.estado.downcase.gsub(" ", "_") %><%= "\">"%>
-        <%=h @viagens.estado %>
-      <%= "</td>"%>
-      <td><%=h (@viagens.data_partida.strftime("%d/%m/%Y")) if @viagens.data_partida %></td>
-      <td><%=h (@viagens.data_chegada.strftime("%d/%m/%Y")) if @viagens.data_chegada %></td>
-      <td><%=h (@viagens.horario_partida.strftime("%H : %M")) if (@viagens.horario_partida) %></td>
-      <td><%=h (@viagens.motorista.nome_do_motorista) if @viagens.motorista  %></td>
-      <td>
-        <%=h CategoriaDeVeiculo.find(veiculo.categoria_de_veiculo_id).nome +
-          " - " + veiculo.modelo + " - " + veiculo.placa if veiculo%>
-      </td>
-      <td><%=h @viagens.requisicoes_atendidas.to_sentence %></td>
-      <td onclick="location.href='<%= edit_viagem_path(@viagens) %>'" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("editar_dado.png", :border => 0, :alt => "Editar"), edit_viagem_path(@viagens) %></td>
-    </tr>
-  <% end %>
+<% @viagens.each do |viagem| %>
+  <% (veiculo = Veiculo.find(viagem.veiculo_id)) if viagem.veiculo_id%>
+  <tr onmouseover="this.style.cursor='pointer'" onclick="location.href='<%= viagem_path(viagem) %>'">
+    <%= "<td class=\""%><%=h viagem.estado.downcase.gsub(" ", "_") %><%= "\">"%>
+      <%=h viagem.estado %>
+    <%= "</td>"%>
+    <td><%=h (viagem.data_partida.strftime("%d/%m/%Y")) if viagem.data_partida %></td>
+    <td><%=h (viagem.data_chegada.strftime("%d/%m/%Y")) if viagem.data_chegada %></td>
+    <td><%=h (viagem.horario_partida.strftime("%H : %M")) if (viagem.horario_partida) %></td>
+    <td><%=h (viagem.motorista.nome_do_motorista) if viagem.motorista  %></td>
+    <td>
+    <%=h veiculo.modelo + " - " +
+        veiculo.placa + " - " +
+        CategoriaDeVeiculo.find(veiculo.categoria_de_veiculo_id).nome if veiculo
+        %>
+  </td>
+  <td><%=h viagem.requisicoes_atendidas.to_sentence %></td>
+  <td onclick="location.href='<%= edit_viagem_path(viagem) %>'" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("editar_dado.png", :border => 0, :alt => "Editar"), edit_viagem_path(viagem) %></td>
+  </tr>
 <% end %>
   </table>
 </div>

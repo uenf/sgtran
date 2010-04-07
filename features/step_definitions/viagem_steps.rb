@@ -33,6 +33,10 @@ Dado /^que eu tenho uma viagem com o estado "([^\"]*)"$/ do |estado|
                                           :solicitante_id => solicitante.id,
                                           :objetivo_de_reserva_id => objetivo_de_reserva.id,
                                           :viagem_id => @viagem.id
+end
 
+Dado /^que a requisição esteja ligada à viagem$/ do
+  @requisicao.viagem_id = @viagem.id
+  @requisicao.save
 end
 
