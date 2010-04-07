@@ -294,11 +294,10 @@ class RequisicoesController < ApplicationController
     observacao = params[:motivo_observacao]
     if @requisicao.esta_aceita?
       @requisicao.cancelar_requisicao motivo.to_i, observacao.to_s
-      redirect_to(requisicao_path(@requisicao))
     else
       flash[:erro] = "A requisição deve estar no estado 'Aceita' para ser cancelada."
-      redirect_to(requisicao_path(@requisicao))
     end
+    redirect_to(@requisicao)
   end
 
   private

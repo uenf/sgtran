@@ -335,19 +335,41 @@ describe Requisicao do
   end
 
   it "Deve cancelar uma requisição" do
+    viagem = Factory.create :viagem
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     objetivo_de_reserva = Factory.create :objetivo_de_reserva
     motivo = Factory.create :motivo
     observacao = "Alguma observacao"
     requisicao = Factory.create :requisicao, :categoria_de_veiculo_id => categoria_de_veiculo.id,
                                              :objetivo_de_reserva_id => objetivo_de_reserva.id,
-                                             :estado => Requisicao::ACEITA
+                                             :estado => Requisicao::ACEITA,
+                                             :viagem_id => viagem.id
 
     requisicao.cancelar_requisicao motivo.id, observacao
     requisicao.estado.should == Requisicao::CANCELADO_PELO_SISTEMA
     requisicao.motivo_id.should == motivo.id
     requisicao.viagem_id.should == nil
-    requisicao.motivo_observacao == observacao
+    requisicao.motivo_observacao.should == observacao
+  end
+
+  it "Caso a requisição esteja ligada a uma viagem, a viagem tenha apenas essa requisição e a requisição é cancelada, a viagem deve ser cancelada" do
+    viagem = Factory.create :viagem
+    categoria_de_veiculo = Factory.create :categoria_de_veiculo
+    objetivo_de_reserva = Factory.create :objetivo_de_reserva
+    motivo = Factory.create :motivo
+    observacao = "Alguma observacao"
+    requisicao = Factory.create :requisicao, :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                             :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                                             :estado => Requisicao::ACEITA,
+                                             :viagem_id => viagem.id
+
+    requisicao.cancelar_requisicao motivo.id, observacao
+    viagem = Viagem.find(viagem.id)
+    requisicao.estado.should == Requisicao::CANCELADO_PELO_SISTEMA
+    requisicao.motivo_id.should == motivo.id
+    requisicao.viagem_id.should == nil
+    requisicao.motivo_observacao.should == observacao
+    viagem.estado.should == Viagem::CANCELADA
   end
 
   it "Deve verificar se uma requisição está no estado Rejeitada" do

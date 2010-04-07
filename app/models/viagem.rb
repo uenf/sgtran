@@ -35,7 +35,7 @@ class Viagem < ActiveRecord::Base
     end
     atendidas
   end
-  
+
   def esta_aguardando?
     if self.estado == Viagem::AGUARDANDO
       return true

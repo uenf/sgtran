@@ -48,7 +48,7 @@ module NavigationHelpers
       usuarios_path
 
     when /^página de visualização da viagem$/
-      viagem_path(:id => @viagem)
+      viagem_path(@viagem)
 
     when /^página de usuário$/
       new_usuario_path
