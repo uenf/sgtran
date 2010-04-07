@@ -49,7 +49,8 @@ describe Requisicao do
 
       should_validate_presence_of :data_de_reserva,
                                   :nome_telefone_passageiros,
-                                  :roteiro_da_agenda
+                                  :roteiro_da_agenda,
+                                  :celular
 
     it "O campo Categoria de veículo deve ser selecionado" do
       objetivo_de_reserva = Factory.create :objetivo_de_reserva
@@ -348,7 +349,7 @@ describe Requisicao do
     requisicao.viagem_id.should == nil
     requisicao.motivo_observacao == observacao
   end
-  
+
   it "Deve verificar se uma requisição está no estado Rejeitada" do
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     objetivo_de_reserva = Factory.create :objetivo_de_reserva
@@ -357,7 +358,7 @@ describe Requisicao do
                                              :objetivo_de_reserva_id => objetivo_de_reserva.id,
                                              :estado => Requisicao::REJEITADA,
                                              :motivo_id => motivo.id
-    requisicao.esta_rejeitada?.should be_true                                             
+    requisicao.esta_rejeitada?.should be_true
   end
 
 

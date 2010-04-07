@@ -72,7 +72,8 @@ class Requisicao < ActiveRecord::Base
 
   validates_presence_of :nome_telefone_passageiros,
                         :roteiro_da_agenda,
-                        :data_de_reserva
+                        :data_de_reserva,
+                        :celular
 
   validates_presence_of :solicitante_id, :message => 'não existe'
 

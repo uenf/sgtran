@@ -7,6 +7,7 @@
     E que eu estou na página de requisição
     Quando eu preencho "Matrícula" com "01210"
     E eu preencho "E-mail" com "ronaldo@corinthians.com"
+    E eu preencho "Celular" com "9958-1425"
     E <Ida_e_Volta>
     E <Opção>
     E eu preencho "Data de Reserva de Ida" com <Data>

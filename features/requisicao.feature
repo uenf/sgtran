@@ -45,7 +45,7 @@ Funcionalidade: Solicitar viagem
     | 01210     | ronaldo@corinthians.com   | 9997-3421 | Micro-ônibus - até 32 passageiros | Aula de Campo         |           |                           | Ir ao Pacaembu    |               | eu marco "Li e concordo com os termos"     | eu pressiono "Enviar" | eu devo ver "Nome telefone passageiros não pode ser vazio"    |
     | 01210     | ronaldo@corinthians.com   | 9997-3421 | Micro-ônibus - até 32 passageiros | Aula de Campo         |           | Zina, Ronaldo e Alfinete  |                   |               | eu marco "Li e concordo com os termos"     | eu pressiono "Enviar" | eu devo ver "Roteiro da agenda não pode ser vazio"            |
     | 01210     | ronaldo@corinthians.com   | 9997-3421 | Micro-ônibus - até 32 passageiros | Outros                |           | Zina, Ronaldo e Alfinete  | Ir ao Pacaembu    |               | eu marco "Li e concordo com os termos"     | eu pressiono "Enviar" | eu devo ver "Outros não pode ser vazio"                       |
-
+    | 01210     | ronaldo@corinthians.com   |           | Micro-ônibus - até 32 passageiros | Outros                | Bla       | Zina, Ronaldo e Alfinete  | Ir ao Pacaembu    |               | eu marco "Li e concordo com os termos"     | eu pressiono "Enviar" | eu devo ver "Celular não pode ser vazio"                      |
 
     Exemplos:(Campos preenchidos com dados incorretos)
 
