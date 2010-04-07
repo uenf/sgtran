@@ -10,16 +10,8 @@ class Solicitante < ActiveRecord::Base
   validates_format_of :email,
                       :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
 
-  validate :validar_predio
-
   def self.verificarExistencia dados
     find_by_matricula_and_email_and_cargo_ou_funcao(dados[:matricula], dados[:email], dados[:cargo])
-  end
-
-  def validar_predio
-    if self.predio_id.blank?
-      errors.add(:predio, 'não selecionado')
-    end
   end
 
   def self.verificar_solicitante dados

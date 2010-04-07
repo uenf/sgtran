@@ -55,12 +55,6 @@ describe Solicitante do
     solicitante.valid?.should be_false
   end
 
-  it "deve invalidar caso o prédio não seja selecionado" do
-    solicitante = Factory.build :solicitante,
-                                :predio_id => ""
-    solicitante.valid?.should be_false
-  end
-
   it "deve verificar se um solicitante existe" do
     predio = Factory.create :predio
     solicitante = Factory.create :solicitante, :predio_id => predio.id

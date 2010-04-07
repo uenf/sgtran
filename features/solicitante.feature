@@ -26,7 +26,6 @@ Para que eu possa adicinar, editar e utilizar no sistema
     | Professor Fulano  |               | 123456    | Professor | P5                    | Email não pode ser vazio              |
     | Professor Fulano  | prof@uenf.br  |           | Professor | P5                    | Matricula não pode ser vazio          |
     | Professor Fulano  | prof@uenf.br  | 123456    |           | P5                    | Cargo ou funcao não pode ser vazio    |
-    | Professor Fulano  | prof@uenf.br  | 123456    | Professor | Selecione um Prédio   | Predio não selecionado                |
 
 
 
