@@ -3,8 +3,16 @@ class Veiculo < ActiveRecord::Base
   has_and_belongs_to_many :combustiveis
   has_many :viagens
 
-  validates_presence_of :marca, :modelo, :cor, :ano, :placa, :numero_de_ordem, :renavam
-  validate :validar_categoria_de_veiculo, :validar_combustiveis
+  validates_presence_of :marca,
+                        :modelo,
+                        :cor,
+                        :ano,
+                        :placa,
+                        :numero_de_ordem,
+                        :renavam
+
+  validate :validar_categoria_de_veiculo,
+          :validar_combustiveis
 
   def itens_da_view
     return  self.modelo + " - " + self.placa + " - " +

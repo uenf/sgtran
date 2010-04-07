@@ -759,4 +759,7 @@ div#viagem_nova fieldset legend {
 	border: 0px !important;
 	padding:0px !important;
 }
+.label_obrigatorio {
+  color: red
+}
 

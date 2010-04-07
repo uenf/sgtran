@@ -5,22 +5,22 @@
   <%= mensagem_de_erro(@solicitante) %>
 
   <div class="show_linha">
-    <div class="linha_titulo"><%= f.label :nome, "Nome:" %></div>
+    <div class="linha_titulo"><%= f.label :nome, "Nome:", :class => "label_obrigatorio" %></div>
     <div class="linha_texto_neutro"><%= f.text_field :nome %></div>
   </div>
 
   <div class="show_linha">
-    <div class="linha_titulo"><%= f.label :email, "E-mail:" %></div>
+    <div class="linha_titulo"><%= f.label :email, "E-mail:", :class => "label_obrigatorio" %></div>
     <div class="linha_texto_neutro"><%= f.text_field :email %></div>
   </div>
 
   <div class="show_linha">
-    <div class="linha_titulo"><%= f.label :matricula, "Matr&iacute;cula" %></div>
+    <div class="linha_titulo"><%= f.label :matricula, "Matr&iacute;cula", :class => "label_obrigatorio" %></div>
     <div class="linha_texto_neutro"><%= f.text_field :matricula %></div>
   </div>
 
   <div class="show_linha">
-    <div class="linha_titulo"><%= f.label :cargo_ou_funcao, "Cargo:" %></div>
+    <div class="linha_titulo"><%= f.label :cargo_ou_funcao, "Cargo:", :class => "label_obrigatorio" %></div>
     <div class="linha_texto_neutro"><%= f.text_field :cargo_ou_funcao %></div>
   </div>
 

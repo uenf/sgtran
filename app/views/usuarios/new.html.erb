@@ -5,34 +5,34 @@
   <%= mensagem_de_erro(@usuario) %>
 
   <div class="show_linha">
-    <div class="linha_titulo"><%= f.label :nome, "Nome: " %></div>
+    <div class="linha_titulo"><%= f.label :nome, "Nome: ", :class => "label_obrigatorio" %></div>
     <div class="linha_texto_neutro"><%= f.text_field :nome %></div>
   </div>
 
   <div class="show_linha">
-    <div class="linha_titulo"><%= f.label :email, "E-mail: " %></div>
+    <div class="linha_titulo"><%= f.label :email, "E-mail: ", :class => "label_obrigatorio" %></div>
     <div class="linha_texto_neutro"><%= f.text_field :email %></div>
   </div>
 
   <div class="show_linha">
-    <div class="linha_titulo"><%= f.label :login, "Login:" %></div>
+    <div class="linha_titulo"><%= f.label :login, "Login:", :class => "label_obrigatorio" %></div>
     <div class="linha_texto_neutro"><%= f.text_field :login %></div>
   </div>
 
   <div class="show_linha">
-    <div class="linha_titulo"><%= f.label :password, "Senha:" %></div>
+    <div class="linha_titulo"><%= f.label :password, "Senha:", :class => "label_obrigatorio" %></div>
     <div class="linha_texto_neutro"><%= f.password_field :password %></div>
   </div>
 
   <div class="show_linha">
-    <div class="linha_titulo"><%= f.label :password_confirmation, "Confirma&ccedil;&atilde;o da senha:" %></div>
+    <div class="linha_titulo"><%= f.label :password_confirmation, "Confirma&ccedil;&atilde;o da senha:", :class => "label_obrigatorio" %></div>
     <div class="linha_texto_neutro"><%= f.password_field :password_confirmation %></div>
   </div>
 
   <% if current_user and current_user.has_role? :admin %>
     <div class="show_linha">
       <div class="linha_titulo">
-        <label for="role_">Privil&eacute;gio:</label>
+        <label for="role_" class="label_obrigatorio">Privil&eacute;gio:</label>
       </div>
       <div class="linha_texto_neutro">
         <select name="role" id="role_">

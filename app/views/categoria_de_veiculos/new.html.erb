@@ -5,7 +5,7 @@
     <%= mensagem_de_erro(@categoria_de_veiculo) %>
 
     <div class="show_linha">
-      <div class="linha_titulo"><%= f.label :nome, "Nome:" %></div>
+      <div class="linha_titulo"><%= f.label :nome, "Nome:", :class => "label_obrigatorio" %></div>
       <div class="linha_texto_neutro"><%= f.text_field :nome %></div>
     </div>
 
