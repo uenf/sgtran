@@ -11,9 +11,9 @@ Funcionalidade: Verificar se a requisição de ida e volta estão corretas
       E que eu tenho uma requisição de volta com número de protocolo <id_volta>
       Quando eu vou para a "página da lista de requisições"
       Então eu devo ver a tabela "requisicoes" com
-        | Estado | Protocolo  | Solicitante | Cargo     | Email                   | Telefone     | Data                | Veículo                           | Objetivo       | Tipo   | Referência |
-        | Espera | <id_ida>   | Fulano      | Professor | ronaldo@corinthians.com | 2222-2222    | Daqui a dois dias   | Micro-ônibus - até 32 passageiros | Aula de Campo  | Ida    | <id_volta> |
-        | Espera | <id_volta> | Fulano      | Professor | ronaldo@corinthians.com | 2222-2222    | Daqui a quatro dias | Micro-ônibus - até 32 passageiros | Aula de Campo  | Volta  | <id_ida>   |
+        | Estado | Protocolo  | Solicitante | Cargo     | Email                   | Data                | Tipo   | Referência |
+        | Espera | <id_ida>   | Fulano      | Professor | ronaldo@corinthians.com | Daqui a dois dias   | Ida    | <id_volta> |
+        | Espera | <id_volta> | Fulano      | Professor | ronaldo@corinthians.com | Daqui a quatro dias | Volta  | <id_ida>   |
 
     Exemplos:
     | id_ida | id_volta |
