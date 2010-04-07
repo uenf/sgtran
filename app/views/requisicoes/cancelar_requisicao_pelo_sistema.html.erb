@@ -11,7 +11,7 @@
       <%= options_from_collection_for_select(@motivos, 'id', 'descricao') %>
     </select>
     <input type="hidden" name="requisicao_id" value="<%= @requisicao.id %>"><br />
-    <%= label_tag "motivo_observacao", "Observações:" %>
+    <%= label_tag "motivo_observacao", "Observa&ccedil;&otilde;es:" %>
     <%= text_area_tag "motivo_observacao" %>
     <p>
       <%= submit_tag "Cancelar requisi&ccedil;&atilde;o", :confirm => "Deseja realmente cancelar essa requisi&ccedil;&atilde;o?" %>
@@ -50,7 +50,7 @@
     </div>
 
     <div class="show_linha">
-      <div class="linha_titulo"> Laboratório ou setor: </div> <div class="linha_texto"> <%=h @solicitante.laboratorio_ou_setor %> </div>
+      <div class="linha_titulo"> Laborat&oacute;rio ou setor: </div> <div class="linha_texto"> <%=h @solicitante.laboratorio_ou_setor %> </div>
     </div>
 
     <div class="show_linha">
