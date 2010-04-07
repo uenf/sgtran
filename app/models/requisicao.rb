@@ -166,8 +166,7 @@ class Requisicao < ActiveRecord::Base
 
       if !data_partida.nil? && !data_chegada.nil?
         if data_partida > data_chegada
-            viagem.errors.add(:data_partida, "posterior a data de chegada");
-            viagem.errors.add(:data_chegada, "anterior a data de partida");
+            viagem.errors.add("Data de chegada anterior à data de partida");
 
             return viagem
         end

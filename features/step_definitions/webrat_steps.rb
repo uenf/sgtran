@@ -25,7 +25,11 @@ When /^eu preencho "([^\"]*)" com "([^\"]*)"$/ do |field, value|
 end
 
 When /^eu preencho "([^\"]*)" com a data "([^\"]*)"$/ do |field, value|
-  value["Daqui a 2 dias"] = (Date.today + 2.days).strftime("%d/%m/%Y") if value.include?("Daqui a 2 dias")
+  fill_in(field, :with => value)
+end
+
+When /^eu preencho "([^\"]*)" com a data daqui a "([^\"]*)" dias$/ do |field, value|
+  value = (Date.today + value.to_i.days).strftime("%d/%m/%Y")
   fill_in(field, :with => value)
 end
 
@@ -61,8 +65,12 @@ Entao /^eu devo ver "([^\"]*)"$/ do |text|
 end
 
 Entao /^eu devo ver "([^\"]*)" com a data "([^\"]*)"$/ do |text, text_data|
-  text_data["Daqui a 2 dias"] = (Date.today + 2.days).strftime("%d/%m/%Y") if text_data.include?("Daqui a 2 dias")
   response.should contain(text + text_data)
+end
+
+Entao /^eu devo ver "([^\"]*)" com a data daqui a "([^\"]*)" dias$/ do |text, value|
+  value = (Date.today + value.to_i.days).strftime("%d/%m/%Y")
+  response.should contain(text + value)
 end
 
 #
@@ -216,5 +224,4 @@ end
 Then /^I should be on (.+)$/ do |page_name|
   URI.parse(current_url).path.should == path_to(page_name)
 end
-
 
