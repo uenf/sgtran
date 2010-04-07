@@ -22,10 +22,7 @@
       <th>Solicitante</th>
       <th>Cargo</th>
       <th>Email</th>
-      <th>Telefone</th>
       <th>Data</th>
-      <th>Ve&iacute;culo</th>
-      <th>Objetivo</th>
       <th>Tipo</th>
       <th>Refer&ecirc;ncia</th>
     </tr>
@@ -40,10 +37,7 @@
         <td><%=h solicitante.nome %></td>
         <td><%=h solicitante.cargo_ou_funcao %></td>
         <td><%=h solicitante.email %></td>
-        <td><%=h solicitante.telefone_ou_ramal %></td>
         <td><%=h requisicao.data_de_reserva.strftime("%d/%m/%Y") %></td>
-        <td><%=h CategoriaDeVeiculo.find(requisicao.categoria_de_veiculo_id).nome %></td>
-        <td><%=h ObjetivoDeReserva.find(requisicao.objetivo_de_reserva_id).texto %></td>
         <td><%=h requisicao.tipo ? requisicao.tipo : "-" %></td>
         <td><%=h requisicao.referencia_id ? requisicao.referencia_id : "-" %></td>
       </tr>

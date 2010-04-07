@@ -10,16 +10,16 @@ Funcionalidade: Garantir ordem e visualização das requisições
       Dado que eu tenha 3 requisições em espera
       E que eu estou na página de visualização de requisições
       Então eu devo ver a tabela "requisicoes" com
-        | Estado | Protocolo | Solicitante | Cargo     | Email          | Telefone     | Data              | Veículo                           | Objetivo       | Tipo | Referência |
-        | Espera | 1         | fulano 1    | Professor | fulano@uenf.br | 2222-2222    | Daqui a dois dias | Micro-ônibus - até 32 passageiros | Aula de Campo  | Ida  |     -      |
-        | Espera | 2         | fulano 2    | Professor | fulano@uenf.br | 2222-2222    | Daqui a dois dias | Micro-ônibus - até 32 passageiros | Aula de Campo  | Ida  |     -      |
-        | Espera | 3         | fulano 3    | Professor | fulano@uenf.br | 2222-2222    | Daqui a dois dias | Micro-ônibus - até 32 passageiros | Aula de Campo  | Ida  |     -      |
+        | Estado | Protocolo | Solicitante | Cargo     | Email          | Data              | Tipo | Referência |
+        | Espera | 1         | fulano 1    | Professor | fulano@uenf.br | Daqui a dois dias | Ida  |     -      |
+        | Espera | 2         | fulano 2    | Professor | fulano@uenf.br | Daqui a dois dias | Ida  |     -      |
+        | Espera | 3         | fulano 3    | Professor | fulano@uenf.br | Daqui a dois dias | Ida  |     -      |
 
       Quando eu aceito a requisição 2
 
       E eu vou para a "página de visualização de requisições"
       Então eu devo ver a tabela "requisicoes" com
-        | Estado | Protocolo | Solicitante | Cargo     | Email          | Telefone     | Data              | Veículo                           | Objetivo       | Tipo | Referência |
-        | Espera | 1         | fulano 1    | Professor | fulano@uenf.br | 2222-2222    | Daqui a dois dias | Micro-ônibus - até 32 passageiros | Aula de Campo  | Ida  |     -      |
-        | Espera | 3         | fulano 3    | Professor | fulano@uenf.br | 2222-2222    | Daqui a dois dias | Micro-ônibus - até 32 passageiros | Aula de Campo  | Ida  |     -      |
+        | Estado | Protocolo | Solicitante | Cargo     | Email          | Data              | Tipo | Referência |
+        | Espera | 1         | fulano 1    | Professor | fulano@uenf.br | Daqui a dois dias | Ida  |     -      |
+        | Espera | 3         | fulano 3    | Professor | fulano@uenf.br | Daqui a dois dias | Ida  |     -      |
 
