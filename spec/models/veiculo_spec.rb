@@ -67,7 +67,7 @@ describe Veiculo do
       data_partida = Date.new(2010,03,10)
       data_chegada = Date.new(2010,03,12)
       veiculos_ocupados = Veiculo.ocupados_entre_datas_e_com_categoria(data_partida, data_chegada, @categoria_de_veiculo_1.id)
-      veiculos_ocupados.should include ["* " + @categoria_de_veiculo_1.nome + " - " + @veiculo_1.modelo + " - " + @veiculo_1.placa,
+      veiculos_ocupados.should include ["* " + @veiculo_1.modelo + " - " + @veiculo_1.placa + " - " + @categoria_de_veiculo_1.nome,
                                         @veiculo_1.id]
       veiculos_ocupados.length.should be_equal 1
     end
@@ -77,7 +77,7 @@ describe Veiculo do
       data_partida = Date.new(2010,03,11)
       data_chegada = Date.new(2010,03,11)
       veiculos_ocupados = Veiculo.ocupados_entre_datas_e_com_categoria(data_partida, data_chegada, @categoria_de_veiculo_1.id)
-      veiculos_ocupados.should include ["* " + @categoria_de_veiculo_1.nome + " - " + @veiculo_1.modelo + " - " + @veiculo_1.placa,
+      veiculos_ocupados.should include ["* " + @veiculo_1.modelo + " - " + @veiculo_1.placa + " - " + @categoria_de_veiculo_1.nome,
                                         @veiculo_1.id]
       veiculos_ocupados.length.should be_equal 1
     end
@@ -95,9 +95,9 @@ describe Veiculo do
       data_partida = Date.new(2010,03,10)
       data_chegada = Date.new(2010,03,12)
       veiculos_desocupados = Veiculo.desocupados_entre_datas_e_com_categoria(data_partida, data_chegada, @categoria_de_veiculo_1.id)
-      veiculos_desocupados.should include [@categoria_de_veiculo_2.nome + " - " + @veiculo_2.modelo + " - " + @veiculo_2.placa,
+      veiculos_desocupados.should include [@veiculo_2.modelo + " - " + @veiculo_2.placa + " - " + @categoria_de_veiculo_2.nome,
                                             @veiculo_2.id]
-      veiculos_desocupados.should include ["* " + @categoria_de_veiculo_1.nome + " - " + @veiculo_3.modelo + " - " + @veiculo_3.placa,
+      veiculos_desocupados.should include ["* " + @veiculo_3.modelo + " - " + @veiculo_3.placa + " - " + @categoria_de_veiculo_1.nome,
                                             @veiculo_3.id]
       veiculos_desocupados.length.should be_equal 2
     end
@@ -107,9 +107,9 @@ describe Veiculo do
       data_partida = Date.new(2010,03,11)
       data_chegada = Date.new(2010,03,11)
       veiculos_desocupados = Veiculo.desocupados_entre_datas_e_com_categoria(data_partida, data_chegada, @categoria_de_veiculo_1.id)
-      veiculos_desocupados.should include [@categoria_de_veiculo_2.nome + " - " + @veiculo_2.modelo + " - " + @veiculo_2.placa,
+      veiculos_desocupados.should include [@veiculo_2.modelo + " - " + @veiculo_2.placa + " - " + @categoria_de_veiculo_2.nome,
                                             @veiculo_2.id]
-      veiculos_desocupados.should include ["* " + @categoria_de_veiculo_1.nome + " - " + @veiculo_3.modelo + " - " + @veiculo_3.placa,
+      veiculos_desocupados.should include ["* " + @veiculo_3.modelo + " - " + @veiculo_3.placa + " - " + @categoria_de_veiculo_1.nome,
                                             @veiculo_3.id]
       veiculos_desocupados.length.should be_equal 2
     end
@@ -119,11 +119,11 @@ describe Veiculo do
       data_partida = Date.new(2010,03,03)
       data_chegada = Date.new(2010,03,05)
       veiculos_desocupados = Veiculo.desocupados_entre_datas_e_com_categoria(data_partida, data_chegada, @categoria_de_veiculo_1.id)
-      veiculos_desocupados.should include ["* " + @categoria_de_veiculo_1.nome + " - " + @veiculo_1.modelo + " - " + @veiculo_1.placa,
+      veiculos_desocupados.should include ["* " + @veiculo_1.modelo + " - " + @veiculo_1.placa + " - " + @categoria_de_veiculo_1.nome,
                                             @veiculo_1.id]
-      veiculos_desocupados.should include [@categoria_de_veiculo_2.nome + " - " + @veiculo_2.modelo + " - " + @veiculo_2.placa,
+      veiculos_desocupados.should include [@veiculo_2.modelo + " - " + @veiculo_2.placa + " - " + @categoria_de_veiculo_2.nome,
                                             @veiculo_2.id]
-      veiculos_desocupados.should include ["* " + @categoria_de_veiculo_1.nome + " - " + @veiculo_3.modelo + " - " + @veiculo_3.placa,
+      veiculos_desocupados.should include ["* " + @veiculo_3.modelo + " - " + @veiculo_3.placa + " - " + @categoria_de_veiculo_1.nome,
                                             @veiculo_3.id]
       veiculos_desocupados.length.should be_equal 3
     end

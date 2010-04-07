@@ -40,8 +40,8 @@
   <div class="show_linha">
     <div class="linha_titulo">Ve&iacute;culo: </div>
     <div class="linha_texto">
-      <%=h CategoriaDeVeiculo.find(@veiculo.categoria_de_veiculo_id).nome +
-        " - " + @veiculo.modelo + " - " + @veiculo.placa if not @veiculo.nil?%>
+      <%=h @veiculo.modelo + " - " + @veiculo.placa + " - " +
+          CategoriaDeVeiculo.find(@veiculo.categoria_de_veiculo_id).nome  if @veiculo %>
     </div>
   </div>
 
@@ -51,7 +51,7 @@
       <%=h @viagem.estado %>
     </div>
   </div>
-  
+
   <% if !@viagem.motivo_id.nil? %>
     <div class="show_linha">
       <div class="linha_titulo">Motivo: </div>
@@ -59,7 +59,7 @@
         <%=h Motivo.find(@viagem.motivo_id).descricao %>
       </div>
     </div>
-  <% end %>   
+  <% end %>
 
   <h1>Requisi&ccedil;&otilde;es atendidas</h1>
     <div id="tabela_exibir">

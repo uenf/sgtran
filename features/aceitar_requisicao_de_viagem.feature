@@ -36,13 +36,13 @@ Funcionalidade: Aceitar requisição de viagem
     Exemplos: (preenchimento dos dados da viagem)
 
     | data de saída   | data de chegada | horario | motorista_selecao       | motorista_visao   | veiculo_selecao                               | veiculo_visao                                  |
-    |                 | Daqui a 2 dias  | 13:00   | Gustavo Santos          | Gustavo Santos    | Automóvel até 4 passageiros - Gol - KQI 5899  | Automóvel até 4 passageiros - Gol - KQI 5899   |
-    | Daqui a 2 dias  |                 | 14:00   | Gustavo Santos          | Gustavo Santos    | Automóvel até 4 passageiros - Gol - KQI 5899  | Automóvel até 4 passageiros - Gol - KQI 5899   |
-    | Daqui a 2 dias  | Daqui a 2 dias  | 13:00   | Selecione um motorista  |                   | Automóvel até 4 passageiros - Gol - KQI 5899  | Automóvel até 4 passageiros - Gol - KQI 5899   |
-    | Daqui a 2 dias  |                 | 10:00   | Eduardo Silva           | Eduardo Silva     | Automóvel até 4 passageiros - Gol - KQI 5899  | Automóvel até 4 passageiros - Gol - KQI 5899   |
-    |                 |                 | 10:00   | Selecione um motorista  |                   | Automóvel até 4 passageiros - Gol - KQI 5899  | Automóvel até 4 passageiros - Gol - KQI 5899   |
+    |                 | Daqui a 2 dias  | 13:00   | Gustavo Santos          | Gustavo Santos    | Gol - KQI 5899 - Automóvel até 4 passageiros  | Gol - KQI 5899 - Automóvel até 4 passageiros   |
+    | Daqui a 2 dias  |                 | 14:00   | Gustavo Santos          | Gustavo Santos    | Gol - KQI 5899 - Automóvel até 4 passageiros  | Gol - KQI 5899 - Automóvel até 4 passageiros   |
+    | Daqui a 2 dias  | Daqui a 2 dias  | 13:00   | Selecione um motorista  |                   | Gol - KQI 5899 - Automóvel até 4 passageiros  | Gol - KQI 5899 - Automóvel até 4 passageiros   |
+    | Daqui a 2 dias  |                 | 10:00   | Eduardo Silva           | Eduardo Silva     | Gol - KQI 5899 - Automóvel até 4 passageiros  | Gol - KQI 5899 - Automóvel até 4 passageiros   |
+    |                 |                 | 10:00   | Selecione um motorista  |                   | Gol - KQI 5899 - Automóvel até 4 passageiros  | Gol - KQI 5899 - Automóvel até 4 passageiros   |
     |                 |                 | 10:00   | Gustavo Santos          | Gustavo Santos    | Selecione um veículo                          |                                                |
-    |                 |                 | 10:00   | Gustavo Santos          | Gustavo Santos    | Automóvel até 4 passageiros - Gol - KQI 5899  | Automóvel até 4 passageiros - Gol - KQI 5899  |
+    |                 |                 | 10:00   | Gustavo Santos          | Gustavo Santos    | Gol - KQI 5899 - Automóvel até 4 passageiros  | Gol - KQI 5899 - Automóvel até 4 passageiros  |
 
 
     Esquema do Cenário: Aceitar com uma viagem já existente

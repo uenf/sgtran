@@ -7,8 +7,9 @@ class Veiculo < ActiveRecord::Base
   validate :validar_categoria_de_veiculo, :validar_combustiveis
 
   def itens_da_view
-    return  CategoriaDeVeiculo.find(self.categoria_de_veiculo_id).nome + " - " +
-      self.modelo + " - " + self.placa
+    return  self.modelo + " - " + self.placa + " - " +
+            CategoriaDeVeiculo.find(self.categoria_de_veiculo_id).nome
+
   end
 
   protected
@@ -43,7 +44,7 @@ class Veiculo < ActiveRecord::Base
 
             categoria_de_veiculo.id == categoria_de_veiculo_da_requisicao_id ? marcador = "* " : marcador = ""
 
-            veiculos_ocupados << [marcador + categoria_de_veiculo.nome + " - " + veiculo.modelo + " - " + veiculo.placa,
+            veiculos_ocupados << [marcador + veiculo.modelo + " - " + veiculo.placa + " - " + categoria_de_veiculo.nome,
                                   veiculo.id]
           end
         end
@@ -67,12 +68,12 @@ class Veiculo < ActiveRecord::Base
           if not (data_partida >= viagem.data_partida and data_partida <= viagem.data_chegada) and
            not (data_chegada >= viagem.data_partida and data_chegada <= viagem.data_chegada)
 
-            veiculos_desocupados << [marcador + categoria_de_veiculo.nome + " - " + veiculo.modelo + " - " + veiculo.placa,
+            veiculos_desocupados << [marcador + veiculo.modelo + " - " + veiculo.placa + " - " + categoria_de_veiculo.nome,
                                      veiculo.id]
           end
         end
       else
-        veiculos_desocupados << [marcador + categoria_de_veiculo.nome + " - " + veiculo.modelo + " - " + veiculo.placa,
+        veiculos_desocupados << [marcador + veiculo.modelo + " - " + veiculo.placa + " - " + categoria_de_veiculo.nome,
                                  veiculo.id]
       end
     end
