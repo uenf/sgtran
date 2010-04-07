@@ -28,6 +28,8 @@ Then /^eu devo ver a tabela "(.+)" com$/ do |tabela_id, tabela_esperada|
     tabela_esperada.map_column!("Data") do |data|
       if data == 'Daqui a dois dias'
         data = Date.tomorrow.tomorrow.strftime("%d/%m/%Y")
+      elsif data = 'Daqui a quatro dias'
+        data = (Date.today + 4.days).strftime("%d/%m/%Y")
       end
       data
     end

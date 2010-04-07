@@ -74,7 +74,8 @@ Dado /^que eu tenho uma requisição de volta com número de protocolo ([^\"]*)$
                                      :id => protocolo,
                                      :solicitante_id => @solicitante.id,
                                      :categoria_de_veiculo_id => categoria_de_veiculo.id,
-                                     :objetivo_de_reserva_id => objetivo_de_reserva.id
+                                     :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                                     :data_de_reserva => Date.today + 4.days
   @requisicao_volta.referencia_id = @requisicao_ida.id
   @requisicao_ida.referencia_id = @requisicao_volta.id
   @requisicao_volta.save!

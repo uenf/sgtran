@@ -93,6 +93,14 @@ class Requisicao < ActiveRecord::Base
 
         requisicao_ida.solicitante_id = solicitante.id
         requisicao_volta.solicitante_id = solicitante.id
+        requisicao_ida.save
+        requisicao_volta.save
+
+        requisicao_ida.referencia_id = requisicao_volta.id
+        requisicao_volta.referencia_id = requisicao_ida.id
+
+        requisicao_ida.tipo = "Ida"
+        requisicao_volta.tipo = "Volta"
 
         requisicao_ida.save
         requisicao_volta.save
@@ -231,32 +239,32 @@ class Requisicao < ActiveRecord::Base
       #Confirmacao.deliver_email_motivo_de_rejeitar(@requisicao)
     end
   end
-  
+
   def esta_em_espera?
     if self.estado == Requisicao::ESPERA
       return true
     else
       return false
     end
-    
+
   end
-  
+
   def esta_aceita?
     if self.estado == Requisicao::ACEITA
       return true
     else
       return false
     end
-    
+
   end
-  
+
   def esta_rejeitada?
     if self.estado == Requisicao::REJEITADA
       return true
     end
     return false
   end
-  
+
   def cancelar_requisicao motivo_id, observacao
     if self.esta_aceita?
       self.estado = Requisicao::CANCELADO_PELO_SISTEMA
