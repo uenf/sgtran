@@ -96,7 +96,7 @@ class RequisicoesController < ApplicationController
         redirect_to(confirmar_requisicao_path)
       else
         @requisicao = @requisicao[IDA]
-        render :action => "new"
+        render :action => "new", :layout => "requisicoes"
       end
     else
       if @requisicao[IDA].valid?
@@ -105,11 +105,11 @@ class RequisicoesController < ApplicationController
           redirect_to(confirmar_requisicao_path)
         else
           @requisicao = @requisicao[VOLTA]
-          render :action => "new"
+          render :action => "new", :layout => "requisicoes"
         end
       else
         @requisicao = @requisicao[IDA]
-        render :action => "new"
+        render :action => "new", :layout => "requisicoes"
       end
     end
 #   Confirmacao.deliver_email_com_confirmacao_de_cadastro_de_requisicao(@requisicao, @solicitante)
