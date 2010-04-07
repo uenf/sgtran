@@ -157,34 +157,25 @@ class Requisicao < ActiveRecord::Base
     if self.esta_em_espera? or self.esta_rejeitada?
       viagem = Viagem.new
 
-      viagem.data_partida = data_partida
-      viagem.data_chegada = data_chegada
+      viagem.data_partida = data_partida.to_date
+      viagem.data_chegada = data_chegada.to_date
       viagem.horario_partida = horario_partida
       viagem.motorista = motorista
       viagem.veiculo = veiculo
       viagem.estado = Viagem::AGUARDANDO
 
-      if !data_partida.nil? && !data_chegada.nil?
-        if data_partida > data_chegada
-            viagem.errors.add("Data de chegada anterior à data de partida");
+      if viagem.save!
+        self.estado = ACEITA
+        self.viagem_id = viagem.id
+        self.motivo_id = nil
+        self.motivo_observacao = nil
 
-            return viagem
-        end
+    #    Requisicao.update(self.id, :estado => ACEITA, :viagem_id => viagem.id)
+
+        self.save
+        return viagem
+        # enviar e-mail aqui
       end
-
-      viagem.save!
-
-      self.estado = ACEITA
-      self.viagem_id = viagem.id
-      self.motivo_id = nil
-      self.motivo_observacao = nil
-
-  #    Requisicao.update(self.id, :estado => ACEITA, :viagem_id => viagem.id)
-
-      self.save(perform_validation = false)
-
-      return viagem
-      # enviar e-mail aqui
     end
   end
 

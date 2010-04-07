@@ -1,14 +1,13 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe Viagem do
-  before(:each) do
-    @valid_attributes = {
-
-    }
-  end
-
-  it "should create a new instance given valid attributes" do
-    Viagem.create!(@valid_attributes)
+  it "Data de partida não pode ser posterior à data de chegada" do
+    data_partida = Date.today + 2.days
+    data_chegada = Date.today
+    viagem = Factory.build :viagem,
+                            :data_partida => data_partida,
+                            :data_chegada => data_chegada
+    viagem.save.should be_false
   end
 
   it "Deve filtrar as viagens pelas opções definidas" do
@@ -75,7 +74,7 @@ describe Viagem do
     requisicao_2.viagem_id.should == nil
 
   end
-  
+
   it "Deve verificar se o estado da viagem é Aguardando" do
     viagem = Factory.create :viagem
     viagem.esta_aguardando?.should be_true

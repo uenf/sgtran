@@ -205,11 +205,13 @@ class RequisicoesController < ApplicationController
         data_nula(params[:data_chegada]),
         (params[:horario]["partida(4i)"].blank? and params[:horario]["partida(5i)"].blank?) ? nil : params[:horario]["partida(4i)"] + ":" + params[:horario]["partida(5i)"])
 
-      if viagem.errors.empty?
-        redirect_to :controller => "viagem", :action => "show", :id => viagem.id
-      else
-        session[:viagem] = viagem
-        redirect_to :action => "aceitar"
+      if viagem
+        if viagem.valid?
+          redirect_to :controller => "viagem", :action => "show", :id => viagem.id
+        else
+          session[:viagem] = viagem
+          redirect_to :action => "aceitar"
+        end
       end
 
     elsif params[:escolha_de_viagem].eql?("existente")

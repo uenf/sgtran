@@ -12,6 +12,15 @@ class Viagem < ActiveRecord::Base
   ATENDIDA   = "Atendida"
   CANCELADA  = "Cancelada"
 
+  validate :validar_data
+
+  def validar_data
+    if self.data_partida && self.data_chegada
+      if self.data_partida > self.data_chegada
+          self.errors.add("Data de chegada anterior à data de partida")
+      end
+    end
+  end
 
   def self.filtrar opcao
     case opcao.to_s
@@ -35,7 +44,7 @@ class Viagem < ActiveRecord::Base
     end
     atendidas
   end
-  
+
   def esta_aguardando?
     if self.estado == Viagem::AGUARDANDO
       return true
