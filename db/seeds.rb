@@ -74,7 +74,7 @@ open("#{Rails.root}/db/seeds_files/solicitantes_seed.txt") do |solicitantes|
                           :laboratorio_ou_setor => lab_ou_setor,
                           :centro_id => Centro.find_by_nome(centro).id,
                           :telefone_ou_ramal => ramal,
-                          :cargo_ou_funcao => cargo)
+                          :cargo => cargo)
     end
   end
 end

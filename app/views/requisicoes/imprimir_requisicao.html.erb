@@ -1,9 +1,9 @@
 Nome do Solicitante: <%= @requisicao.nome_do_solicitante %><br />
 E-mail: <%= @requisicao.email %><br />
-Cargo ou Fun&ccedil;&atilde;o: <%= @requisicao.cargo_ou_funcao %><br />
+Cargo ou Fun&ccedil;&atilde;o: <%= @requisicao.cargo %><br />
 Ramal: <%= @requisicao.telefone_ou_ramal %><br />
 Celular: <%= @requisicao.celular %><br />
-Laborat&oacute;rio ou Setor: <%= @requisicao.laboratorio_ou_setor %><br />
+Lab. ou Setor: <%= @requisicao.laboratorio_ou_setor %><br />
 Centro: <%= @requisicao.centro %><br />
 Data de Reserva: <%= @requisicao.data_de_reserva.strftime("%d/%m/%Y") %><br />
 Categoria de ve&iacute;culo: <%= CategoriaDeVeiculo.find(@requisicao.categoria_de_veiculo_id).nome %><br />

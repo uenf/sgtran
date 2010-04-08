@@ -4,7 +4,7 @@ class CreateSolicitantes < ActiveRecord::Migration
       t.references :centro
       t.string :nome
       t.string :email
-      t.string :cargo_ou_funcao
+      t.string :cargo
       t.string :matricula
       t.string :telefone_ou_ramal
       t.string :laboratorio_ou_setor
