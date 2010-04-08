@@ -7,7 +7,6 @@ Factory.define :solicitante do |solicitante|
   solicitante.telefone_ou_ramal "2222-2222"
   solicitante.laboratorio_ou_setor "CCT"
   solicitante.centro_id nil
-  solicitante.sala "121"
 
 end
 

@@ -5,7 +5,6 @@ Ramal: <%= @requisicao.telefone_ou_ramal %><br />
 Celular: <%= @requisicao.celular %><br />
 Laborat&oacute;rio ou Setor: <%= @requisicao.laboratorio_ou_setor %><br />
 Centro: <%= @requisicao.centro %><br />
-Sala: <%= @requisicao.sala %><br />
 Data de Reserva: <%= @requisicao.data_de_reserva.strftime("%d/%m/%Y") %><br />
 Categoria de ve&iacute;culo: <%= CategoriaDeVeiculo.find(@requisicao.categoria_de_veiculo_id).nome %><br />
 Objetivo da Reserva: <%= ObjetivoDeReserva.find(@requisicao.objetivo_de_reserva_id).texto %><br />
