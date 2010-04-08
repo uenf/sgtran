@@ -690,6 +690,36 @@ div.erro_404 {
     text-align: center;
 }
 
+div.erro_500 {
+    background: #ececec url("/images/internal_error.png") no-repeat 18% 50%;
+    padding: 20px;
+    border: solid 1px #dbdbdb;
+    font-size: 15px;
+    color: #1A60B0;
+    text-align: center; 
+}
+
+div.acesso_negado {
+    background: #ececec url("/images/access_denied.png") no-repeat 18% 50%;
+    padding: 20px;
+    border: solid 1px #dbdbdb;
+    font-size: 15px;
+    color: #1A60B0;
+    text-align: center;     
+}
+a.error {
+    padding-left: 35px;
+    padding-bottom: 10px;
+    background: url("/images/voltar.png") no-repeat;
+    color: #1A60B0;
+    font-size: 23px;
+    font-weight: bold;
+    text-decoration: none
+}
+a:hover.error {
+    text-decoration: underline
+}
+
 
 /*
 ** LINK BOTÃO
