@@ -17,7 +17,7 @@
     <td onclick="location.href='<%= solicitante_path(solicitante) %>'" onmouseover="this.style.cursor='pointer'"><%=h solicitante.nome %></td>
     <td onclick="location.href='<%= solicitante_path(solicitante) %>'" onmouseover="this.style.cursor='pointer'"><%=h solicitante.email %></td>
     <td onclick="location.href='<%= solicitante_path(solicitante) %>'" onmouseover="this.style.cursor='pointer'"><%=h solicitante.matricula %></td>
-    <td onclick="location.href='<%= solicitante_path(solicitante) %>'" onmouseover="this.style.cursor='pointer'"><%=h solicitante.cargo_ou_funcao %></td>
+    <td onclick="location.href='<%= solicitante_path(solicitante) %>'" onmouseover="this.style.cursor='pointer'"><%=h solicitante.cargo %></td>
     <% if current_user.has_role? :admin %>
       <td onclick="location.href='<%= edit_solicitante_path(solicitante) %>'" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("editar_dado.png", :border => 0, :alt => "Editar"), edit_solicitante_path(solicitante) %></td>
       <td onclick="" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("deletar_dado.png", :border => 0, :alt => "Deletar"), solicitante, :confirm => 'Tem certeza que deseja apagar?', :method => :delete %></td>

@@ -7,7 +7,7 @@ describe Solicitante do
       :nome => "value for nome",
       :email => "fulano@uenf.br",
       :matricula => "value for matricula",
-      :cargo_ou_funcao => "Professor",
+      :cargo => "Professor",
       :centro_id => centro.id
     }
   end

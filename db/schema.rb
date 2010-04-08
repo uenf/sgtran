@@ -98,11 +98,10 @@ ActiveRecord::Schema.define(:version => 20101022184205) do
     t.integer  "centro_id"
     t.string   "nome"
     t.string   "email"
-    t.string   "cargo_ou_funcao"
+    t.string   "cargo"
     t.string   "matricula"
     t.string   "telefone_ou_ramal"
     t.string   "laboratorio_ou_setor"
-    t.string   "sala"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
