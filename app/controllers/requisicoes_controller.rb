@@ -71,7 +71,7 @@ class RequisicoesController < ApplicationController
   # GET /requisicoes/new
   # GET /requisicoes/new.xml
   def new
-    @requisicao = Requisicao.new
+    @requisicao = Requisicao.new(2)
     render :action => "new", :layout => "requisicoes"
   end
 
