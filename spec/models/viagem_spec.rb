@@ -43,8 +43,8 @@ describe Viagem do
     viagem = Factory.create :viagem
 
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
-    predio = Factory.create :predio
-    solicitante = Factory.create :solicitante, :predio_id => predio.id
+    centro = Factory.create :centro
+    solicitante = Factory.create :solicitante, :centro_id => centro.id
     motivo = Factory.create :motivo
     objetivo_de_reserva = Factory.create :objetivo_de_reserva
 

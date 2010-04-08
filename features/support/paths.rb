@@ -102,10 +102,10 @@ module NavigationHelpers
       aceitar_path(:id => @requisicao)
 
     when /^página de adição de prédio$/
-      new_predio_path
+      new_centro_path
 
     when /^página de edição de prédio$/
-      edit_predio_path(:id => @predio)
+      edit_centro_path(:id => @centro)
 
     when /^página de cancelamento da viagem$/
       cancelar_viagem_path(:id => @viagem)

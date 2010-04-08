@@ -1,7 +1,7 @@
 class CreateSolicitantes < ActiveRecord::Migration
   def self.up
     create_table :solicitantes do |t|
-      t.references :predio
+      t.references :centro
       t.string :nome
       t.string :email
       t.string :cargo_ou_funcao

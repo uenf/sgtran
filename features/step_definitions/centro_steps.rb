@@ -1,4 +1,4 @@
 Dado /^que eu tenho um prédio$/ do
-  @predio = Factory.create :predio
+  @centro = Factory.create :centro
 end
 

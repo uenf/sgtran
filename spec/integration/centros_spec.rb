@@ -1,4 +1,4 @@
 require 'spec_helper'
 
-describe "Predios" do
+describe "Centros" do
 end

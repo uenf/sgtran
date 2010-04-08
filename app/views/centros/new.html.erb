@@ -1,16 +1,16 @@
 <div class="show_padrao">
 
-<h1>Novo Pr&eacute;dio</h1>
+<h1>Novo Centro</h1>
 
-<% form_for(@predio) do |f| %>
-  <%= mensagem_de_erro(@predio) %>
+<% form_for(@centro) do |f| %>
+  <%= mensagem_de_erro(@centro) %>
 
   <div class="show_linha">
     <div class="linha_titulo"><%= f.label :nome, "Nome:", :class => "label_obrigatorio" %></div>
     <div class="linha_texto_neutro"><%= f.text_field :nome %></div>
   </div>
 
-  <div class="botao_concluir"><%= f.submit 'Criar Pr&eacute;dio' %></div>
+  <div class="botao_concluir"><%= f.submit 'Criar Centro' %></div>
 
 <% end %>
 </div>

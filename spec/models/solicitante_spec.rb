@@ -2,13 +2,13 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe Solicitante do
   before(:each) do
-    predio = Factory.create :predio
+    centro = Factory.create :centro
     @valid_attributes = {
       :nome => "value for nome",
       :email => "fulano@uenf.br",
       :matricula => "value for matricula",
       :cargo_ou_funcao => "Professor",
-      :predio_id => predio.id
+      :centro_id => centro.id
     }
   end
 
@@ -17,19 +17,19 @@ describe Solicitante do
   end
 
   it "Deve invalidar e-mail em formato errado." do
-    predio = Factory.create :predio
+    centro = Factory.create :centro
     solicitante = Factory.build :solicitante,
-                                :predio_id => predio.id,
+                                :centro_id => centro.id,
                                 :email => "professor@uenf"
     solicitante.save.should be_false
   end
 
   it "Deve estar cheio no caso do professor existir" do
-    predio = Factory.create :predio
+    centro = Factory.create :centro
     Factory.create :solicitante,
                     :email => "professor@uenf.br",
                     :matricula => "01210",
-                    :predio_id => predio.id
+                    :centro_id => centro.id
     solicitante = Solicitante.verificarExistencia({:matricula => "01210",
                                                     :email => "professor@uenf.br",
                                                     :cargo => "Professor"})
@@ -37,27 +37,27 @@ describe Solicitante do
   end
 
   it "Deve estar vazio no caso do professor não existir" do
-    predio = Factory.create :predio
+    centro = Factory.create :centro
     Factory.create :solicitante,
                     :email => "professor@uenf.br",
                     :matricula => "01210",
-                    :predio_id => predio.id
+                    :centro_id => centro.id
     solicitante = Solicitante.verificarExistencia({:matricula => "0121001",
                                                     :email => "professor@uenf.br"})
     solicitante.should be_nil
   end
 
   it "Deve invalidar caso o nome seja vazio" do
-    predio = Factory.create :predio
+    centro = Factory.create :centro
     solicitante = Factory.build :solicitante,
                                 :nome => "",
-                                :predio_id => predio.id
+                                :centro_id => centro.id
     solicitante.valid?.should be_false
   end
 
   it "deve verificar se um solicitante existe" do
-    predio = Factory.create :predio
-    solicitante = Factory.create :solicitante, :predio_id => predio.id
+    centro = Factory.create :centro
+    solicitante = Factory.create :solicitante, :centro_id => centro.id
     dados = {:email => solicitante.email, :matricula => solicitante.matricula}
     Solicitante.verificar_solicitante(dados).should be_true
   end

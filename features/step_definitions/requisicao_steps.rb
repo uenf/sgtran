@@ -1,7 +1,7 @@
 Dado /^que eu tenho uma requisição com estado "([^\"]*)"$/ do |estado|
   categoria_de_veiculo = Factory.create :categoria_de_veiculo
-  predio = Factory.create :predio
-  solicitante = Factory.create :solicitante, :predio_id => predio.id
+  centro = Factory.create :centro
+  solicitante = Factory.create :solicitante, :centro_id => centro.id
   motivo = Factory.create :motivo
   objetivo_de_reserva = Factory.create :objetivo_de_reserva
   case estado.to_s
@@ -43,8 +43,8 @@ end
 
 Dado /^que eu tenho uma viagem com estado "([^\"]*)"$/ do |estado|
   categoria_de_veiculo = Factory.create :categoria_de_veiculo
-  predio = Factory.create :predio
-  solicitante = Factory.create :solicitante, :predio_id => predio.id
+  centro = Factory.create :centro
+  solicitante = Factory.create :solicitante, :centro_id => centro.id
   case estado.to_s
     when "Aguardando" then
       @viagem = Factory.create :viagem, :estado => Viagem::AGUARDANDO
@@ -82,12 +82,12 @@ Dado /^que eu tenho uma requisição de volta com número de protocolo ([^\"]*)$
   @requisicao_ida.save!
 end
 
-Dado /^que eu tenha um solicitante com e-mail "([^\"]*)", matrícula "([^\"]*)" e prédio "([^\"]*)"$/ do |email, matricula, predio_nome|
-  predio = Factory.create :predio, :nome => predio_nome
+Dado /^que eu tenha um solicitante com e-mail "([^\"]*)", matrícula "([^\"]*)" e prédio "([^\"]*)"$/ do |email, matricula, centro_nome|
+  centro = Factory.create :centro, :nome => centro_nome
   @solicitante = Factory.create :solicitante,
                                 :email => email,
                                 :matricula => matricula,
-                                :predio_id => predio.id
+                                :centro_id => centro.id
 end
 
 Dado /^que eu estou logado com o login "([^\"]*)" e a senha "([^\"]*)"$/ do |login, senha|

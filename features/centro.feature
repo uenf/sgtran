@@ -15,7 +15,7 @@ Para que eu possa adicinar, editar e utilizar no sistema
     Exemplos:
 
     | nome  | sentença                      |
-    | P5    | Prédio criado com sucesso!    |
+    | P5    | Centro criado com sucesso!    |
     |       | Nome não pode ser vazio       |
 
 
@@ -29,5 +29,5 @@ Para que eu possa adicinar, editar e utilizar no sistema
     Exemplos:
 
     | nome          | sentença                          |
-    | Outro nome    | Prédio modificado com sucesso!    |
+    | Outro nome    | Centro modificado com sucesso!    |
 

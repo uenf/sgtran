@@ -53,12 +53,12 @@ open("#{Rails.root}/db/seeds_files/motoristas_seed.txt") do |motoristas|
   end
 end
 
-Predio.delete_all
-open("#{Rails.root}/db/seeds_files/predios_seed.txt") do |predios|
-  predios.read.each_line do |predio|
-    if predio != "\n"
-      nome = predio.chomp
-      Predio.create!(:nome => nome)
+Centro.delete_all
+open("#{Rails.root}/db/seeds_files/centros_seed.txt") do |centros|
+  centros.read.each_line do |centro|
+    if centro != "\n"
+      nome = centro.chomp
+      Centro.create!(:nome => nome)
     end
   end
 end
@@ -67,12 +67,12 @@ Solicitante.delete_all
 open("#{Rails.root}/db/seeds_files/solicitantes_seed.txt") do |solicitantes|
   solicitantes.read.each do |s|
     if s != "\n"
-      nome, email, matricula, cargo, predio = s.chomp.split("|")
+      nome, email, matricula, cargo, centro = s.chomp.split("|")
       Solicitante.create!(:nome => nome,
                           :email => email,
                           :matricula => matricula,
                           :cargo_ou_funcao => cargo,
-                          :predio_id => Predio.find_by_nome(predio).id)
+                          :centro_id => Centro.find_by_nome(centro).id)
     end
   end
 end

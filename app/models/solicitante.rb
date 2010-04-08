@@ -1,6 +1,6 @@
 class Solicitante < ActiveRecord::Base
 
-  has_one :predio
+  has_one :centro
 
   validates_presence_of :nome,
                         :email,

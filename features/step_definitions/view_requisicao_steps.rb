@@ -5,9 +5,9 @@ Given /^que eu tenha ([0-9]+) requisições em espera$/ do |quantidade|
   for pos in (1..quantidade.to_i) do
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     objetivo_de_reserva = Factory.create :objetivo_de_reserva
-    predio = Factory.create :predio
+    centro = Factory.create :centro
     solicitante = Factory.create :solicitante,
-                                 :predio_id => predio.id,
+                                 :centro_id => centro.id,
                                  :nome => 'fulano ' + pos.to_s
     requisicao = Factory.create :requisicao,
                                 :id => pos,

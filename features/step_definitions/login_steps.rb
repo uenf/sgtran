@@ -23,10 +23,10 @@ end
 
 
 Dado /^que eu tenho uma requisição com solicitante "([^\"]*)"$/ do |solicitante|
-  predio = Factory.create :predio
+  centro = Factory.create :centro
   solicitante = Factory.create :solicitante,
                                :nome => solicitante,
-                               :predio_id => predio.id
+                               :centro_id => centro.id
   categoria_de_veiculo = Factory.create :categoria_de_veiculo
   objetivo_de_reserva = Factory.create :objetivo_de_reserva
   Factory.create :requisicao,

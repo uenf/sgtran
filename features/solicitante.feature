@@ -13,7 +13,7 @@ Para que eu possa adicinar, editar e utilizar no sistema
     E eu preencho "E-mail" com "<e-mail>"
     E eu preencho "Matrícula" com "<matrícula>"
     E eu preencho "Cargo" com "<cargo>"
-    E eu seleciono "<prédio>" em "Prédio"
+    E eu seleciono "<prédio>" em "Centro"
     E eu pressiono "Criar Solicitante"
     Então eu devo ver "<sentença>"
 
@@ -36,7 +36,7 @@ Para que eu possa adicinar, editar e utilizar no sistema
     E eu preencho "E-mail" com "<e-mail>"
     E eu preencho "Matrícula" com "<matrícula>"
     E eu preencho "Cargo" com "<cargo>"
-    E eu seleciono "<prédio>" em "Prédio"
+    E eu seleciono "<prédio>" em "Centro"
     E eu pressiono "Atualizar"
     Então eu devo ver "<sentença>"
 

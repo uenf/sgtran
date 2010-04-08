@@ -36,12 +36,12 @@
 
   <div class="show_linha">
     <div class="linha_titulo">
-      <%= f.label :predio_id, "Pr&eacute;dio:"%>
+      <%= f.label :centro_id, "Centro:"%>
     </div>
     <div class="linha_texto_neutro">
-      <%= f.select :predio_id,
-                    Predio.all.collect {|predio| [predio.nome, predio.id]},
-                    {:include_blank => "Selecione um Pr&eacute;dio"} %>
+      <%= f.select :centro_id,
+                    Centro.all.collect {|centro| [centro.nome, centro.id]},
+                    {:include_blank => "Selecione um Centro"} %>
     </div>
   </div>
 

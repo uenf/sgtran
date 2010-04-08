@@ -18,6 +18,12 @@ ActiveRecord::Schema.define(:version => 20101022184205) do
     t.datetime "updated_at"
   end
 
+  create_table "centros", :force => true do |t|
+    t.string   "nome"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "combustiveis", :force => true do |t|
     t.string   "nome"
     t.datetime "created_at"
@@ -47,12 +53,6 @@ ActiveRecord::Schema.define(:version => 20101022184205) do
 
   create_table "objetivos_de_reserva", :force => true do |t|
     t.string   "texto"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "predios", :force => true do |t|
-    t.string   "nome"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(:version => 20101022184205) do
   end
 
   create_table "solicitantes", :force => true do |t|
-    t.integer  "predio_id"
+    t.integer  "centro_id"
     t.string   "nome"
     t.string   "email"
     t.string   "cargo_ou_funcao"

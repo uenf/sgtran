@@ -6,7 +6,7 @@ Factory.define :solicitante do |solicitante|
   solicitante.cargo_ou_funcao "Professor"
   solicitante.telefone_ou_ramal "2222-2222"
   solicitante.laboratorio_ou_setor "CCT"
-  solicitante.predio_id nil
+  solicitante.centro_id nil
   solicitante.sala "121"
 
 end

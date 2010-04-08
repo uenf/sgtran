@@ -34,7 +34,7 @@ function definirCor()
     (url.search(/usuario/) != -1) ||
     (url.search(/motivo/) != -1) ||
     (url.search(/objetivos_de_reserva/) != -1) ||
-    (url.search(/predio/) != -1)
+    (url.search(/centro/) != -1)
     )
     {
         definir_aba("opcao_base_de_dados")

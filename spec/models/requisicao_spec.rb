@@ -144,8 +144,8 @@ describe Requisicao do
   end
 
   it "Deve retornar uma lista contendo 2 objetos de requisição" do
-    predio = Factory.create :predio
-    solicitante = Factory.create :solicitante, :predio_id => predio.id
+    centro = Factory.create :centro
+    solicitante = Factory.create :solicitante, :centro_id => centro.id
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     dados = {:matricula => solicitante.matricula,
               :email => solicitante.email,
@@ -164,8 +164,8 @@ describe Requisicao do
   end
 
   it "Deve retornar uma lista contendo 1 objetos de requisição" do
-    predio = Factory.create :predio
-    solicitante = Factory.create :solicitante, :predio_id => predio.id
+    centro = Factory.create :centro
+    solicitante = Factory.create :solicitante, :centro_id => centro.id
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     dados = {:matricula => solicitante.matricula,
               :email => solicitante.email,

@@ -11,8 +11,8 @@ end
 
 Dado /^que eu tenho uma viagem com o estado "([^\"]*)"$/ do |estado|
   categoria_de_veiculo = Factory.create :categoria_de_veiculo
-  predio = Factory.create :predio
-  solicitante = Factory.create :solicitante, :predio_id => predio.id
+  centro = Factory.create :centro
+  solicitante = Factory.create :solicitante, :centro_id => centro.id
   motivo = Factory.create :motivo
   objetivo_de_reserva = Factory.create :objetivo_de_reserva
   motorista = Factory.create :motorista
@@ -29,7 +29,7 @@ Dado /^que eu tenho uma viagem com o estado "([^\"]*)"$/ do |estado|
   end
 
   @requisicao = Factory.create :requisicao, :categoria_de_veiculo_id => categoria_de_veiculo.id,
-                                          :predio_id => predio.id,
+                                          :centro_id => centro.id,
                                           :solicitante_id => solicitante.id,
                                           :objetivo_de_reserva_id => objetivo_de_reserva.id,
                                           :viagem_id => @viagem.id
