@@ -17,7 +17,7 @@ module NavigationHelpers
     when /^página de detalhes da requisição$/
       requisicao_path(@requisicao)
 
-    when /^página de editar detalhes da viagem$/
+    when /^página de aceitar requisição$/
       aceitar_path(@requisicao)
 
     when /^página de visualização de viagens$/

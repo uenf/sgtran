@@ -272,7 +272,62 @@ describe Requisicao do
                                 :estado => Requisicao::ESPERA,
                                 :categoria_de_veiculo_id => categoria_de_veiculo.id,
                                 :objetivo_de_reserva_id => objetivo_de_reserva.id
-    Requisicao.requisicao_em_espera?(requisicao).should be_true
+    requisicao.esta_em_espera?.should be_true
+  end
+
+  it "Deve verificar que uma requisição em epera pode ser aceita" do
+    categoria_de_veiculo = Factory.create :categoria_de_veiculo
+    objetivo_de_reserva = Factory.create :objetivo_de_reserva
+    requisicao = Factory.create :requisicao,
+                                :estado => Requisicao::ESPERA,
+                                :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                :objetivo_de_reserva_id => objetivo_de_reserva.id
+    requisicao.pode_ser_aceita?.should be_true
+  end
+
+  it "Deve verificar que uma requisição rejeitada pode ser aceita" do
+    categoria_de_veiculo = Factory.create :categoria_de_veiculo
+    objetivo_de_reserva = Factory.create :objetivo_de_reserva
+    motivo = Factory.create :motivo, :descricao => "algum motivo"
+    requisicao = Factory.create :requisicao,
+                                :estado => Requisicao::REJEITADA,
+                                :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                                :motivo_id => motivo.id
+    requisicao.pode_ser_aceita?.should be_true
+  end
+
+  it "Deve verificar que uma requisição aceita não pode ser aceita navamente" do
+    categoria_de_veiculo = Factory.create :categoria_de_veiculo
+    objetivo_de_reserva = Factory.create :objetivo_de_reserva
+    requisicao = Factory.create :requisicao,
+                                :estado => Requisicao::ACEITA,
+                                :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                :objetivo_de_reserva_id => objetivo_de_reserva.id
+    requisicao.pode_ser_aceita?.should be_false
+  end
+
+  it "Deve verificar que uma requisição cancelada pelo professor não pode ser aceita" do
+    categoria_de_veiculo = Factory.create :categoria_de_veiculo
+    objetivo_de_reserva = Factory.create :objetivo_de_reserva
+    requisicao = Factory.create :requisicao,
+                                :estado => Requisicao::CANCELADO_PELO_PROFESSOR,
+                                :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                                :motivo_professor => "algum motivo"
+    requisicao.pode_ser_aceita?.should be_false
+  end
+
+  it "Deve verificar que uma requisição cancelada pelo sistema não pode ser aceita" do
+    categoria_de_veiculo = Factory.create :categoria_de_veiculo
+    objetivo_de_reserva = Factory.create :objetivo_de_reserva
+    motivo = Factory.create :motivo, :descricao => "algum motivo"
+    requisicao = Factory.create :requisicao,
+                                :estado => Requisicao::CANCELADO_PELO_SISTEMA,
+                                :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                                :motivo_id => motivo.id
+    requisicao.pode_ser_aceita?.should be_false
   end
 
   it "Deve mudar o estado de uma requisição para Rejeitada" do

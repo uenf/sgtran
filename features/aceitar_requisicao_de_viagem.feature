@@ -14,7 +14,7 @@ Funcionalidade: Aceitar requisição de viagem
       E que eu estou na página de detalhes da requisição
 
       Quando eu clico em "Aceitar"
-      Então eu devo estar na página de editar detalhes da viagem
+      Então eu devo estar na página de aceitar requisição
 
       Quando eu escolho "Nova"
       E eu preencho "Data de saída" com a data daqui a "<data de saída>" dias
@@ -47,7 +47,7 @@ Funcionalidade: Aceitar requisição de viagem
       E que eu tenha uma viagem
       E que eu estou na página de detalhes da requisição
       Quando eu clico em "Aceitar"
-      Então eu devo estar na página de editar detalhes da viagem
+      Então eu devo estar na página de aceitar requisição
       Quando eu escolho "Existente"
       E <ação>
       E eu pressiono "Concluir"
@@ -71,7 +71,7 @@ Funcionalidade: Aceitar requisição de viagem
       E que eu estou na página de detalhes da requisição
 
       Quando eu clico em "Aceitar"
-      Então eu devo estar na página de editar detalhes da viagem
+      Então eu devo estar na página de aceitar requisição
 
       Quando eu escolho "Nova"
       E eu preencho "Data de saída" com a data daqui a "2" dias

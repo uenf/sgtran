@@ -166,7 +166,7 @@ class RequisicoesController < ApplicationController
 
   def aceitar
     @requisicao = session[:requisicao] ? session[:requisicao] : Requisicao.find(params[:id])
-    if @requisicao.esta_em_espera? or @requisicao.esta_rejeitada?
+    if @requisicao.pode_ser_aceita?
       data = @requisicao.data_de_reserva
       @lista_motoristas = [
                             ['Motoristas desocupados', Motorista.desocupados_entre(data,data)],

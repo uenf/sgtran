@@ -212,17 +212,8 @@ class Requisicao < ActiveRecord::Base
     end
   end
 
-  def self.requisicao_em_espera? requisicao
-    if requisicao.estado == Requisicao::ESPERA
-      return true
-    else
-      return false
-    end
-
-  end
-
   def rejeitar motivo_id, observacao
-    if Requisicao.requisicao_em_espera? self
+    if self.esta_em_espera?
       self.estado = Requisicao::REJEITADA
       self.motivo_id = motivo_id.to_i
       self.motivo_observacao = observacao
@@ -232,28 +223,19 @@ class Requisicao < ActiveRecord::Base
   end
 
   def esta_em_espera?
-    if self.estado == Requisicao::ESPERA
-      return true
-    else
-      return false
-    end
-
+    self.estado == Requisicao::ESPERA ? true : false
   end
 
   def esta_aceita?
-    if self.estado == Requisicao::ACEITA
-      return true
-    else
-      return false
-    end
-
+    self.estado == Requisicao::ACEITA ? true : false
   end
 
   def esta_rejeitada?
-    if self.estado == Requisicao::REJEITADA
-      return true
-    end
-    return false
+    self.estado == Requisicao::REJEITADA ? true : false
+  end
+
+  def pode_ser_aceita?
+    (self.esta_em_espera? or self.esta_rejeitada?) ? true : false
   end
 
   def cancelar_requisicao motivo_id, observacao
