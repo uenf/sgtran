@@ -26,6 +26,13 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  if RAILS_ENV == "production"
+    HoptoadNotifier.configure do |config| 
+      config.api_key = '03362ff5fe7c6ca1023358717bc1c713' 
+      config.ignore_only  = []
+    end
+  end
+  
   
   def local_request?
     false
