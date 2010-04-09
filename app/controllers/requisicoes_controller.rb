@@ -178,11 +178,7 @@ class RequisicoesController < ApplicationController
                         ]
       @solicitante  = Solicitante.find(@requisicao.solicitante_id)
 
-      @viagem = session[:viagem]
-      if @viagem.nil?
-        @viagem = Viagem.new :data_partida => @requisicao.data_de_reserva, :data_chegada => @requisicao.data_de_reserva
-      end
-      session.delete :viagem
+      @viagem = Viagem.new :data_partida => @requisicao.data_de_reserva, :data_chegada => @requisicao.data_de_reserva
 
       @viagens = Viagem.all
       render :action => "aceitar"
@@ -209,8 +205,7 @@ class RequisicoesController < ApplicationController
         if viagem.valid?
           redirect_to :controller => "viagem", :action => "show", :id => viagem.id
         else
-          session[:viagem] = viagem
-          redirect_to :action => "aceitar"
+          render :action => "aceitar"
         end
       end
 
