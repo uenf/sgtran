@@ -1,13 +1,36 @@
-<h1>Editing viagem</h1>
+<%= javascript_include_tag :defaults %>
+<%= javascript_include_tag "viagem_nova_existente.js" %>
+<%= calendar_date_select_includes "silver", :locale => "pt"%>
+<%= javascript_include_tag "calendar_date_select/format_italian" %>
 
-<% form_for(@viagem) do |f| %>
-  <%= f.error_messages %>
+<div class="show_padrao">
+  <h1>Editar viagem</h1>
 
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
-<% end %>
+  <div class="formularios_embutidos">
+    <% form_tag :controller => "viagem", :action => "update", :id => @viagem.id do %>
+      <fieldset>
+        <legend>Detalhes da viagem</legend>
+        <%= mensagem_de_erro(@viagem) %>
 
-<%= link_to 'Show', @viagem %> |
-<%= link_to 'Back', viagens_path %>
+      <div id="viagem_nova_existente">
+        <fieldset>
+          <legend>Atender com uma viagem:</legend>
+            <%= radio_button_tag :escolha_de_viagem, "nova", true, :onclick => "viagemNovaOuExistente()" %>
+            <%= label_tag :escolha_de_viagem_nova, "Nova: ", :id => "label_viagem_nova" %>
+            <br class="pular_linha"/>
+
+            <%= radio_button_tag :escolha_de_viagem, "existente", false, :onclick => "viagemNovaOuExistente()" %>
+            <%= label_tag :escolha_de_viagem_existente, "Existente: ", :id => "label_viagem_existente" %>
+            <br class="pular_linha"/>
+        </fieldset>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div id="opcoes_da_visao">
+  <ul>
+    <li id="opcao_voltar" onclick="history.back(-1)" onmouseover="this.style.cursor = 'pointer'">Voltar</li>
+  </ul>
+</div>
 

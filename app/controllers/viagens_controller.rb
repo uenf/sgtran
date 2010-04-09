@@ -53,6 +53,7 @@ class ViagensController < ApplicationController
   # GET /viagens/1/edit
   def edit
     @viagem = Viagem.find(params[:id])
+    @sub_layout = "base"
   end
 
   # POST /viagens
