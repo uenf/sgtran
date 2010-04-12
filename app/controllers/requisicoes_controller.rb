@@ -165,7 +165,11 @@ class RequisicoesController < ApplicationController
   end
 
   def aceitar
-    @requisicao = session[:requisicao] ? session[:requisicao] : Requisicao.find(params[:id])
+    if session[:requisicao]
+      @requisicao = session[:requisicao]
+    else
+      @requisicao = Requisicao.find(params[:id])
+    end
     if @requisicao.pode_ser_aceita?
       data = @requisicao.data_de_reserva
       @lista_motoristas = [
@@ -177,9 +181,11 @@ class RequisicoesController < ApplicationController
                           ['Veículos ocupados', Veiculo.ocupados_entre_datas_e_com_categoria(data,data,@requisicao.categoria_de_veiculo_id)]
                         ]
       @solicitante  = Solicitante.find(@requisicao.solicitante_id)
-
-      @viagem = Viagem.new :data_partida => @requisicao.data_de_reserva, :data_chegada => @requisicao.data_de_reserva
-
+      if session[:viagem]
+        @viagem = session[:viagem]
+      else
+        @viagem = Viagem.new :data_partida => @requisicao.data_de_reserva, :data_chegada => @requisicao.data_de_reserva
+      end
       @viagens = Viagem.all
       render :action => "aceitar"
     else
@@ -192,30 +198,31 @@ class RequisicoesController < ApplicationController
   def fechar_viagem
     @requisicao = Requisicao.find(params[:id])
 
-    if @requisicao.viagem_id == nil && params[:escolha_de_viagem].eql?("nova")
+    if params[:escolha_de_viagem].eql?("nova")
 
-      viagem = @requisicao.aceitar(
-        Motorista.find_by_id(params[:motorista_id]),
-        Veiculo.find_by_id(params[:veiculo_id]),
-        data_nula(params[:data_saida]),
-        data_nula(params[:data_chegada]),
-        (params[:horario]["partida(4i)"].blank? and params[:horario]["partida(5i)"].blank?) ? nil : params[:horario]["partida(4i)"] + ":" + params[:horario]["partida(5i)"])
+      viagem = Viagem.new :motorista_id => params[:motorista_id],
+                          :veiculo_id => params[:veiculo_id],
+                          :data_partida => data_nula(params[:data_saida]),
+                          :data_chegada => data_nula(params[:data_chegada]),
+                          :horario_partida => (params[:horario]["partida(4i)"] and params[:horario]["partida(5i)"]) ?
+                              params[:horario]["partida(4i)"] + ":" + params[:horario]["partida(5i)"] : nil
 
-      if viagem
-        if viagem.valid?
-          redirect_to :controller => "viagem", :action => "show", :id => viagem.id
-        else
-          render :action => "aceitar"
-        end
+      if viagem.valid?
+        viagem.save!
+        @requisicao.aceitar viagem
+        redirect_to :controller => "viagem", :action => "show", :id => viagem.id
+      else
+        session[:viagem] = viagem
+        redirect_to :action => "aceitar"
       end
 
     elsif params[:escolha_de_viagem].eql?("existente")
-      if not params[:id_da_viagem].blank?
+      if params[:id_da_viagem]
         viagem = @requisicao.aceitar_com_viagem_existente(params[:id_da_viagem])
         redirect_to :controller => "viagem", :action => "show", :id => viagem.id
       else
-        @requisicao.errors.add(:viagem, "não foi selecionada.")
         session[:requisicao] = @requisicao
+        @requisicao.errors.add(:viagem, "não foi selecionada.")
         redirect_to :action => "aceitar"
       end
 
@@ -240,10 +247,6 @@ class RequisicoesController < ApplicationController
   end
 
   def requisicao_ja_foi_cancelada
-  end
-
-  def regras
-    render :layout => "regras"
   end
 
   def opcoes_motoristas

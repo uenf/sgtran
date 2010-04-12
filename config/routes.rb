@@ -35,7 +35,6 @@ ActionController::Routing::Routes.draw do |map|
   map.rejeitar "requisicoes/rejeitar/:id", :controller => "requisicoes", :action => "rejeitar"
 
   map.resources :requisicoes
-  map.regras "/regras", :controller => "requisicoes", :action => "regras"
 
   map.admin "/admin", :controller => "usuario_sessions", :action => "new"
   map.sair "/sair", :controller => "usuario_sessions", :action => "destroy"

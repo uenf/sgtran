@@ -19,16 +19,16 @@ class ApplicationController < ActionController::Base
   def render_404
     render :template => "erros/erro_404", :status => "404 Not Found", :layout => "erros"
   end
-  
+
   def render_optional_error_file(status_code)
     if status_code == :internal_server_error
-      render :template => "erros/erro_500.html.erb", :status => "500 Internal Server Error", :layout => "erros"      
+      render :template => "erros/erro_500.html.erb", :status => "500 Internal Server Error", :layout => "erros"
     end
   end
-  
-  
+
+
   def local_request?
-    false
+    true
   end
 
 

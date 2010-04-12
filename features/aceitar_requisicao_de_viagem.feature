@@ -6,7 +6,7 @@ Funcionalidade: Aceitar requisição de viagem
     Eu quero aceitar uma requisição de viagem
     Para que o professor possa ter sua requisição executada
 
-    Esquema do Cenário: Aceitar requisição
+    Esquema do Cenário: Aceitar requisição com uma nova viagem
       Dado que eu tenho uma requisição com estado "Em Espera"
       E que eu tenha "Gustavo Santos" em Motorista
       E que eu tenha "Eduardo Silva" em Motorista

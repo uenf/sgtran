@@ -153,30 +153,13 @@ class Requisicao < ActiveRecord::Base
 
 
   public
-  def aceitar(motorista, veiculo, data_partida, data_chegada, horario_partida)
-    if self.esta_em_espera? or self.esta_rejeitada?
-      viagem = Viagem.new
-
-      viagem.data_partida = data_partida.to_date
-      viagem.data_chegada = data_chegada.to_date
-      viagem.horario_partida = horario_partida
-      viagem.motorista = motorista
-      viagem.veiculo = veiculo
-      viagem.estado = Viagem::AGUARDANDO
-
-      if viagem.save!
-        self.estado = ACEITA
-        self.viagem_id = viagem.id
-        self.motivo_id = nil
-        self.motivo_observacao = nil
-
-    #    Requisicao.update(self.id, :estado => ACEITA, :viagem_id => viagem.id)
-
-        self.save
-        return viagem
-        # enviar e-mail aqui
-      end
-    end
+  def aceitar viagem
+    self.estado = ACEITA
+    self.viagem_id = viagem.id
+    self.motivo_id = nil
+    self.motivo_observacao = nil
+    self.save_with_validation false
+    # enviar e-mail aqui
   end
 
   def aceitar_com_viagem_existente(viagem_id)

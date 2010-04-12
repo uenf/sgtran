@@ -31,17 +31,14 @@ describe Requisicao do
 
 
   it "deve aceitar uma requisição" do
+    viagem = Factory.create :viagem
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     objetivo_de_reserva = Factory.create :objetivo_de_reserva
     requisicao = Factory.create :requisicao,
                                 :categoria_de_veiculo_id => categoria_de_veiculo.id,
                                 :objetivo_de_reserva_id => objetivo_de_reserva.id
-    requisicao.aceitar(mock_model(Motorista),
-                       mock_model(Veiculo),
-                       Date.tomorrow.tomorrow,
-                       Date.tomorrow.tomorrow,
-                       "10:00")
-
+    requisicao.aceitar viagem
+    requisicao.viagem_id.should == viagem.id
     requisicao.estado.should == Requisicao::ACEITA
   end
 
