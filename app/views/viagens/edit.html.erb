@@ -5,7 +5,7 @@
 <div class="show_padrao">
   <h1>Editar viagem</h1>
 
-  <% form_for :viagem, @viagem, :url => { :action => "update" } do |f| %>
+  <% form_for @viagem, :url => { :action => "update" } do |f| %>
     <%= mensagem_de_erro(@viagem) %>
 
     <div class="show_linha">
