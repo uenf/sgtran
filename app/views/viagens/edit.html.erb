@@ -5,87 +5,88 @@
 <div class="show_padrao">
   <h1>Editar viagem</h1>
 
-  <% form_tag :controller => "viagem", :action => "update", :id => @viagem.id do %>
+  <% form_for :viagem, @viagem, :url => { :action => "update" } do |f| %>
     <%= mensagem_de_erro(@viagem) %>
 
     <div class="show_linha">
       <div class="linha_titulo">
-        <label for="viagem_data_de_saida">Data de sa&iacute;da:</label>
+        <%= f.label :data_partida, "Data de sa&iacute;da:" %>
       </div>
-      <%= calendar_date_select_tag "viagem_data_de_saida",
+      <%= calendar_date_select_tag "viagem_data_partida",
                                   @viagem.data_partida ? @viagem.data_partida.to_date.to_s_br : "",
-                                  :name => "data_saida",
+                                  :name => "viagem[data_partida]",
                                   :year_range => [0.years.ago, 2.years.from_now],
                                   :month_year => "label",
                                   :class => "campo_data"%>
     </div>
 
-    <%= observe_field :viagem_data_de_saida,
+    <%= observe_field :viagem_data_partida,
                       :url => { :controller => :viagens,
                         :action => :opcoes_motoristas },
                       :update => :motorista_id,
-                      :with => "'data_partida=' + document.getElementById('viagem_data_de_saida').value + '&data_chegada=' + document.getElementById('viagem_data_de_chegada').value"
+                      :with => "'data_partida=' + document.getElementById('viagem_data_partida').value + '&data_chegada=' + document.getElementById('viagem_data_chegada').value"
                       %>
 
-    <%= observe_field :viagem_data_de_saida,
+    <%= observe_field :viagem_data_partida,
                       :url => { :controller => :viagens,
                         :action => :opcoes_veiculos },
                       :update => :veiculo_id,
-                      :with => "'data_partida=' + document.getElementById('viagem_data_de_saida').value + '&data_chegada=' + document.getElementById('viagem_data_de_chegada').value + '&categoria_de_veiculo_id=' + '#{@categoria_de_veiculo_id}'"
+                      :with => "'data_partida=' + document.getElementById('viagem_data_partida').value + '&data_chegada=' + document.getElementById('viagem_data_chegada').value + '&categoria_de_veiculo_id=' + '#{@categoria_de_veiculo_id}'"
                       %>
 
     <div class="show_linha">
       <div class="linha_titulo">
-        <label for="viagem_data_de_chegada">Data de chegada:</label>
+        <%= f.label :data_chegada, "Data de chegada:" %>
       </div>
-      <%= calendar_date_select_tag "viagem_data_de_chegada",
+      <%= calendar_date_select_tag "viagem_data_chegada",
                                   @viagem.data_chegada ? @viagem.data_chegada.to_date.to_s_br : "",
-                                  :name => "data_chegada",
+                                  :name => "viagem[data_chegada]",
                                   :year_range => [0.years.ago, 2.years.from_now],
                                   :month_year => "label",
                                   :class => "campo_data"%>
     </div>
 
-    <%= observe_field :viagem_data_de_chegada,
+    <%= observe_field :viagem_data_chegada,
                       :url => { :controller => :viagens,
                         :action => :opcoes_motoristas },
                       :update => :motorista_id,
-                      :with => "'data_partida=' + document.getElementById('viagem_data_de_saida').value + '&data_chegada=' + document.getElementById('viagem_data_de_chegada').value"
+                      :with => "'data_partida=' + document.getElementById('viagem_data_partida').value + '&data_chegada=' + document.getElementById('viagem_data_chegada').value"
                       %>
 
-    <%= observe_field :viagem_data_de_chegada,
+    <%= observe_field :viagem_data_chegada,
                       :url => { :controller => :viagens,
                         :action => :opcoes_veiculos },
                       :update => :veiculo_id,
-                      :with => "'data_partida=' + document.getElementById('viagem_data_de_saida').value + '&data_chegada=' + document.getElementById('viagem_data_de_chegada').value + '&categoria_de_veiculo_id=' + '#{@categoria_de_veiculo_id}'"
+                      :with => "'data_partida=' + document.getElementById('viagem_data_partida').value + '&data_chegada=' + document.getElementById('viagem_data_chegada').value + '&categoria_de_veiculo_id=' + '#{@categoria_de_veiculo_id}'"
                       %>
 
     <div class="show_linha">
       <div class="linha_titulo">
-        <label for="horario_partida">Hor&aacute;rio de sa&iacute;da:</label>
+        <%= f.label :horario_partida, "Hor&aacute;rio de sa&iacute;da:" %>
       </div>
-      <%= time_select :horario, :partida, {:prompt => {:hour => @viagem.horario_partida.hour, :minute => @viagem.horario_partida.min}}, {:time_separator => ':', :minute_step => 5, :include_blank => "-"} %>
+      <%= time_select :viagem, :horario_partida, {:time_separator => ' : ', :minute_step => 5, :include_blank => "-"} %>
     </div>
 
     <div class="show_linha">
       <div class="linha_titulo">
-        <label for="motorista_id">Motorista:</label>
+        <%= f.label :motorista_id, "Motorista:" %>
       </div>
-      <select name="motorista_id" id="motorista_id">
+      <select name="viagem[motorista_id]" id="viagem_motorista_id">
         <%= grouped_options_for_select(@lista_motoristas, @viagem.motorista_id, "Selecione um motorista") %>
       </select>
     </div>
 
     <div class="show_linha">
       <div class="linha_titulo">
-        <label for="veiculo_id">Ve&iacute;culo:</label>
+        <%= label :veiculo_id, "Ve&iacute;culo:" %>
       </div>
-      <select name="veiculo_id" id="veiculo_id">
+      <select name="viagem[veiculo_id]" id="viagem_veiculo_id">
         <%= grouped_options_for_select(@lista_veiculos, @viagem.veiculo_id, "Selecione um ve&iacute;culo") %>
       </select>
     </div>
 
-    <%= submit_tag "Atualizar", :class => "botao_concluir" %>
+    <div class ="botao_concluir"><%= f.submit "Atualizar" %></div>
+  <% end %>
 
 
   <h1>Requisi&ccedil;&otilde;es atendidas</h1>
@@ -131,9 +132,8 @@
         </tbody>
       </table>
     </div>
-
-  <% end %>
 </div>
+
 
 <div id="opcoes_da_visao">
   <ul>

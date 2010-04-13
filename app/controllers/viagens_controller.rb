@@ -94,7 +94,7 @@ class ViagensController < ApplicationController
 
     respond_to do |format|
       if @viagem.update_attributes(params[:viagem])
-        flash[:notice] = 'Viagem was successfully updated.'
+        flash[:sucesso] = 'Viagem was successfully updated.'
         format.html { redirect_to(@viagem) }
         format.xml  { head :ok }
       else
