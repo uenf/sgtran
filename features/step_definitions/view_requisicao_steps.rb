@@ -19,19 +19,34 @@ end
 
 Then /^eu devo ver a tabela "(.+)" com$/ do |tabela_id, tabela_esperada|
   begin
-    tabela_esperada.map_column!("Protocolo") do |data|
-      if data == "ID"
-        data = @requisicao.id.to_s
+    if tabela_id == "viagens"
+      tabela_esperada.map_column!("Data de partida") do |data|
+        if data == "Daqui a dois dias"
+          data = (Date.today + 2.days).strftime("%d/%m/%Y")
+        end
+        data
       end
-      data
-    end
-    tabela_esperada.map_column!("Data") do |data|
-      if data == 'Daqui a dois dias'
-        data = Date.tomorrow.tomorrow.strftime("%d/%m/%Y")
-      elsif data = 'Daqui a quatro dias'
-        data = (Date.today + 4.days).strftime("%d/%m/%Y")
+      tabela_esperada.map_column!("Data de chegada") do |data|
+        if data == "Daqui a dois dias"
+          data = (Date.today + 2.days).strftime("%d/%m/%Y")
+        end
+        data
       end
-      data
+    else
+      tabela_esperada.map_column!("Protocolo") do |data|
+        if data == "ID"
+          data = @requisicao.id.to_s
+        end
+        data
+      end
+      tabela_esperada.map_column!("Data") do |data|
+        if data == 'Daqui a dois dias'
+          data = (Date.today + 2.days).strftime("%d/%m/%Y")
+        elsif data == 'Daqui a quatro dias'
+          data = (Date.today + 4.days).strftime("%d/%m/%Y")
+        end
+        data
+      end
     end
   rescue
   end

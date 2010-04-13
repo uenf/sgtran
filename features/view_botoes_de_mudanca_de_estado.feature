@@ -17,8 +17,14 @@ Funcionalidade: Visualizar botões de mudança de estado corretos
 
       | Estado                        | Botão Aceitar                 | Botão Rejeitar             | Botão Cancelar              |
       | "Em Espera"                   | eu devo ver "Aceitar"         | eu devo ver "Rejeitar"     | eu não devo ver "Cancelar"  |
-      | "Aceita"                      | eu não devo ver "Aceitar"     | eu não devo ver "Rejeitar" | eu devo ver "Cancelar"      |
       | "Rejeitada"                   | eu devo ver "Aceitar"         | eu não devo ver "Rejeitar" | eu não devo ver "Cancelar"  |
       | "Cancelada pelo Professor"    | eu não devo ver "Aceitar"     | eu não devo ver "Rejeitar" | eu não devo ver "Cancelar"  |
       | "Cancelada pelo Sistema"      | eu não devo ver "Aceitar"     | eu não devo ver "Rejeitar" | eu não devo ver "Cancelar"  |
+      
+    Cenário: Requisição com o estado Aceitar
+      Dado que eu tenho uma requisição com estado "Aceita"
+      E que eu tenho uma viagem com o estado "Aguardando"
+      E que a requisição esteja ligada à viagem
+      Quando eu vou para a "página de detalhes da requisição"
+      Então eu não devo ver "Aceitar"
 

@@ -4,56 +4,31 @@ Dado /^que eu tenho uma requisição com estado "([^\"]*)"$/ do |estado|
   solicitante = Factory.create :solicitante, :centro_id => centro.id
   motivo = Factory.create :motivo
   objetivo_de_reserva = Factory.create :objetivo_de_reserva
+  @requisicao = Factory.build :requisicao, :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                            :solicitante_id => solicitante.id,
+                                            :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                                            :data_de_reserva => Date.today + 2.days
   case estado.to_s
     when "Em Espera" then
-      @requisicao = Factory.create :requisicao,
-                                          :estado => Requisicao::ESPERA,
-                                          :categoria_de_veiculo_id => categoria_de_veiculo.id,
-                                          :solicitante_id => solicitante.id,
-                                          :objetivo_de_reserva_id => objetivo_de_reserva.id
+      @requisicao.estado = Requisicao::ESPERA
+      @requisicao.save
     when "Rejeitada" then
-      @requisicao = Factory.create :requisicao,
-                                          :estado => Requisicao::REJEITADA,
-                                          :categoria_de_veiculo_id => categoria_de_veiculo.id,
-                                          :solicitante_id => solicitante.id,
-                                          :motivo_id => motivo.id,
-                                          :objetivo_de_reserva_id => objetivo_de_reserva.id
-  when "Cancelada pelo Professor" then
-      @requisicao = Factory.create :requisicao,
-                                          :estado => Requisicao::CANCELADO_PELO_PROFESSOR,
-                                          :categoria_de_veiculo_id => categoria_de_veiculo.id,
-                                          :solicitante_id => solicitante.id,
-                                          :motivo_professor => "Algum motivo",
-                                          :objetivo_de_reserva_id => objetivo_de_reserva.id
+      @requisicao.estado = Requisicao::REJEITADA
+      @requisicao.motivo_id = motivo.id
+      @requisicao.save
+    when "Cancelada pelo Professor" then
+      @requisicao.estado = Requisicao::CANCELADO_PELO_PROFESSOR
+      @requisicao.motivo_professor = "Algum motivo"
+      @requisicao.save
     when "Cancelada pelo Sistema" then
-      @requisicao = Factory.create :requisicao,
-                                          :estado => Requisicao::CANCELADO_PELO_SISTEMA,
-                                          :categoria_de_veiculo_id => categoria_de_veiculo.id,
-                                          :solicitante_id => solicitante.id,
-                                          :motivo_id => motivo.id,
-                                          :objetivo_de_reserva_id => objetivo_de_reserva.id
+      @requisicao.estado = Requisicao::CANCELADO_PELO_SISTEMA
+      @requisicao.motivo_id = motivo.id
+      @requisicao.save
     when "Aceita" then
-      @requisicao = Factory.create :requisicao,
-                                          :estado => Requisicao::ACEITA,
-                                          :categoria_de_veiculo_id => categoria_de_veiculo.id,
-                                          :solicitante_id => solicitante.id,
-                                          :objetivo_de_reserva_id => objetivo_de_reserva.id
+      @requisicao.estado = Requisicao::ACEITA
   end
 end
 
-Dado /^que eu tenho uma viagem com estado "([^\"]*)"$/ do |estado|
-  categoria_de_veiculo = Factory.create :categoria_de_veiculo
-  centro = Factory.create :centro
-  solicitante = Factory.create :solicitante, :centro_id => centro.id
-  case estado.to_s
-    when "Aguardando" then
-      @viagem = Factory.create :viagem, :estado => Viagem::AGUARDANDO
-    when "Cancelada" then
-      @viagem = Factory.create :viagem, :estado => Viagem::CANCELADA
-    when "Atendida" then
-      @viagem = Factory.create :viagem, :estado => Viagem::ATENDIDA
-  end
-end
 
 Dado /^que eu tenho uma requisição de ida com número de protocolo ([^\"]*)$/ do |protocolo|
   categoria_de_veiculo = Factory.create :categoria_de_veiculo

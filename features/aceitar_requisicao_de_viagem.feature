@@ -69,13 +69,37 @@ Funcionalidade: Aceitar requisição de viagem
     Cenário: Data de chegada anterior à data de partida
       Dado que eu tenho uma requisição com estado "Em Espera"
       E que eu estou na página de detalhes da requisição
-
       Quando eu clico em "Aceitar"
       Então eu devo estar na página de aceitar requisição
-
       Quando eu escolho "Nova"
       E eu preencho "Data de saída" com a data daqui a "2" dias
       E eu preencho "Data de chegada" com a data daqui a "<0>" dias
       E eu pressiono "Concluir"
       Então eu devo ver "Data de chegada anterior à data de partida"
+      
+        
+    Cenário: Aceitar uma requisição com uma viagem em estado Aguardando
+      Dado que eu tenho uma requisição com estado "Em Espera"
+      E que eu tenho uma viagem com o estado "Aguardando"
+      E que eu estou na página de detalhes da requisição
+      Quando eu clico em "Aceitar"
+      E eu escolho "Existente"
+      Então eu devo ver a tabela "viagens" com
+          | Data de partida     | Data de chegada   | Horário de partida  | Motorista     | Veículo | Requisição(s) atendida(s) | Escolha   |
+          | Daqui a dois dias   | Daqui a dois dias |                     | fulano de tal |         |                           |           |
+      
+    Esquema do Cenário: Não aceitar uma requisição com uma viagem em estado Atendida ou Cancelada
+      Dado que eu tenho uma requisição com estado "Em Espera"
+      E que eu tenho uma viagem com o estado "<Estado>"
+      E que eu estou na página de detalhes da requisição
+      Quando eu clico em "Aceitar"
+      E eu escolho "Existente"
+      Então eu devo ver a tabela "viagens" com
+          | Data de partida     | Data de chegada   | Horário de partida  | Motorista     | Veículo | Requisição(s) atendida(s) | Escolha   |
+
+      Exemplos:
+      | Estado      |
+      | Cancelada   |
+      | Atendida    |
+      
 
