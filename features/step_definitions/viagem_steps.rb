@@ -9,6 +9,20 @@ end
 When /^eu não escolho nenhuma viagem$/ do
 end
 
+Dado /^que eu tenho outra viagem com o estado "([^\"]*)"$/ do |estado|
+  motorista = Factory.create :motorista
+  case estado
+    when Viagem::AGUARDANDO then
+      Factory.create :viagem, :estado => Viagem::AGUARDANDO, :motorista_id => motorista.id
+    when Viagem::ATENDIDA then
+      Factory.create :viagem, :estado => Viagem::ATENDIDA, :motorista_id => motorista.id
+    when Viagem::CANCELADA then
+      Factory.create :viagem, :estado => Viagem::CANCELADA, :motorista_id => motorista.id
+    else
+      Factory.create :viagem, :motorista_id => motorista.id
+  end
+end
+
 Dado /^que eu tenho uma viagem com o estado "([^\"]*)"$/ do |estado|
   categoria_de_veiculo = Factory.create :categoria_de_veiculo
   centro = Factory.create :centro
@@ -16,7 +30,6 @@ Dado /^que eu tenho uma viagem com o estado "([^\"]*)"$/ do |estado|
   motivo = Factory.create :motivo
   objetivo_de_reserva = Factory.create :objetivo_de_reserva
   motorista = Factory.create :motorista
-
   case estado
     when Viagem::AGUARDANDO
       @viagem = Factory.create :viagem, :estado => Viagem::AGUARDANDO, :motorista_id => motorista.id
@@ -25,14 +38,8 @@ Dado /^que eu tenho uma viagem com o estado "([^\"]*)"$/ do |estado|
     when Viagem::CANCELADA
       @viagem = Factory.create :viagem, :estado => Viagem::CANCELADA, :motorista_id => motorista.id
     else
-      @viagem = Factory.create :viagem, :motorista_id => motorista.id
+      @viagem = Factory.create :viagem, :estado => Viagem::AGUARDANDO, :motorista_id => motorista.id
   end
-
-  @requisicao = Factory.create :requisicao, :categoria_de_veiculo_id => categoria_de_veiculo.id,
-                                          :centro_id => centro.id,
-                                          :solicitante_id => solicitante.id,
-                                          :objetivo_de_reserva_id => objetivo_de_reserva.id,
-                                          :viagem_id => @viagem.id
 end
 
 Dado /^que a requisição esteja ligada à viagem$/ do

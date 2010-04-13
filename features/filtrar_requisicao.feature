@@ -52,6 +52,8 @@ Para que eu possa ter uma visão mais personalizada
 
   Cenário: Filtrar as requisições Aceitas
     Dado que eu tenho uma requisição com estado "Aceita"
+    E que eu tenho uma viagem com o estado "Aguardando"
+    E que a requisição esteja ligada à viagem
     E que eu estou na página de visualização de requisições
     Quando eu seleciono "Aceita" em "Filtrar por"
     E eu pressiono "OK"

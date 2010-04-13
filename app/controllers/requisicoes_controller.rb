@@ -186,7 +186,7 @@ class RequisicoesController < ApplicationController
       else
         @viagem = Viagem.new :data_partida => @requisicao.data_de_reserva, :data_chegada => @requisicao.data_de_reserva
       end
-      @viagens = Viagem.all
+      @viagens = Viagem.find_all_by_estado(Viagem::AGUARDANDO)
       render :action => "aceitar"
     else
       @solicitante = Solicitante.find(@requisicao.solicitante_id)
