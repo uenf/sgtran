@@ -53,7 +53,21 @@ class ViagensController < ApplicationController
   # GET /viagens/1/edit
   def edit
     @viagem = Viagem.find(params[:id])
-    @sub_layout = "base"
+    data_partida = @viagem.data_partida
+    data_chegada = @viagem.data_chegada
+    if @viagem.veiculo_id
+      @categoria_de_veiculo_id = Veiculo.find(@viagem.veiculo_id).categoria_de_veiculo_id
+    else
+      @categoria_de_veiculo_id = nil
+    end
+    @lista_motoristas = [
+                          ['Motoristas desocupados', Motorista.desocupados_entre(data_chegada,data_partida)],
+                          ['Motoristas ocupados', Motorista.ocupados_entre(data_chegada,data_partida)]
+                        ]
+    @lista_veiculos = [
+                        ['Veículos desocupados', Veiculo.desocupados_entre_datas_e_com_categoria(data_chegada,data_partida,@categoria_de_veiculo_id)],
+                        ['Veículos ocupados', Veiculo.ocupados_entre_datas_e_com_categoria(data_chegada,data_partida,@categoria_de_veiculo_id)]
+                      ]
   end
 
   # POST /viagens
@@ -117,6 +131,25 @@ class ViagensController < ApplicationController
     @viagem = Viagem.find(params[:viagem_id])
     @viagem.cancelar_viagem motivo.to_i
     redirect_to(viagens_path)
+  end
+
+  def opcoes_motoristas
+    data_partida, data_chegada = params[:data_partida].to_date, params[:data_chegada].to_date
+    @lista_motoristas = [
+                          ['Motoristas desocupados', Motorista.desocupados_entre(data_partida,data_chegada)],
+                          ['Motoristas ocupados', Motorista.ocupados_entre(data_partida,data_chegada)]
+                        ]
+    render :partial => 'opcoes_motoristas', :object => @lista_motoristas
+  end
+
+  def opcoes_veiculos
+    data_partida, data_chegada = params[:data_partida].to_date, params[:data_chegada].to_date
+    categoria_de_veiculo_id = params[:categoria_de_veiculo_id].to_i
+    @lista_veiculos = [
+                        ['Veículos desocupados', Veiculo.desocupados_entre_datas_e_com_categoria(data_chegada,data_partida,categoria_de_veiculo_id)],
+                        ['Veículos ocupados', Veiculo.ocupados_entre_datas_e_com_categoria(data_chegada,data_partida,categoria_de_veiculo_id)]
+                      ]
+    render :partial => 'opcoes_veiculos', :object => @lista_veiculos
   end
 
 end

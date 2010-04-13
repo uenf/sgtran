@@ -612,7 +612,7 @@ div.erro {
     color : #000000;
 }
 
-.formularios_embutidos .campo_data {
+.show_padrao .campo_data {
     width : 80px;
 }
 
@@ -696,7 +696,7 @@ div.erro_500 {
     border: solid 1px #dbdbdb;
     font-size: 15px;
     color: #1A60B0;
-    text-align: center; 
+    text-align: center;
 }
 
 div.acesso_negado {
@@ -705,7 +705,7 @@ div.acesso_negado {
     border: solid 1px #dbdbdb;
     font-size: 15px;
     color: #1A60B0;
-    text-align: center;     
+    text-align: center;
 }
 a.error {
     padding-left: 35px;
