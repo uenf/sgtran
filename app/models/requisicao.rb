@@ -195,13 +195,12 @@ class Requisicao < ActiveRecord::Base
     end
   end
 
-  def rejeitar motivo_id, observacao
+  def rejeitar motivo_id, corpo_email, destinatarios
     if self.esta_em_espera?
       self.estado = Requisicao::REJEITADA
       self.motivo_id = motivo_id.to_i
-      self.motivo_observacao = observacao
       self.save
-      #Confirmacao.deliver_email_motivo_de_rejeitar(@requisicao)
+      Confirmacao.deliver_enviar_email(corpo_email, destinatarios, self)
     end
   end
 
@@ -221,7 +220,7 @@ class Requisicao < ActiveRecord::Base
     (self.esta_em_espera? or self.esta_rejeitada?) ? true : false
   end
 
-  def cancelar_requisicao motivo_id, observacao
+  def cancelar_requisicao motivo_id, corpo_do_email, destinatarios
     if self.esta_aceita?
       viagem = Viagem.find(self.viagem_id) if self.viagem_id
       self.estado = Requisicao::CANCELADO_PELO_SISTEMA
@@ -236,6 +235,7 @@ class Requisicao < ActiveRecord::Base
       self.viagem_id = nil
       self.motivo_observacao = observacao
       if self.save
+        Confirmacao.deliver_enviar_email(corpo_do_email, destinatarios, self)
         return true
       else
         return false

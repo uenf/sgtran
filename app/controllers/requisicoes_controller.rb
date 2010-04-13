@@ -93,6 +93,7 @@ class RequisicoesController < ApplicationController
     if @requisicao.length == 1
       if @requisicao[IDA].valid?
         session[:requisicao] = @requisicao
+        #Confirmacao.deliver_email_confirmacao_de_cadastro_de_requisicao(@requisicao)
         redirect_to(confirmar_requisicao_path)
       else
         @requisicao = @requisicao[IDA]
@@ -102,6 +103,7 @@ class RequisicoesController < ApplicationController
       if @requisicao[IDA].valid?
         if @requisicao[VOLTA].valid?
           session[:requisicao] = @requisicao
+          #Confirmacao.deliver_email_confirmacao_de_cadastro_de_requisicao(@requisicao)
           redirect_to(confirmar_requisicao_path)
         else
           @requisicao = @requisicao[VOLTA]
@@ -112,7 +114,6 @@ class RequisicoesController < ApplicationController
         render :action => "new", :layout => "requisicoes"
       end
     end
-#   Confirmacao.deliver_email_com_confirmacao_de_cadastro_de_requisicao(@requisicao, @solicitante)
   end
 
 
@@ -237,6 +238,7 @@ class RequisicoesController < ApplicationController
 
     if @requisicao.cancelar_pelo_professor(params[:requisicao][:motivo_professor])
       flash[:sucesso] = 'Requisição cancelada com sucesso!'
+      render :layout => "requisicoes"
       session[:requisicao] = @requisicao
       #incluindo linha para enviar o emailtesteuenf para ailton informando que professor cancelou a requisição
       #comentado temporariamente, porta bloqueada
@@ -277,8 +279,9 @@ class RequisicoesController < ApplicationController
   def rejeitar_requisicao
     @requisicao = Requisicao.find(params[:requisicao])
     motivo = params[:motivo]
-    observacao = params[:motivo_observacao]
-    @requisicao.rejeitar motivo, observacao
+    corpo_email = params[:corpo_email]
+    destinatarios = params[:destinatarios]
+    @requisicao.rejeitar(motivo, corpo_email, destinatarios)
     redirect_to requisicao_path(@requisicao)
   end
 
@@ -291,9 +294,10 @@ class RequisicoesController < ApplicationController
   def cancelar_pelo_sistema
     @requisicao = Requisicao.find(params[:requisicao_id])
     motivo = params[:motivo]
-    observacao = params[:motivo_observacao]
+    corpo_do_email = params[:corpo_email]
+    destinatarios = params[:destinatarios]
     if @requisicao.esta_aceita?
-      @requisicao.cancelar_requisicao motivo.to_i, observacao.to_s
+      @requisicao.cancelar_requisicao motivo.to_i, corpo_do_email, destinatarios
     else
       flash[:erro] = "A requisição deve estar no estado 'Aceita' para ser cancelada."
     end

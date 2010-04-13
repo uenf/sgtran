@@ -32,6 +32,8 @@ class ApplicationController < ActionController::Base
       config.ignore_only  = []
     end
   end
+  
+
 
 
   def local_request?

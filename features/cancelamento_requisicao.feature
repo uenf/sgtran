@@ -18,8 +18,8 @@ Funcionalidade: Cancelar viagem
     Exemplos:(Requisição cancelada com sucesso)
 
     | Motivo       | Ação                               | Sentença                                                        |
-    | Estou doente | eu pressiono "Cancelar requisição" | eu devo ver "Carlos, sua requisição foi cancelada com sucesso." |
-    | Faltou verba | eu pressiono "Cancelar requisição" | eu devo ver "Carlos, sua requisição foi cancelada com sucesso." |
+    | Estou doente | eu pressiono "Cancelar requisição" | eu devo ver "Requisição cancelada com sucesso!" |
+    | Faltou verba | eu pressiono "Cancelar requisição" | eu devo ver "Requisição cancelada com sucesso!" |
 
     Exemplos:(Campos vazios)
 

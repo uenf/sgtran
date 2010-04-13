@@ -4,99 +4,45 @@
 
 <div id="exibir_requisicao">
 
-  <table class="tabela_padrao">
 
   <h1>Cancelamento de reserva de ve&iacute;culos</h1>
   <p class="legenda_obrigatorio"><strong>* Os campos em vermelho s&atilde;o obrigat&oacute;rios</strong><p>
 
-    <tr>
-      <tr>
-        <th colspan="2">Dados do solicitante</th>
-      </tr>
-    </tr>
 
-    <tr>
-      <td class="celula_label"><strong>Matricula:</strong></td>
-      <td><%=h @solicitante.matricula %></td>
-    </tr>
+    <p>
+      <strong>Data de reserva:</strong>
+      <%=h @requisicao.data_de_reserva.strftime("%d/%m/%Y")%>
+    </p>
 
-    <tr>
-      <td class="celula_label"><strong>Nome do solicitante:</strong></td>
-      <td><%=h @solicitante.nome %></td>
-    </tr>
+    <p>
+      <strong>Categoria de ve&iacute;culo:</strong>
+      <%=h CategoriaDeVeiculo.find(@requisicao.categoria_de_veiculo_id).nome %>
+    </p>
 
-    <tr>
-      <td class="celula_label"><strong>Email:</strong></td>
-      <td><%=h @solicitante.email %></td>
-    </tr>
+    <p>
+      <strong>Objetivo da reserva:</strong>
+      <%=h ObjetivoDeReserva.find(@requisicao.objetivo_de_reserva_id).texto %>
+    </p>
 
-    <tr>
-      <td class="celula_label"><strong>Cargo:</strong></td>
-      <td><%=h @solicitante.cargo %></td>
-    </tr>
+    <p>
+      <strong>Outros:</strong>
+      <%=h @requisicao.outros %>
+    </p>
 
-    <tr>
-      <td class="celula_label"><strong>Telefone ou ramal:</strong></td>
-      <td><%=h @solicitante.telefone_ou_ramal %></td>
-    </tr>
+    <p>
+      <strong>Nome telefone passageiros:</strong>
+      <%=h @requisicao.nome_telefone_passageiros %>
+    </p>
 
-    <tr>
-      <td class="celula_label"><strong>Celular:</strong></td>
-      <td><%=h @requisicao.celular %></td>
-    </tr>
+    <p>
+      <strong>Roteiro da agenda (ida):</strong>
+      <%=h @requisicao.roteiro_da_agenda %>
+    </p>
 
-    <tr>
-      <td class="celula_label"><strong>Lab. ou setor:</strong></td>
-      <td><%=h @solicitante.laboratorio_ou_setor %></td>
-    </tr>
-
-    <tr>
-      <td class="celula_label"><strong>Centro:</strong></td>
-      <td><%=h Centro.find(@solicitante.centro_id).nome %></td>
-    </tr>
-
-    <tr>
-      <tr>
-        <th colspan="2">Dados da reserva</th>
-      </tr>
-    </tr>
-
-    <tr>
-      <td class="celula_label"><strong>Data de reserva:</strong></td>
-      <td><%=h @requisicao.data_de_reserva.strftime("%d/%m/%Y")%></td>
-    </tr>
-
-    <tr>
-      <td class="celula_label"><strong>Categoria de ve&iacute;culo:</strong></td>
-      <td><%=h CategoriaDeVeiculo.find(@requisicao.categoria_de_veiculo_id).nome %></td>
-    </tr>
-
-    <tr>
-      <td class="celula_label"><strong>Objetivo da reserva:</strong></td>
-      <td><%=h ObjetivoDeReserva.find(@requisicao.objetivo_de_reserva_id).texto %></td>
-    </tr>
-
-    <tr>
-      <td class="celula_label"><strong>Outros:</strong></td>
-      <td><%=h @requisicao.outros %></td>
-    </tr>
-
-    <tr>
-      <td class="celula_label"><strong>Nome telefone passageiros:</strong></td>
-      <td><%=h @requisicao.nome_telefone_passageiros %></td>
-    </tr>
-
-    <tr>
-      <td class="celula_label"><strong>Roteiro da agenda (ida):</strong></td>
-      <td><%=h @requisicao.roteiro_da_agenda %></td>
-    </tr>
-
-    <tr>
-      <td class="celula_label"><strong>Observacao:</strong></td>
-      <td><%=h @requisicao.observacao %></td>
-    </tr>
-
-  </table>
+    <p>
+      <strong>Observacao:</strong>
+      <%=h @requisicao.observacao %>
+    </p>
 
 <br/>
 

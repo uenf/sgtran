@@ -331,15 +331,17 @@ describe Requisicao do
     motivo = Factory.create :motivo
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     objetivo_de_reserva = Factory.create :objetivo_de_reserva
-    observacao = "Alguma observacao"
+    solicitante = Factory.create :solicitante
+    corpo_email = "Corpo do E-mail"
+    destinatários = ""
     requisicao = Factory.create :requisicao,
                                 :estado => Requisicao::ESPERA,
                                 :categoria_de_veiculo_id => categoria_de_veiculo.id,
-                                :objetivo_de_reserva_id => objetivo_de_reserva.id
-    requisicao.rejeitar motivo.id, observacao
+                                :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                                :solicitante_id => solicitante.id
+    requisicao.rejeitar motivo.id, corpo_email, destinatários
     requisicao.estado.should == Requisicao::REJEITADA
     requisicao.motivo_id.should == motivo.id
-    requisicao.motivo_observacao == observacao
   end
 
   it "Deve verificar se o estado da requisição é Em Espera" do
@@ -391,17 +393,19 @@ describe Requisicao do
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     objetivo_de_reserva = Factory.create :objetivo_de_reserva
     motivo = Factory.create :motivo
-    observacao = "Alguma observacao"
+    solicitante = Factory.create :solicitante
+    corpo_do_email = "Corpo do E-mail"
+    destinatarios = ""
     requisicao = Factory.create :requisicao, :categoria_de_veiculo_id => categoria_de_veiculo.id,
                                              :objetivo_de_reserva_id => objetivo_de_reserva.id,
                                              :estado => Requisicao::ACEITA,
-                                             :viagem_id => viagem.id
+                                             :viagem_id => viagem.id,
+                                             :solicitante_id => solicitante.id
 
-    requisicao.cancelar_requisicao motivo.id, observacao
+    requisicao.cancelar_requisicao motivo.id, corpo_do_email, destinatarios
     requisicao.estado.should == Requisicao::CANCELADO_PELO_SISTEMA
     requisicao.motivo_id.should == motivo.id
     requisicao.viagem_id.should == nil
-    requisicao.motivo_observacao.should == observacao
   end
 
   it "Caso a requisição esteja ligada a uma viagem, a viagem tenha apenas essa requisição e a requisição é cancelada, a viagem deve ser cancelada" do
@@ -409,18 +413,20 @@ describe Requisicao do
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     objetivo_de_reserva = Factory.create :objetivo_de_reserva
     motivo = Factory.create :motivo
-    observacao = "Alguma observacao"
+    solicitante = Factory.create :solicitante
+    corpo_do_email = "Corpo do E-mail"
+    destinatarios = ""
     requisicao = Factory.create :requisicao, :categoria_de_veiculo_id => categoria_de_veiculo.id,
                                              :objetivo_de_reserva_id => objetivo_de_reserva.id,
                                              :estado => Requisicao::ACEITA,
-                                             :viagem_id => viagem.id
+                                             :viagem_id => viagem.id,
+                                             :solicitante_id => solicitante.id
 
-    requisicao.cancelar_requisicao motivo.id, observacao
+    requisicao.cancelar_requisicao motivo.id, corpo_do_email, destinatarios
     viagem = Viagem.find(viagem.id)
     requisicao.estado.should == Requisicao::CANCELADO_PELO_SISTEMA
     requisicao.motivo_id.should == motivo.id
     requisicao.viagem_id.should == nil
-    requisicao.motivo_observacao.should == observacao
     viagem.estado.should == Viagem::CANCELADA
   end
 

@@ -12,11 +12,11 @@ Funcionalidade: Cancelar uma requisição pelo sistema
     E que eu estou na página de detalhes da requisição
     Quando eu clico em "Cancelar requisição"
     E eu seleciono "Falta de verba" em "Motivo"
-    E eu preencho "Observações" com "Algumas observações"
+    E eu preencho "Corpo do E-mail" com "Algumas observações"
+    E eu preencho "Destinatários" com "astran@uenf.br"
     E eu pressiono "Cancelar requisição"
     Então eu devo estar na página de detalhes da requisição
     E eu devo ver "Estado: Cancelado pelo sistema"
-    E eu devo ver "Observações do motivo: Algumas observações"
 
 
   Cenário: Viagem com apenas uma requisição e a requisição é cancelada
@@ -27,8 +27,8 @@ Funcionalidade: Cancelar uma requisição pelo sistema
     E que eu estou na página de detalhes da requisição
     Quando eu clico em "Cancelar requisição"
     E eu seleciono "Falta de verba" em "Motivo"
-    E eu preencho "Observações" com "Algumas observações"
-
+    E eu preencho "Corpo do E-mail" com "Algumas observações"
+    E eu preencho "Destinatários" com "astran@uenf.br"
     E eu pressiono "Cancelar requisição"
     Dado que eu estou na página de visualização da viagem
     Então eu devo ver "Estado: Cancelada"
@@ -43,7 +43,8 @@ Funcionalidade: Cancelar uma requisição pelo sistema
     E que eu estou na página de detalhes da requisição
     Quando eu clico em "Cancelar requisição"
     E eu seleciono "Falta de verba" em "Motivo"
-    E eu preencho "Observações" com "Algumas observações"
+    E eu preencho "Corpo do E-mail" com "Algumas observações"
+    E eu preencho "Destinatários" com "astran@uenf.br"
     E eu pressiono "Cancelar requisição"
     Dado que eu estou na página de visualização da viagem
     Então eu devo ver "Estado: Aguardando"

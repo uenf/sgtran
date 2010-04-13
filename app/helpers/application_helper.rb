@@ -18,6 +18,8 @@ module ApplicationHelper
 
     return string_return + "</ul> </div>"
   end
+  
+
 
 end
 
