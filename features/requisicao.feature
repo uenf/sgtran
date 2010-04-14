@@ -77,4 +77,23 @@ Funcionalidade: Solicitar viagem
     | uma data de "16" dias seguintes a partir de hoje  | eu devo ver "Data de reserva deve ser no máximo 15 dias posterior à data atual, para a categoria de veículo selecionada"  |
     | "50/05/1986"                                      | eu devo ver "Data de reserva inválida"                                                                                    |
     | ""                                                | eu devo ver "Data de reserva não pode ser vazio"                                                                          |
+    
+  Cenário: Mudar a viagem de uma requisição Aceita
+    Dado que eu tenho uma requisição com estado "Aceita"
+    E que eu tenho uma viagem com o estado "Aguardando"
+    E que a requisição esteja ligada à viagem
+    E que eu estou na página de detalhes da requisição
+    Quando eu clico em "Alterar viagem"
+    E eu escolho a viagem existente
+    E eu pressiono "Concluir"
+    Então eu devo estar na página de visualização da viagem
+    
+  Cenário: Mudar a viagem que atende uma requisição sem escolher a viagem
+    Dado que eu tenho uma requisição com estado "Aceita"
+    E que eu tenho uma viagem com o estado "Aguardando"
+    E que a requisição esteja ligada à viagem
+    E que eu estou na página de detalhes da requisição
+    Quando eu clico em "Alterar viagem"
+    E eu pressiono "Concluir"
+    Então eu devo ver "Escolha uma viagem."
 

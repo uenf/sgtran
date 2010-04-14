@@ -252,6 +252,24 @@ class Requisicao < ActiveRecord::Base
     end
     return false
   end
+  
+  def pode_alterar_viagem?
+    if self.estado == Requisicao::ACEITA
+      true
+    else
+      false
+    end
+  end
+  
+  def alterar_viagem viagem_id
+    viagem = Viagem.find(viagem_id)
+    if self.pode_alterar_viagem? and viagem.estado == Viagem::AGUARDANDO
+      self.viagem_id = viagem.id
+      self.save
+    else
+      false
+    end
+  end
 
 end
 
