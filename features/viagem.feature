@@ -32,4 +32,16 @@ Para que eu possa mudar seus dados de acordo com a dinâmica do trabalho
 
         | data de saída   | data de chegada | horario | motorista           | veiculo                                       | sentença                         |
         | 1               | 3               | 13:00   | Gustavo Santos      | Gol - KQI 5899 - Automóvel até 4 passageiros  | Viagem atualizada com sucesso!   |
+        
+        
+  Cenário: Fechar uma viagem com estado Aguardando
+    Dado que eu tenho uma requisição com estado "Aceita"
+    E que eu tenho uma viagem com o estado "Aguardando"
+    E que a requisição esteja ligada à viagem
+    E que eu estou na página de visualização da viagem
+    Quando eu clico em "Fechar viagem"
+    E eu pressiono "Fechar viagem"
+    Então eu devo estar na página de visualização da viagem
+    E eu devo ver "Estado: Atendida"
+        
 

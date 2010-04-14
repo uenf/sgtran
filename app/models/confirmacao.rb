@@ -16,7 +16,7 @@ class Confirmacao < ActionMailer::Base
     end
     
     def endereco
-      "http://localhost:3000"
+      "http://www.astran.uenf.br"
     end
   end
 
