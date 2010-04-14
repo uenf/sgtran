@@ -91,10 +91,16 @@ class ViagensController < ApplicationController
   # PUT /viagens/1.xml
   def update
     @viagem = Viagem.find(params[:id])
+    params[:viagem][:data_partida] = data_str_ou_nil(params[:viagem][:data_partida])
+    params[:viagem][:data_chegada] = data_str_ou_nil(params[:viagem][:data_chegada])
+    # Apenas para colocar valores válidos para a data ligada ao horário
+    params[:viagem]["horario_partida(1i)"] = Date.today.year.to_s
+    params[:viagem]["horario_partida(2i)"] = Date.today.mon.to_s
+    params[:viagem]["horario_partida(3i)"] = Date.today.day.to_s
 
     respond_to do |format|
       if @viagem.update_attributes(params[:viagem])
-        flash[:sucesso] = 'Viagem was successfully updated.'
+        flash[:sucesso] = 'Viagem atualizada com sucesso!'
         format.html { redirect_to(@viagem) }
         format.xml  { head :ok }
       else
@@ -134,7 +140,7 @@ class ViagensController < ApplicationController
   end
 
   def opcoes_motoristas
-    data_partida, data_chegada = params[:data_partida].to_date, params[:data_chegada].to_date
+    data_partida, data_chegada = params[:viagem][:data_partida].to_date, params[:viagem][:data_chegada].to_date
     @lista_motoristas = [
                           ['Motoristas desocupados', Motorista.desocupados_entre(data_partida,data_chegada)],
                           ['Motoristas ocupados', Motorista.ocupados_entre(data_partida,data_chegada)]
@@ -143,13 +149,21 @@ class ViagensController < ApplicationController
   end
 
   def opcoes_veiculos
-    data_partida, data_chegada = params[:data_partida].to_date, params[:data_chegada].to_date
-    categoria_de_veiculo_id = params[:categoria_de_veiculo_id].to_i
+    data_partida, data_chegada = params[:viagem][:data_partida].to_date, params[:viagem][:data_chegada].to_date
+    categoria_de_veiculo_id = Veiculo.find(params[:viagem][:veiculo_id]).categoria_de_veiculo_id
     @lista_veiculos = [
                         ['Veículos desocupados', Veiculo.desocupados_entre_datas_e_com_categoria(data_chegada,data_partida,categoria_de_veiculo_id)],
                         ['Veículos ocupados', Veiculo.ocupados_entre_datas_e_com_categoria(data_chegada,data_partida,categoria_de_veiculo_id)]
                       ]
     render :partial => 'opcoes_veiculos', :object => @lista_veiculos
+  end
+
+  def data_str_ou_nil(str_data)
+    begin
+      str_data.to_date
+    rescue
+      nil
+    end
   end
 
 end

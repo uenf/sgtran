@@ -110,6 +110,9 @@ module NavigationHelpers
     when /^página de cancelamento da viagem$/
       cancelar_viagem_path(:id => @viagem)
 
+    when /^página de edição de viagem$/
+      edit_viagem_path(:id => @viagem)
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

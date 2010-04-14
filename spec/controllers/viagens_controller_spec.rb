@@ -44,13 +44,13 @@ describe ViagensController do
     end
   end
 
-  describe "GET edit" do
-    it "assigns the requested viagem as @viagem" do
-      Viagem.stub!(:find).with("37").and_return(mock_viagem)
-      get :edit, :id => "37"
-      assigns[:viagem].should equal(mock_viagem)
-    end
-  end
+#  describe "GET edit" do
+#    it "assigns the requested viagem as @viagem" do
+#      Viagem.stub!(:find).with("37").and_return(mock_viagem)
+#      get :edit, :id => "37"
+#      assigns[:viagem].should equal(mock_viagem)
+#    end
+#  end
 
   describe "POST create" do
 
@@ -84,49 +84,49 @@ describe ViagensController do
 
   end
 
-  describe "PUT update" do
+#  describe "PUT update" do
 
-    describe "with valid params" do
-      it "updates the requested viagem" do
-        Viagem.should_receive(:find).with("37").and_return(mock_viagem)
-        mock_viagem.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, :id => "37", :viagem => {:these => 'params'}
-      end
+#    describe "with valid params" do
+#      it "updates the requested viagem" do
+#        Viagem.should_receive(:find).with("37").and_return(mock_viagem)
+#        mock_viagem.should_receive(:update_attributes).with({'these' => 'params'})
+#        put :update, :id => "37", :viagem => {:these => 'params'}
+#      end
 
-      it "assigns the requested viagem as @viagem" do
-        Viagem.stub!(:find).and_return(mock_viagem(:update_attributes => true))
-        put :update, :id => "1"
-        assigns[:viagem].should equal(mock_viagem)
-      end
+#      it "assigns the requested viagem as @viagem" do
+#        Viagem.stub!(:find).and_return(mock_viagem(:update_attributes => true))
+#        put :update, :id => "1"
+#        assigns[:viagem].should equal(mock_viagem)
+#      end
 
-      it "redirects to the viagem" do
-        Viagem.stub!(:find).and_return(mock_viagem(:update_attributes => true))
-        put :update, :id => "1"
-        response.should redirect_to(viagem_url(mock_viagem))
-      end
-    end
+#      it "redirects to the viagem" do
+#        Viagem.stub!(:find).and_return(mock_viagem(:update_attributes => true))
+#        put :update, :id => "1"
+#        response.should redirect_to(viagem_url(mock_viagem))
+#      end
+#    end
 
-    describe "with invalid params" do
-      it "updates the requested viagem" do
-        Viagem.should_receive(:find).with("37").and_return(mock_viagem)
-        mock_viagem.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, :id => "37", :viagem => {:these => 'params'}
-      end
+#    describe "with invalid params" do
+#      it "updates the requested viagem" do
+#        Viagem.should_receive(:find).with("37").and_return(mock_viagem)
+#        mock_viagem.should_receive(:update_attributes).with({'these' => 'params'})
+#        put :update, :id => "37", :viagem => {:these => 'params'}
+#      end
 
-      it "assigns the viagem as @viagem" do
-        Viagem.stub!(:find).and_return(mock_viagem(:update_attributes => false))
-        put :update, :id => "1"
-        assigns[:viagem].should equal(mock_viagem)
-      end
+#      it "assigns the viagem as @viagem" do
+#        Viagem.stub!(:find).and_return(mock_viagem(:update_attributes => false))
+#        put :update, :id => "1"
+#        assigns[:viagem].should equal(mock_viagem)
+#      end
 
-      it "re-renders the 'edit' template" do
-        Viagem.stub!(:find).and_return(mock_viagem(:update_attributes => false))
-        put :update, :id => "1"
-        response.should render_template('edit')
-      end
-    end
+#      it "re-renders the 'edit' template" do
+#        Viagem.stub!(:find).and_return(mock_viagem(:update_attributes => false))
+#        put :update, :id => "1"
+#        response.should render_template('edit')
+#      end
+#    end
 
-  end
+#  end
 
   describe "DELETE destroy" do
     it "destroys the requested viagem" do

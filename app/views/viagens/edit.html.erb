@@ -64,7 +64,7 @@
       <div class="linha_titulo">
         <%= f.label :horario_partida, "Hor&aacute;rio de sa&iacute;da:" %>
       </div>
-      <%= time_select :viagem, :horario_partida, {:time_separator => ' : ', :minute_step => 5, :include_blank => "-"} %>
+      <%= time_select :viagem, :horario_partida, {:time_separator => ' : ', :minute_step => 5, :prompt => "-"} %>
     </div>
 
     <div class="show_linha">
@@ -78,7 +78,7 @@
 
     <div class="show_linha">
       <div class="linha_titulo">
-        <%= label :veiculo_id, "Ve&iacute;culo:" %>
+        <%= f.label :veiculo_id, "Ve&iacute;culo:" %>
       </div>
       <select name="viagem[veiculo_id]" id="viagem_veiculo_id">
         <%= grouped_options_for_select(@lista_veiculos, @viagem.veiculo_id, "Selecione um ve&iacute;culo") %>
