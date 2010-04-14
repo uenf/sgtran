@@ -10,6 +10,7 @@ class Requisicao < ActiveRecord::Base
   CANCELADO_PELO_PROFESSOR = "Cancelado pelo professor"
   CANCELADO_PELO_SISTEMA   = "Cancelado pelo sistema"
   REJEITADA                = "Rejeitada"
+  FINALIZADA               = "Finalizada"
 
   IDA = 0
   VOLTA = 1

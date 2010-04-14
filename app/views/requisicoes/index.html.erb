@@ -32,7 +32,7 @@
   <% solicitante = Solicitante.find(requisicao.solicitante_id) %>
 
       <tr onmouseover="this.style.cursor='pointer'" onclick="location.href='<%= requisicao_path(requisicao) %>'">
-        <td class="<%=h traduz_class_css(requisicao.estado) %>"><%=h requisicao.estado[0,9] %></td>
+        <td class="<%=h traduz_class_css(requisicao.estado) %>"><%=h requisicao.estado[0,10] %></td>
         <td><%=h requisicao.id %></td>
         <td><%=h solicitante.nome %></td>
         <td><%=h solicitante.cargo %></td>

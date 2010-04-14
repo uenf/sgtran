@@ -75,10 +75,18 @@ class Viagem < ActiveRecord::Base
   end
   
   def fechar_viagem
+    requisicoes_atendidas = Requisicao.find_all_by_viagem_id(self.id)
     if self.pode_ser_fechada?
       self.estado = Viagem::ATENDIDA
-      self.save
-      true
+      if self.save
+        requisicoes_atendidas.each do |r|
+          r.estado = Requisicao::FINALIZADA
+          r.save
+        end
+        true
+      else
+        false
+      end
     else
       false
     end
