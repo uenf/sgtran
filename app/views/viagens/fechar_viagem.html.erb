@@ -1,10 +1,16 @@
-
-<!-- ======================================================================= -->
-
-
 <div class="show_padrao">
+<% form_tag("/viagens/fechar") do -%>
+  <%= hidden_field_tag "viagem", "#{@viagem.id}" %>
+  <fieldset>
+    <legend>Fechar viagem</legend>
+    <p>
+      Para confirmar o fechamento da viagem, clique no botão abaixo.
+    </p>
+    <p>
+      <%= submit_tag "Fechar viagem", :confirm => "Deseja realmente fechar a viagem?" %>
+    </p>
 
-  <h1>Dados gerais</h1>
+  <h1>Dados da viagem</h1>
 
   <div class="show_linha">
     <div class="linha_titulo">Data de sa&iacute;da: </div>
@@ -87,7 +93,7 @@
             <% solicitante = Solicitante.find(requisicao.solicitante_id) %>
 
             <tr onmouseover="this.style.cursor='pointer'" onclick="location.href='<%= requisicao_path(requisicao) %>'">
-              <td class="<%=h traduz_class_css(requisicao.estado) %>"><%=h requisicao.estado[0,10] %></td>
+              <td class="<%=h traduz_class_css(requisicao.estado) %>"><%=h requisicao.estado[0,9] %></td>
               <td><%=h requisicao.id %></td>
               <td><%=h solicitante.nome %></td>
               <td><%=h solicitante.cargo %></td>
@@ -103,43 +109,21 @@
           <% end %>
         </tbody>
       </table>
-    </div>
+    </div>   
+  </fieldset>
+<% end -%>
+
+        <!---------------------------------------------------------------------------->
+
+
 </div>
 
-<!-- ======================================================================= -->
+<!---------------------------------------------------------------------------->
 
 <div id="opcoes_da_visao">
   <ul>
-    <li id="opcao_voltar" onclick="history.back(-1)"
-    onmouseover="this.style.cursor='pointer'">
-      Voltar
-    </li>
-    <li id="opcao_imprimir" onclick="window.print()"
-    onmouseover="this.style.cursor='pointer'">
-      <a href="javaScript:window.print()">Imprimir</a>
-    </li>
-    <li id="opcao_editar" onclick="location.href='<%= edit_viagem_path(@viagem) %>'"
-    onmouseover="this.style.cursor='pointer'">
-      <%= link_to 'Editar', edit_viagem_path(@viagem) %>
-    </li>
-    <% if current_user and current_user.has_role? :admin %>
-      <% if viagem_pode_ser_cancelada(@viagem.estado) %>
-        <li id="opcao_excluir" onclick="location.href='<%= cancelar_viagem_path(@viagem) %>'"
-        onmouseover="this.style.cursor='pointer'">
-          <%= link_to "Cancelar viagem", cancelar_viagem_path(@viagem) %>
-        </li>
-      <% end %>
-    <% end %>
-    <% if current_user and current_user.has_role? :admin %>
-      <% if @viagem.pode_ser_fechada? %>
-        <li id="opcao_aceitar" onclick="location.href='<%= fechar_viagem_path(@viagem) %>'" onmouseover="this.style.cursor='pointer'">
-        <%= link_to 'Fechar viagem', fechar_viagem_path(@viagem) %>
-      <% end %>
-    <% end %>
-    </li>
+    <li id="opcao_voltar" onclick="history.back(-1)" onmouseover="this.style.cursor='pointer'">Voltar</li>
   </ul>
   <div class="pular_linha"></li>
 </div>
-
-<!-- ======================================================================= -->
 

@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <% solicitante = Solicitante.find(@requisicao.solicitante_id) %>
+  <body>
+    <p>
+      <%= saudacao %> <%= solicitante.nome %>,
+    </p>
+    <p>
+      <%= @corpo_do_email %>
+    </p>
+    <br/>
+    <p>
+      Caso queira visualizar os dados de sua requisi&ccedil;&atilde;o, clique no link abaixo:
+      <br/>
+      <a href="<%= endereco %><%= visualizar_requisicao_path(:id => @requisicao.id, :chave_de_seguranca => @requisicao.chave_de_seguranca) %>">
+        Ver detalhes de sua requisi&ccedil;&atilde;o.
+      </a>      
+    </p>
+    <p>
+      Caso deseje cancelar sua requisi&ccedil;&atilde;o, clique no link abaixo:
+      <br/>
+      <a href="<%= endereco %><%= cancelar_requisicao_path(:id => @requisicao.id, :chave_de_seguranca => @requisicao.chave_de_seguranca) %>">
+        Cancelar sua requisi&ccedil;&atilde;o.
+      </a>
+    </p>
+    <p>
+      <div style="color: #a2a2a2">
+      ASTRAN/UENF<br />
+      Ramais: 97025 / 97026
+      </div>
+    </p>    
+    <br/>
+  </body>
+</html>
+

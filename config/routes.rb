@@ -51,6 +51,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.cancelar_viagem "viagens/:id/cancelar_viagem", :controller => "viagens", :action => "cancelar_viagem"
   map.cancelamento_da_viagem "viagens/cancelamento_da_viagem", :controller => "viagens", :action => "cancelamento_da_viagem"
+  
+  map.fechar_viagem "viagens/fechar_viagem/:id", :controller => "viagens", :action => "fechar_viagem"
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  <title></title>
+</head>
+<body>
+  <p>
+    <h2>N&uacute;mero de Protocolo: <%= @requisicao.id %></h2>
+  </p>
+  <p>
+    <label>Solicitante: </label><%= @solicitante.nome %>
+  </p>
+  <p>
+    <label>Celular do solicitante: </label><%= @requisicao.celular %>
+  </p>
+  <p>
+    <label>Data de Reserva: </label><%= @requisicao.data_de_reserva.strftime("%d/%m/%Y") %>
+  </p>
+  <p>
+    <label>Categoria de ve&iacute;culo: </label><%= CategoriaDeVeiculo.find(@requisicao.categoria_de_veiculo_id).nome %>
+  </p>
+  <p>
+    <label>Objetivo da Reserva: </label><%= ObjetivoDeReserva.find(@requisicao.objetivo_de_reserva_id).texto %>
+  </p>
+
+  <% unless @requisicao.outros.blank? %>
+    <p><%= "Outros: " + @requisicao.outros %></p>
+  <% end %>
+
+  <p>
+    <label>Nome(s) e telefone do(s) passageiro(s): </label><%= @requisicao.nome_telefone_passageiros %>
+  </p>
+  <p>
+    <label>Roteiro da agenda (ida): </label><%= @requisicao.roteiro_da_agenda %>
+  </p>
+  <p>
+    <label>Observa&ccedil;&atilde;o:</label> <%= @requisicao.observacao %>&nbsp;
+  </p>
+  <br />
+  <p>
+    Caso queira visualizar os dados de sua requisi&ccedil;&atilde;o, clique no link abaixo:
+    <br/>
+    <a href="<%= endereco %><%= visualizar_requisicao_path(:id => @requisicao.id, :chave_de_seguranca => @requisicao.chave_de_seguranca) %>">
+      Ver detalhes de sua requisi&ccedil;&atilde;o</a>
+  </p>
+  <br/>
+    Caso deseje cancelar sua requisi&ccedil;&atilde;o, clique no link abaixo:
+    <br/>
+    <a href="<%= endereco %><%= cancelar_requisicao_path(:id => @requisicao.id, :chave_de_seguranca => @requisicao.chave_de_seguranca) %>">
+      Cancelar sua requisi&ccedil;&atilde;o.
+    </a>
+
+  <p>
+    <div style="color: #a2a2a2">
+    ASTRAN/UENF<br />
+    Ramais: 97025 / 97026
+    </div>
+  </p>      
+</body>
+</html>
+

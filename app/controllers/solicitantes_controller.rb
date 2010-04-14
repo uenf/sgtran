@@ -11,7 +11,7 @@ class SolicitantesController < ApplicationController
 
 
   def index
-    @solicitantes = Solicitante.all
+    @solicitantes = Solicitante.all(:order => "nome ASC")
     @sub_layout = "base"
 
     respond_to do |format|

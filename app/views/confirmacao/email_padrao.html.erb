@@ -1,0 +1,28 @@
+<% solicitante = Solicitante.find(@requisicao.solicitante_id) %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <style type="text/css">
+      .email {
+        font-family: Verdana;
+        font-size: 12px
+      }
+    </style>
+  </head>
+  <body class="email">
+    <p>
+      <%= saudacao %> Sr(a) <%= solicitante.nome %>,
+    </p>
+    <p>
+      <%= @corpo_do_email %>
+    </p>
+    <p>
+      <div style="color: #a2a2a2">
+      ASTRAN/UENF<br />
+      Ramais: 97025 / 97026
+      </div>
+    </p>
+  </body>
+</html>
+

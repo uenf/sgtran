@@ -1,104 +1,35 @@
-<div id="exibir_requisicao">
+<div id="confirmar_@requisicao">
+  <p>
+    <h2>N&uacute;mero de Protocolo: <%= @requisicao.id %></h2>
+  </p>
+  <p>
+    <label>Solicitante: </label><%= Solicitante.find(@requisicao.solicitante_id).nome %>
+  </p>
+  <p>
+    <label>Celular do solicitante: </label><%= @requisicao.celular %>
+  </p>
+  <p>
+    <label>Data de Reserva: </label><%= @requisicao.data_de_reserva.strftime("%d/%m/%Y") %>
+  </p>
+  <p>
+    <label>Categoria de ve&iacute;culo: </label><%= CategoriaDeVeiculo.find(@requisicao.categoria_de_veiculo_id).nome %>
+  </p>
+  <p>
+    <label>Objetivo da Reserva: </label><%= ObjetivoDeReserva.find(@requisicao.objetivo_de_reserva_id).texto %>
+  </p>
 
-  <table class="tabela_padrao">
+  <% unless @requisicao.outros.blank? %>
+    <p><%= "Outros: " + @requisicao.outros %></p>
+  <% end %>
 
-    <h1>Visualiza&ccedil;&atilde;o de detalhes da requisi&ccedil;&atilde;o com Protocolo nº <%=h @requisicao.id %></h1>
-
-    <tr>
-      <td><strong>Estado da requisi&ccedil;&atilde;o:</strong></td>
-      <td><%=h @requisicao.estado %></td>
-    </tr>
-
-    <tr>
-      <tr>
-        <th colspan="2">Dados do solicitante</th>
-      </tr>
-    </tr>
-
-    <tr>
-      <td class="celula_label"><strong>Matricula:</strong></td>
-      <td><%=h @solicitante.matricula %></td>
-    </tr>
-
-    <tr>
-      <td class="celula_label"><strong>Nome do solicitante:</strong></td>
-      <td><%=h @solicitante.nome %></td>
-    </tr>
-
-    <tr>
-      <td class="celula_label"><strong>Email:</strong></td>
-      <td><%=h @solicitante.email %></td>
-    </tr>
-
-    <tr>
-      <td class="celula_label"><strong>Cargo:</strong></td>
-      <td><%=h @requisicao.cargo %></td>
-    </tr>
-
-    <tr>
-      <td class="celula_label"><strong>Telefone ou ramal:</strong></td>
-      <td><%=h @requisicao.telefone_ou_ramal %></td>
-    </tr>
-
-    <tr>
-      <td class="celula_label"><strong>Celular:</strong></td>
-      <td><%=h @requisicao.celular %></td>
-    </tr>
-
-    <tr>
-      <td class="celula_label"><strong>Lab. ou setor:</strong></td>
-      <td><%=h @requisicao.laboratorio_ou_setor %></td>
-    </tr>
-
-    <tr>
-      <td class="celula_label"><strong>Centro:</strong></td>
-      <td><%=h @requisicao.centro %></td>
-    </tr>
-
-    <tr>
-      <tr>
-        <th colspan="2">Dados da reserva</th>
-      </tr>
-    </tr>
-
-    <tr>
-      <td class="celula_label"><strong>Data de reserva:</strong></td>
-      <td><%=h @requisicao.data_de_reserva.strftime("%d/%m/%Y")%></td>
-    </tr>
-
-    <tr>
-      <td class="celula_label"><strong>Categoria de ve&iacute;culo:</strong></td>
-      <td><%=h CategoriaDeVeiculo.find(@requisicao.categoria_de_veiculo_id).nome %></td>
-    </tr>
-
-    <tr>
-      <td class="celula_label"><strong>Objetivo da reserva:</strong></td>
-      <td><%=h ObjetivoDeReserva.find(@requisicao.objetivo_de_reserva_id).texto %></td>
-    </tr>
-
-    <tr>
-      <td class="celula_label"><strong>Outros:</strong></td>
-      <td><%=h @requisicao.outros %></td>
-    </tr>
-
-    <tr>
-      <td class="celula_label"><strong>Nome telefone passageiros:</strong></td>
-      <td><%=h @requisicao.nome_telefone_passageiros %></td>
-    </tr>
-
-    <tr>
-      <td class="celula_label"><strong>Roteiro da agenda (ida):</strong></td>
-      <td><%=h @requisicao.roteiro_da_agenda %></td>
-    </tr>
-
-    <tr>
-      <td class="celula_label"><strong>Observacao:</strong></td>
-      <td><%=h @requisicao.observacao %></td>
-    </tr>
-
-  </table>
-
-<br/>
-
+  <p>
+    <label>Nome(s) e telefone do(s) passageiro(s): </label><%= @requisicao.nome_telefone_passageiros %>
+  </p>
+  <p>
+    <label>Roteiro da agenda (ida): </label><%= @requisicao.roteiro_da_agenda %>
+  </p>
+  <p>
+    <label>Observa&ccedil;&atilde;o:</label> <%= @requisicao.observacao %>&nbsp;
+  </p>
 </div>
 

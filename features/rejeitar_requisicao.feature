@@ -10,9 +10,10 @@ Para que eu possa avisar ao professor que não posso atender a requisição
     E que eu estou na página de detalhes da requisição
     Quando eu clico em "Rejeitar"
     E eu seleciono "Falta de carros" em "Motivo"
-    E eu preencho "Observações" com "Algumas observações importantes"
+    E eu preencho "Corpo do E-mail" com "Meu e-mail"
+    E eu preencho "Destinatários" com "eduardohertz@gmail.com"
     E eu pressiono "Rejeitar requisição"
     Então eu devo estar na página de detalhes da requisição
     E eu devo ver "Estado: Rejeitada"
-    E eu devo ver "Observações do motivo: Algumas observações importantes"
+    E eu devo ver "Motivo informado pelo Sistema: Falta de carros"
 

@@ -14,10 +14,13 @@
       <%= options_from_collection_for_select(@motivos, 'id', 'descricao') %>
     </select>
     </p>
-    <input type="hidden" name="requisicao_id" value="<%= @requisicao.id %>">
     <p>
-      <%= label_tag "motivo_observacao", "Observa&ccedil;&otilde;es:" %>
-      <%= text_area_tag "motivo_observacao" %>
+      <%= label_tag "corpo_email", "Corpo do E-mail:" %>
+      <%= text_area_tag "corpo_email" %>
+    </p>
+    <p>
+      <%= label_tag "destinatarios", "Destinatários:" %>
+      <%= text_field_tag "destinatarios" %> (Separar com ponto e v&iacute;rgula)
     </p>
     <p>
       <%= submit_tag "Rejeitar requisi&ccedil;&atilde;o", :confirm => "Deseja realmente rejeitar essa requisi&ccedil;&atilde;o?" %>

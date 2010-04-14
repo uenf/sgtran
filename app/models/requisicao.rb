@@ -10,6 +10,7 @@ class Requisicao < ActiveRecord::Base
   CANCELADO_PELO_PROFESSOR = "Cancelado pelo professor"
   CANCELADO_PELO_SISTEMA   = "Cancelado pelo sistema"
   REJEITADA                = "Rejeitada"
+  FINALIZADA               = "Finalizada"
 
   IDA = 0
   VOLTA = 1
@@ -158,8 +159,11 @@ class Requisicao < ActiveRecord::Base
     self.viagem_id = viagem.id
     self.motivo_id = nil
     self.motivo_observacao = nil
-    self.save_with_validation false
-    # enviar e-mail aqui
+    if self.save_with_validation false
+      true
+    else
+      false
+    end
   end
 
   def aceitar_com_viagem_existente(viagem_id)
@@ -170,9 +174,11 @@ class Requisicao < ActiveRecord::Base
       self.viagem_id = viagem.id
       self.motivo_id = nil
 
-      self.save!
-
-      return viagem
+      if self.save!
+        viagem
+      else
+        nil
+      end
     end
   end
 
@@ -195,13 +201,15 @@ class Requisicao < ActiveRecord::Base
     end
   end
 
-  def rejeitar motivo_id, observacao
+  def rejeitar motivo_id
     if self.esta_em_espera?
       self.estado = Requisicao::REJEITADA
       self.motivo_id = motivo_id.to_i
-      self.motivo_observacao = observacao
-      self.save
-      #Confirmacao.deliver_email_motivo_de_rejeitar(@requisicao)
+      if self.save
+        true
+      else
+        false
+      end
     end
   end
 
@@ -221,7 +229,7 @@ class Requisicao < ActiveRecord::Base
     (self.esta_em_espera? or self.esta_rejeitada?) ? true : false
   end
 
-  def cancelar_requisicao motivo_id, observacao
+  def cancelar_requisicao motivo_id, corpo_do_email, destinatarios
     if self.esta_aceita?
       viagem = Viagem.find(self.viagem_id) if self.viagem_id
       self.estado = Requisicao::CANCELADO_PELO_SISTEMA
@@ -236,6 +244,7 @@ class Requisicao < ActiveRecord::Base
       self.viagem_id = nil
       self.motivo_observacao = observacao
       if self.save
+        
         return true
       else
         return false
