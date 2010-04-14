@@ -17,18 +17,7 @@ class RequisicoesController < ApplicationController
                          :cancelar_requisicao,
                          :visualizar_requisicao,
                          :cancelar_requisicao_pelo_professor]
-      allow :admin, :to => [:index,
-                            :show,
-                            :aceitar,
-                            :fechar_viagem,
-                            :filtrar,
-                            :rejeitar,
-                            :rejeitar_requisicao,
-                            :cancelar_requisicao_pelo_sistema,
-                            :cancelar_pelo_sistema,
-                            :base_de_dados,
-                            :opcoes_veiculos,
-                            :opcoes_motoristas]
+      allow :admin
       allow :visit, :to => [:index,
                             :show,
                             :filtrar]
@@ -326,6 +315,29 @@ class RequisicoesController < ApplicationController
       flash[:erro] = "A requisição deve estar no estado 'Aceita' para ser cancelada."
     end
     redirect_to(@requisicao)
+  end
+  
+  def alterar_viagem
+    @requisicao = Requisicao.find(params[:id]) if params[:id]
+    @viagens = Viagem.find_all_by_estado(Viagem::AGUARDANDO)
+  end
+  
+  def alterar
+    @requisicao = Requisicao.find(params[:requisicao_id]) if params[:requisicao_id]
+    viagem_id = params[:id_da_viagem]
+    if viagem_id
+      if @requisicao.alterar_viagem viagem_id
+        redirect_to(viagem_path(viagem_id))
+      else
+        flash[:erro] = "Erro ao alterar viagem."
+        rendre :action => "alterar_viagem"
+      end
+    else
+      @viagens = Viagem.find_all_by_estado(Viagem::AGUARDANDO)      
+      flash[:erro] = "Escolha uma viagem."
+      render :action => "alterar_viagem"
+      flash[:erro] = ""
+    end
   end
 
   private

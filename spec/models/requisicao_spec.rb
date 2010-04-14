@@ -440,7 +440,35 @@ describe Requisicao do
                                              :motivo_id => motivo.id
     requisicao.esta_rejeitada?.should be_true
   end
-
+  
+  it "Deve verificar se a viagem de uma requisição pode ser alterada" do
+    viagem = Factory.create :viagem    
+    categoria_de_veiculo = Factory.create :categoria_de_veiculo
+    objetivo_de_reserva = Factory.create :objetivo_de_reserva
+    motivo = Factory.create :motivo
+    requisicao = Factory.create :requisicao, :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                             :objetivo_de_reserva_id => objetivo_de_reserva.id
+    requisicao.pode_alterar_viagem?.should be_false
+    requisicao.estado = Requisicao::ACEITA
+    requisicao.viagem_id = viagem.id
+    requisicao.pode_alterar_viagem?.should be_true
+  end
+  
+  it "Deve alterar a viagem que atende a requisicao" do
+    viagem_1 = Factory.create :viagem
+    viagem_2 = Factory.create :viagem
+    categoria_de_veiculo = Factory.create :categoria_de_veiculo
+    objetivo_de_reserva = Factory.create :objetivo_de_reserva
+    motivo = Factory.create :motivo
+    requisicao = Factory.create :requisicao, :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                             :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                                             :estado => Requisicao::ACEITA,
+                                             :viagem_id => viagem_1.id
+    requisicao.alterar_viagem viagem_2.id
+    requisicao.viagem_id.should == viagem_2.id
+    
+  end
+  
 
 end
 
