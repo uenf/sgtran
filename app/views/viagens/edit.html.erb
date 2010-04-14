@@ -1,32 +1,139 @@
 <%= javascript_include_tag :defaults %>
-<%= javascript_include_tag "viagem_nova_existente.js" %>
 <%= calendar_date_select_includes "silver", :locale => "pt"%>
 <%= javascript_include_tag "calendar_date_select/format_italian" %>
 
 <div class="show_padrao">
   <h1>Editar viagem</h1>
 
-  <div class="formularios_embutidos">
-    <% form_tag :controller => "viagem", :action => "update", :id => @viagem.id do %>
-      <fieldset>
-        <legend>Detalhes da viagem</legend>
-        <%= mensagem_de_erro(@viagem) %>
+  <% form_for @viagem, :url => { :action => "update" } do |f| %>
+    <%= mensagem_de_erro(@viagem) %>
 
-      <div id="viagem_nova_existente">
-        <fieldset>
-          <legend>Atender com uma viagem:</legend>
-            <%= radio_button_tag :escolha_de_viagem, "nova", true, :onclick => "viagemNovaOuExistente()" %>
-            <%= label_tag :escolha_de_viagem_nova, "Nova: ", :id => "label_viagem_nova" %>
-            <br class="pular_linha"/>
-
-            <%= radio_button_tag :escolha_de_viagem, "existente", false, :onclick => "viagemNovaOuExistente()" %>
-            <%= label_tag :escolha_de_viagem_existente, "Existente: ", :id => "label_viagem_existente" %>
-            <br class="pular_linha"/>
-        </fieldset>
+    <div class="show_linha">
+      <div class="linha_titulo">
+        <%= f.label :data_partida, "Data de sa&iacute;da:" %>
       </div>
-    <% end %>
-  </div>
+      <%= calendar_date_select_tag "viagem_data_partida",
+                                  @viagem.data_partida ? @viagem.data_partida.to_date.to_s_br : "",
+                                  :name => "viagem[data_partida]",
+                                  :year_range => [0.years.ago, 2.years.from_now],
+                                  :month_year => "label",
+                                  :class => "campo_data"%>
+    </div>
+
+    <%= observe_field :viagem_data_partida,
+                      :url => { :controller => :viagens,
+                        :action => :opcoes_motoristas },
+                      :update => :motorista_id,
+                      :with => "'data_partida=' + document.getElementById('viagem_data_partida').value + '&data_chegada=' + document.getElementById('viagem_data_chegada').value"
+                      %>
+
+    <%= observe_field :viagem_data_partida,
+                      :url => { :controller => :viagens,
+                        :action => :opcoes_veiculos },
+                      :update => :veiculo_id,
+                      :with => "'data_partida=' + document.getElementById('viagem_data_partida').value + '&data_chegada=' + document.getElementById('viagem_data_chegada').value + '&categoria_de_veiculo_id=' + '#{@categoria_de_veiculo_id}'"
+                      %>
+
+    <div class="show_linha">
+      <div class="linha_titulo">
+        <%= f.label :data_chegada, "Data de chegada:" %>
+      </div>
+      <%= calendar_date_select_tag "viagem_data_chegada",
+                                  @viagem.data_chegada ? @viagem.data_chegada.to_date.to_s_br : "",
+                                  :name => "viagem[data_chegada]",
+                                  :year_range => [0.years.ago, 2.years.from_now],
+                                  :month_year => "label",
+                                  :class => "campo_data"%>
+    </div>
+
+    <%= observe_field :viagem_data_chegada,
+                      :url => { :controller => :viagens,
+                        :action => :opcoes_motoristas },
+                      :update => :motorista_id,
+                      :with => "'data_partida=' + document.getElementById('viagem_data_partida').value + '&data_chegada=' + document.getElementById('viagem_data_chegada').value"
+                      %>
+
+    <%= observe_field :viagem_data_chegada,
+                      :url => { :controller => :viagens,
+                        :action => :opcoes_veiculos },
+                      :update => :veiculo_id,
+                      :with => "'data_partida=' + document.getElementById('viagem_data_partida').value + '&data_chegada=' + document.getElementById('viagem_data_chegada').value + '&categoria_de_veiculo_id=' + '#{@categoria_de_veiculo_id}'"
+                      %>
+
+    <div class="show_linha">
+      <div class="linha_titulo">
+        <%= f.label :horario_partida, "Hor&aacute;rio de sa&iacute;da:" %>
+      </div>
+      <%= time_select :viagem, :horario_partida, {:time_separator => ' : ', :minute_step => 5, :prompt => "-"} %>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo">
+        <%= f.label :motorista_id, "Motorista:" %>
+      </div>
+      <select name="viagem[motorista_id]" id="viagem_motorista_id">
+        <%= grouped_options_for_select(@lista_motoristas, @viagem.motorista_id, "Selecione um motorista") %>
+      </select>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo">
+        <%= f.label :veiculo_id, "Ve&iacute;culo:" %>
+      </div>
+      <select name="viagem[veiculo_id]" id="viagem_veiculo_id">
+        <%= grouped_options_for_select(@lista_veiculos, @viagem.veiculo_id, "Selecione um ve&iacute;culo") %>
+      </select>
+    </div>
+
+    <div class ="botao_concluir"><%= f.submit "Atualizar" %></div>
+  <% end %>
+
+
+  <h1>Requisi&ccedil;&otilde;es atendidas</h1>
+    <div id="tabela_exibir">
+
+      <table id="requisicoes" class="tabela_padrao">
+        <thead>
+          <tr>
+            <th>Estado</th>
+            <th>Protocolo</th>
+            <th>Solicitante</th>
+            <th>Cargo</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th>Data</th>
+            <th>Ve&iacute;culo</th>
+            <th>Objetivo</th>
+            <th>Tipo</th>
+            <th>Refer&ecirc;ncia</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @viagem.requisicoes_atendidas.each do |r_id| %>
+            <% requisicao = Requisicao.find(r_id)%>
+            <% solicitante = Solicitante.find(requisicao.solicitante_id) %>
+
+            <tr onmouseover="this.style.cursor='pointer'" onclick="location.href='<%= requisicao_path(requisicao) %>'">
+              <td class="<%=h traduz_class_css(requisicao.estado) %>"><%=h requisicao.estado[0,9] %></td>
+              <td><%=h requisicao.id %></td>
+              <td><%=h solicitante.nome %></td>
+              <td><%=h solicitante.cargo %></td>
+              <td><%=h solicitante.email %></td>
+              <td><%=h solicitante.telefone_ou_ramal %></td>
+              <td><%=h requisicao.data_de_reserva.strftime("%d/%m/%Y") %></td>
+              <td><%=h CategoriaDeVeiculo.find(requisicao.categoria_de_veiculo_id).nome %></td>
+              <td><%=h ObjetivoDeReserva.find(requisicao.objetivo_de_reserva_id).texto %></td>
+              <td><%=h requisicao.tipo ? requisicao.tipo : "-" %></td>
+              <td><%=h requisicao.referencia_id ? requisicao.referencia_id : "-" %></td>
+            </tr>
+
+          <% end %>
+        </tbody>
+      </table>
+    </div>
 </div>
+
 
 <div id="opcoes_da_visao">
   <ul>

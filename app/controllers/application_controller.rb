@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
 
 
   def local_request?
-    false
+    true
   end
 
   # Scrub sensitive parameters from your log

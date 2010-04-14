@@ -52,7 +52,21 @@ class ViagensController < ApplicationController
   # GET /viagens/1/edit
   def edit
     @viagem = Viagem.find(params[:id])
-    @sub_layout = "base"
+    data_partida = @viagem.data_partida
+    data_chegada = @viagem.data_chegada
+    if @viagem.veiculo_id
+      @categoria_de_veiculo_id = Veiculo.find(@viagem.veiculo_id).categoria_de_veiculo_id
+    else
+      @categoria_de_veiculo_id = nil
+    end
+    @lista_motoristas = [
+                          ['Motoristas desocupados', Motorista.desocupados_entre(data_chegada,data_partida)],
+                          ['Motoristas ocupados', Motorista.ocupados_entre(data_chegada,data_partida)]
+                        ]
+    @lista_veiculos = [
+                        ['Veículos desocupados', Veiculo.desocupados_entre_datas_e_com_categoria(data_chegada,data_partida,@categoria_de_veiculo_id)],
+                        ['Veículos ocupados', Veiculo.ocupados_entre_datas_e_com_categoria(data_chegada,data_partida,@categoria_de_veiculo_id)]
+                      ]
   end
 
   # POST /viagens
@@ -76,10 +90,16 @@ class ViagensController < ApplicationController
   # PUT /viagens/1.xml
   def update
     @viagem = Viagem.find(params[:id])
+    params[:viagem][:data_partida] = data_str_ou_nil(params[:viagem][:data_partida])
+    params[:viagem][:data_chegada] = data_str_ou_nil(params[:viagem][:data_chegada])
+    # Apenas para colocar valores válidos para a data ligada ao horário
+    params[:viagem]["horario_partida(1i)"] = Date.today.year.to_s
+    params[:viagem]["horario_partida(2i)"] = Date.today.mon.to_s
+    params[:viagem]["horario_partida(3i)"] = Date.today.day.to_s
 
     respond_to do |format|
       if @viagem.update_attributes(params[:viagem])
-        flash[:notice] = 'Viagem was successfully updated.'
+        flash[:sucesso] = 'Viagem atualizada com sucesso!'
         format.html { redirect_to(@viagem) }
         format.xml  { head :ok }
       else
@@ -130,6 +150,33 @@ class ViagensController < ApplicationController
     else
       flash[:erro] = "Erro ao fechar a viagem. Verifique os dados da viagem."
       render :action => "fechar_viagem"
+    end
+  end
+
+  def opcoes_motoristas
+    data_partida, data_chegada = params[:viagem][:data_partida].to_date, params[:viagem][:data_chegada].to_date
+    @lista_motoristas = [
+                          ['Motoristas desocupados', Motorista.desocupados_entre(data_partida,data_chegada)],
+                          ['Motoristas ocupados', Motorista.ocupados_entre(data_partida,data_chegada)]
+                        ]
+    render :partial => 'opcoes_motoristas', :object => @lista_motoristas
+  end
+
+  def opcoes_veiculos
+    data_partida, data_chegada = params[:viagem][:data_partida].to_date, params[:viagem][:data_chegada].to_date
+    categoria_de_veiculo_id = Veiculo.find(params[:viagem][:veiculo_id]).categoria_de_veiculo_id
+    @lista_veiculos = [
+                        ['Veículos desocupados', Veiculo.desocupados_entre_datas_e_com_categoria(data_chegada,data_partida,categoria_de_veiculo_id)],
+                        ['Veículos ocupados', Veiculo.ocupados_entre_datas_e_com_categoria(data_chegada,data_partida,categoria_de_veiculo_id)]
+                      ]
+    render :partial => 'opcoes_veiculos', :object => @lista_veiculos
+  end
+
+  def data_str_ou_nil(str_data)
+    begin
+      str_data.to_date
+    rescue
+      nil
     end
   end
 
