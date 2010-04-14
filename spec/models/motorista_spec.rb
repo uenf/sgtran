@@ -43,14 +43,14 @@ describe Motorista do
       @motorista_marco = Factory.create :motorista, :nome_do_motorista => "Marco"
       viagem = Factory.create :viagem,
                               :motorista_id => @motorista_joao.id,
-                              :data_partida => Date.new(2010,03,10),
-                              :data_chegada => Date.new(2010,03,12)
+                              :data_partida => Date.today,
+                              :data_chegada => Date.today + 2.days
     end
 
     it "Deve fornecer a lista com o nome e o id dos motoristas ocupados em um determinado
         intervalo de dias" do
-      data_partida = Date.new(2010,03,10)
-      data_chegada = Date.new(2010,03,12)
+      data_partida = Date.today
+      data_chegada = Date.today + 2.days
       motoristas_ocupados = Motorista.ocupados_entre(data_partida, data_chegada)
       motoristas_ocupados.should include [@motorista_joao.nome_do_motorista, @motorista_joao.id]
       motoristas_ocupados.length.should be_equal 1
@@ -58,8 +58,8 @@ describe Motorista do
 
     it "Deve fornecer a lista com o nome e o id dos motoristas ocupados em uma data
         entre as datas de chegada e partida de uma viagem existente" do
-      data_partida = Date.new(2010,03,11)
-      data_chegada = Date.new(2010,03,11)
+      data_partida = Date.tomorrow
+      data_chegada = Date.tomorrow
       motoristas_ocupados = Motorista.ocupados_entre(data_partida, data_chegada)
       motoristas_ocupados.should include [@motorista_joao.nome_do_motorista, @motorista_joao.id]
       motoristas_ocupados.length.should be_equal 1
@@ -67,16 +67,16 @@ describe Motorista do
 
     it "Deve fornecer uma lista sem nenhum motorista ocupado quando na data não
         existe nenhuma viagem" do
-      data_partida = Date.new(2010,03,03)
-      data_chegada = Date.new(2010,03,05)
+      data_partida = Date.today + 5.days
+      data_chegada = Date.today + 7.days
       motoristas_ocupados = Motorista.ocupados_entre(data_partida, data_chegada)
       motoristas_ocupados.length.should be_equal 0
     end
 
     it "Deve fornecer a lista com o nome e o id dos motoristas desocupados em um
         determinado intervalo de dias" do
-      data_partida = Date.new(2010,03,10)
-      data_chegada = Date.new(2010,03,12)
+      data_partida = Date.today
+      data_chegada = Date.today + 2.days
       motoristas_desocupados = Motorista.desocupados_entre(data_partida, data_chegada)
       motoristas_desocupados.should include [@motorista_zeca.nome_do_motorista, @motorista_zeca.id]
       motoristas_desocupados.should include [@motorista_marco.nome_do_motorista, @motorista_marco.id]
@@ -85,8 +85,8 @@ describe Motorista do
 
     it "Deve fornecer a lista com o nome e o id dos motoristas desocupados em uma data
         entre as datas de chegada e partida de uma viagem existente" do
-      data_partida = Date.new(2010,03,11)
-      data_chegada = Date.new(2010,03,11)
+      data_partida = Date.tomorrow
+      data_chegada = Date.tomorrow
       motoristas_desocupados = Motorista.desocupados_entre(data_partida, data_chegada)
       motoristas_desocupados.should include [@motorista_zeca.nome_do_motorista, @motorista_zeca.id]
       motoristas_desocupados.should include [@motorista_marco.nome_do_motorista, @motorista_marco.id]
@@ -95,8 +95,8 @@ describe Motorista do
 
     it "Deve fornecer uma lista com o nome e o id todos os motoristas como desocupados
         quando na data não existe nenhuma viagem" do
-      data_partida = Date.new(2010,03,03)
-      data_chegada = Date.new(2010,03,05)
+      data_partida = Date.today + 5.days
+      data_chegada = Date.today + 7.days
       motoristas_desocupados = Motorista.desocupados_entre(data_partida, data_chegada)
       motoristas_desocupados.should include [@motorista_joao.nome_do_motorista, @motorista_joao.id]
       motoristas_desocupados.should include [@motorista_zeca.nome_do_motorista, @motorista_zeca.id]

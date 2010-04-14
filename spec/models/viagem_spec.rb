@@ -1,9 +1,19 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe Viagem do
+
   it "Data de partida não pode ser posterior à data de chegada" do
     data_partida = Date.today + 2.days
     data_chegada = Date.today
+    viagem = Factory.build :viagem,
+                            :data_partida => data_partida,
+                            :data_chegada => data_chegada
+    viagem.save.should be_false
+  end
+
+  it "Data de partida e de chegada não podem ser anteriores à data atual" do
+    data_partida = Date.yesterday - 1.day
+    data_chegada = Date.yesterday
     viagem = Factory.build :viagem,
                             :data_partida => data_partida,
                             :data_chegada => data_chegada
@@ -79,16 +89,16 @@ describe Viagem do
     viagem = Factory.create :viagem
     viagem.esta_aguardando?.should be_true
   end
-  
+
   it "Deve verificar se é possível fechar a viagem" do
     viagem = Factory.create :viagem, :estado => Viagem::CANCELADA
     viagem.pode_ser_fechada?.should be_false
     viagem.estado = Viagem::AGUARDANDO
     viagem.pode_ser_fechada?.should be_true
   end
-  
+
   it "Deve fechar uma viagem" do
-    viagem = Factory.create :viagem, :estado => Viagem::CANCELADA    
+    viagem = Factory.create :viagem, :estado => Viagem::CANCELADA
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     centro = Factory.create :centro
     solicitante = Factory.create :solicitante, :centro_id => centro.id

@@ -19,6 +19,9 @@ class Viagem < ActiveRecord::Base
       if self.data_partida > self.data_chegada
           self.errors.add("Data de chegada anterior à data de partida. Isso")
       end
+      if ((self.data_partida < Date.today) or (self.data_chegada < Date.today))
+        self.errors.add("As datas não podem ser anteriores à data atual. Isso")
+      end
     end
   end
 

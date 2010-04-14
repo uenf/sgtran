@@ -58,14 +58,14 @@ describe Veiculo do
                                   :combustivel_ids => [combustivel.id]
       viagem = Factory.create :viagem,
                               :veiculo_id => @veiculo_1.id,
-                              :data_partida => Date.new(2010,03,10),
-                              :data_chegada => Date.new(2010,03,12)
+                              :data_partida => Date.today,
+                              :data_chegada => Date.today + 2.days
     end
 
     it "Deve fornecer a lista com os dados de veiculos ocupados em um determinado
         intervalo de dias" do
-      data_partida = Date.new(2010,03,10)
-      data_chegada = Date.new(2010,03,12)
+      data_partida = Date.today
+      data_chegada = Date.today + 2.days
       veiculos_ocupados = Veiculo.ocupados_entre_datas_e_com_categoria(data_partida, data_chegada, @categoria_de_veiculo_1.id)
       veiculos_ocupados.should include ["* " + @veiculo_1.modelo + " - " + @veiculo_1.placa + " - " + @categoria_de_veiculo_1.nome,
                                         @veiculo_1.id]
@@ -74,8 +74,8 @@ describe Veiculo do
 
     it "Deve fornecer a lista com os dados de veiculos ocupados em uma data entre
         as datas de chegada e partida de uma viagem existente" do
-      data_partida = Date.new(2010,03,11)
-      data_chegada = Date.new(2010,03,11)
+      data_partida = Date.tomorrow
+      data_chegada = Date.tomorrow
       veiculos_ocupados = Veiculo.ocupados_entre_datas_e_com_categoria(data_partida, data_chegada, @categoria_de_veiculo_1.id)
       veiculos_ocupados.should include ["* " + @veiculo_1.modelo + " - " + @veiculo_1.placa + " - " + @categoria_de_veiculo_1.nome,
                                         @veiculo_1.id]
@@ -84,16 +84,16 @@ describe Veiculo do
 
     it "Deve fornecer uma lista sem nenhum veiculo ocupado quando na data não
         existe nenhuma viagem" do
-      data_partida = Date.new(2010,03,03)
-      data_chegada = Date.new(2010,03,05)
+      data_partida = Date.today + 5.days
+      data_chegada = Date.today + 7.days
       veiculos_ocupados = Veiculo.ocupados_entre_datas_e_com_categoria(data_partida, data_chegada, @categoria_de_veiculo_1.id)
       veiculos_ocupados.length.should be_equal 0
     end
 
     it "Deve fornecer a lista com os dados de veiculos desocupados em um
         determinado intervalo de dias" do
-      data_partida = Date.new(2010,03,10)
-      data_chegada = Date.new(2010,03,12)
+      data_partida = Date.today
+      data_chegada = Date.today + 2.days
       veiculos_desocupados = Veiculo.desocupados_entre_datas_e_com_categoria(data_partida, data_chegada, @categoria_de_veiculo_1.id)
       veiculos_desocupados.should include [@veiculo_2.modelo + " - " + @veiculo_2.placa + " - " + @categoria_de_veiculo_2.nome,
                                             @veiculo_2.id]
@@ -104,8 +104,8 @@ describe Veiculo do
 
     it "Deve fornecer a lista com os dados de veiculos desocupados em uma data
         entre as datas de chegada e partida de uma viagem existente" do
-      data_partida = Date.new(2010,03,11)
-      data_chegada = Date.new(2010,03,11)
+      data_partida = Date.tomorrow
+      data_chegada = Date.tomorrow
       veiculos_desocupados = Veiculo.desocupados_entre_datas_e_com_categoria(data_partida, data_chegada, @categoria_de_veiculo_1.id)
       veiculos_desocupados.should include [@veiculo_2.modelo + " - " + @veiculo_2.placa + " - " + @categoria_de_veiculo_2.nome,
                                             @veiculo_2.id]
@@ -116,8 +116,8 @@ describe Veiculo do
 
     it "Deve fornecer uma lista com os dados de todos os veiculos como desocupados
         quando na data não existe nenhuma viagem" do
-      data_partida = Date.new(2010,03,03)
-      data_chegada = Date.new(2010,03,05)
+      data_partida = Date.today + 5.days
+      data_chegada = Date.today + 7.days
       veiculos_desocupados = Veiculo.desocupados_entre_datas_e_com_categoria(data_partida, data_chegada, @categoria_de_veiculo_1.id)
       veiculos_desocupados.should include ["* " + @veiculo_1.modelo + " - " + @veiculo_1.placa + " - " + @categoria_de_veiculo_1.nome,
                                             @veiculo_1.id]
