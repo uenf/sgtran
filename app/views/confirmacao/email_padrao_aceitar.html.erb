@@ -3,9 +3,10 @@
   <head>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
+  <% solicitante = Solicitante.find(@requisicao.solicitante_id) %>
   <body>
     <p>
-      <%= saudacao %>
+      <%= saudacao %> <%= solicitante.nome %>,
     </p>
     <p>
       <%= @corpo_do_email %>
@@ -14,16 +15,16 @@
     <p>
       Caso queira visualizar os dados de sua requisi&ccedil;&atilde;o, clique no link abaixo:
       <br/>
-      <%= link_to visualizar_requisicao_path(:id => @requisicao.id, :chave_de_seguranca => @requisicao.chave_de_seguranca) ,
-      "Ver detalhes de sua requisi&ccedil;&atilde;o." %>
+      <a href="<%= endereco %><%= visualizar_requisicao_path(:id => @requisicao.id, :chave_de_seguranca => @requisicao.chave_de_seguranca) %>">
+        Ver detalhes de sua requisi&ccedil;&atilde;o.
+      </a>      
     </p>
-    <br/>
-    <br/>
     <p>
-      Caso deseje cancelar sua requisi&ccedil;&atilde;o, clique no link abaixo: <br/>
+      Caso deseje cancelar sua requisi&ccedil;&atilde;o, clique no link abaixo:
       <br/>
-      <%= link_to cancelar_requisicao_path(:id => @requisicao.id, :chave_de_seguranca => @requisicao.chave_de_seguranca) ,
-      "Cancelar sua requisi&ccedil;&atilde;o." %>
+      <a href="<%= endereco %><%= cancelar_requisicao_path(:id => @requisicao.id, :chave_de_seguranca => @requisicao.chave_de_seguranca) %>">
+        Cancelar sua requisi&ccedil;&atilde;o.
+      </a>
     </p>
     <p>
       <div style="color: #a2a2a2">

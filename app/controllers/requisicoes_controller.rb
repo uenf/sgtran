@@ -72,6 +72,7 @@ class RequisicoesController < ApplicationController
   # GET /requisicoes/new.xml
   def new
     @requisicao = Requisicao.new
+    flash[:sucesso] = ""    
     render :action => "new", :layout => "requisicoes"
   end
 
@@ -119,15 +120,20 @@ class RequisicoesController < ApplicationController
 
   def confirmar_requisicao
     @requisicao = session[:requisicao]
-    @solicitante = Solicitante.find_by_matricula_and_email(params[:matricula], params[:email])
-
-    session.delete :requisicao
-    flash[:sucesso] = "Requisição enviada com sucesso!"
-    render :action => "confirmar_requisicao", :layout => "requisicoes"
+    session.delete :requisicao    
+    if @requisicao
+      @solicitante = Solicitante.find_by_matricula_and_email(params[:matricula], params[:email])
+      flash[:sucesso] = "Requisição enviada com sucesso!"
+      render :action => "confirmar_requisicao", :layout => "requisicoes"
+    else
+      flash[:sucesso] = ""
+      redirect_to(new_requisicao_path)
+    end
   end
 
   def cancelar_requisicao
     begin
+      flash[:sucesso] = ""
       @requisicao = Requisicao.find(params[:id])
 
       #bloqueia acesso caso chave nao esteja correta, redirecionando para nova requisição
@@ -198,6 +204,8 @@ class RequisicoesController < ApplicationController
 
   def fechar_viagem
     @requisicao = Requisicao.find(params[:id])
+    corpo_do_email = params[:corpo_do_email]
+    destinatarios = params[:destinatarios]
 
     if params[:escolha_de_viagem].eql?("nova")
 
@@ -210,8 +218,13 @@ class RequisicoesController < ApplicationController
 
       if viagem.valid?
         viagem.save!
-        @requisicao.aceitar viagem
-        redirect_to :controller => "viagem", :action => "show", :id => viagem.id
+        if @requisicao.aceitar viagem
+          #Confirmacao.deliver_enviar_email_aceitar(corpo_do_email, destinatarios, @requisicao)
+          redirect_to :controller => "viagem", :action => "show", :id => viagem.id
+        else
+          session[:requisicao] = @requisicao
+          redirect_to :action => "aceitar"
+        end
       else
         session[:viagem] = viagem
         redirect_to :action => "aceitar"
@@ -220,7 +233,13 @@ class RequisicoesController < ApplicationController
     elsif params[:escolha_de_viagem].eql?("existente")
       if params[:id_da_viagem]
         viagem = @requisicao.aceitar_com_viagem_existente(params[:id_da_viagem])
-        redirect_to :controller => "viagem", :action => "show", :id => viagem.id
+        if viagem
+          redirect_to :controller => "viagem", :action => "show", :id => viagem.id
+          #Confirmacao.deliver_enviar_email_aceitar(corpo_do_email, destinatarios, @requisicao)
+        else
+          session[:requisicao] = @requisicao
+          @requisicao.errors.add(:viagem, "não foi selecionada.")          
+        end
       else
         session[:requisicao] = @requisicao
         @requisicao.errors.add(:viagem, "não foi selecionada.")
@@ -242,7 +261,7 @@ class RequisicoesController < ApplicationController
       session[:requisicao] = @requisicao
       #incluindo linha para enviar o emailtesteuenf para ailton informando que professor cancelou a requisição
       #comentado temporariamente, porta bloqueada
-      #Confirmacao.deliver_email_informando_astran_sobre_cancelamento(@requisicao)
+      #Confirmacao.deliver_email_cancelamento_professor(@requisicao)
     else
       render :action => "cancelar_requisicao", :layout => "requisicoes"
     end
@@ -281,7 +300,9 @@ class RequisicoesController < ApplicationController
     motivo = params[:motivo]
     corpo_email = params[:corpo_email]
     destinatarios = params[:destinatarios]
-    @requisicao.rejeitar(motivo, corpo_email, destinatarios)
+    if @requisicao.rejeitar(motivo)
+      #Confirmacao.deliver_enviar_email(corpo_email, destinatarios, @requisicao)
+    end
     redirect_to requisicao_path(@requisicao)
   end
 
@@ -297,7 +318,10 @@ class RequisicoesController < ApplicationController
     corpo_do_email = params[:corpo_email]
     destinatarios = params[:destinatarios]
     if @requisicao.esta_aceita?
-      @requisicao.cancelar_requisicao motivo.to_i, corpo_do_email, destinatarios
+      retorno = @requisicao.cancelar_requisicao motivo.to_i, corpo_do_email, destinatarios
+      if retorno
+        #Confirmacao.deliver_enviar_email(corpo_do_email, destinatarios, self) if retorno
+      end
     else
       flash[:erro] = "A requisição deve estar no estado 'Aceita' para ser cancelada."
     end

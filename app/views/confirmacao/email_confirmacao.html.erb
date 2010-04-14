@@ -41,13 +41,13 @@
   <p>
     Caso queira visualizar os dados de sua requisi&ccedil;&atilde;o, clique no link abaixo:
     <br/>
-    <a href="http://localhost:3000<%= visualizar_requisicao_path(:id => @requisicao.id, :chave_de_seguranca => @requisicao.chave_de_seguranca) %>">
+    <a href="<%= endereco %><%= visualizar_requisicao_path(:id => @requisicao.id, :chave_de_seguranca => @requisicao.chave_de_seguranca) %>">
       Ver detalhes de sua requisi&ccedil;&atilde;o</a>
   </p>
   <br/>
     Caso deseje cancelar sua requisi&ccedil;&atilde;o, clique no link abaixo:
     <br/>
-    <a href="http://localhost:3000<%= cancelar_requisicao_path(:id => @requisicao.id, :chave_de_seguranca => @requisicao.chave_de_seguranca) %>">
+    <a href="<%= endereco %><%= cancelar_requisicao_path(:id => @requisicao.id, :chave_de_seguranca => @requisicao.chave_de_seguranca) %>">
       Cancelar sua requisi&ccedil;&atilde;o.
     </a>
 

@@ -158,8 +158,11 @@ class Requisicao < ActiveRecord::Base
     self.viagem_id = viagem.id
     self.motivo_id = nil
     self.motivo_observacao = nil
-    self.save_with_validation false
-    # enviar e-mail aqui
+    if self.save_with_validation false
+      true
+    else
+      false
+    end
   end
 
   def aceitar_com_viagem_existente(viagem_id)
@@ -170,9 +173,11 @@ class Requisicao < ActiveRecord::Base
       self.viagem_id = viagem.id
       self.motivo_id = nil
 
-      self.save!
-
-      return viagem
+      if self.save!
+        viagem
+      else
+        nil
+      end
     end
   end
 
@@ -195,12 +200,15 @@ class Requisicao < ActiveRecord::Base
     end
   end
 
-  def rejeitar motivo_id, corpo_email, destinatarios
+  def rejeitar motivo_id
     if self.esta_em_espera?
       self.estado = Requisicao::REJEITADA
       self.motivo_id = motivo_id.to_i
-      self.save
-      Confirmacao.deliver_enviar_email(corpo_email, destinatarios, self)
+      if self.save
+        true
+      else
+        false
+      end
     end
   end
 
@@ -235,7 +243,7 @@ class Requisicao < ActiveRecord::Base
       self.viagem_id = nil
       self.motivo_observacao = observacao
       if self.save
-        Confirmacao.deliver_enviar_email(corpo_do_email, destinatarios, self)
+        
         return true
       else
         return false

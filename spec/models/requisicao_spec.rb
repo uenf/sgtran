@@ -339,7 +339,7 @@ describe Requisicao do
                                 :categoria_de_veiculo_id => categoria_de_veiculo.id,
                                 :objetivo_de_reserva_id => objetivo_de_reserva.id,
                                 :solicitante_id => solicitante.id
-    requisicao.rejeitar motivo.id, corpo_email, destinatários
+    requisicao.rejeitar motivo.id
     requisicao.estado.should == Requisicao::REJEITADA
     requisicao.motivo_id.should == motivo.id
   end
