@@ -79,6 +79,21 @@ describe Viagem do
     viagem = Factory.create :viagem
     viagem.esta_aguardando?.should be_true
   end
+  
+  it "Deve verificar se é possível fechar a viagem" do
+    viagem = Factory.create :viagem, :estado => Viagem::CANCELADA
+    viagem.pode_ser_fechada?.should be_false
+    viagem.estado = Viagem::AGUARDANDO
+    viagem.pode_ser_fechada?.should be_true
+  end
+  
+  it "Deve fechar uma viagem" do
+    viagem = Factory.create :viagem, :estado => Viagem::CANCELADA
+    viagem.fechar_viagem.should be_false
+    viagem.estado = Viagem::AGUARDANDO
+    viagem.fechar_viagem.should be_true
+    viagem.estado.should == Viagem::ATENDIDA
+  end
 
   describe "associações" do
     should_have_many :requisicoes

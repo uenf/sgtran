@@ -3,8 +3,7 @@ class ViagensController < ApplicationController
   # GET /viagens.xml
 
   access_control do
-    allow :admin, :to => [:index, :show, :new, :edit, :create, :update, :destroy,
-                          :viagens_existentes, :filtrar, :cancelar_viagem, :cancelamento_da_viagem]
+    allow :admin
     allow :visit, :to => [:index, :filtrar, :show, :viagens_existentes]
   end
 
@@ -117,6 +116,21 @@ class ViagensController < ApplicationController
     @viagem = Viagem.find(params[:viagem_id])
     @viagem.cancelar_viagem motivo.to_i
     redirect_to(viagens_path)
+  end
+  
+  def fechar_viagem
+    @viagem = Viagem.find(params[:id]) if params[:id]
+  end
+  
+  def fechar
+    viagem_id = params[:viagem]
+    @viagem = Viagem.find(viagem_id)
+    if @viagem.fechar_viagem
+      redirect_to(@viagem)
+    else
+      flash[:erro] = "Erro ao fechar a viagem. Verifique os dados da viagem."
+      render :action => "fechar_viagem"
+    end
   end
 
 end

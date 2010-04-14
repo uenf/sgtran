@@ -65,6 +65,24 @@ class Viagem < ActiveRecord::Base
       self.save!
     end
   end
+  
+  def pode_ser_fechada?
+    if self.estado == Viagem::AGUARDANDO
+      true
+    else
+      false
+    end
+  end
+  
+  def fechar_viagem
+    if self.pode_ser_fechada?
+      self.estado = Viagem::ATENDIDA
+      self.save
+      true
+    else
+      false
+    end
+  end
 
 end
 
