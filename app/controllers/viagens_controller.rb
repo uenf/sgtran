@@ -97,15 +97,26 @@ class ViagensController < ApplicationController
     params[:viagem]["horario_partida(2i)"] = Date.today.mon.to_s
     params[:viagem]["horario_partida(3i)"] = Date.today.day.to_s
 
-    respond_to do |format|
-      if @viagem.update_attributes(params[:viagem])
-        flash[:sucesso] = 'Viagem atualizada com sucesso!'
-        format.html { redirect_to(@viagem) }
-        format.xml  { head :ok }
+    if @viagem.update_attributes(params[:viagem])
+      flash[:sucesso] = 'Viagem atualizada com sucesso!'
+      redirect_to(@viagem)
+    else
+      data_partida = @viagem.data_partida
+      data_chegada = @viagem.data_chegada
+      if @viagem.veiculo_id
+        @categoria_de_veiculo_id = Veiculo.find(@viagem.veiculo_id).categoria_de_veiculo_id
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @viagem.errors, :status => :unprocessable_entity }
+        @categoria_de_veiculo_id = nil
       end
+      @lista_motoristas = [
+                            ['Motoristas desocupados', Motorista.desocupados_entre(data_chegada,data_partida)],
+                            ['Motoristas ocupados', Motorista.ocupados_entre(data_chegada,data_partida)]
+                          ]
+      @lista_veiculos = [
+                          ['Veículos desocupados', Veiculo.desocupados_entre_datas_e_com_categoria(data_chegada,data_partida,@categoria_de_veiculo_id)],
+                          ['Veículos ocupados', Veiculo.ocupados_entre_datas_e_com_categoria(data_chegada,data_partida,@categoria_de_veiculo_id)]
+                        ]
+      render :action => "edit"
     end
   end
 
@@ -137,11 +148,11 @@ class ViagensController < ApplicationController
     @viagem.cancelar_viagem motivo.to_i
     redirect_to(viagens_path)
   end
-  
+
   def fechar_viagem
     @viagem = Viagem.find(params[:id]) if params[:id]
   end
-  
+
   def fechar
     viagem_id = params[:viagem]
     @viagem = Viagem.find(viagem_id)
@@ -176,7 +187,7 @@ class ViagensController < ApplicationController
     begin
       str_data.to_date
     rescue
-      nil
+      Date.today
     end
   end
 

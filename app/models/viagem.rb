@@ -15,9 +15,9 @@ class Viagem < ActiveRecord::Base
   validate :validar_data
 
   def validar_data
-    if self.data_partida && self.data_chegada
+    if self.data_partida and self.data_chegada
       if self.data_partida > self.data_chegada
-          self.errors.add("Data de chegada anterior à data de partida")
+          self.errors.add("Data de chegada anterior à data de partida. Isso")
       end
     end
   end
@@ -65,7 +65,7 @@ class Viagem < ActiveRecord::Base
       self.save!
     end
   end
-  
+
   def pode_ser_fechada?
     if self.estado == Viagem::AGUARDANDO
       true
@@ -73,7 +73,7 @@ class Viagem < ActiveRecord::Base
       false
     end
   end
-  
+
   def fechar_viagem
     requisicoes_atendidas = Requisicao.find_all_by_viagem_id(self.id)
     if self.pode_ser_fechada?
