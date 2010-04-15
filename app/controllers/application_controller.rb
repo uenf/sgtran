@@ -32,12 +32,12 @@ class ApplicationController < ActionController::Base
       config.ignore_only  = []
     end
   end
-  
+
 
 
 
   def local_request?
-    true
+    false
   end
 
   # Scrub sensitive parameters from your log
