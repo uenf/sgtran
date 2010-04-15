@@ -1,6 +1,6 @@
 class Confirmacao < ActionMailer::Base
   
-  EMAIL_ASTRAN = "eduardohertz@gmail.com"
+  EMAIL_ASTRAN = "astran@uenf.br"
   
   helper do
     def saudacao
