@@ -61,7 +61,7 @@ class RequisicoesController < ApplicationController
   # GET /requisicoes/new.xml
   def new
     @requisicao = Requisicao.new
-    flash[:sucesso] = ""    
+    flash[:sucesso] = ""
     render :action => "new", :layout => "requisicoes"
   end
 
@@ -109,7 +109,7 @@ class RequisicoesController < ApplicationController
 
   def confirmar_requisicao
     @requisicao = session[:requisicao]
-    session.delete :requisicao    
+    session.delete :requisicao
     if @requisicao
       @solicitante = Solicitante.find_by_matricula_and_email(params[:matricula], params[:email])
       flash[:sucesso] = "Requisição enviada com sucesso!"
@@ -227,7 +227,7 @@ class RequisicoesController < ApplicationController
           Confirmacao.deliver_enviar_email_aceitar(corpo_do_email, destinatarios, @requisicao)
         else
           session[:requisicao] = @requisicao
-          @requisicao.errors.add(:viagem, "não foi selecionada.")          
+          @requisicao.errors.add(:viagem, "não foi selecionada.")
         end
       else
         session[:requisicao] = @requisicao
@@ -316,12 +316,12 @@ class RequisicoesController < ApplicationController
     end
     redirect_to(@requisicao)
   end
-  
+
   def alterar_viagem
     @requisicao = Requisicao.find(params[:id]) if params[:id]
     @viagens = Viagem.find_all_by_estado(Viagem::AGUARDANDO)
   end
-  
+
   def alterar
     @requisicao = Requisicao.find(params[:requisicao_id]) if params[:requisicao_id]
     viagem_id = params[:id_da_viagem]
@@ -333,7 +333,7 @@ class RequisicoesController < ApplicationController
         rendre :action => "alterar_viagem"
       end
     else
-      @viagens = Viagem.find_all_by_estado(Viagem::AGUARDANDO)      
+      @viagens = Viagem.find_all_by_estado(Viagem::AGUARDANDO)
       flash[:erro] = "Escolha uma viagem."
       render :action => "alterar_viagem"
       flash[:erro] = ""

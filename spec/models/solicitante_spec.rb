@@ -61,5 +61,14 @@ describe Solicitante do
     dados = {:email => solicitante.email, :matricula => solicitante.matricula}
     Solicitante.verificar_solicitante(dados).should be_true
   end
+
+  it "Deve normalizar a matrícula" do
+    matricula = "210"
+    Solicitante.normalizar_matricula(matricula).should == "00210"
+    matricula = "10210"
+    Solicitante.normalizar_matricula(matricula).should == "10210"
+    matricula = "100210"
+    Solicitante.normalizar_matricula(matricula).should == "100210"
+  end
 end
 

@@ -81,6 +81,7 @@ class Requisicao < ActiveRecord::Base
   validates_acceptance_of :termo
 
   def self.analisar_requisicao dados
+    dados[:matricula] = Solicitante.normalizar_matricula(dados[:matricula])
     dados_solicitante = {:matricula => dados[:matricula], :email => dados[:email] }
     if Solicitante.verificar_solicitante dados_solicitante
 
@@ -244,7 +245,7 @@ class Requisicao < ActiveRecord::Base
       self.viagem_id = nil
       self.motivo_observacao = observacao
       if self.save
-        
+
         return true
       else
         return false
@@ -252,7 +253,7 @@ class Requisicao < ActiveRecord::Base
     end
     return false
   end
-  
+
   def pode_alterar_viagem?
     if self.estado == Requisicao::ACEITA
       true
@@ -260,7 +261,7 @@ class Requisicao < ActiveRecord::Base
       false
     end
   end
-  
+
   def alterar_viagem viagem_id
     viagem = Viagem.find(viagem_id)
     if self.pode_alterar_viagem? and viagem.estado == Viagem::AGUARDANDO

@@ -65,8 +65,8 @@ Funcionalidade: Solicitar viagem
     E eu seleciono "Aula de Campo" em "Objetivo da Reserva"
     E eu preencho "Nome(s) e telefone do(s) passageiro(s):" com "Zina, Ronaldo e Alfinete"
     E eu preencho "Roteiro da agenda (ida):" com "Ir ao Pacaembu"
-    E eu pressiono "Enviar"
     E eu marco "Li e concordo com os termos"
+    E eu pressiono "Enviar"
     Então <Sentença>
 
     Exemplos:(Datas invalidas)
@@ -77,7 +77,7 @@ Funcionalidade: Solicitar viagem
     | uma data de "16" dias seguintes a partir de hoje  | eu devo ver "Data de reserva deve ser no máximo 15 dias posterior à data atual, para a categoria de veículo selecionada"  |
     | "50/05/1986"                                      | eu devo ver "Data de reserva inválida"                                                                                    |
     | ""                                                | eu devo ver "Data de reserva não pode ser vazio"                                                                          |
-    
+
   Cenário: Mudar a viagem de uma requisição Aceita
     Dado que eu tenho uma requisição com estado "Aceita"
     E que eu tenho uma viagem com o estado "Aguardando"
@@ -87,7 +87,7 @@ Funcionalidade: Solicitar viagem
     E eu escolho a viagem existente
     E eu pressiono "Concluir"
     Então eu devo estar na página de visualização da viagem
-    
+
   Cenário: Mudar a viagem que atende uma requisição sem escolher a viagem
     Dado que eu tenho uma requisição com estado "Aceita"
     E que eu tenho uma viagem com o estado "Aguardando"
@@ -96,4 +96,21 @@ Funcionalidade: Solicitar viagem
     Quando eu clico em "Alterar viagem"
     E eu pressiono "Concluir"
     Então eu devo ver "Escolha uma viagem."
+
+  Cenário: Enviar uma requisição sem os zeros à esquerda
+    Dado que eu tenha uma categoria de veículo "Automóvel até 4 passageiros"
+    E que eu tenha um objetivo de reserva "Aula de Campo"
+    E que eu tenha um solicitante com e-mail "ronaldo@corinthians.com", matrícula "00210" e prédio "P5"
+    E que eu estou na página de requisição
+    Quando eu preencho "Matrícula" com "210"
+    E eu preencho "E-mail" com "ronaldo@corinthians.com"
+    E eu preencho "Celular" com "9999-9999"
+    E eu preencho "Data de Reserva" com uma data de dois dias seguintes a partir de hoje
+    E eu seleciono "Automóvel até 4 passageiros" em "Categoria de veículo"
+    E eu seleciono "Aula de Campo" em "Objetivo da Reserva"
+    E eu preencho "Nome(s) e telefone do(s) passageiro(s):" com "Zina, Ronaldo e Alfinete"
+    E eu preencho "Roteiro da agenda (ida):" com "Ir ao Pacaembu"
+    E eu marco "Li e concordo com os termos"
+    E eu pressiono "Enviar"
+    Então eu devo ver "Requisição enviada com sucesso!"
 

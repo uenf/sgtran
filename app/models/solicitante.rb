@@ -15,12 +15,23 @@ class Solicitante < ActiveRecord::Base
   end
 
   def self.verificar_solicitante dados
+
     solicitante = Solicitante.find_by_matricula_and_email(dados[:matricula], dados[:email])
     if solicitante.blank?
       return false
     else
       return true
     end
+  end
+
+  def self.normalizar_matricula matricula
+    tamanho = 5 - matricula.length
+    if tamanho > 0
+      tamanho.times do
+        matricula = "0" + matricula
+      end
+    end
+    matricula
   end
 
 end

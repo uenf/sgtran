@@ -27,7 +27,7 @@ Rails::Initializer.run do |config|
   config.gem "brazilian-rails"
   config.gem "calendar_date_select"
   config.gem "authlogic"
-  config.gem "be9-acl9", :source => "http://gems.github.com", :lib => "acl9"
+  config.gem "acl9", :source => "http://gemcutter.org", :lib => "acl9"
   config.gem "mysql"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
