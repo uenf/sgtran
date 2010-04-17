@@ -7,4 +7,5 @@ public/stylesheets/scaffold.css
 config/deploy.rb
 Capfile
 deploy.sh
+app/controllers/application_controller.rb
 
