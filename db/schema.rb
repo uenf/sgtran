@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(:version => 20101022184205) do
     t.string   "telefone_do_motorista"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "habilitacao"
+    t.string   "vencimento_habilitacao"
   end
 
   create_table "objetivos_de_reserva", :force => true do |t|

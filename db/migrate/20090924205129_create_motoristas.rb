@@ -5,6 +5,8 @@ class CreateMotoristas < ActiveRecord::Migration
       t.string :matricula
       t.string :nome_do_motorista
       t.string :telefone_do_motorista
+      t.string :habilitacao
+      t.date   :vencimento_habilitacao
 
       t.timestamps
     end
