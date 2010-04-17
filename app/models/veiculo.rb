@@ -49,11 +49,16 @@ class Veiculo < ActiveRecord::Base
 
           if (data_partida >= viagem.data_partida and data_partida <= viagem.data_chegada) or
            (data_chegada >= viagem.data_partida and data_chegada <= viagem.data_chegada)
+            flag = 0
+            veiculos_ocupados.each do |item|
+              flag += 1 if item.include? veiculo.id
+            end
+            if flag == 0
+              categoria_de_veiculo.id == categoria_de_veiculo_da_requisicao_id ? marcador = "* " : marcador = ""
 
-            categoria_de_veiculo.id == categoria_de_veiculo_da_requisicao_id ? marcador = "* " : marcador = ""
-
-            veiculos_ocupados << [marcador + veiculo.modelo + " - " + veiculo.placa + " - " + categoria_de_veiculo.nome,
-                                  veiculo.id]
+              veiculos_ocupados << [marcador + veiculo.modelo + " - " + veiculo.placa + " - " + categoria_de_veiculo.nome,
+                                    veiculo.id]
+            end
           end
         end
       end

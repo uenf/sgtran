@@ -22,7 +22,11 @@ class Motorista < ActiveRecord::Base
         viagens.each do |viagem|
           if (data_partida >= viagem.data_partida and data_partida <= viagem.data_chegada) or
                 (data_chegada >= viagem.data_partida and data_chegada <= viagem.data_chegada)
-            motoristas_ocupados << [motorista.nome_do_motorista, motorista.id]
+            flag=0
+            motoristas_ocupados.each do |item|
+              flag += 1 if item.include? motorista.id
+            end
+            motoristas_ocupados << [motorista.nome_do_motorista, motorista.id] if flag == 0
           end
         end
       end
