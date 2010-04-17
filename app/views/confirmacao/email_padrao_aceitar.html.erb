@@ -13,11 +13,17 @@
     </p>
     <br/>
     <p>
+      <% viagem = Viagem.find(@requisicao.viagem_id) %>
+      <% motorista = Motorista.find(viagem.motorista_id) %>
+      Motorista: <%=h motorista.nome_do_motorista %><br />
+      Telefone do motorista: <%=h motorista.telefone_do_motorista %>
+    </p>
+    <p>
       Caso queira visualizar os dados de sua requisi&ccedil;&atilde;o, clique no link abaixo:
       <br/>
       <a href="<%= endereco %><%= visualizar_requisicao_path(:id => @requisicao.id, :chave_de_seguranca => @requisicao.chave_de_seguranca) %>">
         Ver detalhes de sua requisi&ccedil;&atilde;o.
-      </a>      
+      </a>
     </p>
     <p>
       Caso deseje cancelar sua requisi&ccedil;&atilde;o, clique no link abaixo:
@@ -31,7 +37,7 @@
       ASTRAN/UENF<br />
       Ramais: 97025 / 97026
       </div>
-    </p>    
+    </p>
     <br/>
   </body>
 </html>
