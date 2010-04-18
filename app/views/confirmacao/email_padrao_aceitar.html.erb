@@ -15,7 +15,7 @@
     <p>
       <% viagem = Viagem.find(@requisicao.viagem_id) %>
       <% motorista = Motorista.find(viagem.motorista_id) %>
-      Motorista: <%=h motorista.nome_do_motorista %><br />
+      Motorista: <%=h motorista.nome %><br />
       Telefone do motorista: <%=h motorista.telefone_do_motorista %>
     </p>
     <p>

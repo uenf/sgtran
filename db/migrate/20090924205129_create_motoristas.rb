@@ -3,7 +3,7 @@ class CreateMotoristas < ActiveRecord::Migration
     create_table :motoristas do |t|
 
       t.string :matricula
-      t.string :nome_do_motorista
+      t.string :nome
       t.string :telefone_do_motorista
       t.string :habilitacao
       t.date   :vencimento_habilitacao
