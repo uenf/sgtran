@@ -48,7 +48,7 @@ open("#{Rails.root}/db/seeds_files/motoristas_seed.txt") do |motoristas|
       nome, matricula = motorista.chomp.split("|")
       Motorista.create!(:nome => nome,
                         :matricula => matricula,
-                        :telefone_do_motorista => "1")
+                        :telefone => "1")
     end
   end
 end

@@ -5,13 +5,13 @@ describe Motorista do
     @valid_attributes = {
       :matricula => "12",
       :nome => "Motorista 01",
-      :telefone_do_motorista => "12345678"
+      :telefone => "12345678"
     }
   end
 
   should_validate_presence_of :matricula,
                               :nome,
-                              :telefone_do_motorista
+                              :telefone
 
   it "should create a new instance given valid attributes" do
     Motorista.create!(@valid_attributes)

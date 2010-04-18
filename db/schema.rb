@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(:version => 20101022184205) do
   create_table "motoristas", :force => true do |t|
     t.string   "matricula"
     t.string   "nome"
-    t.string   "telefone_do_motorista"
+    t.string   "telefone"
     t.string   "habilitacao"
     t.date     "vencimento_habilitacao"
     t.datetime "created_at"

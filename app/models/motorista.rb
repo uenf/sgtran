@@ -3,7 +3,7 @@ class Motorista < ActiveRecord::Base
 
   validates_presence_of :matricula,
                         :nome,
-                        :telefone_do_motorista
+                        :telefone
 
 # Comentado por não ter a mínima ideia de onde veio isso!!!
 ################################################################################

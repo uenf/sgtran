@@ -18,11 +18,11 @@ Para que eu possa adicinar, editar e utilizar no sistema
 
     Exemplos:
 
-    | matricula | nome          | telefone          | habilitacao | vencimento_habilitacao  | sentença                                  |
-    | 100000    | fulano de tal | (00) 0000-0000    | 03811585669 | 19/05/2010              | Motorista criado com sucesso!             |
-    |           | fulano de tal | (00) 0000-0000    | 03811585669 | 19/05/2010              | Matricula não pode ser vazio              |
-    | 100000    |               | (00) 0000-0000    | 03811585669 | 19/05/2010              | Nome não pode ser vazio                   |
-    | 100000    | fulano de tal |                   | 03811585669 | 19/05/2010              | Telefone do motorista não pode ser vazio  |
+    | matricula | nome          | telefone          | habilitacao | vencimento_habilitacao  | sentença                      |
+    | 100000    | fulano de tal | (00) 0000-0000    | 03811585669 | 19/05/2010              | Motorista criado com sucesso! |
+    |           | fulano de tal | (00) 0000-0000    | 03811585669 | 19/05/2010              | Matricula não pode ser vazio  |
+    | 100000    |               | (00) 0000-0000    | 03811585669 | 19/05/2010              | Nome não pode ser vazio       |
+    | 100000    | fulano de tal |                   | 03811585669 | 19/05/2010              | Telefone não pode ser vazio   |
 
 
   Esquema do Cenário: Editar motorista
@@ -38,9 +38,9 @@ Para que eu possa adicinar, editar e utilizar no sistema
 
     Exemplos:
 
-    | matricula | nome          | telefone          | habilitacao | vencimento_habilitacao  | sentença                                      |
-    | 100000    | fulano de tal | (00) 0000-0000    | 03811585669 | 19/05/2010              | Motorista modificado com sucesso!             |
-    |           | fulano de tal | (00) 0000-0000    | 03811585669 | 19/05/2010              | Matricula não pode ser vazio                  |
-    | 100000    |               | (00) 0000-0000    | 03811585669 | 19/05/2010              | Nome não pode ser vazio                       |
-    | 100000    | fulano de tal |                   | 03811585669 | 19/05/2010              | Telefone do motorista não pode ser vazio      |
+    | matricula | nome          | telefone          | habilitacao | vencimento_habilitacao  | sentença                          |
+    | 100000    | fulano de tal | (00) 0000-0000    | 03811585669 | 19/05/2010              | Motorista modificado com sucesso! |
+    |           | fulano de tal | (00) 0000-0000    | 03811585669 | 19/05/2010              | Matricula não pode ser vazio      |
+    | 100000    |               | (00) 0000-0000    | 03811585669 | 19/05/2010              | Nome não pode ser vazio           |
+    | 100000    | fulano de tal |                   | 03811585669 | 19/05/2010              | Telefone não pode ser vazio       |
 
