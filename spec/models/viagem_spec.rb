@@ -2,6 +2,8 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe Viagem do
 
+  should_validate_presence_of :motorista_id
+
   it "Data de partida não pode ser posterior à data de chegada" do
     data_partida = Date.today + 2.days
     data_chegada = Date.today
@@ -21,9 +23,10 @@ describe Viagem do
   end
 
   it "Deve filtrar as viagens pelas opções definidas" do
-    viagem1 = Factory.create :viagem, :estado => Viagem::AGUARDANDO
-    viagem2 = Factory.create :viagem, :estado => Viagem::CANCELADA
-    viagem3 = Factory.create :viagem, :estado => Viagem::ATENDIDA
+    motorista = Factory.create :motorista
+    viagem1 = Factory.create :viagem, :estado => Viagem::AGUARDANDO, :motorista_id => motorista.id
+    viagem2 = Factory.create :viagem, :estado => Viagem::CANCELADA, :motorista_id => motorista.id
+    viagem3 = Factory.create :viagem, :estado => Viagem::ATENDIDA, :motorista_id => motorista.id
     filtro = {:aguardando => "Aguardando",
               :cancelada => "Cancelada",
               :atendida => "Atendida"}
@@ -34,7 +37,8 @@ describe Viagem do
   end
 
   it "Deve retornar uma lista de requisições atendidas" do
-    viagem = Factory.create :viagem
+    motorista = Factory.create :motorista
+    viagem = Factory.create :viagem, :motorista_id => motorista.id
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     objetivo_de_reserva = Factory.create :objetivo_de_reserva
     requisicao1 = Factory.create :requisicao,
@@ -50,7 +54,8 @@ describe Viagem do
   end
 
   it "Deve cancelar uma viagem com várias requisições" do
-    viagem = Factory.create :viagem
+    motorista = Factory.create :motorista
+    viagem = Factory.create :viagem, :motorista_id => motorista.id
 
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     centro = Factory.create :centro
@@ -86,19 +91,22 @@ describe Viagem do
   end
 
   it "Deve verificar se o estado da viagem é Aguardando" do
-    viagem = Factory.create :viagem
+    motorista = Factory.create :motorista
+    viagem = Factory.create :viagem, :motorista_id => motorista.id
     viagem.esta_aguardando?.should be_true
   end
 
   it "Deve verificar se é possível fechar a viagem" do
-    viagem = Factory.create :viagem, :estado => Viagem::CANCELADA
+    motorista = Factory.create :motorista
+    viagem = Factory.create :viagem, :estado => Viagem::CANCELADA, :motorista_id => motorista.id
     viagem.pode_ser_fechada?.should be_false
     viagem.estado = Viagem::AGUARDANDO
     viagem.pode_ser_fechada?.should be_true
   end
 
   it "Deve fechar uma viagem" do
-    viagem = Factory.create :viagem, :estado => Viagem::CANCELADA
+    motorista = Factory.create :motorista
+    viagem = Factory.create :viagem, :estado => Viagem::CANCELADA, :motorista_id => motorista.id
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     centro = Factory.create :centro
     solicitante = Factory.create :solicitante, :centro_id => centro.id

@@ -33,7 +33,7 @@
           <br class="pular_linha" />
           <%= label_tag "destinatarios", "Destinat&aacute;rios:" %>
           <%= text_field_tag "destinatarios" %>
-        </fieldset>        
+        </fieldset>
       </div>
       <!-- VIAGEM NOVA ----------------------------------------------------- -->
       <div id="viagem_nova">
@@ -88,7 +88,7 @@
           <%= time_select :horario, :partida, {:time_separator => ':', :minute_step => 5, :include_blank => "-"}%>
           <br class="pular_linha"/>
 
-          <label for="motorista_id">Motorista:</label>
+          <label for="motorista_id" class ="label_obrigatorio">Motorista:</label>
           <select name="motorista_id" id="motorista_id">
             <%= grouped_options_for_select(@lista_motoristas, "", "Selecione um motorista") %>
           </select>
@@ -102,9 +102,9 @@
           <br class="pular_linha"/>
         </fieldset>
 
-        
+
       </div>
-      
+
 
       <!-- VIAGEM EXISTENTE ------------------------------------------------ -->
       <div id="viagens_existentes" class="invisivel">

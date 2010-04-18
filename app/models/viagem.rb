@@ -12,6 +12,7 @@ class Viagem < ActiveRecord::Base
   ATENDIDA   = "Atendida"
   CANCELADA  = "Cancelada"
 
+  validates_presence_of :motorista_id
   validate :validar_data
 
   def validar_data
