@@ -4,14 +4,14 @@ describe Motorista do
   before(:each) do
     @valid_attributes = {
       :matricula => "12",
-      :nome_do_motorista => "Motorista 01",
-      :telefone_do_motorista => "12345678"
+      :nome => "Motorista 01",
+      :telefone => "12345678"
     }
   end
 
   should_validate_presence_of :matricula,
-                              :nome_do_motorista,
-                              :telefone_do_motorista
+                              :nome,
+                              :telefone
 
   it "should create a new instance given valid attributes" do
     Motorista.create!(@valid_attributes)
@@ -38,9 +38,9 @@ describe Motorista do
       requisicao = Factory.create :requisicao,
                                   :categoria_de_veiculo_id => categoria_de_veiculo.id,
                                   :objetivo_de_reserva_id => objetivo_de_reserva.id
-      @motorista_joao = Factory.create :motorista, :nome_do_motorista => "João"
-      @motorista_zeca = Factory.create :motorista, :nome_do_motorista => "Zeca"
-      @motorista_marco = Factory.create :motorista, :nome_do_motorista => "Marco"
+      @motorista_joao = Factory.create :motorista, :nome => "João"
+      @motorista_zeca = Factory.create :motorista, :nome => "Zeca"
+      @motorista_marco = Factory.create :motorista, :nome => "Marco"
       viagem = Factory.create :viagem,
                               :motorista_id => @motorista_joao.id,
                               :data_partida => Date.today,
@@ -68,7 +68,7 @@ describe Motorista do
       data_partida = Date.today
       data_chegada = Date.today + 2.days
       motoristas_ocupados = Motorista.ocupados_entre(data_partida, data_chegada)
-      motoristas_ocupados.should include [@motorista_joao.nome_do_motorista, @motorista_joao.id]
+      motoristas_ocupados.should include [@motorista_joao.nome, @motorista_joao.id]
       motoristas_ocupados.length.should be_equal 1
     end
 
@@ -77,7 +77,7 @@ describe Motorista do
       data_partida = Date.tomorrow
       data_chegada = Date.tomorrow
       motoristas_ocupados = Motorista.ocupados_entre(data_partida, data_chegada)
-      motoristas_ocupados.should include [@motorista_joao.nome_do_motorista, @motorista_joao.id]
+      motoristas_ocupados.should include [@motorista_joao.nome, @motorista_joao.id]
       motoristas_ocupados.length.should be_equal 1
     end
 
@@ -94,8 +94,8 @@ describe Motorista do
       data_partida = Date.today
       data_chegada = Date.today + 2.days
       motoristas_desocupados = Motorista.desocupados_entre(data_partida, data_chegada)
-      motoristas_desocupados.should include [@motorista_zeca.nome_do_motorista, @motorista_zeca.id]
-      motoristas_desocupados.should include [@motorista_marco.nome_do_motorista, @motorista_marco.id]
+      motoristas_desocupados.should include [@motorista_zeca.nome, @motorista_zeca.id]
+      motoristas_desocupados.should include [@motorista_marco.nome, @motorista_marco.id]
       motoristas_desocupados.length.should be_equal 2
     end
 
@@ -104,8 +104,8 @@ describe Motorista do
       data_partida = Date.tomorrow
       data_chegada = Date.tomorrow
       motoristas_desocupados = Motorista.desocupados_entre(data_partida, data_chegada)
-      motoristas_desocupados.should include [@motorista_zeca.nome_do_motorista, @motorista_zeca.id]
-      motoristas_desocupados.should include [@motorista_marco.nome_do_motorista, @motorista_marco.id]
+      motoristas_desocupados.should include [@motorista_zeca.nome, @motorista_zeca.id]
+      motoristas_desocupados.should include [@motorista_marco.nome, @motorista_marco.id]
       motoristas_desocupados.length.should be_equal 2
     end
 
@@ -114,9 +114,9 @@ describe Motorista do
       data_partida = Date.today + 5.days
       data_chegada = Date.today + 7.days
       motoristas_desocupados = Motorista.desocupados_entre(data_partida, data_chegada)
-      motoristas_desocupados.should include [@motorista_joao.nome_do_motorista, @motorista_joao.id]
-      motoristas_desocupados.should include [@motorista_zeca.nome_do_motorista, @motorista_zeca.id]
-      motoristas_desocupados.should include [@motorista_marco.nome_do_motorista, @motorista_marco.id]
+      motoristas_desocupados.should include [@motorista_joao.nome, @motorista_joao.id]
+      motoristas_desocupados.should include [@motorista_zeca.nome, @motorista_zeca.id]
+      motoristas_desocupados.should include [@motorista_marco.nome, @motorista_marco.id]
       motoristas_desocupados.length.should be_equal 3
     end
   end

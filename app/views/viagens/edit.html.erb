@@ -69,7 +69,7 @@
 
     <div class="show_linha">
       <div class="linha_titulo">
-        <%= f.label :motorista_id, "Motorista:" %>
+        <%= f.label :motorista_id, "Motorista:", :class => "label_obrigatorio"%>
       </div>
       <select name="viagem[motorista_id]" id="viagem_motorista_id">
         <%= grouped_options_for_select(@lista_motoristas, @viagem.motorista_id, "Selecione um motorista") %>

@@ -40,6 +40,7 @@ describe Veiculo do
   describe "ocupados e desocupados mostrando o marcador apenas nos veículos de
             mesma categoria escolhida na requisição" do
     before(:each) do
+      motorista = Factory.create :motorista
       @categoria_de_veiculo_1 = Factory.create :categoria_de_veiculo
       @categoria_de_veiculo_2 = Factory.create :categoria_de_veiculo
       combustivel = Factory.create :combustivel
@@ -58,15 +59,18 @@ describe Veiculo do
                                   :combustivel_ids => [combustivel.id]
       viagem = Factory.create :viagem,
                               :veiculo_id => @veiculo_1.id,
+                              :motorista_id => motorista.id,
                               :data_partida => Date.today,
                               :data_chegada => Date.today + 2.days
     end
 
     it "Cada veículo deve aparecer apenas uma vez na lista, mesmo que atenda a mais de uma viagem" do
+      motorista = Factory.create :motorista
       data_partida = Date.today
       data_chegada = Date.today + 2.days
       viagem2 = Factory.create :viagem,
                                :veiculo_id => @veiculo_1.id,
+                               :motorista_id => motorista.id,
                                :data_partida => data_partida,
                                :data_chegada => data_chegada
       veiculos_ocupados = Veiculo.ocupados_entre_datas_e_com_categoria(data_partida, data_chegada, @veiculo_1.id)

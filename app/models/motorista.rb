@@ -2,8 +2,8 @@ class Motorista < ActiveRecord::Base
   has_many :viagens
 
   validates_presence_of :matricula,
-                        :nome_do_motorista,
-                        :telefone_do_motorista
+                        :nome,
+                        :telefone
 
 # Comentado por não ter a mínima ideia de onde veio isso!!!
 ################################################################################
@@ -26,7 +26,7 @@ class Motorista < ActiveRecord::Base
             motoristas_ocupados.each do |item|
               flag += 1 if item.include? motorista.id
             end
-            motoristas_ocupados << [motorista.nome_do_motorista, motorista.id] if flag == 0
+            motoristas_ocupados << [motorista.nome, motorista.id] if flag == 0
           end
         end
       end
@@ -44,11 +44,11 @@ class Motorista < ActiveRecord::Base
         viagens.each do |viagem|
           if not (data_partida >= viagem.data_partida and data_partida <= viagem.data_chegada) and
                 not (data_chegada >= viagem.data_partida and data_chegada <= viagem.data_chegada)
-            motoristas_desocupados << [motorista.nome_do_motorista, motorista.id]
+            motoristas_desocupados << [motorista.nome, motorista.id]
           end
         end
       else
-        motoristas_desocupados << [motorista.nome_do_motorista, motorista.id]
+        motoristas_desocupados << [motorista.nome, motorista.id]
       end
     end
     return motoristas_desocupados

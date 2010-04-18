@@ -46,9 +46,9 @@ open("#{Rails.root}/db/seeds_files/motoristas_seed.txt") do |motoristas|
   motoristas.read.each_line do |motorista|
     if motorista != "\n"
       nome, matricula = motorista.chomp.split("|")
-      Motorista.create!(:nome_do_motorista => nome,
+      Motorista.create!(:nome => nome,
                         :matricula => matricula,
-                        :telefone_do_motorista => "1")
+                        :telefone => "1")
     end
   end
 end
