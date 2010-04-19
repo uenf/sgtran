@@ -131,7 +131,11 @@ class Requisicao < ActiveRecord::Base
     self.estado = CANCELADO_PELO_PROFESSOR
     self.motivo_professor = motivo
     self.motivo_id = nil
-    self.save
+    if motivo_professor.empty?
+      self.save
+    else
+      self.save_with_validation false
+    end
   end
 
   def registrarVolta requisicao_volta
@@ -234,7 +238,7 @@ class Requisicao < ActiveRecord::Base
     if self.esta_aceita?
       viagem = Viagem.find(self.viagem_id) if self.viagem_id
       self.estado = Requisicao::CANCELADO_PELO_SISTEMA
-      self.motivo_id = motivo_id.to_i
+      self.motivo_id = motivo_id.to_i if motivo_id
 
       requisicoes_atendidas = Requisicao.find_all_by_viagem_id(viagem.id).length if viagem
 
@@ -244,10 +248,11 @@ class Requisicao < ActiveRecord::Base
 
       self.viagem_id = nil
       self.motivo_observacao = observacao
-      if self.save
-
+      if self.motivo_id
+        self.save_with_validation false
         return true
       else
+        self.save
         return false
       end
     end
