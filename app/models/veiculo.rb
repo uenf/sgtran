@@ -80,9 +80,14 @@ class Veiculo < ActiveRecord::Base
         viagens.each do |viagem|
           if not (data_partida >= viagem.data_partida and data_partida <= viagem.data_chegada) and
            not (data_chegada >= viagem.data_partida and data_chegada <= viagem.data_chegada)
-
-            veiculos_desocupados << [marcador + veiculo.modelo + " - " + veiculo.placa + " - " + categoria_de_veiculo.nome,
-                                     veiculo.id]
+            flag = 0
+            veiculos_desocupados.each do |item|
+              flag += 1 if item.include? veiculo.id
+            end
+            if flag == 0
+              veiculos_desocupados << [marcador + veiculo.modelo + " - " + veiculo.placa + " - " + categoria_de_veiculo.nome,
+                                       veiculo.id]
+            end
           end
         end
       else

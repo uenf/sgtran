@@ -47,7 +47,7 @@ describe Motorista do
                               :data_chegada => Date.today + 2.days
     end
 
-    it "Cada motorista deve aparecer apenas uma vez na lista, mesmo que atenda a mais de uma viagem" do
+    it "Cada motorista deve aparecer apenas uma vez na lista de ocupados" do
       data_partida = Date.today
       data_chegada = Date.today + 2.days
       viagem2 = Factory.create :viagem,
@@ -58,6 +58,22 @@ describe Motorista do
 
       flag = 0
       motoristas_ocupados.each do |item|
+        flag += 1 if item.include? @motorista_joao.id
+      end
+      flag.should == 1
+    end
+
+    it "Cada motorista deve aparecer apenas uma vez na lista de desocupados" do
+      data_partida = Date.today
+      data_chegada = Date.today + 2.days
+      viagem2 = Factory.create :viagem,
+                               :motorista_id => @motorista_joao.id,
+                               :data_partida => data_partida,
+                               :data_chegada => data_chegada
+      motoristas_desocupados = Motorista.desocupados_entre(data_partida + 4.days, data_chegada + 4.days)
+
+      flag = 0
+      motoristas_desocupados.each do |item|
         flag += 1 if item.include? @motorista_joao.id
       end
       flag.should == 1

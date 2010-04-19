@@ -64,7 +64,7 @@ describe Veiculo do
                               :data_chegada => Date.today + 2.days
     end
 
-    it "Cada veículo deve aparecer apenas uma vez na lista, mesmo que atenda a mais de uma viagem" do
+    it "Cada veículo deve aparecer apenas uma vez na lista ocupados" do
       motorista = Factory.create :motorista
       data_partida = Date.today
       data_chegada = Date.today + 2.days
@@ -77,6 +77,24 @@ describe Veiculo do
 
       flag = 0
       veiculos_ocupados.each do |item|
+        flag += 1 if item.include? @veiculo_1.id
+      end
+      flag.should == 1
+    end
+
+    it "Cada veículo deve aparecer apenas uma vez na lista desocupados" do
+      motorista = Factory.create :motorista
+      data_partida = Date.today
+      data_chegada = Date.today + 2.days
+      viagem2 = Factory.create :viagem,
+                               :veiculo_id => @veiculo_1.id,
+                               :motorista_id => motorista.id,
+                               :data_partida => data_partida,
+                               :data_chegada => data_chegada
+      veiculos_desocupados = Veiculo.desocupados_entre_datas_e_com_categoria(data_partida + 4.days, data_chegada + 4.days, @veiculo_1.id)
+
+      flag = 0
+      veiculos_desocupados.each do |item|
         flag += 1 if item.include? @veiculo_1.id
       end
       flag.should == 1
