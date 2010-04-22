@@ -16,7 +16,7 @@ Dado /^que eu tenho uma requisição com estado "([^\"]*)"$/ do |estado|
       @requisicao.estado = Requisicao::REJEITADA
       @requisicao.motivo_id = motivo.id
       @requisicao.save
-    when "Cancelada pelo Professor" then
+  when "Cancelada pelo Professor" then
       @requisicao.estado = Requisicao::CANCELADO_PELO_PROFESSOR
       @requisicao.motivo_professor = "Algum motivo"
       @requisicao.save
@@ -92,10 +92,6 @@ end
 
 Quando /^eu escolho "([^\"]*)"$/ do |field|
   choose(field)
-end
-
-Dado /^que eu tenha "([^\"]*)" em Motorista$/ do |nome|
-  @motorista = Factory.create :motorista, :nome => nome
 end
 
 Dado /^que eu tenha um veículo da categoria "([^\"]*)", modelo "([^\"]*)" e placa "([^\"]*)"$/ do |categoria, modelo, placa|

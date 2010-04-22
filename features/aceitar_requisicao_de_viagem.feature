@@ -8,8 +8,8 @@ Funcionalidade: Aceitar requisição de viagem
 
     Esquema do Cenário: Aceitar requisição com uma nova viagem
       Dado que eu tenho uma requisição com estado "Em Espera"
-      E que eu tenha "Gustavo Santos" em Motorista
-      E que eu tenha "Eduardo Silva" em Motorista
+      E que eu tenho um motorista com nome "Gustavo Santos"
+      E que eu tenho um motorista com nome "Eduardo Silva"
       E que eu tenha um veículo da categoria "Automóvel até 4 passageiros", modelo "Gol" e placa "KQI 5899"
       E que eu estou na página de detalhes da requisição
 
@@ -68,7 +68,7 @@ Funcionalidade: Aceitar requisição de viagem
 
     Cenário: Data de chegada anterior à data de partida
       Dado que eu tenho uma requisição com estado "Em Espera"
-      E que eu tenha "Gustavo Santos" em Motorista
+      E que eu tenho um motorista com nome "Gustavo Santos"
       E que eu estou na página de detalhes da requisição
       Quando eu clico em "Aceitar"
       Então eu devo estar na página de aceitar requisição
@@ -80,7 +80,7 @@ Funcionalidade: Aceitar requisição de viagem
 
     Cenário: Motorista não selecionado
       Dado que eu tenho uma requisição com estado "Em Espera"
-      E que eu tenha "Gustavo Santos" em Motorista
+      E que eu tenho um motorista com nome "Gustavo Santos"
       E que eu estou na página de detalhes da requisição
       Quando eu clico em "Aceitar"
       Então eu devo estar na página de aceitar requisição
