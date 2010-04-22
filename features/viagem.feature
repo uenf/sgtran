@@ -10,7 +10,7 @@ Para que eu possa mudar seus dados de acordo com a dinâmica do trabalho
     Dado que eu tenho uma requisição com estado "Aceita"
     E que eu tenho uma viagem com o estado "Aguardando"
     E que a requisição esteja ligada à viagem
-    E que eu tenho um motorista com nome "Gustavo Santos"
+    E que exista um motorista com nome "Gustavo Santos"
     E que eu tenha um veículo da categoria "Automóvel até 4 passageiros", modelo "Gol" e placa "KQI 5899"
     E que eu estou na página de edição de viagem
 

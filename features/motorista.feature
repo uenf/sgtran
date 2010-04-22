@@ -26,7 +26,7 @@ Para que eu possa adicinar, editar e utilizar no sistema
 
 
   Esquema do Cenário: Editar motorista
-    Dado que eu tenho um motorista com nome "Gustavo Santos"
+    Dado que exista um motorista com nome "Gustavo Santos"
     E que eu estou na página de edição de motorista
     Quando eu preencho "Matrícula" com "<matricula>"
     E eu preencho "Nome" com "<nome>"
