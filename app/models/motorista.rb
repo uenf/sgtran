@@ -4,13 +4,10 @@ class Motorista < ActiveRecord::Base
   validates_presence_of :matricula,
                         :nome,
                         :telefone
+                        
+                        
+  use_in_brazilian_format :vencimento_habilitacao
 
-# Comentado por não ter a mínima ideia de onde veio isso!!!
-################################################################################
-#  def self.verificarExistencia dados
-#    find_by_matricula(dados[:matricula])
-#  end
-################################################################################
 
   def self.ocupados_entre(data_partida, data_chegada)
     motoristas = Motorista.all
