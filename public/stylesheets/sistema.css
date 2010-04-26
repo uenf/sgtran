@@ -638,6 +638,11 @@ div.erro {
     float : right;
 }
 
+.formularios_embutidos textarea {
+    width: 60%;
+    height: 100px;
+}
+
 /*
 ** MENSAGENS DE ERRO
 */
