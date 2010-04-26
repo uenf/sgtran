@@ -1,3 +1,5 @@
+require "brazilian_date"
+
 class Motorista < ActiveRecord::Base
   has_many :viagens
 
