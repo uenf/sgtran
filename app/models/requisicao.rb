@@ -208,8 +208,8 @@ class Requisicao < ActiveRecord::Base
 
   def rejeitar motivo_id
     if self.esta_em_espera?
-      self.estado = Requisicao::REJEITADA
       self.motivo_id = motivo_id.to_i
+      self.estado    = Requisicao::REJEITADA
       if self.save
         true
       else

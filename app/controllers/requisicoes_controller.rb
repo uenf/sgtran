@@ -291,8 +291,11 @@ class RequisicoesController < ApplicationController
     destinatarios = params[:destinatarios]
     if @requisicao.rejeitar(motivo)
       Confirmacao.deliver_enviar_email(corpo_email, destinatarios, @requisicao)
+      redirect_to requisicao_path(@requisicao)
+    else
+      flash[:erro] = "Erro ao rejeitar a requisição. " + @requisicao.errors.full_message.to_s
+      render :action => "rejeitar"
     end
-    redirect_to requisicao_path(@requisicao)
   end
 
   def cancelar_requisicao_pelo_sistema
