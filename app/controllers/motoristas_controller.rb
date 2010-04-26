@@ -9,7 +9,7 @@ class MotoristasController < ApplicationController
   # GET /motoristas
   # GET /motoristas.xml
   def index
-    @motoristas = Motorista.all
+    @motoristas = Motorista.all(:order => "nome ASC")
     @sub_layout = "base"
 
     respond_to do |format|
