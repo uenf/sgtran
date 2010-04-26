@@ -294,7 +294,6 @@ class RequisicoesController < ApplicationController
       redirect_to requisicao_path(@requisicao)
     else
       flash[:erro] = "Erro ao rejeitar a requisição. " + @requisicao.errors.full_messages.to_sentence
-      @requisicao = Requisicao.find(params[:id])
       @solicitante = Solicitante.find(@requisicao.solicitante_id)
       @motivos = Motivo.all      
       render :action => "rejeitar"
