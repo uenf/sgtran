@@ -24,7 +24,7 @@
 
   <div class="show_linha">
     <div class="linha_titulo">Vencimento da habilitação:</div>
-    <div class="linha_texto"><%=h @motorista.vencimento_habilitacao %></div>
+    <div class="linha_texto"><%=h @motorista.vencimento_habilitacao.strftime("%d/%m/%Y") if @motorista.vencimento_habilitacao %></div>
   </div>
 
 </div>
