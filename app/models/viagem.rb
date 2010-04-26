@@ -82,17 +82,17 @@ class Viagem < ActiveRecord::Base
     requisicoes_atendidas = Requisicao.find_all_by_viagem_id(self.id)
     if self.pode_ser_fechada?
       self.estado = Viagem::ATENDIDA
-      if self.save
+      if self.save_with_validation false
         requisicoes_atendidas.each do |r|
           r.estado = Requisicao::FINALIZADA
-          r.save
+          r.save_with_validation false
         end
-        true
+        return true
       else
-        false
+        return false
       end
     else
-      false
+      return false
     end
   end
 

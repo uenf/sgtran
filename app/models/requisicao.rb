@@ -179,7 +179,7 @@ class Requisicao < ActiveRecord::Base
       self.viagem_id = viagem.id
       self.motivo_id = nil
 
-      if self.save!
+      if self.save_with_validation false
         viagem
       else
         nil
@@ -210,7 +210,7 @@ class Requisicao < ActiveRecord::Base
     if self.esta_em_espera?
       self.motivo_id = motivo_id.to_i
       self.estado    = Requisicao::REJEITADA
-      if self.save
+      if self.save_with_validation false
         true
       else
         false
@@ -271,7 +271,7 @@ class Requisicao < ActiveRecord::Base
     viagem = Viagem.find(viagem_id)
     if self.pode_alterar_viagem? and viagem.estado == Viagem::AGUARDANDO
       self.viagem_id = viagem.id
-      self.save
+      self.save_with_validation false
     else
       false
     end
