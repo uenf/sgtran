@@ -2,13 +2,15 @@ require "brazilian_date"
 
 class Motorista < ActiveRecord::Base
   has_many :viagens
+  
+  use_in_brazilian_format :vencimento_habilitacao  
 
   validates_presence_of :matricula,
                         :nome,
                         :telefone
                         
                         
-  use_in_brazilian_format :vencimento_habilitacao
+
 
 
   def self.ocupados_entre(data_partida, data_chegada)
