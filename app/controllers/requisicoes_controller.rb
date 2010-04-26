@@ -293,7 +293,7 @@ class RequisicoesController < ApplicationController
       Confirmacao.deliver_enviar_email(corpo_email, destinatarios, @requisicao)
       redirect_to requisicao_path(@requisicao)
     else
-      flash[:erro] = "Erro ao rejeitar a requisição. " + @requisicao.errors.full_message.to_s
+      flash[:erro] = "Erro ao rejeitar a requisição. " + @requisicao.errors.full_messages.to_sentence
       render :action => "rejeitar"
     end
   end
