@@ -30,11 +30,11 @@
 
   <div class="show_linha">
     <div class="linha_titulo">
-      <%= f.label :vencimento_habilitacao, "Vencimento da habilitação:" %>
+      <%= f.label :vencimento_habilitacao_br, "Vencimento da habilitação:" %>
     </div>
-    <%= calendar_date_select_tag "motorista_vencimento_habilitacao",
+    <%= calendar_date_select_tag "motorista_vencimento_habilitacao_br",
                                 @motorista.vencimento_habilitacao ? @motorista.vencimento_habilitacao.to_date.to_s_br : "",
-                                :name => "motorista[vencimento_habilitacao]",
+                                :name => "motorista[vencimento_habilitacao_br]",
                                 :month_year => "label",
                                 :class => "campo_data"%>
   </div>
