@@ -67,6 +67,10 @@
     <h1>Dados da reserva</h1>
 
     <div class="show_linha">
+      <div class="linha_titulo"> Protocolo: </div> <div class="linha_texto"> <%=h @requisicao.id%> </div>
+    </div>
+
+    <div class="show_linha">
       <div class="linha_titulo"> Data de reserva: </div> <div class="linha_texto"> <%=h @requisicao.data_de_reserva.strftime("%d/%m/%Y")%> </div>
     </div>
 

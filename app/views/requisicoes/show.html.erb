@@ -38,6 +38,10 @@
     <h1>Dados da reserva</h1>
 
     <div class="show_linha">
+      <div class="linha_titulo"> Protocolo: </div> <div class="linha_texto"> <%=h @requisicao.id%> </div>
+    </div>
+
+    <div class="show_linha">
       <div class="linha_titulo"> Data de reserva: </div> <div class="linha_texto"> <%=h @requisicao.data_de_reserva.strftime("%d/%m/%Y")%> </div>
     </div>
 
@@ -116,12 +120,12 @@
       <li id="opcao_rejeitar" onclick="location.href='<%= rejeitar_path(@requisicao) %>'" onmouseover="this.style.cursor = 'pointer'"><%= link_to 'Rejeitar', rejeitar_path(@requisicao) %>
       </li>
     <% end %>
-    
+
     <% if @requisicao.pode_alterar_viagem? %>
       <li id="opcao_alterar" onclick="location.href='<%= alterar_viagem_path(@requisicao) %>'" onmouseover="this.style.cursor = 'pointer'">
         <%= link_to 'Alterar viagem', alterar_viagem_path(@requisicao) %>
       </li>
-    <% end %>    
+    <% end %>
 
   </ul>
   <div class="pular_linha"></li>
