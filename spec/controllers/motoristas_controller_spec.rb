@@ -11,11 +11,11 @@ describe MotoristasController do
   end
 
   describe "GET index" do
-#    it "assigns all motoristas as @motoristas" do
-#      Motorista.stub!(:find).with(:all).and_return([mock_motorista])
-#      get :index
-#      assigns[:motoristas].should == [mock_motorista]
-#    end
+    it "assigns all motoristas as @motoristas" do
+      Motorista.stub!(:all).with(:order => "nome ASC").and_return([mock_motorista])
+      get :index
+      assigns[:motoristas].should == [mock_motorista]
+    end
   end
 
   describe "GET show" do

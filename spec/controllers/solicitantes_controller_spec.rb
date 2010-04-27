@@ -11,11 +11,11 @@ describe SolicitantesController do
   end
 
   describe "GET index" do
-#    it "assigns all solicitantes as @solicitantes" do
-#      Solicitante.stub!(:find).with(:all).and_return([mock_solicitante])
-#      get :index
-#      assigns[:solicitantes].should == [mock_solicitante]
-#    end
+    it "assigns all solicitantes as @solicitantes" do
+      Solicitante.stub!(:all).with(:order => "nome ASC").and_return([mock_solicitante])
+      get :index
+      assigns[:solicitantes].should == [mock_solicitante]
+    end
   end
 
   describe "GET show" do
