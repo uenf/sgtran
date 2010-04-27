@@ -32,7 +32,7 @@
           <%= text_area_tag "corpo_do_email" %>
           <br class="pular_linha" />
           <%= label_tag "destinatarios", "Destinat&aacute;rios:" %>
-          <%= text_field_tag "destinatarios" %>
+          <%= text_field_tag "destinatarios" %> (Separar com ponto e v&iacute;rgula)
         </fieldset>
       </div>
       <!-- VIAGEM NOVA ----------------------------------------------------- -->
@@ -183,6 +183,10 @@
     </div>
 
     <h1>Dados da reserva</h1>
+
+    <div class="show_linha">
+      <div class="linha_titulo"> Protocolo: </div> <div class="linha_texto"> <%=h @requisicao.id%> </div>
+    </div>
 
     <div class="show_linha">
       <div class="linha_titulo"> Data de reserva: </div> <div class="linha_texto"> <%=h @requisicao.data_de_reserva.strftime("%d/%m/%Y")%> </div>

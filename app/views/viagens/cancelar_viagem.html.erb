@@ -1,13 +1,15 @@
 <div class="show_padrao">
-  <% form_tag("/viagens/cancelamento_da_viagem") do -%>
-    <fieldset>
-      <legend>Cancelar viagem</legend>
-      <%= label_tag "viagem_motivo_id", "Motivo do cancelamento:" %>
-      <%= collection_select("viagem", :motivo_id, Motivo.all, :id, :descricao) %><br />
-      <%= hidden_field_tag "viagem_id", "#{@viagem.id}" %>
-      <%= submit_tag "Cancelar viagem", { :confirm => "Deseja cancelar a viagem?"} %>
-    </fieldset>
-  <% end -%>
+  <div class="formularios_embutidos">
+    <% form_tag("/viagens/cancelamento_da_viagem") do -%>
+      <fieldset>
+        <legend>Cancelar viagem</legend>
+        <%= label_tag "viagem_motivo_id", "Motivo do cancelamento:" %>
+        <%= collection_select("viagem", :motivo_id, Motivo.all, :id, :descricao) %><br />
+        <%= hidden_field_tag "viagem_id", "#{@viagem.id}" %>
+        <%= submit_tag "Cancelar viagem", { :confirm => "Deseja cancelar a viagem?"} %>
+      </fieldset>
+    <% end -%>
+  </div>
 </div>
 
 

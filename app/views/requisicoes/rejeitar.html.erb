@@ -1,32 +1,34 @@
 <div class="show_padrao">
-<% form_tag("/rejeitar_requisicao") do -%>
-  <%= hidden_field_tag "requisicao", "#{@requisicao.id}" %>
-  <fieldset>
-    <legend>Rejeitar requisi&ccedil;&atilde;o</legend>
-    <p>
-      Para rejeitar a requisi&ccedil;&atilde;o, selecione o motivo abaixo. Caso o motivo que
-      voc&ecirc; deseja n&atilde;o esteja na lista abaixo,
-      <%= link_to "adicione", new_motivo_path %> outro motivo.
-    </p>
-    <p>
-    <label for="motivo_rejeicao">Motivo:</label>
-    <select name="motivo" id="motivo_rejeicao">
-      <%= options_from_collection_for_select(@motivos, 'id', 'descricao') %>
-    </select>
-    </p>
-    <p>
-      <%= label_tag "corpo_email", "Corpo do E-mail:" %>
-      <%= text_area_tag "corpo_email" %>
-    </p>
-    <p>
-      <%= label_tag "destinatarios", "Destinatários:" %>
-      <%= text_field_tag "destinatarios" %> (Separar com ponto e v&iacute;rgula)
-    </p>
-    <p>
-      <%= submit_tag "Rejeitar requisi&ccedil;&atilde;o", :confirm => "Deseja realmente rejeitar essa requisi&ccedil;&atilde;o?" %>
-    <p>
-  </fieldset>
-<% end -%>
+  <div class="formularios_embutidos">
+    <% form_tag("/rejeitar_requisicao") do -%>
+      <%= hidden_field_tag "requisicao", "#{@requisicao.id}" %>
+      <fieldset>
+        <legend>Rejeitar requisi&ccedil;&atilde;o</legend>
+        <p>
+          Para rejeitar a requisi&ccedil;&atilde;o, selecione o motivo abaixo. Caso o motivo que
+          voc&ecirc; deseja n&atilde;o esteja na lista abaixo,
+          <%= link_to "adicione", new_motivo_path %> outro motivo.
+        </p>
+        <p>
+        <label for="motivo_rejeicao">Motivo:</label>
+        <select name="motivo" id="motivo_rejeicao">
+          <%= options_from_collection_for_select(@motivos, 'id', 'descricao') %>
+        </select>
+        </p>
+        <p>
+          <%= label_tag "corpo_email", "Corpo do E-mail:" %>
+          <%= text_area_tag "corpo_email" %>
+        </p>
+        <p>
+          <%= label_tag "destinatarios", "Destinatários:" %>
+          <%= text_field_tag "destinatarios" %> (Separar com ponto e v&iacute;rgula)
+        </p>
+        <p>
+          <%= submit_tag "Rejeitar requisi&ccedil;&atilde;o", :confirm => "Deseja realmente rejeitar essa requisi&ccedil;&atilde;o?" %>
+        <p>
+      </fieldset>
+    <% end -%>
+  </div>
 
         <!---------------------------------------------------------------------------->
 
@@ -65,6 +67,10 @@
     </div>
 
     <h1>Dados da reserva</h1>
+
+    <div class="show_linha">
+      <div class="linha_titulo"> Protocolo: </div> <div class="linha_texto"> <%=h @requisicao.id%> </div>
+    </div>
 
     <div class="show_linha">
       <div class="linha_titulo"> Data de reserva: </div> <div class="linha_texto"> <%=h @requisicao.data_de_reserva.strftime("%d/%m/%Y")%> </div>
