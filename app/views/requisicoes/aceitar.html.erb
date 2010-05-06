@@ -121,7 +121,7 @@
 
         <% @viagens.each do |viagem|%>
           <% (veiculo = Veiculo.find(viagem.veiculo_id)) if viagem.veiculo_id%>
-          <tr>
+          <tr onmouseover="this.style.cursor='pointer'" onclick="location.href='<%= viagem_path(viagem) %>'">
             <td><%=h (viagem.data_partida.strftime("%d/%m/%Y")) if viagem.data_partida %></td>
             <td><%=h (viagem.data_chegada.strftime("%d/%m/%Y")) if viagem.data_chegada %></td>
             <td><%=h (viagem.horario_partida.strftime("%H : %M")) if (viagem.horario_partida) %></td>
