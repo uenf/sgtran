@@ -12,6 +12,11 @@ Given /^que eu estou na (.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
+Quando /^eu vou para "([^\"]*)"$/ do |page_name|
+  visit path_to(page_name)
+end
+
+
 When /^eu clico em "([^\"]*)"$/ do |link|
   click_link(link)
 end

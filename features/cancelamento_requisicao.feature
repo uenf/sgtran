@@ -29,11 +29,22 @@ Funcionalidade: Cancelar viagem
 
   Cenário: Cancelamento de requisição com dados incorretos
     Dado que eu tenho uma requisição do solicitante com matricula "01210" e com o nome "Carlos"
-    Quando eu vou para página de cancelamento de requisição com id 1 e chave de segurança 123abc
+    Quando eu vou para página de cancelamento de requisição com id "1" e chave de segurança "123abc"
     Então eu devo ver "Solicitação de reserva de veículos"
 
   Cenário: Cancelamento de requisição que já foi cancelada
     Dado que eu tenho uma requisição com estado cancelado por motivo de falta de verba
-    Quando eu vou para página de cancelamento de requisição
+    Quando eu vou para "página de cancelamento de requisição"
     Então eu devo ver "Esta requisição já foi cancelada."
+    
+  Cenário: Cancelar a viagem caso a requisição cancelada seja a última
+    Dado que eu tenho uma requisição com estado "Aceita"
+    E que eu tenho uma viagem com o estado "Aguardando"
+    E que a requisição esteja ligada à viagem       
+    E que eu estou na página de cancelamento de requisição
+    Quando eu preencho "Motivo do Cancelamento" com "algum motivo"
+    E eu pressiono "Cancelar requisição"
+    Então eu devo ver "Requisição cancelada com sucesso!"
+    Quando eu vou para "página de visualização da viagem"
+    Então eu devo ver "Estado: Cancelada"
 

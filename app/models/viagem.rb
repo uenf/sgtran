@@ -105,6 +105,12 @@ class Viagem < ActiveRecord::Base
       return false
     end
   end
+  
+  def self.verificar_viagem viagem_id
+    viagem = Viagem.find(viagem_id)
+    requisicoes_atendidas = Requisicao.find_all_by_viagem_id(viagem_id)
+    viagem.estado = Viagem::CANCELADA and viagem.save if requisicoes_atendidas.empty?
+  end
 
 end
 
