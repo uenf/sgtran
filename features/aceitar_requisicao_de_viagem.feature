@@ -98,7 +98,7 @@ Funcionalidade: Aceitar requisição de viagem
       E eu escolho "Existente"
       Então eu devo ver a tabela "viagens" com
           | Data de partida     | Data de chegada   | Horário de partida  | Motorista     | Veículo | Requisição(s) atendida(s) | Escolha   |
-          | Daqui a dois dias   | Daqui a dois dias |                     | fulano de tal |         |                           |           |
+          | Daqui a dois dias   | Daqui a dois dias |                     | fulano de tal |         | ID                         |           |
 
     Esquema do Cenário: Não aceitar uma requisição com uma viagem em estado Atendida ou Cancelada
       Dado que eu tenho uma requisição com estado "Em Espera"

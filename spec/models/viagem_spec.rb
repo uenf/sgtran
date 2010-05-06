@@ -53,6 +53,48 @@ describe Viagem do
     viagem.requisicoes_atendidas.should include(requisicao1.id,requisicao2.id)
   end
 
+  it "Deve retornar uma lista com os nomes dos solicitantes das requisições atendidas pela viagem" do
+    motorista = Factory.create :motorista
+    solicitante1 = Factory.create :solicitante, :nome => "Renato Abreu"
+    solicitante2 = Factory.create :solicitante, :nome => "Geraldo Martins"
+    viagem = Factory.create :viagem, :motorista_id => motorista.id
+    categoria_de_veiculo = Factory.create :categoria_de_veiculo
+    objetivo_de_reserva = Factory.create :objetivo_de_reserva
+    requisicao1 = Factory.create :requisicao,
+                                 :viagem_id => viagem.id,
+                                 :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                 :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                                 :solicitante_id => solicitante1.id
+    requisicao2 = Factory.create :requisicao,
+                                 :viagem_id => viagem.id,
+                                 :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                 :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                                 :solicitante_id => solicitante2.id
+    viagem.nomes_solicitantes.should have_exactly(2).items
+    viagem.nomes_solicitantes.should include(solicitante1.nome,solicitante2.nome)
+  end
+
+  it "Deve retornar uma lista com os nomes dos solicitantes das requisições atendidas pela viagem" do
+    motorista = Factory.create :motorista
+    solicitante1 = Factory.create :solicitante, :nome => "Renato Abreu"
+    solicitante2 = Factory.create :solicitante, :nome => "Renato Abreu"
+    viagem = Factory.create :viagem, :motorista_id => motorista.id
+    categoria_de_veiculo = Factory.create :categoria_de_veiculo
+    objetivo_de_reserva = Factory.create :objetivo_de_reserva
+    requisicao1 = Factory.create :requisicao,
+                                 :viagem_id => viagem.id,
+                                 :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                 :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                                 :solicitante_id => solicitante1.id
+    requisicao2 = Factory.create :requisicao,
+                                 :viagem_id => viagem.id,
+                                 :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                 :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                                 :solicitante_id => solicitante2.id
+    viagem.nomes_solicitantes.should have_exactly(1).items
+    viagem.nomes_solicitantes.should include(solicitante1.nome)
+  end
+
   it "Deve cancelar uma viagem com várias requisições" do
     motorista = Factory.create :motorista
     viagem = Factory.create :viagem, :motorista_id => motorista.id

@@ -32,6 +32,12 @@ Then /^eu devo ver a tabela "(.+)" com$/ do |tabela_id, tabela_esperada|
         end
         data
       end
+      tabela_esperada.map_column!("Requisição(s) atendida(s)") do |data|
+        if data == "ID"
+          data = @requisicao_viagem.id.to_s # Gamba: Posto esse nome para não sobrescrever a requisicão criada no passo "que eu tenho uma requisição com estado"
+        end
+        data
+      end
     else
       tabela_esperada.map_column!("Protocolo") do |data|
         if data == "ID"

@@ -49,6 +49,16 @@ class Viagem < ActiveRecord::Base
     atendidas
   end
 
+  def nomes_solicitantes
+    solicitantes = []
+    self.requisicoes_atendidas.each do |requisicao_id|
+      solicitante_id = Requisicao.find(requisicao_id).solicitante_id
+      solicitante = Solicitante.find(solicitante_id)
+      solicitantes << solicitante.nome if not solicitantes.include? solicitante.nome
+    end
+    solicitantes
+  end
+
   def esta_aguardando?
     if self.estado == Viagem::AGUARDANDO
       return true

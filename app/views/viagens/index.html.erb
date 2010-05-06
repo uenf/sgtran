@@ -18,6 +18,7 @@
       <th>Data de partida</th>
       <th>Data de chegada</th>
       <th>Hor&aacute;rio de partida</th>
+      <th>Solicitantes</th>
       <th>Motorista</th>
       <th>Ve&iacute;culo</th>
       <th>Requisi&ccedil;&atilde;o(s) atendida(s)</th>
@@ -31,6 +32,7 @@
     <td><%=h (viagem.data_partida.strftime("%d/%m/%Y")) if viagem.data_partida %></td>
     <td><%=h (viagem.data_chegada.strftime("%d/%m/%Y")) if viagem.data_chegada %></td>
     <td><%=h (viagem.horario_partida.strftime("%H : %M")) if (viagem.horario_partida) %></td>
+    <td><%=h viagem.nomes_solicitantes.to_sentence  %></td>
     <td><%=h (viagem.motorista.nome) if viagem.motorista  %></td>
     <td>
     <%=h veiculo.modelo + " - " +
