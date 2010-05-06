@@ -27,7 +27,7 @@ module NavigationHelpers
       confirmar_requisicao_path
 
     when /^página de cancelamento de requisição$/
-      cancelar_requisicao_path(:id => @id, :chave_de_seguranca => @chave_de_seguranca)
+      cancelar_requisicao_path(:id => @requisicao.id, :chave_de_seguranca => @requisicao.chave_de_seguranca)
 
     when /^página de adição de veículo$/
       new_veiculo_path

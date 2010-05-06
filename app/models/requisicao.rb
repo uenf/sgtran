@@ -131,10 +131,10 @@ class Requisicao < ActiveRecord::Base
     self.estado = CANCELADO_PELO_PROFESSOR
     self.motivo_professor = motivo
     self.motivo_id = nil
-    if motivo_professor.empty?
-      self.save
-    else
-      self.save_with_validation false
+    viagem_id, self.viagem = self.viagem_id, nil
+    if self.save    
+      Viagem.verificar_viagem viagem_id if viagem_id
+      return true
     end
   end
 

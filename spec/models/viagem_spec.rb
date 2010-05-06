@@ -131,6 +131,14 @@ describe Viagem do
     requisicao_1.estado.should == Requisicao::FINALIZADA
     requisicao_2.estado.should == Requisicao::FINALIZADA
   end
+  
+  it "deve apagar a viagem se ela não possui requisição" do
+    motorista = Factory.create :motorista
+    viagem = Factory.create :viagem, :estado => Viagem::CANCELADA, :motorista_id => motorista.id
+    Viagem.verificar_viagem viagem.id
+    viagem.reload
+    viagem.estado.should == Viagem::CANCELADA
+  end
 
   describe "associações" do
     should_have_many :requisicoes
