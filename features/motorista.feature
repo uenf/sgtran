@@ -4,7 +4,7 @@ Funcionalidade: Manipular um motorista
 
 Como um administrador
 Eu quero manipular um motorista
-Para que eu possa adicinar, editar e utilizar no sistema
+Para que eu possa adicionar, editar e utilizar no sistema
 
   Esquema do Cenário: Adicionar motorista
     Dado que eu estou na página de adição de motorista
