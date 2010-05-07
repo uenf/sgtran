@@ -83,7 +83,7 @@ class RequisicoesController < ApplicationController
     if @requisicao.length == 1
       if @requisicao[IDA].valid?
         session[:requisicao] = @requisicao
-        Confirmacao.deliver_email_Confirmacao_de_cadastro_de_requisicao(@requisicao)
+        Confirmacao.deliver_email_confirmacao_de_cadastro_de_requisicao(@requisicao)
         redirect_to(confirmar_requisicao_path)
       else
         @requisicao = @requisicao[IDA]
@@ -93,7 +93,7 @@ class RequisicoesController < ApplicationController
       if @requisicao[IDA].valid?
         if @requisicao[VOLTA].valid?
           session[:requisicao] = @requisicao
-          Confirmacao.deliver_email_Confirmacao_de_cadastro_de_requisicao(@requisicao)
+          Confirmacao.deliver_email_confirmacao_de_cadastro_de_requisicao(@requisicao)
           redirect_to(confirmar_requisicao_path)
         else
           @requisicao = @requisicao[VOLTA]
