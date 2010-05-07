@@ -82,7 +82,7 @@ class RequisicoesController < ApplicationController
     @requisicao = Requisicao.analisar_requisicao dados
     if @requisicao.length == 1
       if @requisicao[IDA].valid?
-        session[:requisicao] = @requisicao
+        session[:requisicao] = @requisicao[IDA].id
         Confirmacao.deliver_email_confirmacao_de_cadastro_de_requisicao(@requisicao)
         redirect_to(confirmar_requisicao_path)
       else
@@ -92,7 +92,7 @@ class RequisicoesController < ApplicationController
     else
       if @requisicao[IDA].valid?
         if @requisicao[VOLTA].valid?
-          session[:requisicao] = @requisicao
+          session[:requisicao] = [@requisicao[IDA].id, @requisicao[VOLTA].id]
           Confirmacao.deliver_email_confirmacao_de_cadastro_de_requisicao(@requisicao)
           redirect_to(confirmar_requisicao_path)
         else
@@ -108,7 +108,8 @@ class RequisicoesController < ApplicationController
 
 
   def confirmar_requisicao
-    @requisicao = session[:requisicao]
+    
+    @requisicao = Requisicao.all(session[:requisicao]) if session[:requisicao]
     session.delete :requisicao
     if @requisicao
       @solicitante = Solicitante.find_by_matricula_and_email(params[:matricula], params[:email])
