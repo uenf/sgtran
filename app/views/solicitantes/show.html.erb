@@ -41,15 +41,7 @@
   <ul>
     <li id="opcao_voltar" onclick="history.back(-1)" onmouseover="this.style.cursor = 'pointer'">Voltar</li>
     <li id="opcao_editar" onclick="location.href='<%= edit_solicitante_path %>'" onmouseover="this.style.cursor = 'pointer'"><%= link_to 'Editar', edit_solicitante_path(@solicitante) %></li>
-    <% if @solicitante.estado == "Ativo" %>
-      <li id="opcao_editar" onclick="location.href='<%= edit_solicitante_path %>'" onmouseover="this.style.cursor = 'pointer'">
-        <%= link_to 'Desativar' %>
-      </li>
-    <% else %>
-      <li id="opcao_editar" onclick="location.href='<%= edit_solicitante_path %>'" onmouseover="this.style.cursor = 'pointer'">
-        <%= link_to 'Ativar' %>
-      </li>
-    <% end %>    
+ 
   </ul>
 </div>
 
