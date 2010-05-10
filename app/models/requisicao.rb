@@ -132,9 +132,13 @@ class Requisicao < ActiveRecord::Base
     self.motivo_professor = motivo
     self.motivo_id = nil
     viagem_id, self.viagem = self.viagem_id, nil
-    if self.save    
+    if not motivo.empty?
+      self.save_with_validation false
       Viagem.verificar_viagem viagem_id if viagem_id
       return true
+    else
+      self.errors.add(:motivo, "não pode ser vazio")
+      return false
     end
   end
 
