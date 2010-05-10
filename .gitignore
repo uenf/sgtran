@@ -8,4 +8,5 @@ config/deploy.rb
 Capfile
 deploy.sh
 app/controllers/application_controller.rb
+config/email_configuration.rb
 
