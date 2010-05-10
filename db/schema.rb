@@ -104,7 +104,6 @@ ActiveRecord::Schema.define(:version => 20101022184205) do
     t.string   "matricula"
     t.string   "telefone_ou_ramal"
     t.string   "laboratorio_ou_setor"
-    t.string   "estado",               :default => "Ativo"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

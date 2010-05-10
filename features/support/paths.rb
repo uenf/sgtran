@@ -97,9 +97,6 @@ module NavigationHelpers
 
     when /^página de edição de solicitante$/
       edit_solicitante_path(:id => @solicitante)
-      
-    when /^página de visualização do solicitante$/
-      solicitante_path(@solicitante)      
 
     when /^página de aceitar a requisição$/
       aceitar_path(:id => @requisicao)
