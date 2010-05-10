@@ -162,7 +162,9 @@ class RequisicoesController < ApplicationController
 
   def aceitar
     if session[:requisicao]
-      @requisicao = session[:requisicao]
+      @requisicao = Requisicao.find(session[:requisicao][:id])
+      @requisicao.errors.add(:viagem, session[:requisicao][:erro].to_s)
+      session.delete :requisicao
     else
       @requisicao = Requisicao.find(params[:id])
     end
@@ -179,6 +181,7 @@ class RequisicoesController < ApplicationController
       @solicitante  = Solicitante.find(@requisicao.solicitante_id)
       if session[:viagem]
         @viagem = session[:viagem]
+        session.delete :viagem
       else
         @viagem = Viagem.new :data_partida => @requisicao.data_de_reserva, :data_chegada => @requisicao.data_de_reserva
       end
@@ -198,40 +201,37 @@ class RequisicoesController < ApplicationController
 
     if params[:escolha_de_viagem].eql?("nova")
 
-      viagem = Viagem.new :motorista_id => params[:motorista_id],
+      @viagem = Viagem.new :motorista_id => params[:motorista_id],
                           :veiculo_id => params[:veiculo_id],
                           :data_partida => data_nula(params[:data_saida]),
                           :data_chegada => data_nula(params[:data_chegada]),
                           :horario_partida => (params[:horario]["partida(4i)"] and params[:horario]["partida(5i)"]) ?
                               params[:horario]["partida(4i)"] + ":" + params[:horario]["partida(5i)"] : nil
 
-      if viagem.valid?
-        viagem.save!
-        if @requisicao.aceitar viagem
-          Confirmacao.deliver_enviar_email_aceitar(corpo_do_email, destinatarios, @requisicao)
-          redirect_to :controller => "viagem", :action => "show", :id => viagem.id
-        else
-          session[:requisicao] = @requisicao
-          redirect_to :action => "aceitar"
-        end
+      if @viagem.valid?
+        @viagem.save!
+        @requisicao.aceitar @viagem
+        Confirmacao.deliver_enviar_email_aceitar(corpo_do_email, destinatarios, @requisicao)
+        redirect_to :controller => "viagem", :action => "show", :id => @viagem.id
       else
-        session[:viagem] = viagem
+        session[:viagem] = @viagem
         redirect_to :action => "aceitar"
       end
 
     elsif params[:escolha_de_viagem].eql?("existente")
       if params[:id_da_viagem]
-        viagem = @requisicao.aceitar_com_viagem_existente(params[:id_da_viagem])
-        if viagem
-          redirect_to :controller => "viagem", :action => "show", :id => viagem.id
+        @viagem = @requisicao.aceitar_com_viagem_existente(params[:id_da_viagem])
+        if @viagem
+          redirect_to :controller => "viagem", :action => "show", :id => @viagem.id
           Confirmacao.deliver_enviar_email_aceitar(corpo_do_email, destinatarios, @requisicao)
         else
-          session[:requisicao] = @requisicao
-          @requisicao.errors.add(:viagem, "não foi selecionada.")
+#          session[:requisicao] = @requisicao.id
+          session[:requisicao] = {:id => @requisicao.id, :erro => " não foi selecionada."}
+          redirect_to :action => "aceitar"
         end
       else
-        session[:requisicao] = @requisicao
-        @requisicao.errors.add(:viagem, "não foi selecionada.")
+#        session[:requisicao] = @requisicao.id
+        session[:requisicao] = {:id => @requisicao.id, :erro =>  " não foi selecionada."}
         redirect_to :action => "aceitar"
       end
 

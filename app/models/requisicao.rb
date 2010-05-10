@@ -164,11 +164,7 @@ class Requisicao < ActiveRecord::Base
     self.viagem_id = viagem.id
     self.motivo_id = nil
     self.motivo_observacao = nil
-    if self.save_with_validation false
-      true
-    else
-      false
-    end
+    self.save_with_validation false
   end
 
   def aceitar_com_viagem_existente(viagem_id)

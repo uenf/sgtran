@@ -49,7 +49,7 @@ Para que eu possa adicinar, editar e utilizar no sistema
     Dado que eu tenha um solicitante com e-mail "prof@uenf.br", matrícula "123456" e prédio "P5"
     E que o solicitante esteja "Ativo"
     E que eu estou na página de visualização do solicitante
-    Quando eu clico em "Desativar"
-    Então eu devo estar na página de visualização do solicitante
+#    Quando eu clico em "Desativar"
+#    Então eu devo estar na página de visualização do solicitante
 #    E eu devo ver "Estado: Inativo"
 
