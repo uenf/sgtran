@@ -10,7 +10,7 @@ class ViagensController < ApplicationController
   layout "sistema"
 
   def index
-    @viagens = Viagem.all
+    @viagens = Viagem.all(:conditions => "estado = '" + Viagem::AGUARDANDO + "'", :order => "id ASC")
 
     respond_to do |format|
       format.html # index.html.erb

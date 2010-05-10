@@ -20,7 +20,7 @@ describe ViagensController do
 
   describe "GET index" do
     it "assigns all viagens as @viagens" do
-      Viagem.stub!(:find).with(:all).and_return([mock_viagem])
+      Viagem.stub!(:find).with(:all, :conditions => "estado = '"+ Viagem::AGUARDANDO + "'", :order => "id ASC").and_return([mock_viagem])
       get :index
       assigns[:viagens].should == [mock_viagem]
     end
