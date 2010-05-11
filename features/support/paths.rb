@@ -91,6 +91,15 @@ module NavigationHelpers
 
     when /^página de edição de motorista$/
       edit_motorista_path(:id => @motorista)
+      
+    when /^página de visualização do motorista$/
+      motorista_path(@motorista)
+      
+    when /^página de ativação do motorista$/
+      ativar_motorista_path(@motorista)
+      
+    when /^página de desativação do motorista$/
+      desativar_motorista_path(@motorista)      
 
     when /^página de adição de solicitante$/
       new_solicitante_path
@@ -112,6 +121,18 @@ module NavigationHelpers
 
     when /^página de edição de viagem$/
       edit_viagem_path(:id => @viagem)
+    
+    when /^página de visualização do solicitante$/
+      solicitante_path(@solicitante)
+      
+    when /^página de desativação do solicitante$/
+      desativar_solicitante_path(@solicitante)
+      
+    when /^página de ativação do solicitante$/
+      ativar_solicitante_path(@solicitante)
+      
+    when /^página de edição do solicitante$/
+      edit_solicitante_path(@solicitante)
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

@@ -57,13 +57,7 @@ Dado /^que eu tenho uma requisição de volta com número de protocolo ([^\"]*)$
   @requisicao_ida.save!
 end
 
-Dado /^que eu tenha um solicitante com e-mail "([^\"]*)", matrícula "([^\"]*)" e prédio "([^\"]*)"$/ do |email, matricula, centro_nome|
-  centro = Factory.create :centro, :nome => centro_nome
-  @solicitante = Factory.create :solicitante,
-                                :email => email,
-                                :matricula => matricula,
-                                :centro_id => centro.id
-end
+
 
 Dado /^que eu estou logado com o login "([^\"]*)" e a senha "([^\"]*)"$/ do |login, senha|
   usuario = Factory.create :usuario, :login => login, :password => senha, :password_confirmation => senha

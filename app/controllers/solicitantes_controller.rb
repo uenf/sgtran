@@ -3,7 +3,7 @@ class SolicitantesController < ApplicationController
   # GET /solicitantes.xml
 
   access_control do
-    allow :admin, :to => [:index, :new, :show, :create, :edit, :destroy, :update]
+    allow :admin
     allow :visit, :to => [:index, :show]
   end
 

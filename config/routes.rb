@@ -40,21 +40,22 @@ ActionController::Routing::Routes.draw do |map|
   map.sair "/sair", :controller => "usuario_sessions", :action => "destroy"
 
   map.filtrar_requisicao "/filtrar_requisicao", :controller => "requisicoes", :action => "filtrar"
-
   map.filtrar_viagem "filtrar_viagem", :controller => "viagens", :action => "filtrar"
-
   map.rejeitar_requisicao "rejeitar_requisicao", :controller => "requisicoes", :action => "rejeitar_requisicao"
-
   map.cancelar_pelo_sistema "requisicoes/cancelar_pelo_sistema", :controller => "requisicoes", :action => "cancelar_pelo_sistema"
-
   map.base_de_dados "base_de_dados", :controller => "requisicoes", :action => "base_de_dados"
-
   map.cancelar_viagem "viagens/:id/cancelar_viagem", :controller => "viagens", :action => "cancelar_viagem"
   map.cancelamento_da_viagem "viagens/cancelamento_da_viagem", :controller => "viagens", :action => "cancelamento_da_viagem"
   
   map.fechar_viagem "viagens/fechar_viagem/:id", :controller => "viagens", :action => "fechar_viagem"
   
   map.alterar_viagem "requisicoes/alterar_viagem/:id", :controller => "requisicoes", :action => "alterar_viagem"
+  
+  map.ativar_solicitante "solicitantes/ativacao/:id", :controller => "solicitantes", :action => "ativar_solicitante"
+  map.desativar_solicitante "solicitantes/desativacao/:id", :controller => "solicitantes", :action => "desativar_solicitante"
+  
+  map.ativar_motorista "motoristas/ativacao/:id", :controller => "motoristas", :action => "ativar_motorista"
+  map.desativar_motorista "motoristas/desativacao/:id", :controller => "motoristas", :action => "desativar_motorista"  
 
 
   # The priority is based upon order of creation: first created -> highest priority.

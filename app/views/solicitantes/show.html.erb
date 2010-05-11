@@ -35,15 +35,17 @@
     <div class="linha_titulo">Centro:</div>
     <div class="linha_texto"><%=h Centro.find(@solicitante.centro_id).nome if @solicitante.centro_id %></div>
   </div>
+  
+  <div class="show_linha">
+    <div class="linha_titulo">Estado:</div>
+    <div class="linha_texto"><%=h @solicitante.estado %></div>
+  </div>  
 <!-- ' -->
 </div>
 <div id="opcoes_da_visao">
   <ul>
     <li id="opcao_voltar" onclick="history.back(-1)" onmouseover="this.style.cursor = 'pointer'">Voltar</li>
     <li id="opcao_editar" onclick="location.href='<%= edit_solicitante_path %>'" onmouseover="this.style.cursor = 'pointer'"><%= link_to 'Editar', edit_solicitante_path(@solicitante) %></li>
-    <li id="opcao_excluir" onclick="if (confirm('Tem certeza que deseja apagar?')) { var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = '/solicitantes/<%= @solicitante.id %>';var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method'); m.setAttribute('value', 'delete'); f.appendChild(m);var s = document.createElement('input'); s.setAttribute('type', 'hidden'); s.setAttribute('name', 'authenticity_token'); s.setAttribute('value', '<%= form_authenticity_token %>'); f.appendChild(s);f.submit(); };return false;" onmouseover="this.style.cursor = 'pointer'">
-      Excluir
-    </li>
   </ul>
 </div>
 

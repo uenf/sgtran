@@ -1,4 +1,8 @@
 class Veiculo < ActiveRecord::Base
+  
+  ATIVO = "Ativo"
+  INATIVO = "Inativo"
+  
   has_one :categoria_de_veiculo
   has_and_belongs_to_many :combustiveis
   has_many :viagens

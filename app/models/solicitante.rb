@@ -1,4 +1,7 @@
 class Solicitante < ActiveRecord::Base
+  
+  ATIVO = "Ativo"
+  INATIVO = "Inativo"
 
   has_one :centro
 
@@ -33,6 +36,5 @@ class Solicitante < ActiveRecord::Base
     end
     matricula
   end
-
 end
 
