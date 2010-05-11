@@ -57,4 +57,3 @@ Para que eu possa adicinar, editar e utilizar no sistema
   | Estado do Solicitante | Estado desejado |
   | Ativo                 | Inativo         |
   | Inativo               | Ativo           |
-

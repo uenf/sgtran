@@ -24,7 +24,7 @@ Funcionalidade: Cancelar viagem
     Exemplos:(Campos vazios)
 
     | Motivo       | Ação                               | Sentença                                |
-    |              | eu pressiono "Cancelar requisição" | eu devo ver "Motivo nao pode ser vazio" |
+    |              | eu pressiono "Cancelar requisição" | eu devo ver "Motivo não pode ser vazio" |
 
 
   Cenário: Cancelamento de requisição com dados incorretos
