@@ -3,6 +3,11 @@ Dado /^que eu tenho um prédio$/ do
 end
 
 Dado /^que eu tenho um prédio com nome "([^\"]*)"$/ do |nome|
-  Factory.create :centro, :nome => nome
+  @centro = Factory.create :centro, :nome => nome
+end
+
+Dado /^que o prédio esteja "([^\"]*)"$/ do |estado|
+  @centro.estado = estado
+  @centro.save
 end
 

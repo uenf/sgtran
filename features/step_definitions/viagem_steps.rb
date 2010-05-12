@@ -45,3 +45,31 @@ Dado /^que a requisição esteja ligada à viagem$/ do
   @requisicao.save
 end
 
+Dado /^que eu tenha uma viagem$/ do
+  categoria_de_veiculo = Factory.create :categoria_de_veiculo
+  objetivo_de_reserva = Factory.create :objetivo_de_reserva
+  combustivel = Factory.create :combustivel
+  veiculo = Factory.create :veiculo,
+                  :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                  :combustivel_ids => [combustivel.id]
+  motorista = Factory.create :motorista
+  requisicao = Factory.create :requisicao,
+                              :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                              :objetivo_de_reserva_id => objetivo_de_reserva.id
+  @viagem = Factory.create :viagem,
+                           :motorista_id => motorista.id,
+                           :veiculo_id => veiculo.id,
+                           :data_partida => requisicao.data_de_reserva,
+                           :data_chegada => requisicao.data_de_reserva + 3.days
+  requisicao.viagem_id = @viagem.id
+  @viagem_id = @viagem.id
+end
+
+Entao /^eu devo ter uma nova viagem$/ do
+  motorista = Factory.create :motorista
+  viagem = Factory.create :viagem, :motorista_id => motorista.id
+  Requisicao.update(@requisicao.id, :viagem_id => viagem.id)
+  @requisicao.viagem = viagem
+  @viagem_id = viagem.id + 1
+end
+

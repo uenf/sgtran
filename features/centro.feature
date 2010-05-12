@@ -30,4 +30,17 @@ Para que eu possa adicinar, editar e utilizar no sistema
 
     | nome          | sentença                          |
     | Outro nome    | Centro modificado com sucesso!    |
+    
+  Esquema do Cenário: Ativar/Desativar um centro pela página de edição
+    Dado que eu tenho um prédio
+    E que o prédio esteja "<Estado do Objetivo>"
+    E que eu estou na página de edição do prédio
+    Quando eu seleciono "<Estado desejado>" em "Estado"
+    E eu pressiono "Atualizar"
+    Então eu devo ver "Estado: <Estado desejado>"
+    
+  Exemplos:
+  | Estado do Objetivo    | Estado desejado |
+  | Ativo                 | Inativo         |
+  | Inativo               | Ativo           |      
 

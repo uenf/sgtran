@@ -6,7 +6,6 @@
   <tr>
     <th>Nome</th>
     <th class="celula_neutra_estatica"></th>
-    <th class="celula_neutra_estatica"></th>
   </tr>
 
 <% @centros.each do |centro| %>
@@ -14,9 +13,7 @@
     <td onclick="location.href='<%= centro_path(centro) %>'" onmouseover="this.style.cursor='pointer'"><%=h centro.nome %></td>
     <% if current_user.has_role? :admin %>
       <td onclick="location.href='<%= edit_centro_path(centro) %>'" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("editar_dado.png", :border => 0, :alt => "Editar"), edit_centro_path(centro) %></td>
-      <td onclick="" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("deletar_dado.png", :border => 0, :alt => "Deletar"), centro, :confirm => 'Tem certeza que deseja apagar?', :method => :delete %></td>
     <% else %>
-      <td></td>
       <td></td>
     <% end %>
   </tr>

@@ -57,58 +57,13 @@ Dado /^que eu tenho uma requisição de volta com número de protocolo ([^\"]*)$
   @requisicao_ida.save!
 end
 
-
-
 Dado /^que eu estou logado com o login "([^\"]*)" e a senha "([^\"]*)"$/ do |login, senha|
   usuario = Factory.create :usuario, :login => login, :password => senha, :password_confirmation => senha
   Factory.create :usuario_session, :login => usuario.login, :senha => usuario.password
 end
 
-Dado /^que eu tenha uma viagem$/ do
-  categoria_de_veiculo = Factory.create :categoria_de_veiculo
-  objetivo_de_reserva = Factory.create :objetivo_de_reserva
-  combustivel = Factory.create :combustivel
-  veiculo = Factory.create :veiculo,
-                  :categoria_de_veiculo_id => categoria_de_veiculo.id,
-                  :combustivel_ids => [combustivel.id]
-  motorista = Factory.create :motorista
-  requisicao = Factory.create :requisicao,
-                              :categoria_de_veiculo_id => categoria_de_veiculo.id,
-                              :objetivo_de_reserva_id => objetivo_de_reserva.id
-  @viagem = Factory.create :viagem,
-                           :motorista_id => motorista.id,
-                           :veiculo_id => veiculo.id,
-                           :data_partida => requisicao.data_de_reserva,
-                           :data_chegada => requisicao.data_de_reserva + 3.days
-  requisicao.viagem_id = @viagem.id
-  @viagem_id = @viagem.id
-end
-
 Quando /^eu escolho "([^\"]*)"$/ do |field|
   choose(field)
-end
-
-Dado /^que eu tenha um veículo da categoria "([^\"]*)", modelo "([^\"]*)" e placa "([^\"]*)"$/ do |categoria, modelo, placa|
-  categoria_de_veiculo = Factory.create :categoria_de_veiculo, :nome => categoria
-  combustivel = Factory.create :combustivel
-  Factory.create :veiculo,
-                  :categoria_de_veiculo_id => categoria_de_veiculo.id,
-                  :modelo => modelo,
-                  :placa => placa,
-                  :combustivel_ids => [combustivel.id]
-end
-
-
-Dado /^que eu tenha uma categoria de veículo "([^\"]*)"$/ do |nome|
-  @categoria_de_veiculo = Factory.create :categoria_de_veiculo, :nome => nome
-end
-
-Entao /^eu devo ter uma nova viagem$/ do
-  motorista = Factory.create :motorista
-  viagem = Factory.create :viagem, :motorista_id => motorista.id
-  Requisicao.update(@requisicao.id, :viagem_id => viagem.id)
-  @requisicao.viagem = viagem
-  @viagem_id = viagem.id + 1
 end
 
 Quando /^eu preencho "([^\"]*)" com uma data de dois dias seguintes a partir de hoje$/ do |campo|
@@ -177,7 +132,4 @@ When /^eu não devo ver "([^\"]*)"$/ do |text|
   response.should_not contain(text)
 end
 
-Dado /^que eu tenha um objetivo de reserva "([^\"]*)"$/ do |texto|
-  @objetivo_de_reserva = Factory.create :objetivo_de_reserva, :texto => texto
-end
 

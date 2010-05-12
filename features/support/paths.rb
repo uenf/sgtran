@@ -77,7 +77,7 @@ module NavigationHelpers
     when /^página de adição de objetivo de reserva$/
       new_objetivo_de_reserva_path
 
-    when /^página de edição de objetivo de reserva$/
+    when /^página de edição do objetivo de reserva$/
       edit_objetivo_de_reserva_path(:id => @objetivo_de_reserva)
 
     when /^página de adição de motivo$/
@@ -133,6 +133,18 @@ module NavigationHelpers
       
     when /^página de edição do solicitante$/
       edit_solicitante_path(@solicitante)
+      
+    when /^página de edição do veículo$/
+      edit_veiculo_path(@veiculo)
+      
+    when /^página de edição do categoria de veículo$/
+      edit_categoria_de_veiculo_path(@categoria_de_veiculo)
+      
+    when /^página de edição do motivo$/
+      edit_motivo_path(@motivo)
+      
+    when /^página de edição do prédio$/
+      edit_centro_path(@centro)
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

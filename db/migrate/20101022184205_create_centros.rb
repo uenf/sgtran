@@ -2,6 +2,7 @@ class CreateCentros < ActiveRecord::Migration
   def self.up
     create_table :centros do |t|
       t.string :nome
+      t.string :estado, :default => Centro::ATIVO
 
       t.timestamps
     end
