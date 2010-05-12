@@ -4,12 +4,15 @@
 
 <table id="base_de_dados" class="tabela_base_de_dados">
   <tr>
+    <th class="celula_neutra_estatica"></th>
     <th>Texto</th>
     <th class="celula_neutra_estatica"></th>
   </tr>
 
 <% @objetivos_de_reserva.each do |objetivo_de_reserva| %>
   <tr>
+    <%= "<td class='ativo'></td>" if objetivo_de_reserva.estado == ObjetivoDeReserva::ATIVO %>
+    <%= "<td class='inativo'></td>" if objetivo_de_reserva.estado == ObjetivoDeReserva::INATIVO %>    
     <td onclick="location.href='<%= objetivo_de_reserva_path(objetivo_de_reserva) %>'" onmouseover="this.style.cursor='pointer'"><%=h objetivo_de_reserva.texto %></td>
     <% if current_user.has_role? :admin %>
       <td onclick="location.href='<%= edit_objetivo_de_reserva_path(objetivo_de_reserva) %>'" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("editar_dado.png", :border => 0, :alt => "Editar"), edit_objetivo_de_reserva_path(objetivo_de_reserva) %></td>

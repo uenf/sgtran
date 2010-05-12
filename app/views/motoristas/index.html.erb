@@ -4,6 +4,7 @@
 
 <table id="base_de_dados" class="tabela_base_de_dados">
   <tr>
+    <th class="celula_neutra_estatica"></th>
     <th>Matr&iacute;cula</th>
     <th>Nome</th>
     <th>Telefone</th>
@@ -12,6 +13,8 @@
 
 <% @motoristas.each do |motorista| %>
   <tr >
+    <%= "<td class='ativo'></td>" if motorista.estado == Motorista::ATIVO %>
+    <%= "<td class='inativo'></td>" if motorista.estado == Motorista::INATIVO %>  
     <td onclick="location.href='<%= motorista_path(motorista) %>'" onmouseover="this.style.cursor='pointer'"><%=h motorista.matricula %></td>
     <td onclick="location.href='<%= motorista_path(motorista) %>'" onmouseover="this.style.cursor='pointer'"><%=h motorista.nome %></td>
     <td onclick="location.href='<%= motorista_path(motorista) %>'" onmouseover="this.style.cursor='pointer'"><%=h motorista.telefone %></td>

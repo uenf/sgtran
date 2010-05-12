@@ -813,4 +813,11 @@ div#viagem_nova fieldset legend {
 .texto_livre {
     padding: 5px
 }
-
+.ativo {
+    background : url("/images/aceita.png") no-repeat 0px center;
+    padding-left : 23px;
+}
+.inativo {
+    background : url("/images/cancelado_pelo_professor.png") no-repeat 0px center;
+    padding-left : 23px;    
+}
