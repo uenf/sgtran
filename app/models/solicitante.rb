@@ -20,11 +20,7 @@ class Solicitante < ActiveRecord::Base
 
   def self.normalizar_matricula matricula
     tamanho = 5 - matricula.length
-    if tamanho > 0
-      tamanho.times do
-        matricula = "0" + matricula
-      end
-    end
+    tamanho.times { matricula = "0" + matricula.to_s } if tamanho > 0
     matricula
   end
 end
