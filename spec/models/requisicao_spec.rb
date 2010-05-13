@@ -186,44 +186,6 @@ describe Requisicao do
     requisicao.errors.invalid?(:data_de_reserva).should be_true
   end
 
-
-  it "Deve salvar a requisição de ida e volta com os respectivos protocolos para
-      a referência" do
-    categoria_de_veiculo = Factory.create :categoria_de_veiculo
-    objetivo_de_reserva = Factory.create :objetivo_de_reserva
-    requisicao_ida = Factory.build :requisicao,
-                                   :categoria_de_veiculo_id => categoria_de_veiculo.id,
-                                   :objetivo_de_reserva_id => objetivo_de_reserva.id
-    requisicao_volta = Factory.build :requisicao,
-                                     :categoria_de_veiculo_id => categoria_de_veiculo.id,
-                                     :objetivo_de_reserva_id => objetivo_de_reserva.id
-
-    confirmacao = requisicao_ida.registrarVolta requisicao_volta
-
-    resultado = Requisicao.find(requisicao_ida.id)
-    resultado.referencia_id.should == requisicao_volta.id.to_s
-
-    resultado = Requisicao.find(requisicao_volta.id)
-    resultado.referencia_id.should == requisicao_ida.id.to_s
-
-    confirmacao.should be_true
-
-  end
-
-  it "Deve retornar um objeto com erros caso a requisição não seja válida" do
-    categoria_de_veiculo = Factory.create :categoria_de_veiculo
-    objetivo_de_reserva = Factory.create :objetivo_de_reserva
-    requisicao_ida = Factory.build :requisicao,
-                                   :categoria_de_veiculo_id => categoria_de_veiculo.id,
-                                   :objetivo_de_reserva_id => objetivo_de_reserva.id
-    requisicao_volta = Factory.build :requisicao,
-                                     :categoria_de_veiculo_id => categoria_de_veiculo.id,
-                                     :objetivo_de_reserva_id => ""
-    confirmacao = requisicao_ida.registrarVolta requisicao_volta
-
-    confirmacao.valid?.should be false
-  end
-
   it "Deve filtrar a requisição e retornar apenas as requisições com o estado selecionado" do
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     objetivo_de_reserva = Factory.create :objetivo_de_reserva
