@@ -43,5 +43,17 @@ Para que eu possa adicinar, editar e utilizar no sistema
   Exemplos:
   | Estado do Objetivo    | Estado desejado |
   | Ativo                 | Inativo         |
-  | Inativo               | Ativo           |       
+  | Inativo               | Ativo           |
+  
+  Esquema do Cenário: Deve mostrar apenas objetivos de reserva ativos
+    Dado que eu tenha uma categoria de veículo "Automóvel até 4 passageiros"
+    E que eu tenha um objetivo de reserva "Aula de Campo"
+    E que o objetivo de reserva esteja "<Estado>"
+    E que eu estou na página de requisição
+    Então eu <Visão>
+    
+  Exemplos:
+  | Estado  | Visão                         |
+  | Ativo   | devo ver "Aula de Campo"      |
+  | Inativo | não devo ver "Aula de Campo"  |        
 
