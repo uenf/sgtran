@@ -4,4 +4,5 @@ end
 
 Dado /^que o motivo esteja "([^\"]*)"$/ do |estado|
   @motivo.estado = estado
+  @motivo.save
 end

@@ -28,7 +28,10 @@ module NavigationHelpers
 
     when /^página de cancelamento de requisição$/
       cancelar_requisicao_path(:id => @requisicao.id, :chave_de_seguranca => @requisicao.chave_de_seguranca)
-
+      
+    when /^página de cancelamento pelo sistema da requisição$/
+      cancelar_requisicao_pelo_sistema_path(@requisicao)
+      
     when /^página de adição de veículo$/
       new_veiculo_path
 
@@ -72,7 +75,7 @@ module NavigationHelpers
       filtrar_viagem_path
 
     when /página de rejeitar uma requisição/
-      rejeitar_path(:id => @requisicao)
+      rejeitar_path(@requisicao)
 
     when /^página de adição de objetivo de reserva$/
       new_objetivo_de_reserva_path
