@@ -113,4 +113,26 @@ Funcionalidade: Solicitar viagem
     E eu marco "Li e concordo com os termos"
     E eu pressiono "Enviar"
     Então eu devo ver "Requisição enviada com sucesso!"
-
+    
+  Esquema do Cenário: Deve aceitar apenas solicitantes ativos
+    Dado que eu tenha uma categoria de veículo "Automóvel até 4 passageiros"
+    E que eu tenha um objetivo de reserva "Aula de Campo"
+    E que eu tenha um solicitante com e-mail "ronaldo@corinthians.com", matrícula "00210" e prédio "P5"
+    E que o solicitante esteja "<Estado>"
+    E que eu estou na página de requisição
+    Quando eu preencho "Matrícula" com "210"
+    E eu preencho "E-mail" com "ronaldo@corinthians.com"
+    E eu preencho "Celular" com "9999-9999"
+    E eu preencho "Data de Reserva" com uma data de dois dias seguintes a partir de hoje
+    E eu seleciono "Automóvel até 4 passageiros" em "Categoria de veículo"
+    E eu seleciono "Aula de Campo" em "Objetivo da Reserva"
+    E eu preencho "Nome(s) e telefone do(s) passageiro(s):" com "Zina, Ronaldo e Alfinete"
+    E eu preencho "Roteiro da agenda (ida):" com "Ir ao Pacaembu"
+    E eu marco "Li e concordo com os termos"
+    E eu pressiono "Enviar"
+    Então eu devo ver "<Resposta>"  
+    
+  Exemplos:
+  | Estado  | Resposta                        |
+  | Ativo   | Requisição enviada com sucesso! |
+  | Inativo | Solicitante não existe          |  
