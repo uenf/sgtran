@@ -17,6 +17,11 @@ describe Motorista do
     Motorista.create!(@valid_attributes)
   end
 
+  it "deve responder se está ativou ou não" do
+    motorista = Factory.create :motorista, :estado => "Ativo"
+    (motorista.ativo?).should be_true
+  end
+
   describe "ocupados e desocupados" do
     before(:each) do
       categoria_de_veiculo = Factory.create :categoria_de_veiculo
@@ -120,7 +125,25 @@ describe Motorista do
       motoristas_desocupados.should include [@motorista_zeca.nome, @motorista_zeca.id]
       motoristas_desocupados.should include [@motorista_marco.nome, @motorista_marco.id]
       motoristas_desocupados.length.should be_equal 3
-    end    
+    end
+
+    it "inativos não devem aparecer na lista de motoristas ocupados" do
+      data_partida = Date.today
+      data_chegada = Date.today + 2.days
+      @motorista_joao.estado = "Inativo"
+      @motorista_joao.save
+      motoristas_ocupados = Motorista.ocupados_entre(data_partida, data_chegada)
+      motoristas_ocupados.should_not include [@motorista_joao.nome, @motorista_joao.id]
+    end
+
+    it "inativos não devem aparecer na lista de motoristas desocupados" do
+      data_partida = Date.today
+      data_chegada = Date.today + 2.days
+      @motorista_zeca.estado = "Inativo"
+      @motorista_zeca.save
+      motoristas_desocupados = Motorista.desocupados_entre(data_partida, data_chegada)
+      motoristas_desocupados.should_not include [@motorista_zeca.nome, @motorista_zeca.id]
+    end
   end
 end
 
