@@ -44,7 +44,7 @@ class Viagem < ActiveRecord::Base
   def requisicoes_atendidas
     atendidas = []
     Requisicao.find_all_by_viagem_id(self.id).each do |requisicao|
-      (atendidas << requisicao.id)
+      atendidas << requisicao.id
     end
     atendidas
   end
@@ -98,12 +98,9 @@ class Viagem < ActiveRecord::Base
           r.save_with_validation false
         end
         return true
-      else
-        return false
       end
-    else
-      return false
     end
+    false
   end
   
   def self.verificar_viagem viagem_id

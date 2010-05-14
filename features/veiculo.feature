@@ -41,5 +41,20 @@ Para que eu possa utiliza-lo no sistema
     | Fiat  | Uno    | Azul | 2008 | marco        | marco        | Selecione uma categoria     | LAC-4583 | 145623 | 7961313 | Categoria de veiculo não selecionada |
     | Fiat  | Uno    | Azul | 2008 | marco        | marco        | Automóvel até 4 passageiros |          | 145623 | 7961313 | Placa não pode ser vazio             |
     | Fiat  | Uno    | Azul | 2008 | marco        | marco        | Automóvel até 4 passageiros | LAC-4583 |        | 7961313 | Numero de ordem não pode ser vazio   |
-    | Fiat  | Uno    | Azul | 2008 | marco        | marco        | Automóvel até 4 passageiros | LAC-4583 | 145623 |         | Renavam não pode ser vazio           |
+    | Fiat  | Uno    | Azul | 2008 | marco        | marco        | Automóvel até 4 passageiros | LAC-4583 | 145623 |         | Renavam não pode ser vazio           |    
+    
+    
+  Esquema do Cenário: Ativar/Desativar um veículo pela página de edição
+    Dado que eu tenha um veículo da categoria "4 Passageiros", modelo "Gol" e placa "ABC-1234"
+    E que o veículo esteja "<Estado do Veículo>"
+    E que eu estou na página de edição do veículo
+    Quando eu seleciono "<Estado desejado>" em "Estado"
+    E eu pressiono "Atualizar"
+    Então eu devo ver "Estado: <Estado desejado>"
+    
+  Exemplos:
+  | Estado do Veículo     | Estado desejado |
+  | Ativo                 | Inativo         |
+  | Inativo               | Ativo           |
+      
 

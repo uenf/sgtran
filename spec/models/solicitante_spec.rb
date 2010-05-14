@@ -24,29 +24,6 @@ describe Solicitante do
     solicitante.save.should be_false
   end
 
-  it "Deve estar cheio no caso do professor existir" do
-    centro = Factory.create :centro
-    Factory.create :solicitante,
-                    :email => "professor@uenf.br",
-                    :matricula => "01210",
-                    :centro_id => centro.id
-    solicitante = Solicitante.verificarExistencia({:matricula => "01210",
-                                                    :email => "professor@uenf.br",
-                                                    :cargo => "Professor"})
-    solicitante.should_not be_nil
-  end
-
-  it "Deve estar vazio no caso do professor não existir" do
-    centro = Factory.create :centro
-    Factory.create :solicitante,
-                    :email => "professor@uenf.br",
-                    :matricula => "01210",
-                    :centro_id => centro.id
-    solicitante = Solicitante.verificarExistencia({:matricula => "0121001",
-                                                    :email => "professor@uenf.br"})
-    solicitante.should be_nil
-  end
-
   it "Deve invalidar caso o nome seja vazio" do
     centro = Factory.create :centro
     solicitante = Factory.build :solicitante,
@@ -69,6 +46,16 @@ describe Solicitante do
     Solicitante.normalizar_matricula(matricula).should == "10210"
     matricula = "100210"
     Solicitante.normalizar_matricula(matricula).should == "100210"
+  end
+  
+  it "deve retornar apenas um solicitante que seja ativo" do
+    centro = Factory.create :centro
+    solicitante = Factory.create :solicitante, :centro_id => centro.id    
+    dados = {:email => solicitante.email, :matricula => solicitante.matricula}
+    Solicitante.verificar_solicitante(dados).should be_true
+    solicitante.estado = Solicitante::INATIVO    
+    solicitante.save
+    Solicitante.verificar_solicitante(dados).should be_false    
   end
 end
 

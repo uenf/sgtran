@@ -281,7 +281,7 @@ class RequisicoesController < ApplicationController
   def rejeitar
     @requisicao = Requisicao.find(params[:id])
     @solicitante = Solicitante.find(@requisicao.solicitante_id)
-    @motivos = Motivo.all
+    @motivos = Motivo.find_all_by_estado(Motivo::ATIVO)
   end
 
   def rejeitar_requisicao
@@ -301,7 +301,7 @@ class RequisicoesController < ApplicationController
   end
 
   def cancelar_requisicao_pelo_sistema
-    @motivos = Motivo.all
+    @motivos = Motivo.find_all_by_estado(Motivo::ATIVO)
     @requisicao = Requisicao.find(params[:id])
     @solicitante = Solicitante.find(@requisicao.solicitante_id)
   end

@@ -6,6 +6,11 @@
     <div class="linha_titulo">Nome:</div>
     <div class="linha_texto"><%=h @categoria_de_veiculo.nome %></div>
   </div>
+  
+  <div class="show_linha">
+    <div class="linha_titulo">Estado:</div>
+    <div class="linha_texto"><%=h @categoria_de_veiculo.estado %></div>
+  </div>  
 
 </div>
 
@@ -13,9 +18,6 @@
   <ul>
     <li id="opcao_voltar" onclick="history.back(-1)" onmouseover="this.style.cursor = 'pointer'">Voltar</li>
     <li id="opcao_editar" onclick="location.href='<%= edit_categoria_de_veiculo_path(@categoria_de_veiculo) %>'" onmouseover="this.style.cursor = 'pointer'"><%= link_to 'Editar', edit_categoria_de_veiculo_path(@categoria_de_veiculo) %></li>
-    <li id="opcao_excluir" onclick="if (confirm('Tem certeza que deseja apagar?')) { var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = '/categoria_de_veiculos/<%= @categoria_de_veiculo.id %>';var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method'); m.setAttribute('value', 'delete'); f.appendChild(m);var s = document.createElement('input'); s.setAttribute('type', 'hidden'); s.setAttribute('name', 'authenticity_token'); s.setAttribute('value', '<%= form_authenticity_token %>'); f.appendChild(s);f.submit(); };return false;" onmouseover="this.style.cursor = 'pointer'">
-      Excluir
-    </li>
   </ul>
 </div>
 

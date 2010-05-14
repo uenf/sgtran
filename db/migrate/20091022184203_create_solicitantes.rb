@@ -8,7 +8,7 @@ class CreateSolicitantes < ActiveRecord::Migration
       t.string :matricula
       t.string :telefone_ou_ramal
       t.string :laboratorio_ou_setor
-      t.string :estado, :default => "Ativo"
+      t.string :estado, :default => Solicitante::ATIVO
 
       t.timestamps
     end

@@ -3,6 +3,7 @@ class CreateCategoriaDeVeiculos < ActiveRecord::Migration
     create_table :categoria_de_veiculos do |t|
       t.string :nome
       t.references :veiculo
+      t.string :estado, :default => CategoriaDeVeiculo::ATIVO
 
       t.timestamps
     end

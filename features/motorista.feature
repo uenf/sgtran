@@ -26,7 +26,7 @@ Para que eu possa adicionar, editar e utilizar no sistema
 
 
   Esquema do Cenário: Editar motorista
-    Dado que exista um motorista com nome "Gustavo Santos"
+    Dado que eu tenho um motorista com nome "Gustavo Santos"
     E que eu estou na página de edição de motorista
     Quando eu preencho "Matrícula" com "<matricula>"
     E eu preencho "Nome" com "<nome>"
@@ -43,4 +43,17 @@ Para que eu possa adicionar, editar e utilizar no sistema
     |           | fulano de tal | (00) 0000-0000    | 03811585669 | 19/05/2010              | Matricula não pode ser vazio      |
     | 100000    |               | (00) 0000-0000    | 03811585669 | 19/05/2010              | Nome não pode ser vazio           |
     | 100000    | fulano de tal |                   | 03811585669 | 19/05/2010              | Telefone não pode ser vazio       |
-
+    
+    
+  Esquema do Cenário: Ativar/Desativar um motorista pela página de edição
+    Dado que eu tenho um motorista com nome "Gustavo Santos"
+    E que o motorista esteja "<Estado do Solicitante>"
+    E que eu estou na página de edição de motorista
+    Quando eu seleciono "<Estado desejado>" em "Estado"
+    E eu pressiono "Atualizar"
+    Então eu devo ver "Estado: <Estado desejado>"
+    
+  Exemplos:
+  | Estado do Solicitante | Estado desejado |
+  | Ativo                 | Inativo         |
+  | Inativo               | Ativo           |  

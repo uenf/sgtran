@@ -17,20 +17,6 @@ describe Motorista do
     Motorista.create!(@valid_attributes)
   end
 
-# Comentado por não ter a mínima ideia de onde veio isso!!!
-################################################################################
-#  it "Deve estar cheio no caso do professor existir" do
-#    Factory.create :motorista, :matricula => "15"
-#    motorista = Motorista.verificarExistencia({:matricula => "15"})
-#    motorista.should_not be_nil
-#  end
-
-#  it "Deve estar vazio no caso do professor não existir" do
-#    Factory.create :motorista, :matricula => "16"
-#    motorista = Motorista.verificarExistencia({:matricula => "123456231"})
-#    motorista.should be_nil
-#  end
-################################################################################
   describe "ocupados e desocupados" do
     before(:each) do
       categoria_de_veiculo = Factory.create :categoria_de_veiculo
@@ -134,7 +120,7 @@ describe Motorista do
       motoristas_desocupados.should include [@motorista_zeca.nome, @motorista_zeca.id]
       motoristas_desocupados.should include [@motorista_marco.nome, @motorista_marco.id]
       motoristas_desocupados.length.should be_equal 3
-    end
+    end    
   end
 end
 

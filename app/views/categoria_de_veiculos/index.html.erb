@@ -4,19 +4,19 @@
 
 <table id="base_de_dados" class="tabela_base_de_dados">
   <tr>
-    <th>Nome</th>
     <th class="celula_neutra_estatica"></th>
+    <th>Nome</th>
     <th class="celula_neutra_estatica"></th>
   </tr>
 
 <% @categoria_de_veiculos.each do |categoria_de_veiculo| %>
   <tr>
+    <%= "<td class='ativo'></td>" if categoria_de_veiculo.estado == CategoriaDeVeiculo::ATIVO %>
+    <%= "<td class='inativo'></td>" if categoria_de_veiculo.estado == CategoriaDeVeiculo::INATIVO %>  
     <td onclick="location.href='<%= categoria_de_veiculo_path(categoria_de_veiculo) %>'" onmouseover="this.style.cursor='pointer'"><%=h categoria_de_veiculo.nome %></td>
     <% if current_user.has_role? :admin %>
       <td onclick="location.href='<%= edit_categoria_de_veiculo_path(categoria_de_veiculo) %>'" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("editar_dado.png", :border => 0, :alt => "Editar"), edit_categoria_de_veiculo_path(categoria_de_veiculo) %></td>
-      <td onclick="" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("deletar_dado.png", :border => 0, :alt => "Deletar"), categoria_de_veiculo, :confirm => 'Tem certeza que deseja apagar?', :method => :delete %></td>
     <% else %>
-      <td></td>
       <td></td>
     <% end %>
   </tr>

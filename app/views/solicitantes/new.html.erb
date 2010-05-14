@@ -40,7 +40,7 @@
     </div>
     <div class="linha_texto_neutro">
       <%= f.select :centro_id,
-                    Centro.all.collect {|centro| [centro.nome, centro.id]},
+                    Centro.find_all_by_estado(Centro::ATIVO).collect {|centro| [centro.nome, centro.id]},
                     {:include_blank => "Selecione um Centro"} %>
     </div>
   </div>

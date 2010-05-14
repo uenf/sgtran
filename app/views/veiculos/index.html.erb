@@ -4,6 +4,7 @@
 
 <table id="base_de_dados" class="tabela_base_de_dados">
   <tr>
+    <th class="celula_neutra_estatica"></th>
     <th>Marca</th>
     <th>Modelo</th>
     <th>Cor</th>
@@ -13,11 +14,12 @@
     <th>Renavam</th>
     <th>Categoria</th>
     <th class="celula_neutra_estatica"></th>
-    <th class="celula_neutra_estatica"></th>
   </tr>
 
 <% @veiculos.each do |veiculo| %>
   <tr >
+    <%= "<td class='ativo'></td>" if veiculo.estado == Veiculo::ATIVO %>
+    <%= "<td class='inativo'></td>" if veiculo.estado == Veiculo::INATIVO %>  
     <td onclick="location.href='<%= veiculo_path(veiculo) %>'" onmouseover="this.style.cursor='pointer'"><%=h veiculo.marca %></td>
     <td onclick="location.href='<%= veiculo_path(veiculo) %>'" onmouseover="this.style.cursor='pointer'"><%=h veiculo.modelo %></td>
     <td onclick="location.href='<%= veiculo_path(veiculo) %>'" onmouseover="this.style.cursor='pointer'"><%=h veiculo.cor %></td>
@@ -34,9 +36,7 @@
     </td>
     <% if current_user.has_role? :admin %>
       <td onclick="location.href='<%= edit_veiculo_path(veiculo) %>'" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("editar_dado.png", :border => 0, :alt => "Editar"), edit_veiculo_path(veiculo) %></td>
-      <td onclick="" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("deletar_dado.png", :border => 0, :alt => "Deletar"), veiculo, :confirm => 'Tem certeza que deseja apagar?', :method => :delete %></td>
     <% else %>
-      <td></td>
       <td></td>
     <% end %>
   </tr>

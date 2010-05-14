@@ -142,26 +142,6 @@ class Requisicao < ActiveRecord::Base
     end
   end
 
-  def registrarVolta requisicao_volta
-
-    if self.save
-      if requisicao_volta.save
-        self.referencia_id = requisicao_volta.id
-        requisicao_volta.referencia_id = self.id
-        self.save
-        requisicao_volta.save
-        return self
-      else
-        return requisicao_volta
-      end
-      return self
-    else
-      return self
-    end
-
-  end
-
-
   public
   def aceitar viagem
     self.estado = ACEITA
@@ -219,19 +199,19 @@ class Requisicao < ActiveRecord::Base
   end
 
   def esta_em_espera?
-    self.estado == Requisicao::ESPERA ? true : false
+    self.estado == Requisicao::ESPERA
   end
 
   def esta_aceita?
-    self.estado == Requisicao::ACEITA ? true : false
+    self.estado == Requisicao::ACEITA
   end
 
   def esta_rejeitada?
-    self.estado == Requisicao::REJEITADA ? true : false
+    self.estado == Requisicao::REJEITADA
   end
 
   def pode_ser_aceita?
-    (self.esta_em_espera? or self.esta_rejeitada?) ? true : false
+    self.esta_em_espera? or self.esta_rejeitada?
   end
 
   def cancelar_requisicao motivo_id, corpo_do_email, destinatarios
@@ -260,11 +240,7 @@ class Requisicao < ActiveRecord::Base
   end
 
   def pode_alterar_viagem?
-    if self.estado == Requisicao::ACEITA
-      true
-    else
-      false
-    end
+    self.estado == Requisicao::ACEITA
   end
 
   def alterar_viagem viagem_id

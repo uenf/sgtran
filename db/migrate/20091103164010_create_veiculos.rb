@@ -9,6 +9,7 @@ class CreateVeiculos < ActiveRecord::Migration
       t.string :numero_de_ordem
       t.string :renavam
       t.references :categoria_de_veiculo
+      t.string :estado, :default => Veiculo::ATIVO
 
       t.timestamps
     end
