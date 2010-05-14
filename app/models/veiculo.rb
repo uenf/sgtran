@@ -1,8 +1,8 @@
 class Veiculo < ActiveRecord::Base
-  
+
   ATIVO = "Ativo"
   INATIVO = "Inativo"
-  
+
   has_one :categoria_de_veiculo
   has_and_belongs_to_many :combustiveis
   has_many :viagens
@@ -22,6 +22,10 @@ class Veiculo < ActiveRecord::Base
     return  self.modelo + " - " + self.placa + " - " +
             CategoriaDeVeiculo.find(self.categoria_de_veiculo_id).nome
 
+  end
+
+  def ativo?
+    true ? self.estado == ATIVO : false
   end
 
   protected
@@ -45,7 +49,7 @@ class Veiculo < ActiveRecord::Base
 
       viagens = Viagem.find_all_by_veiculo_id(veiculo.id)
 
-      if not viagens.empty?
+      if not viagens.empty? and veiculo.ativo?
         viagens.each do |viagem|
 
           categoria_de_veiculo = CategoriaDeVeiculo.find(veiculo.categoria_de_veiculo_id)
@@ -69,21 +73,23 @@ class Veiculo < ActiveRecord::Base
 
     Veiculo.all.each do |veiculo|
 
-      categoria_de_veiculo = CategoriaDeVeiculo.find(veiculo.categoria_de_veiculo_id)
-      categoria_de_veiculo.id == categoria_de_veiculo_da_requisicao_id ? marcador = "* " : marcador = ""
-      viagens = Viagem.find_all_by_veiculo_id(veiculo.id)
+      if veiculo.ativo?
+        categoria_de_veiculo = CategoriaDeVeiculo.find(veiculo.categoria_de_veiculo_id)
+        categoria_de_veiculo.id == categoria_de_veiculo_da_requisicao_id ? marcador = "* " : marcador = ""
+        viagens = Viagem.find_all_by_veiculo_id(veiculo.id)
 
-      if not viagens.empty?
-        viagens.each do |viagem|
-          if not (data_partida >= viagem.data_partida and data_partida <= viagem.data_chegada) and
-           not (data_chegada >= viagem.data_partida and data_chegada <= viagem.data_chegada)
-            veiculos_desocupados << [marcador + veiculo.modelo + " - " + veiculo.placa + " - " + categoria_de_veiculo.nome,
-                                     veiculo.id]
+        if not viagens.empty?
+          viagens.each do |viagem|
+            if not (data_partida >= viagem.data_partida and data_partida <= viagem.data_chegada) and
+             not (data_chegada >= viagem.data_partida and data_chegada <= viagem.data_chegada)
+              veiculos_desocupados << [marcador + veiculo.modelo + " - " + veiculo.placa + " - " + categoria_de_veiculo.nome,
+                                       veiculo.id]
+            end
           end
+        else
+          veiculos_desocupados << [marcador + veiculo.modelo + " - " + veiculo.placa + " - " + categoria_de_veiculo.nome,
+                                   veiculo.id]
         end
-      else
-        veiculos_desocupados << [marcador + veiculo.modelo + " - " + veiculo.placa + " - " + categoria_de_veiculo.nome,
-                                 veiculo.id]
       end
     end
     return veiculos_desocupados.uniq

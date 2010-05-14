@@ -16,12 +16,14 @@ class Motorista < ActiveRecord::Base
     motoristas_ocupados = []
 
     Motorista.all.each do |motorista|
-      viagens = Viagem.find_all_by_motorista_id(motorista.id)
-      viagens.each do |viagem|
-        if (data_partida >= viagem.data_partida and data_partida <= viagem.data_chegada) or
-           (data_chegada >= viagem.data_partida and data_chegada <= viagem.data_chegada) and motorista.ativo?
+      if motorista.ativo?
+        viagens = Viagem.find_all_by_motorista_id(motorista.id)
+        viagens.each do |viagem|
+          if (data_partida >= viagem.data_partida and data_partida <= viagem.data_chegada) or
+             (data_chegada >= viagem.data_partida and data_chegada <= viagem.data_chegada)
 
-          motoristas_ocupados << [motorista.nome, motorista.id]
+            motoristas_ocupados << [motorista.nome, motorista.id]
+          end
         end
       end
     end
