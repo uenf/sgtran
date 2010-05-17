@@ -1,3 +1,4 @@
+
 # Be sure to restart your server when you modify this file
 
 # Specifies gem version of Rails to use when vendor/rails is not present
@@ -9,6 +10,7 @@ RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 
 require "action_mailer"
+require "config/email_configuration.rb"
 
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here.
@@ -58,12 +60,12 @@ Rails::Initializer.run do |config|
   #Coloquei aqui as configurações do servidor de email imap.
   ActionMailer::Base.smtp_settings = {
     :tls => true,
-    :address => "smtp.gmail.com",
+    :address => @address,
     :port => "587",
-    :domain => "emailtesteuenf@gmail.com",
+    :domain => @domain,
     :authentication => :plain, # pode usar também :login
-    :user_name => "emailtesteuenf@gmail.com",
-    :password => "uenf1234"
+    :user_name => @user_name,
+    :password => @password
   }
 end
 
