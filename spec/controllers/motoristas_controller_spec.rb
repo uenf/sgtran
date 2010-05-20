@@ -74,49 +74,49 @@ describe MotoristasController do
 
   end
 
-  describe "PUT update" do
+#  describe "PUT update" do
 
-    describe "with valid params" do
-      it "updates the requested motorista" do
-        Motorista.should_receive(:find).with("37").and_return(mock_motorista)
-        mock_motorista.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, :id => "37", :motorista => {:these => 'params'}
-      end
+#    describe "with valid params" do
+#      it "updates the requested motorista" do
+#        Motorista.should_receive(:find).with("37").and_return(mock_motorista)
+#        mock_motorista.should_receive(:update_attributes).with({'these' => 'params'})
+#        put :update, :id => "37", :motorista => {:these => 'params'}
+#      end
 
-      it "assigns the requested motorista as @motorista" do
-        Motorista.stub!(:find).and_return(mock_motorista(:update_attributes => true))
-        put :update, :id => "1"
-        assigns[:motorista].should equal(mock_motorista)
-      end
+#      it "assigns the requested motorista as @motorista" do
+#        Motorista.stub!(:find).and_return(mock_motorista(:update_attributes => true))
+#        put :update, :id => "1"
+#        assigns[:motorista].should equal(mock_motorista)
+#      end
 
-      it "redirects to the motorista" do
-        Motorista.stub!(:find).and_return(mock_motorista(:update_attributes => true))
-        put :update, :id => "1"
-        response.should redirect_to(motorista_url(mock_motorista))
-      end
-    end
+#      it "redirects to the motorista" do
+#        Motorista.stub!(:find).and_return(mock_motorista(:update_attributes => true))
+#        put :update, :id => "1"
+#        response.should redirect_to(motorista_url(mock_motorista))
+#      end
+#    end
 
-    describe "with invalid params" do
-      it "updates the requested motorista" do
-        Motorista.should_receive(:find).with("37").and_return(mock_motorista)
-        mock_motorista.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, :id => "37", :motorista => {:these => 'params'}
-      end
+#    describe "with invalid params" do
+#      it "updates the requested motorista" do
+#        Motorista.should_receive(:find).with("37").and_return(mock_motorista)
+#        mock_motorista.should_receive(:update_attributes).with({'these' => 'params'})
+#        put :update, :id => "37", :motorista => {:these => 'params'}
+#      end
 
-      it "assigns the motorista as @motorista" do
-        Motorista.stub!(:find).and_return(mock_motorista(:update_attributes => false))
-        put :update, :id => "1"
-        assigns[:motorista].should equal(mock_motorista)
-      end
+#      it "assigns the motorista as @motorista" do
+#        Motorista.stub!(:find).and_return(mock_motorista(:update_attributes => false))
+#        put :update, :id => "1"
+#        assigns[:motorista].should equal(mock_motorista)
+#      end
 
-      it "re-renders the 'edit' template" do
-        Motorista.stub!(:find).and_return(mock_motorista(:update_attributes => false))
-        put :update, :id => "1"
-        response.should render_template('edit')
-      end
-    end
+#      it "re-renders the 'edit' template" do
+#        Motorista.stub!(:find).and_return(mock_motorista(:update_attributes => false))
+#        put :update, :id => "1"
+#        response.should render_template('edit')
+#      end
+#    end
 
-  end
+#  end
 
   describe "DELETE destroy" do
     it "destroys the requested motorista" do

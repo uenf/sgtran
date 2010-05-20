@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20101022184205) do
     t.string   "habilitacao"
     t.date     "vencimento_habilitacao"
     t.string   "estado",                 :default => "Ativo"
+    t.boolean  "avisado",                :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
   end

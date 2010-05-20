@@ -31,11 +31,18 @@
 <!-- ======================================================================= -->
 
 <% unless flash[:sucesso].blank? %>
-    <div class="sucesso"><%= flash[:sucesso] %></div>
+  <div class="sucesso"><%= flash[:sucesso] %></div>
 <% end %>
 
 <% unless flash[:erro].blank? %>
-    <div class="erro"><%= flash[:erro] %></div>
+  <div class="erro"><%= flash[:erro] %></div>
+<% end %>
+
+<% motoristas_cnh_vencer = Motorista.para_aviso_cnh %>
+<% unless motoristas_cnh_vencer.empty? %>
+  <div class="aviso">
+    <p>Existe(m) motorista(s) com a carteira para vencer <%=link_to "Ver avisos", vencimento_cnh_path %></p>
+  </div>
 <% end %>
 
 <!-- ======================================================================= -->

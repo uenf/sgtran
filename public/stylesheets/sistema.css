@@ -819,5 +819,34 @@ div#viagem_nova fieldset legend {
 }
 .inativo {
     background : url("/images/cancelado_pelo_professor.png") no-repeat 0px center;
-    padding-left : 23px;    
+    padding-left : 23px;
 }
+
+/* Vencimento CNH */
+
+.vencimento_cnh h2 {
+    color: #1A60B0;
+    margin-left: 10px;
+}
+
+.vencimento_cnh input {
+    margin-top: 10px;
+    float: right;
+}
+
+/* AVISO */
+
+.aviso {
+    background : #ffe048 url("/images/aviso.png") no-repeat 10px center;
+    padding: 1px 50px;
+}
+
+.aviso p {
+    font-weight: bold;
+}
+
+.aviso a {
+    font-weight: bold;
+    float: right;
+}
+

@@ -71,6 +71,9 @@ class MotoristasController < ApplicationController
   def update
     @motorista = Motorista.find(params[:id])
 
+      @motorista.avisado = false
+      @motorista.save
+
     respond_to do |format|
       if @motorista.update_attributes(params[:motorista])
         flash[:sucesso] = 'Motorista modificado com sucesso!'
@@ -95,6 +98,20 @@ class MotoristasController < ApplicationController
       format.html { redirect_to(motoristas_url) }
       format.xml  { head :ok }
     end
+  end
+
+  def vencimento_cnh
+    @motoristas = Motorista.para_aviso_cnh
+  end
+
+  def retirar_aviso_cnh
+    @motoristas = Motorista.vence_cnh_em(30.days)
+
+    @motoristas.each do |motorista_id|
+      Motorista.find(motorista_id).avisar_vencimento_cnh
+    end
+
+    redirect_to :controller => "requisicoes", :action => "index"
   end
 end
 

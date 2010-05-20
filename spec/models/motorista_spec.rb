@@ -17,6 +17,36 @@ describe Motorista do
     Motorista.create!(@valid_attributes)
   end
 
+  it "deve verificar que sua carteira irá vencer em 30 dias" do
+    motorista = Factory.create :motorista,
+                               :vencimento_habilitacao => Date.today + 30.days
+    (Motorista.vence_cnh_em 3.days).should include(motorista.id)
+
+    motorista.vencimento_habilitacao = nil
+    motorista.save
+    (Motorista.vence_cnh_em 3.days).should_not include(motorista.id)
+  end
+
+  it "ao qual a carteira irá vencer em 30 dias deve ter seu atributo avisado setado para verdadeiro" do
+    motorista = Factory.create :motorista,
+                               :vencimento_habilitacao => Date.today + 30.days
+    motorista.avisar_vencimento_cnh
+    motorista.reload
+    motorista.avisado.should be_true
+  end
+
+  it "deve verificar os motoristas que devem ter o nome no aviso de cnh para vencer" do
+    motorista = Factory.create :motorista,
+                               :vencimento_habilitacao => Date.today + 30.days,
+                               :avisado => false
+    (Motorista.para_aviso_cnh).should include(motorista.id)
+
+    motorista.avisado = true
+    motorista.save
+    (Motorista.para_aviso_cnh).should_not include(motorista.id)
+    (Motorista.para_aviso_cnh).should be_empty
+  end
+
   describe "ocupados e desocupados" do
     before(:each) do
       categoria_de_veiculo = Factory.create :categoria_de_veiculo
@@ -120,7 +150,7 @@ describe Motorista do
       motoristas_desocupados.should include [@motorista_zeca.nome, @motorista_zeca.id]
       motoristas_desocupados.should include [@motorista_marco.nome, @motorista_marco.id]
       motoristas_desocupados.length.should be_equal 3
-    end    
+    end
   end
 end
 

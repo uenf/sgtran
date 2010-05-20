@@ -1,4 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
+
+  map.vencimento_cnh "motoristas/vencimento_cnh", :controller => "motoristas", :action => "vencimento_cnh"
+
   map.resources :centros
 
   map.resources :objetivos_de_reserva
@@ -46,9 +49,9 @@ ActionController::Routing::Routes.draw do |map|
   map.base_de_dados "base_de_dados", :controller => "requisicoes", :action => "base_de_dados"
   map.cancelar_viagem "viagens/:id/cancelar_viagem", :controller => "viagens", :action => "cancelar_viagem"
   map.cancelamento_da_viagem "viagens/cancelamento_da_viagem", :controller => "viagens", :action => "cancelamento_da_viagem"
-  
+
   map.fechar_viagem "viagens/fechar_viagem/:id", :controller => "viagens", :action => "fechar_viagem"
-  
+
   map.alterar_viagem "requisicoes/alterar_viagem/:id", :controller => "requisicoes", :action => "alterar_viagem"
   
   map.ativar_solicitante "solicitantes/ativacao/:id", :controller => "solicitantes", :action => "ativar_solicitante"
