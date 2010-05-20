@@ -1,3 +1,4 @@
+
 # Be sure to restart your server when you modify this file
 
 # Specifies gem version of Rails to use when vendor/rails is not present
@@ -59,7 +60,7 @@ Rails::Initializer.run do |config|
   #Coloquei aqui as configurações do servidor de email imap.
   ActionMailer::Base.smtp_settings = {
     :tls => true,
-    :address => "smtp.gmail.com",
+    :address => @address,
     :port => "587",
     :domain => @domain,
     :authentication => :plain, # pode usar também :login

@@ -12,7 +12,6 @@ class Motorista < ActiveRecord::Base
                         :nome,
                         :telefone
 
-
   def self.vence_cnh_em(dias)
     lista = []
     Motorista.all.each do |motorista|
@@ -45,12 +44,14 @@ class Motorista < ActiveRecord::Base
     motoristas_ocupados = []
 
     Motorista.all.each do |motorista|
-      viagens = Viagem.find_all_by_motorista_id(motorista.id)
-      viagens.each do |viagem|
-        if (data_partida >= viagem.data_partida and data_partida <= viagem.data_chegada) or
-           (data_chegada >= viagem.data_partida and data_chegada <= viagem.data_chegada)
+      if motorista.ativo?
+        viagens = Viagem.find_all_by_motorista_id(motorista.id)
+        viagens.each do |viagem|
+          if (data_partida >= viagem.data_partida and data_partida <= viagem.data_chegada) or
+             (data_chegada >= viagem.data_partida and data_chegada <= viagem.data_chegada)
 
-          motoristas_ocupados << [motorista.nome, motorista.id]
+            motoristas_ocupados << [motorista.nome, motorista.id]
+          end
         end
       end
     end
@@ -62,19 +63,25 @@ class Motorista < ActiveRecord::Base
 
     Motorista.all.each do |motorista|
       viagens = Viagem.find_all_by_motorista_id(motorista.id)
-      if not viagens.empty?
-        viagens.each do |viagem|
-          if not (data_partida >= viagem.data_partida and data_partida <= viagem.data_chegada) and
-             not (data_chegada >= viagem.data_partida and data_chegada <= viagem.data_chegada)
+      if motorista.ativo?
+        if not viagens.empty?
+          viagens.each do |viagem|
+            if not (data_partida >= viagem.data_partida and data_partida <= viagem.data_chegada) and
+               not (data_chegada >= viagem.data_partida and data_chegada <= viagem.data_chegada)
 
-            motoristas_desocupados << [motorista.nome, motorista.id]
+              motoristas_desocupados << [motorista.nome, motorista.id]
+            end
           end
+        else
+          motoristas_desocupados << [motorista.nome, motorista.id]
         end
-      else
-        motoristas_desocupados << [motorista.nome, motorista.id]
       end
     end
     return motoristas_desocupados.uniq
+  end
+
+  def ativo?
+    true ? self.estado == "Ativo" : false
   end
 end
 
