@@ -45,6 +45,7 @@ describe Motorista do
     motorista.save
     (Motorista.para_aviso_cnh).should_not include(motorista.id)
     (Motorista.para_aviso_cnh).should be_empty
+  end
 
   it "deve responder se está ativou ou não" do
     motorista = Factory.create :motorista, :estado => "Ativo"
