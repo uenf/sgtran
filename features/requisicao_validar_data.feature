@@ -1,5 +1,11 @@
 # language: pt
 
+Funcionalidade: Validar data da requisição
+
+Como um administrador
+Eu quero que a data da requisição seja válida
+Para que eu não tenha problemas com a gerência das requisições
+
   Esquema do Cenário: Envio de requisição com datas inválidas
     Dado que eu tenha uma categoria de veículo "Micro-ônibus - até 32 passageiros"
     E que eu tenha um objetivo de reserva "Aula de Campo"
