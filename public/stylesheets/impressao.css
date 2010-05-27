@@ -1,0 +1,62 @@
+body {
+    font-family: Verdana;
+}
+
+#rodape, #login, #abas_do_sistema, #opcoes_da_visao {
+    display: none;
+}
+
+.linha_titulo {
+    font-weight: bold;
+    float: left;
+}
+
+.linha_texto {
+    margin-left: 5px;
+    float: left;
+}
+
+.show_linha:after {
+    content: ".";
+    height: 0;
+    visibility: hidden;
+    display: block;
+    clear: both;
+}
+
+h1 {
+    font-size: 20px;
+}
+
+h1:before {
+    content: ".";
+    height: 0;
+    visibility: hidden;
+    display: block;
+    clear: both;
+}
+
+#nome_sistema h1 {
+    font-size: 25px;
+}
+
+#nome_sistema h2 {
+    font-size: 15px;
+}
+
+#nome_sistema h3,
+#nome_sistema h4  {
+    float: left;
+    font-size: 12px;
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 25px;
+}
+
+#nome_sistema h4:before {
+    margin-left: 3px;
+    margin-right: 3px;
+    content: "-";
+    font-size: 12px;
+}
+
