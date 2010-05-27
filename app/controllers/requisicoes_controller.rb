@@ -344,6 +344,22 @@ class RequisicoesController < ApplicationController
       flash[:erro] = ""
     end
   end
+  
+  def buscar_requisicao
+    dados = params[:busca]
+    if dados == "Data"
+      @inicio = params[:inicio]
+      @fim    = params[:fim]
+      @requisicoes = Requisicao.buscar_por_data(@inicio, @fim)
+    elsif dados == "Nome"
+      @nome = params[:nome]
+      @requisicoes = Requisicao.buscar_por_nome_de_solicitante @nome
+    else
+      @requisicoes = Requisicao.find_all_by_estado(Requisicao::ESPERA)
+    end
+    render :action => :index
+    
+  end
 
   private
 

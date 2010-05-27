@@ -1,4 +1,6 @@
 require "brazilian_date"
+require 'brazilian-rails'
+
 
 class Requisicao < ActiveRecord::Base
   belongs_to :viagem
@@ -250,6 +252,30 @@ class Requisicao < ActiveRecord::Base
       self.save_with_validation false
     else
       false
+    end
+  end
+  
+  def self.buscar_por_nome_de_solicitante nome
+    nome, requisicoes = "%" + nome + "%", []
+    solicitantes = Solicitante.find(:all, :conditions => ["nome LIKE ?", nome])
+    solicitantes.each do |solicitante|
+      req = Requisicao.find_all_by_solicitante_id(solicitante.id) if solicitante.id
+      req.each do |r|
+        requisicoes << r
+      end
+    end
+    requisicoes
+  end
+  
+  def self.buscar_por_data(inicio, fim)
+    if Date.valid?(inicio) and Date.valid?(fim)
+      inicio = inicio.gsub("/", "-").to_s
+      inicio = Time.parse(inicio).strftime("%Y-%m-%d")
+      fim = fim.gsub("/", "-").to_s
+      fim = Time.parse(fim).strftime("%Y-%m-%d")      
+      return Requisicao.find(:all, :conditions => ["data_de_reserva >= :inicio AND data_de_reserva <= :fim", {:inicio => inicio, :fim => fim}])
+    else
+      return []
     end
   end
 

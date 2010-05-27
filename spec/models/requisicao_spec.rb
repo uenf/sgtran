@@ -435,6 +435,46 @@ describe Requisicao do
     requisicao.viagem_id.should == viagem_2.id
 
   end
+  
+  it "deve buscar requisições pelo nome do solicitante" do
+    categoria_de_veiculo = Factory.create :categoria_de_veiculo
+    objetivo_de_reserva = Factory.create :objetivo_de_reserva    
+    solicitante_1 = Factory.create :solicitante, :nome => "Solicitante 1"
+    solicitante_2 = Factory.create :solicitante, :nome => "Solicitante 2"
+    nome = "Solicitante 1"
+    requisicao_1 = Factory.create :requisicao, :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                             :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                                             :solicitante_id => solicitante_1.id
+
+    requisicao_2 = Factory.create :requisicao, :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                             :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                                             :solicitante_id => solicitante_2.id                                             
+    Requisicao.buscar_por_nome_de_solicitante(nome).should include(requisicao_1)
+    Requisicao.buscar_por_nome_de_solicitante(nome).should_not include(requisicao_2)
+  end
+  
+  it "deve buscar requisições pelo intervalo de data informado" do
+    categoria_de_veiculo = Factory.create :categoria_de_veiculo
+    objetivo_de_reserva = Factory.create :objetivo_de_reserva    
+    solicitante_1 = Factory.create :solicitante, :nome => "Solicitante 1"
+    solicitante_2 = Factory.create :solicitante, :nome => "Solicitante 2"
+    requisicao_1 = Factory.create :requisicao, :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                             :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                                             :solicitante_id => solicitante_1.id,
+                                             :data_de_reserva => Date.today + 2.days
+
+    requisicao_2 = Factory.create :requisicao, :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                             :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                                             :solicitante_id => solicitante_2.id,
+                                             :data_de_reserva => Date.today + 3.days
+    data_inicio = (Date.today  + 3.days).strftime("%d/%m/%Y")
+    data_fim = (Date.today + 4.days).strftime("%d/%m/%Y")
+    Requisicao.buscar_por_data(data_inicio, data_fim).should include(requisicao_2)
+    Requisicao.buscar_por_data(data_inicio, data_fim).should_not include(requisicao_1)
+    data_inicio = (Date.today  + 5.days).strftime("%d/%m/%Y")
+    data_fim = (Date.today + 6.days).strftime("%d/%m/%Y")    
+    Requisicao.buscar_por_data(data_inicio, data_fim).should be_empty
+  end
 
 
 end

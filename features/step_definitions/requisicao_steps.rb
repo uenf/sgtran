@@ -62,6 +62,22 @@ Dado /^que eu estou logado com o login "([^\"]*)" e a senha "([^\"]*)"$/ do |log
   Factory.create :usuario_session, :login => usuario.login, :senha => usuario.password
 end
 
+Dado /^que eu tenho uma requisição com data de reserva "([^\"]*)" e com solicitante com nome "([^\"]*)" e com matrícula "([^\"]*)"$/ do |data, nome, matricula|
+  categoria_de_veiculo = Factory.create :categoria_de_veiculo
+  objetivo_de_reserva = Factory.create :objetivo_de_reserva  
+  @solicitante = Factory.create :solicitante, :nome => nome, :matricula => matricula
+  date = data.split(/Daqui a /)[1].to_i
+  @requisicao = Factory.create :requisicao, :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                            :solicitante_id => @solicitante.id,
+                                            :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                                            :data_de_reserva => Date.today + date.days
+end
+
+Quando /^eu preencho data de "([^\"]*)" com "([^\"]*)"$/ do |campo, data|
+  data = data.split(/Daqui a /)[1].to_i
+  fill_in(campo, :with => (Date.today + data.days).strftime("%d/%m/%Y"))
+end
+
 Quando /^eu escolho "([^\"]*)"$/ do |field|
   choose(field)
 end

@@ -1,19 +1,62 @@
-<div id="tabela_exibir">
-<% form_tag("/filtrar_requisicao") do -%>
-<p class="filtro">
-<%= label_tag :filtro, "Filtrar por:" %>
-  <select name="filtro" id="filtro">
-    <option value="Todos" <%= "selected='selected'" if @filtro == "Todos" %>>Todos</option>
-    <option value="Em Espera" <%= "selected='selected'" if @filtro == "Em Espera" or !@filtro %>>Em Espera</option>
-    <option value="Rejeitada" <%= "selected='selected'" if @filtro == "Rejeitada" %>>Rejeitada</option>
-    <option value="Cancelada pelo Professor" <%= "selected='selected'" if @filtro == "Cancelada pelo Professor" %>>Cancelada pelo Professor</option>
-    <option value="Cancelada pelo Sistema" <%= "selected='selected'" if @filtro == "Cancelada pelo Sistema" %>>Cancelada pelo Sistema</option>
-    <option value="Aceita" <%= "selected='selected'" if @filtro == "Aceita" %>>Aceita</option>
-  </select>
-  <%= submit_tag "OK" %>
-</p>
-<% end -%>
+<%= javascript_include_tag :defaults %>
+<%= javascript_include_tag "busca.js" %>
+<%= calendar_date_select_includes "silver", :locale => "pt"%>
+<%= javascript_include_tag "calendar_date_select/format_italian" %>
 
+<div id="tabela_exibir">
+<div id="box_busca">
+
+  <div id="box_buscar">
+    <% form_tag("/requisicoes/buscar_requisicao") do -%>
+          <div id="buscar_select">
+            <%= label_tag :busca, "Buscar por:" %>
+            <select name="busca" id="busca">
+              <option onclick="busca(this)">(Selecionar)</option>
+              <option value="Data" onclick="busca(this)" <%= "selected='selected'" if @inicio or @fim %>>Data</option>
+              <option value="Nome" onclick="busca(this)" <%= "selected='selected'" if @nome %>>Nome</option>
+            </select>
+          </div>
+          <% if @fim or @inicio %>
+            <div class="visivel" id="box_data">
+          <% else %>
+            <div class="invisivel" id="box_data">          
+          <% end %>
+              <%= label_tag :inicio, "Início:" %>
+              <%= calendar_date_select_tag :inicio, @inicio, :name => "inicio", :size => 9 %>
+              <%= label_tag :fim, "Fim:" %>
+              <%= calendar_date_select_tag :fim, @fim, :name => "fim", :size => 9 %>
+          </div>          
+          <% if @nome %>
+            <div class="visivel" id="box_nome">
+          <% else %>
+            <div class="invisivel" id="box_nome">
+          <% end %>
+            <%= label_tag :nome, "Nome:" %>
+            <%= text_field_tag :nome, @nome %>
+        </div>
+        <%= submit_tag "Buscar" %>
+
+
+      
+    <% end -%>
+  </div>
+
+  <div id="box_filtrar">
+    <% form_tag("/filtrar_requisicao") do -%>
+        <%= label_tag :filtro, "Filtrar por:" %>
+          <select name="filtro" id="filtro">
+            <option value="Todos" <%= "selected='selected'" if @filtro == "Todos" %>>Todos</option>
+            <option value="Em Espera" <%= "selected='selected'" if @filtro == "Em Espera" or !@filtro %>>Em Espera</option>
+            <option value="Rejeitada" <%= "selected='selected'" if @filtro == "Rejeitada" %>>Rejeitada</option>
+            <option value="Cancelada pelo Professor" <%= "selected='selected'" if @filtro == "Cancelada pelo Professor" %>>Cancelada pelo Professor</option>
+            <option value="Cancelada pelo Sistema" <%= "selected='selected'" if @filtro == "Cancelada pelo Sistema" %>>Cancelada pelo Sistema</option>
+            <option value="Aceita" <%= "selected='selected'" if @filtro == "Aceita" %>>Aceita</option>
+          </select>
+          <%= submit_tag "OK" %>
+    <% end -%>  
+  </div>
+  <div class="clear"></div>
+</div>
 
 <table id="requisicoes" class="tabela_padrao">
     <tr>
