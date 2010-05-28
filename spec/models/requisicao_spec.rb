@@ -475,6 +475,23 @@ describe Requisicao do
     data_fim = (Date.today + 6.days).strftime("%d/%m/%Y")    
     Requisicao.buscar_por_data(data_inicio, data_fim).should be_empty
   end
+  
+  it "deve buscar uma requisição pelo número de protocolo" do
+    categoria_de_veiculo = Factory.create :categoria_de_veiculo
+    objetivo_de_reserva = Factory.create :objetivo_de_reserva    
+    solicitante = Factory.create :solicitante, :nome => "Solicitante 1"
+    requisicao_1 = Factory.create :requisicao, :id => 13,
+                                               :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                               :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                                               :solicitante_id => solicitante.id
+
+    requisicao_2 = Factory.create :requisicao, :id => 15,
+                                               :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                               :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                                               :solicitante_id => solicitante.id
+    Requisicao.buscar_por_protocolo(13).should include(requisicao_1)
+    Requisicao.buscar_por_protocolo(13).should_not include(requisicao_2)
+  end
 
 
 end

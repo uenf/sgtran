@@ -278,6 +278,10 @@ class Requisicao < ActiveRecord::Base
       return []
     end
   end
+  
+  def self.buscar_por_protocolo protocolo
+    Requisicao.find_all_by_id(protocolo)    
+  end
 
 end
 

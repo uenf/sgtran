@@ -24,3 +24,13 @@ Funcionalidade: Buscar requisições por data, solicitante
       E eu preencho "Nome" com "Professor"
       E eu pressiono "Buscar"
       Então eu devo ver "Professor 1"
+      
+    Cenário: Buscar uma requisição pelo protocolor
+      Dado que eu tenho uma requisição com protocolo "13"
+      Dado que eu tenho uma requisição com protocolo "15"
+      E que eu estou na página de visualização de requisições
+      Quando eu seleciono "Protocolo" em "Buscar por:"
+      E eu preencho "Protocolo" com "13"
+      E eu pressiono "Buscar"
+      Então eu devo ver "13"
+      E eu não devo ver "15"

@@ -73,6 +73,16 @@ Dado /^que eu tenho uma requisição com data de reserva "([^\"]*)" e com solici
                                             :data_de_reserva => Date.today + date.days
 end
 
+Dado /^que eu tenho uma requisição com protocolo "([^\"]*)"$/ do |protocolo|
+  categoria_de_veiculo = Factory.create :categoria_de_veiculo
+  objetivo_de_reserva = Factory.create :objetivo_de_reserva  
+  solicitante = Factory.create :solicitante
+  @requisicao = Factory.create :requisicao, :id => protocolo,
+                                            :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                            :solicitante_id => solicitante.id,
+                                            :objetivo_de_reserva_id => objetivo_de_reserva.id
+end
+
 Quando /^eu preencho data de "([^\"]*)" com "([^\"]*)"$/ do |campo, data|
   data = data.split(/Daqui a /)[1].to_i
   fill_in(campo, :with => (Date.today + data.days).strftime("%d/%m/%Y"))

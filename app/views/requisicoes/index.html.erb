@@ -14,30 +14,37 @@
               <option onclick="busca(this)">(Selecionar)</option>
               <option value="Data" onclick="busca(this)" <%= "selected='selected'" if @inicio or @fim %>>Data</option>
               <option value="Nome" onclick="busca(this)" <%= "selected='selected'" if @nome %>>Nome</option>
+              <option value="Protocolo" onclick="busca(this)" <%= "selected='selected'" if @protocolo %>>Protocolo</option>
             </select>
           </div>
-          <% if @fim or @inicio %>
-            <div class="visivel" id="box_data">
-          <% else %>
-            <div class="invisivel" id="box_data">          
-          <% end %>
+            <% if @fim or @inicio %>
+              <div class="visivel" id="box_data">
+            <% else %>
+              <div class="invisivel" id="box_data">          
+            <% end %>
               <%= label_tag :inicio, "Início:" %>
               <%= calendar_date_select_tag :inicio, @inicio, :name => "inicio", :size => 9 %>
               <%= label_tag :fim, "Fim:" %>
               <%= calendar_date_select_tag :fim, @fim, :name => "fim", :size => 9 %>
-          </div>          
-          <% if @nome %>
-            <div class="visivel" id="box_nome">
-          <% else %>
-            <div class="invisivel" id="box_nome">
-          <% end %>
+            </div>          
+            <% if @nome %>
+              <div class="visivel" id="box_nome">
+            <% else %>
+              <div class="invisivel" id="box_nome">
+            <% end %>
             <%= label_tag :nome, "Nome:" %>
             <%= text_field_tag :nome, @nome %>
-        </div>
+            </div>
+            
+            <% if @protocolo %>  
+              <div class="visivel" id="box_protocolo">
+            <% else %>
+              <div class="invisivel" id="box_protocolo">
+            <% end %>
+            <%= label_tag :protocolo, "Protocolo:" %>
+            <%= text_field_tag :protocolo, @protocolo %>            
+            </div>
         <%= submit_tag "Buscar" %>
-
-
-      
     <% end -%>
   </div>
 

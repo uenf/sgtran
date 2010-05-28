@@ -865,7 +865,7 @@ div#viagem_nova fieldset legend {
 #buscar_select {
     float: left
 }
-#box_data, #box_nome {
+#box_data, #box_nome, #box_protocolo {
     float: left;
     margin-left: 5px;
     margin-right: 5px

@@ -354,6 +354,9 @@ class RequisicoesController < ApplicationController
     elsif dados == "Nome"
       @nome = params[:nome]
       @requisicoes = Requisicao.buscar_por_nome_de_solicitante @nome
+    elsif dados == "Protocolo"
+      @protocolo = params[:protocolo]
+      @requisicoes = Requisicao.buscar_por_protocolo(@protocolo)
     else
       @requisicoes = Requisicao.find_all_by_estado(Requisicao::ESPERA)
     end
