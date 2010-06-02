@@ -1,10 +1,5 @@
 module NavigationHelpers
-  # Maps a name to a path. Used by the
-  #
-  #   When /^I go to (.+)$/ do |page_name|
-  #
-  # step definition in web_steps.rb
-  #
+
   def path_to(page_name)
     case page_name
 
@@ -20,9 +15,6 @@ module NavigationHelpers
     when /^página de aceitar requisição$/
       aceitar_path(@requisicao)
 
-    when /^página de visualização de viagens$/
-      viagens_path
-
     when /^página de confirmação de requisição$/
       confirmar_requisicao_path
 
@@ -32,11 +24,26 @@ module NavigationHelpers
     when /^página de cancelamento pelo sistema da requisição$/
       cancelar_requisicao_pelo_sistema_path(@requisicao)
 
-    when /^página de adição de veículo$/
-      new_veiculo_path
-
     when /^página da lista de requisições$/
       requisicoes_path
+
+    when /página de filtragem de requisições/
+      filtrar_requisicao_path
+
+    when /página de rejeitar uma requisição/
+      rejeitar_path(@requisicao)
+
+    when /^página de visualização de viagens$/
+      viagens_path
+
+    when /^página de visualização da viagem$/
+      viagem_path(@viagem)
+
+    when /página de filtragem de viagens/
+      filtrar_viagem_path
+
+    when /^página de adição de veículo$/
+      new_veiculo_path
 
     when /^página de login$/
       admin_path
@@ -49,9 +56,6 @@ module NavigationHelpers
 
     when /^página de visualização de usuarios$/
       usuarios_path
-
-    when /^página de visualização da viagem$/
-      viagem_path(@viagem)
 
     when /^página de usuário$/
       new_usuario_path
@@ -67,15 +71,6 @@ module NavigationHelpers
 
     when /^página de edição de combustível$/
       edit_combustivel_path(:id => @combustivel)
-
-    when /página de filtragem de requisições/
-      filtrar_requisicao_path
-
-    when /página de filtragem de viagens/
-      filtrar_viagem_path
-
-    when /página de rejeitar uma requisição/
-      rejeitar_path(@requisicao)
 
     when /^página de adição de objetivo de reserva$/
       new_objetivo_de_reserva_path
@@ -104,6 +99,9 @@ module NavigationHelpers
     when /^página de desativação do motorista$/
       desativar_motorista_path(@motorista)
 
+    when /^página de motoristas com CNH para vencer$/
+      vencimento_cnh_path
+
     when /^página de adição de solicitante$/
       new_solicitante_path
 
@@ -121,6 +119,9 @@ module NavigationHelpers
 
     when /^página de edição de prédio$/
       edit_centro_path(:id => @centro)
+
+    when /^página de edição do prédio$/
+      edit_centro_path(@centro)
 
     when /^página de cancelamento da viagem$/
       cancelar_viagem_path(:id => @viagem)
@@ -148,18 +149,6 @@ module NavigationHelpers
 
     when /^página de edição do motivo$/
       edit_motivo_path(@motivo)
-
-    when /^página de edição do prédio$/
-      edit_centro_path(@centro)
-
-    when /^página de motoristas com CNH para vencer$/
-      vencimento_cnh_path
-
-    # Add more mappings here.
-    # Here is an example that pulls values out of the Regexp:
-    #
-    #   when /^(.*)'s profile page$/i
-    #     user_profile_path(User.find_by_login($1))
 
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
