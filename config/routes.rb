@@ -16,11 +16,13 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :viagens
   map.resources :requisicoes
 
+  # Outras rotas
   map.root :controller => "requisicoes", :action => "new"
   map.admin "/admin", :controller => "usuario_sessions", :action => "new"
   map.sair "/sair", :controller => "usuario_sessions", :action => "destroy"
   map.base_de_dados "base_de_dados", :controller => "requisicoes", :action => "base_de_dados"
 
+  # Rotas para requisições
   map.aceitar "/requisicoes/:id/aceitar", :controller => "requisicoes", :action => "aceitar"
   map.rejeitar "requisicoes/rejeitar/:id", :controller => "requisicoes", :action => "rejeitar"
   map.requisicoes_new "/requisicoes/new", :controller => "requisicoes", :action => "new"
@@ -33,6 +35,7 @@ ActionController::Routing::Routes.draw do |map|
   map.visualizar_requisicao "requisicoes/visualizar/:id/:chave_de_seguranca", :controller => "requisicoes", :action => "visualizar_requisicao"
   map.filtrar_requisicao "/filtrar_requisicao", :controller => "requisicoes", :action => "filtrar"
 
+  # Rotas para viagens
   map.viagem "viagem/show/:id", :controller => "viagens", :action => "show"
   map.aceitar_viagem "requisicoes/:id/aceitar", :controller => "requisicoes", :action => "aceitar"
   map.filtrar_viagem "filtrar_viagem", :controller => "viagens", :action => "filtrar"
@@ -41,17 +44,19 @@ ActionController::Routing::Routes.draw do |map|
   map.fechar_viagem "viagens/fechar_viagem/:id", :controller => "viagens", :action => "fechar_viagem"
   map.alterar_viagem "requisicoes/alterar_viagem/:id", :controller => "requisicoes", :action => "alterar_viagem"
 
+  # Rotas para solicitantes
   map.ativar_solicitante "solicitantes/ativacao/:id", :controller => "solicitantes", :action => "ativar_solicitante"
   map.desativar_solicitante "solicitantes/desativacao/:id", :controller => "solicitantes", :action => "desativar_solicitante"
 
+  # Rotas para motoristas
   map.ativar_motorista "motoristas/ativacao/:id", :controller => "motoristas", :action => "ativar_motorista"
   map.desativar_motorista "motoristas/desativacao/:id", :controller => "motoristas", :action => "desativar_motorista"
 
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
 
-  # Essa linha faz a rota para páginas não encontradas (erro 404) e deve ser a
-  # última linha deste arquivo.
+  # Rota para páginas não encontradas (erro 404).
+  # Esta deve ser aúltima linha deste arquivo.
   map.connect '*path', :controller => :application, :action => :render_404
 end
 
