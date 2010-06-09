@@ -1,5 +1,4 @@
 class VeiculosController < ApplicationController
-
   access_control do
     allow :admin, :to => [:index, :new, :show, :create, :edit, :destroy, :update]
     allow :visit, :to => [:index, :show]

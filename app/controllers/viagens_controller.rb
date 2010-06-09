@@ -136,6 +136,5 @@ class ViagensController < ApplicationController
       Date.today
     end
   end
-
 end
 
