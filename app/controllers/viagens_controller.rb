@@ -66,27 +66,10 @@ class ViagensController < ApplicationController
     params[:viagem]["horario_partida(2i)"] = Date.today.mon.to_s
     params[:viagem]["horario_partida(3i)"] = Date.today.day.to_s
 
-    if @viagem.update_attributes(params[:viagem])
-      flash[:sucesso] = 'Viagem atualizada com sucesso!'
-      redirect_to(@viagem)
-    else
-      data_partida = @viagem.data_partida
-      data_chegada = @viagem.data_chegada
-      if @viagem.veiculo_id
-        @categoria_de_veiculo_id = Veiculo.find(@viagem.veiculo_id).categoria_de_veiculo_id
-      else
-        @categoria_de_veiculo_id = nil
-      end
-      @lista_motoristas = [
-                            ['Motoristas desocupados', Motorista.desocupados_entre(data_chegada,data_partida)],
-                            ['Motoristas ocupados', Motorista.ocupados_entre(data_chegada,data_partida)]
-                          ]
-      @lista_veiculos = [
-                          ['Veículos desocupados', Veiculo.desocupados_entre_datas_e_com_categoria(data_chegada,data_partida,@categoria_de_veiculo_id)],
-                          ['Veículos ocupados', Veiculo.ocupados_entre_datas_e_com_categoria(data_chegada,data_partida,@categoria_de_veiculo_id)]
-                        ]
-      render :action => "edit"
-    end
+    @viagem.attributes = params[:viagem]
+    @viagem.save_with_validation false
+    flash[:sucesso] = 'Viagem atualizada com sucesso!'
+    redirect_to(@viagem)
   end
 
   def destroy
