@@ -13,18 +13,24 @@
         <option onclick="busca_viagem(this)" value="(Selecionar)">(Selecionar)</option>
         <option value="Data de partida" onclick="busca_viagem(this)">Data de Partida</option>
         <option value="Data de chegada" onclick="busca_viagem(this)">Data de Chegada</option>
+        <option value="Motorista" onclick="busca_viagem(this)">Motorista</option>
       </select>
     </div>
     <div <%= @data_de_partida.nil? ? 'class="invisivel"' : 'class="visivel"' %> id="box_data_de_partida">
       <%= label_tag :data_de_partida, "Data de Partida:" %>
       <%= calendar_date_select_tag :data_de_partida, @data_de_partida, :name => "data_de_partida", :size => 9 %>
     </div>
-    
+
     <div <%= @data_de_chegada.nil? ? 'class="invisivel"' : 'class="visivel"' %> id="box_data_de_chegada">
       <%= label_tag :data_de_chegada, "Data de Chegada:" %>
       <%= calendar_date_select_tag :data_de_chegada, @data_de_chegada, :name => "data_de_chegada", :size => 9 %>
-    </div>      
-    
+    </div>
+
+    <div <%= @motorista.nil? ? 'class="invisivel"' : 'class="visivel"' %> id="box_motorista">
+      <%= label_tag :motorista, "Nome:" %>
+      <%= text_field_tag :motorista %>
+    </div>
+
     <%= submit_tag "Buscar" %>
     <div class="clear"></div>
   <% end -%>

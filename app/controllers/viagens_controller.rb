@@ -130,7 +130,7 @@ class ViagensController < ApplicationController
                       ]
     render :partial => 'opcoes_veiculos', :object => @lista_veiculos
   end
-  
+
   def buscar_viagem
     if params[:busca] == "Data de partida"
       @data_de_partida = params[:data_de_partida]
@@ -138,6 +138,9 @@ class ViagensController < ApplicationController
     elsif params[:busca] == "Data de chegada"
       @data_de_chegada = params[:data_de_chegada]
       @viagens = Viagem.buscar_por_data_de_chegada(@data_de_chegada)
+    elsif params[:busca] == "Motorista"
+      @motorista = params[:motorista]
+      @viagens = Viagem.buscar_por_motorista(@motorista)
     else
       @viagens = Viagem.all
     end

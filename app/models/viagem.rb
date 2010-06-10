@@ -103,13 +103,13 @@ class Viagem < ActiveRecord::Base
     end
     false
   end
-  
+
   def self.verificar_viagem viagem_id
     viagem = Viagem.find(viagem_id)
     requisicoes_atendidas = Requisicao.find_all_by_viagem_id(viagem_id)
     viagem.estado = Viagem::CANCELADA and viagem.save if requisicoes_atendidas.empty?
   end
-  
+
   def self.buscar_por_data_de_partida(data_de_partida)
     if Date.valid? data_de_partida
       data_de_partida = data_de_partida.gsub("/", "-").to_s
@@ -119,7 +119,7 @@ class Viagem < ActiveRecord::Base
       return Viagem.all
     end
   end
-  
+
   def self.buscar_por_data_de_chegada(data_de_chegada)
     if Date.valid? data_de_chegada
       data_de_chegada = data_de_chegada.gsub("/", "-").to_s
@@ -128,7 +128,19 @@ class Viagem < ActiveRecord::Base
     else
       return Viagem.all
     end
-  end  
+  end
+
+  def self.buscar_por_motorista motorista
+    motorista, viagens = "%" + motorista.to_s + "%", []
+    motoristas = Motorista.find(:all, :conditions => ["nome LIKE ?", motorista])
+    motoristas.each do |m|
+      viagens_do_motorista = Viagem.find_all_by_motorista_id(m.id)
+      viagens_do_motorista.each do |v|
+        viagens << v
+      end
+    end
+    return viagens
+  end
 
 end
 
