@@ -53,6 +53,7 @@ describe Motorista do
   end
 
   describe "ocupados e desocupados" do
+
     before(:each) do
       categoria_de_veiculo = Factory.create :categoria_de_veiculo
       objetivo_de_reserva = Factory.create :objetivo_de_reserva
@@ -66,6 +67,19 @@ describe Motorista do
                               :motorista_id => @motorista_joao.id,
                               :data_partida => Date.today,
                               :data_chegada => Date.today + 2.days
+    end
+
+    it "Deve avaliar apenas viagens com estado aguardando" do
+      data_partida = Date.today
+      data_chegada = Date.today + 2.days
+      viagem2 = Factory.create :viagem,
+                               :motorista_id => @motorista_zeca.id,
+                               :data_partida => data_partida,
+                               :data_chegada => data_chegada,
+                               :estado => Viagem::ATENDIDA
+      motoristas_ocupados = Motorista.ocupados_entre(data_partida, data_chegada)
+      motoristas_ocupados.should_not include([@motorista_zeca.nome, @motorista_zeca.id])
+      motoristas_ocupados.should have(1).item
     end
 
     it "Cada motorista deve aparecer apenas uma vez na lista de ocupados" do

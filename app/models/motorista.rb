@@ -45,7 +45,7 @@ class Motorista < ActiveRecord::Base
 
     Motorista.all.each do |motorista|
       if motorista.ativo?
-        viagens = Viagem.find_all_by_motorista_id(motorista.id)
+        viagens = Viagem.find_all_by_motorista_id_and_estado(motorista.id, "Aguardando")
         viagens.each do |viagem|
           if (data_partida >= viagem.data_partida and data_partida <= viagem.data_chegada) or
              (data_chegada >= viagem.data_partida and data_chegada <= viagem.data_chegada)
