@@ -100,6 +100,19 @@ describe Motorista do
       flag.should == 1
     end
 
+    it "deve aparecer na lista de ocupados ou na de desocupados. Nunca nas duas." do
+      motoristas_desocupados = Motorista.desocupados_entre(Date.today, Date.today + 2.days)
+      motoristas_ocupados = Motorista.ocupados_entre(Date.today, Date.today + 2.days)
+
+      motoristas_ocupados.should include([@motorista_joao.nome, @motorista_joao.id])
+      motoristas_ocupados.should_not include([@motorista_zeca.nome, @motorista_zeca.id])
+      motoristas_ocupados.should_not include([@motorista_marco.nome, @motorista_marco.id])
+
+      motoristas_desocupados.should_not include([@motorista_joao.nome, @motorista_joao.id])
+      motoristas_desocupados.should include([@motorista_zeca.nome, @motorista_zeca.id])
+      motoristas_desocupados.should include([@motorista_marco.nome, @motorista_marco.id])
+    end
+
     it "Deve fornecer a lista com o nome e o id dos motoristas ocupados em um determinado
         intervalo de dias" do
       data_partida = Date.today

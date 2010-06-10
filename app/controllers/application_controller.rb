@@ -1,6 +1,3 @@
-# Filters added to this controller apply to all controllers in the application.
-# Likewise, all the methods added will be available for all controllers.
-
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
@@ -26,22 +23,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
-#  if RAILS_ENV == "production"
-#    HoptoadNotifier.configure do |config|
-#      config.api_key = '03362ff5fe7c6ca1023358717bc1c713'
-#      config.ignore_only  = []
-#    end
-#  end
-
-
-
-
   def local_request?
     false
   end
-
-  # Scrub sensitive parameters from your log
-  # filter_parameter_logging :password
 
   helper_method :current_user
 
@@ -55,9 +39,6 @@ class ApplicationController < ActionController::Base
     return @current_user if defined?(@current_user)
     @current_user = current_session && current_session.record
   end
-
-
-
 
   private
   def activate_authlogic

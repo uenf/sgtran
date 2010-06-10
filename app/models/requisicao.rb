@@ -133,7 +133,7 @@ class Requisicao < ActiveRecord::Base
     self.estado = CANCELADO_PELO_PROFESSOR
     self.motivo_professor = motivo
     self.motivo_id = nil
-    viagem_id, self.viagem = self.viagem_id, nil
+    viagem_id, self.viagem_id = self.viagem_id, nil
     if not motivo.empty?
       self.save_with_validation false
       Viagem.verificar_viagem viagem_id if viagem_id
@@ -254,7 +254,7 @@ class Requisicao < ActiveRecord::Base
       false
     end
   end
-  
+
   def self.buscar_por_nome_de_solicitante nome
     nome, requisicoes = "%" + nome + "%", []
     solicitantes = Solicitante.find(:all, :conditions => ["nome LIKE ?", nome])
@@ -266,21 +266,21 @@ class Requisicao < ActiveRecord::Base
     end
     requisicoes
   end
-  
+
   def self.buscar_por_data(inicio, fim)
     if Date.valid?(inicio) and Date.valid?(fim)
       inicio = inicio.gsub("/", "-").to_s
       inicio = Time.parse(inicio).strftime("%Y-%m-%d")
       fim = fim.gsub("/", "-").to_s
-      fim = Time.parse(fim).strftime("%Y-%m-%d")      
+      fim = Time.parse(fim).strftime("%Y-%m-%d")
       return Requisicao.find(:all, :conditions => ["data_de_reserva >= :inicio AND data_de_reserva <= :fim", {:inicio => inicio, :fim => fim}])
     else
       return []
     end
   end
-  
+
   def self.buscar_por_protocolo protocolo
-    Requisicao.find_all_by_id(protocolo)    
+    Requisicao.find_all_by_id(protocolo)
   end
 
 end

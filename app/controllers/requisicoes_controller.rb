@@ -1,9 +1,5 @@
 class RequisicoesController < ApplicationController
 
-  # GET /requisicoes
-  # GET /requisicoes.xml
-
-
   IDA   = 0
   VOLTA = 1
 
@@ -26,11 +22,6 @@ class RequisicoesController < ApplicationController
 
   def index
     @requisicoes = Requisicao.all(:conditions => "estado = '" + Requisicao::ESPERA + "'", :order => "id ASC")
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @requisicoes }
-    end
   end
 
   def filtrar
@@ -39,34 +30,20 @@ class RequisicoesController < ApplicationController
     render :action => "index"
   end
 
-  # GET /requisicoes/1
-  # GET /requisicoes/1.xml
   def show
     @requisicao = Requisicao.find(params[:id])
     if @requisicao.blank?
       redirect_to(requisicoes_path)
     else
       @solicitante = Solicitante.find(@requisicao.solicitante_id)
-
-#      session[:requisicao] = @requisicao
-
-      respond_to do |format|
-        format.html # show.html.erb
-        format.xml  { render :xml => @requisicao }
-      end
     end
   end
 
-  # GET /requisicoes/new
-  # GET /requisicoes/new.xml
   def new
     @requisicao = Requisicao.new
     flash[:sucesso] = ""
     render :action => "new", :layout => "requisicoes"
   end
-
-  # POST /requisicoes
-  # POST /requisicoes.xml
 
   def create
     if params[:data_de_reserva] == "volta"
@@ -225,12 +202,10 @@ class RequisicoesController < ApplicationController
           redirect_to :controller => "viagem", :action => "show", :id => @viagem.id
           Confirmacao.deliver_enviar_email_aceitar(corpo_do_email, destinatarios, @requisicao)
         else
-#          session[:requisicao] = @requisicao.id
           session[:requisicao] = {:id => @requisicao.id, :erro => " não foi selecionada."}
           redirect_to :action => "aceitar"
         end
       else
-#        session[:requisicao] = @requisicao.id
         session[:requisicao] = {:id => @requisicao.id, :erro =>  " não foi selecionada."}
         redirect_to :action => "aceitar"
       end
@@ -249,7 +224,6 @@ class RequisicoesController < ApplicationController
       render :layout => "requisicoes"
       session[:requisicao] = @requisicao
       #incluindo linha para enviar o emailtesteuenf para ailton informando que professor cancelou a requisição
-      #comentado temporariamente, porta bloqueada
       Confirmacao.deliver_email_cancelamento_professor(@requisicao)
     else
       render :action => "cancelar_requisicao", :layout => "requisicoes"
@@ -344,7 +318,7 @@ class RequisicoesController < ApplicationController
       flash[:erro] = ""
     end
   end
-  
+
   def buscar_requisicao
     dados = params[:busca]
     if dados == "Data"
@@ -361,7 +335,7 @@ class RequisicoesController < ApplicationController
       @requisicoes = Requisicao.find_all_by_estado(Requisicao::ESPERA)
     end
     render :action => :index
-    
+
   end
 
   private
@@ -376,6 +350,5 @@ class RequisicoesController < ApplicationController
 
   def base_de_dados
   end
-
 end
 
