@@ -1,10 +1,12 @@
+require "brazilian-rails"
+
 class ViagensController < ApplicationController
   # GET /viagens
   # GET /viagens.xml
 
   access_control do
     allow :admin
-    allow :visit, :to => [:index, :filtrar, :show, :viagens_existentes]
+    allow :visit, :to => [:index, :filtrar, :show, :viagens_existentes, :buscar_viagem]
   end
 
   layout "sistema"
@@ -181,6 +183,19 @@ class ViagensController < ApplicationController
                         ['Veículos ocupados', Veiculo.ocupados_entre_datas_e_com_categoria(data_chegada,data_partida,categoria_de_veiculo_id)]
                       ]
     render :partial => 'opcoes_veiculos', :object => @lista_veiculos
+  end
+  
+  def buscar_viagem
+    if params[:busca] == "Data de partida"
+      @data_de_partida = params[:data_de_partida]
+      @viagens = Viagem.buscar_por_data_de_partida(@data_de_partida)
+    elsif params[:busca] == "Data de chegada"
+      @data_de_chegada = params[:data_de_chegada]
+      @viagens = Viagem.buscar_por_data_de_chegada(@data_de_chegada)
+    else
+      @viagens = Viagem.all
+    end
+    render :action => "index"
   end
 
   def data_str_ou_nil(str_data)

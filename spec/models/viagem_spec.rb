@@ -181,6 +181,48 @@ describe Viagem do
     viagem.reload
     viagem.estado.should == Viagem::CANCELADA
   end
+  
+  it "deve buscar as viagens pela data de partida" do
+    motorista = Factory.create :motorista
+    viagem = Factory.create :viagem, 
+                            :motorista_id => motorista.id,
+                            :data_partida => Date.today,
+                            :data_chegada => Date.today + 2.days
+    data_de_partida = Date.today.strftime("%d/%m/%Y")
+    Viagem.buscar_por_data_de_partida(data_de_partida).should include viagem
+  end
+  
+  it "deve listar todas a viagens quando uma data de chegada inválida for informada" do
+    motorista = Factory.create :motorista
+    viagem = Factory.create :viagem, 
+                            :motorista_id => motorista.id,
+                            :data_partida => Date.today,
+                            :data_chegada => Date.today + 2.days
+    data_de_partida = "40/05/2010"
+    
+    Viagem.buscar_por_data_de_partida(data_de_partida).should include *Viagem.all
+  end
+  
+  it "deve buscar as viagens pela data de chegada" do
+    motorista = Factory.create :motorista
+    viagem = Factory.create :viagem, 
+                            :motorista_id => motorista.id,
+                            :data_partida => Date.today,
+                            :data_chegada => Date.today + 2.days
+    data_de_chegada = (Date.today + 2.days).strftime("%d/%m/%Y")
+    Viagem.buscar_por_data_de_chegada(data_de_chegada).should include viagem
+  end
+  
+  it "deve listar todas a viagens quando uma data de chegada inválida for informada" do
+    motorista = Factory.create :motorista
+    viagem = Factory.create :viagem, 
+                            :motorista_id => motorista.id,
+                            :data_partida => Date.today,
+                            :data_chegada => Date.today + 2.days
+    data_de_chegada = "40/05/2010"
+    
+    Viagem.buscar_por_data_de_chegada(data_de_chegada).should include *Viagem.all
+  end 
 
   describe "associações" do
     should_have_many :requisicoes

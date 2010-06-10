@@ -25,3 +25,22 @@ function busca(campo)
         document.getElementById("box_protocolo").className = 'visivel'                      
     }
 }
+
+function busca_viagem(campo)
+{
+    if (campo.value == "Data de partida") 
+    {
+        document.getElementById("box_data_de_partida").className = 'visivel'      
+        document.getElementById("box_data_de_chegada").className = 'invisivel'
+    }
+    else if (campo.value == "Data de chegada")
+    {
+        document.getElementById("box_data_de_partida").className = 'invisivel'
+        document.getElementById("box_data_de_chegada").className = 'visivel'
+    }
+    else
+    {
+        document.getElementById("box_data_de_partida").className = 'invisivel'
+        document.getElementById("box_data_de_chegada").className = 'invisivel'  
+    }    
+}
