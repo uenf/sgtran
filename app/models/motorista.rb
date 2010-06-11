@@ -45,11 +45,10 @@ class Motorista < ActiveRecord::Base
 
     Motorista.all.each do |motorista|
       if motorista.ativo?
-        viagens = Viagem.find_all_by_motorista_id(motorista.id)
+        viagens = Viagem.find_all_by_motorista_id_and_estado(motorista.id, "Aguardando")
         viagens.each do |viagem|
           if (data_partida >= viagem.data_partida and data_partida <= viagem.data_chegada) or
              (data_chegada >= viagem.data_partida and data_chegada <= viagem.data_chegada)
-
             motoristas_ocupados << [motorista.nome, motorista.id]
           end
         end
@@ -60,24 +59,16 @@ class Motorista < ActiveRecord::Base
 
   def self.desocupados_entre(data_partida, data_chegada)
     motoristas_desocupados = []
+    motoristas_ocupados = Motorista.ocupados_entre(data_partida, data_chegada)
 
     Motorista.all.each do |motorista|
-      viagens = Viagem.find_all_by_motorista_id(motorista.id)
       if motorista.ativo?
-        if not viagens.empty?
-          viagens.each do |viagem|
-            if not (data_partida >= viagem.data_partida and data_partida <= viagem.data_chegada) and
-               not (data_chegada >= viagem.data_partida and data_chegada <= viagem.data_chegada)
-
-              motoristas_desocupados << [motorista.nome, motorista.id]
-            end
-          end
-        else
+        if not motoristas_ocupados.include?([motorista.nome, motorista.id])
           motoristas_desocupados << [motorista.nome, motorista.id]
         end
       end
     end
-    return motoristas_desocupados.uniq
+    return motoristas_desocupados
   end
 
   def ativo?

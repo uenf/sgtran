@@ -1,12 +1,6 @@
 log/
-config/database.yml
 webrat-*.html
 rerun.txt
 log.txt
 public/stylesheets/scaffold.css
-config/deploy.rb
-Capfile
-deploy.sh
-app/controllers/application_controller.rb
-config/email_configuration.rb
 

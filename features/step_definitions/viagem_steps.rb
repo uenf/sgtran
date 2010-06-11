@@ -1,14 +1,6 @@
 require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
 require "factory_girl"
 
-When /^eu escolho a viagem existente$/ do
-  field = "id_da_viagem_" + "#{@viagem.id}"
-  choose(field)
-end
-
-When /^eu não escolho nenhuma viagem$/ do
-end
-
 Dado /^que eu tenho outra viagem com o estado "([^\"]*)"$/ do |estado|
   categoria_de_veiculo = Factory.create :categoria_de_veiculo
   motorista = Factory.create :motorista
@@ -65,11 +57,106 @@ Dado /^que eu tenha uma viagem$/ do
   @viagem_id = @viagem.id
 end
 
+Dado /^que eu tenho uma viagem em "([^\"]*)" com data de partida "([^\"]*)"$/ do |estado, data|
+  data = /\d/.match(data).to_s.to_i
+  data = (Date.today + data.days)
+  categoria_de_veiculo = Factory.create :categoria_de_veiculo
+  combustivel = Factory.create :combustivel
+  veiculo = Factory.create :veiculo,
+                  :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                  :combustivel_ids => [combustivel.id]
+  motorista = Factory.create :motorista
+  @viagem = Factory.create :viagem,
+                           :motorista_id => motorista.id,
+                           :veiculo_id => veiculo.id,
+                           :data_partida => data,
+                           :data_chegada => data + 1.days,
+                           :estado => estado
+end
+
+Dado /^que eu tenho uma viagem em "([^\"]*)" com data de chegada "([^\"]*)"$/ do |estado, data|
+  data = /\d/.match(data).to_s.to_i
+  data = (Date.today + data.days)
+  categoria_de_veiculo = Factory.create :categoria_de_veiculo
+  combustivel = Factory.create :combustivel
+  veiculo = Factory.create :veiculo,
+                  :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                  :combustivel_ids => [combustivel.id]
+  motorista = Factory.create :motorista
+  @viagem = Factory.create :viagem,
+                           :motorista_id => motorista.id,
+                           :veiculo_id => veiculo.id,
+                           :data_partida => data,
+                           :data_chegada => data,
+                           :estado => estado
+end
+
+Dado /^que eu tenho uma viagem em "([^"]*)" com o motorista "([^"]*)"$/ do |estado, nome_do_motorista|
+  motorista = Factory.create :motorista, :nome => nome_do_motorista
+  categoria_de_veiculo = Factory.create :categoria_de_veiculo
+  combustivel = Factory.create :combustivel
+  veiculo = Factory.create :veiculo,
+                  :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                  :combustivel_ids => [combustivel.id]
+  @viagem = Factory.create :viagem,
+                           :motorista_id => motorista.id,
+                           :veiculo_id => veiculo.id,
+                           :data_partida => Date.today,
+                           :data_chegada => Date.today,
+                           :estado => estado
+end
+
+Dado /^que eu tenho uma viagem com esse veículo$/ do
+  motorista = Factory.create :motorista
+  @viagem = Factory.create :viagem,
+                           :motorista_id => motorista.id,
+                           :veiculo_id => @veiculo.id,
+                           :data_partida => Date.today,
+                           :data_chegada => Date.today
+end
+
+
+Quando /^eu escolho a viagem existente$/ do
+  field = "id_da_viagem_" + "#{@viagem.id}"
+  choose(field)
+end
+
+Quando /^eu não escolho nenhuma viagem$/ do
+end
+
+Quando /^eu preencho a data de "([^\"]*)" com "([^\"]*)"$/ do |field, data|
+  if data =~ /Daqui/
+    data = /\d/.match(data).to_s.to_i
+    data = (Date.today + data.days).strftime("%d/%m/%Y")
+  end
+  fill_in(field, :with => data)
+end
+
 Entao /^eu devo ter uma nova viagem$/ do
   motorista = Factory.create :motorista
   viagem = Factory.create :viagem, :motorista_id => motorista.id
   Requisicao.update(@requisicao.id, :viagem_id => viagem.id)
   @requisicao.viagem = viagem
   @viagem_id = viagem.id + 1
+end
+
+Entao /^eu devo ver a data de "([^\"]*)"$/ do |data|
+  data = /\d/.match(data).to_s.to_i
+  data = (Date.today + data.days).strftime("%d/%m/%Y")
+  if defined?(Spec::Rails::Matchers)
+    response.should contain(data)
+  else
+    assert_contain data
+  end
+end
+
+Então /^eu não devo ver a data de "([^\"]*)"$/ do |data|
+  data = /\d/.match(data).to_s.to_i
+  data = (Date.today + data.days).strftime("%d/%m/%Y")
+  if defined?(Spec::Rails::Matchers)
+    response.should_not contain(data)
+  else
+    assert_contain data
+  end
 end
 

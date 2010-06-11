@@ -47,7 +47,7 @@ class Veiculo < ActiveRecord::Base
 
     Veiculo.all.each do |veiculo|
 
-      viagens = Viagem.find_all_by_veiculo_id(veiculo.id)
+      viagens = Viagem.find_all_by_veiculo_id_and_estado(veiculo.id, "Aguardando")
 
       if not viagens.empty? and veiculo.ativo?
         viagens.each do |viagem|
@@ -76,7 +76,7 @@ class Veiculo < ActiveRecord::Base
       if veiculo.ativo?
         categoria_de_veiculo = CategoriaDeVeiculo.find(veiculo.categoria_de_veiculo_id)
         categoria_de_veiculo.id == categoria_de_veiculo_da_requisicao_id ? marcador = "* " : marcador = ""
-        viagens = Viagem.find_all_by_veiculo_id(veiculo.id)
+        viagens = Viagem.find_all_by_veiculo_id_and_estado(veiculo.id, "Aguardando")
 
         if not viagens.empty?
           viagens.each do |viagem|

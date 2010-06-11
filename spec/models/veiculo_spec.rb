@@ -44,10 +44,11 @@ describe Veiculo do
 
   describe "ocupados e desocupados mostrando o marcador apenas nos veículos de
             mesma categoria escolhida na requisição" do
+
     before(:each) do
       motorista = Factory.create :motorista
-      @categoria_de_veiculo_1 = Factory.create :categoria_de_veiculo
-      @categoria_de_veiculo_2 = Factory.create :categoria_de_veiculo
+      @categoria_de_veiculo_1 = Factory.create :categoria_de_veiculo, :nome => "Categoria 1"
+      @categoria_de_veiculo_2 = Factory.create :categoria_de_veiculo, :nome => "Categoria 2"
       combustivel = Factory.create :combustivel
       objetivo_de_reserva = Factory.create :objetivo_de_reserva
       requisicao = Factory.create :requisicao,
@@ -69,6 +70,38 @@ describe Veiculo do
                               :data_chegada => Date.today + 2.days
     end
 
+    it "Deve avaliar apenas viagens com estado aguardando" do
+      motorista = Factory.create :motorista
+      data_partida = Date.today
+      data_chegada = Date.today + 2.days
+      viagem2 = Factory.create :viagem,
+                               :veiculo_id => @veiculo_2.id,
+                               :motorista_id => motorista.id,
+                               :data_partida => data_partida,
+                               :data_chegada => data_chegada,
+                               :estado => Viagem::ATENDIDA
+      veiculos_ocupados = Veiculo.ocupados_entre_datas_e_com_categoria(data_partida, data_chegada, @categoria_de_veiculo_2.id)
+      veiculos_ocupados.should_not include ["* " + @veiculo_2.modelo + " - " + @veiculo_2.placa + " - " + @categoria_de_veiculo_2.nome,
+                                            @veiculo_2.id]
+      veiculos_ocupados.should have(1).item
+
+
+      combustivel = Factory.create :combustivel
+      veiculo_4 = Factory.create :veiculo,
+                                 :categoria_de_veiculo_id => @categoria_de_veiculo_2.id,
+                                 :combustivel_ids => [combustivel.id]
+      viagem3 = Factory.create :viagem,
+                               :veiculo_id => veiculo_4.id,
+                               :motorista_id => motorista.id,
+                               :data_partida => data_partida,
+                               :data_chegada => data_chegada,
+                               :estado => Viagem::ATENDIDA
+      veiculos_desocupados = Veiculo.desocupados_entre_datas_e_com_categoria(data_partida, data_chegada, @categoria_de_veiculo_2.id)
+      veiculos_desocupados.should include ["* " + veiculo_4.modelo + " - " + veiculo_4.placa + " - " + @categoria_de_veiculo_2.nome,
+                                            veiculo_4.id]
+      veiculos_desocupados.should have(3).item
+    end
+
     it "Cada veículo deve aparecer apenas uma vez na lista ocupados" do
       motorista = Factory.create :motorista
       data_partida = Date.today
@@ -78,7 +111,7 @@ describe Veiculo do
                                :motorista_id => motorista.id,
                                :data_partida => data_partida,
                                :data_chegada => data_chegada
-      veiculos_ocupados = Veiculo.ocupados_entre_datas_e_com_categoria(data_partida, data_chegada, @veiculo_1.id)
+      veiculos_ocupados = Veiculo.ocupados_entre_datas_e_com_categoria(data_partida, data_chegada, @categoria_de_veiculo_1.id)
 
       flag = 0
       veiculos_ocupados.each do |item|
@@ -96,13 +129,30 @@ describe Veiculo do
                                :motorista_id => motorista.id,
                                :data_partida => data_partida,
                                :data_chegada => data_chegada
-      veiculos_desocupados = Veiculo.desocupados_entre_datas_e_com_categoria(data_partida + 4.days, data_chegada + 4.days, @veiculo_1.id)
+      veiculos_desocupados = Veiculo.desocupados_entre_datas_e_com_categoria(data_partida + 4.days, data_chegada + 4.days, @categoria_de_veiculo_1.id)
 
       flag = 0
       veiculos_desocupados.each do |item|
         flag += 1 if item.include? @veiculo_1.id
       end
       flag.should == 1
+    end
+
+    it "deve aparecer na lista de ocupados ou na de desocupados. Nunca nas duas." do
+      data_partida = Date.today
+      data_chegada = Date.today + 2.days
+      veiculos_ocupados = Veiculo.ocupados_entre_datas_e_com_categoria(data_partida, data_chegada, @categoria_de_veiculo_1.id)
+      veiculos_desocupados = Veiculo.desocupados_entre_datas_e_com_categoria(data_partida, data_chegada, @categoria_de_veiculo_1.id)
+
+      veiculos_ocupados.should include(["* " + @veiculo_1.modelo + " - " + @veiculo_1.placa + " - " + @categoria_de_veiculo_1.nome,
+                                        @veiculo_1.id])
+      veiculos_ocupados.should_not include(["* " + @veiculo_3.modelo + " - " + @veiculo_3.placa + " - " + @categoria_de_veiculo_1.nome,
+                                        @veiculo_3.id])
+
+      veiculos_desocupados.should_not include(["* " + @veiculo_1.modelo + " - " + @veiculo_1.placa + " - " + @categoria_de_veiculo_1.nome,
+                                        @veiculo_1.id])
+      veiculos_desocupados.should include(["* " + @veiculo_3.modelo + " - " + @veiculo_3.placa + " - " + @categoria_de_veiculo_1.nome,
+                                        @veiculo_3.id])
     end
 
     it "Deve fornecer a lista com os dados de veiculos ocupados em um determinado
@@ -171,7 +221,7 @@ describe Veiculo do
       veiculos_desocupados.length.should be_equal 3
     end
 
-    it "inativos não devem aparecer na lista de motoristas ocupados" do
+    it "inativos não devem aparecer na lista de veiculos ocupados" do
       data_partida = Date.today
       data_chegada = Date.today + 2.days
       @veiculo_1.estado = "Inativo"
@@ -181,7 +231,7 @@ describe Veiculo do
                                             @veiculo_1.id]
     end
 
-    it "inativos não devem aparecer na lista de motoristas desocupados" do
+    it "inativos não devem aparecer na lista de veiculos desocupados" do
       data_partida = Date.today
       data_chegada = Date.today + 2.days
       @veiculo_2.estado = "Inativo"

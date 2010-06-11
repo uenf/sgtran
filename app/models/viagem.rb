@@ -1,4 +1,5 @@
 require "brazilian_date"
+require 'brazilian-rails'
 
 class Viagem < ActiveRecord::Base
 
@@ -102,11 +103,53 @@ class Viagem < ActiveRecord::Base
     end
     false
   end
-  
+
   def self.verificar_viagem viagem_id
     viagem = Viagem.find(viagem_id)
     requisicoes_atendidas = Requisicao.find_all_by_viagem_id(viagem_id)
     viagem.estado = Viagem::CANCELADA and viagem.save if requisicoes_atendidas.empty?
+  end
+
+  def self.buscar_por_data_de_partida(data_de_partida)
+    if Date.valid? data_de_partida
+      data_de_partida = data_de_partida.gsub("/", "-").to_s
+      data_de_partida = Time.parse(data_de_partida).strftime("%Y-%m-%d")
+      return Viagem.find_all_by_data_partida(data_de_partida)
+    else
+      return Viagem.all
+    end
+  end
+
+  def self.buscar_por_data_de_chegada(data_de_chegada)
+    if Date.valid? data_de_chegada
+      data_de_chegada = data_de_chegada.gsub("/", "-").to_s
+      data_de_chegada = Time.parse(data_de_chegada).strftime("%Y-%m-%d")
+      return Viagem.find_all_by_data_chegada(data_de_chegada)
+    else
+      return Viagem.all
+    end
+  end
+
+  def self.buscar_por_motorista motorista
+    motorista, viagens = "%" + motorista.to_s + "%", []
+    motoristas = Motorista.find(:all, :conditions => ["nome LIKE ?", motorista])
+    motoristas.each do |m|
+      viagens_do_motorista = Viagem.find_all_by_motorista_id(m.id)
+      viagens_do_motorista.each do |v|
+        viagens << v
+      end
+    end
+    return viagens
+  end
+  
+  def self.buscar_por_placa placa
+    placa, viagens_buscadas = "%" + placa.to_s + "%", []
+    veiculos = Veiculo.find(:all, :conditions => ["placa LIKE ?", placa])
+    veiculos.each do |veiculo|
+      viagens = Viagem.find_all_by_veiculo_id(veiculo.id)
+      viagens.each { |v| viagens_buscadas << v }
+    end
+    viagens_buscadas
   end
 
 end
