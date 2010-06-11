@@ -98,7 +98,6 @@ describe Viagem do
   it "Deve cancelar uma viagem com várias requisições" do
     motorista = Factory.create :motorista
     viagem = Factory.create :viagem, :motorista_id => motorista.id
-
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     centro = Factory.create :centro
     solicitante = Factory.create :solicitante, :centro_id => centro.id
@@ -173,13 +172,100 @@ describe Viagem do
     requisicao_1.estado.should == Requisicao::FINALIZADA
     requisicao_2.estado.should == Requisicao::FINALIZADA
   end
-  
+
   it "deve apagar a viagem se ela não possui requisição" do
     motorista = Factory.create :motorista
     viagem = Factory.create :viagem, :estado => Viagem::CANCELADA, :motorista_id => motorista.id
     Viagem.verificar_viagem viagem.id
     viagem.reload
     viagem.estado.should == Viagem::CANCELADA
+  end
+
+  it "deve buscar as viagens pela data de partida" do
+    motorista = Factory.create :motorista
+    viagem = Factory.create :viagem,
+                            :motorista_id => motorista.id,
+                            :data_partida => Date.today,
+                            :data_chegada => Date.today + 2.days
+    data_de_partida = Date.today.strftime("%d/%m/%Y")
+    Viagem.buscar_por_data_de_partida(data_de_partida).should include viagem
+  end
+
+  it "deve listar todas a viagens quando uma data de chegada inválida for informada" do
+    motorista = Factory.create :motorista
+    viagem = Factory.create :viagem,
+                            :motorista_id => motorista.id,
+                            :data_partida => Date.today,
+                            :data_chegada => Date.today + 2.days
+    data_de_partida = "40/05/2010"
+
+    Viagem.buscar_por_data_de_partida(data_de_partida).should include *Viagem.all
+  end
+
+  it "deve buscar as viagens pela data de chegada" do
+    motorista = Factory.create :motorista
+    viagem = Factory.create :viagem,
+                            :motorista_id => motorista.id,
+                            :data_partida => Date.today,
+                            :data_chegada => Date.today + 2.days
+    data_de_chegada = (Date.today + 2.days).strftime("%d/%m/%Y")
+    Viagem.buscar_por_data_de_chegada(data_de_chegada).should include viagem
+  end
+
+  it "deve listar todas a viagens quando uma data de chegada inválida for informada" do
+    motorista = Factory.create :motorista
+    viagem = Factory.create :viagem,
+                            :motorista_id => motorista.id,
+                            :data_partida => Date.today,
+                            :data_chegada => Date.today + 2.days
+    data_de_chegada = "40/05/2010"
+
+    Viagem.buscar_por_data_de_chegada(data_de_chegada).should include *Viagem.all
+  end
+
+  it "deve buscar viagens pelo nome do motorista" do
+    motorista_1 = Factory.create :motorista, :nome => "José"
+    motorista_2 = Factory.create :motorista, :nome => "João"
+    viagem_1 = Factory.create :viagem,
+                            :motorista_id => motorista_1.id,
+                            :data_partida => Date.today,
+                            :data_chegada => Date.today
+    viagem_2 = Factory.create :viagem,
+                            :motorista_id => motorista_2.id,
+                            :data_partida => Date.today,
+                            :data_chegada => Date.today
+    motorista = "José"
+    Viagem.buscar_por_motorista(motorista).should include(viagem_1)
+    Viagem.buscar_por_motorista(motorista).should_not include(viagem_2)
+  end
+  
+  it "deve buscar viagens pela placa do veículo" do
+    motorista = Factory.create :motorista
+    categoria_de_veiculo = Factory.create :categoria_de_veiculo
+    combustivel = Factory.create :combustivel
+    veiculo_1 = Factory.create :veiculo, 
+                               :placa => "KKK 6666",
+                               :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                               :combustivel_ids => [combustivel.id]
+    veiculo_2 = Factory.create :veiculo, 
+                               :placa => "GGG 6666",
+                               :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                               :combustivel_ids => [combustivel.id]
+    viagem_1 = Factory.create :viagem, 
+                              :veiculo_id => veiculo_1.id,
+                              :data_partida => Date.today,
+                              :data_chegada => Date.today,
+                              :motorista_id => motorista.id
+                              
+    viagem_2 = Factory.create :viagem, 
+                              :veiculo_id => veiculo_2.id,
+                              :data_partida => Date.today,
+                              :data_chegada => Date.today,
+                              :motorista_id => motorista.id                              
+                                
+    placa = "KKK"
+    Viagem.buscar_por_placa(placa).should include(viagem_1)
+    Viagem.buscar_por_placa(placa).should_not include(viagem_2)
   end
 
   describe "associações" do
