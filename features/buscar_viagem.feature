@@ -74,4 +74,17 @@ Funcionalidade: Buscar uma viagem
       E eu pressiono "Buscar"
       Então eu devo ver "José"
       E eu não devo ver "João"
+      
+    @placa
+    Cenário: Buscar viagem pela placa do veículo
+      Dado que eu tenha um veículo da categoria "alguma categoria", modelo "FIAT Uno" e placa "KKK 6666"
+      E que eu tenho uma viagem com esse veículo
+      E que eu tenha um veículo da categoria "alguma categoria", modelo "FIAT Uno" e placa "GGG 6666"
+      E que eu tenho uma viagem com esse veículo      
+      E que eu estou na página de visualização de viagens
+      Quando eu seleciono "Placa" em "Buscar"
+      E eu preencho "Placa" com "KKK"
+      E eu pressiono "Buscar"
+      Então eu devo ver "KKK"
+      E eu não devo ver "GGG"
 

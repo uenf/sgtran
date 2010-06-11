@@ -141,6 +141,16 @@ class Viagem < ActiveRecord::Base
     end
     return viagens
   end
+  
+  def self.buscar_por_placa placa
+    placa, viagens_buscadas = "%" + placa.to_s + "%", []
+    veiculos = Veiculo.find(:all, :conditions => ["placa LIKE ?", placa])
+    veiculos.each do |veiculo|
+      viagens = Viagem.find_all_by_veiculo_id(veiculo.id)
+      viagens.each { |v| viagens_buscadas << v }
+    end
+    viagens_buscadas
+  end
 
 end
 

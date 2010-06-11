@@ -98,7 +98,6 @@ describe Viagem do
   it "Deve cancelar uma viagem com várias requisições" do
     motorista = Factory.create :motorista
     viagem = Factory.create :viagem, :motorista_id => motorista.id
-
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     centro = Factory.create :centro
     solicitante = Factory.create :solicitante, :centro_id => centro.id
@@ -238,6 +237,35 @@ describe Viagem do
     motorista = "José"
     Viagem.buscar_por_motorista(motorista).should include(viagem_1)
     Viagem.buscar_por_motorista(motorista).should_not include(viagem_2)
+  end
+  
+  it "deve buscar viagens pela placa do veículo" do
+    motorista = Factory.create :motorista
+    categoria_de_veiculo = Factory.create :categoria_de_veiculo
+    combustivel = Factory.create :combustivel
+    veiculo_1 = Factory.create :veiculo, 
+                               :placa => "KKK 6666",
+                               :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                               :combustivel_ids => [combustivel.id]
+    veiculo_2 = Factory.create :veiculo, 
+                               :placa => "GGG 6666",
+                               :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                               :combustivel_ids => [combustivel.id]
+    viagem_1 = Factory.create :viagem, 
+                              :veiculo_id => veiculo_1.id,
+                              :data_partida => Date.today,
+                              :data_chegada => Date.today,
+                              :motorista_id => motorista.id
+                              
+    viagem_2 = Factory.create :viagem, 
+                              :veiculo_id => veiculo_2.id,
+                              :data_partida => Date.today,
+                              :data_chegada => Date.today,
+                              :motorista_id => motorista.id                              
+                                
+    placa = "KKK"
+    Viagem.buscar_por_placa(placa).should include(viagem_1)
+    Viagem.buscar_por_placa(placa).should_not include(viagem_2)
   end
 
   describe "associações" do

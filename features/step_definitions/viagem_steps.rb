@@ -106,6 +106,15 @@ Dado /^que eu tenho uma viagem em "([^"]*)" com o motorista "([^"]*)"$/ do |esta
                            :estado => estado
 end
 
+Dado /^que eu tenho uma viagem com esse veículo$/ do
+  motorista = Factory.create :motorista
+  @viagem = Factory.create :viagem,
+                           :motorista_id => motorista.id,
+                           :veiculo_id => @veiculo.id,
+                           :data_partida => Date.today,
+                           :data_chegada => Date.today
+end
+
 
 Quando /^eu escolho a viagem existente$/ do
   field = "id_da_viagem_" + "#{@viagem.id}"

@@ -141,6 +141,9 @@ class ViagensController < ApplicationController
     elsif params[:busca] == "Motorista"
       @motorista = params[:motorista]
       @viagens = Viagem.buscar_por_motorista(@motorista)
+    elsif params[:busca] == "Placa"
+      @placa = params[:placa]
+      @viagens = Viagem.buscar_por_placa(@placa)
     else
       @viagens = Viagem.all
     end

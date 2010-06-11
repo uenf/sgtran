@@ -14,6 +14,7 @@
         <option value="Data de partida" onclick="busca_viagem(this)">Data de Partida</option>
         <option value="Data de chegada" onclick="busca_viagem(this)">Data de Chegada</option>
         <option value="Motorista" onclick="busca_viagem(this)">Motorista</option>
+        <option value="Placa" onclick="busca_viagem(this)">Placa</option>
       </select>
     </div>
     <div <%= @data_de_partida.nil? ? 'class="invisivel"' : 'class="visivel"' %> id="box_data_de_partida">
@@ -29,6 +30,11 @@
     <div <%= @motorista.nil? ? 'class="invisivel"' : 'class="visivel"' %> id="box_motorista">
       <%= label_tag :motorista, "Nome:" %>
       <%= text_field_tag :motorista %>
+    </div>
+    
+    <div <%= @placa.nil? ? 'class="invisivel"' : 'class="visivel"' %> id="box_placa">
+      <%= label_tag :placa, "Placa:" %>
+      <%= text_field_tag :placa %>
     </div>
 
     <%= submit_tag "Buscar" %>
