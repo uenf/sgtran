@@ -11,20 +11,20 @@ Funcionalidade: Cancelar viagem
     E que eu estou na página de cancelamento de requisição
     Então eu devo ver "Motivo do Cancelamento"
     Quando eu preencho "Motivo do Cancelamento" com "<Motivo>"
-    E <Ação>
-    Então <Sentença>
+    E eu pressiono "Cancelar requisição"
+    Então eu devo ver "<Sentença>"
 
 
     Exemplos:(Requisição cancelada com sucesso)
 
-    | Motivo       | Ação                               | Sentença                                                        |
-    | Estou doente | eu pressiono "Cancelar requisição" | eu devo ver "Requisição cancelada com sucesso!" |
-    | Faltou verba | eu pressiono "Cancelar requisição" | eu devo ver "Requisição cancelada com sucesso!" |
+    | Motivo       | Sentença                            |
+    | Estou doente | Requisição cancelada com sucesso! |
+    | Faltou verba | Requisição cancelada com sucesso! |
 
     Exemplos:(Campos vazios)
 
-    | Motivo       | Ação                               | Sentença                                |
-    |              | eu pressiono "Cancelar requisição" | eu devo ver "Motivo não pode ser vazio" |
+    | Motivo       | Sentença                    |
+    |              | Motivo não pode ser vazio |
 
 
   Cenário: Cancelamento de requisição com dados incorretos
@@ -45,6 +45,20 @@ Funcionalidade: Cancelar viagem
     Quando eu preencho "Motivo do Cancelamento" com "algum motivo"
     E eu pressiono "Cancelar requisição"
     Então eu devo ver "Requisição cancelada com sucesso!"
-    Quando eu vou para "página de visualização da viagem"
-    Então eu devo ver "Estado: Cancelada"
+    E a viagem deve estar cancelada
+    E a viagem não deve ter nenhuma requisição
+    
+  Cenário: Cancelar requisição ligada à viagem que possui 2 ou mais requisições
+    Dado que eu tenho uma requisição com estado "Aceita"
+    E que eu tenho uma viagem com o estado "Aguardando"
+    E que a requisição esteja ligada à viagem
+    E que eu tenho uma requisição com estado "Aceita"
+    E que a requisição esteja ligada à viagem    
+    E que eu estou na página de cancelamento de requisição
+    Quando eu preencho "Motivo do Cancelamento" com "algum motivo"
+    E eu pressiono "Cancelar requisição"
+    Então eu devo ver "Requisição cancelada com sucesso!"
+    E a requisição deve estar cancelada
+    E a requisição não deve estar ligada a nenhuma viagem
+    E a viagem não deve atender essa requisição
 
