@@ -1,11 +1,11 @@
 <div class="show_padrao vencimento_cnh">
   <h2>Os motoristas abaixo estão com a CNH para vencer</h2>
   <table id="base_de_dados" class="tabela_padrao">
+    <tr>
+      <th>Nome</th>
+      <th>Data de vencimento da CNH</th>
+    </tr>
     <% @motoristas.each do |id| %>
-      <tr>
-        <th>Nome</th>
-        <th>Data de vencimento da CNH</th>
-      </tr>
       <% motorista = Motorista.find(id) %>
       <tr>
         <td><%= motorista.nome %></td>
