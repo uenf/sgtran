@@ -132,12 +132,16 @@ Quando /^eu preencho data de reserva de volta com "([^\"]*)"$/ do |value|
 
 end
 
+Quando /^eu não devo ver "([^\"]*)"$/ do |text|
+  response.should_not contain(text)
+end
+
 Entao /^eu não devo ter requisições em espera$/ do
   requisicoes = Requisicao.all(:conditions => "estado = '"+ Requisicao::ESPERA + "'")
   requisicoes.should be_empty
 end
 
-Then /^eu devo ver na linha ([0-9]+) da tabela "([^\"]*)"$/ do |row, table_id, table_cells|
+Entao /^eu devo ver na linha ([0-9]+) da tabela "([^\"]*)"$/ do |row, table_id, table_cells|
   hash = table_cells.hashes.first
   hash.keys.each_with_index do |header, col|
     within "##{table_id} tr:nth-child(#{row}) td:nth-child(#{col+1})" do |scope|
@@ -154,8 +158,17 @@ Then /^eu devo ver na linha ([0-9]+) da tabela "([^\"]*)"$/ do |row, table_id, t
   end
 end
 
-When /^eu não devo ver "([^\"]*)"$/ do |text|
-  response.should_not contain(text)
+
+
+Entao /^a requisição deve estar cancelada$/ do
+  @requisicao.reload
+  @requisicao.estado.should == Requisicao::CANCELADO_PELO_PROFESSOR
 end
+
+Então /^a requisição não deve estar ligada a nenhuma viagem$/ do
+  Requisicao.find(@requisicao.id).viagem_id.should be_nil
+end
+
+
 
 
