@@ -2,11 +2,11 @@
   <h2>Os motoristas abaixo estão com a CNH para vencer</h2>
   <table id="base_de_dados" class="tabela_padrao">
     <% @motoristas.each do |id| %>
-      <% motorista = Motorista.find(id) %>
       <tr>
         <th>Nome</th>
         <th>Data de vencimento da CNH</th>
       </tr>
+      <% motorista = Motorista.find(id) %>
       <tr>
         <td><%= motorista.nome %></td>
         <td><%= motorista.vencimento_habilitacao.strftime("%d/%m/%Y") %></td>
