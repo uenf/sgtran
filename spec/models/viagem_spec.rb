@@ -132,13 +132,13 @@ describe Viagem do
     requisicao_3.reload
 
     requisicao_1.estado.should == Requisicao::CANCELADO_PELO_SISTEMA
-    requisicao_1.viagem_id.should == nil
+    requisicao_1.viagem_id.should_not == nil
 
     requisicao_2.estado.should == Requisicao::CANCELADO_PELO_SISTEMA
-    requisicao_2.viagem_id.should == nil
+    requisicao_2.viagem_id.should_not == nil
     
     requisicao_3.estado.should == Requisicao::CANCELADO_PELO_SISTEMA
-    requisicao_3.viagem_id.should == nil    
+    requisicao_3.viagem_id.should_not == nil    
 
   end
 

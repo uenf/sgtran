@@ -14,17 +14,14 @@ Funcionalidade: Cancelar viagem
     E eu pressiono "Cancelar requisição"
     Então eu devo ver "<Sentença>"
 
-
     Exemplos:(Requisição cancelada com sucesso)
-
-    | Motivo       | Sentença                            |
-    | Estou doente | Requisição cancelada com sucesso! |
-    | Faltou verba | Requisição cancelada com sucesso! |
+      | Motivo       | Sentença                            |
+      | Estou doente | Requisição cancelada com sucesso!   |
+      | Faltou verba | Requisição cancelada com sucesso!   |
 
     Exemplos:(Campos vazios)
-
-    | Motivo       | Sentença                    |
-    |              | Motivo não pode ser vazio |
+      | Motivo       | Sentença                    |
+      |              | Motivo não pode ser vazio   |
 
 
   Cenário: Cancelamento de requisição com dados incorretos
@@ -46,7 +43,7 @@ Funcionalidade: Cancelar viagem
     E eu pressiono "Cancelar requisição"
     Então eu devo ver "Requisição cancelada com sucesso!"
     E a viagem deve estar cancelada
-    E a viagem não deve ter nenhuma requisição
+    E a viagem deve ter uma requisição
     
   Cenário: Cancelar requisição ligada à viagem que possui 2 ou mais requisições
     Dado que eu tenho uma requisição com estado "Aceita"
@@ -59,8 +56,8 @@ Funcionalidade: Cancelar viagem
     E eu pressiono "Cancelar requisição"
     Então eu devo ver "Requisição cancelada com sucesso!"
     E a requisição deve estar cancelada pelo professor
-    E a requisição não deve estar ligada a nenhuma viagem
-    E a viagem não deve atender essa requisição
+    E a requisição deve estar ligada a uma viagem
+    E a viagem deve ter uma requisição
     
   @cancelar_requisicao
   Esquema do Cenário: Cancelar uma requisição pelo professor com data anterior a hoje

@@ -48,5 +48,38 @@ Para que eu possa mudar seus dados de acordo com a dinâmica do trabalho
     E eu pressiono "Fechar viagem"
     Então eu devo estar na página de visualização da viagem
     E eu devo ver "Estado: Atendida"
+    
+  @2
+  Esquema do Cenário: Fechar uma viagem com estado Aguardando e com requisição em estado Cancelada
+    Dado que eu tenho uma requisição com estado "Aceita"
+    E que eu tenho uma viagem com o estado "Aguardando"
+    E que a requisição esteja ligada à viagem
+    E que eu tenho uma requisição com estado "<Estado>"
+    E que a requisição esteja ligada à viagem
+    E que eu estou na página de visualização da viagem
+    Quando eu clico em "Fechar viagem"
+    E eu pressiono "Fechar viagem"
+    Então eu devo estar na página de visualização da viagem
+    E eu devo ver "Estado: Atendida"
+    E a requisição deve estar <Tipo de cancelamento>
+    
+  Exemplos:
+    | Estado                    | Tipo de cancelamento      |
+    | Cancelado pelo sistema    | cancelada pelo sistema    |
+    | Cancelado pelo professor  | cancelada pelo professor  |
+
+    
+  Cenário: Cancelar a viagem com uma requisição aceita com data anterior a hoje
+    Dado que eu tenho uma requisição de "2" dias atrás e com estado "Aceita"
+    E que eu tenho uma viagem com o estado "Aguardando"
+    E que a requisição esteja ligada à viagem    
+    E que eu tenho um motivo com descrição "Não há carro disponível"    
+    E que eu estou na página de visualização da viagem
+    Quando eu clico em "Cancelar viagem"
+    E eu seleciono "Não há carro disponível" em "Motivo do cancelamento"
+    E eu pressiono "Cancelar viagem"
+    Então a requisição deve estar cancelada pelo sistema
+    E a viagem deve estar cancelada
+    E a requisição deve estar ligada a uma viagem       
   
 

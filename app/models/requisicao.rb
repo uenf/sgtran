@@ -135,9 +135,8 @@ class Requisicao < ActiveRecord::Base
         self.estado = CANCELADO_PELO_PROFESSOR
         self.motivo_professor = motivo
         self.motivo_id = nil
-        viagem_id, self.viagem_id = self.viagem_id, nil
         self.save_with_validation false
-        Viagem.verificar_viagem viagem_id if viagem_id
+        Viagem.verificar_viagem self.viagem_id if self.viagem_id
         return true
       else
         self.errors.add(:motivo, "não pode ser vazio")
@@ -224,20 +223,18 @@ class Requisicao < ActiveRecord::Base
   def pode_ser_cancelada_pelo_professor?
     [Requisicao::ESPERA, Requisicao::ACEITA].include? self.estado
   end
+  
+  def pode_ser_finalizada?
+    [Requisicao::ACEITA].include? self.estado
+  end
 
   def cancelar_requisicao motivo_id, corpo_do_email, destinatarios
     if self.esta_aceita?
       viagem = Viagem.find(self.viagem_id) if self.viagem_id
       self.estado = Requisicao::CANCELADO_PELO_SISTEMA
       self.motivo_id = motivo_id.to_i if motivo_id
-
       requisicoes_atendidas = Requisicao.find_all_by_viagem_id(viagem.id).length if viagem
-
-      if requisicoes_atendidas == 1
-        viagem.update_attribute(:estado, Viagem::CANCELADA)
-      end
-
-      self.viagem_id = nil
+      viagem.update_attribute(:estado, Viagem::CANCELADA) if requisicoes_atendidas == 1
       self.motivo_observacao = observacao
       if self.motivo_id
         self.save_with_validation false

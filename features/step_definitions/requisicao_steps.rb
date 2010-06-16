@@ -16,11 +16,11 @@ Dado /^que eu tenho uma requisição com estado "([^\"]*)"$/ do |estado|
       @requisicao.estado = Requisicao::REJEITADA
       @requisicao.motivo_id = motivo.id
       @requisicao.save
-  when "Cancelada pelo Professor" then
+    when /(C|c)ancelad(o|a) pelo (P|p)rofessor/ then
       @requisicao.estado = Requisicao::CANCELADO_PELO_PROFESSOR
       @requisicao.motivo_professor = "Algum motivo"
       @requisicao.save
-    when "Cancelada pelo Sistema" then
+    when /(c|C)ancelad(o|a) pelo (S|s)istema/ then
       @requisicao.estado = Requisicao::CANCELADO_PELO_SISTEMA
       @requisicao.motivo_id = motivo.id
       @requisicao.save
@@ -191,6 +191,11 @@ end
 Então /^a requisição não deve estar cancelada$/ do
   @requisicao.estado.should_not == Requisicao::CANCELADO_PELO_PROFESSOR
   @requisicao.estado.should_not == Requisicao::CANCELADO_PELO_SISTEMA
+end
+
+Então /^a requisição deve estar ligada a uma viagem$/ do
+  @requisicao.reload
+  @requisicao.viagem_id.should_not be_nil
 end
 
 

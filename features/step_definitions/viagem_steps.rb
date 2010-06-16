@@ -173,6 +173,10 @@ Então /^a viagem não deve ter nenhuma requisição$/ do
   Requisicao.find_all_by_viagem_id(@viagem.id).should be_empty
 end
 
+Então /^a viagem deve ter uma requisição$/ do
+  Requisicao.find_all_by_viagem_id(@viagem.id).should_not be_empty
+end
+
 Entao /^a viagem não deve atender essa requisição$/ do
   Requisicao.find_all_by_viagem_id(@viagem.id).should_not include @requisicao
 end
