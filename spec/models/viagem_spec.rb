@@ -116,18 +116,29 @@ describe Viagem do
                                                :objetivo_de_reserva_id => objetivo_de_reserva.id,
                                                :estado => Requisicao::ACEITA,
                                                :viagem_id => viagem.id
-
+                                               
+    requisicao_3 = Factory.build :requisicao, :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                               :solicitante_id => solicitante.id,
+                                               :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                                               :estado => Requisicao::ACEITA,
+                                               :viagem_id => viagem.id,
+                                               :data_de_reserva => Date.today - 2.days
+    requisicao_3.save_with_validation false
     viagem.cancelar_viagem motivo.id
     viagem.estado.should == Viagem::CANCELADA
 
     requisicao_1.reload
     requisicao_2.reload
+    requisicao_3.reload
 
-    requisicao_1.estado.should == Requisicao::ESPERA
+    requisicao_1.estado.should == Requisicao::CANCELADO_PELO_SISTEMA
     requisicao_1.viagem_id.should == nil
 
-    requisicao_2.estado.should == Requisicao::ESPERA
+    requisicao_2.estado.should == Requisicao::CANCELADO_PELO_SISTEMA
     requisicao_2.viagem_id.should == nil
+    
+    requisicao_3.estado.should == Requisicao::CANCELADO_PELO_SISTEMA
+    requisicao_3.viagem_id.should == nil    
 
   end
 

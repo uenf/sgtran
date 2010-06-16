@@ -68,9 +68,9 @@ class Viagem < ActiveRecord::Base
     if self.esta_aguardando?
       requisicoes = Requisicao.find_all_by_viagem_id(self.id)
       requisicoes.each do |r|
-        r.estado = Requisicao::ESPERA
+        r.estado = Requisicao::CANCELADO_PELO_SISTEMA
         r.viagem_id = nil
-        r.save!
+        r.save_with_validation false
       end
       self.estado = Viagem::CANCELADA
       self.motivo_id = motivo_id.to_i
