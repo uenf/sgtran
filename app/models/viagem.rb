@@ -19,10 +19,7 @@ class Viagem < ActiveRecord::Base
   def validar_data
     if self.data_partida and self.data_chegada
       if self.data_partida > self.data_chegada
-          self.errors.add("Data de chegada anterior à data de partida. Isso")
-      end
-      if ((self.data_partida < Date.today) or (self.data_chegada < Date.today))
-        self.errors.add("As datas não podem ser anteriores à data atual. Isso")
+        self.errors.add("Data de chegada anterior à data de partida. Isso")
       end
     end
   end

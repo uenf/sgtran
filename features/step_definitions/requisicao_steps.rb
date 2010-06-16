@@ -83,6 +83,20 @@ Dado /^que eu tenho uma requisição com protocolo "([^\"]*)"$/ do |protocolo|
                                             :objetivo_de_reserva_id => objetivo_de_reserva.id
 end
 
+Dado /^que eu tenho uma requisição de "([^\"]*)" dias atrás e com estado "([^\"]*)"$/ do |dias, estado|
+  centro = Factory.create :centro
+  categoria_de_veiculo = Factory.create :categoria_de_veiculo
+  objetivo_de_reserva = Factory.create :objetivo_de_reserva  
+  solicitante = Factory.create :solicitante, :centro_id => centro.id
+  @requisicao = Factory.build :requisicao, 
+                              :data_de_reserva => Date.today - dias.to_i.days,
+                              :estado => estado,
+                              :solicitante_id => solicitante.id,
+                              :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                              :objetivo_de_reserva_id => objetivo_de_reserva.id
+  @requisicao.save_with_validation false
+end
+
 Quando /^eu preencho data de "([^\"]*)" com "([^\"]*)"$/ do |campo, data|
   data = data.split(/Daqui a /)[1].to_i
   fill_in(campo, :with => (Date.today + data.days).strftime("%d/%m/%Y"))
@@ -160,14 +174,26 @@ end
 
 
 
-Entao /^a requisição deve estar cancelada$/ do
+Entao /^a requisição deve estar cancelada pelo professor$/ do
   @requisicao.reload
   @requisicao.estado.should == Requisicao::CANCELADO_PELO_PROFESSOR
+end
+
+Entao /^a requisição deve estar cancelada pelo sistema$/ do
+  @requisicao.reload
+  @requisicao.estado.should == Requisicao::CANCELADO_PELO_SISTEMA
 end
 
 Então /^a requisição não deve estar ligada a nenhuma viagem$/ do
   Requisicao.find(@requisicao.id).viagem_id.should be_nil
 end
+
+Então /^a requisição não deve estar cancelada$/ do
+  @requisicao.estado.should_not == Requisicao::CANCELADO_PELO_PROFESSOR
+  @requisicao.estado.should_not == Requisicao::CANCELADO_PELO_SISTEMA
+end
+
+
 
 
 

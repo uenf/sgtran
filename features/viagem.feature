@@ -48,4 +48,5 @@ Para que eu possa mudar seus dados de acordo com a dinâmica do trabalho
     E eu pressiono "Fechar viagem"
     Então eu devo estar na página de visualização da viagem
     E eu devo ver "Estado: Atendida"
+  
 

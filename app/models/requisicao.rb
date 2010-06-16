@@ -130,18 +130,23 @@ class Requisicao < ActiveRecord::Base
 
   public
   def cancelar_pelo_professor(motivo)
-    self.estado = CANCELADO_PELO_PROFESSOR
-    self.motivo_professor = motivo
-    self.motivo_id = nil
-    viagem_id, self.viagem_id = self.viagem_id, nil
-    if not motivo.empty?
-      self.save_with_validation false
-      Viagem.verificar_viagem viagem_id if viagem_id
-      return true
+    if self.pode_ser_cancelada_pelo_professor?
+      if not motivo.empty?
+        self.estado = CANCELADO_PELO_PROFESSOR
+        self.motivo_professor = motivo
+        self.motivo_id = nil
+        viagem_id, self.viagem_id = self.viagem_id, nil
+        self.save_with_validation false
+        Viagem.verificar_viagem viagem_id if viagem_id
+        return true
+      else
+        self.errors.add(:motivo, "não pode ser vazio")
+        return false
+      end
     else
-      self.errors.add(:motivo, "não pode ser vazio")
+      self.errors.add_to_base("Requisição não pode ser cancelada.")
       return false
-    end
+    end    
   end
 
   public
@@ -214,6 +219,10 @@ class Requisicao < ActiveRecord::Base
 
   def pode_ser_aceita?
     self.esta_em_espera? or self.esta_rejeitada?
+  end
+  
+  def pode_ser_cancelada_pelo_professor?
+    [Requisicao::ESPERA, Requisicao::ACEITA].include? self.estado
   end
 
   def cancelar_requisicao motivo_id, corpo_do_email, destinatarios

@@ -492,6 +492,47 @@ describe Requisicao do
     Requisicao.buscar_por_protocolo(13).should include(requisicao_1)
     Requisicao.buscar_por_protocolo(13).should_not include(requisicao_2)
   end
+  
+  it "não deve cancelar uma requisição com estado de 'Finalizada'" do
+    motorista = Factory.create :motorista
+    viagem = Factory.create :viagem, :motorista_id => motorista.id
+    categoria_de_veiculo = Factory.create :categoria_de_veiculo
+    objetivo_de_reserva = Factory.create :objetivo_de_reserva
+    motivo = Factory.create :motivo
+    solicitante = Factory.create :solicitante
+    requisicao = Factory.create :requisicao, :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                             :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                                             :viagem_id => viagem.id,
+                                             :solicitante_id => solicitante.id,
+                                             :estado => Requisicao::FINALIZADA
+
+    requisicao.cancelar_pelo_professor("algum motivo")
+    requisicao.reload
+    requisicao.estado.should == Requisicao::FINALIZADA
+    requisicao.motivo_id.should == nil
+    requisicao.viagem_id.should == viagem.id
+  end
+  
+  it "deve verificar se a requisição pode ser cancelada" do
+    motorista = Factory.create :motorista
+    viagem = Factory.create :viagem, :motorista_id => motorista.id    
+    categoria_de_veiculo = Factory.create :categoria_de_veiculo
+    objetivo_de_reserva = Factory.create :objetivo_de_reserva
+    motivo = Factory.create :motivo
+    solicitante = Factory.create :solicitante
+    requisicao_1 = Factory.create :requisicao, :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                             :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                                             :viagem_id => viagem.id,
+                                             :solicitante_id => solicitante.id,
+                                             :estado => Requisicao::FINALIZADA
+    requisicao_2 = Factory.create :requisicao, :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                             :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                                             :viagem_id => viagem.id,
+                                             :solicitante_id => solicitante.id,
+                                             :estado => Requisicao::ESPERA                                             
+    requisicao_1.pode_ser_cancelada_pelo_professor?.should be_false                                             
+    requisicao_2.pode_ser_cancelada_pelo_professor?.should be_true
+  end
 
 
 end

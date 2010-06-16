@@ -34,7 +34,11 @@ end
 Dado /^que a requisição esteja ligada à viagem$/ do
   @viagem.requisicoes = [] # Gamba para limpar as requisições da viagem criada no passo "que eu tenho outra viagem com o estado"
   @requisicao.viagem_id = @viagem.id
-  @requisicao.save
+  if @requisicao.data_de_reserva <= Date.today + 2.days
+    @requisicao.save_with_validation false
+  else
+    @requisicao.save
+  end
 end
 
 Dado /^que eu tenha uma viagem$/ do
@@ -172,4 +176,7 @@ end
 Entao /^a viagem não deve atender essa requisição$/ do
   Requisicao.find_all_by_viagem_id(@viagem.id).should_not include @requisicao
 end
+
+
+
 

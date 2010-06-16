@@ -58,7 +58,22 @@ Funcionalidade: Cancelar viagem
     Quando eu preencho "Motivo do Cancelamento" com "algum motivo"
     E eu pressiono "Cancelar requisição"
     Então eu devo ver "Requisição cancelada com sucesso!"
-    E a requisição deve estar cancelada
+    E a requisição deve estar cancelada pelo professor
     E a requisição não deve estar ligada a nenhuma viagem
     E a viagem não deve atender essa requisição
+    
+  @cancelar_requisicao
+  Esquema do Cenário: Cancelar uma requisição pelo professor com data anterior a hoje
+    Dado que eu tenho uma requisição de "2" dias atrás e com estado "<Estado>"
+    E que eu estou na página de cancelamento de requisição
+    Quando eu preencho "Motivo do Cancelamento" com "algum motivo"
+    E eu pressiono "Cancelar requisição"
+    Então eu devo ver "<Sentença>"
+    E <Expectativa>
+    
+  Exemplos:
+  | Estado      | Sentença                          | Expectativa                                      |
+  | Espera      | Requisição cancelada com sucesso! | a requisição deve estar cancelada pelo professor |
+  | Finalizada  | Requisição não pode ser cancelada | a requisição não deve estar cancelada            |
+    
 
