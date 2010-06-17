@@ -65,6 +65,13 @@ ActiveRecord::Schema.define(:version => 20101022184205) do
     t.datetime "updated_at"
   end
 
+  create_table "prefixos", :force => true do |t|
+    t.string   "nome"
+    t.string   "estado",     :default => "Ativo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "requisicoes", :force => true do |t|
     t.integer  "solicitante_id"
     t.integer  "viagem_id"

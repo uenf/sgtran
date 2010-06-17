@@ -1,9 +1,9 @@
 <div class="show_padrao">
 
-<h1>Editar Centro</h1>
+<h1>Editar Prefixo</h1>
 
-<% form_for(@centro) do |f| %>
-  <%= mensagem_de_erro(@centro) %>
+<% form_for(@prefixo) do |f| %>
+  <%= mensagem_de_erro(@prefixo) %>
 
   <div class="show_linha">
     <div class="linha_titulo"><%= f.label :nome, "Nome:", :class => "label_obrigatorio" %></div>
@@ -12,8 +12,8 @@
 
   <div class="show_linha">
     <div class="linha_titulo"><%= f.label :estado, "Estado:", :class => "label_obrigatorio" %></div>
-    <div class="linha_texto_neutro"><%= f.select :estado, {Prefixo::INATIVO => Prefixo::INATIVO,
-                                                          Prefixo::ATIVO => Prefixo::ATIVO} %></div>
+    <div class="linha_texto_neutro"><%= f.select :estado, {Centro::INATIVO => Centro::INATIVO,
+                                                          Centro::ATIVO => Centro::ATIVO} %></div>
   </div>
 
   <div class="botao_concluir"><%= f.submit 'Atualizar' %></div>

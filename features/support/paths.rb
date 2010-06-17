@@ -150,6 +150,12 @@ module NavigationHelpers
     when /^página de edição do motivo$/
       edit_motivo_path(@motivo)
 
+  when /^página de adição de prefixo$/
+      new_prefixo_path
+
+  when /^página de edição do prefixo$/
+      edit_prefixo_path(@prefixo)
+
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
         "Now, go and add a mapping in #{__FILE__}"
