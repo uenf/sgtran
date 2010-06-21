@@ -148,8 +148,9 @@ ActiveRecord::Schema.define(:version => 20101022184205) do
     t.string   "placa"
     t.string   "numero_de_ordem"
     t.string   "renavam"
-    t.integer  "categoria_de_veiculo_id"
     t.string   "estado",                  :default => "Ativo"
+    t.integer  "categoria_de_veiculo_id"
+    t.integer  "prefixo_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

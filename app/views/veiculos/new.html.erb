@@ -53,6 +53,11 @@
     <div class="linha_texto_neutro"><%= f.text_field :renavam %></div>
   </div>
 
+  <div class="show_linha">
+    <div class="linha_titulo"><%= f.label :prefixo_id, "Prefixo:", :class => "label_obrigatorio" %></div>
+    <div class="linha_texto_neutro"><%= f.select :prefixo_id, @prefixos.collect { |p| [p.nome, p.id] } %></div>
+  </div>
+
     <div class="botao_concluir"><%= f.submit 'Criar Ve&iacute;culo' %></div>
 
 <% end %>

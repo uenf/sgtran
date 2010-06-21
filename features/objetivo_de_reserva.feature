@@ -46,7 +46,7 @@ Para que eu possa adicinar, editar e utilizar no sistema
   | Inativo               | Ativo           |
   
   Esquema do Cenário: Deve mostrar apenas objetivos de reserva ativos
-    Dado que eu tenha uma categoria de veículo "Automóvel até 4 passageiros"
+    Dado que eu tenha a categoria de veículo "Automóvel até 4 passageiros"
     E que eu tenha um objetivo de reserva "Aula de Campo"
     E que o objetivo de reserva esteja "<Estado>"
     E que eu estou na página de requisição

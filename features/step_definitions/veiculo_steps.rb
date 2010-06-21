@@ -1,11 +1,3 @@
-Dado /^que eu tenho o combustivel "([^\"]*)"$/ do |nome|
-  Factory.create :combustivel, :nome => nome
-end
-
-Dado /^que eu tenho a categoria de veiculo "([^\"]*)"$/ do |nome|
-  Factory.create :categoria_de_veiculo, :nome => nome
-end
-
 Dado /^que eu tenha um veículo da categoria "([^\"]*)", modelo "([^\"]*)" e placa "([^\"]*)"$/ do |categoria, modelo, placa|
   categoria_de_veiculo = Factory.create :categoria_de_veiculo, :nome => categoria
   combustivel = Factory.create :combustivel

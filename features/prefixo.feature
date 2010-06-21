@@ -40,19 +40,33 @@ Para que eu possa adicinar, editar e utilizar no sistema
     E eu pressiono "Atualizar"
     Então eu devo ver "Estado: <Estado desejado>"
 
-  Exemplos:
-  | Estado do Prefixo   | Estado desejado |
-  | Ativo               | Inativo         |
-  | Inativo             | Ativo           |
+    Exemplos:
+    | Estado do Prefixo   | Estado desejado |
+    | Ativo               | Inativo         |
+    | Inativo             | Ativo           |
 
-#  Esquema do Cenário: Mostrar na requisição apenas os prefixos ativos
-#    Dado que eu tenho um prefixo com nome "P5"
-#    E que o prefixo esteja "<Estado>"
-#    E que eu estou na página de adição de solicitante
-#    Então eu <Visão>
-#
-#  Exemplos:
-#  | Estado      | Visão             |
-#  | Ativo       | devo ver "P5"     |
-#  | Inativo     | não devo ver "P5" |
+
+  Esquema do Cenário: Mostrar na adição dos veículos apenas os prefixos ativos
+    Dado que eu tenho o prefixo "Locado"
+    E que o prefixo esteja "<Estado>"
+    E que eu estou na página de adição de veículo
+    Então eu <Ação>
+
+    Exemplos:
+    | Estado      | Ação                  |
+    | Ativo       | devo ver "Locado"     |
+    | Inativo     | não devo ver "Locado" |
+
+
+  Esquema do Cenário: Mostrar na edição dos veículos apenas os prefixos ativos
+    Dado que eu tenho o prefixo "Locado"
+    E que o prefixo esteja "<Estado>"
+    E que eu tenha um veículo da categoria "4 passageiros", modelo "Uno" e placa "SDF-8457"
+    E que eu estou na página de edição do veículo
+    Então eu <Ação>
+
+    Exemplos:
+    | Estado      | Ação                  |
+    | Ativo       | devo ver "Locado"     |
+    | Inativo     | não devo ver "Locado" |
 

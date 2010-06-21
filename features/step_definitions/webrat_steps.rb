@@ -50,12 +50,12 @@ When /^eu não marco "([^\"]*)"$/ do |field|
   uncheck(field)
 end
 
-Then /^eu devo ver "([^\"]*)" em "([^\"]*)"$/ do |regexp, selector|
-  within(selector) do |content|
-    regexp = Regexp.new(regexp)
-    content.should contain(regexp)
-  end
-end
+#Then /^eu devo ver "([^\"]*)" em "([^\"]*)"$/ do |regexp, selector|
+#  within(selector) do |content|
+#    regexp = Regexp.new(regexp)
+#    content.should contain(regexp)
+#  end
+#end
 
 When /^eu seleciono "([^\"]*)" no campo hora "([^\"]*)"$/ do |time, time_label|
   select_time(time, :from => time_label)
@@ -76,6 +76,28 @@ end
 Entao /^eu devo ver "([^\"]*)" com a data daqui a "([^\"]*)" dias$/ do |text, value|
   value = (Date.today + value.to_i.days).strftime("%d/%m/%Y")
   response.should contain(text + value)
+end
+
+Entao /^eu devo ver "([^\"]*)" em "([^\"]*)"$/ do |text, selector|
+  within(selector) do |content|
+    if defined?(Spec::Rails::Matchers)
+      content.should contain(text)
+    else
+      hc = Webrat::Matchers::HasContent.new(text)
+      assert hc.matches?(content), hc.failure_message
+    end
+  end
+end
+
+Entao /^eu não devo ver "([^\"]*)" em "([^\"]*)"$/ do |text, selector|
+  within(selector) do |content|
+    if defined?(Spec::Rails::Matchers)
+      content.should_not contain(text)
+    else
+      hc = Webrat::Matchers::HasContent.new(text)
+      assert !hc.matches?(content), hc.negative_failure_message
+    end
+  end
 end
 
 #

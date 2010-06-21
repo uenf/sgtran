@@ -6,6 +6,7 @@ class Veiculo < ActiveRecord::Base
   has_one :categoria_de_veiculo
   has_and_belongs_to_many :combustiveis
   has_many :viagens
+  has_one :prefixo
 
   validates_presence_of :marca,
                         :modelo,

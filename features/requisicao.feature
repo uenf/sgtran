@@ -7,7 +7,7 @@ Funcionalidade: Solicitar viagem
   Para que eu possa realizar uma viagem
 
   Esquema do Cenário: Envio de requisição
-    Dado que eu tenha uma categoria de veículo "Micro-ônibus - até 32 passageiros"
+    Dado que eu tenha a categoria de veículo "Micro-ônibus - até 32 passageiros"
     E que eu tenha um objetivo de reserva "Aula de Campo"
     E que eu tenha um objetivo de reserva "Outros"
     E que eu tenha um solicitante com e-mail "ronaldo@corinthians.com", matrícula "01210" e prédio "P5"
@@ -54,7 +54,7 @@ Funcionalidade: Solicitar viagem
 
 
   Esquema do Cenário: Envio de requisição com datas inválidas
-    Dado que eu tenha uma categoria de veículo "Automóvel até 4 passageiros"
+    Dado que eu tenha a categoria de veículo "Automóvel até 4 passageiros"
     E que eu tenha um objetivo de reserva "Aula de Campo"
     E que eu tenha um solicitante com e-mail "ronaldo@corinthians.com", matrícula "01210" e prédio "P5"
     E que eu estou na página de requisição
@@ -98,7 +98,7 @@ Funcionalidade: Solicitar viagem
     Então eu devo ver "Escolha uma viagem."
 
   Cenário: Enviar uma requisição sem os zeros à esquerda
-    Dado que eu tenha uma categoria de veículo "Automóvel até 4 passageiros"
+    Dado que eu tenha a categoria de veículo "Automóvel até 4 passageiros"
     E que eu tenha um objetivo de reserva "Aula de Campo"
     E que eu tenha um solicitante com e-mail "ronaldo@corinthians.com", matrícula "00210" e prédio "P5"
     E que eu estou na página de requisição
@@ -115,7 +115,7 @@ Funcionalidade: Solicitar viagem
     Então eu devo ver "Requisição enviada com sucesso!"
     
   Esquema do Cenário: Deve aceitar apenas solicitantes ativos
-    Dado que eu tenha uma categoria de veículo "Automóvel até 4 passageiros"
+    Dado que eu tenha a categoria de veículo "Automóvel até 4 passageiros"
     E que eu tenha um objetivo de reserva "Aula de Campo"
     E que eu tenha um solicitante com e-mail "ronaldo@corinthians.com", matrícula "00210" e prédio "P5"
     E que o solicitante esteja "<Estado>"

@@ -18,5 +18,14 @@ describe Prefixo do
     prefixo.nome = "Locado"
     prefixo.save.should be_true
   end
+
+  it "deve retornar a lista de prefixos ativos" do
+    prefixo_ativo = Factory.create :prefixo,
+                                   :estado => Prefixo::ATIVO
+    prefixo_inativo = Factory.create :prefixo,
+                                     :estado => Prefixo::INATIVO
+    Prefixo.ativos.should include(prefixo_ativo)
+    Prefixo.ativos.should_not include(prefixo_inativo)
+  end
 end
 

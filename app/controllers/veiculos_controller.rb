@@ -19,11 +19,13 @@ class VeiculosController < ApplicationController
 
   def new
     @veiculo = Veiculo.new
+    @prefixos = Prefixo.ativos
     @sub_layout = "base"
   end
 
   def edit
     @veiculo = Veiculo.find(params[:id])
+    @prefixos = Prefixo.ativos
     @sub_layout = "base"
   end
 
@@ -34,6 +36,7 @@ class VeiculosController < ApplicationController
       flash[:sucesso] = 'Veículo cadastrado com sucesso!'
       redirect_to(@veiculo)
     else
+      @prefixos = Prefixo.ativos
       @sub_layout = "base"
       render :action => "new"
     end
