@@ -42,12 +42,14 @@ Dado /^que a requisição esteja ligada à viagem$/ do
 end
 
 Dado /^que eu tenha uma viagem$/ do
+  prefixo = Factory.create :prefixo
   categoria_de_veiculo = Factory.create :categoria_de_veiculo
   objetivo_de_reserva = Factory.create :objetivo_de_reserva
   combustivel = Factory.create :combustivel
   veiculo = Factory.create :veiculo,
                   :categoria_de_veiculo_id => categoria_de_veiculo.id,
-                  :combustivel_ids => [combustivel.id]
+                  :combustivel_ids => [combustivel.id],
+                  :prefixo_id => prefixo.id
   motorista = Factory.create :motorista
   requisicao = Factory.create :requisicao,
                               :categoria_de_veiculo_id => categoria_de_veiculo.id,
@@ -66,9 +68,11 @@ Dado /^que eu tenho uma viagem em "([^\"]*)" com data de partida "([^\"]*)"$/ do
   data = (Date.today + data.days)
   categoria_de_veiculo = Factory.create :categoria_de_veiculo
   combustivel = Factory.create :combustivel
+  prefixo = Factory.create :prefixo
   veiculo = Factory.create :veiculo,
                   :categoria_de_veiculo_id => categoria_de_veiculo.id,
-                  :combustivel_ids => [combustivel.id]
+                  :combustivel_ids => [combustivel.id],
+                  :prefixo_id => prefixo.id
   motorista = Factory.create :motorista
   @viagem = Factory.create :viagem,
                            :motorista_id => motorista.id,
@@ -83,9 +87,11 @@ Dado /^que eu tenho uma viagem em "([^\"]*)" com data de chegada "([^\"]*)"$/ do
   data = (Date.today + data.days)
   categoria_de_veiculo = Factory.create :categoria_de_veiculo
   combustivel = Factory.create :combustivel
+  prefixo = Factory.create :prefixo
   veiculo = Factory.create :veiculo,
                   :categoria_de_veiculo_id => categoria_de_veiculo.id,
-                  :combustivel_ids => [combustivel.id]
+                  :combustivel_ids => [combustivel.id],
+                  :prefixo_id => prefixo.id
   motorista = Factory.create :motorista
   @viagem = Factory.create :viagem,
                            :motorista_id => motorista.id,
@@ -96,12 +102,14 @@ Dado /^que eu tenho uma viagem em "([^\"]*)" com data de chegada "([^\"]*)"$/ do
 end
 
 Dado /^que eu tenho uma viagem em "([^"]*)" com o motorista "([^"]*)"$/ do |estado, nome_do_motorista|
+  prefixo = Factory.create :prefixo
   motorista = Factory.create :motorista, :nome => nome_do_motorista
   categoria_de_veiculo = Factory.create :categoria_de_veiculo
   combustivel = Factory.create :combustivel
   veiculo = Factory.create :veiculo,
                   :categoria_de_veiculo_id => categoria_de_veiculo.id,
-                  :combustivel_ids => [combustivel.id]
+                  :combustivel_ids => [combustivel.id],
+                  :prefixo_id => prefixo.id
   @viagem = Factory.create :viagem,
                            :motorista_id => motorista.id,
                            :veiculo_id => veiculo.id,
@@ -180,7 +188,4 @@ end
 Entao /^a viagem não deve atender essa requisição$/ do
   Requisicao.find_all_by_viagem_id(@viagem.id).should_not include @requisicao
 end
-
-
-
 

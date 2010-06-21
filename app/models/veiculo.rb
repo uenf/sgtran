@@ -16,8 +16,7 @@ class Veiculo < ActiveRecord::Base
                         :numero_de_ordem,
                         :renavam
 
-  validate :validar_categoria_de_veiculo,
-          :validar_combustiveis
+  validate :validar_categoria_de_veiculo, :validar_combustiveis, :validar_prefixo
 
   def itens_da_view
     return  self.modelo + " - " + self.placa + " - " +
@@ -33,6 +32,12 @@ class Veiculo < ActiveRecord::Base
   def validar_categoria_de_veiculo
     if self.categoria_de_veiculo_id == nil
       errors.add(:categoria_de_veiculo, 'não selecionada')
+    end
+  end
+
+  def validar_prefixo
+    if self.prefixo_id == nil
+      errors.add(:prefixo, "não selecionado")
     end
   end
 

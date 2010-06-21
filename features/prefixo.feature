@@ -59,7 +59,7 @@ Para que eu possa adicinar, editar e utilizar no sistema
 
 
   Esquema do Cenário: Mostrar na edição dos veículos apenas os prefixos ativos
-    Dado que eu tenho o prefixo "Locado"
+    Dado que eu tenho o prefixo "Projetos"
     E que o prefixo esteja "<Estado>"
     E que eu tenha um veículo da categoria "4 passageiros", modelo "Uno" e placa "SDF-8457"
     E que eu estou na página de edição do veículo
@@ -67,6 +67,6 @@ Para que eu possa adicinar, editar e utilizar no sistema
 
     Exemplos:
     | Estado      | Ação                  |
-    | Ativo       | devo ver "Locado"     |
-    | Inativo     | não devo ver "Locado" |
+    | Ativo       | devo ver "Projetos"     |
+    | Inativo     | não devo ver "Projetos" |
 

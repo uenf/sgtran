@@ -116,7 +116,7 @@ describe Viagem do
                                                :objetivo_de_reserva_id => objetivo_de_reserva.id,
                                                :estado => Requisicao::ACEITA,
                                                :viagem_id => viagem.id
-                                               
+
     requisicao_3 = Factory.build :requisicao, :categoria_de_veiculo_id => categoria_de_veiculo.id,
                                                :solicitante_id => solicitante.id,
                                                :objetivo_de_reserva_id => objetivo_de_reserva.id,
@@ -136,9 +136,9 @@ describe Viagem do
 
     requisicao_2.estado.should == Requisicao::CANCELADO_PELO_SISTEMA
     requisicao_2.viagem_id.should_not == nil
-    
+
     requisicao_3.estado.should == Requisicao::CANCELADO_PELO_SISTEMA
-    requisicao_3.viagem_id.should_not == nil    
+    requisicao_3.viagem_id.should_not == nil
 
   end
 
@@ -249,31 +249,34 @@ describe Viagem do
     Viagem.buscar_por_motorista(motorista).should include(viagem_1)
     Viagem.buscar_por_motorista(motorista).should_not include(viagem_2)
   end
-  
+
   it "deve buscar viagens pela placa do veículo" do
+    prefixo = Factory.create :prefixo
     motorista = Factory.create :motorista
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     combustivel = Factory.create :combustivel
-    veiculo_1 = Factory.create :veiculo, 
+    veiculo_1 = Factory.create :veiculo,
                                :placa => "KKK 6666",
                                :categoria_de_veiculo_id => categoria_de_veiculo.id,
-                               :combustivel_ids => [combustivel.id]
-    veiculo_2 = Factory.create :veiculo, 
+                               :combustivel_ids => [combustivel.id],
+                               :prefixo_id => prefixo.id
+    veiculo_2 = Factory.create :veiculo,
                                :placa => "GGG 6666",
                                :categoria_de_veiculo_id => categoria_de_veiculo.id,
-                               :combustivel_ids => [combustivel.id]
-    viagem_1 = Factory.create :viagem, 
+                               :combustivel_ids => [combustivel.id],
+                               :prefixo_id => prefixo.id
+    viagem_1 = Factory.create :viagem,
                               :veiculo_id => veiculo_1.id,
                               :data_partida => Date.today,
                               :data_chegada => Date.today,
                               :motorista_id => motorista.id
-                              
-    viagem_2 = Factory.create :viagem, 
+
+    viagem_2 = Factory.create :viagem,
                               :veiculo_id => veiculo_2.id,
                               :data_partida => Date.today,
                               :data_chegada => Date.today,
-                              :motorista_id => motorista.id                              
-                                
+                              :motorista_id => motorista.id
+
     placa = "KKK"
     Viagem.buscar_por_placa(placa).should include(viagem_1)
     Viagem.buscar_por_placa(placa).should_not include(viagem_2)

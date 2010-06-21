@@ -55,7 +55,7 @@
 
   <div class="show_linha">
     <div class="linha_titulo"><%= f.label :prefixo_id, "Prefixo:", :class => "label_obrigatorio" %></div>
-    <div class="linha_texto_neutro"><%= f.select :prefixo_id, @prefixos.collect { |p| [p.nome, p.id] } %></div>
+    <div class="linha_texto_neutro"><%= f.select :prefixo_id, @prefixos.collect { |p| [p.nome, p.id] }, { :include_blank => "Selecione um prefixo" } %></div>
   </div>
 
     <div class="botao_concluir"><%= f.submit 'Criar Ve&iacute;culo' %></div>
