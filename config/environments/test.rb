@@ -30,6 +30,7 @@ config.action_mailer.delivery_method = :test
 
 config.gem "remarkable_rails", :lib => false, :version => ">=3.1.10"
 config.gem "factory_girl", :lib => "factory_girl", :source => "http://gems.github.com"
+config.gem 'email_spec', :lib => 'email_spec'
 
 require 'brI18n'
 

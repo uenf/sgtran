@@ -86,7 +86,6 @@ class Requisicao < ActiveRecord::Base
     dados[:matricula] = Solicitante.normalizar_matricula(dados[:matricula])
     dados_solicitante = {:matricula => dados[:matricula], :email => dados[:email] }
     if Solicitante.verificar_solicitante dados_solicitante
-
       solicitante = Solicitante.find_by_matricula_and_email(dados_solicitante[:matricula], dados_solicitante[:email])
       if dados[:tipo] == "Ida e Volta"
         requisicao_ida = Requisicao.new(dados[:requisicao])
@@ -145,7 +144,7 @@ class Requisicao < ActiveRecord::Base
     else
       self.errors.add_to_base("Requisição não pode ser cancelada.")
       return false
-    end    
+    end
   end
 
   public
@@ -219,11 +218,11 @@ class Requisicao < ActiveRecord::Base
   def pode_ser_aceita?
     self.esta_em_espera? or self.esta_rejeitada?
   end
-  
+
   def pode_ser_cancelada_pelo_professor?
     [Requisicao::ESPERA, Requisicao::ACEITA].include? self.estado
   end
-  
+
   def pode_ser_finalizada?
     [Requisicao::ACEITA].include? self.estado
   end

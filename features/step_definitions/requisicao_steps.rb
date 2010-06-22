@@ -9,7 +9,7 @@ Dado /^que eu tenho uma requisição com estado "([^\"]*)"$/ do |estado|
                                             :objetivo_de_reserva_id => objetivo_de_reserva.id,
                                             :data_de_reserva => Date.today + 2.days
   case estado.to_s
-    when "Em Espera" then
+  when "Em Espera" then
       @requisicao.estado = Requisicao::ESPERA
       @requisicao.save
     when "Rejeitada" then
@@ -64,7 +64,7 @@ end
 
 Dado /^que eu tenho uma requisição com data de reserva "([^\"]*)" e com solicitante com nome "([^\"]*)" e com matrícula "([^\"]*)"$/ do |data, nome, matricula|
   categoria_de_veiculo = Factory.create :categoria_de_veiculo
-  objetivo_de_reserva = Factory.create :objetivo_de_reserva  
+  objetivo_de_reserva = Factory.create :objetivo_de_reserva
   @solicitante = Factory.create :solicitante, :nome => nome, :matricula => matricula
   date = data.split(/Daqui a /)[1].to_i
   @requisicao = Factory.create :requisicao, :categoria_de_veiculo_id => categoria_de_veiculo.id,
@@ -75,7 +75,7 @@ end
 
 Dado /^que eu tenho uma requisição com protocolo "([^\"]*)"$/ do |protocolo|
   categoria_de_veiculo = Factory.create :categoria_de_veiculo
-  objetivo_de_reserva = Factory.create :objetivo_de_reserva  
+  objetivo_de_reserva = Factory.create :objetivo_de_reserva
   solicitante = Factory.create :solicitante
   @requisicao = Factory.create :requisicao, :id => protocolo,
                                             :categoria_de_veiculo_id => categoria_de_veiculo.id,
@@ -86,9 +86,9 @@ end
 Dado /^que eu tenho uma requisição de "([^\"]*)" dias atrás e com estado "([^\"]*)"$/ do |dias, estado|
   centro = Factory.create :centro
   categoria_de_veiculo = Factory.create :categoria_de_veiculo
-  objetivo_de_reserva = Factory.create :objetivo_de_reserva  
+  objetivo_de_reserva = Factory.create :objetivo_de_reserva
   solicitante = Factory.create :solicitante, :centro_id => centro.id
-  @requisicao = Factory.build :requisicao, 
+  @requisicao = Factory.build :requisicao,
                               :data_de_reserva => Date.today - dias.to_i.days,
                               :estado => estado,
                               :solicitante_id => solicitante.id,
@@ -198,8 +198,7 @@ Então /^a requisição deve estar ligada a uma viagem$/ do
   @requisicao.viagem_id.should_not be_nil
 end
 
-
-
-
-
+Então /^eu devo ter (\d+) requisições$/ do |arg1|
+  Requisicao.all.should have(2).requisicoes
+end
 
