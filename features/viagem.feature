@@ -29,23 +29,25 @@ Para que eu possa mudar seus dados de acordo com a dinâmica do trabalho
     E eu devo ver "Estado: Aguardando"
 
     Exemplos: (Campos válidos)
-
-        | data de saída   | data de chegada | horario | motorista           | veiculo                                       | sentença                         |
-        | 1               | 3               | 13:00   | Gustavo Santos      | Gol - KQI 5899 - Automóvel até 4 passageiros  | Viagem atualizada com sucesso!   |
+        | data de saída | data de chegada | horario | motorista      | veiculo                                      | sentença                       |
+        | 1             | 3               | 13:00   | Gustavo Santos | Gol - KQI 5899 - Automóvel até 4 passageiros | Viagem atualizada com sucesso! |
 
     Exemplos: (Campos inválidos)
-
-        | data de saída   | data de chegada | horario | motorista           | veiculo                                       | sentença                         |
-        | -1              | -1              | 13:00   | Gustavo Santos      | Gol - KQI 5899 - Automóvel até 4 passageiros  | Viagem atualizada com sucesso!   |
+        | data de saída | data de chegada | horario | motorista      | veiculo                                      | sentença                       |
+        | -1            | -1              | 13:00   | Gustavo Santos | Gol - KQI 5899 - Automóvel até 4 passageiros | Viagem atualizada com sucesso! |
 
 
   Cenário: Fechar uma viagem com estado Aguardando
     Dado que eu tenho uma requisição com estado "Aceita"
     E que eu tenho uma viagem com o estado "Aguardando"
+    E que eu tenho um veículo com prefixo "1", ordem "13" e placa "LCD-6969"
+    E que este veiculo esteja ligado à viagem
+    E que eu tenho um motorista com nome "Gustavo Ribeiro" e matricula "123456"
+    E que este motorista esteja ligado à viagem
     E que a requisição esteja ligada à viagem
     E que eu estou na página de visualização da viagem
     Quando eu clico em "Fechar viagem"
-    E eu pressiono "Fechar viagem"
-    Então eu devo estar na página de visualização da viagem
-    E eu devo ver "Estado: Atendida"
+    Então eu devo estar na página de criação do BDT
+    E eu devo ver "13 - LCD-6969" selecionado em "Veículo"
+    E eu devo ver "Gustavo Ribeiro - 123456" selecionado em "Condutor"
 

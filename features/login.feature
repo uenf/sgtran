@@ -17,12 +17,12 @@ Funcionalidade: Login para o sistema
 
 
     Exemplos:
-    | Solicitante | Login   | Senha | Ação                                             |
-    | Pedro       | sgtran  | teste | eu devo ver "Pedro"                              |
-    | Pedro       | sgtran  |       | eu devo ver "Senha não pode ficar em branco"     |
-    | Pedro       |         | admin | eu devo ver "Login não pode ficar em branco"     |
-    | Pedro       | sgtran  | admin | eu devo ver "Senha inválida."                    |
-    | Pedro       | admin   | admin | eu devo ver "Login inválido."                    |
+    | Solicitante | Login  | Senha | Ação                                         |
+    | Pedro       | sgtran | teste | eu devo ver "Pedro"                          |
+    | Pedro       | sgtran |       | eu devo ver "Senha não pode ficar em branco" |
+    | Pedro       |        | admin | eu devo ver "Login não pode ficar em branco" |
+    | Pedro       | sgtran | admin | eu devo ver "Senha inválida."                |
+    | Pedro       | admin  | admin | eu devo ver "Login inválido."                |
 
     Esquema do Cenário:
 
@@ -35,18 +35,18 @@ Funcionalidade: Login para o sistema
     Então eu devo estar na página de requisição
 
     Exemplos:
-    | Página desejada                                           |
-    | página de visualização de requisições                     |
-    | página de visualização de motoristas                      |
-    | página de visualização de solicitantes                    |
-    | página de visualização de usuarios                        |
-    | página de visualização de viagens                         |
-    
+    | Página desejada                        |
+    | página de visualização de requisições  |
+    | página de visualização de motoristas   |
+    | página de visualização de solicitantes |
+    | página de visualização de usuarios     |
+    | página de visualização de viagens      |
+
     Cenário: Usuário logado deve ser redirecionado caso acesse a página de login
       Dado que eu estou logado
       Quando eu vou para a "página de login"
       Então eu devo estar na página de visualização de requisições
-      
+
     Cenário: Usuário que não esteja logado deve ver a página de login
       Dado que eu não estou logado
       Quando eu vou para a "página de login"

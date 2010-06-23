@@ -11,6 +11,19 @@
 
 ActiveRecord::Schema.define(:version => 20101022184205) do
 
+  create_table "bdts", :force => true do |t|
+    t.datetime "recolhimento"
+    t.datetime "partida"
+    t.integer  "odometro_recolhimento"
+    t.integer  "odometro_partida"
+    t.string   "objetivo"
+    t.integer  "numero"
+    t.string   "local_origem"
+    t.string   "local_destino"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "categoria_de_veiculos", :force => true do |t|
     t.string   "nome"
     t.integer  "veiculo_id"

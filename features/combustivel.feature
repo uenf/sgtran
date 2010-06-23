@@ -28,9 +28,7 @@ Para que eu possa utiliza-lo no sistema
 
     Exemplos:
 
-    | nome                      | sentença                              |
-    | Gasolina Aditivada        | Combustível modificado com sucesso!   |
-    |                           | Nome não pode ser vazio               |
-    
-    
+    | nome               | sentença                            |
+    | Gasolina Aditivada | Combustível modificado com sucesso! |
+    |                    | Nome não pode ser vazio             |
 

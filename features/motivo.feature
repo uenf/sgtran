@@ -14,9 +14,9 @@ Funcionalidade: Manipular um motivo
 
       Exemplos:
 
-      | descricao                 | sentença                      |
-      | Não há carro disponível   | Motivo criado com sucesso!    |
-      |                           | Descricao não pode ser vazio  |
+      | descricao               | sentença                     |
+      | Não há carro disponível | Motivo criado com sucesso!   |
+      |                         | Descricao não pode ser vazio |
 
 
     Esquema do Cenário: Editar motivo
@@ -28,10 +28,10 @@ Funcionalidade: Manipular um motivo
 
       Exemplos:
 
-      | descricao                 | sentença                          |
-      | Não há carro disponível 2 | Motivo modificado com sucesso!    |
-      |                           | Descricao não pode ser vazio      |
-      
+      | descricao                 | sentença                       |
+      | Não há carro disponível 2 | Motivo modificado com sucesso! |
+      |                           | Descricao não pode ser vazio   |
+
     Esquema do Cenário: Ativar/Desativar um motivo pela página de edição
       Dado que eu tenho um motivo com descrição "Algum motivo"
       E que o motivo esteja "<Estado do Motivo>"
@@ -39,24 +39,24 @@ Funcionalidade: Manipular um motivo
       Quando eu seleciono "<Estado desejado>" em "Estado"
       E eu pressiono "Atualizar"
       Então eu devo ver "Estado: <Estado desejado>"
-      
+
     Exemplos:
-    | Estado do Motivo      | Estado desejado |
-    | Ativo                 | Inativo         |
-    | Inativo               | Ativo           |    
-    
+    | Estado do Motivo | Estado desejado |
+    | Ativo            | Inativo         |
+    | Inativo          | Ativo           |
+
     Esquema do Cenário: Mostrar apenas motivos ativos ao rejeitar a requisição
       Dado que eu tenho uma requisição com estado "Em Espera"
       E que eu tenho um motivo com descrição "Falta de carros"
       E que o motivo esteja "<Estado>"
       E que eu estou na página de rejeitar uma requisição
       Então eu <Visão>
-      
+
     Exemplos:
-    | Estado    | Visão                           |
-    | Ativo     | devo ver "Falta de carros"      |
-    | Inativo   | não devo ver "Falta de carros"  |
-    
+    | Estado  | Visão                          |
+    | Ativo   | devo ver "Falta de carros"     |
+    | Inativo | não devo ver "Falta de carros" |
+
     Esquema do Cenário: Mostrar apenas motivos ativos ao cancelar a requisição pelo sistema
       Dado que eu tenho uma requisição com estado "Aceita"
       E que eu tenho um motivo com descrição "Falta de verba"
@@ -65,9 +65,9 @@ Funcionalidade: Manipular um motivo
       E que a requisição esteja ligada à viagem
       E que eu estou na página de cancelamento pelo sistema da requisição
       Então eu <Visão>
-      
+
     Exemplos:
-    | Estado      | Visão                           |
-    | Ativo       | devo ver "Falta de verba"       |
-    | Inativo     | não devo ver "Falta de verba"   |
+    | Estado  | Visão                         |
+    | Ativo   | devo ver "Falta de verba"     |
+    | Inativo | não devo ver "Falta de verba" |
 

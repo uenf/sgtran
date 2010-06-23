@@ -1,7 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
 
-  map.vencimento_cnh "motoristas/vencimento_cnh", :controller => "motoristas", :action => "vencimento_cnh"
-
+  map.resources :bdts
   map.resources :centros
   map.resources :objetivos_de_reserva
   map.resources :motivos
@@ -12,7 +11,6 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :categoria_de_veiculos
   map.resources :veiculos
   map.resources :solicitantes
-  map.resources :motoristas
   map.resources :viagens
   map.resources :requisicoes
 
@@ -41,16 +39,18 @@ ActionController::Routing::Routes.draw do |map|
   map.filtrar_viagem "filtrar_viagem", :controller => "viagens", :action => "filtrar"
   map.cancelar_viagem "viagens/:id/cancelar_viagem", :controller => "viagens", :action => "cancelar_viagem"
   map.cancelamento_da_viagem "viagens/cancelamento_da_viagem", :controller => "viagens", :action => "cancelamento_da_viagem"
-  map.fechar_viagem "viagens/fechar_viagem/:id", :controller => "viagens", :action => "fechar_viagem"
   map.alterar_viagem "requisicoes/alterar_viagem/:id", :controller => "requisicoes", :action => "alterar_viagem"
+  map.fechar_viagem "viagens/:id/bdt/", :controller => "bdts", :action => "new"
 
   # Rotas para solicitantes
   map.ativar_solicitante "solicitantes/ativacao/:id", :controller => "solicitantes", :action => "ativar_solicitante"
   map.desativar_solicitante "solicitantes/desativacao/:id", :controller => "solicitantes", :action => "desativar_solicitante"
 
   # Rotas para motoristas
+  map.vencimento_cnh "motoristas/vencimento_cnh", :controller => "motoristas", :action => "vencimento_cnh"
   map.ativar_motorista "motoristas/ativacao/:id", :controller => "motoristas", :action => "ativar_motorista"
   map.desativar_motorista "motoristas/desativacao/:id", :controller => "motoristas", :action => "desativar_motorista"
+  map.resources :motoristas
 
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'

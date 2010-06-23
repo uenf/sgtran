@@ -22,3 +22,19 @@ Dado /^que o veículo esteja "([^\"]*)"$/ do |estado|
   @veiculo.save
 end
 
+Dado /^que eu tenho um veículo com prefixo "([^"]*)", ordem "([^"]*)" e placa "([^"]*)"$/ do |prefixo, ordem, placa|
+  categoria_de_veiculo = Factory.create :categoria_de_veiculo
+  combustivel = Factory.create :combustivel
+  @veiculo = Factory.create :veiculo,
+                  :categoria_de_veiculo_id => categoria_de_veiculo.id,
+#                  :prefixo => modelo,
+                  :id => ordem,
+                  :placa => placa,
+                  :combustivel_ids => [combustivel.id]
+end
+
+Dado /^que este veiculo esteja ligado à viagem$/ do
+  @viagem.veiculo_id = @veiculo.id
+  @viagem.save
+end
+

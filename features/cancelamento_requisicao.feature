@@ -17,14 +17,14 @@ Funcionalidade: Cancelar viagem
 
     Exemplos:(Requisição cancelada com sucesso)
 
-    | Motivo       | Sentença                            |
+    | Motivo       | Sentença                          |
     | Estou doente | Requisição cancelada com sucesso! |
     | Faltou verba | Requisição cancelada com sucesso! |
 
     Exemplos:(Campos vazios)
 
-    | Motivo       | Sentença                    |
-    |              | Motivo não pode ser vazio |
+    | Motivo | Sentença                  |
+    |        | Motivo não pode ser vazio |
 
 
   Cenário: Cancelamento de requisição com dados incorretos
@@ -36,24 +36,24 @@ Funcionalidade: Cancelar viagem
     Dado que eu tenho uma requisição com estado cancelado por motivo de falta de verba
     Quando eu vou para "página de cancelamento de requisição"
     Então eu devo ver "Esta requisição já foi cancelada."
-    
+
   Cenário: Cancelar a viagem caso a requisição cancelada seja a última
     Dado que eu tenho uma requisição com estado "Aceita"
     E que eu tenho uma viagem com o estado "Aguardando"
-    E que a requisição esteja ligada à viagem       
+    E que a requisição esteja ligada à viagem
     E que eu estou na página de cancelamento de requisição
     Quando eu preencho "Motivo do Cancelamento" com "algum motivo"
     E eu pressiono "Cancelar requisição"
     Então eu devo ver "Requisição cancelada com sucesso!"
     E a viagem deve estar cancelada
     E a viagem não deve ter nenhuma requisição
-    
+
   Cenário: Cancelar requisição ligada à viagem que possui 2 ou mais requisições
     Dado que eu tenho uma requisição com estado "Aceita"
     E que eu tenho uma viagem com o estado "Aguardando"
     E que a requisição esteja ligada à viagem
     E que eu tenho uma requisição com estado "Aceita"
-    E que a requisição esteja ligada à viagem    
+    E que a requisição esteja ligada à viagem
     E que eu estou na página de cancelamento de requisição
     Quando eu preencho "Motivo do Cancelamento" com "algum motivo"
     E eu pressiono "Cancelar requisição"

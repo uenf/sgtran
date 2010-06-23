@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  recolhimento: 2010-06-01 10:52:17
+  partida: 2010-06-01 10:52:17
+  odometro_recolhimento: 
+  odometro_partida: 
+  objetivo: MyString
+  numero: 
+  local_origem: MyString
+  local_destino: MyString
+
+two:
+  recolhimento: 2010-06-01 10:52:17
+  partida: 2010-06-01 10:52:17
+  odometro_recolhimento: 
+  odometro_partida: 
+  objetivo: MyString
+  numero: 
+  local_origem: MyString
+  local_destino: MyString

@@ -12,9 +12,8 @@ Para que eu possa ter uma visão mais personalizada
     E eu pressiono "OK"
     Então eu devo estar na página de filtragem de requisições
     E eu devo ver a tabela "requisicoes" com
-      | Estado    | Protocolo | Solicitante | Cargo     | Email           | Data              | Tipo  | Referência  |
-      | Espera    | ID        | Fulano      | Professor | fulano@uenf.br  | Daqui a dois dias | Ida   | -           |
-
+      | Estado | Protocolo | Solicitante | Cargo     | Email          | Data              | Tipo | Referência |
+      | Espera | ID        | Fulano      | Professor | fulano@uenf.br | Daqui a dois dias | Ida  | -          |
 
   Cenário: Filtrar as requisições Rejeitadas
     Dado que eu tenho uma requisição com estado "Rejeitada"
@@ -23,8 +22,8 @@ Para que eu possa ter uma visão mais personalizada
     E eu pressiono "OK"
     Então eu devo estar na página de filtragem de requisições
     E eu devo ver a tabela "requisicoes" com
-      | Estado    | Protocolo | Solicitante | Cargo     | Email           | Data              | Tipo  | Referência  |
-      | Rejeitada | ID        | Fulano      | Professor | fulano@uenf.br  | Daqui a dois dias | Ida   | -           |
+      | Estado    | Protocolo | Solicitante | Cargo     | Email          | Data              | Tipo | Referência |
+      | Rejeitada | ID        | Fulano      | Professor | fulano@uenf.br | Daqui a dois dias | Ida  | -          |
 
 
   Cenário: Filtrar as requisições Canceladas pelo Professor
@@ -34,8 +33,8 @@ Para que eu possa ter uma visão mais personalizada
     E eu pressiono "OK"
     Então eu devo estar na página de filtragem de requisições
     E eu devo ver a tabela "requisicoes" com
-      | Estado    | Protocolo | Solicitante | Cargo     | Email           | Data              | Tipo  | Referência  |
-      | Cancelado | ID        | Fulano      | Professor | fulano@uenf.br  | Daqui a dois dias | Ida   | -           |
+      | Estado    | Protocolo | Solicitante | Cargo     | Email          | Data              | Tipo | Referência |
+      | Cancelado | ID        | Fulano      | Professor | fulano@uenf.br | Daqui a dois dias | Ida  | -          |
 
 
 
@@ -46,8 +45,8 @@ Para que eu possa ter uma visão mais personalizada
     E eu pressiono "OK"
     Então eu devo estar na página de filtragem de requisições
     E eu devo ver a tabela "requisicoes" com
-      | Estado    | Protocolo | Solicitante | Cargo     | Email           | Data              | Tipo  | Referência  |
-      | Cancelado | ID        | Fulano      | Professor | fulano@uenf.br  | Daqui a dois dias | Ida   | -           |
+      | Estado    | Protocolo | Solicitante | Cargo     | Email          | Data              | Tipo | Referência |
+      | Cancelado | ID        | Fulano      | Professor | fulano@uenf.br | Daqui a dois dias | Ida  | -          |
 
 
   Cenário: Filtrar as requisições Aceitas
@@ -59,6 +58,6 @@ Para que eu possa ter uma visão mais personalizada
     E eu pressiono "OK"
     Então eu devo estar na página de filtragem de requisições
     E eu devo ver a tabela "requisicoes" com
-      | Estado    | Protocolo | Solicitante | Cargo     | Email           | Data              | Tipo  | Referência  |
-      | Aceita    | ID        | Fulano      | Professor | fulano@uenf.br  | Daqui a dois dias | Ida   | -           |
+      | Estado | Protocolo | Solicitante | Cargo     | Email          | Data              | Tipo | Referência |
+      | Aceita | ID        | Fulano      | Professor | fulano@uenf.br | Daqui a dois dias | Ida  | -          |
 

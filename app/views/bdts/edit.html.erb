@@ -1,0 +1,44 @@
+<h1>Editing bdt</h1>
+
+<% form_for(@bdt) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :recolhimento %><br />
+    <%= f.datetime_select :recolhimento %>
+  </p>
+  <p>
+    <%= f.label :partida %><br />
+    <%= f.datetime_select :partida %>
+  </p>
+  <p>
+    <%= f.label :odometro_recolhimento %><br />
+    <%= f.text_field :odometro_recolhimento %>
+  </p>
+  <p>
+    <%= f.label :odometro_partida %><br />
+    <%= f.text_field :odometro_partida %>
+  </p>
+  <p>
+    <%= f.label :objetivo %><br />
+    <%= f.text_field :objetivo %>
+  </p>
+  <p>
+    <%= f.label :numero %><br />
+    <%= f.text_field :numero %>
+  </p>
+  <p>
+    <%= f.label :local_origem %><br />
+    <%= f.text_field :local_origem %>
+  </p>
+  <p>
+    <%= f.label :local_destino %><br />
+    <%= f.text_field :local_destino %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @bdt %> |
+<%= link_to 'Back', bdts_path %>

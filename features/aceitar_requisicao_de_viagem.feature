@@ -34,12 +34,12 @@ Funcionalidade: Aceitar requisição de viagem
 
         Exemplos: (preenchimento dos dados da viagem)
 
-        | data de saída   | data de chegada | horario | motorista_selecao       | motorista_visao | veiculo_selecao                               | veiculo_visao                                 |
-        | 0               | 2               | 13:00   | Gustavo Santos          | Gustavo Santos  | Gol - KQI 5899 - Automóvel até 4 passageiros  | Gol - KQI 5899 - Automóvel até 4 passageiros  |
-        | 2               | 2               | 13:00   | Gustavo Santos          | Gustavo Santos  | Gol - KQI 5899 - Automóvel até 4 passageiros  | Gol - KQI 5899 - Automóvel até 4 passageiros  |
-        | 0               | 0               | 10:00   | Gustavo Santos          | Gustavo Santos  | Gol - KQI 5899 - Automóvel até 4 passageiros  | Gol - KQI 5899 - Automóvel até 4 passageiros  |
-        | 0               | 0               | 10:00   | Gustavo Santos          | Gustavo Santos  | Selecione um veículo                          |                                               |
-        | 0               | 0               | 10:00   | Gustavo Santos          | Gustavo Santos  | Gol - KQI 5899 - Automóvel até 4 passageiros  | Gol - KQI 5899 - Automóvel até 4 passageiros  |
+        | data de saída | data de chegada | horario | motorista_selecao | motorista_visao | veiculo_selecao                              | veiculo_visao                                |
+        | 0             | 2               | 13:00   | Gustavo Santos    | Gustavo Santos  | Gol - KQI 5899 - Automóvel até 4 passageiros | Gol - KQI 5899 - Automóvel até 4 passageiros |
+        | 2             | 2               | 13:00   | Gustavo Santos    | Gustavo Santos  | Gol - KQI 5899 - Automóvel até 4 passageiros | Gol - KQI 5899 - Automóvel até 4 passageiros |
+        | 0             | 0               | 10:00   | Gustavo Santos    | Gustavo Santos  | Gol - KQI 5899 - Automóvel até 4 passageiros | Gol - KQI 5899 - Automóvel até 4 passageiros |
+        | 0             | 0               | 10:00   | Gustavo Santos    | Gustavo Santos  | Selecione um veículo                         |                                              |
+        | 0             | 0               | 10:00   | Gustavo Santos    | Gustavo Santos  | Gol - KQI 5899 - Automóvel até 4 passageiros | Gol - KQI 5899 - Automóvel até 4 passageiros |
 
 
     Esquema do Cenário: Aceitar com uma viagem já existente
@@ -54,9 +54,9 @@ Funcionalidade: Aceitar requisição de viagem
       Então <resposta>
 
       Exemplos:
-        | ação                          | resposta                                           |
-        | eu escolho a viagem existente | eu devo estar na página de visualização da viagem  |
-        | eu não escolho nenhuma viagem | eu devo ver "Viagem não foi selecionada"           |
+        | ação                          | resposta                                          |
+        | eu escolho a viagem existente | eu devo estar na página de visualização da viagem |
+        | eu não escolho nenhuma viagem | eu devo ver "Viagem não foi selecionada"          |
 
 
     Cenário: Aceitar uma requisição apenas se o estado for Em Espera
@@ -97,8 +97,8 @@ Funcionalidade: Aceitar requisição de viagem
       Quando eu clico em "Aceitar"
       E eu escolho "Existente"
       Então eu devo ver a tabela "viagens" com
-          | Data de partida     | Data de chegada   | Horário de partida  | Motorista     | Veículo | Requisição(s) atendida(s) | Escolha   |
-          | Daqui a dois dias   | Daqui a dois dias |                     | fulano de tal |         | ID                         |           |
+          | Data de partida   | Data de chegada   | Horário de partida | Motorista       | Veículo | Requisição(s) atendida(s) | Escolha |
+          | Daqui a dois dias | Daqui a dois dias |                    | Gustavo Ribeiro |         | ID                        |         |
 
     Esquema do Cenário: Não aceitar uma requisição com uma viagem em estado Atendida ou Cancelada
       Dado que eu tenho uma requisição com estado "Em Espera"
@@ -110,7 +110,7 @@ Funcionalidade: Aceitar requisição de viagem
           | Data de partida     | Data de chegada   | Horário de partida  | Motorista     | Veículo | Requisição(s) atendida(s) | Escolha   |
 
       Exemplos:
-      | Estado      |
-      | Cancelada   |
-      | Atendida    |
+      | Estado    |
+      | Cancelada |
+      | Atendida  |
 

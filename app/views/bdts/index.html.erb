@@ -1,0 +1,34 @@
+<h1>Listing bdts</h1>
+
+<table>
+  <tr>
+    <th>Recolhimento</th>
+    <th>Partida</th>
+    <th>Odometro recolhimento</th>
+    <th>Odometro partida</th>
+    <th>Objetivo</th>
+    <th>Numero</th>
+    <th>Local origem</th>
+    <th>Local destino</th>
+  </tr>
+
+<% @bdts.each do |bdt| %>
+  <tr>
+    <td><%=h bdt.recolhimento %></td>
+    <td><%=h bdt.partida %></td>
+    <td><%=h bdt.odometro_recolhimento %></td>
+    <td><%=h bdt.odometro_partida %></td>
+    <td><%=h bdt.objetivo %></td>
+    <td><%=h bdt.numero %></td>
+    <td><%=h bdt.local_origem %></td>
+    <td><%=h bdt.local_destino %></td>
+    <td><%= link_to 'Show', bdt %></td>
+    <td><%= link_to 'Edit', edit_bdt_path(bdt) %></td>
+    <td><%= link_to 'Destroy', bdt, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New bdt', new_bdt_path %>

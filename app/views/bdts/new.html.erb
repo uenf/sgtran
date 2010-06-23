@@ -1,0 +1,58 @@
+<h1>New bdt</h1>
+
+<% form_for(@bdt) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= label_tag :veiculo, "Veículo" %><br />
+    <%= text_field_tag "veiculo", @veiculo.id.to_s + " - " + @veiculo.placa %>
+  </p>
+
+  <p>
+    <%= label_tag :motorista, "Condutor" %><br />
+    <%= text_field_tag "motorista", @motorista.nome + " - " + @motorista.matricula %>
+  </p>
+
+  <p>
+    <%= f.label :recolhimento %><br />
+    <%= f.datetime_select :recolhimento %>
+  </p>
+  <p>
+    <%= f.label :partida %><br />
+    <%= f.datetime_select :partida %>
+  </p>
+  <p>
+    <%= f.label :odometro_recolhimento %><br />
+    <%= f.text_field :odometro_recolhimento %>
+  </p>
+  <p>
+    <%= f.label :odometro_partida %><br />
+    <%= f.text_field :odometro_partida %>
+  </p>
+  <p>
+    <%= f.label :objetivo %><br />
+    <%= f.text_field :objetivo %>
+  </p>
+  <p>
+    <%= f.label :numero %><br />
+    <%= f.text_field :numero %>
+  </p>
+  <p>
+    <%= f.label :local_origem %><br />
+    <%= f.text_field :local_origem %>
+  </p>
+  <p>
+    <%= f.label :local_destino %><br />
+    <%= f.text_field :local_destino %>
+  </p>
+  <p>
+    <%= label_tag "motorista", "Condutor" %><br />
+    <%= text_field_tag "motorista"  %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', bdts_path %>
+

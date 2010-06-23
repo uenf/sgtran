@@ -97,21 +97,6 @@ class ViagensController < ApplicationController
     redirect_to(viagens_path)
   end
 
-  def fechar_viagem
-    @viagem = Viagem.find(params[:id]) if params[:id]
-  end
-
-  def fechar
-    viagem_id = params[:viagem]
-    @viagem = Viagem.find(viagem_id)
-    if @viagem.fechar_viagem
-      redirect_to(@viagem)
-    else
-      flash[:erro] = "Erro ao fechar a viagem. Verifique os dados da viagem."
-      render :action => "fechar_viagem"
-    end
-  end
-
   def opcoes_motoristas
     data_partida, data_chegada = params[:viagem][:data_partida].to_date, params[:viagem][:data_chegada].to_date
     @lista_motoristas = [

@@ -8,7 +8,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "pat
 # ------------------------------------------------------------------------------
 #
 
-Given /^que eu estou na (.+)$/ do |page_name|
+Dado /^que eu estou na (.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
@@ -17,51 +17,56 @@ Quando /^eu vou para "([^\"]*)"$/ do |page_name|
 end
 
 
-When /^eu clico em "([^\"]*)"$/ do |link|
+Quando /^eu clico em "([^\"]*)"$/ do |link|
   click_link(link)
 end
 
-When /^eu pressiono "([^\"]*)"$/ do |button|
+Quando /^eu pressiono "([^\"]*)"$/ do |button|
   click_button(button)
 end
 
-When /^eu preencho "([^\"]*)" com "([^\"]*)"$/ do |field, value|
+Quando /^eu preencho "([^\"]*)" com "([^\"]*)"$/ do |field, value|
   fill_in(field, :with => value)
 end
 
-When /^eu preencho "([^\"]*)" com a data "([^\"]*)"$/ do |field, value|
+Quando /^eu preencho "([^\"]*)" com a data "([^\"]*)"$/ do |field, value|
   fill_in(field, :with => value)
 end
 
-When /^eu preencho "([^\"]*)" com a data daqui a "([^\"]*)" dias$/ do |field, value|
+Quando /^eu preencho "([^\"]*)" com a data daqui a "([^\"]*)" dias$/ do |field, value|
   value = (Date.today + value.to_i.days).strftime("%d/%m/%Y")
   fill_in(field, :with => value)
 end
 
-Then /^eu devo estar na (.+)$/ do |page_name|
+Entao /^eu devo estar na (.+)$/ do |page_name|
   URI.parse(current_url).path.should == path_to(page_name)
 end
 
-When /^eu marco "([^\"]*)"$/ do |field|
+Quando /^eu marco "([^\"]*)"$/ do |field|
   check(field)
 end
 
-When /^eu não marco "([^\"]*)"$/ do |field|
+Quando /^eu não marco "([^\"]*)"$/ do |field|
   uncheck(field)
 end
 
-Then /^eu devo ver "([^\"]*)" em "([^\"]*)"$/ do |regexp, selector|
-  within(selector) do |content|
-    regexp = Regexp.new(regexp)
-    content.should contain(regexp)
-  end
+Entao /^eu devo ver "([^\"]*)" selecionado em "([^\"]*)"$/ do |texto, label|
+  field_labeled(label).element.attribute('value').to_s.should == texto
 end
 
-When /^eu seleciono "([^\"]*)" no campo hora "([^\"]*)"$/ do |time, time_label|
+Entao /^eu devo ver o campo "([^\"]*)" preenchido com "([^\"]*)"$/ do |campo, valor|
+  field_labeled(campo).value.should =~ /#{valor}/
+end
+
+Quando /^eu seleciono "([^\"]*)" em "([^\"]*)"$/ do |value, field|
+  select(value, :from => field)
+end
+
+Quando /^eu seleciono "([^\"]*)" no campo hora "([^\"]*)"$/ do |time, time_label|
   select_time(time, :from => time_label)
 end
 
-When /^eu vou para a "(.+)"$/ do |page_name|
+Quando /^eu vou para a "(.+)"$/ do |page_name|
   visit path_to(page_name)
 end
 

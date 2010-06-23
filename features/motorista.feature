@@ -18,11 +18,11 @@ Para que eu possa adicionar, editar e utilizar no sistema
 
     Exemplos:
 
-    | matricula | nome          | telefone          | habilitacao | vencimento_habilitacao  | sentença                      |
-    | 100000    | fulano de tal | (00) 0000-0000    | 03811585669 | 19/05/2010              | Motorista criado com sucesso! |
-    |           | fulano de tal | (00) 0000-0000    | 03811585669 | 19/05/2010              | Matricula não pode ser vazio  |
-    | 100000    |               | (00) 0000-0000    | 03811585669 | 19/05/2010              | Nome não pode ser vazio       |
-    | 100000    | fulano de tal |                   | 03811585669 | 19/05/2010              | Telefone não pode ser vazio   |
+    | matricula | nome            | telefone       | habilitacao | vencimento_habilitacao | sentença                      |
+    | 100000    | Gustavo Ribeiro | (00) 0000-0000 | 03811585669 | 19/05/2010             | Motorista criado com sucesso! |
+    |           | Gustavo Ribeiro | (00) 0000-0000 | 03811585669 | 19/05/2010             | Matricula não pode ser vazio  |
+    | 100000    |                 | (00) 0000-0000 | 03811585669 | 19/05/2010             | Nome não pode ser vazio       |
+    | 100000    | Gustavo Ribeiro |                | 03811585669 | 19/05/2010             | Telefone não pode ser vazio   |
 
 
   Esquema do Cenário: Editar motorista
@@ -38,13 +38,13 @@ Para que eu possa adicionar, editar e utilizar no sistema
 
     Exemplos:
 
-    | matricula | nome          | telefone          | habilitacao | vencimento_habilitacao  | sentença                          |
-    | 100000    | fulano de tal | (00) 0000-0000    | 03811585669 | 19/05/2010              | Motorista modificado com sucesso! |
-    |           | fulano de tal | (00) 0000-0000    | 03811585669 | 19/05/2010              | Matricula não pode ser vazio      |
-    | 100000    |               | (00) 0000-0000    | 03811585669 | 19/05/2010              | Nome não pode ser vazio           |
-    | 100000    | fulano de tal |                   | 03811585669 | 19/05/2010              | Telefone não pode ser vazio       |
-    
-    
+    | matricula | nome            | telefone       | habilitacao | vencimento_habilitacao | sentença                          |
+    | 100000    | Gustavo Ribeiro | (00) 0000-0000 | 03811585669 | 19/05/2010             | Motorista modificado com sucesso! |
+    |           | Gustavo Ribeiro | (00) 0000-0000 | 03811585669 | 19/05/2010             | Matricula não pode ser vazio      |
+    | 100000    |                 | (00) 0000-0000 | 03811585669 | 19/05/2010             | Nome não pode ser vazio           |
+    | 100000    | Gustavo Ribeiro |                | 03811585669 | 19/05/2010             | Telefone não pode ser vazio       |
+
+
   Esquema do Cenário: Ativar/Desativar um motorista pela página de edição
     Dado que eu tenho um motorista com nome "Gustavo Santos"
     E que o motorista esteja "<Estado do Solicitante>"
@@ -52,8 +52,9 @@ Para que eu possa adicionar, editar e utilizar no sistema
     Quando eu seleciono "<Estado desejado>" em "Estado"
     E eu pressiono "Atualizar"
     Então eu devo ver "Estado: <Estado desejado>"
-    
+
   Exemplos:
   | Estado do Solicitante | Estado desejado |
   | Ativo                 | Inativo         |
-  | Inativo               | Ativo           |  
+  | Inativo               | Ativo           |
+

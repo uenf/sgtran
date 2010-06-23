@@ -18,3 +18,12 @@ Dado /^que ele não está avisado sobre o vencimento deu sua cnh$/ do
   @motorista.save
 end
 
+Dado /^que eu tenho um motorista com nome "([^"]*)" e matricula "([^"]*)"$/ do |nome, matricula|
+  @motorista = Factory.create :motorista, :nome => nome, :matricula => matricula
+end
+
+Dado /^que este motorista esteja ligado à viagem$/ do
+  @viagem.motorista_id = @motorista.id
+  @viagem.save
+end
+

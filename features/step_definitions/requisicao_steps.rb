@@ -64,7 +64,7 @@ end
 
 Dado /^que eu tenho uma requisição com data de reserva "([^\"]*)" e com solicitante com nome "([^\"]*)" e com matrícula "([^\"]*)"$/ do |data, nome, matricula|
   categoria_de_veiculo = Factory.create :categoria_de_veiculo
-  objetivo_de_reserva = Factory.create :objetivo_de_reserva  
+  objetivo_de_reserva = Factory.create :objetivo_de_reserva
   @solicitante = Factory.create :solicitante, :nome => nome, :matricula => matricula
   date = data.split(/Daqui a /)[1].to_i
   @requisicao = Factory.create :requisicao, :categoria_de_veiculo_id => categoria_de_veiculo.id,
@@ -75,7 +75,7 @@ end
 
 Dado /^que eu tenho uma requisição com protocolo "([^\"]*)"$/ do |protocolo|
   categoria_de_veiculo = Factory.create :categoria_de_veiculo
-  objetivo_de_reserva = Factory.create :objetivo_de_reserva  
+  objetivo_de_reserva = Factory.create :objetivo_de_reserva
   solicitante = Factory.create :solicitante
   @requisicao = Factory.create :requisicao, :id => protocolo,
                                             :categoria_de_veiculo_id => categoria_de_veiculo.id,
@@ -118,10 +118,6 @@ Quando /^eu escolho requisição de "([^\"]*)"$/ do |field|
     @ida_e_volta = false
   end
 
-end
-
-Quando /^eu seleciono "([^\"]*)" em "([^\"]*)"$/ do |value, field|
-  select(value, :from => field)
 end
 
 Quando /^eu preencho data de reserva de volta com "([^\"]*)"$/ do |value|
@@ -168,7 +164,4 @@ end
 Então /^a requisição não deve estar ligada a nenhuma viagem$/ do
   Requisicao.find(@requisicao.id).viagem_id.should be_nil
 end
-
-
-
 

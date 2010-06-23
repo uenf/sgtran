@@ -1,0 +1,43 @@
+<p>
+  <b>Recolhimento:</b>
+  <%=h @bdt.recolhimento %>
+</p>
+
+<p>
+  <b>Partida:</b>
+  <%=h @bdt.partida %>
+</p>
+
+<p>
+  <b>Odometro recolhimento:</b>
+  <%=h @bdt.odometro_recolhimento %>
+</p>
+
+<p>
+  <b>Odometro partida:</b>
+  <%=h @bdt.odometro_partida %>
+</p>
+
+<p>
+  <b>Objetivo:</b>
+  <%=h @bdt.objetivo %>
+</p>
+
+<p>
+  <b>Numero:</b>
+  <%=h @bdt.numero %>
+</p>
+
+<p>
+  <b>Local origem:</b>
+  <%=h @bdt.local_origem %>
+</p>
+
+<p>
+  <b>Local destino:</b>
+  <%=h @bdt.local_destino %>
+</p>
+
+
+<%= link_to 'Edit', edit_bdt_path(@bdt) %> |
+<%= link_to 'Back', bdts_path %>

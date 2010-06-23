@@ -19,7 +19,7 @@ Funcionalidade: Inserir um novo usuário
 
         Exemplos:
         | Nome | Login | E-mail          | Senha | Confirmação | Privilégio    | Resposta                                          |
-        | João | teste | teste@teste.com | teste | teste       | Administrador | teste@teste.com                               |
+        | João | teste | teste@teste.com | teste | teste       | Administrador | teste@teste.com                                   |
         | João | teste | teste@teste.com | teste | teste       | Visitante     | teste@teste.com                                   |
         |      | teste | teste@teste.com | teste | teste       | Administrador | Nome não pode ser vazio                           |
         | João |       | teste@teste.com | teste | teste       | Administrador | Login não pode ser vazio                          |

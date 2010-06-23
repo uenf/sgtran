@@ -18,14 +18,13 @@ Para que eu possa adicinar, editar e utilizar no sistema
     Então eu devo ver "<sentença>"
 
     Exemplos:
-
-    | nome              | e-mail        | matrícula | cargo     | prédio                | sentença                              |
-    | Professor Fulano  | prof@uenf.br  | 123456    | Professor | P5                    | Solicitante criado com sucesso!       |
-    |                   | prof@uenf.br  | 123456    | Professor | P5                    | Nome não pode ser vazio               |
-    | Professor Fulano  | prof@uenf     | 123456    | Professor | P5                    | Email não é válido                    |
-    | Professor Fulano  |               | 123456    | Professor | P5                    | Email não pode ser vazio              |
-    | Professor Fulano  | prof@uenf.br  |           | Professor | P5                    | Matricula não pode ser vazio          |
-    | Professor Fulano  | prof@uenf.br  | 123456    |           | P5                    | Cargo não pode ser vazio    |
+    | nome             | e-mail       | matrícula | cargo     | prédio | sentença                        |
+    | Professor Fulano | prof@uenf.br | 123456    | Professor | P5     | Solicitante criado com sucesso! |
+    |                  | prof@uenf.br | 123456    | Professor | P5     | Nome não pode ser vazio         |
+    | Professor Fulano | prof@uenf    | 123456    | Professor | P5     | Email não é válido              |
+    | Professor Fulano |              | 123456    | Professor | P5     | Email não pode ser vazio        |
+    | Professor Fulano | prof@uenf.br |           | Professor | P5     | Matricula não pode ser vazio    |
+    | Professor Fulano | prof@uenf.br | 123456    |           | P5     | Cargo não pode ser vazio        |
 
 
 
@@ -41,19 +40,19 @@ Para que eu possa adicinar, editar e utilizar no sistema
     Então eu devo ver "<sentença>"
 
     Exemplos:
+    | nome             | e-mail       | matrícula | cargo   | prédio | sentença                            |
+    | Tecnico Beltrano | prof@uenf.br | 123456    | Tecnico | P5     | Solicitante modificado com sucesso! |
 
-    | nome              | e-mail        | matrícula | cargo     | prédio                | sentença                              |
-    | Tecnico Beltrano  | prof@uenf.br  | 123456    | Tecnico   | P5                    | Solicitante modificado com sucesso!   |
-    
-  Esquema do Cenário: Ativar/Desativar um solicitante pela página de edição do solicitante  
+  Esquema do Cenário: Ativar/Desativar um solicitante pela página de edição do solicitante
     Dado que eu tenha um solicitante com e-mail "prof@uenf.br", matrícula "123456" e prédio "P5"
     E que o solicitante esteja "<Estado do Solicitante>"
     E que eu estou na página de edição do solicitante
     Quando eu seleciono "<Estado desejado>" em "Estado"
     E eu pressiono "Atualizar"
     Então eu devo ver "Estado: <Estado desejado>"
-    
+
   Exemplos:
   | Estado do Solicitante | Estado desejado |
   | Ativo                 | Inativo         |
   | Inativo               | Ativo           |
+
