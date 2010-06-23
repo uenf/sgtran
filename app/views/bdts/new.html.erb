@@ -5,7 +5,7 @@
 
   <p>
     <%= label_tag :veiculo, "Veículo" %><br />
-    <%= text_field_tag "veiculo", @veiculo.id.to_s + " - " + @veiculo.placa %>
+    <%= text_field_tag "veiculo", @veiculo.prefixo_id.to_s + " - " + @veiculo.id.to_s + " - " + @veiculo.placa + " - " + @veiculo.modelo %>
   </p>
 
   <p>

@@ -91,11 +91,8 @@ describe Motorista do
                                :data_chegada => data_chegada
       motoristas_ocupados = Motorista.ocupados_entre(data_partida, data_chegada)
 
-      flag = 0
-      motoristas_ocupados.each do |item|
-        flag += 1 if item.include? @motorista_joao.id
-      end
-      flag.should == 1
+      motoristas_desejados = motoristas_ocupados.uniq
+      motoristas_ocupados.should == motoristas_desejados
     end
 
     it "Cada motorista deve aparecer apenas uma vez na lista de desocupados" do
@@ -107,11 +104,8 @@ describe Motorista do
                                :data_chegada => data_chegada
       motoristas_desocupados = Motorista.desocupados_entre(data_partida + 4.days, data_chegada + 4.days)
 
-      flag = 0
-      motoristas_desocupados.each do |item|
-        flag += 1 if item.include? @motorista_joao.id
-      end
-      flag.should == 1
+      motoristas_desejados = motoristas_desocupados.uniq
+      motoristas_desocupados.should == motoristas_desejados
     end
 
     it "deve aparecer na lista de ocupados ou na de desocupados. Nunca nas duas." do

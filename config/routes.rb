@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :prefixos
+
 
   map.resources :bdts
   map.resources :centros

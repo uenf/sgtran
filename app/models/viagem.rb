@@ -19,10 +19,7 @@ class Viagem < ActiveRecord::Base
   def validar_data
     if self.data_partida and self.data_chegada
       if self.data_partida > self.data_chegada
-          self.errors.add("Data de chegada anterior à data de partida. Isso")
-      end
-      if ((self.data_partida < Date.today) or (self.data_chegada < Date.today))
-        self.errors.add("As datas não podem ser anteriores à data atual. Isso")
+        self.errors.add("Data de chegada anterior à data de partida. Isso")
       end
     end
   end
@@ -71,9 +68,8 @@ class Viagem < ActiveRecord::Base
     if self.esta_aguardando?
       requisicoes = Requisicao.find_all_by_viagem_id(self.id)
       requisicoes.each do |r|
-        r.estado = Requisicao::ESPERA
-        r.viagem_id = nil
-        r.save!
+        r.estado = Requisicao::CANCELADO_PELO_SISTEMA
+        r.save_with_validation false
       end
       self.estado = Viagem::CANCELADA
       self.motivo_id = motivo_id.to_i
@@ -95,8 +91,10 @@ class Viagem < ActiveRecord::Base
       self.estado = Viagem::ATENDIDA
       if self.save_with_validation false
         requisicoes_atendidas.each do |r|
-          r.estado = Requisicao::FINALIZADA
-          r.save_with_validation false
+          if r.pode_ser_finalizada?
+            r.estado = Requisicao::FINALIZADA
+            r.save_with_validation false
+          end
         end
         return true
       end
@@ -106,7 +104,9 @@ class Viagem < ActiveRecord::Base
 
   def self.verificar_viagem viagem_id
     viagem = Viagem.find(viagem_id)
-    requisicoes_atendidas = Requisicao.find_all_by_viagem_id(viagem_id)
+    requisicoes_atendidas = Requisicao.find(:all, :conditions => ["viagem_id = ? 
+                                            AND estado <> 'Cancelado pelo professor' AND 
+                                            estado <> 'Cancelado pelo sistema'", viagem.id])
     viagem.estado = Viagem::CANCELADA and viagem.save if requisicoes_atendidas.empty?
   end
 

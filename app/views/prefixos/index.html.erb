@@ -1,0 +1,25 @@
+<% if current_user.has_role? :admin %>
+  <a href="/prefixos/new" class="link_botao">Adicionar Prefixo</a>
+<% end %>
+
+<table id="base_de_dados" class="tabela_base_de_dados">
+  <tr>
+    <th class="celula_neutra_estatica"></th>
+    <th>Nome</th>
+    <th class="celula_neutra_estatica"></th>
+  </tr>
+
+<% @prefixos.each do |prefixo| %>
+  <tr>
+    <%= "<td class='ativo'></td>" if prefixo.estado == Prefixo::ATIVO %>
+    <%= "<td class='inativo'></td>" if prefixo.estado == Prefixo::INATIVO %>
+    <td onclick="location.href='<%= prefixo_path(prefixo) %>'" onmouseover="this.style.cursor='pointer'"><%=h prefixo.nome %></td>
+    <% if current_user.has_role? :admin %>
+      <td onclick="location.href='<%= edit_prefixo_path(prefixo) %>'" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("editar_dado.png", :border => 0, :alt => "Editar"), edit_prefixo_path(prefixo) %></td>
+    <% else %>
+      <td></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+

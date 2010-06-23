@@ -41,7 +41,7 @@ function setarDataVoltaInvisivel()
 
 function idaeVolta()
 {
-    var dataIda = document.getElementById("data_de_reserva_ida").checked
+    var dataIda = document.getElementById("tipo_requisicao_ida").checked
 
     if (dataIda == true)
     {

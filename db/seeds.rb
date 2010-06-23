@@ -18,6 +18,9 @@ open("#{Rails.root}/db/seeds_files/categoria_de_veiculos_seed.txt") do |categori
   end
 end
 
+Prefixo.delete_all
+Prefixo.create!(:nome => "Locado")
+
 Veiculo.delete_all
 open("#{Rails.root}/db/seeds_files/veiculos_seed.txt") do |veiculos|
   veiculos.read.each_line do |veiculo|
@@ -28,6 +31,7 @@ open("#{Rails.root}/db/seeds_files/veiculos_seed.txt") do |veiculos|
       combustiveis.each do |c|
         combustivel_ids << Combustivel.find_by_nome(c).id
       end
+      prefixo = Prefixo.all.first
       Veiculo.create!(:modelo => modelo,
                       :marca => marca,
                       :placa => placa,
@@ -36,7 +40,8 @@ open("#{Rails.root}/db/seeds_files/veiculos_seed.txt") do |veiculos|
                       :ano => ano,
                       :cor => cor,
                       :categoria_de_veiculo_id => CategoriaDeVeiculo.find_by_nome(categoria).id,
-                      :combustivel_ids => combustivel_ids)
+                      :combustivel_ids => combustivel_ids,
+                      :prefixo_id => prefixo.id)
     end
   end
 end

@@ -34,16 +34,22 @@ end
 Dado /^que a requisição esteja ligada à viagem$/ do
   @viagem.requisicoes = [] # Gamba para limpar as requisições da viagem criada no passo "que eu tenho outra viagem com o estado"
   @requisicao.viagem_id = @viagem.id
-  @requisicao.save
+  if @requisicao.data_de_reserva <= Date.today + 2.days
+    @requisicao.save_with_validation false
+  else
+    @requisicao.save
+  end
 end
 
 Dado /^que eu tenha uma viagem$/ do
+  prefixo = Factory.create :prefixo
   categoria_de_veiculo = Factory.create :categoria_de_veiculo
   objetivo_de_reserva = Factory.create :objetivo_de_reserva
   combustivel = Factory.create :combustivel
   veiculo = Factory.create :veiculo,
                   :categoria_de_veiculo_id => categoria_de_veiculo.id,
-                  :combustivel_ids => [combustivel.id]
+                  :combustivel_ids => [combustivel.id],
+                  :prefixo_id => prefixo.id
   motorista = Factory.create :motorista
   requisicao = Factory.create :requisicao,
                               :categoria_de_veiculo_id => categoria_de_veiculo.id,
@@ -62,9 +68,11 @@ Dado /^que eu tenho uma viagem em "([^\"]*)" com data de partida "([^\"]*)"$/ do
   data = (Date.today + data.days)
   categoria_de_veiculo = Factory.create :categoria_de_veiculo
   combustivel = Factory.create :combustivel
+  prefixo = Factory.create :prefixo
   veiculo = Factory.create :veiculo,
                   :categoria_de_veiculo_id => categoria_de_veiculo.id,
-                  :combustivel_ids => [combustivel.id]
+                  :combustivel_ids => [combustivel.id],
+                  :prefixo_id => prefixo.id
   motorista = Factory.create :motorista
   @viagem = Factory.create :viagem,
                            :motorista_id => motorista.id,
@@ -79,9 +87,11 @@ Dado /^que eu tenho uma viagem em "([^\"]*)" com data de chegada "([^\"]*)"$/ do
   data = (Date.today + data.days)
   categoria_de_veiculo = Factory.create :categoria_de_veiculo
   combustivel = Factory.create :combustivel
+  prefixo = Factory.create :prefixo
   veiculo = Factory.create :veiculo,
                   :categoria_de_veiculo_id => categoria_de_veiculo.id,
-                  :combustivel_ids => [combustivel.id]
+                  :combustivel_ids => [combustivel.id],
+                  :prefixo_id => prefixo.id
   motorista = Factory.create :motorista
   @viagem = Factory.create :viagem,
                            :motorista_id => motorista.id,
@@ -92,12 +102,14 @@ Dado /^que eu tenho uma viagem em "([^\"]*)" com data de chegada "([^\"]*)"$/ do
 end
 
 Dado /^que eu tenho uma viagem em "([^"]*)" com o motorista "([^"]*)"$/ do |estado, nome_do_motorista|
+  prefixo = Factory.create :prefixo
   motorista = Factory.create :motorista, :nome => nome_do_motorista
   categoria_de_veiculo = Factory.create :categoria_de_veiculo
   combustivel = Factory.create :combustivel
   veiculo = Factory.create :veiculo,
                   :categoria_de_veiculo_id => categoria_de_veiculo.id,
-                  :combustivel_ids => [combustivel.id]
+                  :combustivel_ids => [combustivel.id],
+                  :prefixo_id => prefixo.id
   @viagem = Factory.create :viagem,
                            :motorista_id => motorista.id,
                            :veiculo_id => veiculo.id,
@@ -167,6 +179,10 @@ end
 
 Então /^a viagem não deve ter nenhuma requisição$/ do
   Requisicao.find_all_by_viagem_id(@viagem.id).should be_empty
+end
+
+Então /^a viagem deve ter uma requisição$/ do
+  Requisicao.find_all_by_viagem_id(@viagem.id).should_not be_empty
 end
 
 Entao /^a viagem não deve atender essa requisição$/ do

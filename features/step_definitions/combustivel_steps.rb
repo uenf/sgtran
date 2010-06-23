@@ -1,4 +1,4 @@
-Dado /^que eu tenho um combustível "([^\"]*)"$/ do |nome|
+Dado /^que eu tenho o combustível "([^\"]*)"$/ do |nome|
   @combustivel = Factory.create :combustivel, :nome => nome
 end
 

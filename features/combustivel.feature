@@ -13,21 +13,19 @@ Para que eu possa utiliza-lo no sistema
     Então eu devo ver "<sentença>"
 
     Exemplos:
-
     | nome   | sentença                        |
     | Álcool | Combustível criado com sucesso! |
     |        | Nome não pode ser vazio         |
 
 
   Esquema do Cenário: Editar combustível
-    Dado que eu tenho um combustível "Álcool"
+    Dado que eu tenho o combustível "Álcool"
     E que eu estou na página de edição de combustível
     Quando eu preencho "Nome" com "<nome>"
     E eu pressiono "Atualizar"
     Então eu devo ver "<sentença>"
 
     Exemplos:
-
     | nome               | sentença                            |
     | Gasolina Aditivada | Combustível modificado com sucesso! |
     |                    | Nome não pode ser vazio             |

@@ -41,6 +41,11 @@
   </div>
 
   <div class="show_linha">
+    <div class="linha_titulo"><%= f.label :prefixo_id, "Prefixo:", :class => "label_obrigatorio" %></div>
+    <div class="linha_texto_neutro"><%= f.select :prefixo_id, @prefixos.collect { |p| [p.nome, p.id] } %></div>
+  </div>
+
+  <div class="show_linha">
     <div class="linha_titulo">
       <label for="categoria_de_veiculo_id" class="label_obrigatorio">Categoria:</label>
     </div>
@@ -61,12 +66,12 @@
       <% end %>
     </div>
   </div>
-  
+
   <div class="show_linha">
     <div class="linha_titulo"><%= f.label :estado, "Estado:", :class => "label_obrigatorio" %></div>
-    <div class="linha_texto_neutro"><%= f.select :estado, {Solicitante::INATIVO => Solicitante::INATIVO, 
+    <div class="linha_texto_neutro"><%= f.select :estado, {Solicitante::INATIVO => Solicitante::INATIVO,
                                                           Solicitante::ATIVO => Solicitante::ATIVO} %></div>
-  </div>  
+  </div>
 
 
 

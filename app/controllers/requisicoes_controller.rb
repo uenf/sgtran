@@ -46,7 +46,7 @@ class RequisicoesController < ApplicationController
   end
 
   def create
-    if params[:data_de_reserva] == "volta"
+    if params[:tipo_requisicao] == "volta"
       dados = {:matricula => params[:matricula],
                 :email => params[:email],
                 :requisicao => params[:requisicao],
@@ -60,7 +60,7 @@ class RequisicoesController < ApplicationController
     if @requisicao.length == 1
       if @requisicao[IDA].valid?
         session[:requisicao] = [@requisicao[IDA].id]
-        #Confirmacao.deliver.deliver_email_confirmacao_de_cadastro_de_requisicao(@requisicao)
+        #Confirmacao.deliver_email_confirmacao_de_cadastro_de_requisicao(@requisicao[IDA])
         redirect_to(confirmar_requisicao_path)
       else
         @requisicao = @requisicao[IDA]
@@ -70,7 +70,9 @@ class RequisicoesController < ApplicationController
       if @requisicao[IDA].valid?
         if @requisicao[VOLTA].valid?
           session[:requisicao] = [@requisicao[IDA].id, @requisicao[VOLTA].id]
-          #Confirmacao.deliver.deliver_email_confirmacao_de_cadastro_de_requisicao(@requisicao)
+          @requisicao.each do |requisicao|
+            #Confirmacao.deliver_email_confirmacao_de_cadastro_de_requisicao(requisicao)
+          end
           redirect_to(confirmar_requisicao_path)
         else
           @requisicao = @requisicao[VOLTA]

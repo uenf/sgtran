@@ -9,18 +9,18 @@ Dado /^que eu tenho uma requisição com estado "([^\"]*)"$/ do |estado|
                                             :objetivo_de_reserva_id => objetivo_de_reserva.id,
                                             :data_de_reserva => Date.today + 2.days
   case estado.to_s
-    when "Em Espera" then
+  when "Em Espera" then
       @requisicao.estado = Requisicao::ESPERA
       @requisicao.save
     when "Rejeitada" then
       @requisicao.estado = Requisicao::REJEITADA
       @requisicao.motivo_id = motivo.id
       @requisicao.save
-  when "Cancelada pelo Professor" then
+    when /(C|c)ancelad(o|a) pelo (P|p)rofessor/ then
       @requisicao.estado = Requisicao::CANCELADO_PELO_PROFESSOR
       @requisicao.motivo_professor = "Algum motivo"
       @requisicao.save
-    when "Cancelada pelo Sistema" then
+    when /(c|C)ancelad(o|a) pelo (S|s)istema/ then
       @requisicao.estado = Requisicao::CANCELADO_PELO_SISTEMA
       @requisicao.motivo_id = motivo.id
       @requisicao.save
@@ -81,6 +81,20 @@ Dado /^que eu tenho uma requisição com protocolo "([^\"]*)"$/ do |protocolo|
                                             :categoria_de_veiculo_id => categoria_de_veiculo.id,
                                             :solicitante_id => solicitante.id,
                                             :objetivo_de_reserva_id => objetivo_de_reserva.id
+end
+
+Dado /^que eu tenho uma requisição de "([^\"]*)" dias atrás e com estado "([^\"]*)"$/ do |dias, estado|
+  centro = Factory.create :centro
+  categoria_de_veiculo = Factory.create :categoria_de_veiculo
+  objetivo_de_reserva = Factory.create :objetivo_de_reserva
+  solicitante = Factory.create :solicitante, :centro_id => centro.id
+  @requisicao = Factory.build :requisicao,
+                              :data_de_reserva => Date.today - dias.to_i.days,
+                              :estado => estado,
+                              :solicitante_id => solicitante.id,
+                              :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                              :objetivo_de_reserva_id => objetivo_de_reserva.id
+  @requisicao.save_with_validation false
 end
 
 Quando /^eu preencho data de "([^\"]*)" com "([^\"]*)"$/ do |campo, data|
@@ -156,12 +170,31 @@ end
 
 
 
-Entao /^a requisição deve estar cancelada$/ do
+Entao /^a requisição deve estar cancelada pelo professor$/ do
   @requisicao.reload
   @requisicao.estado.should == Requisicao::CANCELADO_PELO_PROFESSOR
 end
 
+Entao /^a requisição deve estar cancelada pelo sistema$/ do
+  @requisicao.reload
+  @requisicao.estado.should == Requisicao::CANCELADO_PELO_SISTEMA
+end
+
 Então /^a requisição não deve estar ligada a nenhuma viagem$/ do
   Requisicao.find(@requisicao.id).viagem_id.should be_nil
+end
+
+Então /^a requisição não deve estar cancelada$/ do
+  @requisicao.estado.should_not == Requisicao::CANCELADO_PELO_PROFESSOR
+  @requisicao.estado.should_not == Requisicao::CANCELADO_PELO_SISTEMA
+end
+
+Então /^a requisição deve estar ligada a uma viagem$/ do
+  @requisicao.reload
+  @requisicao.viagem_id.should_not be_nil
+end
+
+Então /^eu devo ter (\d+) requisições$/ do |arg1|
+  Requisicao.all.should have(2).requisicoes
 end
 
