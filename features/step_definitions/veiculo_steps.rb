@@ -1,19 +1,13 @@
-Dado /^que eu tenho o combustivel "([^\"]*)"$/ do |nome|
-  Factory.create :combustivel, :nome => nome
-end
-
-Dado /^que eu tenho a categoria de veiculo "([^\"]*)"$/ do |nome|
-  Factory.create :categoria_de_veiculo, :nome => nome
-end
-
 Dado /^que eu tenha um veículo da categoria "([^\"]*)", modelo "([^\"]*)" e placa "([^\"]*)"$/ do |categoria, modelo, placa|
+  prefixo = Factory.create :prefixo
   categoria_de_veiculo = Factory.create :categoria_de_veiculo, :nome => categoria
   combustivel = Factory.create :combustivel
   @veiculo = Factory.create :veiculo,
                   :categoria_de_veiculo_id => categoria_de_veiculo.id,
                   :modelo => modelo,
                   :placa => placa,
-                  :combustivel_ids => [combustivel.id]
+                  :combustivel_ids => [combustivel.id],
+                  :prefixo_id => prefixo.id
 end
 
 Dado /^que o veículo esteja "([^\"]*)"$/ do |estado|
@@ -36,5 +30,16 @@ end
 Dado /^que este veiculo esteja ligado à viagem$/ do
   @viagem.veiculo_id = @veiculo.id
   @viagem.save
+
+Dado /^que eu tenha um veículo$/ do
+  prefixo = Factory.create :prefixo
+  categoria_de_veiculo = Factory.create :categoria_de_veiculo, :nome => categoria
+  combustivel = Factory.create :combustivel
+  @veiculo = Factory.create :veiculo,
+                  :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                  :modelo => modelo,
+                  :placa => placa,
+                  :combustivel_ids => [combustivel.id],
+                  :prefixo_id => prefixo.id
 end
 

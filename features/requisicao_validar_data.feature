@@ -7,7 +7,7 @@ Eu quero que a data da requisição seja válida
 Para que eu não tenha problemas com a gerência das requisições
 
   Esquema do Cenário: Envio de requisição com datas inválidas
-    Dado que eu tenha uma categoria de veículo "Micro-ônibus - até 32 passageiros"
+    Dado que eu tenha a categoria de veículo "Micro-ônibus - até 32 passageiros"
     E que eu tenha um objetivo de reserva "Aula de Campo"
     E que eu tenha um solicitante com e-mail "ronaldo@corinthians.com", matrícula "01210" e prédio "P5"
     E que eu estou na página de requisição

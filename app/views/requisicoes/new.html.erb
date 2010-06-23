@@ -34,15 +34,15 @@
         <p>Selecione uma das op&ccedil;&otilde;es:</p>
 
         <span>
-          <%= radio_button_tag 'data_de_reserva', 'ida', true,
+          <%= radio_button_tag 'tipo_requisicao', 'ida', true,
                                 :onclick => "idaeVolta()" %>
-          <%= label_tag :data_de_reserva_ida, "Ida" %>
+          <%= label_tag :tipo_requisicao_ida, "Ida" %>
         </span>
         <br/>
         <span>
-          <%= radio_button_tag 'data_de_reserva', 'volta', false,
+          <%= radio_button_tag 'tipo_requisicao', 'volta', false,
                                 :onclick => "idaeVolta()" %>
-          <%= label_tag :data_de_reserva_volta, "Ida e Volta" %>
+          <%= label_tag :tipo_requisicao_volta, "Ida e Volta" %>
         </span>
         <p>
           Obs.: Em caso de <strong>ida e volta no mesmo dia</strong> ou se

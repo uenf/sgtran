@@ -83,6 +83,28 @@ Entao /^eu devo ver "([^\"]*)" com a data daqui a "([^\"]*)" dias$/ do |text, va
   response.should contain(text + value)
 end
 
+Entao /^eu devo ver "([^\"]*)" em "([^\"]*)"$/ do |text, selector|
+  within(selector) do |content|
+    if defined?(Spec::Rails::Matchers)
+      content.should contain(text)
+    else
+      hc = Webrat::Matchers::HasContent.new(text)
+      assert hc.matches?(content), hc.failure_message
+    end
+  end
+end
+
+Entao /^eu não devo ver "([^\"]*)" em "([^\"]*)"$/ do |text, selector|
+  within(selector) do |content|
+    if defined?(Spec::Rails::Matchers)
+      content.should_not contain(text)
+    else
+      hc = Webrat::Matchers::HasContent.new(text)
+      assert !hc.matches?(content), hc.negative_failure_message
+    end
+  end
+end
+
 #
 # ------------------------------------------------------------------------------
 #
