@@ -12,8 +12,8 @@
 
   <div class="show_linha">
     <div class="linha_titulo"><%= f.label :estado, "Estado:", :class => "label_obrigatorio" %></div>
-    <div class="linha_texto_neutro"><%= f.select :estado, {Centro::INATIVO => Centro::INATIVO,
-                                                          Centro::ATIVO => Centro::ATIVO} %></div>
+    <div class="linha_texto_neutro"><%= f.select :estado, {Prefixo::INATIVO => Prefixo::INATIVO,
+                                                          Prefixo::ATIVO => Prefixo::ATIVO} %></div>
   </div>
 
   <div class="botao_concluir"><%= f.submit 'Atualizar' %></div>
