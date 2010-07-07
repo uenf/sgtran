@@ -11,3 +11,11 @@ Dado /^que o prefixo esteja "([^"]*)"$/ do |estado|
   @prefixo.save
 end
 
+Então /^eu devo ter um prefixo "([^"]*)"$/ do |estado|
+  Prefixo.all.first.estado.should == estado
+end
+
+Então /^eu não devo ter um prefixo$/ do
+  Prefixo.all.should have(0).prefixos
+end
+

@@ -21,7 +21,6 @@ class Veiculo < ActiveRecord::Base
   def itens_da_view
     return  self.modelo + " - " + self.placa + " - " +
             CategoriaDeVeiculo.find(self.categoria_de_veiculo_id).nome
-
   end
 
   def ativo?

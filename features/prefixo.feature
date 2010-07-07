@@ -9,22 +9,26 @@ Para que eu possa adicinar, editar e utilizar no sistema
   Esquema do Cenário: Adicionar prefixo
     Dado que eu estou na página de adição de prefixo
     Quando eu preencho "Nome:" com "<nome>"
+    E eu seleciono "Ativo" em "Estado"
     E eu pressiono "Criar Prefixo"
     Então eu devo ver "<sentença>"
+    E <expectativa>
 
     Exemplos:
 
-    | nome      | sentença                      |
-    | Locado    | Prefixo criado com sucesso!   |
-    |           | Nome não pode ser vazio       |
+    | nome      | sentença                      | expectativa                     |
+    | Locado    | Prefixo criado com sucesso!   | eu devo ter um prefixo "Ativo"  |
+    |           | Nome não pode ser vazio       | eu não devo ter um prefixo      |
 
 
   Esquema do Cenário: Editar prefixo
     Dado que eu tenho um prefixo
     E que eu estou na página de edição do prefixo
     Quando eu preencho "Nome" com "<nome>"
+    E eu seleciono "Inativo" em "Estado"
     E eu pressiono "Atualizar"
     Então eu devo ver "<sentença>"
+    E eu devo ter um prefixo "Inativo"
 
     Exemplos:
 
@@ -39,6 +43,7 @@ Para que eu possa adicinar, editar e utilizar no sistema
     Quando eu seleciono "<Estado desejado>" em "Estado"
     E eu pressiono "Atualizar"
     Então eu devo ver "Estado: <Estado desejado>"
+    E eu devo ter um prefixo "<Estado desejado>"
 
     Exemplos:
     | Estado do Prefixo   | Estado desejado |
@@ -46,6 +51,7 @@ Para que eu possa adicinar, editar e utilizar no sistema
     | Inativo             | Ativo           |
 
 
+  @1
   Esquema do Cenário: Mostrar na adição dos veículos apenas os prefixos ativos
     Dado que eu tenho o prefixo "Locado"
     E que o prefixo esteja "<Estado>"

@@ -45,6 +45,12 @@ Para que eu possa mudar seus dados de acordo com a dinâmica do trabalho
     E que este veiculo esteja ligado à viagem
     E que eu tenho um motorista com nome "Gustavo Ribeiro" e matricula "123456"
     E que este motorista esteja ligado à viagem
+    E que a requisição esteja ligada à viagem
+    E que eu estou na página de visualização da viagem
+    Quando eu clico em "Fechar viagem"
+    Então eu devo estar na página de criação do BDT
+    E eu devo ver "1 - 13 - LCD-6969 - Corsa" selecionado em "Veículo"
+    E eu devo ver "Gustavo Ribeiro - 123456" selecionado em "Condutor"
     E que eu tenho uma requisição com estado "<Estado>"
     E que a requisição esteja ligada à viagem
     E que eu estou na página de visualização da viagem
