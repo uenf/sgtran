@@ -4,8 +4,8 @@ describe Veiculo do
 
   it "Deve criar uma nova instancia com valores válidos" do
     prefixo = Factory.create :prefixo
-    combustivel = Factory(:combustivel)
-    categoria = Factory(:categoria_de_veiculo)
+    combustivel = Factory :combustivel
+    categoria = Factory :categoria_de_veiculo
     veiculo = Factory.create :veiculo,
                              :categoria_de_veiculo_id => categoria.id,
                              :combustivel_ids => [combustivel.id],
@@ -16,6 +16,23 @@ describe Veiculo do
   it "deve responder se está ativou ou não" do
     motorista = Factory.create :motorista, :estado => "Ativo"
     (motorista.ativo?).should be_true
+  end
+
+  it "deve fornecer uma lista com os dados dos veículos para o bdt
+  (prefixo, ordem, placa e modelo)" do
+    prefixo = Factory.create :prefixo, :id => 7
+    combustivel = Factory :combustivel
+    categoria = Factory :categoria_de_veiculo
+    veiculo = Factory.create :veiculo,
+                             :categoria_de_veiculo_id => categoria.id,
+                             :combustivel_ids => [combustivel.id],
+                             :prefixo_id => prefixo.id,
+                             :id => 15,
+                             :placa => "LCD-6969",
+                             :modelo => "Uno"
+
+    veiculo.formatacao_para_bdt.should include
+    "#{veiculo.prefixo_id} - #{veiculo.id} - #{veiculo.placa} - #{veiculo.modelo}"
   end
 
   context "Validações:" do

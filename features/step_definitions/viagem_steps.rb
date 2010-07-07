@@ -177,6 +177,12 @@ Então /^a viagem deve estar cancelada$/ do
   @viagem.estado.should == Viagem::CANCELADA
 end
 
+Então /^a viagem deve estar atendida$/ do
+  @viagem.reload
+  @viagem.estado.should == Viagem::ATENDIDA
+end
+
+
 Então /^a viagem não deve ter nenhuma requisição$/ do
   Requisicao.find_all_by_viagem_id(@viagem.id).should be_empty
 end

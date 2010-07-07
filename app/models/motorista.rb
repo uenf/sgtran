@@ -12,6 +12,10 @@ class Motorista < ActiveRecord::Base
                         :nome,
                         :telefone
 
+  def formatacao_para_bdt
+    "#{self.nome} - #{self.matricula}"
+  end
+
   def self.vence_cnh_em(dias)
     lista = []
     Motorista.all.each do |motorista|

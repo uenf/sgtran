@@ -8,6 +8,7 @@ class Viagem < ActiveRecord::Base
   has_many   :requisicoes
   belongs_to :motorista
   belongs_to :veiculo
+  belongs_to :bdt
 
   AGUARDANDO = "Aguardando"
   ATENDIDA   = "Atendida"
@@ -104,8 +105,8 @@ class Viagem < ActiveRecord::Base
 
   def self.verificar_viagem viagem_id
     viagem = Viagem.find(viagem_id)
-    requisicoes_atendidas = Requisicao.find(:all, :conditions => ["viagem_id = ? 
-                                            AND estado <> 'Cancelado pelo professor' AND 
+    requisicoes_atendidas = Requisicao.find(:all, :conditions => ["viagem_id = ?
+                                            AND estado <> 'Cancelado pelo professor' AND
                                             estado <> 'Cancelado pelo sistema'", viagem.id])
     viagem.estado = Viagem::CANCELADA and viagem.save if requisicoes_atendidas.empty?
   end
@@ -141,7 +142,7 @@ class Viagem < ActiveRecord::Base
     end
     return viagens
   end
-  
+
   def self.buscar_por_placa placa
     placa, viagens_buscadas = "%" + placa.to_s + "%", []
     veiculos = Veiculo.find(:all, :conditions => ["placa LIKE ?", placa])

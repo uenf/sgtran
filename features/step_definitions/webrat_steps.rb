@@ -51,7 +51,14 @@ Quando /^eu não marco "([^\"]*)"$/ do |field|
 end
 
 Entao /^eu devo ver "([^\"]*)" selecionado em "([^\"]*)"$/ do |texto, label|
-  field_labeled(label).element.attribute('value').to_s.should == texto
+  field_labeled(label).should be_a_kind_of(Webrat::SelectField)
+
+  field_labeled(label).element.children.each do |option|
+    selected = option.attribute("selected")
+    if selected and selected.value == "selected"
+      option.children.to_s.should == texto
+    end
+  end
 end
 
 Entao /^eu devo ver o campo "([^\"]*)" preenchido com "([^\"]*)"$/ do |campo, valor|

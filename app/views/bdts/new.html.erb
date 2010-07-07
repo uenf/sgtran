@@ -2,15 +2,16 @@
 
 <% form_for(@bdt) do |f| %>
   <%= f.error_messages %>
+  <%= hidden_field_tag 'viagem_id', @viagem.id %>
 
   <p>
-    <%= label_tag :veiculo, "Veículo" %><br />
-    <%= text_field_tag "veiculo", @veiculo.prefixo_id.to_s + " - " + @veiculo.id.to_s + " - " + @veiculo.placa + " - " + @veiculo.modelo %>
+    <%= label_tag :veiculo_id, "Veículo" %><br />
+    <%= collection_select :veiculo, :id, Veiculo.all, :id, :formatacao_para_bdt, {:prompt => "Selecione um veículo"} %>
   </p>
 
   <p>
-    <%= label_tag :motorista, "Condutor" %><br />
-    <%= text_field_tag "motorista", @motorista.nome + " - " + @motorista.matricula %>
+    <%= label_tag :motorista_id, "Condutor" %><br />
+    <%= collection_select :motorista, :id, Motorista.all, :id, :formatacao_para_bdt, {:prompt => "Selecione um motorista"} %>
   </p>
 
   <p>
@@ -22,19 +23,19 @@
     <%= f.datetime_select :partida %>
   </p>
   <p>
-    <%= f.label :odometro_recolhimento %><br />
+    <%= f.label :odometro_recolhimento, "Odômetro recolhimento" %><br />
     <%= f.text_field :odometro_recolhimento %>
   </p>
   <p>
-    <%= f.label :odometro_partida %><br />
+    <%= f.label :odometro_partida, "Odômetro partida" %><br />
     <%= f.text_field :odometro_partida %>
   </p>
   <p>
     <%= f.label :objetivo %><br />
-    <%= f.text_field :objetivo %>
+    <%= f.text_area :objetivo %>
   </p>
   <p>
-    <%= f.label :numero %><br />
+    <%= f.label :numero, "Número" %><br />
     <%= f.text_field :numero %>
   </p>
   <p>
@@ -46,11 +47,7 @@
     <%= f.text_field :local_destino %>
   </p>
   <p>
-    <%= label_tag "motorista", "Condutor" %><br />
-    <%= text_field_tag "motorista"  %>
-  </p>
-  <p>
-    <%= f.submit 'Create' %>
+    <%= f.submit 'Criar' %>
   </p>
 <% end %>
 

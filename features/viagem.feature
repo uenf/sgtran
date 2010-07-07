@@ -36,34 +36,24 @@ Para que eu possa mudar seus dados de acordo com a dinâmica do trabalho
         | data de saída | data de chegada | horario | motorista      | veiculo                                      | sentença                       |
         | -1            | -1              | 13:00   | Gustavo Santos | Gol - KQI 5899 - Automóvel até 4 passageiros | Viagem atualizada com sucesso! |
 
-  @t
-  Cenário: Fechar uma viagem com estado Aguardando
-    Dado que eu tenho uma requisição com estado "Aceita"
-    E que eu tenho uma viagem com o estado "Aguardando"
-    E que eu tenho um veículo com prefixo "1", ordem "13", placa "LCD-6969" e modelo "Corsa"
-    E que este veiculo esteja ligado à viagem
-    E que eu tenho um motorista com nome "Gustavo Ribeiro" e matricula "123456"
-    E que este motorista esteja ligado à viagem
-    E que a requisição esteja ligada à viagem
-    E que eu estou na página de visualização da viagem
-    Quando eu clico em "Fechar viagem"
-    Então eu devo estar na página de criação do BDT
-    E eu devo ver "1 - 13 - LCD-6969 - Corsa" selecionado em "Veículo"
-    E eu devo ver "Gustavo Ribeiro - 123456" selecionado em "Condutor"
-
 
   Esquema do Cenário: Fechar uma viagem com estado Aguardando e com requisição em estado Cancelada
     Dado que eu tenho uma requisição com estado "Aceita"
     E que eu tenho uma viagem com o estado "Aguardando"
     E que a requisição esteja ligada à viagem
+    E que eu tenho um veículo com prefixo "1", ordem "13", placa "LCD-6969" e modelo "Corsa"
+    E que este veiculo esteja ligado à viagem
+    E que eu tenho um motorista com nome "Gustavo Ribeiro" e matricula "123456"
+    E que este motorista esteja ligado à viagem
     E que eu tenho uma requisição com estado "<Estado>"
     E que a requisição esteja ligada à viagem
     E que eu estou na página de visualização da viagem
     Quando eu clico em "Fechar viagem"
-    E eu pressiono "Fechar viagem"
-    Então eu devo estar na página de visualização da viagem
-    E eu devo ver "Estado: Atendida"
+    Então eu devo estar na página de criação do BDT
+    Quando eu pressiono "Criar"
+    Então a viagem deve estar atendida
     E a requisição deve estar <Tipo de cancelamento>
+    E o bdt deve estar ligado à viagem
 
   Exemplos:
     | Estado                    | Tipo de cancelamento      |

@@ -14,9 +14,9 @@ class BdtsController < ApplicationController
   end
 
   def new
-    viagem = Viagem.find(params[:id])
-    @motorista = Motorista.find(viagem.motorista_id)
-    @veiculo = Veiculo.find(viagem.veiculo_id)
+    @viagem = Viagem.find(params[:id])
+    @motorista = Motorista.find(@viagem.motorista_id)
+    @veiculo = Veiculo.find(@viagem.veiculo_id)
     @bdt = Bdt.new
   end
 
@@ -26,11 +26,16 @@ class BdtsController < ApplicationController
 
   def create
     @bdt = Bdt.new(params[:bdt])
-
-    if @bdt.save
-      flash[:notice] = 'Bdt was successfully created.'
+    dados_viagem = {:veiculo_id => params[:veiculo][:id],
+                    :motorista_id => params[:motorista][:id],
+                    :id => params[:viagem_id]}
+    if @bdt.salvar dados_viagem
+      flash[:notice] = 'Bdt criado com sucesso.'
       redirect_to(@bdt)
     else
+      @viagem = Viagem.find(params[:id])
+      @motorista = Motorista.find(@viagem.motorista_id)
+      @veiculo = Veiculo.find(@viagem.veiculo_id)
       render :action => "new"
     end
   end

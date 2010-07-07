@@ -28,7 +28,6 @@ class Veiculo < ActiveRecord::Base
     true ? self.estado == ATIVO : false
   end
 
-  protected
   def validar_categoria_de_veiculo
     if self.categoria_de_veiculo_id == nil
       errors.add(:categoria_de_veiculo, 'não selecionada')
@@ -41,11 +40,14 @@ class Veiculo < ActiveRecord::Base
     end
   end
 
-  protected
   def validar_combustiveis
     if self.combustivel_ids.empty?
       errors.add(:combustiveis, 'não selecionados')
     end
+  end
+
+  def formatacao_para_bdt
+    "#{self.prefixo_id} - #{self.id} - #{self.placa} - #{self.modelo}"
   end
 
   def self.ocupados_entre_datas_e_com_categoria(data_partida, data_chegada, categoria_de_veiculo_da_requisicao_id)
