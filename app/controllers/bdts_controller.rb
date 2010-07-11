@@ -22,6 +22,9 @@ class BdtsController < ApplicationController
 
   def edit
     @bdt = Bdt.find(params[:id])
+    @viagem = Viagem.find(@bdt.viagem_id)
+    @motorista = Motorista.find(@viagem.motorista_id)
+    @veiculo = Veiculo.find(@viagem.veiculo_id)
   end
 
   def create

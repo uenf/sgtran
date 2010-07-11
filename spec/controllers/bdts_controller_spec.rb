@@ -48,7 +48,7 @@ describe BdtsController do
 
   describe "GET edit" do
     it "assigns the requested bdt as @bdt" do
-      Bdt.stub(:find).with("37").and_return(mock_bdt)
+      Bdt.stub(:find).with("37").and_return(mock_bdt(:viagem_id => nil))
       get :edit, :id => "37"
       assigns[:bdt].should equal(mock_bdt)
     end

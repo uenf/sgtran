@@ -159,6 +159,12 @@ module NavigationHelpers
     when /^página de edição do prefixo$/
       edit_prefixo_path(@prefixo)
 
+    when /^página de visualização do BDT$/
+      bdt_path(@bdt)
+
+    when /^página de edição do BDT$/
+      edit_bdt_path(@bdt)
+
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
         "Now, go and add a mapping in #{__FILE__}"

@@ -2,43 +2,56 @@
 
 <% form_for(@bdt) do |f| %>
   <%= f.error_messages %>
+  <%= hidden_field_tag 'viagem_id', @viagem.id %>
 
   <p>
-    <%= f.label :recolhimento %><br />
-    <%= f.datetime_select :recolhimento %>
+    <%= label_tag :veiculo_id, "Veículo" %><br />
+    <%= collection_select :veiculo, :id, Veiculo.all, :id, :formatacao_para_bdt, {:prompt => "Selecione um veículo"} %>
+  </p>
+
+  <p>
+    <%= label_tag :motorista_id, "Condutor" %><br />
+    <%= collection_select :motorista, :id, Motorista.all, :id, :formatacao_para_bdt, {:prompt => "Selecione um motorista"} %>
+  </p>
+
+
+  <p>
+    <%= f.label :recolhimento, "Recolhimento" %><br />
+    <%= f.text_field :recolhimento %>
   </p>
   <p>
-    <%= f.label :partida %><br />
-    <%= f.datetime_select :partida %>
+    <%= f.label :partida, "Partida" %><br />
+    <%= f.text_field :partida %>
   </p>
   <p>
-    <%= f.label :odometro_recolhimento %><br />
+    <%= f.label :odometro_recolhimento, "Odômetro recolhimento" %><br />
     <%= f.text_field :odometro_recolhimento %>
   </p>
   <p>
-    <%= f.label :odometro_partida %><br />
+    <%= f.label :odometro_partida, "Odômetro partida" %><br />
     <%= f.text_field :odometro_partida %>
   </p>
   <p>
-    <%= f.label :objetivo %><br />
+    <%= f.label :objetivo, "Objetivo" %><br />
     <%= f.text_field :objetivo %>
   </p>
   <p>
-    <%= f.label :numero %><br />
+    <%= f.label :numero, "Número" %><br />
     <%= f.text_field :numero %>
   </p>
   <p>
-    <%= f.label :local_origem %><br />
+    <%= f.label :local_origem, "Local origem" %><br />
     <%= f.text_field :local_origem %>
   </p>
   <p>
-    <%= f.label :local_destino %><br />
+    <%= f.label :local_destino, "Local destino" %><br />
     <%= f.text_field :local_destino %>
   </p>
   <p>
-    <%= f.submit 'Update' %>
+    <%= f.submit 'Atualizar' %>
   </p>
 <% end %>
 
 <%= link_to 'Show', @bdt %> |
 <%= link_to 'Back', bdts_path %>
+
