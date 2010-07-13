@@ -2,8 +2,9 @@ class Bdt < ActiveRecord::Base
 
   has_one :viagem
 
-  def salvar dados_viagem
+  validates_presence_of :numero, :odometro_partida, :odometro_recolhimento
 
+  def salvar dados_viagem
     self.viagem_id = dados_viagem[:id]
     if self.save
       viagem = Viagem.find(dados_viagem[:id])

@@ -1,8 +1,11 @@
 require 'spec_helper'
 
 describe Bdt do
-  before(:each) do
-    @valid_attributes = {
+
+  describe 'validação' do
+
+    it "deve criar uma nova instância com atributos válidos" do
+      valid_attributes = {
       :recolhimento => Time.now,
       :partida => Time.now,
       :odometro_recolhimento => 1,
@@ -11,11 +14,25 @@ describe Bdt do
       :numero => 1,
       :local_origem => "value for local_origem",
       :local_destino => "value for local_destino"
-    }
-  end
+      }
+      Bdt.create!(valid_attributes)
+    end
 
-  it "should create a new instance given valid attributes" do
-    Bdt.create!(@valid_attributes)
+    it "deve validar a presença do número do bdt físico (papel)" do
+      bdt = Factory.build :bdt, :numero => nil
+      bdt.save.should be_false
+    end
+
+    it "deve validar a presença do valor do odômetro na partida" do
+      bdt = Factory.build :bdt, :odometro_partida => nil
+      bdt.save.should be_false
+    end
+
+    it "deve validar a presença do valor do odômetro no recolhimento" do
+      bdt = Factory.build :bdt, :odometro_recolhimento => nil
+      bdt.save.should be_false
+    end
+
   end
 
   it "deve salvar o bdt, atualizar a viagem e as requisições" do
