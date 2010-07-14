@@ -24,13 +24,13 @@
   <fieldset>
     <legend>Partida:</legend>
     <p>
-      <label for="partida_data">Data</label>
-      <%= text_field_tag 'partida_data' %>
+      <%= f.label :data_partida, "Data" %>
+      <%= f.text_field 'data_partida' %>
     </p>
     <p>
-      <label for="partida_horario" style="display:none;">Horário de partida</label>
-      <label for="partida_horario">Horário</label>
-      <%= time_select 'partida', 'horario', {:include_blank => '-'} %>
+      <label for="bdt_horario_partida" style="display:none;">Horário de partida</label>
+      <%= f.label :horario_partida, "Horário" %>
+      <%= time_select 'bdt', 'horario_partida', {:prompt => '-', :ignore_date => true} %>
     </p>
     <p>
       <%= f.label :odometro_partida, "Odômetro" %>
@@ -42,12 +42,13 @@
     <legend>Recolhimento:</legend>
     <p>
       <label for="recolhimento_data">Data</label>
-      <%= text_field_tag 'recolhimento_data' %>
+      <%= f.label :data_recolhimento, "Horário" %>
+      <%= f.text_field 'data_recolhimento' %>
     </p>
     <p>
-      <label for="recolhimento_horario" style="display:none;">Horário de recolhimento</label>
-      <label for="recolhimento_horario">Horário</label>
-      <%= time_select 'recolhimento', 'horario', {:include_blank => '-'} %>
+      <label for="bdt_horario_recolhimento" style="display:none;">Horário de recolhimento</label>
+      <%= f.label :horario_recolhimento, "Horário" %>
+      <%= time_select 'bdt', 'horario_recolhimento', {:prompt => '-', :ignore_date => true} %>
     </p>
     <p>
       <%= f.label :odometro_recolhimento, "Odômetro" %>

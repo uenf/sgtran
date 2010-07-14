@@ -60,7 +60,7 @@ class RequisicoesController < ApplicationController
     if @requisicao.length == 1
       if @requisicao[IDA].valid?
         session[:requisicao] = [@requisicao[IDA].id]
-        #Confirmacao.deliver_email_confirmacao_de_cadastro_de_requisicao(@requisicao[IDA])
+        Confirmacao.deliver_email_confirmacao_de_cadastro_de_requisicao(@requisicao[IDA])
         redirect_to(confirmar_requisicao_path)
       else
         @requisicao = @requisicao[IDA]
@@ -71,7 +71,7 @@ class RequisicoesController < ApplicationController
         if @requisicao[VOLTA].valid?
           session[:requisicao] = [@requisicao[IDA].id, @requisicao[VOLTA].id]
           @requisicao.each do |requisicao|
-            #Confirmacao.deliver_email_confirmacao_de_cadastro_de_requisicao(requisicao)
+            Confirmacao.deliver_email_confirmacao_de_cadastro_de_requisicao(requisicao)
           end
           redirect_to(confirmar_requisicao_path)
         else
@@ -226,7 +226,7 @@ class RequisicoesController < ApplicationController
       render :layout => "requisicoes"
       session[:requisicao] = @requisicao
       #incluindo linha para enviar o emailtesteuenf para ailton informando que professor cancelou a requisição
-      #Confirmacao.deliver_email_cancelamento_professor(@requisicao)
+      Confirmacao.deliver_email_cancelamento_professor(@requisicao)
     else
       render :action => "cancelar_requisicao", :layout => "requisicoes"
     end

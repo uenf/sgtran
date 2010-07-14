@@ -6,8 +6,10 @@ describe Bdt do
 
     it "deve criar uma nova instância com atributos válidos" do
       valid_attributes = {
-      :recolhimento => Time.now,
-      :partida => Time.now,
+      :data_recolhimento => Date.today,
+      :horario_recolhimento => Time.now,
+      :data_partida => Date.today,
+      :horario_partida => Time.now,
       :odometro_recolhimento => 1,
       :odometro_partida => 1,
       :objetivo => "value for objetivo",
@@ -30,6 +32,26 @@ describe Bdt do
 
     it "deve validar a presença do valor do odômetro no recolhimento" do
       bdt = Factory.build :bdt, :odometro_recolhimento => nil
+      bdt.save.should be_false
+    end
+
+    it "deve validar a data da partida" do
+      bdt = Factory.build :bdt, :data_partida => ""
+      bdt.save.should be_false
+    end
+
+    it "deve validar o horário da partida" do
+      bdt = Factory.build :bdt, :horario_partida => ""
+      bdt.save.should be_false
+    end
+
+    it "deve validar a data do recolhimento" do
+      bdt = Factory.build :bdt, :data_recolhimento => ""
+      bdt.save.should be_false
+    end
+
+    it "deve validar o horário do recolhimento" do
+      bdt = Factory.build :bdt, :horario_recolhimento => ""
       bdt.save.should be_false
     end
 

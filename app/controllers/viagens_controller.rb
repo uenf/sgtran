@@ -63,10 +63,6 @@ class ViagensController < ApplicationController
     @viagem = Viagem.find(params[:id])
     params[:viagem][:data_partida] = data_str_ou_nil(params[:viagem][:data_partida])
     params[:viagem][:data_chegada] = data_str_ou_nil(params[:viagem][:data_chegada])
-    # Apenas para colocar valores válidos para a data ligada ao horário
-    params[:viagem]["horario_partida(1i)"] = Date.today.year.to_s
-    params[:viagem]["horario_partida(2i)"] = Date.today.mon.to_s
-    params[:viagem]["horario_partida(3i)"] = Date.today.day.to_s
 
     @viagem.attributes = params[:viagem]
     @viagem.save_with_validation false

@@ -3,6 +3,8 @@ class Bdt < ActiveRecord::Base
   has_one :viagem
 
   validates_presence_of :numero, :odometro_partida, :odometro_recolhimento
+  validates_time :horario_partida, :horario_recolhimento, :message => 'é inválido'
+  validates_date :data_partida, :data_recolhimento, :message => 'é inválida'
 
   def salvar dados_viagem
     self.viagem_id = dados_viagem[:id]

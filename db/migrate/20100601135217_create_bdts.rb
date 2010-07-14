@@ -1,8 +1,10 @@
 class CreateBdts < ActiveRecord::Migration
   def self.up
     create_table :bdts do |t|
-      t.datetime :recolhimento
-      t.datetime :partida
+      t.date :data_recolhimento
+      t.time :horario_recolhimento
+      t.date :data_partida
+      t.time :horario_partida
       t.integer :odometro_recolhimento
       t.integer :odometro_partida
       t.text :objetivo

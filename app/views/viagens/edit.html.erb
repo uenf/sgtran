@@ -64,7 +64,7 @@
       <div class="linha_titulo">
         <%= f.label :horario_partida, "Hor&aacute;rio de sa&iacute;da:" %>
       </div>
-      <%= time_select :viagem, :horario_partida, {:time_separator => ' : ', :minute_step => 5, :prompt => "-"} %>
+      <%= time_select :viagem, :horario_partida, {:minute_step => 5, :prompt => "-", :ignore_date => true} %>
     </div>
 
     <div class="show_linha">

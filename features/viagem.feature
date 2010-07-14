@@ -17,6 +17,7 @@ Para que eu possa mudar seus dados de acordo com a dinâmica do trabalho
     Quando eu preencho "Data de saída:" com a data daqui a "<data de saída>" dias
     E eu preencho "Data de chegada:" com a data daqui a "<data de chegada>" dias
     E eu seleciono "<horario>" no campo hora "Horário de saída:"
+#    Então show me the page
     E eu seleciono "<motorista>" em "Motorista:"
     E eu seleciono "<veiculo>" em "Veículo:"
     E eu pressiono "Atualizar"
@@ -30,7 +31,7 @@ Para que eu possa mudar seus dados de acordo com a dinâmica do trabalho
 
     Exemplos: (Campos válidos)
         | data de saída | data de chegada | horario | motorista      | veiculo                                      | sentença                       |
-        | 1             | 3               | 13:00   | Gustavo Santos | Gol - KQI 5899 - Automóvel até 4 passageiros | Viagem atualizada com sucesso! |
+        | 1             | 3               | 11:25   | Gustavo Santos | Gol - KQI 5899 - Automóvel até 4 passageiros | Viagem atualizada com sucesso! |
 
     Exemplos: (Campos inválidos)
         | data de saída | data de chegada | horario | motorista      | veiculo                                      | sentença                       |
@@ -55,8 +56,17 @@ Para que eu possa mudar seus dados de acordo com a dinâmica do trabalho
     E que a requisição esteja ligada à viagem
     E que eu estou na página de visualização da viagem
     Quando eu clico em "Fechar viagem"
+
     Então eu devo estar na página de criação do BDT
-    Quando eu pressiono "Criar"
+    Quando eu preencho "Número" com "28"
+    E eu preencho "bdt_data_partida" com "15/02/2010"
+    E eu seleciono "08:10:00" no campo hora "Horário de partida"
+    E eu preencho "bdt_odometro_partida" com "15020"
+    E eu preencho "bdt_data_recolhimento" com "16/02/2010"
+    E eu seleciono "23:28:00" no campo hora "Horário de recolhimento"
+    E eu preencho "bdt_odometro_recolhimento" com "15810"
+    E eu pressiono "Criar"
+
     Então a viagem deve estar atendida
     E a requisição deve estar <Tipo de cancelamento>
     E o bdt deve estar ligado à viagem
