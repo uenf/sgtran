@@ -72,8 +72,10 @@ Funcionalidade: Fechar viagem com o BDT
     E eu preencho "Local origem" com "Campos"
     E eu preencho "Local destino" com "Rio de Janeiro"
     E eu preencho "Número" com "15"
-    E eu preencho "Partida" com "15/02/2010"
-    E eu preencho "Recolhimento" com "20/02/2010"
+    E eu preencho "Data de partida" com "15/02/2010"
+    E eu preencho "Horário de partida" com "00:00"
+    E eu preencho "Data de recolhimento" com "20/02/2010"
+    E eu preencho "Horário de recolhimento" com "00:00"
     E eu pressiono "Atualizar"
     Então eu devo ver "BDT atualizado com sucesso."
     E eu devo estar na página de visualização do BDT
