@@ -1,32 +1,64 @@
-<fieldset>
-  <legend>Partida:</legend>
-  <p>
-    <b>Data:</b>
-    <%=h @bdt.data_partida %>
-  </p>
-  <p>
-    <b>Horário:</b>
-    <%=h @bdt.horario_partida %>
-  </p>
-  <p>
-    <b>Odômetro:</b>
-    <%=h @bdt.odometro_partida %>
-  </p>
-</fieldset>
+<p>
+  <b>Condutor:</b>
+  <%=h @motorista.nome %>
+</p>
 
-<fieldset>
-  <legend>Recolhimento:</legend>
-  <p>
-    <b>Data:</b>
-    <%=h @bdt.data_recolhimento %>
-  </p>
-  <p>
-    <b>Horário:</b>
-    <%=h @bdt.horario_recolhimento %>
-  </p>
-  <p>
-    <b>Odômetro:</b>
-    <%=h @bdt.odometro_recolhimento %>
-  </p>
-</fieldset>
+<p>
+  <b>Veículo:</b>
+  <%=h @veiculo.placa %>
+</p>
+
+<p>
+  <b>Data de recolhimento:</b>
+  <%=h @bdt.data_recolhimento %>
+</p>
+
+<p>
+  <b>Horário de recolhimento:</b>
+  <%=h @bdt.horario_recolhimento %>
+</p>
+
+<p>
+  <b>Data de partida:</b>
+  <%=h @bdt.data_partida %>
+</p>
+
+<p>
+  <b>Horário de partida:</b>
+  <%=h @bdt.horario_partida %>
+</p>
+
+<p>
+  <b>Odometro recolhimento:</b>
+  <%=h @bdt.odometro_recolhimento %>
+</p>
+
+<p>
+  <b>Odometro partida:</b>
+  <%=h @bdt.odometro_partida %>
+</p>
+
+<p>
+  <b>Objetivo:</b>
+  <%=h @bdt.objetivo %>
+</p>
+
+<p>
+  <b>Numero:</b>
+  <%=h @bdt.numero %>
+</p>
+
+<p>
+  <b>Local origem:</b>
+  <%=h @bdt.local_origem %>
+</p>
+
+<p>
+  <b>Local destino:</b>
+  <%=h @bdt.local_destino %>
+</p>
+
+
+<%= link_to 'Editar', edit_bdt_path(@bdt) %> |
+<%= link_to 'Back', bdts_path %>
 
