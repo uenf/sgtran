@@ -11,13 +11,16 @@ class BdtsController < ApplicationController
 
   def show
     @bdt = Bdt.find(params[:id])
+    @viagem = Viagem.find(@bdt.viagem_id)
+    @motorista = Motorista.find(@viagem.motorista_id)
+    @veiculo = Veiculo.find(@viagem.veiculo_id)
   end
 
   def new
+    @bdt = Bdt.new
     @viagem = Viagem.find(params[:id])
     @motorista = Motorista.find(@viagem.motorista_id)
     @veiculo = Veiculo.find(@viagem.veiculo_id)
-    @bdt = Bdt.new
   end
 
   def edit
@@ -30,13 +33,13 @@ class BdtsController < ApplicationController
   def create
     @bdt = Bdt.new(params[:bdt])
     dados_viagem = {:veiculo_id => params[:veiculo][:id],
-                    :motorista_id => params[:motorista][:id],
-                    :id => params[:viagem_id]}
+                                          :motorista_id => params[:motorista][:id],
+                                          :viagem_id => params[:viagem_id]}
     if @bdt.salvar dados_viagem
       flash[:notice] = 'Bdt criado com sucesso.'
       redirect_to(@bdt)
     else
-      @viagem = Viagem.find(params[:id])
+      @viagem = Viagem.find(dados_viagem[:viagem_id])
       @motorista = Motorista.find(@viagem.motorista_id)
       @veiculo = Veiculo.find(@viagem.veiculo_id)
       render :action => "new"
@@ -45,9 +48,11 @@ class BdtsController < ApplicationController
 
   def update
     @bdt = Bdt.find(params[:id])
-
-    if @bdt.update_attributes(params[:bdt])
-      flash[:notice] = 'Bdt was successfully updated.'
+    dados_viagem = {:veiculo_id => params[:veiculo][:id],
+                    :motorista_id => params[:motorista][:id],
+                    :viagem_id => params[:viagem_id]}
+    if @bdt.atualizar params[:bdt], dados_viagem
+      flash[:notice] = 'BDT atualizado com sucesso.'
       redirect_to(@bdt)
     else
       render :action => "edit"

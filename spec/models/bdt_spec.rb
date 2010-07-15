@@ -44,7 +44,7 @@ describe Bdt do
     bdt = Factory.build :bdt
     dados_viagem = {:veiculo_id => veiculo.id,
                     :motorista_id => motorista.id,
-                    :id => viagem.id}
+                    :viagem_id => viagem.id}
 
     bdt.salvar(dados_viagem).should be_true
 
@@ -62,5 +62,75 @@ describe Bdt do
     requisicao_2.reload
     requisicao_2.estado.should == Requisicao::CANCELADO_PELO_SISTEMA
   end
+
+  describe "deve atualizar" do
+
+
+    it "o BDT" do
+      motivo = Factory.create :motivo
+      combustivel = Factory :combustivel
+      prefixo = Factory.create :prefixo
+      motorista_1 = Factory.create :motorista
+      motorista_2 = Factory.create :motorista, :nome => "Ronaldo"
+      categoria_de_veiculo = Factory.create :categoria_de_veiculo
+      veiculo_1 = Factory.create :veiculo,
+                               :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                               :combustivel_ids => [combustivel.id],
+                               :prefixo_id => prefixo.id
+      veiculo_2 = Factory.create :veiculo,
+                               :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                               :combustivel_ids => [combustivel.id],
+                               :prefixo_id => prefixo.id,
+                               :placa => "LLL-0000"
+
+      viagem = Factory.create :viagem,
+                                              :motorista_id => motorista_1.id,
+                                              :veiculo_id => veiculo_1
+      bdt = Factory.create :bdt, :odometro_recolhimento => 111
+      dados_viagem = {:veiculo_id => veiculo_2.id,
+                      :motorista_id => motorista_2.id,
+                      :viagem_id => viagem.id}
+      dados_bdt = {:odometro_recolhimento => 222}
+
+      bdt.atualizar(dados_bdt, dados_viagem).should be_true
+      bdt.reload
+      bdt.odometro_recolhimento.should == 222
+    end
+
+    it "a viagem" do
+      motivo = Factory.create :motivo
+      combustivel = Factory :combustivel
+      prefixo = Factory.create :prefixo
+      motorista_1 = Factory.create :motorista
+      motorista_2 = Factory.create :motorista, :nome => "Ronaldo"
+      categoria_de_veiculo = Factory.create :categoria_de_veiculo
+      veiculo_1 = Factory.create :veiculo,
+                               :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                               :combustivel_ids => [combustivel.id],
+                               :prefixo_id => prefixo.id
+      veiculo_2 = Factory.create :veiculo,
+                               :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                               :combustivel_ids => [combustivel.id],
+                               :prefixo_id => prefixo.id,
+                               :placa => "LLL-0000"
+
+      viagem = Factory.create :viagem,
+                                              :motorista_id => motorista_1.id,
+                                              :veiculo_id => veiculo_1
+      bdt = Factory.create :bdt, :odometro_recolhimento => 111
+      dados_viagem = {:veiculo_id => veiculo_2.id,
+                      :motorista_id => motorista_2.id,
+                      :viagem_id => viagem.id}
+      dados_bdt = {:odometro_recolhimento => 222}
+
+      dados_viagem[:viagem_id] = viagem.id
+      bdt.atualizar(dados_bdt, dados_viagem).should be_true
+      viagem.reload
+      viagem.motorista_id.should == motorista_2.id
+      viagem.veiculo_id.should == veiculo_2.id
+    end
+
+  end
+
 end
 
