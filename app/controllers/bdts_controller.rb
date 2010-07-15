@@ -5,6 +5,8 @@ class BdtsController < ApplicationController
     allow :visit, :to => [:index, :show]
   end
 
+  layout 'sistema'
+
   def index
     @bdts = Bdt.all
   end
@@ -36,7 +38,7 @@ class BdtsController < ApplicationController
                                           :motorista_id => params[:motorista][:id],
                                           :viagem_id => params[:viagem_id]}
     if @bdt.salvar dados_viagem
-      flash[:notice] = 'Bdt criado com sucesso.'
+      flash[:sucesso] = 'Bdt criado com sucesso.'
       redirect_to(@bdt)
     else
       @viagem = Viagem.find(dados_viagem[:viagem_id])
@@ -52,7 +54,7 @@ class BdtsController < ApplicationController
                     :motorista_id => params[:motorista][:id],
                     :viagem_id => params[:viagem_id]}
     if @bdt.atualizar params[:bdt], dados_viagem
-      flash[:notice] = 'BDT atualizado com sucesso.'
+      flash[:sucesso] = 'BDT atualizado com sucesso.'
       redirect_to(@bdt)
     else
       render :action => "edit"

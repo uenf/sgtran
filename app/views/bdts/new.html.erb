@@ -1,83 +1,106 @@
-<h1>New bdt</h1>
+<%= javascript_include_tag :defaults %>
+<%= calendar_date_select_includes "silver", :locale => "pt"%>
+<%= javascript_include_tag "calendar_date_select/format_italian" %>
 
-<% form_for(@bdt) do |f| %>
-  <%= f.error_messages %>
-  <%= hidden_field_tag 'viagem_id', @viagem.id %>
+<div class="show_padrao">
+  <h1>Novo BDT</h1>
 
-  <p>
-    <%= f.label :numero, "Número" %>
-    <%= f.text_field :numero %>
-  </p>
+  <% form_for(@bdt) do |f| %>
+    <%= mensagem_de_erro(@bdt) %>
+    <%= hidden_field_tag 'viagem_id', @viagem.id %>
 
-  <p>
-    <%= label_tag :veiculo_id, "Veículo" %>
-    <%= collection_select :veiculo, :id, Veiculo.all, :id, :formatacao_para_bdt, {:prompt => "Selecione um veículo"} %>
-    (prefixo - ordem - placa - modelo)
-  </p>
+    <div class="show_linha">
+      <div class="linha_titulo"><%= f.label :numero, "Número", :class => "label_obrigatorio" %></div>
+      <div class="linha_texto_neutro"><%= f.text_field :numero %></div>
+    </div>
 
-  <p>
-    <%= label_tag :motorista_id, "Condutor" %>
-    <%= collection_select :motorista, :id, Motorista.all, :id, :formatacao_para_bdt, {:prompt => "Selecione um motorista"} %>
-    (nome - matrícula)
-  </p>
+    <div class="show_linha">
+      <div class="linha_titulo"><%= label_tag :veiculo_id, "Veículo", :class => "label_obrigatorio" %></div>
+      <div class="linha_texto_neutro">
+        <%= collection_select :veiculo, :id, Veiculo.all, :id, :formatacao_para_bdt, {:prompt => "Selecione um veículo"} %>
+        (prefixo - ordem - placa - modelo)
+      </div>
+    </div>
 
-  <fieldset>
-    <legend>Partida:</legend>
-    <p>
-      <%= f.label :data_partida, "Data" %>
-      <%= f.text_field 'data_partida' %>
-    </p>
-    <p>
-      <label for="bdt_horario_partida" style="display:none;">Horário de partida</label>
-      <%= f.label :horario_partida, "Horário" %>
-      <%= time_select 'bdt', 'horario_partida', {:prompt => '-', :ignore_date => true} %>
-    </p>
-    <p>
-      <%= f.label :odometro_partida, "Odômetro" %>
-      <%= f.text_field :odometro_partida %>
-    </p>
-  </fieldset>
+    <div class="show_linha">
+      <div class="linha_titulo"><%= label_tag :motorista_id, "Condutor", :class => "label_obrigatorio" %></div>
+      <div class="linha_texto_neutro">
+        <%= collection_select :motorista, :id, Motorista.all, :id, :formatacao_para_bdt, {:prompt => "Selecione um motorista"} %>
+        (nome - matrícula)
+      </div>
+    </div>
 
-  <fieldset>
-    <legend>Recolhimento:</legend>
-    <p>
-      <label for="recolhimento_data">Data</label>
-      <%= f.label :data_recolhimento, "Horário" %>
-      <%= f.text_field 'data_recolhimento' %>
-    </p>
-    <p>
-      <label for="bdt_horario_recolhimento" style="display:none;">Horário de recolhimento</label>
-      <%= f.label :horario_recolhimento, "Horário" %>
-      <%= time_select 'bdt', 'horario_recolhimento', {:prompt => '-', :ignore_date => true} %>
-    </p>
-    <p>
-      <%= f.label :odometro_recolhimento, "Odômetro" %>
-      <%= f.text_field :odometro_recolhimento %>
-    </p>
-  </fieldset>
+    <fieldset>
+      <legend>Partida:</legend>
+      <div class="show_linha">
+        <div class="linha_titulo"><%= f.label :data_partida, "Data", :class => "label_obrigatorio" %></div>
+        <div class="linha_texto_neutro">
+          <%= calendar_date_select_tag "bdt_data_partida", "",
+                                        :name => "bdt[data_partida]",
+                                        :year_range => [0.years.ago, 2.years.from_now],
+                                        :month_year => "label",
+                                        :class => "campo_data"%>
+        </div>
+      </div>
+      <div class="show_linha">
+        <label for="bdt_horario_partida" style="display:none;">Horário de partida</label>
+        <div class="linha_titulo"><%= f.label :horario_partida, "Horário", :class => "label_obrigatorio" %></div>
+        <div class="linha_texto_neutro"><%= time_select 'bdt', 'horario_partida', {:prompt => '-', :ignore_date => true} %></div>
+      </div>
+      <div class="show_linha">
+        <div class="linha_titulo"><%= f.label :odometro_partida, "Odômetro", :class => "label_obrigatorio" %></div>
+        <div class="linha_texto_neutro"><%= f.text_field :odometro_partida %></div>
+      </div>
+    </fieldset>
 
-  <fieldset>
-      <legend>Itinerário:</legend>
-      <p>
-        <%= f.label :local_origem %>
-        <%= f.text_field :local_origem %>
-      </p>
+    <fieldset>
+      <legend>Recolhimento:</legend>
+      <div class="show_linha">
+        <div class="linha_titulo"><%= f.label :data_recolhimento, "Data", :class => "label_obrigatorio" %></div>
+        <div class="linha_texto_neutro">
+          <%= calendar_date_select_tag "bdt_data_recolhimento", "",
+                                        :name => "bdt[data_recolhimento]",
+                                        :year_range => [0.years.ago, 2.years.from_now],
+                                        :month_year => "label",
+                                        :class => "campo_data"%>
+        </div>
+      </div>
+      <div class="show_linha">
+        <label for="bdt_horario_recolhimento" style="display:none;">Horário de recolhimento</label>
+        <div class="linha_titulo"><%= f.label :horario_recolhimento, "Horário", :class => "label_obrigatorio" %></div>
+        <div class="linha_texto_neutro"><%= time_select 'bdt', 'horario_recolhimento', {:prompt => '-', :ignore_date => true} %></div>
+      </div>
+      <div class="show_linha">
+        <div class="linha_titulo"><%= f.label :odometro_recolhimento, "Odômetro", :class => "label_obrigatorio" %></div>
+        <div class="linha_texto_neutro"><%= f.text_field :odometro_recolhimento %></div>
+      </div>
+    </fieldset>
 
-      <p>
-        <%= f.label :local_destino %>
-        <%= f.text_field :local_destino %>
-      </p>
-  </fieldset>
+    <fieldset>
+        <legend>Itinerário:</legend>
+        <div class="show_linha">
+          <div class="linha_titulo"><%= f.label :local_origem %></div>
+          <div class="linha_texto_neutro"><%= f.text_field :local_origem %></div>
+        </div>
 
-  <p>
-    <%= f.label :objetivo %><br />
-    <%= f.text_area :objetivo %>
-  </p>
+        <div class="show_linha">
+          <div class="linha_titulo"><%= f.label :local_destino %></div>
+          <div class="linha_texto_neutro"><%= f.text_field :local_destino %></div>
+        </div>
+    </fieldset>
 
-  <p>
-    <%= f.submit 'Criar' %>
-  </p>
-<% end %>
+    <div class="show_linha">
+      <div class="linha_titulo"><%= f.label :objetivo %></div>
+      <div class="linha_texto_neutro"><%= f.text_area :objetivo %></div>
+    </div>
 
-<%= link_to 'Voltar', bdts_path %>
+      <div class="botao_concluir"><%= f.submit 'Criar' %></div>
+  <% end %>
+</div>
+
+<div id="opcoes_da_visao">
+  <ul>
+    <li id="opcao_voltar" onclick="history.back(-1)" onmouseover="this.style.cursor='pointer'">Voltar</li>
+  </ul>
+</div>
 
