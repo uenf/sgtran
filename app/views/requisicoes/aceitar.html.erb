@@ -85,7 +85,7 @@
                             %>
 
           <label for="horario_partida">Hor&aacute;rio de sa&iacute;da:</label>
-          <%= time_select :horario, :partida, {:time_separator => ':', :minute_step => 5, :include_blank => "-"}%>
+          <%= time_select :horario, :partida, {:minute_step => 5, :prompt => "-", :ignore_date => true}%>
           <br class="pular_linha"/>
 
           <label for="motorista_id" class ="label_obrigatorio">Motorista:</label>

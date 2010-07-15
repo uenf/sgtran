@@ -5,51 +5,79 @@
   <%= hidden_field_tag 'viagem_id', @viagem.id %>
 
   <p>
-    <%= label_tag :veiculo_id, "Veículo" %><br />
+    <%= f.label :numero, "Número" %>
+    <%= f.text_field :numero %>
+  </p>
+
+  <p>
+    <%= label_tag :veiculo_id, "Veículo" %>
     <%= collection_select :veiculo, :id, Veiculo.all, :id, :formatacao_para_bdt, {:prompt => "Selecione um veículo"} %>
+    (prefixo - ordem - placa - modelo)
   </p>
 
   <p>
-    <%= label_tag :motorista_id, "Condutor" %><br />
+    <%= label_tag :motorista_id, "Condutor" %>
     <%= collection_select :motorista, :id, Motorista.all, :id, :formatacao_para_bdt, {:prompt => "Selecione um motorista"} %>
+    (nome - matrícula)
   </p>
 
-  <p>
-    <%= f.label :recolhimento %><br />
-    <%= f.text_field :recolhimento %>
-  </p>
-  <p>
-    <%= f.label :partida %><br />
-    <%= f.text_field :partida %>
-  </p>
-  <p>
-    <%= f.label :odometro_recolhimento, "Odômetro recolhimento" %><br />
-    <%= f.text_field :odometro_recolhimento %>
-  </p>
-  <p>
-    <%= f.label :odometro_partida, "Odômetro partida" %><br />
-    <%= f.text_field :odometro_partida %>
-  </p>
+  <fieldset>
+    <legend>Partida:</legend>
+    <p>
+      <%= f.label :data_partida, "Data" %>
+      <%= f.text_field 'data_partida' %>
+    </p>
+    <p>
+      <label for="bdt_horario_partida" style="display:none;">Horário de partida</label>
+      <%= f.label :horario_partida, "Horário" %>
+      <%= time_select 'bdt', 'horario_partida', {:prompt => '-', :ignore_date => true} %>
+    </p>
+    <p>
+      <%= f.label :odometro_partida, "Odômetro" %>
+      <%= f.text_field :odometro_partida %>
+    </p>
+  </fieldset>
+
+  <fieldset>
+    <legend>Recolhimento:</legend>
+    <p>
+      <label for="recolhimento_data">Data</label>
+      <%= f.label :data_recolhimento, "Horário" %>
+      <%= f.text_field 'data_recolhimento' %>
+    </p>
+    <p>
+      <label for="bdt_horario_recolhimento" style="display:none;">Horário de recolhimento</label>
+      <%= f.label :horario_recolhimento, "Horário" %>
+      <%= time_select 'bdt', 'horario_recolhimento', {:prompt => '-', :ignore_date => true} %>
+    </p>
+    <p>
+      <%= f.label :odometro_recolhimento, "Odômetro" %>
+      <%= f.text_field :odometro_recolhimento %>
+    </p>
+  </fieldset>
+
+  <fieldset>
+      <legend>Itinerário:</legend>
+      <p>
+        <%= f.label :local_origem %>
+        <%= f.text_field :local_origem %>
+      </p>
+
+      <p>
+        <%= f.label :local_destino %>
+        <%= f.text_field :local_destino %>
+      </p>
+  </fieldset>
+
   <p>
     <%= f.label :objetivo %><br />
     <%= f.text_area :objetivo %>
   </p>
-  <p>
-    <%= f.label :numero, "Número" %><br />
-    <%= f.text_field :numero %>
-  </p>
-  <p>
-    <%= f.label :local_origem %><br />
-    <%= f.text_field :local_origem %>
-  </p>
-  <p>
-    <%= f.label :local_destino %><br />
-    <%= f.text_field :local_destino %>
-  </p>
+
   <p>
     <%= f.submit 'Criar' %>
   </p>
 <% end %>
 
-<%= link_to 'Back', bdts_path %>
+<%= link_to 'Voltar', bdts_path %>
 

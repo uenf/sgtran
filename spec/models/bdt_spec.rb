@@ -1,21 +1,60 @@
 require 'spec_helper'
 
 describe Bdt do
-  before(:each) do
-    @valid_attributes = {
-      :recolhimento => Time.now,
-      :partida => Time.now,
+
+  describe 'validação' do
+
+    it "deve criar uma nova instância com atributos válidos" do
+      valid_attributes = {
+      :data_recolhimento => Date.today,
+      :horario_recolhimento => Time.now,
+      :data_partida => Date.today,
+      :horario_partida => Time.now,
       :odometro_recolhimento => 1,
       :odometro_partida => 1,
       :objetivo => "value for objetivo",
       :numero => 1,
       :local_origem => "value for local_origem",
       :local_destino => "value for local_destino"
-    }
-  end
+      }
+      Bdt.create!(valid_attributes)
+    end
 
-  it "should create a new instance given valid attributes" do
-    Bdt.create!(@valid_attributes)
+    it "deve validar a presença do número do bdt físico (papel)" do
+      bdt = Factory.build :bdt, :numero => nil
+      bdt.save.should be_false
+    end
+
+    it "deve validar a presença do valor do odômetro na partida" do
+      bdt = Factory.build :bdt, :odometro_partida => nil
+      bdt.save.should be_false
+    end
+
+    it "deve validar a presença do valor do odômetro no recolhimento" do
+      bdt = Factory.build :bdt, :odometro_recolhimento => nil
+      bdt.save.should be_false
+    end
+
+    it "deve validar a data da partida" do
+      bdt = Factory.build :bdt, :data_partida => ""
+      bdt.save.should be_false
+    end
+
+    it "deve validar o horário da partida" do
+      bdt = Factory.build :bdt, :horario_partida => ""
+      bdt.save.should be_false
+    end
+
+    it "deve validar a data do recolhimento" do
+      bdt = Factory.build :bdt, :data_recolhimento => ""
+      bdt.save.should be_false
+    end
+
+    it "deve validar o horário do recolhimento" do
+      bdt = Factory.build :bdt, :horario_recolhimento => ""
+      bdt.save.should be_false
+    end
+
   end
 
   it "deve salvar o bdt, atualizar a viagem e as requisições" do
