@@ -8,16 +8,16 @@ Funcionalidade: Fechar viagem com o BDT
   Esquema do Cenário: Fechar uma viagem com o BDT
     Dado que eu tenho uma requisição com estado "Aceita"
     E que eu tenho uma viagem com o estado "Aguardando"
-    E que eu tenho um veículo com prefixo "1", ordem "13", placa "LCD-6969" e modelo "Corsa"
+    E que eu tenho um veículo de modelo "Corsa" e placa "LCD-6969"
     E que este veiculo esteja ligado à viagem
-    E que eu tenho um motorista com nome "Gustavo Ribeiro" e matricula "123456"
+    E que eu tenho um motorista com nome "Gustavo Ribeiro"
     E que este motorista esteja ligado à viagem
     E que a requisição esteja ligada à viagem
     E que eu estou na página de visualização da viagem
     Quando eu clico em "Fechar viagem"
     Então eu devo estar na página de criação do BDT
-    E eu devo ver "1 - 13 - LCD-6969 - Corsa" selecionado em "Veículo"
-    E eu devo ver "Gustavo Ribeiro - 123456" selecionado em "Condutor"
+    E eu devo ver "Corsa - LCD-6969" selecionado em "Veículo"
+    E eu devo ver "Gustavo Ribeiro" selecionado em "Condutor"
 
     Quando eu preencho "Número" com "<numero>"
     E eu preencho "bdt_data_partida" com "<data_partida>"
@@ -52,11 +52,11 @@ Funcionalidade: Fechar viagem com o BDT
   Cenário: Editar um BDT
     Dado que eu tenho uma requisição com estado "Aceita"
     E que eu tenho uma viagem com o estado "Aguardando"
-    E que eu tenho um veículo com prefixo "1", ordem "13", placa "LCD-6969" e modelo "Corsa"
-    E que eu tenho um veículo com prefixo "2", ordem "14", placa "LLL-1111" e modelo "Corsa"
+    E que eu tenho um veículo de modelo "Corsa" e placa "LCD-6969"
+    E que eu tenho um veículo de modelo "Corsa" e placa "LLL-1111"
     E que este veiculo esteja ligado à viagem
-    E que eu tenho um motorista com nome "Ronaldo" e matricula "111111"
-    E que eu tenho um motorista com nome "Gustavo Ribeiro" e matricula "123456"
+    E que eu tenho um motorista com nome "Ronaldo"
+    E que eu tenho um motorista com nome "Gustavo Ribeiro"
     E que este motorista esteja ligado à viagem
     E que a requisição esteja ligada à viagem
     E que eu tenho um BDT
@@ -64,8 +64,8 @@ Funcionalidade: Fechar viagem com o BDT
     E que eu estou na página de visualização do BDT
     Quando eu clico em "Editar"
     Então eu devo estar na página de edição do BDT
-    Quando eu seleciono "Ronaldo - 111111" em "Condutor"
-    E eu seleciono "1 - 13 - LCD-6969 - Corsa" em "Veículo"
+    Quando eu seleciono "Ronaldo" em "Condutor"
+    E eu seleciono "Corsa - LCD-6969" em "Veículo"
     E eu preencho "Odômetro recolhimento" com "1580"
     E eu preencho "Odômetro partida" com "1480"
     E eu preencho "Objetivo" com "Ir ao Rio para levar alunos ao aeroporto"

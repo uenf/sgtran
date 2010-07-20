@@ -17,13 +17,6 @@ describe Motorista do
     Motorista.create!(@valid_attributes)
   end
 
-  def formatacao_para_bdt
-    motorista = Factory.create :motorista, :nome => "José", :matricula => "1234"
-    motorista.formatacao_para_bdt.should include
-    "#{motorista.nome} - #{motorista.matricula}"
-  end
-
-
   it "deve verificar que sua carteira irá vencer em 30 dias" do
     motorista = Factory.create :motorista,
                                :vencimento_habilitacao => Date.today + 30.days

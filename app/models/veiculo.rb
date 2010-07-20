@@ -46,7 +46,7 @@ class Veiculo < ActiveRecord::Base
   end
 
   def formatacao_para_bdt
-    "#{self.prefixo_id} - #{self.id} - #{self.placa} - #{self.modelo}"
+    "#{self.modelo} - #{self.placa}"
   end
 
   def self.ocupados_entre_datas_e_com_categoria(data_partida, data_chegada, categoria_de_veiculo_da_requisicao_id)

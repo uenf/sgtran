@@ -11,7 +11,7 @@
 
   <p>
     <%= label_tag :motorista_id, "Condutor" %><br />
-    <%= collection_select :motorista, :id, Motorista.all, :id, :formatacao_para_bdt, {:prompt => "Selecione um motorista"} %>
+    <%= collection_select :motorista, :id, Motorista.all, :id, :nome, {:prompt => "Selecione um motorista"} %>
   </p>
 
   <p>

@@ -18,8 +18,7 @@ describe Veiculo do
     (motorista.ativo?).should be_true
   end
 
-  it "deve fornecer uma lista com os dados dos veículos para o bdt
-  (prefixo, ordem, placa e modelo)" do
+  it "deve fornecer uma lista com os dados dos veículos para o bdt (modelo e placa)" do
     prefixo = Factory.create :prefixo, :id => 7
     combustivel = Factory :combustivel
     categoria = Factory :categoria_de_veiculo
@@ -32,7 +31,7 @@ describe Veiculo do
                              :modelo => "Uno"
 
     veiculo.formatacao_para_bdt.should include
-    "#{veiculo.prefixo_id} - #{veiculo.id} - #{veiculo.placa} - #{veiculo.modelo}"
+    "#{veiculo.modelo} - #{veiculo.placa}"
   end
 
   context "Validações:" do

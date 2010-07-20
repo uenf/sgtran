@@ -18,15 +18,13 @@
       <div class="linha_titulo"><%= label_tag :veiculo_id, "Veículo", :class => "label_obrigatorio" %></div>
       <div class="linha_texto_neutro">
         <%= collection_select :veiculo, :id, Veiculo.all, :id, :formatacao_para_bdt, {:prompt => "Selecione um veículo"} %>
-        (prefixo - ordem - placa - modelo)
       </div>
     </div>
 
     <div class="show_linha">
       <div class="linha_titulo"><%= label_tag :motorista_id, "Condutor", :class => "label_obrigatorio" %></div>
       <div class="linha_texto_neutro">
-        <%= collection_select :motorista, :id, Motorista.all, :id, :formatacao_para_bdt, {:prompt => "Selecione um motorista"} %>
-        (nome - matrícula)
+        <%= collection_select :motorista, :id, Motorista.all, :id, :nome, {:prompt => "Selecione um motorista"} %>
       </div>
     </div>
 
