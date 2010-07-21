@@ -45,7 +45,7 @@
                                       :name => "data_saida",
                                       :year_range => [0.years.ago, 2.years.from_now],
                                       :month_year => "label",
-                                      :class => "campo_data"%> <br class="pular_linha"/>
+                                      :class => "campo_de_poucos_digitos"%> <br class="pular_linha"/>
 
           <%= observe_field :viagem_data_de_saida,
                             :url => { :controller => :requisicoes,
@@ -67,7 +67,7 @@
                                       :name => "data_chegada",
                                       :year_range => [0.years.ago, 2.years.from_now],
                                       :month_year => "label",
-                                      :class => "campo_data"%>
+                                      :class => "campo_de_poucos_digitos"%>
           <br class="pular_linha"/>
 
           <%= observe_field :viagem_data_de_chegada,

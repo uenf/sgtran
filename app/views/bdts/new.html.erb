@@ -11,7 +11,7 @@
 
     <div class="show_linha">
       <div class="linha_titulo"><%= f.label :numero, "Número", :class => "label_obrigatorio" %></div>
-      <div class="linha_texto_neutro"><%= f.text_field :numero %></div>
+      <div class="linha_texto_neutro"><%= f.text_field :numero, :class => "campo_de_poucos_digitos" %></div>
     </div>
 
     <div class="show_linha">
@@ -37,7 +37,7 @@
                                         :name => "bdt[data_partida]",
                                         :year_range => [0.years.ago, 2.years.from_now],
                                         :month_year => "label",
-                                        :class => "campo_data"%>
+                                        :class => "campo_de_poucos_digitos"%>
         </div>
       </div>
       <div class="show_linha">
@@ -47,7 +47,7 @@
       </div>
       <div class="show_linha">
         <div class="linha_titulo"><%= f.label :odometro_partida, "Odômetro", :class => "label_obrigatorio" %></div>
-        <div class="linha_texto_neutro"><%= f.text_field :odometro_partida %></div>
+        <div class="linha_texto_neutro"><%= f.text_field :odometro_partida, :class => "campo_de_poucos_digitos" %></div>
       </div>
     </fieldset>
 
@@ -60,7 +60,7 @@
                                         :name => "bdt[data_recolhimento]",
                                         :year_range => [0.years.ago, 2.years.from_now],
                                         :month_year => "label",
-                                        :class => "campo_data"%>
+                                        :class => "campo_de_poucos_digitos"%>
         </div>
       </div>
       <div class="show_linha">
@@ -70,7 +70,7 @@
       </div>
       <div class="show_linha">
         <div class="linha_titulo"><%= f.label :odometro_recolhimento, "Odômetro", :class => "label_obrigatorio" %></div>
-        <div class="linha_texto_neutro"><%= f.text_field :odometro_recolhimento %></div>
+        <div class="linha_texto_neutro"><%= f.text_field :odometro_recolhimento, :class => "campo_de_poucos_digitos" %></div>
       </div>
     </fieldset>
 

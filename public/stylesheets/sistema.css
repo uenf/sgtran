@@ -629,7 +629,7 @@ div.erro {
     color : #000000;
 }
 
-.show_padrao .campo_data {
+.show_padrao .campo_de_poucos_digitos {
     width : 80px;
 }
 
