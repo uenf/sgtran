@@ -129,6 +129,10 @@ a:hover {
     list-style-image : url("/images/viagens.png");
 }
 
+#abas_do_sistema ul #opcao_bdt {
+    list-style-image : url("/images/bdts.png");
+}
+
 #abas_do_sistema ul #opcao_base_de_dados {
     list-style-image : url("/images/base_de_dados.png");
 }
