@@ -1,69 +1,126 @@
-<h1>Editing bdt</h1>
+<div class="show_padrao">
 
-<% form_for(@bdt) do |f| %>
-  <%= f.error_messages %>
-  <%= hidden_field_tag 'viagem_id', @viagem.id %>
+  <h1>Editar BDT</h1>
 
-  <p>
-    <%= label_tag :veiculo_id, "Veículo" %><br />
-    <%= collection_select :veiculo, :id, Veiculo.all, :id, :formatacao_para_bdt, {:prompt => "Selecione um veículo"} %>
-  </p>
+  <% form_for(@bdt) do |f| %>
+    <%= mensagem_de_erro(@bdt) %>
+    <%= hidden_field_tag 'viagem_id', @viagem.id %>
 
-  <p>
-    <%= label_tag :motorista_id, "Condutor" %><br />
-    <%= collection_select :motorista, :id, Motorista.all, :id, :nome, {:prompt => "Selecione um motorista"} %>
-  </p>
+    <div class="show_linha">
+      <div class="linha_titulo"><%= label_tag :veiculo_id, "Veículo" %></div>
+      <div class="linha_texto_neutro">
+        <%= collection_select :veiculo, :id, Veiculo.all, :id,
+                              :formatacao_para_bdt,
+                              {:prompt => "Selecione um veículo"} %>
+      </div>
+    </div>
 
-  <p>
-    <%= f.label :data_recolhimento, "Data de recolhimento" %><br />
-    <%= f.text_field :data_recolhimento %>
-  </p>
+    <div class="show_linha">
+      <div class="linha_titulo"><%= label_tag :motorista_id, "Condutor" %></div>
+      <div class="linha_texto_neutro">
+        <%= collection_select :motorista, :id, Motorista.all, :id, :nome,
+                              {:prompt => "Selecione um motorista"} %>
+      </div>
+    </div>
 
-  <p>
-    <%= f.label :horario_recolhimento, "Horário de recolhimento" %><br />
-    <%= f.text_field :horario_recolhimento %>
-  </p>
+    <div class="show_linha">
+      <div class="linha_titulo">
+        <%= f.label :data_recolhimento, "Data de recolhimento" %>
+      </div>
+      <div class="linha_texto_neutro">
+        <%= f.text_field :data_recolhimento %>
+      </div>
+    </div>
 
-  <p>
-    <%= f.label :data_partida, "Data de partida" %><br />
-    <%= f.text_field :data_partida %>
-  </p>
+    <div class="show_linha">
+      <div class="linha_titulo">
+        <%= f.label :horario_recolhimento, "Horário de recolhimento" %>
+      </div>
+      <div class="linha_texto_neutro">
+        <%= f.text_field :horario_recolhimento %>
+      </div>
+    </div>
 
-  <p>
-    <%= f.label :horario_partida, "Horário de partida" %><br />
-    <%= f.text_field :horario_partida %>
-  </p>
+    <div class="show_linha">
+      <div class="linha_titulo">
+        <%= f.label :data_partida, "Data de partida" %>
+      </div>
+      <div class="linha_texto_neutro">
+        <%= f.text_field :data_partida %>
+      </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo">
+        <%= f.label :horario_partida, "Horário de partida" %>
+      </div>
+      <div class="linha_texto_neutro">
+        <%= f.text_field :horario_partida %>
+      </div>
+    </div>
 
 
-  <p>
-    <%= f.label :odometro_recolhimento, "Odômetro recolhimento" %><br />
-    <%= f.text_field :odometro_recolhimento %>
-  </p>
-  <p>
-    <%= f.label :odometro_partida, "Odômetro partida" %><br />
-    <%= f.text_field :odometro_partida %>
-  </p>
-  <p>
-    <%= f.label :objetivo, "Objetivo" %><br />
-    <%= f.text_field :objetivo %>
-  </p>
-  <p>
-    <%= f.label :numero, "Número" %><br />
-    <%= f.text_field :numero %>
-  </p>
-  <p>
-    <%= f.label :local_origem, "Local origem" %><br />
-    <%= f.text_field :local_origem %>
-  </p>
-  <p>
-    <%= f.label :local_destino, "Local destino" %><br />
-    <%= f.text_field :local_destino %>
-  </p>
-  <p>
-    <%= f.submit 'Atualizar' %>
-  </p>
-<% end %>
+    <div class="show_linha">
+      <div class="linha_titulo">
+        <%= f.label :odometro_recolhimento, "Odômetro recolhimento" %>
+      </div>
+      <div class="linha_texto_neutro">
+        <%= f.text_field :odometro_recolhimento %>
+      </div>
+    </div>
 
-<%= link_to 'Show', @bdt %> |
-<%= link_to 'Back', bdts_path %>
+    <div class="show_linha">
+      <div class="linha_titulo">
+        <%= f.label :odometro_partida, "Odômetro partida" %>
+      </div>
+      <div class="linha_texto_neutro">
+        <%= f.text_field :odometro_partida %>
+      </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo">
+        <%= f.label :objetivo, "Objetivo" %>
+      </div>
+      <div class="linha_texto_neutro">
+        <%= f.text_field :objetivo %>
+      </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo">
+        <%= f.label :numero, "Número" %>
+      </div>
+      <div class="linha_texto_neutro">
+        <%= f.text_field :numero %>
+      </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo">
+        <%= f.label :local_origem, "Local origem" %>
+      </div>
+      <div class="linha_texto_neutro">
+        <%= f.text_field :local_origem %>
+      </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo">
+        <%= f.label :local_destino, "Local destino" %>
+      </div>
+      <div class="linha_texto_neutro">
+        <%= f.text_field :local_destino %>
+      </div>
+    </div>
+
+    <div class="botao_concluir"><%= f.submit 'Atualizar' %></div>
+  <% end %>
+</div>
+
+<div id="opcoes_da_visao">
+  <ul>
+    <li id="opcao_voltar" onclick="history.back(-1)" onmouseover="this.style.cursor = 'pointer'">Voltar</li>
+  </ul>
+</div>
 
