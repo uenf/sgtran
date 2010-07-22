@@ -1,3 +1,7 @@
+<%= javascript_include_tag :defaults %>
+<%= calendar_date_select_includes "silver", :locale => "pt"%>
+<%= javascript_include_tag "calendar_date_select/format_italian" %>
+
 <div class="show_padrao">
 
   <h1>Editar BDT</h1>
@@ -7,7 +11,18 @@
     <%= hidden_field_tag 'viagem_id', @viagem.id %>
 
     <div class="show_linha">
-      <div class="linha_titulo"><%= label_tag :veiculo_id, "Veículo" %></div>
+      <div class="linha_titulo">
+        <%= f.label :numero, "Número", :class => "label_obrigatorio" %>
+      </div>
+      <div class="linha_texto_neutro">
+        <%= f.text_field :numero, :class => "campo_de_poucos_digitos" %>
+      </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo">
+        <%= label_tag :veiculo_id, "Veículo", :class => "label_obrigatorio" %>
+      </div>
       <div class="linha_texto_neutro">
         <%= collection_select :veiculo, :id, Veiculo.all, :id,
                               :formatacao_para_bdt,
@@ -16,85 +31,89 @@
     </div>
 
     <div class="show_linha">
-      <div class="linha_titulo"><%= label_tag :motorista_id, "Condutor" %></div>
+      <div class="linha_titulo">
+        <%= label_tag :motorista_id, "Condutor", :class => "label_obrigatorio" %>
+      </div>
       <div class="linha_texto_neutro">
         <%= collection_select :motorista, :id, Motorista.all, :id, :nome,
-                              {:prompt => "Selecione um motorista"} %>
+                              {:prompt => "Selecione um condutor"} %>
       </div>
     </div>
 
-    <div class="show_linha">
-      <div class="linha_titulo">
-        <%= f.label :data_recolhimento, "Data de recolhimento" %>
+    <fieldset>
+      <legend>Partida:</legend>
+      <div class="show_linha">
+        <div class="linha_titulo">
+          <%= f.label :data_partida, "Data", :class => "label_obrigatorio" %>
+        </div>
+        <div class="linha_texto_neutro">
+          <%= calendar_date_select_tag "bdt_data_partida",
+                                @bdt.data_partida.to_s_br,
+                                :name => "bdt[data_partida]",
+                                :year_range => [0.years.ago, 2.years.from_now],
+                                :month_year => "label",
+                                :class => "campo_de_poucos_digitos"%>
+        </div>
       </div>
-      <div class="linha_texto_neutro">
-        <%= f.text_field :data_recolhimento %>
-      </div>
-    </div>
 
-    <div class="show_linha">
-      <div class="linha_titulo">
-        <%= f.label :horario_recolhimento, "Horário de recolhimento" %>
+      <div class="show_linha">
+        <div class="linha_titulo">
+          <%= f.label :horario_partida, "Horário", :class => "label_obrigatorio" %>
+        </div>
+        <div class="linha_texto_neutro">
+          <%= time_select 'bdt', 'horario_partida',
+                          {:prompt => @bdt_horario_partida,
+                           :ignore_date => true} %>
+        </div>
       </div>
-      <div class="linha_texto_neutro">
-        <%= f.text_field :horario_recolhimento %>
-      </div>
-    </div>
 
-    <div class="show_linha">
-      <div class="linha_titulo">
-        <%= f.label :data_partida, "Data de partida" %>
+      <div class="show_linha">
+        <div class="linha_titulo">
+          <%= f.label :odometro_partida, "Odômetro", :class => "label_obrigatorio" %>
+        </div>
+        <div class="linha_texto_neutro">
+          <%= f.text_field :odometro_partida, :class => "campo_de_poucos_digitos" %>
+        </div>
       </div>
-      <div class="linha_texto_neutro">
-        <%= f.text_field :data_partida %>
-      </div>
-    </div>
+    </fieldset>
 
-    <div class="show_linha">
-      <div class="linha_titulo">
-        <%= f.label :horario_partida, "Horário de partida" %>
+    <fieldset>
+      <legend>Recolhimento:</legend>
+      <div class="show_linha">
+        <div class="linha_titulo">
+          <%= f.label :data_recolhimento, "Data", :class => "label_obrigatorio" %>
+        </div>
+        <div class="linha_texto_neutro">
+          <%= calendar_date_select_tag "bdt_data_recolhimento",
+                              @bdt.data_recolhimento.to_s_br,
+                              :name => "bdt[data_recolhimento]",
+                              :year_range => [0.years.ago, 2.years.from_now],
+                              :month_year => "label",
+                              :class => "campo_de_poucos_digitos"%>
+        </div>
       </div>
-      <div class="linha_texto_neutro">
-        <%= f.text_field :horario_partida %>
+
+      <div class="show_linha">
+        <div class="linha_titulo">
+          <%= f.label :horario_recolhimento, "Horário", :class => "label_obrigatorio" %>
+        </div>
+        <div class="linha_texto_neutro">
+          <%= time_select 'bdt', 'horario_recolhimento',
+                          {:prompt => @bdt_horario_recolhimento,
+                           :ignore_date => true} %>
+        </div>
       </div>
-    </div>
 
 
-    <div class="show_linha">
-      <div class="linha_titulo">
-        <%= f.label :odometro_recolhimento, "Odômetro recolhimento" %>
+      <div class="show_linha">
+        <div class="linha_titulo">
+          <%= f.label :odometro_recolhimento, "Odômetro", :class => "label_obrigatorio" %>
+        </div>
+        <div class="linha_texto_neutro">
+          <%= f.text_field :odometro_recolhimento, :class => "campo_de_poucos_digitos" %>
+        </div>
       </div>
-      <div class="linha_texto_neutro">
-        <%= f.text_field :odometro_recolhimento %>
-      </div>
-    </div>
-
-    <div class="show_linha">
-      <div class="linha_titulo">
-        <%= f.label :odometro_partida, "Odômetro partida" %>
-      </div>
-      <div class="linha_texto_neutro">
-        <%= f.text_field :odometro_partida %>
-      </div>
-    </div>
-
-    <div class="show_linha">
-      <div class="linha_titulo">
-        <%= f.label :objetivo, "Objetivo" %>
-      </div>
-      <div class="linha_texto_neutro">
-        <%= f.text_field :objetivo %>
-      </div>
-    </div>
-
-    <div class="show_linha">
-      <div class="linha_titulo">
-        <%= f.label :numero, "Número" %>
-      </div>
-      <div class="linha_texto_neutro">
-        <%= f.text_field :numero %>
-      </div>
-    </div>
+    </fieldset>
 
     <div class="show_linha">
       <div class="linha_titulo">
@@ -111,6 +130,15 @@
       </div>
       <div class="linha_texto_neutro">
         <%= f.text_field :local_destino %>
+      </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo">
+        <%= f.label :objetivo, "Objetivo" %>
+      </div>
+      <div class="linha_texto_neutro">
+        <%= f.text_area :objetivo %>
       </div>
     </div>
 
