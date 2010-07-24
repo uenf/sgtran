@@ -1,64 +1,73 @@
-<p>
-  <b>Condutor:</b>
-  <%=h @motorista.nome %>
-</p>
+<div class="show_padrao">
 
-<p>
-  <b>Veículo:</b>
-  <%=h @veiculo.placa %>
-</p>
+  <h1>Dados do BDT</h1>
 
-<p>
-  <b>Data de recolhimento:</b>
-  <%=h @bdt.data_recolhimento %>
-</p>
+  <div class="show_linha">
+    <div class="linha_titulo">Número:</div>
+    <div class="linha_texto"><%=h @bdt.numero %></div>
+  </div>
 
-<p>
-  <b>Horário de recolhimento:</b>
-  <%=h @bdt.horario_recolhimento %>
-</p>
+  <div class="show_linha">
+    <div class="linha_titulo">Veículo:</div>
+    <div class="linha_texto"><%=h @veiculo.modelo + ' - ' + @veiculo.placa %></div>
+  </div>
 
-<p>
-  <b>Data de partida:</b>
-  <%=h @bdt.data_partida %>
-</p>
+  <div class="show_linha">
+    <div class="linha_titulo">Condutor:</div>
+    <div class="linha_texto"><%=h @motorista.nome %></div>
+  </div>
 
-<p>
-  <b>Horário de partida:</b>
-  <%=h @bdt.horario_partida %>
-</p>
+  <div class="show_linha">
+    <div class="linha_titulo">Data de partida:</div>
+    <div class="linha_texto"><%=h @bdt.data_partida.to_s_br %></div>
+  </div>
 
-<p>
-  <b>Odometro recolhimento:</b>
-  <%=h @bdt.odometro_recolhimento %>
-</p>
+  <div class="show_linha">
+    <div class="linha_titulo">Horário de partida:</div>
+    <div class="linha_texto"><%=h @bdt.horario_partida.to_s_br.split[1] %></div>
+  </div>
 
-<p>
-  <b>Odometro partida:</b>
-  <%=h @bdt.odometro_partida %>
-</p>
+  <div class="show_linha">
+    <div class="linha_titulo">Odômetro na partida:</div>
+    <div class="linha_texto"><%=h @bdt.odometro_partida %></div>
+  </div>
 
-<p>
-  <b>Objetivo:</b>
-  <%=h @bdt.objetivo %>
-</p>
+  <div class="show_linha">
+    <div class="linha_titulo">Data de reco.:</div>
+    <div class="linha_texto"><%=h @bdt.data_recolhimento.to_s_br %></div>
+  </div>
 
-<p>
-  <b>Numero:</b>
-  <%=h @bdt.numero %>
-</p>
+  <div class="show_linha">
+    <div class="linha_titulo">Horário de reco.:</div>
+    <div class="linha_texto"><%=h @bdt.horario_recolhimento.to_s_br.split[1]%></div>
+  </div>
 
-<p>
-  <b>Local origem:</b>
-  <%=h @bdt.local_origem %>
-</p>
+  <div class="show_linha">
+    <div class="linha_titulo">Odômetro no reco.:</div>
+    <div class="linha_texto"><%=h @bdt.odometro_recolhimento %></div>
+  </div>
 
-<p>
-  <b>Local destino:</b>
-  <%=h @bdt.local_destino %>
-</p>
+  <div class="show_linha">
+    <div class="linha_titulo">Local origem:</div>
+    <div class="linha_texto"><%=h @bdt.local_origem %></div>
+  </div>
 
+  <div class="show_linha">
+    <div class="linha_titulo">Local destino:</div>
+    <div class="linha_texto"><%=h @bdt.local_destino %></div>
+  </div>
 
-<%= link_to 'Editar', edit_bdt_path(@bdt) %> |
-<%= link_to 'Back', bdts_path %>
+  <div class="show_linha">
+    <div class="linha_titulo">Objetivo:</div>
+    <div class="linha_texto"><%=h @bdt.objetivo %></div>
+  </div>
+
+</div>
+
+<div id="opcoes_da_visao">
+  <ul>
+    <li id="opcao_voltar" onclick="history.back(-1)" onmouseover="this.style.cursor = 'pointer'">Voltar</li>
+    <li id="opcao_editar" onclick="location.href='<%= edit_bdt_path(@bdt) %>'" onmouseover="this.style.cursor = 'pointer'"><%= link_to 'Editar', edit_bdt_path(@bdt) %></li>
+  </ul>
+</div>
 

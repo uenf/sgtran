@@ -68,10 +68,10 @@ Funcionalidade: Fechar viagem com o BDT
     E eu seleciono "Ronaldo" em "Condutor"
     E eu seleciono "Corsa - LCD-6969" em "Veículo"
     E eu preencho "bdt_data_partida" com "15/02/2010"
-    E eu preencho "bdt_horario_partida" com "00:00"
+    E eu seleciono "11:32" no campo hora "Horário de partida"
     E eu preencho "bdt_odometro_partida" com "1480"
     E eu preencho "bdt_data_recolhimento" com "20/02/2010"
-    E eu preencho "bdt_horario_recolhimento" com "00:00"
+    E eu seleciono "23:16" no campo hora "Horário de recolhimento"
     E eu preencho "bdt_odometro_recolhimento" com "1580"
     E eu preencho "Objetivo" com "Ir ao Rio para levar alunos ao aeroporto"
     E eu preencho "Local origem" com "Campos"
@@ -80,5 +80,5 @@ Funcionalidade: Fechar viagem com o BDT
     Então eu devo ver "BDT atualizado com sucesso."
     E eu devo estar na página de visualização do BDT
     E eu devo ver "Condutor: Ronaldo"
-    E eu devo ver "Veículo: LCD-6969"
+    E eu devo ver "Veículo: Corsa - LCD-6969"
 
