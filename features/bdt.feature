@@ -19,7 +19,7 @@ Funcionalidade: Fechar viagem com o BDT
     E eu devo ver "Corsa - LCD-6969" selecionado em "Veículo"
     E eu devo ver "Gustavo Ribeiro" selecionado em "Condutor"
 
-    Quando eu preencho "Número" com "<numero>"
+    Quando eu preencho "Número físico" com "<numero>"
     E eu preencho "bdt_data_partida" com "<data_partida>"
     E eu seleciono "<horario_partida>" no campo hora "Horário de partida"
     E eu preencho "bdt_odometro_partida" com "<odometro_partida>"
@@ -65,7 +65,7 @@ Funcionalidade: Fechar viagem com o BDT
     E que eu estou na página de visualização do BDT
     Quando eu clico em "Editar"
     Então eu devo estar na página de edição do BDT
-    Quando eu preencho "Número" com "15"
+    Quando eu preencho "Número físico" com "15"
     E eu seleciono "Ronaldo" em "Condutor"
     E eu seleciono "Corsa - LCD-6969" em "Veículo"
     E eu preencho "bdt_data_partida" com "15/02/2010"
