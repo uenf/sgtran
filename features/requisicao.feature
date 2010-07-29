@@ -137,3 +137,21 @@ Funcionalidade: Solicitar viagem
   | Ativo   | Requisição enviada com sucesso! |
   | Inativo | Solicitante não existe          |
 
+
+  @now
+  Cenário: Mudar a viagem de uma requisição com uma viagem existente
+    Dado que eu tenho uma requisição com estado "Aceita"
+    E que eu tenho uma viagem com o estado "Aguardando"
+    E que a requisição esteja ligada à viagem
+    E que eu tenho uma requisição com estado "Aceita"
+    E que eu tenho uma viagem com o estado "Aguardando"
+    E que a requisição esteja ligada à viagem
+    E que eu estou na página de detalhes da requisição
+    Quando eu clico em "Alterar viagem"
+    Então eu devo estar na página de aceitar a requisição
+    Quando eu marco o radiobutton "escolha_de_viagem_existente"
+    E eu escolho uma viagem existente diferente da requisição
+    E eu pressiono "Concluir"
+    Então a requisição deve estar ligada à primeira viagem
+    Então eu devo ter 1 viagem cancelada
+

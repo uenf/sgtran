@@ -194,7 +194,12 @@ Então /^a requisição deve estar ligada a uma viagem$/ do
   @requisicao.viagem_id.should_not be_nil
 end
 
-Então /^eu devo ter (\d+) requisições$/ do |arg1|
-  Requisicao.all.should have(2).requisicoes
+Então /^eu devo ter (\d+) requisições$/ do |quantidade|
+  Requisicao.all.should have(quantidade.to_i).requisicoes
+end
+
+Então /^a requisição deve estar ligada à primeira viagem$/ do
+  @requisicao.reload
+  @requisicao.viagem_id.should == Viagem.all.first.id
 end
 

@@ -282,6 +282,32 @@ describe Viagem do
     Viagem.buscar_por_placa(placa).should_not include(viagem_2)
   end
 
+  it "deve verificar se uma viagem pode ser cancelada" do
+    motorista = Factory.create :motorista
+    viagem = Factory.create :viagem, :motorista_id => motorista.id
+    Viagem.pode_ser_cancelada?(viagem).should be_true
+
+    categoria_de_veiculo = Factory.create :categoria_de_veiculo
+    centro = Factory.create :centro
+    solicitante = Factory.create :solicitante, :centro_id => centro.id
+    motivo = Factory.create :motivo
+    objetivo_de_reserva = Factory.create :objetivo_de_reserva
+    requisicao = Factory.create :requisicao, :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                               :solicitante_id => solicitante.id,
+                                               :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                                               :estado => Requisicao::ACEITA,
+                                               :viagem_id => viagem.id
+    Viagem.pode_ser_cancelada?(viagem).should be_true
+  end
+
+  it "deve cancelar uma viagem que não atende nenhuma requisição" do
+    motorista = Factory.create :motorista
+    viagem = Factory.create :viagem, :motorista_id => motorista.id
+    Viagem.cancelar_viagem_que_nao_atende_nenhuma_requisicao viagem
+    viagem.reload
+    viagem.estado.should == Viagem::CANCELADA
+  end
+
   describe "associações" do
     should_have_many :requisicoes
     should_belong_to :motorista

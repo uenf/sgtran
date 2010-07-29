@@ -157,14 +157,20 @@ class Requisicao < ActiveRecord::Base
   end
 
   def aceitar_com_viagem_existente(viagem_id)
-    if self.esta_em_espera? or self.esta_rejeitada?
+    if self.pode_ser_aceita?
       viagem = Viagem.find(viagem_id)
+      viagem_old = self.viagem_id
 
       self.estado    = ACEITA
       self.viagem_id = viagem.id
       self.motivo_id = nil
 
       if self.save_with_validation false
+        if not viagem_old.nil?
+          if Viagem.pode_ser_cancelada? viagem_old
+            Viagem.cancelar_viagem_que_nao_atende_nenhuma_requisicao viagem_old
+          end
+        end
         viagem
       else
         nil
@@ -216,7 +222,7 @@ class Requisicao < ActiveRecord::Base
   end
 
   def pode_ser_aceita?
-    self.esta_em_espera? or self.esta_rejeitada?
+    self.esta_em_espera? or self.esta_rejeitada? or self.esta_aceita?
   end
 
   def pode_ser_cancelada_pelo_professor?

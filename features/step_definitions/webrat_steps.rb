@@ -196,7 +196,7 @@ When /^I select "([^\"]*)" as the "([^\"]*)" date$/ do |date, date_label|
   select_date(date, :from => date_label)
 end
 
-When /^I choose "([^\"]*)"$/ do |field|
+When /^eu marco o radiobutton "([^\"]*)"$/ do |field|
   choose(field)
 end
 

@@ -43,12 +43,39 @@ describe Requisicao do
     requisicao.estado.should == Requisicao::ACEITA
   end
 
+  context "para alterar a viagem de uma requisição com uma viagem existente" do
+
+    motorista = Factory.create :motorista
+    viagem = Factory.create :viagem, :motorista_id => motorista.id
+    viagem_2 = Factory.create :viagem, :motorista_id => motorista.id
+    categoria_de_veiculo = Factory.create :categoria_de_veiculo
+    objetivo_de_reserva = Factory.create :objetivo_de_reserva
+    requisicao = Factory.create :requisicao,
+                                :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                                :estado => Requisicao::ACEITA,
+                                :viagem_id => viagem.id
+    it "deve alterar a viagem" do
+      requisicao.aceitar_com_viagem_existente viagem_2.id
+      requisicao.reload
+      requisicao.viagem_id.should == viagem_2.id
+    end
+
+    it "cancelar a viagem que não atende mais requisições" do
+      requisicao.viagem_id = viagem.id
+      requisicao.save
+      requisicao.aceitar_com_viagem_existente viagem_2.id
+      Viagem.find_all_by_estado(Viagem::CANCELADA).should have(1).viagens
+    end
+
+  end
+
   context "Validações:" do
 
-      should_validate_presence_of :data_de_reserva,
-                                  :nome_telefone_passageiros,
-                                  :roteiro_da_agenda,
-                                  :celular
+    should_validate_presence_of :data_de_reserva,
+                                :nome_telefone_passageiros,
+                                :roteiro_da_agenda,
+                                :celular
 
     it "O campo Categoria de veículo deve ser selecionado" do
       objetivo_de_reserva = Factory.create :objetivo_de_reserva
@@ -257,14 +284,14 @@ describe Requisicao do
     requisicao.pode_ser_aceita?.should be_true
   end
 
-  it "Deve verificar que uma requisição aceita não pode ser aceita navamente" do
+  it "Deve verificar que uma requisição aceita pode ser aceita navamente (com outra viagem)" do
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     objetivo_de_reserva = Factory.create :objetivo_de_reserva
     requisicao = Factory.create :requisicao,
                                 :estado => Requisicao::ACEITA,
                                 :categoria_de_veiculo_id => categoria_de_veiculo.id,
                                 :objetivo_de_reserva_id => objetivo_de_reserva.id
-    requisicao.pode_ser_aceita?.should be_false
+    requisicao.pode_ser_aceita?.should be_true
   end
 
   it "Deve verificar que uma requisição cancelada pelo professor não pode ser aceita" do
@@ -435,10 +462,10 @@ describe Requisicao do
     requisicao.viagem_id.should == viagem_2.id
 
   end
-  
+
   it "deve buscar requisições pelo nome do solicitante" do
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
-    objetivo_de_reserva = Factory.create :objetivo_de_reserva    
+    objetivo_de_reserva = Factory.create :objetivo_de_reserva
     solicitante_1 = Factory.create :solicitante, :nome => "Solicitante 1"
     solicitante_2 = Factory.create :solicitante, :nome => "Solicitante 2"
     nome = "Solicitante 1"
@@ -448,14 +475,14 @@ describe Requisicao do
 
     requisicao_2 = Factory.create :requisicao, :categoria_de_veiculo_id => categoria_de_veiculo.id,
                                              :objetivo_de_reserva_id => objetivo_de_reserva.id,
-                                             :solicitante_id => solicitante_2.id                                             
+                                             :solicitante_id => solicitante_2.id
     Requisicao.buscar_por_nome_de_solicitante(nome).should include(requisicao_1)
     Requisicao.buscar_por_nome_de_solicitante(nome).should_not include(requisicao_2)
   end
-  
+
   it "deve buscar requisições pelo intervalo de data informado" do
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
-    objetivo_de_reserva = Factory.create :objetivo_de_reserva    
+    objetivo_de_reserva = Factory.create :objetivo_de_reserva
     solicitante_1 = Factory.create :solicitante, :nome => "Solicitante 1"
     solicitante_2 = Factory.create :solicitante, :nome => "Solicitante 2"
     requisicao_1 = Factory.create :requisicao, :categoria_de_veiculo_id => categoria_de_veiculo.id,
@@ -472,13 +499,13 @@ describe Requisicao do
     Requisicao.buscar_por_data(data_inicio, data_fim).should include(requisicao_2)
     Requisicao.buscar_por_data(data_inicio, data_fim).should_not include(requisicao_1)
     data_inicio = (Date.today  + 5.days).strftime("%d/%m/%Y")
-    data_fim = (Date.today + 6.days).strftime("%d/%m/%Y")    
+    data_fim = (Date.today + 6.days).strftime("%d/%m/%Y")
     Requisicao.buscar_por_data(data_inicio, data_fim).should be_empty
   end
-  
+
   it "deve buscar uma requisição pelo número de protocolo" do
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
-    objetivo_de_reserva = Factory.create :objetivo_de_reserva    
+    objetivo_de_reserva = Factory.create :objetivo_de_reserva
     solicitante = Factory.create :solicitante, :nome => "Solicitante 1"
     requisicao_1 = Factory.create :requisicao, :id => 13,
                                                :categoria_de_veiculo_id => categoria_de_veiculo.id,
@@ -492,7 +519,7 @@ describe Requisicao do
     Requisicao.buscar_por_protocolo(13).should include(requisicao_1)
     Requisicao.buscar_por_protocolo(13).should_not include(requisicao_2)
   end
-  
+
   it "não deve cancelar uma requisição com estado de 'Finalizada'" do
     motorista = Factory.create :motorista
     viagem = Factory.create :viagem, :motorista_id => motorista.id
@@ -512,10 +539,10 @@ describe Requisicao do
     requisicao.motivo_id.should == nil
     requisicao.viagem_id.should == viagem.id
   end
-  
+
   it "deve verificar se a requisição pode ser cancelada" do
     motorista = Factory.create :motorista
-    viagem = Factory.create :viagem, :motorista_id => motorista.id    
+    viagem = Factory.create :viagem, :motorista_id => motorista.id
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     objetivo_de_reserva = Factory.create :objetivo_de_reserva
     motivo = Factory.create :motivo
@@ -529,14 +556,14 @@ describe Requisicao do
                                              :objetivo_de_reserva_id => objetivo_de_reserva.id,
                                              :viagem_id => viagem.id,
                                              :solicitante_id => solicitante.id,
-                                             :estado => Requisicao::ESPERA                                             
-    requisicao_1.pode_ser_cancelada_pelo_professor?.should be_false                                             
+                                             :estado => Requisicao::ESPERA
+    requisicao_1.pode_ser_cancelada_pelo_professor?.should be_false
     requisicao_2.pode_ser_cancelada_pelo_professor?.should be_true
   end
-  
+
   it "deve verificar se uma requisição pode ser finalizada" do
     motorista = Factory.create :motorista
-    viagem = Factory.create :viagem, :motorista_id => motorista.id    
+    viagem = Factory.create :viagem, :motorista_id => motorista.id
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     objetivo_de_reserva = Factory.create :objetivo_de_reserva
     motivo = Factory.create :motivo
@@ -551,9 +578,9 @@ describe Requisicao do
                                              :viagem_id => viagem.id,
                                              :solicitante_id => solicitante.id,
                                              :estado => Requisicao::ACEITA
-                                             
-    requisicao_1.pode_ser_finalizada?.should be_false                                             
-    requisicao_2.pode_ser_finalizada?.should be_true    
+
+    requisicao_1.pode_ser_finalizada?.should be_false
+    requisicao_2.pode_ser_finalizada?.should be_true
   end
 
 

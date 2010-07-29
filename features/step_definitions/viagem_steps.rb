@@ -133,7 +133,14 @@ Quando /^eu escolho a viagem existente$/ do
   choose(field)
 end
 
+Quando /^eu escolho uma viagem existente diferente da requisição$/ do
+  viagens = Viagem.all.collect(&:id)
+  field = "id_da_viagem_" + "#{viagens.first}"
+  choose(field)
+end
+
 Quando /^eu não escolho nenhuma viagem$/ do
+
 end
 
 Quando /^eu preencho a data de "([^\"]*)" com "([^\"]*)"$/ do |field, data|
@@ -193,5 +200,9 @@ end
 
 Entao /^a viagem não deve atender essa requisição$/ do
   Requisicao.find_all_by_viagem_id(@viagem.id).should_not include @requisicao
+end
+
+Então /^eu devo ter (\d+) viagem cancelada$/ do |quantidade|
+  Viagem.find_all_by_estado(Viagem::CANCELADA).should_not be_empty
 end
 

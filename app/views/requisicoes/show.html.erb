@@ -122,8 +122,8 @@
     <% end %>
 
     <% if @requisicao.pode_alterar_viagem? %>
-      <li id="opcao_alterar" onclick="location.href='<%= alterar_viagem_path(@requisicao) %>'" onmouseover="this.style.cursor = 'pointer'">
-        <%= link_to 'Alterar viagem', alterar_viagem_path(@requisicao) %>
+      <li id="opcao_alterar" onclick="location.href='<%= aceitar_path(@requisicao) %>'" onmouseover="this.style.cursor = 'pointer'">
+        <%= link_to 'Alterar viagem', aceitar_path(@requisicao) %>
       </li>
     <% end %>
 

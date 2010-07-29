@@ -41,7 +41,6 @@ ActionController::Routing::Routes.draw do |map|
   map.filtrar_viagem "filtrar_viagem", :controller => "viagens", :action => "filtrar"
   map.cancelar_viagem "viagens/:id/cancelar_viagem", :controller => "viagens", :action => "cancelar_viagem"
   map.cancelamento_da_viagem "viagens/cancelamento_da_viagem", :controller => "viagens", :action => "cancelamento_da_viagem"
-  map.alterar_viagem "requisicoes/alterar_viagem/:id", :controller => "requisicoes", :action => "alterar_viagem"
   map.fechar_viagem "viagens/:id/bdt/", :controller => "bdts", :action => "new"
 
   # Rotas para solicitantes
