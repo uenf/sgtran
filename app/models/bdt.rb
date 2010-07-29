@@ -4,8 +4,18 @@ class Bdt < ActiveRecord::Base
 
   validates_presence_of :numero, :odometro_partida, :odometro_recolhimento
 
+  validate :validar_odometros
+
   validates_time :horario_partida, :horario_recolhimento, :message => 'é inválido'
   validates_date :data_partida, :data_recolhimento, :message => 'é inválida'
+
+  def validar_odometros
+    unless self.odometro_partida.nil? and self.odometro_recolhimento.nil?
+      if self.odometro_partida.to_i > self.odometro_recolhimento.to_i
+        errors.add(:odometro_recolhimento, "deve ser maior do que o de partida.")
+      end
+    end
+  end
 
   def salvar dados_viagem
     self.viagem_id = dados_viagem[:viagem_id]
