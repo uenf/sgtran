@@ -44,5 +44,9 @@ class Bdt < ActiveRecord::Base
     return false
   end
 
+  def distancia_percorrida
+    self.odometro_recolhimento - self.odometro_partida
+  end
+
 end
 

@@ -3,7 +3,9 @@ require 'spec_helper'
 describe Bdt do
 
   it "deve calcular a distancia percorrida" do
-
+    bdt = Factory.create :bdt, :odometro_partida => 15200,
+                               :odometro_recolhimento => 16100
+    bdt.distancia_percorrida.should == 900
   end
 
   describe 'validação' do
