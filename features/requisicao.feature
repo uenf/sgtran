@@ -78,24 +78,15 @@ Funcionalidade: Solicitar viagem
     | "50/05/1986"                                     | eu devo ver "Data de reserva inválida"                                                                                   |
     | ""                                               | eu devo ver "Data de reserva não pode ser vazio"                                                                         |
 
-  Cenário: Mudar a viagem de uma requisição Aceita
-    Dado que eu tenho uma requisição com estado "Aceita"
-    E que eu tenho uma viagem com o estado "Aguardando"
-    E que a requisição esteja ligada à viagem
-    E que eu estou na página de detalhes da requisição
-    Quando eu clico em "Alterar viagem"
-    E eu escolho a viagem existente
-    E eu pressiono "Concluir"
-    Então eu devo estar na página de visualização da viagem
-
   Cenário: Mudar a viagem que atende uma requisição sem escolher a viagem
     Dado que eu tenho uma requisição com estado "Aceita"
     E que eu tenho uma viagem com o estado "Aguardando"
     E que a requisição esteja ligada à viagem
     E que eu estou na página de detalhes da requisição
     Quando eu clico em "Alterar viagem"
+    Quando eu marco o radiobutton "escolha_de_viagem_existente"
     E eu pressiono "Concluir"
-    Então eu devo ver "Escolha uma viagem."
+    Então eu devo ver "Viagem não foi selecionada."
 
   Cenário: Enviar uma requisição sem os zeros à esquerda
     Dado que eu tenha a categoria de veículo "Automóvel até 4 passageiros"
@@ -138,7 +129,6 @@ Funcionalidade: Solicitar viagem
   | Inativo | Solicitante não existe          |
 
 
-  @now
   Cenário: Mudar a viagem de uma requisição com uma viagem existente
     Dado que eu tenho uma requisição com estado "Aceita"
     E que eu tenho uma viagem com o estado "Aguardando"
