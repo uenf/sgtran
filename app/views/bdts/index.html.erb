@@ -1,26 +1,31 @@
-<h1>Listar BDTs</h1>
+<div id="tabela_exibir">
 
-<table>
-  <tr>
-    <th>Numero</th>
-    <th>Odometro recolhimento</th>
-    <th>Odometro partida</th>
-    <th>Objetivo</th>
-    <th>Local origem</th>
-    <th>Local destino</th>
-  </tr>
+  <table class="tabela_padrao">
 
-<% @bdts.each do |bdt| %>
-  <tr>
-    <td><%=h bdt.numero %></td>
-    <td><%=h bdt.odometro_recolhimento %></td>
-    <td><%=h bdt.odometro_partida %></td>
-    <td><%=h bdt.objetivo %></td>
-    <td><%=h bdt.local_origem %></td>
-    <td><%=h bdt.local_destino %></td>
-    <td><%= link_to 'Mostrar', bdt %></td>
-    <td><%= link_to 'Editar', edit_bdt_path(bdt) %></td>
-  </tr>
-<% end %>
-</table>
+    <tr>
+      <th>Número no sistema</th>
+      <th>Número físico</th>
+      <th>Distância percorrida</th>
+      <th>Requisições atendidas</th>
+    </tr>
+
+    <% @bdts.each do |bdt| %>
+
+      <% viagem = Viagem.find(bdt.viagem_id) %>
+
+      <tr onmouseover="this.style.cursor='pointer'" onclick="location.href='<%= bdt_path(bdt) %>'">
+        <td><%=h bdt.id %></td>
+        <td><%=h bdt.numero %></td>
+        <td><%=h bdt.distancia_percorrida %> Km</td>
+        <td><%=h viagem.requisicoes_atendidas.to_sentence %></td>
+        <td onclick="location.href='<%= edit_bdt_path(bdt) %>'" onmouseover="this.style.cursor='pointer'">
+          <%= link_to image_tag("editar_dado.png", :border => 0, :alt => "Editar"), edit_bdt_path(bdt) %>
+        </td>
+      </tr>
+
+    <% end %>
+
+  </table>
+
+</div>
 

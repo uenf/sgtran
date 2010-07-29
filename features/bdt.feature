@@ -19,7 +19,7 @@ Funcionalidade: Fechar viagem com o BDT
     E eu devo ver "Corsa - LCD-6969" selecionado em "Veículo"
     E eu devo ver "Gustavo Ribeiro" selecionado em "Condutor"
 
-    Quando eu preencho "Número" com "<numero>"
+    Quando eu preencho "Número físico" com "<numero>"
     E eu preencho "bdt_data_partida" com "<data_partida>"
     E eu seleciono "<horario_partida>" no campo hora "Horário de partida"
     E eu preencho "bdt_odometro_partida" com "<odometro_partida>"
@@ -37,14 +37,15 @@ Funcionalidade: Fechar viagem com o BDT
     | 15     | 15/02/2010   | 10:15           | 1480             | 20/02/2010        | 22:38                | 1580                  | Bdt criado com sucesso. |
 
     Exemplos: (Erro de validação)
-    | numero | data_partida | horario_partida | odometro_partida | data_recolhimento | horario_recolhimento | odometro_recolhimento | sentença                                    |
-    |        | 15/02/2010   | 10:15           | 1480             | 20/02/2010        | 22:38                | 1580                  | Número não pode ser vazio                   |
-    | 15     |              | 10:15           | 1480             | 20/02/2010        | 22:38                | 1580                  | Data de partida é inválida                  |
-    | 15     | 15/02/2010   |                 | 1480             | 20/02/2010        | 22:38                | 1580                  | Horário de partida é inválido               |
-    | 15     | 15/02/2010   | 10:15           |                  | 20/02/2010        | 22:38                | 1580                  | Odômetro de partida não pode ser vazio      |
-    | 15     | 15/02/2010   | 10:15           | 1480             |                   | 22:38                | 1580                  | Data de recolhimento é inválida             |
-    | 15     | 15/02/2010   | 10:15           | 1480             | 20/02/2010        |                      | 1580                  | Horário de recolhimento é inválido          |
-    | 15     | 15/02/2010   | 10:15           | 1480             | 20/02/2010        | 22:38                |                       | Odômetro de recolhimento não pode ser vazio |
+    | numero | data_partida | horario_partida | odometro_partida | data_recolhimento | horario_recolhimento | odometro_recolhimento | sentença                                                    |
+    |        | 15/02/2010   | 10:15           | 1480             | 20/02/2010        | 22:38                | 1580                  | Número não pode ser vazio                                   |
+    | 15     |              | 10:15           | 1480             | 20/02/2010        | 22:38                | 1580                  | Data de partida é inválida                                  |
+    | 15     | 15/02/2010   |                 | 1480             | 20/02/2010        | 22:38                | 1580                  | Horário de partida é inválido                               |
+    | 15     | 15/02/2010   | 10:15           |                  | 20/02/2010        | 22:38                | 1580                  | Odômetro de partida não pode ser vazio                      |
+    | 15     | 15/02/2010   | 10:15           | 1480             |                   | 22:38                | 1580                  | Data de recolhimento é inválida                             |
+    | 15     | 15/02/2010   | 10:15           | 1480             | 20/02/2010        |                      | 1580                  | Horário de recolhimento é inválido                          |
+    | 15     | 15/02/2010   | 10:15           | 1480             | 20/02/2010        | 22:38                |                       | Odômetro de recolhimento não pode ser vazio                 |
+    | 15     | 15/02/2010   | 10:15           | 1780             | 20/02/2010        | 22:38                | 1580                  | Odômetro de recolhimento deve ser maior do que o de partida |
 
 
 
@@ -64,7 +65,7 @@ Funcionalidade: Fechar viagem com o BDT
     E que eu estou na página de visualização do BDT
     Quando eu clico em "Editar"
     Então eu devo estar na página de edição do BDT
-    Quando eu preencho "Número" com "15"
+    Quando eu preencho "Número físico" com "15"
     E eu seleciono "Ronaldo" em "Condutor"
     E eu seleciono "Corsa - LCD-6969" em "Veículo"
     E eu preencho "bdt_data_partida" com "15/02/2010"

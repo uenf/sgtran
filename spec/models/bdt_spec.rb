@@ -2,6 +2,12 @@ require 'spec_helper'
 
 describe Bdt do
 
+  it "deve calcular a distancia percorrida" do
+    bdt = Factory.create :bdt, :odometro_partida => 15200,
+                               :odometro_recolhimento => 16100
+    bdt.distancia_percorrida.should == 900
+  end
+
   describe 'validação' do
 
     it "deve criar uma nova instância com atributos válidos" do
@@ -32,6 +38,16 @@ describe Bdt do
 
     it "deve validar a presença do valor do odômetro no recolhimento" do
       bdt = Factory.build :bdt, :odometro_recolhimento => nil
+      bdt.save.should be_false
+    end
+
+    it "deve validar que o odômetro de recolhimento é maior do que o de partida" do
+      bdt = Factory.build :bdt, :odometro_partida => 15200,
+                                :odometro_recolhimento => 16100
+      bdt.save.should be_true
+
+      bdt = Factory.build :bdt, :odometro_partida => 16100,
+                                :odometro_recolhimento => 15200
       bdt.save.should be_false
     end
 
@@ -123,17 +139,18 @@ describe Bdt do
                                :placa => "LLL-0000"
 
       viagem = Factory.create :viagem,
-                                              :motorista_id => motorista_1.id,
-                                              :veiculo_id => veiculo_1
-      bdt = Factory.create :bdt, :odometro_recolhimento => 111
+                              :motorista_id => motorista_1.id,
+                              :veiculo_id => veiculo_1
+      bdt = Factory.create :bdt, :odometro_partida => 1200,
+                                 :odometro_recolhimento => 1300
       dados_viagem = {:veiculo_id => veiculo_2.id,
                       :motorista_id => motorista_2.id,
                       :viagem_id => viagem.id}
-      dados_bdt = {:odometro_recolhimento => 222}
+      dados_bdt = {:odometro_recolhimento => 1350}
 
       bdt.atualizar(dados_bdt, dados_viagem).should be_true
       bdt.reload
-      bdt.odometro_recolhimento.should == 222
+      bdt.odometro_recolhimento.should == 1350
     end
 
     it "a viagem" do
@@ -154,13 +171,14 @@ describe Bdt do
                                :placa => "LLL-0000"
 
       viagem = Factory.create :viagem,
-                                              :motorista_id => motorista_1.id,
-                                              :veiculo_id => veiculo_1
-      bdt = Factory.create :bdt, :odometro_recolhimento => 111
+                              :motorista_id => motorista_1.id,
+                              :veiculo_id => veiculo_1
+      bdt = Factory.create :bdt, :odometro_partida => 1200,
+                                 :odometro_recolhimento => 1300
       dados_viagem = {:veiculo_id => veiculo_2.id,
                       :motorista_id => motorista_2.id,
                       :viagem_id => viagem.id}
-      dados_bdt = {:odometro_recolhimento => 222}
+      dados_bdt = {:odometro_recolhimento => 1350}
 
       dados_viagem[:viagem_id] = viagem.id
       bdt.atualizar(dados_bdt, dados_viagem).should be_true
