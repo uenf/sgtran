@@ -165,6 +165,12 @@ module NavigationHelpers
     when /^página de edição do BDT$/
       edit_bdt_path(@bdt)
 
+  when /^página de adição de Estado$/
+      new_estado_path
+
+  when /^página de edição do Estado$/
+      edit_estado_path(@estado)
+
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
         "Now, go and add a mapping in #{__FILE__}"
