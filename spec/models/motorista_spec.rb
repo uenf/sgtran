@@ -7,6 +7,7 @@ describe Motorista do
       :nome => "Motorista 01",
       :telefone => "12345678"
     }
+    Motorista.delete_all
   end
 
   should_validate_presence_of :matricula,
