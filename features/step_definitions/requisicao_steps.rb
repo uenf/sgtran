@@ -203,3 +203,8 @@ Então /^a requisição deve estar ligada à primeira viagem$/ do
   @requisicao.viagem_id.should == Viagem.all.first.id
 end
 
+Então /^a requisição deve estar ligada à última viagem$/ do
+  @requisicao.reload
+  @requisicao.viagem_id.should == Viagem.all.last.id
+end
+

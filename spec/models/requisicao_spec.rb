@@ -43,8 +43,33 @@ describe Requisicao do
     requisicao.estado.should == Requisicao::ACEITA
   end
 
-  context "para alterar a viagem de uma requisição com uma viagem existente" do
+  describe "que já possuem uma viagem" do
+      motorista = Factory.create :motorista
+      viagem = Factory.create :viagem, :motorista_id => motorista.id
+      viagem_2 = Factory.create :viagem, :motorista_id => motorista.id
+      categoria_de_veiculo = Factory.create :categoria_de_veiculo
+      objetivo_de_reserva = Factory.create :objetivo_de_reserva
+      requisicao = Factory.create :requisicao,
+                                  :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                  :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                                  :estado => Requisicao::ACEITA,
+                                  :viagem_id => viagem.id
+      requisicao.aceitar viagem_2
+      requisicao.reload
+      viagem.reload
 
+    it "deve ser atendida pela nova viagem" do
+      requisicao.viagem_id.should == viagem_2.id
+      requisicao.estado.should == Requisicao::ACEITA
+    end
+
+    it "deve cancelar a viagem que ficou vazia" do
+      viagem.estado.should == Viagem::CANCELADA
+    end
+  end
+
+  context "para alterar a viagem de uma requisição com uma viagem existente" do
+    Viagem.delete_all
     motorista = Factory.create :motorista
     viagem = Factory.create :viagem, :motorista_id => motorista.id
     viagem_2 = Factory.create :viagem, :motorista_id => motorista.id

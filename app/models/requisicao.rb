@@ -150,10 +150,17 @@ class Requisicao < ActiveRecord::Base
   public
   def aceitar viagem
     self.estado = ACEITA
+    viagem_antiga = self.viagem_id
     self.viagem_id = viagem.id
     self.motivo_id = nil
     self.motivo_observacao = nil
-    self.save_with_validation false
+    if self.save_with_validation false
+      if viagem_antiga
+        if Viagem.pode_ser_cancelada? viagem_antiga
+          Viagem.cancelar_viagem_que_nao_atende_nenhuma_requisicao viagem_antiga
+        end
+      end
+    end
   end
 
   def aceitar_com_viagem_existente(viagem_id)
@@ -166,7 +173,7 @@ class Requisicao < ActiveRecord::Base
       self.motivo_id = nil
 
       if self.save_with_validation false
-        if not viagem_old.nil?
+        if viagem_old
           if Viagem.pode_ser_cancelada? viagem_old
             Viagem.cancelar_viagem_que_nao_atende_nenhuma_requisicao viagem_old
           end
