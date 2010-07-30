@@ -40,10 +40,8 @@ Funcionalidade: Fechar viagem com o BDT
     | numero | data_partida | horario_partida | odometro_partida | data_recolhimento | horario_recolhimento | odometro_recolhimento | sentença                                                    |
     |        | 15/02/2010   | 10:15           | 1480             | 20/02/2010        | 22:38                | 1580                  | Número não pode ser vazio                                   |
     | 15     |              | 10:15           | 1480             | 20/02/2010        | 22:38                | 1580                  | Data de partida é inválida                                  |
-    | 15     | 15/02/2010   |                 | 1480             | 20/02/2010        | 22:38                | 1580                  | Horário de partida é inválido                               |
     | 15     | 15/02/2010   | 10:15           |                  | 20/02/2010        | 22:38                | 1580                  | Odômetro de partida não pode ser vazio                      |
     | 15     | 15/02/2010   | 10:15           | 1480             |                   | 22:38                | 1580                  | Data de recolhimento é inválida                             |
-    | 15     | 15/02/2010   | 10:15           | 1480             | 20/02/2010        |                      | 1580                  | Horário de recolhimento é inválido                          |
     | 15     | 15/02/2010   | 10:15           | 1480             | 20/02/2010        | 22:38                |                       | Odômetro de recolhimento não pode ser vazio                 |
     | 15     | 15/02/2010   | 10:15           | 1780             | 20/02/2010        | 22:38                | 1580                  | Odômetro de recolhimento deve ser maior do que o de partida |
 
