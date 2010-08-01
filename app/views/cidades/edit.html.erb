@@ -1,0 +1,23 @@
+<h1>Editing cidade</h1>
+
+<% form_for(@cidade) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </p>
+
+  <p>
+    <%= f.label :estado_id, "Estado" %><br />
+    <%= f.select :estado_id, Estado.all.collect { |e| [ e.sigla, e.id ] }, {:include_blank => "-"} %>
+  </p>
+
+  <p>
+    <%= f.submit 'Atualizar' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @cidade %> |
+<%= link_to 'Back', cidades_path %>
+

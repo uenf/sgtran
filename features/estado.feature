@@ -21,7 +21,7 @@ Para que eu possa utiliza-lo no sistema
 
 
   Cenário: Editar Estado
-    Dado que eu tenho o Estado "Rio de Janeiro"
+    Dado que eu tenho um estado
     E que eu estou na página de edição do Estado
     Quando eu preencho "Nome" com "São Paulo"
     E eu pressiono "Atualizar"

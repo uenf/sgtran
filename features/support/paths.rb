@@ -165,11 +165,17 @@ module NavigationHelpers
     when /^página de edição do BDT$/
       edit_bdt_path(@bdt)
 
-  when /^página de adição de Estado$/
+    when /^página de adição de Estado$/
       new_estado_path
 
-  when /^página de edição do Estado$/
+    when /^página de edição do Estado$/
       edit_estado_path(@estado)
+
+    when /^página de adição de Cidade$/
+      new_cidade_path
+
+    when /^página de edição da Cidade$/
+      edit_cidade_path(@cidade)
 
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +

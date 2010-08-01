@@ -2,51 +2,9 @@
   <div class="index_base_de_dados">
     <ul>
       <li>
-        <%= link_to "Usu&aacute;rios", usuarios_path %>
-        <% if current_user.has_role? :admin %>
-          <span><%= link_to "Adicionar", new_usuario_path %></span>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to "Solicitantes", solicitantes_path %>
-        <% if current_user.has_role? :admin %>
-          <span><%= link_to "Adicionar", new_solicitante_path %></span>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to "Motoristas", motoristas_path %>
-        <% if current_user.has_role? :admin %>
-          <span><%= link_to "Adicionar", new_motorista_path %></span>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to "Ve&iacute;culos", veiculos_path %>
-        <% if current_user.has_role? :admin %>
-          <span><%= link_to "Adicionar", new_veiculo_path %></span>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to "Combust&iacute;veis", combustiveis_path %>
-        <% if current_user.has_role? :admin %>
-          <span><%= link_to "Adicionar", new_combustivel_path %></span>
-        <% end %>
-      </li>
-      <li>
         <%= link_to "Categorias de ve&iacute;culo", categoria_de_veiculos_path %>
         <% if current_user.has_role? :admin %>
           <span><%= link_to "Adicionar", new_categoria_de_veiculo_path %></span>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to "Motivos", motivos_path %>
-        <% if current_user.has_role? :admin %>
-          <span><%= link_to "Adicionar", new_motivo_path %></span>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to "Objetivos de reserva", objetivos_de_reserva_path %>
-        <% if current_user.has_role? :admin %>
-          <span><%= link_to "Adicionar", new_objetivo_de_reserva_path %></span>
         <% end %>
       </li>
       <li>
@@ -56,9 +14,63 @@
         <% end %>
       </li>
       <li>
+        <%= link_to "Cidades", cidades_path %>
+        <% if current_user.has_role? :admin %>
+          <span><%= link_to "Adicionar", new_cidade_path %></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to "Combust&iacute;veis", combustiveis_path %>
+        <% if current_user.has_role? :admin %>
+          <span><%= link_to "Adicionar", new_combustivel_path %></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to "Estados", estados_path %>
+        <% if current_user.has_role? :admin %>
+          <span><%= link_to "Adicionar", new_estado_path %></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to "Motivos", motivos_path %>
+        <% if current_user.has_role? :admin %>
+          <span><%= link_to "Adicionar", new_motivo_path %></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to "Motoristas", motoristas_path %>
+        <% if current_user.has_role? :admin %>
+          <span><%= link_to "Adicionar", new_motorista_path %></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to "Objetivos de reserva", objetivos_de_reserva_path %>
+        <% if current_user.has_role? :admin %>
+          <span><%= link_to "Adicionar", new_objetivo_de_reserva_path %></span>
+        <% end %>
+      </li>
+      <li>
         <%= link_to "Prefixos", prefixos_path %>
         <% if current_user.has_role? :admin %>
           <span><%= link_to "Adicionar", new_prefixo_path %></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to "Solicitantes", solicitantes_path %>
+        <% if current_user.has_role? :admin %>
+          <span><%= link_to "Adicionar", new_solicitante_path %></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to "Usu&aacute;rios", usuarios_path %>
+        <% if current_user.has_role? :admin %>
+          <span><%= link_to "Adicionar", new_usuario_path %></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to "Ve&iacute;culos", veiculos_path %>
+        <% if current_user.has_role? :admin %>
+          <span><%= link_to "Adicionar", new_veiculo_path %></span>
         <% end %>
       </li>
     </ul>
