@@ -608,6 +608,38 @@ describe Requisicao do
     requisicao_2.pode_ser_finalizada?.should be_true
   end
 
+  describe "deve atualizar" do
+
+    motorista = Factory.create :motorista
+    viagem = Factory.create :viagem, :motorista_id => motorista.id
+    categoria_de_veiculo = Factory.create :categoria_de_veiculo
+    objetivo_de_reserva = Factory.create :objetivo_de_reserva
+    motivo = Factory.create :motivo
+    solicitante = Factory.create :solicitante
+    estado = Factory.create :estado, :sigla => "RJ"
+    cidade_1 = Factory.create :cidade,
+                              :nome => "Campos dos Goytacazes",
+                              :estado_id => estado.id
+    cidade_2 = Factory.create :cidade,
+                              :nome => "Campos dos Goytacazes",
+                              :estado_id => estado.id
+    requisicao = Factory.create :requisicao, :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                             :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                                             :viagem_id => viagem.id,
+                                             :solicitante_id => solicitante.id,
+                                             :estado => Requisicao::ACEITA
+
+    it "cidade de origem" do
+      Requisicao.atualizar_origem_destino({requisicao.id => cidade_1.id}, {})
+      requisicao.reload
+      requisicao.local_origem_id.should == cidade_1.id
+    end
+
+    it "cidade de destino" do
+    end
+
+  end
+
 
 end
 

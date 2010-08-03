@@ -29,6 +29,19 @@ Dado /^que eu tenho uma requisição com estado "([^\"]*)"$/ do |estado|
   end
 end
 
+Dado /^que eu tenho uma requisição aceita com id "([^"]*)"$/ do |id|
+  categoria_de_veiculo = Factory.create :categoria_de_veiculo
+  centro = Factory.create :centro
+  solicitante = Factory.create :solicitante, :centro_id => centro.id
+  motivo = Factory.create :motivo
+  objetivo_de_reserva = Factory.create :objetivo_de_reserva
+  @requisicao = Factory.build :requisicao, :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                            :solicitante_id => solicitante.id,
+                                            :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                                            :data_de_reserva => Date.today + 2.days,
+                                            :estado => Requisicao::ACEITA,
+                                            :id => id
+end
 
 Dado /^que eu tenho uma requisição de ida com número de protocolo ([^\"]*)$/ do |protocolo|
   categoria_de_veiculo = Factory.create :categoria_de_veiculo
@@ -95,6 +108,14 @@ Dado /^que eu tenho uma requisição de "([^\"]*)" dias atrás e com estado "([^
                               :categoria_de_veiculo_id => categoria_de_veiculo.id,
                               :objetivo_de_reserva_id => objetivo_de_reserva.id
   @requisicao.save_with_validation false
+end
+
+Dado /^que eu tenho um conjunto de requisições$/ do
+  @conjunto_de_requisicoes = {}
+end
+
+Dado /^que a requisição esteja no meu conjunto de requisições$/ do
+  @conjunto_de_requisicoes[@requisicao.id] = @requisicao
 end
 
 Quando /^eu preencho data de "([^\"]*)" com "([^\"]*)"$/ do |campo, data|
@@ -206,5 +227,21 @@ end
 Então /^a requisição deve estar ligada à última viagem$/ do
   @requisicao.reload
   @requisicao.viagem_id.should == Viagem.all.last.id
+end
+
+Então /^o local de origem da requisição com id "([^"]*)" deve ser "([^"]*)" do "([^"]*)"$/ do |requisicao_id, city, sigla|
+  estado = Estado.find_by_sigla(sigla)
+  cidade = Cidade.find_by_estado_id_and_nome(estado.id, city)
+  @requisicao = @conjunto_de_requisicoes[requisicao_id.to_i]
+  @requisicao.reload
+  @requisicao.local_origem_id.should == cidade.id
+end
+
+Então /^o local de destino da requisição com id "([^"]*)" deve ser "([^"]*)" do "([^"]*)"$/ do |requisicao_id, city, sigla|
+  estado = Estado.find_by_sigla(sigla)
+  cidade = Cidade.find_by_estado_id_and_nome(estado.id, city)
+  @requisicao = @conjunto_de_requisicoes[requisicao_id.to_i]
+  @requisicao.reload
+  @requisicao.local_destino_id.should == cidade.id
 end
 

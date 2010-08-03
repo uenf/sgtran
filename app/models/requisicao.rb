@@ -6,6 +6,8 @@ class Requisicao < ActiveRecord::Base
   belongs_to :viagem
   has_one :categoria_de_veiculo
   has_one :objetivo_de_reserva
+  belongs_to :local_origem, :class_name => 'Cidade'
+  belongs_to :local_destino, :class_name => 'Cidade'
 
   ESPERA                   = "Espera"
   ACEITA                   = "Aceita"
@@ -299,6 +301,20 @@ class Requisicao < ActiveRecord::Base
 
   def self.buscar_por_protocolo protocolo
     Requisicao.find_all_by_id(protocolo)
+  end
+
+  def self.atualizar_origem_destino cidades_origem, cidades_destino
+
+    cidades_origem.each_pair do |requisicao_id, cidade_id|
+      requisicao = Requisicao.find(requisicao_id)
+      requisicao.update_attribute(:local_origem_id, cidade_id)
+    end
+
+    cidades_destino.each_pair do |requisicao_id, cidade_id|
+      requisicao = Requisicao.find(requisicao_id)
+      requisicao.update_attribute(:local_destino_id, cidade_id)
+    end
+
   end
 
 end

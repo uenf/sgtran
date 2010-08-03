@@ -117,14 +117,73 @@
       </div>
     </fieldset>
 
-    <div class="show_linha">
-      <div class="linha_titulo">
-        <%= f.label :local_origem, "Local origem" %>
-      </div>
-      <div class="linha_texto_neutro">
-        <%= f.text_field :local_origem %>
-      </div>
-    </div>
+    <% @requisicoes_ids.each do |id| %>
+      <fieldset>
+        <legend>Requisicao <%= id %></legend>
+
+        Origem
+
+        <div class="show_linha">
+          <div class="linha_titulo">
+            <%= label_tag "estado_origem[#{id}]", "Estado" %>
+          </div>
+          <div class="linha_texto_neutro">
+            <%= select_tag "estado_origem[#{id}]",
+              Estado.all.collect { |e| [ "<option>#{e.sigla}</option>" ] },
+              {:include_blank => "-"} %>
+          </div>
+        </div>
+
+        <%= observe_field "estado_origem[#{id}]",
+                  :url => { :controller => :bdts,
+                    :action => :cidades_por_estado },
+                  :update => "cidade_origem[#{id}]",
+                  :with => "'sigla_estado=' + document.getElementById('estado_origem#{id}').value"
+                  %>
+
+        <div class="show_linha">
+          <div class="linha_titulo">
+            <%= label_tag "cidade_origem[#{id}]", "Cidade" %>
+          </div>
+          <div class="linha_texto_neutro">
+            <%= select_tag "cidade_origem[#{id}]",
+              Cidade.all.collect { |c| [ "<option value='#{c.id}'>#{c.nome}</option>" ] },
+              {:include_blank => "-"} %>
+          </div>
+        </div>
+
+        Destino
+
+        <div class="show_linha">
+          <div class="linha_titulo">
+            <%= label_tag "estado_destino[#{id}]", "Estado" %>
+          </div>
+          <div class="linha_texto_neutro">
+            <%= select_tag "estado_destino[#{id}]",
+              Estado.all.collect { |e| [ "<option>#{e.sigla}</option>" ] },
+              {:include_blank => "-"} %>
+          </div>
+        </div>
+
+        <%= observe_field "estado_destino[#{id}]",
+                  :url => { :controller => :bdts,
+                    :action => :cidades_por_estado },
+                  :update => "cidade_destino[#{id}]",
+                  :with => "'sigla_estado=' + document.getElementById('estado_origem#{id}').value"
+                  %>
+
+        <div class="show_linha">
+          <div class="linha_titulo">
+            <%= label_tag "cidade_destino[#{id}]", "Cidade" %>
+          </div>
+          <div class="linha_texto_neutro">
+            <%= select_tag "cidade_destino[#{id}]",
+              Cidade.all.collect { |c| [ "<option value='#{c.id}'>#{c.nome}</option>" ] },
+              {:include_blank => "-"} %>
+          </div>
+        </div>
+      </fieldset>
+    <% end %>
 
     <div class="show_linha">
       <div class="linha_titulo">

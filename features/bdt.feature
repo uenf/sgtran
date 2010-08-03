@@ -26,8 +26,6 @@ Funcionalidade: Fechar viagem com o BDT
     E eu preencho "bdt_data_recolhimento" com "<data_recolhimento>"
     E eu seleciono "<horario_recolhimento>" no campo hora "Horário de recolhimento"
     E eu preencho "bdt_odometro_recolhimento" com "<odometro_recolhimento>"
-    E eu preencho "Local origem" com "Campos"
-    E eu preencho "Local destino" com "Rio de Janeiro"
     E eu preencho "Objetivo" com "Ir ao Rio para levar alunos ao aeroporto"
     E eu pressiono "Criar"
     Então eu devo ver "<sentença>"
@@ -73,8 +71,6 @@ Funcionalidade: Fechar viagem com o BDT
     E eu seleciono "23:16" no campo hora "Horário de recolhimento"
     E eu preencho "bdt_odometro_recolhimento" com "1580"
     E eu preencho "Objetivo" com "Ir ao Rio para levar alunos ao aeroporto"
-    E eu preencho "Local origem" com "Campos"
-    E eu preencho "Local destino" com "Rio de Janeiro"
     E eu pressiono "Atualizar"
     Então eu devo ver "BDT atualizado com sucesso."
     E eu devo estar na página de visualização do BDT

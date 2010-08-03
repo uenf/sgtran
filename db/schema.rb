@@ -113,6 +113,8 @@ ActiveRecord::Schema.define(:version => 20101022184205) do
     t.text     "nome_telefone_passageiros"
     t.text     "roteiro_da_agenda"
     t.text     "observacao"
+    t.integer  "local_origem_id"
+    t.integer  "local_destino_id"
     t.string   "estado",                    :default => "Espera"
     t.string   "chave_de_seguranca"
     t.integer  "motivo_id"

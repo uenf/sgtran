@@ -3,6 +3,6 @@ Dado /^que eu tenho um estado$/ do
 end
 
 Dado /^que eu tenho o estado com a sigla "([^"]*)"$/ do |sigla|
-  @estado = Factory.create :estado, :sigla => sigla
+  @estado ||= Factory.create :estado, :sigla => sigla
 end
 

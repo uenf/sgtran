@@ -21,6 +21,7 @@ class BdtsController < ApplicationController
   def new
     @bdt = Bdt.new
     @viagem = Viagem.find(params[:id])
+    @requisicoes_ids = @viagem.requisicao_ids
     @motorista = Motorista.find(@viagem.motorista_id)
     @veiculo = Veiculo.find(@viagem.veiculo_id)
   end
@@ -28,16 +29,23 @@ class BdtsController < ApplicationController
   def edit
     @bdt = Bdt.find(params[:id])
     @viagem = Viagem.find(@bdt.viagem_id)
+    @requisicoes_ids = @viagem.requisicao_ids
     @motorista = Motorista.find(@viagem.motorista_id)
     @veiculo = Veiculo.find(@viagem.veiculo_id)
   end
 
   def create
     @bdt = Bdt.new(params[:bdt])
+    @viagem = Viagem.find(params[:viagem_id])
+    @requisicoes_ids = @viagem.requisicao_ids
+
     dados_viagem = {:veiculo_id => params[:veiculo][:id],
                                           :motorista_id => params[:motorista][:id],
                                           :viagem_id => params[:viagem_id]}
     if @bdt.salvar dados_viagem
+      cidades_origem = params[:cidade_origem]
+      cidades_destino = params[:cidade_destino]
+      Requisicao.atualizar_origem_destino(cidades_origem, cidades_destino)
       flash[:sucesso] = 'Bdt criado com sucesso.'
       redirect_to(@bdt)
     else
@@ -49,6 +57,11 @@ class BdtsController < ApplicationController
   end
 
   def update
+
+    cidades_origem = params[:cidade_origem]
+    cidades_destino = params[:cidade_destino]
+    Requisicao.atualizar_origem_destino(cidades_origem, cidades_destino)
+
     @bdt = Bdt.find(params[:id])
     dados_viagem = {:veiculo_id => params[:veiculo][:id],
                     :motorista_id => params[:motorista][:id],
@@ -65,6 +78,11 @@ class BdtsController < ApplicationController
     @bdt = Bdt.find(params[:id])
     @bdt.destroy
     redirect_to(bdts_url)
+  end
+
+  def cidades_por_estado
+    estado = Estado.find_by_sigla(params[:sigla_estado])
+    Cidade.find_all_by_estado_id(estado.id)
   end
 end
 

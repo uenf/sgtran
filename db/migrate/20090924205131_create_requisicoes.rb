@@ -11,6 +11,9 @@ class CreateRequisicoes < ActiveRecord::Migration
       t.text :nome_telefone_passageiros
       t.text :roteiro_da_agenda
       t.text :observacao
+      t.integer :local_origem_id
+      t.integer :local_destino_id
+
 
       t.string :estado, :default => Requisicao::ESPERA
 

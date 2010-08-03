@@ -10,6 +10,7 @@ describe Solicitante do
       :cargo => "Professor",
       :centro_id => centro.id
     }
+    Solicitante.delete_all
   end
 
   it "should create a new instance given valid attributes" do
@@ -47,15 +48,15 @@ describe Solicitante do
     matricula = "100210"
     Solicitante.normalizar_matricula(matricula).should == "100210"
   end
-  
+
   it "deve retornar apenas um solicitante que seja ativo" do
     centro = Factory.create :centro
-    solicitante = Factory.create :solicitante, :centro_id => centro.id    
+    solicitante = Factory.create :solicitante, :centro_id => centro.id
     dados = {:email => solicitante.email, :matricula => solicitante.matricula}
     Solicitante.verificar_solicitante(dados).should be_true
-    solicitante.estado = Solicitante::INATIVO    
+    solicitante.estado = Solicitante::INATIVO
     solicitante.save
-    Solicitante.verificar_solicitante(dados).should be_false    
+    Solicitante.verificar_solicitante(dados).should be_false
   end
 end
 
