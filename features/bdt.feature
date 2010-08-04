@@ -5,6 +5,7 @@ Funcionalidade: Fechar viagem com o BDT
     Eu quero fechar uma viagem com o BDT
     Para que eu finalizar o ciclo de uma ou mais requisições, e com esses dados fazer relatórios mais completos
 
+  @now
   Esquema do Cenário: Fechar uma viagem com o BDT
     Dado que eu tenho uma requisição com estado "Aceita"
     E que eu tenho uma viagem com o estado "Aguardando"

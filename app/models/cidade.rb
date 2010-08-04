@@ -1,6 +1,6 @@
 class Cidade < ActiveRecord::Base
 
-  has_one :estado
+  belongs_to :estado
 
   validates_presence_of :nome, :estado_id
 

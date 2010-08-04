@@ -14,6 +14,7 @@ class BdtsController < ApplicationController
   def show
     @bdt = Bdt.find(params[:id])
     @viagem = Viagem.find(@bdt.viagem_id)
+    @requisicoes_ids = @viagem.requisicao_ids
     @motorista = Motorista.find(@viagem.motorista_id)
     @veiculo = Veiculo.find(@viagem.veiculo_id)
   end
@@ -80,9 +81,31 @@ class BdtsController < ApplicationController
     redirect_to(bdts_url)
   end
 
-  def cidades_por_estado
-    estado = Estado.find_by_sigla(params[:sigla_estado])
-    Cidade.find_all_by_estado_id(estado.id)
+  def carregar_cidades_origem
+    if not params[:estado_id].blank?
+      @id = params[:requisicao_id]
+	    @estado = Estado.find(params[:estado_id])
+	    @cidades_origem = @estado.cidades
+	    render :layout => false
+	  else
+	    @id = params[:requisicao_id]
+	    @cidades = Cidade.all
+	    render :layout => false
+    end
   end
+
+  def carregar_cidades_destino
+    if not params[:estado_id].blank?
+      @id = params[:requisicao_id]
+	    @estado = Estado.find(params[:estado_id])
+	    @cidades_destino = @estado.cidades
+	    render :layout => false
+	  else
+	    @id = params[:requisicao_id]
+	    @cidades = Cidade.all
+	    render :layout => false
+    end
+  end
+
 end
 

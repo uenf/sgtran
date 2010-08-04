@@ -1,6 +1,6 @@
 class Estado < ActiveRecord::Base
 
-  belongs_to :cidade
+  has_many :cidades
 
   validates_presence_of :nome, :sigla
 

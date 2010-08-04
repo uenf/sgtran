@@ -52,15 +52,16 @@
     <div class="linha_texto"><%=h @bdt.odometro_recolhimento %></div>
   </div>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Local origem:</div>
-    <div class="linha_texto"><%=h @bdt.local_origem %></div>
-  </div>
+  <% @requisicoes_ids.each do |id| %>
+    <% requisicao = Requisicao.find(id) %>
+    <% cidade_origem = Cidade.find(requisicao.local_origem) %>
+    <% cidade_destino = Cidade.find(requisicao.local_destino) %>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Local destino:</div>
-    <div class="linha_texto"><%=h @bdt.local_destino %></div>
-  </div>
+    <div class="show_linha">
+      <div class="linha_titulo">Requisição <%= id %>:</div>
+      <div class="linha_texto"><%= cidade_origem.nome %> - <%= cidade_destino.nome %> </div>
+    </div>
+  <% end %>
 
   <div class="show_linha">
     <div class="linha_titulo">Objetivo:</div>
