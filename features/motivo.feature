@@ -46,7 +46,7 @@ Funcionalidade: Manipular um motivo
     | Inativo          | Ativo           |
 
     Esquema do Cenário: Mostrar apenas motivos ativos ao rejeitar a requisição
-      Dado que eu tenho uma requisição com estado "Em Espera"
+      Dado que eu tenho uma requisição com estado "Em Espera" e id "25"
       E que eu tenho um motivo com descrição "Falta de carros"
       E que o motivo esteja "<Estado>"
       E que eu estou na página de rejeitar uma requisição
@@ -58,7 +58,7 @@ Funcionalidade: Manipular um motivo
     | Inativo | não devo ver "Falta de carros" |
 
     Esquema do Cenário: Mostrar apenas motivos ativos ao cancelar a requisição pelo sistema
-      Dado que eu tenho uma requisição com estado "Aceita"
+      Dado que eu tenho uma requisição com estado "Aceita" e id "25"
       E que eu tenho um motivo com descrição "Falta de verba"
       E que o motivo esteja "<Estado>"
       E que eu tenho uma viagem com o estado "Aguardando"

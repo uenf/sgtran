@@ -1,4 +1,4 @@
-Dado /^que eu tenho uma requisição com estado "([^\"]*)"$/ do |estado|
+Dado /^que eu tenho uma requisição com estado "([^\"]*)" e id "([^\"]*)"$/ do |estado, id|
   categoria_de_veiculo = Factory.create :categoria_de_veiculo
   centro = Factory.create :centro
   solicitante = Factory.create :solicitante, :centro_id => centro.id
@@ -7,7 +7,8 @@ Dado /^que eu tenho uma requisição com estado "([^\"]*)"$/ do |estado|
   @requisicao = Factory.build :requisicao, :categoria_de_veiculo_id => categoria_de_veiculo.id,
                                             :solicitante_id => solicitante.id,
                                             :objetivo_de_reserva_id => objetivo_de_reserva.id,
-                                            :data_de_reserva => Date.today + 2.days
+                                            :data_de_reserva => Date.today + 2.days,
+                                            :id => id
   case estado.to_s
   when "Em Espera" then
       @requisicao.estado = Requisicao::ESPERA
@@ -27,20 +28,6 @@ Dado /^que eu tenho uma requisição com estado "([^\"]*)"$/ do |estado|
     when "Aceita" then
       @requisicao.estado = Requisicao::ACEITA
   end
-end
-
-Dado /^que eu tenho uma requisição aceita com id "([^"]*)"$/ do |id|
-  categoria_de_veiculo = Factory.create :categoria_de_veiculo
-  centro = Factory.create :centro
-  solicitante = Factory.create :solicitante, :centro_id => centro.id
-  motivo = Factory.create :motivo
-  objetivo_de_reserva = Factory.create :objetivo_de_reserva
-  @requisicao = Factory.build :requisicao, :categoria_de_veiculo_id => categoria_de_veiculo.id,
-                                            :solicitante_id => solicitante.id,
-                                            :objetivo_de_reserva_id => objetivo_de_reserva.id,
-                                            :data_de_reserva => Date.today + 2.days,
-                                            :estado => Requisicao::ACEITA,
-                                            :id => id
 end
 
 Dado /^que eu tenho uma requisição de ida com número de protocolo ([^\"]*)$/ do |protocolo|

@@ -5,7 +5,7 @@ Funcionalidade: Cancelar uma viagem
   Para que eu possa controlar as viagens
 
   Cenário: Cancelar uma viagem com motivo
-    Dado que eu tenho uma requisição com estado "Aceita"
+    Dado que eu tenho uma requisição com estado "Aceita" e id "25"
     E que eu tenho uma viagem com o estado "Aguardando"
     E que a requisição esteja ligada à viagem
     E que eu tenho um motivo com descrição "Falta de carros"
@@ -15,5 +15,4 @@ Funcionalidade: Cancelar uma viagem
     E eu pressiono "Cancelar viagem"
     Então eu devo estar na página de visualização de viagens
     E a requisição deve estar cancelada pelo sistema
-    
 

@@ -79,7 +79,7 @@ Funcionalidade: Solicitar viagem
     | ""                                               | eu devo ver "Data de reserva não pode ser vazio"                                                                         |
 
   Cenário: Mudar a viagem que atende uma requisição sem escolher a viagem
-    Dado que eu tenho uma requisição com estado "Aceita"
+    Dado que eu tenho uma requisição com estado "Aceita" e id "25"
     E que eu tenho uma viagem com o estado "Aguardando"
     E que a requisição esteja ligada à viagem
     E que eu estou na página de detalhes da requisição
@@ -130,10 +130,10 @@ Funcionalidade: Solicitar viagem
 
 
   Cenário: Mudar a viagem de uma requisição com uma viagem existente
-    Dado que eu tenho uma requisição com estado "Aceita"
+    Dado que eu tenho uma requisição com estado "Aceita" e id "25"
     E que eu tenho uma viagem com o estado "Aguardando"
     E que a requisição esteja ligada à viagem
-    E que eu tenho uma requisição com estado "Aceita"
+    E que eu tenho uma requisição com estado "Aceita" e id "27"
     E que eu tenho uma viagem com o estado "Aguardando"
     E que a requisição esteja ligada à viagem
     E que eu estou na página de detalhes da requisição
@@ -145,9 +145,8 @@ Funcionalidade: Solicitar viagem
     Então a requisição deve estar ligada à primeira viagem
     Então eu devo ter 1 viagem cancelada
 
-  @now
   Cenário: Mudar a viagem de uma requisição com uma nova viagem
-    Dado que eu tenho uma requisição com estado "Aceita"
+    Dado que eu tenho uma requisição com estado "Aceita" e id "25"
     E que eu tenho uma viagem com o estado "Aguardando"
     E que a requisição esteja ligada à viagem
     E que eu tenho um motorista com nome "Gustavo Santos"
@@ -155,7 +154,6 @@ Funcionalidade: Solicitar viagem
     E que eu estou na página de detalhes da requisição
     Quando eu clico em "Alterar viagem"
     Então eu devo estar na página de aceitar a requisição
-#    E show me the page
     Quando eu marco o radiobutton "escolha_de_viagem_nova"
     E eu seleciono "Gustavo Santos" em "Motorista"
     E eu seleciono "Gol - KQI 5899 - Automóvel até 4 passageiros" em "Veículo"

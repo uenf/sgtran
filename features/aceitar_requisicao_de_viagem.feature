@@ -7,7 +7,7 @@ Funcionalidade: Aceitar requisição de viagem
     Para que o professor possa ter sua requisição executada
 
     Esquema do Cenário: Aceitar requisição com uma nova viagem
-      Dado que eu tenho uma requisição com estado "Em Espera"
+      Dado que eu tenho uma requisição com estado "Em Espera" e id "25"
       E que eu tenho um motorista com nome "Gustavo Santos"
       E que eu tenho um motorista com nome "Eduardo Silva"
       E que eu tenha um veículo da categoria "Automóvel até 4 passageiros", modelo "Gol" e placa "KQI 5899"
@@ -43,7 +43,7 @@ Funcionalidade: Aceitar requisição de viagem
 
 
     Esquema do Cenário: Aceitar com uma viagem já existente
-      Dado que eu tenho uma requisição com estado "Em Espera"
+      Dado que eu tenho uma requisição com estado "Em Espera" e id "25"
       E que eu tenha uma viagem
       E que eu estou na página de detalhes da requisição
       Quando eu clico em "Aceitar"
@@ -60,14 +60,14 @@ Funcionalidade: Aceitar requisição de viagem
 
 
     Cenário: Aceitar uma requisição apenas se o estado for Em Espera
-      Dado que eu tenho uma requisição com estado "Cancelada pelo Sistema"
+      Dado que eu tenho uma requisição com estado "Cancelada pelo Sistema" e id "25"
       E que eu estou na página de aceitar a requisição
       Então eu devo ver "A requisição deve estar no estado 'Em Espera' para ser aceita"
       E eu devo estar na página de detalhes da requisição
 
 
     Cenário: Data de chegada anterior à data de partida
-      Dado que eu tenho uma requisição com estado "Em Espera"
+      Dado que eu tenho uma requisição com estado "Em Espera" e id "25"
       E que eu tenho um motorista com nome "Gustavo Santos"
       E que eu estou na página de detalhes da requisição
       Quando eu clico em "Aceitar"
@@ -79,7 +79,7 @@ Funcionalidade: Aceitar requisição de viagem
       Então eu devo ver "Data de chegada anterior à data de partida"
 
     Cenário: Motorista não selecionado
-      Dado que eu tenho uma requisição com estado "Em Espera"
+      Dado que eu tenho uma requisição com estado "Em Espera" e id "25"
       E que eu tenho um motorista com nome "Gustavo Santos"
       E que eu estou na página de detalhes da requisição
       Quando eu clico em "Aceitar"
@@ -91,7 +91,7 @@ Funcionalidade: Aceitar requisição de viagem
       Então eu devo ver "Motorista não pode ser vazio"
 
     Cenário: Aceitar uma requisição com uma viagem em estado Aguardando
-      Dado que eu tenho uma requisição com estado "Em Espera"
+      Dado que eu tenho uma requisição com estado "Em Espera" e id "25"
       E que eu tenho uma viagem com o estado "Aguardando"
       E que eu estou na página de detalhes da requisição
       Quando eu clico em "Aceitar"
@@ -101,7 +101,7 @@ Funcionalidade: Aceitar requisição de viagem
           | Daqui a dois dias | Daqui a dois dias |                    | Gustavo Ribeiro |         | ID                        |         |
 
     Esquema do Cenário: Não aceitar uma requisição com uma viagem em estado Atendida ou Cancelada
-      Dado que eu tenho uma requisição com estado "Em Espera"
+      Dado que eu tenho uma requisição com estado "Em Espera" e id "25"
       E que eu tenho uma viagem com o estado "<Estado>"
       E que eu estou na página de detalhes da requisição
       Quando eu clico em "Aceitar"

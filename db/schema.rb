@@ -20,8 +20,6 @@ ActiveRecord::Schema.define(:version => 20101022184205) do
     t.integer  "odometro_partida"
     t.text     "objetivo"
     t.integer  "numero"
-    t.string   "local_origem"
-    t.string   "local_destino"
     t.integer  "viagem_id"
     t.datetime "created_at"
     t.datetime "updated_at"

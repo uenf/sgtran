@@ -8,8 +8,6 @@ Factory.define :bdt do |bdt|
   bdt.odometro_recolhimento 1300
   bdt.objetivo "Levar alguém em algum lugar"
   bdt.numero 2
-  bdt.local_origem "Algum local"
-  bdt.local_destino "outro local"
 
 end
 

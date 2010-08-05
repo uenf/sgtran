@@ -5,7 +5,7 @@ Funcionalidade: Cancelar uma requisição pelo sistema
   Para que eu possa informar ao solicitante o problema ocorrido
 
   Cenário: Cancelar a viagem se apenas a requisição cancelada é atendida pela viagem
-    Dado que eu tenho uma requisição com estado "Aceita"
+    Dado que eu tenho uma requisição com estado "Aceita" e id "25"
     E que eu tenho um motivo com descrição "Falta de verba"
     E que eu tenho uma viagem com o estado "Aguardando"
     E que a requisição esteja ligada à viagem
@@ -21,10 +21,10 @@ Funcionalidade: Cancelar uma requisição pelo sistema
     E a viagem deve ter uma requisição
 
   Cenário: Viagem com mais de uma requisição e uma requisição é cancelada
-    Dado que eu tenho uma requisição com estado "Aceita"
+    Dado que eu tenho uma requisição com estado "Aceita" e id "25"
     E que eu tenho uma viagem com o estado "Aguardando"
     E que a requisição esteja ligada à viagem
-    E que eu tenho uma requisição com estado "Aceita"
+    E que eu tenho uma requisição com estado "Aceita" e id "27"
     E que a requisição esteja ligada à viagem
     E que eu tenho um motivo com descrição "Falta de verba"
     E que eu estou na página de detalhes da requisição
@@ -36,12 +36,12 @@ Funcionalidade: Cancelar uma requisição pelo sistema
     Dado que eu estou na página de visualização da viagem
     Então eu devo ver "Estado: Aguardando"
     E a requisição deve estar ligada a uma viagem
-  
+
   Cenário: Cancelar uma requisição aceita pelo sistema com data anterior a hoje
     Dado que eu tenho uma requisição de "2" dias atrás e com estado "Aceita"
     E que eu tenho uma viagem com o estado "Aguardando"
-    E que a requisição esteja ligada à viagem    
-    E que eu tenho um motivo com descrição "Falta de verba"    
+    E que a requisição esteja ligada à viagem
+    E que eu tenho um motivo com descrição "Falta de verba"
     E que eu estou na página de detalhes da requisição
     Quando eu clico em "Cancelar requisição"
     E eu seleciono "Falta de verba" em "Motivo"
@@ -50,7 +50,4 @@ Funcionalidade: Cancelar uma requisição pelo sistema
     E eu pressiono "Cancelar requisição"
     E a requisição deve estar cancelada pelo sistema
     E a requisição deve estar ligada a uma viagem
-    
-    
-  
 

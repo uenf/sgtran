@@ -9,8 +9,6 @@ class CreateBdts < ActiveRecord::Migration
       t.integer :odometro_partida
       t.text :objetivo
       t.integer :numero
-      t.string :local_origem
-      t.string :local_destino
       t.references :viagem
 
       t.timestamps

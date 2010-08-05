@@ -8,7 +8,7 @@ Funcionalidade: Informar o local de origem e destino da requisição
 
   Cenário: Linkar duas requisições com seu local de origem e destino informados na página de edição do BDT
     Dado que eu tenho um conjunto de requisições
-    E que eu tenho uma requisição aceita com id "15"
+    E que eu tenho uma requisição com estado "Aceita" e id "15"
     E que eu tenho uma viagem com o estado "Aceita"
     E que eu tenho um veículo de modelo "Corsa" e placa "LCD-6969"
     E que este veiculo esteja ligado à viagem
@@ -16,7 +16,7 @@ Funcionalidade: Informar o local de origem e destino da requisição
     E que este motorista esteja ligado à viagem
     E que a requisição esteja ligada à viagem
     E que a requisição esteja no meu conjunto de requisições
-    E que eu tenho uma requisição aceita com id "17"
+    E que eu tenho uma requisição com estado "Aceita" e id "17"
     E que a requisição esteja ligada à viagem
     E que a requisição esteja no meu conjunto de requisições
     E que eu tenho um BDT
@@ -44,14 +44,13 @@ Funcionalidade: Informar o local de origem e destino da requisição
     E o local de destino da requisição com id "15" deve ser "Rio de Janeiro" do "RJ"
     E o local de destino da requisição com id "17" deve ser "Rio das Ostras" do "RJ"
 
-  @now
   Cenário: Linkar duas requisições com seu local de origem e destino informados na página de adição do BDT
     Dado que eu tenho uma viagem com o estado "Aguardando"
     E que eu tenho um conjunto de requisições
-    E que eu tenho uma requisição aceita com id "15"
+    E que eu tenho uma requisição com estado "Aceita" e id "15"
     E que a requisição esteja ligada à viagem
     E que a requisição esteja no meu conjunto de requisições
-    E que eu tenho uma requisição aceita com id "17"
+    E que eu tenho uma requisição com estado "Aceita" e id "17"
     E que a requisição esteja ligada à viagem
     E que a requisição esteja no meu conjunto de requisições
     E que eu tenho um veículo de modelo "Corsa" e placa "LCD-6969"
@@ -85,12 +84,13 @@ Funcionalidade: Informar o local de origem e destino da requisição
     E eu seleciono "Macaé" em "cidade_origem[17]"
     E eu seleciono "RJ" em "estado_destino[17]"
     E eu seleciono "Rio das Ostras" em "cidade_destino[17]"
-#    Então show me the page
     E eu pressiono "Criar"
-#    Então eu devo estar na página de visualização do BDT
+
     Então eu devo ver "Bdt criado com sucesso."
     E o local de origem da requisição com id "15" deve ser "Campos dos Goytacazes" do "RJ"
-    E o local de origem da requisição com id "17" deve ser "Macaé" do "RJ"
     E o local de destino da requisição com id "15" deve ser "Rio de Janeiro" do "RJ"
+    E o local de origem da requisição com id "17" deve ser "Macaé" do "RJ"
     E o local de destino da requisição com id "17" deve ser "Rio das Ostras" do "RJ"
+    E eu devo ver "Requisição 15: Campos dos Goytacazes - Rio de Janeiro"
+    E eu devo ver "Requisição 17: Macaé - Rio das Ostras"
 

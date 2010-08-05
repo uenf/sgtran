@@ -35,7 +35,7 @@ Funcionalidade: Cancelar viagem
     Então eu devo ver "Esta requisição já foi cancelada."
 
   Cenário: Cancelar a viagem caso a requisição cancelada seja a última
-    Dado que eu tenho uma requisição com estado "Aceita"
+    Dado que eu tenho uma requisição com estado "Aceita" e id "25"
     E que eu tenho uma viagem com o estado "Aguardando"
     E que a requisição esteja ligada à viagem
     E que eu estou na página de cancelamento de requisição
@@ -46,10 +46,10 @@ Funcionalidade: Cancelar viagem
     E a viagem deve ter uma requisição
 
   Cenário: Cancelar requisição ligada à viagem que possui 2 ou mais requisições
-    Dado que eu tenho uma requisição com estado "Aceita"
+    Dado que eu tenho uma requisição com estado "Aceita" e id "25"
     E que eu tenho uma viagem com o estado "Aguardando"
     E que a requisição esteja ligada à viagem
-    E que eu tenho uma requisição com estado "Aceita"
+    E que eu tenho uma requisição com estado "Aceita" e id "27"
     E que a requisição esteja ligada à viagem
     E que eu estou na página de cancelamento de requisição
     Quando eu preencho "Motivo do Cancelamento" com "algum motivo"
