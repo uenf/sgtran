@@ -20,8 +20,6 @@ describe Bdt do
       :odometro_partida => 1,
       :objetivo => "value for objetivo",
       :numero => 1,
-      :local_origem => "value for local_origem",
-      :local_destino => "value for local_destino"
       }
       Bdt.create!(valid_attributes)
     end
