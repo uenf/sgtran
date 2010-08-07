@@ -3,6 +3,7 @@
 <%= javascript_include_tag "calendar_date_select/format_italian" %>
 
 <div class="show_padrao">
+
   <h1>Novo BDT</h1>
 
   <% form_for(@bdt) do |f| %>
@@ -10,70 +11,109 @@
     <%= hidden_field_tag 'viagem_id', @viagem.id %>
 
     <div class="show_linha">
-      <div class="linha_titulo"><%= f.label :numero, "Número físico", :class => "label_obrigatorio" %></div>
-      <div class="linha_texto_neutro"><%= f.text_field :numero, :class => "campo_de_poucos_digitos" %></div>
-    </div>
-
-    <div class="show_linha">
-      <div class="linha_titulo"><%= label_tag :veiculo_id, "Veículo", :class => "label_obrigatorio" %></div>
+      <div class="linha_titulo">
+        <%= f.label :numero, "Número físico", :class => "label_obrigatorio" %>
+      </div>
       <div class="linha_texto_neutro">
-        <%= collection_select :veiculo, :id, Veiculo.all, :id, :formatacao_para_bdt, {:prompt => "Selecione um veículo"} %>
+        <%= f.text_field :numero, :class => "campo_de_poucos_digitos" %>
       </div>
     </div>
 
     <div class="show_linha">
-      <div class="linha_titulo"><%= label_tag :motorista_id, "Condutor", :class => "label_obrigatorio" %></div>
+      <div class="linha_titulo">
+        <%= label_tag :veiculo_id, "Veículo", :class => "label_obrigatorio" %>
+      </div>
       <div class="linha_texto_neutro">
-        <%= collection_select :motorista, :id, Motorista.all, :id, :nome, {:prompt => "Selecione um condutor"} %>
+        <%= collection_select :veiculo, :id, Veiculo.all, :id,
+                              :formatacao_para_bdt,
+                              {:prompt => "Selecione um veículo"} %>
+      </div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo">
+        <%= label_tag :motorista_id, "Condutor", :class => "label_obrigatorio" %>
+      </div>
+      <div class="linha_texto_neutro">
+        <%= collection_select :motorista, :id, Motorista.all, :id, :nome,
+                              {:prompt => "Selecione um condutor"} %>
       </div>
     </div>
 
     <fieldset>
       <legend>Partida:</legend>
       <div class="show_linha">
-        <div class="linha_titulo"><%= f.label :data_partida, "Data", :class => "label_obrigatorio" %></div>
+        <div class="linha_titulo">
+          <%= f.label :data_partida, "Data", :class => "label_obrigatorio" %>
+        </div>
         <div class="linha_texto_neutro">
           <%= calendar_date_select_tag "bdt_data_partida",
-                                        @viagem.data_partida ? @viagem.data_partida.to_date.to_s_br : "",
-                                        :name => "bdt[data_partida]",
-                                        :year_range => [0.years.ago, 2.years.from_now],
-                                        :month_year => "label",
-                                        :class => "campo_de_poucos_digitos"%>
+              @viagem.data_partida ? @viagem.data_partida.to_date.to_s_br : "",
+              :name => "bdt[data_partida]",
+              :year_range => [0.years.ago, 2.years.from_now],
+              :month_year => "label",
+              :class => "campo_de_poucos_digitos"%>
         </div>
       </div>
       <div class="show_linha">
-        <label for="bdt_horario_partida" style="display:none;">Horário de partida</label>
-        <div class="linha_titulo"><%= f.label :horario_partida, "Horário", :class => "label_obrigatorio" %></div>
-        <div class="linha_texto_neutro"><%= time_select 'bdt', 'horario_partida', {:prompt => '-', :ignore_date => true} %></div>
+        <div class="linha_titulo">
+          <%= f.label :horario_partida, "Horário", :class => "label_obrigatorio" %>
+        </div>
+        <div class="linha_texto_neutro">
+          <%= time_select 'bdt', 'horario_partida',
+                                  {:prompt => '-', :ignore_date => true} %>
+        </div>
       </div>
       <div class="show_linha">
-        <div class="linha_titulo"><%= f.label :odometro_partida, "Odômetro", :class => "label_obrigatorio" %></div>
-        <div class="linha_texto_neutro"><%= f.text_field :odometro_partida, :class => "campo_de_poucos_digitos" %></div>
+        <div class="linha_titulo">
+          <%= f.label :odometro_partida, "Odômetro",
+                      :class => "label_obrigatorio" %>
+        </div>
+        <div class="linha_texto_neutro">
+          <%= f.text_field :odometro_partida,
+                           :class => "campo_de_poucos_digitos" %>
+        </div>
       </div>
     </fieldset>
 
     <fieldset>
       <legend>Recolhimento:</legend>
+
       <div class="show_linha">
-        <div class="linha_titulo"><%= f.label :data_recolhimento, "Data", :class => "label_obrigatorio" %></div>
+        <div class="linha_titulo">
+          <%= f.label :data_recolhimento, "Data", :class => "label_obrigatorio" %>
+        </div>
         <div class="linha_texto_neutro">
           <%= calendar_date_select_tag "bdt_data_recolhimento",
-                                        @viagem.data_chegada ? @viagem.data_chegada.to_date.to_s_br : "",
-                                        :name => "bdt[data_recolhimento]",
-                                        :year_range => [0.years.ago, 2.years.from_now],
-                                        :month_year => "label",
-                                        :class => "campo_de_poucos_digitos"%>
+              @viagem.data_chegada ? @viagem.data_chegada.to_date.to_s_br : "",
+              :name => "bdt[data_recolhimento]",
+              :year_range => [0.years.ago, 2.years.from_now],
+              :month_year => "label",
+              :class => "campo_de_poucos_digitos"%>
         </div>
       </div>
+
       <div class="show_linha">
-        <label for="bdt_horario_recolhimento" style="display:none;">Horário de recolhimento</label>
-        <div class="linha_titulo"><%= f.label :horario_recolhimento, "Horário", :class => "label_obrigatorio" %></div>
-        <div class="linha_texto_neutro"><%= time_select 'bdt', 'horario_recolhimento', {:prompt => '-', :ignore_date => true} %></div>
+        <div class="linha_titulo">
+          <%= f.label :horario_recolhimento, "Horário", :class => "label_obrigatorio" %>
+        </div>
+        <div class="linha_texto_neutro">
+          <%= time_select 'bdt', 'horario_recolhimento',
+                                  {:prompt => '-', :ignore_date => true} %>
+        </div>
       </div>
+
       <div class="show_linha">
-        <div class="linha_titulo"><%= f.label :odometro_recolhimento, "Odômetro", :class => "label_obrigatorio" %></div>
-        <div class="linha_texto_neutro"><%= f.text_field :odometro_recolhimento, :class => "campo_de_poucos_digitos" %></div>
+        <div class="linha_titulo">
+          <%= f.label :odometro_recolhimento, "Odômetro",
+                      :class => "label_obrigatorio" %>
+        </div>
+        <div class="linha_texto_neutro">
+          <%= f.text_field :odometro_recolhimento,
+                           :class => "campo_de_poucos_digitos" %>
+        </div>
       </div>
+
     </fieldset>
 
     <% @requisicoes_ids.each do |@id| %>
@@ -88,7 +128,8 @@
               <%= label_tag "estado_origem[#{@id}]", "Estado" %>
             </div>
             <div class="linha_texto_neutro">
-              <%= collection_select(:estado_origem, @id, Estado.all, :id, :sigla, {:prompt => "-"})  %>
+              <%= collection_select :estado_origem, @id, Estado.all, :id, :sigla,
+                                    {:prompt => "-"} %>
             </div>
           </div>
 
@@ -102,7 +143,8 @@
               <%= label_tag "cidade_origem[#{@id}]", "Cidade" %>
             </div>
             <div class="linha_texto_neutro" id="origem_req_<%=@id%>">
-              <%= collection_select(:cidade_origem, @id, Cidade.all, :id, :nome, {:prompt => "-"})  %>
+              <%= collection_select :cidade_origem, @id, Cidade.all, :id, :nome,
+                                    {:prompt => "-"} %>
             </div>
           </div>
         </fieldset>
@@ -115,7 +157,8 @@
               <%= label_tag "estado_destino[#{@id}]", "Estado" %>
             </div>
             <div class="linha_texto_neutro">
-              <%= collection_select(:estado_destino, @id, Estado.all, :id, :sigla, {:prompt => "-"})  %>
+              <%= collection_select :estado_destino, @id, Estado.all, :id, :sigla,
+                                    {:prompt => "-"} %>
             </div>
           </div>
 
@@ -129,7 +172,8 @@
               <%= label_tag "cidade_destino[#{@id}]", "Cidade" %>
             </div>
             <div class="linha_texto_neutro" id="destino_req_<%=@id%>">
-              <%= collection_select(:cidade_destino, @id, Cidade.all, :id, :nome, {:prompt => "-"})  %>
+              <%= collection_select :cidade_destino, @id, Cidade.all, :id, :nome,
+                                    {:prompt => "-"} %>
             </div>
           </div>
 

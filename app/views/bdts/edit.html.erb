@@ -58,7 +58,6 @@
 
       <div class="show_linha">
         <div class="linha_titulo">
-          <label for="bdt_horario_partida" style="display:none;">Horário de partida</label>
           <%= f.label :horario_partida, "Horário", :class => "label_obrigatorio" %>
         </div>
         <div class="linha_texto_neutro">
@@ -80,9 +79,9 @@
 
     <fieldset>
       <legend>Recolhimento:</legend>
+
       <div class="show_linha">
         <div class="linha_titulo">
-          <label for="bdt_horario_recolhimento" style="display:none;">Horário de recolhimento</label>
           <%= f.label :data_recolhimento, "Data", :class => "label_obrigatorio" %>
         </div>
         <div class="linha_texto_neutro">
@@ -106,7 +105,6 @@
         </div>
       </div>
 
-
       <div class="show_linha">
         <div class="linha_titulo">
           <%= f.label :odometro_recolhimento, "Odômetro", :class => "label_obrigatorio" %>
@@ -115,73 +113,82 @@
           <%= f.text_field :odometro_recolhimento, :class => "campo_de_poucos_digitos" %>
         </div>
       </div>
+
     </fieldset>
 
     <% @requisicoes_ids.each do |id| %>
+
       <fieldset>
         <legend>Requisicao <%= id %></legend>
 
-        Origem
+        <fieldset>
+          <legend>Origem</legend>
 
-        <div class="show_linha">
-          <div class="linha_titulo">
-            <%= label_tag "estado_origem[#{id}]", "Estado" %>
+          <div class="show_linha">
+            <div class="linha_titulo">
+              <%= label_tag "estado_origem[#{id}]", "Estado" %>
+            </div>
+            <div class="linha_texto_neutro">
+              <%= select_tag "estado_origem[#{id}]",
+                Estado.all.collect { |e| [ "<option>#{e.sigla}</option>" ] },
+                {:include_blank => "-"} %>
+            </div>
           </div>
-          <div class="linha_texto_neutro">
-            <%= select_tag "estado_origem[#{id}]",
-              Estado.all.collect { |e| [ "<option>#{e.sigla}</option>" ] },
-              {:include_blank => "-"} %>
-          </div>
-        </div>
 
-        <%= observe_field "estado_origem[#{id}]",
-                  :url => { :controller => :bdts,
-                    :action => :cidades_por_estado },
-                  :update => "cidade_origem[#{id}]",
-                  :with => "'sigla_estado=' + document.getElementById('estado_origem#{id}').value"
-                  %>
+          <%= observe_field "estado_origem[#{id}]",
+                    :url => { :controller => :bdts,
+                      :action => :cidades_por_estado },
+                    :update => "cidade_origem[#{id}]",
+                    :with => "'sigla_estado=' + document.getElementById('estado_origem#{id}').value"
+                    %>
 
-        <div class="show_linha">
-          <div class="linha_titulo">
-            <%= label_tag "cidade_origem[#{id}]", "Cidade" %>
+          <div class="show_linha">
+            <div class="linha_titulo">
+              <%= label_tag "cidade_origem[#{id}]", "Cidade" %>
+            </div>
+            <div class="linha_texto_neutro">
+              <%= select_tag "cidade_origem[#{id}]",
+                Cidade.all.collect { |c| [ "<option value='#{c.id}'>#{c.nome}</option>" ] },
+                {:include_blank => "-"} %>
+            </div>
           </div>
-          <div class="linha_texto_neutro">
-            <%= select_tag "cidade_origem[#{id}]",
-              Cidade.all.collect { |c| [ "<option value='#{c.id}'>#{c.nome}</option>" ] },
-              {:include_blank => "-"} %>
-          </div>
-        </div>
 
-        Destino
+        </fieldset>
 
-        <div class="show_linha">
-          <div class="linha_titulo">
-            <%= label_tag "estado_destino[#{id}]", "Estado" %>
-          </div>
-          <div class="linha_texto_neutro">
-            <%= select_tag "estado_destino[#{id}]",
-              Estado.all.collect { |e| [ "<option>#{e.sigla}</option>" ] },
-              {:include_blank => "-"} %>
-          </div>
-        </div>
+        <fieldset>
+          <legend>Destino</legend>
 
-        <%= observe_field "estado_destino[#{id}]",
-                  :url => { :controller => :bdts,
-                    :action => :cidades_por_estado },
-                  :update => "cidade_destino[#{id}]",
-                  :with => "'sigla_estado=' + document.getElementById('estado_origem#{id}').value"
-                  %>
+          <div class="show_linha">
+            <div class="linha_titulo">
+              <%= label_tag "estado_destino[#{id}]", "Estado" %>
+            </div>
+            <div class="linha_texto_neutro">
+              <%= select_tag "estado_destino[#{id}]",
+                Estado.all.collect { |e| [ "<option>#{e.sigla}</option>" ] },
+                {:include_blank => "-"} %>
+            </div>
+          </div>
 
-        <div class="show_linha">
-          <div class="linha_titulo">
-            <%= label_tag "cidade_destino[#{id}]", "Cidade" %>
+          <%= observe_field "estado_destino[#{id}]",
+                    :url => { :controller => :bdts,
+                      :action => :cidades_por_estado },
+                    :update => "cidade_destino[#{id}]",
+                    :with => "'sigla_estado=' + document.getElementById('estado_origem#{id}').value"
+                    %>
+
+          <div class="show_linha">
+            <div class="linha_titulo">
+              <%= label_tag "cidade_destino[#{id}]", "Cidade" %>
+            </div>
+            <div class="linha_texto_neutro">
+              <%= select_tag "cidade_destino[#{id}]",
+                Cidade.all.collect { |c| [ "<option value='#{c.id}'>#{c.nome}</option>" ] },
+                {:include_blank => "-"} %>
+            </div>
           </div>
-          <div class="linha_texto_neutro">
-            <%= select_tag "cidade_destino[#{id}]",
-              Cidade.all.collect { |c| [ "<option value='#{c.id}'>#{c.nome}</option>" ] },
-              {:include_blank => "-"} %>
-          </div>
-        </div>
+
+        </fieldset>
+
       </fieldset>
     <% end %>
 
