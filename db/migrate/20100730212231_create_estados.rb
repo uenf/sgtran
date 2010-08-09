@@ -3,6 +3,7 @@ class CreateEstados < ActiveRecord::Migration
     create_table :estados do |t|
       t.string :nome
       t.string :sigla
+      t.string :estado, :default => Estado::ATIVO
 
       t.timestamps
     end
@@ -12,3 +13,4 @@ class CreateEstados < ActiveRecord::Migration
     drop_table :estados
   end
 end
+
