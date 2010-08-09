@@ -24,6 +24,8 @@ Para que eu possa utiliza-lo no sistema
     Dado que eu tenho um estado
     E que eu estou na página de edição do Estado
     Quando eu preencho "Nome" com "São Paulo"
+    E eu seleciono "Inativo" em "Estado"
     E eu pressiono "Atualizar"
     Então eu devo ver "Estado modificado com sucesso!"
+    E o estado deve estar inativo
 

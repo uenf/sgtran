@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(:version => 20101022184205) do
   create_table "estados", :force => true do |t|
     t.string   "nome"
     t.string   "sigla"
+    t.string   "estado",     :default => "Ativo"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

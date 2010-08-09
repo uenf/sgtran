@@ -6,3 +6,8 @@ Dado /^que eu tenho o estado com a sigla "([^"]*)"$/ do |sigla|
   @estado ||= Factory.create :estado, :sigla => sigla
 end
 
+Então /^o estado deve estar inativo$/ do
+  @estado = Estado.all.first
+  @estado.estado.should == Estado::INATIVO
+end
+
