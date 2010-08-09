@@ -120,16 +120,16 @@
       <fieldset>
         <legend>Requisicao <%= @id %></legend>
 
-        <fieldset>
-          <legend>Origem</legend>
-
           <div class="show_linha">
-            <div class="linha_titulo">
-              <%= label_tag "estado_origem[#{@id}]", "Estado" %>
-            </div>
+            <div class="linha_titulo"><label>Origem</label></div>
             <div class="linha_texto_neutro">
               <%= collection_select :estado_origem, @id, Estado.all, :id, :sigla,
                                     {:prompt => "-"} %>
+
+              <spam id="origem_req_<%=@id%>">
+                <%= collection_select :cidade_origem, @id, Cidade.all, :id, :nome,
+                                      {:prompt => "-"} %>
+              </spam>
             </div>
           </div>
 
@@ -138,46 +138,24 @@
                             :url => {:action => :carregar_cidades_origem},
                             :with => "'estado_id='+value + '&requisicao_id='+#{@id}" %>
 
-          <div class="show_linha">
-            <div class="linha_titulo">
-              <%= label_tag "cidade_origem[#{@id}]", "Cidade" %>
-            </div>
-            <div class="linha_texto_neutro" id="origem_req_<%=@id%>">
-              <%= collection_select :cidade_origem, @id, Cidade.all, :id, :nome,
-                                    {:prompt => "-"} %>
-            </div>
-          </div>
-        </fieldset>
 
-        <fieldset>
-          <legend>Destino</legend>
+        <div class="show_linha">
+          <div class="linha_titulo"><label>Destino</label></div>
+          <div class="linha_texto_neutro">
+            <%= collection_select :estado_destino, @id, Estado.all, :id, :sigla,
+                                  {:prompt => "-"} %>
 
-          <div class="show_linha">
-            <div class="linha_titulo">
-              <%= label_tag "estado_destino[#{@id}]", "Estado" %>
-            </div>
-            <div class="linha_texto_neutro">
-              <%= collection_select :estado_destino, @id, Estado.all, :id, :sigla,
-                                    {:prompt => "-"} %>
-            </div>
-          </div>
-
-          <%= observe_field "estado_destino_#{@id}",
-                            :update => "destino_req_#{@id}",
-                            :url => {:action => :carregar_cidades_destino},
-                            :with => "'estado_id='+value + '&requisicao_id='+#{@id}" %>
-
-          <div class="show_linha">
-            <div class="linha_titulo">
-              <%= label_tag "cidade_destino[#{@id}]", "Cidade" %>
-            </div>
-            <div class="linha_texto_neutro" id="destino_req_<%=@id%>">
+            <spam id="destino_req_<%=@id%>">
               <%= collection_select :cidade_destino, @id, Cidade.all, :id, :nome,
                                     {:prompt => "-"} %>
-            </div>
+            </spam>
           </div>
+        </div>
 
-        </fieldset>
+        <%= observe_field "estado_destino_#{@id}",
+                          :update => "destino_req_#{@id}",
+                          :url => {:action => :carregar_cidades_destino},
+                          :with => "'estado_id='+value + '&requisicao_id='+#{@id}" %>
 
       </fieldset>
     <% end %>
