@@ -43,6 +43,9 @@ Funcionalidade: Informar o local de origem e destino da requisição
     E o local de origem da requisição com id "17" deve ser "Macaé" do "RJ"
     E o local de destino da requisição com id "15" deve ser "Rio de Janeiro" do "RJ"
     E o local de destino da requisição com id "17" deve ser "Rio das Ostras" do "RJ"
+    E eu devo ver "Requisição 15: Campos dos Goytacazes - Rio de Janeiro"
+    E eu devo ver "Requisição 17: Macaé - Rio das Ostras"
+
 
   Cenário: Linkar duas requisições com seu local de origem e destino informados na página de adição do BDT
     Dado que eu tenho uma viagem com o estado "Aguardando"
@@ -69,10 +72,8 @@ Funcionalidade: Informar o local de origem e destino da requisição
 
     Quando eu preencho "Número físico" com "15"
     E eu preencho "bdt_data_partida" com "15/02/2010"
-    E eu seleciono "08:45" no campo hora "Horário de partida"
     E eu preencho "bdt_odometro_partida" com "1250"
     E eu preencho "bdt_data_recolhimento" com "17/02/2010"
-    E eu seleciono "10:20" no campo hora "Horário de recolhimento"
     E eu preencho "bdt_odometro_recolhimento" com "1530"
     E eu preencho "Objetivo" com "Ir ao Rio para levar alunos ao aeroporto"
 

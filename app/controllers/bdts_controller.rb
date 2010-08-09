@@ -41,8 +41,8 @@ class BdtsController < ApplicationController
     @requisicoes_ids = @viagem.requisicao_ids
 
     dados_viagem = {:veiculo_id => params[:veiculo][:id],
-                                          :motorista_id => params[:motorista][:id],
-                                          :viagem_id => params[:viagem_id]}
+                    :motorista_id => params[:motorista][:id],
+                    :viagem_id => params[:viagem_id]}
     if @bdt.salvar dados_viagem
       cidades_origem = params[:cidade_origem]
       cidades_destino = params[:cidade_destino]
@@ -71,6 +71,10 @@ class BdtsController < ApplicationController
       flash[:sucesso] = 'BDT atualizado com sucesso.'
       redirect_to(@bdt)
     else
+      @viagem = Viagem.find(dados_viagem[:viagem_id])
+      @requisicoes_ids = @viagem.requisicao_ids
+      @motorista = Motorista.find(@viagem.motorista_id)
+      @veiculo = Veiculo.find(@viagem.veiculo_id)
       render :action => "edit"
     end
   end
