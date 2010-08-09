@@ -127,7 +127,7 @@
                                     {:prompt => "-"} %>
 
               <spam id="origem_req_<%=@id%>">
-                <%= collection_select :cidade_origem, @id, Cidade.all, :id, :nome,
+                <%= collection_select :cidade_origem, @id, [], :id, :nome,
                                       {:prompt => "-"} %>
               </spam>
             </div>
@@ -146,7 +146,7 @@
                                   {:prompt => "-"} %>
 
             <spam id="destino_req_<%=@id%>">
-              <%= collection_select :cidade_destino, @id, Cidade.all, :id, :nome,
+              <%= collection_select :cidade_destino, @id, [], :id, :nome,
                                     {:prompt => "-"} %>
             </spam>
           </div>

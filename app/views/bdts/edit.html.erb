@@ -116,81 +116,50 @@
 
     </fieldset>
 
-    <% @requisicoes_ids.each do |id| %>
-
+    <% @requisicoes_ids.each do |@id| %>
       <fieldset>
-        <legend>Requisicao <%= id %></legend>
-
-        <fieldset>
-          <legend>Origem</legend>
+        <legend>Requisicao <%= @id %></legend>
 
           <div class="show_linha">
-            <div class="linha_titulo">
-              <%= label_tag "estado_origem[#{id}]", "Estado" %>
-            </div>
+            <div class="linha_titulo"><label>Origem</label></div>
             <div class="linha_texto_neutro">
-              <%= select_tag "estado_origem[#{id}]",
-                Estado.all.collect { |e| [ "<option>#{e.sigla}</option>" ] },
-                {:include_blank => "-"} %>
+              <%= collection_select :estado_origem, @id, Estado.all, :id, :sigla,
+                                    {:prompt => "-", :selected => estado_local_origem } %>
+
+              <spam id="origem_req_<%=@id%>">
+                <%= collection_select :cidade_origem, @id, cidades_origem, :id, :nome,
+                                      {:prompt => "-", :selected => cidade_local_origem} %>
+              </spam>
             </div>
           </div>
 
-          <%= observe_field "estado_origem[#{id}]",
-                    :url => { :controller => :bdts,
-                      :action => :cidades_por_estado },
-                    :update => "cidade_origem[#{id}]",
-                    :with => "'sigla_estado=' + document.getElementById('estado_origem#{id}').value"
-                    %>
+          <%= observe_field "estado_origem_#{@id}",
+                            :update => "origem_req_#{@id}",
+                            :url => {:action => :carregar_cidades_origem},
+                            :with => "'estado_id='+value + '&requisicao_id='+#{@id}" %>
 
-          <div class="show_linha">
-            <div class="linha_titulo">
-              <%= label_tag "cidade_origem[#{id}]", "Cidade" %>
-            </div>
-            <div class="linha_texto_neutro">
-              <%= select_tag "cidade_origem[#{id}]",
-                Cidade.all.collect { |c| [ "<option value='#{c.id}'>#{c.nome}</option>" ] },
-                {:include_blank => "-"} %>
-            </div>
+
+        <div class="show_linha">
+          <div class="linha_titulo"><label>Destino</label></div>
+          <div class="linha_texto_neutro">
+            <%= collection_select :estado_destino, @id, Estado.all, :id, :sigla,
+                                  {:prompt => "-", :selected => estado_local_destino } %>
+
+            <spam id="destino_req_<%=@id%>">
+              <%= collection_select :cidade_destino, @id, cidades_destino, :id, :nome,
+                                    {:prompt => "-", :selected => cidade_local_destino } %>
+            </spam>
           </div>
+        </div>
 
-        </fieldset>
-
-        <fieldset>
-          <legend>Destino</legend>
-
-          <div class="show_linha">
-            <div class="linha_titulo">
-              <%= label_tag "estado_destino[#{id}]", "Estado" %>
-            </div>
-            <div class="linha_texto_neutro">
-              <%= select_tag "estado_destino[#{id}]",
-                Estado.all.collect { |e| [ "<option>#{e.sigla}</option>" ] },
-                {:include_blank => "-"} %>
-            </div>
-          </div>
-
-          <%= observe_field "estado_destino[#{id}]",
-                    :url => { :controller => :bdts,
-                      :action => :cidades_por_estado },
-                    :update => "cidade_destino[#{id}]",
-                    :with => "'sigla_estado=' + document.getElementById('estado_origem#{id}').value"
-                    %>
-
-          <div class="show_linha">
-            <div class="linha_titulo">
-              <%= label_tag "cidade_destino[#{id}]", "Cidade" %>
-            </div>
-            <div class="linha_texto_neutro">
-              <%= select_tag "cidade_destino[#{id}]",
-                Cidade.all.collect { |c| [ "<option value='#{c.id}'>#{c.nome}</option>" ] },
-                {:include_blank => "-"} %>
-            </div>
-          </div>
-
-        </fieldset>
+        <%= observe_field "estado_destino_#{@id}",
+                          :update => "destino_req_#{@id}",
+                          :url => {:action => :carregar_cidades_destino},
+                          :with => "'estado_id='+value + '&requisicao_id='+#{@id}" %>
 
       </fieldset>
     <% end %>
+
 
     <div class="show_linha">
       <div class="linha_titulo">

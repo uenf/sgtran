@@ -95,11 +95,12 @@ describe BdtsController do
         assigns[:bdt].should equal(mock_bdt)
       end
 
-#      it "re-renders the 'new' template" do
-#          Bdt.stub(:new).and_return(mock_bdt(:salvar => false))
-#        post :create, :bdt => {}, :veiculo => {}, :motorista => {}, :viagem_id => nil
-#        response.should render_template('new')
-#      end
+      it "re-renders the 'new' template" do
+        Bdt.stub(:new).and_return(mock_bdt(:salvar => false))
+        stub_viagem
+        post :create, :bdt => {}, :veiculo => {}, :motorista => {}, :viagem_id => "1"
+        response.should render_template('new')
+      end
     end
 
   end
@@ -108,9 +109,10 @@ describe BdtsController do
 
     describe "with valid params" do
       it "updates the requested bdt" do
-          Bdt.should_receive(:find).with("37").and_return(mock_bdt)
-        mock_bdt.should_receive(:atualizar).with({"these" => "params"}, {:veiculo_id => nil, :motorista_id => nil, :viagem_id => nil})
-        put :update, :id => "37", :bdt => {"these" => "params"}, :veiculo => {}, :motorista => {}, :viagem_id => nil, :cidade_origem => {}, :cidade_destino => {}
+        Bdt.should_receive(:find).with("37").and_return(mock_bdt)
+        stub_viagem
+        mock_bdt.should_receive(:atualizar).with({"these" => "params"}, {:veiculo_id => nil, :motorista_id => nil, :viagem_id => "1"})
+        put :update, :id => "37", :bdt => {"these" => "params"}, :veiculo => {}, :motorista => {}, :viagem_id => "1", :cidade_origem => {}, :cidade_destino => {}
       end
 
       it "assigns the requested bdt as @bdt" do
@@ -129,19 +131,22 @@ describe BdtsController do
     describe "with invalid params" do
       it "updates the requested bdt" do
         Bdt.should_receive(:find).with("37").and_return(mock_bdt)
-        mock_bdt.should_receive(:atualizar).with({'these' => 'params'}, {:veiculo_id => nil, :motorista_id => nil, :viagem_id => nil})
-        put :update, :id => "37", :bdt => {:these => 'params'}, :veiculo => {}, :motorista => {}, :viagem_id => nil, :cidade_origem => {}, :cidade_destino => {}
+        stub_viagem
+        mock_bdt.should_receive(:atualizar).with({'these' => 'params'}, {:veiculo_id => nil, :motorista_id => nil, :viagem_id => "1"})
+        put :update, :id => "37", :bdt => {:these => 'params'}, :veiculo => {}, :motorista => {}, :viagem_id => "1", :cidade_origem => {}, :cidade_destino => {}
       end
 
       it "assigns the bdt as @bdt" do
         Bdt.stub(:find).and_return(mock_bdt(:atualizar => false))
-        put :update, :id => "1", :veiculo => { :id => nil }, :motorista => { :id => nil }, :viagem_id => nil, :cidade_origem => {}, :cidade_destino => {}
+        stub_viagem
+        put :update, :id => "1", :veiculo => { :id => nil }, :motorista => { :id => nil }, :viagem_id => "1", :cidade_origem => {}, :cidade_destino => {}
         assigns[:bdt].should equal(mock_bdt)
       end
 
       it "re-renders the 'edit' template" do
         Bdt.stub(:find).and_return(mock_bdt(:atualizar => false))
-        put :update, :id => "1", :veiculo => { :id => nil }, :motorista => { :id => nil }, :viagem_id => nil, :cidade_origem => {}, :cidade_destino => {}
+        stub_viagem
+        put :update, :id => "1", :veiculo => { :id => nil }, :motorista => { :id => nil }, :viagem_id => "1", :cidade_origem => {}, :cidade_destino => {}
         response.should render_template('edit')
       end
     end
