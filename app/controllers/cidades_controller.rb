@@ -8,7 +8,7 @@ class CidadesController < ApplicationController
   layout "sistema"
 
   def index
-    @cidades = Cidade.all
+    @cidades = Cidade.paginate :page => params[:page], :order => 'nome ASC'
     @sub_layout = "base"
   end
 

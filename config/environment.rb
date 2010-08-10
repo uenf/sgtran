@@ -32,6 +32,8 @@ Rails::Initializer.run do |config|
   config.gem "acl9", :source => "http://gemcutter.org", :lib => "acl9"
   config.gem "mysql"
   config.gem "factory_girl"
+  config.gem "will_paginate", :version => '~> 2.3.11', :source => 'http://gemcutter.org'
+
 
 
   # Only load the plugins named here, in the order given (default is alphabetical).
