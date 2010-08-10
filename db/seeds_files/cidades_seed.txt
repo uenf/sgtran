@@ -1,0 +1,9719 @@
+01|Acrelândia
+01|Assis Brasil
+01|Brasileia
+01|Bujari
+01|Capixaba
+01|Cruzeiro do Sul
+01|Epitaciolândia
+01|Feijó
+01|Jordão
+01|Mancio Lima
+01|Manoel Urbano
+01|Marechal Thaumaturgo
+01|Plácido de Castro
+01|Porto Acre
+01|Porto Walter
+01|Rio Branco
+01|Rodrigues Alves
+01|Santa Rosa
+01|Sena Madureira
+01|Senador Guiomard
+01|Tarauaca
+01|Xapuri
+02|Água Branca
+02|Alazão
+02|Alecrim
+02|Anadia
+02|Anel
+02|Anum Novo
+02|Anum Velho
+02|Arapiraca
+02|Atalaia
+02|Baixa da Onca
+02|Baixa do Capim
+02|Balsamo
+02|Bananeiras
+02|Barra de Santo Antônio
+02|Barra de São Miguel
+02|Barra do Bonifacio
+02|Barra Grande
+02|Batalha
+02|Batingas
+02|Belém
+02|Belo Monte
+02|Boa Sorte
+02|Boa Vista
+02|Boca da Mata
+02|Bom Jardim
+02|Bonifacio
+02|Branquinha
+02|Cacimbinhas
+02|Cajarana
+02|Cajueiro
+02|Caldeiroes de Cima
+02|Camadanta
+02|Campestre
+02|Campo Alegre
+02|Campo Grande
+02|Canaa
+02|Canafistula
+02|Canapi
+02|Canastra
+02|Cangandu
+02|Capela
+02|Carneiros
+02|Carrasco
+02|Cha Preta
+02|Coite do Noia
+02|Colonia Leopoldina
+02|Coqueiro Seco
+02|Coruripe
+02|Coruripe da Cal
+02|Craibas
+02|Delmiro Gouveia
+02|Dois Riachos
+02|Entremontes
+02|Estrela de Alagoas
+02|Feira Grande
+02|Feliz Deserto
+02|Fernao Velho
+02|Flexeiras
+02|Floriano Peixoto
+02|Gaspar
+02|Girau do Ponciano
+02|Ibateguara
+02|Igaci
+02|Igreja Nova
+02|Inhapi
+02|Jacare dos Homens
+02|Jacuipe
+02|Japaratinga
+02|Jaramataia
+02|Jenipapo
+02|Joaquim Gomes
+02|Jundia
+02|Junqueiro
+02|Lagoa da Areia
+02|Lagoa da Canoa
+02|Lagoa da Pedra
+02|Lagoa Dantas
+02|Lagoa do Caldeirao
+02|Lagoa do Canto
+02|Lagoa do Exu
+02|Lagoa do Rancho
+02|Lajes do Caldeirao
+02|Laranjal
+02|Limoeiro de Anadia
+02|Maceio
+02|Major Isidoro
+02|Mar Vermelho
+02|Maragogi
+02|Maravilha
+02|Marechal Deodoro
+02|Maribondo
+02|Massaranduba
+02|Mata Grande
+02|Matriz de Camaragibe
+02|Messias
+02|Minador do Negrao
+02|Monteiropolis
+02|Moreira
+02|Munguba
+02|Murici
+02|Novo Lino
+02|Olho D Agua Grande
+02|Olho D''agua Das Flores
+02|Olho D''agua De Cima
+02|Olho D''agua Do Casado
+02|Olho D''agua Dos Dandanhas
+02|Olivenca
+02|Ouro Branco
+02|Palestina
+02|Palmeira de Fora
+02|Palmeira dos Indios
+02|Pao de Acucar
+02|Pariconha
+02|Passo de Camaragibe
+02|Pau D''arco
+02|Pau Ferro
+02|Paulo Jacinto
+02|Penedo
+02|Piacabucu
+02|Pilar
+02|Pindoba
+02|Piranhas
+02|Pocao
+02|Poco da Pedra
+02|Poco das Trincheiras
+02|Porto Calvo
+02|Porto de Pedras
+02|Porto Real do Colegio
+02|Poxim
+02|Quebrangulo
+02|Riacho do Sertao
+02|Riacho Fundo de Cima
+02|Rio Largo
+02|Rocha Cavalcante
+02|Roteiro
+02|Santa Efigenia
+02|Santa Luzia do Norte
+02|Santana do Ipanema
+02|Santana do Mundau
+02|Santo Antônio
+02|São Bras
+02|São José da Laje
+02|São José da Tapera
+02|São Luis do Quitunde
+02|São Miguel dos Campos
+02|São Miguel dos Milagres
+02|São Sebastião
+02|Sapucaia
+02|Satuba
+02|Senador Rui Palmeira
+02|Serra da Mandioca
+02|Serra do São José
+02|Taboleiro do Pinto
+02|Taboquinha
+02|Tanque D''arca
+02|Taquarana
+02|Tatuamunha
+02|Teotonio Vilela
+02|Traipu
+02|Uniao dos Palmares
+02|Usina Camacari
+02|Vicosa
+02|Vila Aparecida
+02|Vila São Francisco
+03|Alvaraes
+03|Amatari
+03|Amatura
+03|Anama
+03|Anori
+03|Apui
+03|Ariau
+03|Atalaia do Norte
+03|Augusto Montenegro
+03|Autazes
+03|Axinim
+03|Badajos
+03|Balbina
+03|Barcelos
+03|Barreirinha
+03|Benjamin Constant
+03|Beruri
+03|Boa Vista do Ramos
+03|Boca do Acre
+03|Borba
+03|Caapiranga
+03|Cameta
+03|Canuma
+03|Canutama
+03|Carauari
+03|Careiro
+03|Careiro da Varzea
+03|Carvoeiro
+03|Coari
+03|Codajas
+03|Cucui
+03|Eirunepe
+03|Envira
+03|Floriano Peixoto
+03|Fonte Boa
+03|Freguesia do Andira
+03|Guajara
+03|Humaita
+03|Iauarete
+03|Icana
+03|Ipixuna
+03|Iranduba
+03|Itacoatiara
+03|Itamarati
+03|Itapiranga
+03|Japura
+03|Jurua
+03|Jutai
+03|Labrea
+03|Lago Preto
+03|Manacapuru
+03|Manaquiri
+03|Manaus
+03|Manicore
+03|Maraa
+03|Massauari
+03|Maues
+03|Mocambo
+03|Moura
+03|Murutinga
+03|Nhamunda
+03|Nova Olinda do Norte
+03|Novo Airao
+03|Novo Aripuana
+03|Osorio da Fonseca
+03|Parintins
+03|Pauini
+03|Pedras
+03|Presidente Figueiredo
+03|Repartimento
+03|Rio Preto da Eva
+03|Santa Isabel do Rio Negro
+03|Santa Rita
+03|Santo Antônio do Ica
+03|São Felipe
+03|São Gabriel da Cachoeira
+03|São Paulo de Olivenca
+03|São Sebastião do Uatuma
+03|Silves
+03|Tabatinga
+03|Tapaua
+03|Tefe
+03|Tonantins
+03|Uarini
+03|Urucara
+03|Urucurituba
+03|Vila Pitinga
+04|Abacate da Pedreira
+04|Agua Branca do Amapari
+04|Amapa
+04|Amapari
+04|Ambe
+04|Aporema
+04|Ariri
+04|Bailique
+04|Boca do Jari
+04|Calcoene
+04|Cantanzal
+04|Carmo
+04|Clevelandia do Norte
+04|Corre Agua
+04|Cunani
+04|Curiau
+04|Cutias
+04|Fazendinha
+04|Ferreira Gomes
+04|Fortaleza
+04|Gaivota
+04|Gurupora
+04|Igarape do Lago
+04|Ilha de Santana
+04|Inaja
+04|Itaubal
+04|Laranjal do Jari
+04|Livramento do Pacui
+04|Lourenco
+04|Macapa
+04|Mazagao
+04|Mazagao Velho
+04|Oiapoque
+04|Paredao
+04|Porto Grande
+04|Pracuuba
+04|Santa Luzia do Pacui
+04|Santa Maria
+04|Santana
+04|São Joaquim do Pacui
+04|São Sebastião do Livramento
+04|São Tome
+04|Serra do Navio
+04|Sucuriju
+04|Tartarugalzinho
+04|Vila Velha
+04|Vitoria do Jari
+05|Abadia
+05|Abaira
+05|Abare
+05|Abelhas
+05|Abobora
+05|Abrantes
+05|Acajutiba
+05|Acu da Torre
+05|Acudina
+05|Acupe
+05|Adustina
+05|Afligidos
+05|Afranio Peixoto
+05|Agua Doce
+05|Agua Fria
+05|Aguas do Paulista
+05|Aiquara
+05|Alagoinhas
+05|Alcobaca
+05|Alegre
+05|Algodao
+05|Algodoes
+05|Almadina
+05|Alto Bonito
+05|Amado Bahia
+05|Amaniu
+05|Amargosa
+05|Amelia Rodrigues
+05|America Dourada
+05|Americo Alves
+05|Anage
+05|Andarai
+05|Andorinha
+05|Angical
+05|Angico
+05|Anguera
+05|Antas
+05|Antônio Cardoso
+05|Antônio Goncalves
+05|Apora
+05|Apuarema
+05|Aracas
+05|Aracatu
+05|Araci
+05|Aramari
+05|Arapiranga
+05|Arataca
+05|Aratuipe
+05|Areias
+05|Arembepe
+05|Argoim
+05|Argolo
+05|Aribice
+05|Aritagua
+05|Aurelino Leal
+05|Baianopolis
+05|Baixa do Palmeira
+05|Baixa Grande
+05|Baixao
+05|Baixinha
+05|Baluarte
+05|Banco Central
+05|Banco da Vitoria
+05|Bandeira do Almada
+05|Bandeira do Colonia
+05|Bandiacu
+05|Banzae
+05|Baraunas
+05|Barcelos do Sul
+05|Barra
+05|Barra da Estiva
+05|Barra do Choca
+05|Barra do Jacuipe
+05|Barra do Mendes
+05|Barra do Pojuca
+05|Barra do Rocha
+05|Barra do Tarrachil
+05|Barracas
+05|Barreiras
+05|Barro Alto
+05|Barro Preto
+05|Barro Vermelho
+05|Barrocas
+05|Bastiao
+05|Bate Pe
+05|Batinga
+05|Bela Flor
+05|Belem da Cachoeira
+05|Belmonte
+05|Belo Campo
+05|Bem-bom
+05|Bendego
+05|Bento Simoes
+05|Biritinga
+05|Boa Espera
+05|Boa Nova
+05|Boa Uniao
+05|Boa Vista do Lagamar
+05|Boa Vista do Tupim
+05|Boacu
+05|Boca do Corrego
+05|Bom Jesus da Lapa
+05|Bom Jesus da Serra
+05|Bom Sossego
+05|Bonfim da Feira
+05|Boninal
+05|Bonito
+05|Boquira
+05|Botupora
+05|Botuquara
+05|Brejinho das Ametistas
+05|Brejo da Serra
+05|Brejo Luiza de Brito
+05|Brejo Novo
+05|Brejoes
+05|Brejolandia
+05|Brotas de Macaubas
+05|Brumado
+05|Bucuituba
+05|Buerarema
+05|Buracica
+05|Buranhem
+05|Buril
+05|Buris de Abrantes
+05|Buritirama
+05|Caatiba
+05|Cabaceiras do Paraguacu
+05|Cabralia
+05|Cacha Pregos
+05|Cachoeira
+05|Cachoeira do Mato
+05|Cacule
+05|Caem
+05|Caetanos
+05|Caete-acu
+05|Caetite
+05|Cafarnaum
+05|Caicara
+05|Caimbe
+05|Cairu
+05|Caiubi
+05|Cajui
+05|Caldas do Jorro
+05|Caldeirao
+05|Caldeirao Grande
+05|Caldeiras
+05|Camacan
+05|Camacari
+05|Camamu
+05|Camassandi
+05|Camirim
+05|Campinhos
+05|Campo Alegre de Lourdes
+05|Campo Formoso
+05|Camurugi
+05|Canabravinha
+05|Canapolis
+05|Canarana
+05|Canatiba
+05|Canavieiras
+05|Canche
+05|Candeal
+05|Candeias
+05|Candiba
+05|Candido Sales
+05|Canoao
+05|Cansancao
+05|Canto do Sol
+05|Canudos
+05|Capao
+05|Capela do Alto Alegre
+05|Capim Grosso
+05|Caraguatai
+05|Caraibas
+05|Caraibuna
+05|Caraipe
+05|Caraiva
+05|Caravelas
+05|Cardeal da Silva
+05|Carinhanha
+05|Caripare
+05|Carnaiba do Sertao
+05|Carrapichel
+05|Casa Nova
+05|Castelo Novo
+05|Castro Alves
+05|Catinga do Moura
+05|Catingal
+05|Catolandia
+05|Catoles
+05|Catolezinho
+05|Catu
+05|Catu de Abrantes
+05|Caturama
+05|Cavunge
+05|Central
+05|Ceraima
+05|Chorrocho
+05|Cicero Dantas
+05|Cinco Rios
+05|Cipo
+05|Coaraci
+05|Cocos
+05|Colonia
+05|Comercio
+05|Conceicao da Feira
+05|Conceicao do Almeida
+05|Conceicao do Coite
+05|Conceicao do Jacuipe
+05|Conde
+05|Condeuba
+05|Contendas do Sincora
+05|Copixaba
+05|Coqueiros
+05|Coquinhos
+05|Coracao de Maria
+05|Cordeiros
+05|Coribe
+05|Coronel Joao Sa
+05|Correntina
+05|Corta Mao
+05|Cotegipe
+05|Coutos
+05|Cravolandia
+05|Crisopolis
+05|Cristalandia
+05|Cristopolis
+05|Crussai
+05|Cruz das Almas
+05|Cumuruxatiba
+05|Cunhangi
+05|Curaca
+05|Curral Falso
+05|Dario Meira
+05|Delfino
+05|Descoberto
+05|Dias Coelho
+05|Dias D Avila
+05|Diogenes Sampaio
+05|Dom Basilio
+05|Dom Macedo Costa
+05|Dona Maria
+05|Duas Barras do Morro
+05|Elisio Medrado
+05|Encruzilhada
+05|Engenheiro Franca
+05|Engenheiro Pontes
+05|Entre Rios
+05|Erico Cardoso
+05|Esplanada
+05|Euclides da Cunha
+05|Eunapolis
+05|Fatima
+05|Feira da Mata
+05|Feira de Santana
+05|Ferradas
+05|Filadelfia
+05|Filanesia
+05|Firmino Alves
+05|Floresta Azul
+05|Formosa do Rio Preto
+05|Franca
+05|Gabiarra
+05|Galeao
+05|Gamboa
+05|Gameleira da Lapa
+05|Gameleira do Assurua
+05|Gandu
+05|Gaviao
+05|Gentio do Ouro
+05|Geolandia
+05|Gloria
+05|Gongogi
+05|Governador Joao Durval Carneiro
+05|Governador Mangabeira
+05|Guagirus
+05|Guai
+05|Guajeru
+05|Guanambi
+05|Guapira
+05|Guarajuba
+05|Guaratinga
+05|Guerem
+05|Guine
+05|Guirapa
+05|Gurupa Mirim
+05|Heliopolis
+05|Helvecia
+05|Hidrolandia
+05|Humildes
+05|Iacu
+05|Ibatui
+05|Ibiacu
+05|Ibiajara
+05|Ibiapora
+05|Ibiassuce
+05|Ibicarai
+05|Ibicoara
+05|Ibicui
+05|Ibipeba
+05|Ibipetum
+05|Ibipitanga
+05|Ibiquera
+05|Ibiraba
+05|Ibiraja
+05|Ibiranhem
+05|Ibirapitanga
+05|Ibirapua
+05|Ibirataia
+05|Ibitiara
+05|Ibitiguira
+05|Ibitira
+05|Ibitita
+05|Ibitunane
+05|Ibitupa
+05|Ibo
+05|Ibotirama
+05|Ichu
+05|Ico
+05|Igapora
+05|Igara
+05|Igarite
+05|Igatu
+05|Igrapiuna
+05|Igua
+05|Iguai
+05|Iguaibi
+05|Iguatemi
+05|Iguira
+05|Iguitu
+05|Ilha de Mare
+05|Ilheus
+05|Indai
+05|Inema
+05|Inhambupe
+05|Inhata
+05|Inhaumas
+05|Inhobim
+05|Inubia
+05|Ipecaeta
+05|Ipiau
+05|Ipira
+05|Ipiuna
+05|Ipucaba
+05|Ipupiara
+05|Irajuba
+05|Iramaia
+05|Iraporanga
+05|Iraquara
+05|Irara
+05|Irece
+05|Irundiara
+05|Ita-azul
+05|Itabela
+05|Itaberaba
+05|Itabuna
+05|Itacare
+05|Itacava
+05|Itachama
+05|Itacimirim
+05|Itaete
+05|Itagi
+05|Itagiba
+05|Itagimirim
+05|Itaguacu da Bahia
+05|Itaia
+05|Itaibo
+05|Itaipu
+05|Itaitu
+05|Itajai
+05|Itaju do Colonia
+05|Itajubaquara
+05|Itajuipe
+05|Itajuru
+05|Itamaraju
+05|Itamari
+05|Itambe
+05|Itamira
+05|Itamotinga
+05|Itanage
+05|Itanagra
+05|Itanhem
+05|Itanhi
+05|Itaparica
+05|Itape
+05|Itapebi
+05|Itapeipu
+05|Itapetinga
+05|Itapicuru
+05|Itapirema
+05|Itapitanga
+05|Itapora
+05|Itapura
+05|Itaquara
+05|Itaquarai
+05|Itarantim
+05|Itati
+05|Itatim
+05|Itatingui
+05|Itirucu
+05|Itiuba
+
+05|Itororo
+05|Ituacu
+05|Itubera
+05|Itupeva
+05|Iuiu
+05|Jaborandi
+05|Jacaraci
+05|Jacobina
+05|Jacu
+05|Jacuipe
+05|Jacuruna
+05|Jaguaquara
+05|Jaguara
+05|Jaguarari
+05|Jaguaripe
+05|Jaiba
+05|Jandaira
+05|Japomirim
+05|Japu
+05|Jaua
+05|Jequie
+05|Jequirica
+05|Jeremoabo
+05|Jiribatuba
+05|Jitauna
+05|Joao Amaro
+05|Joao Correia
+05|Joao Dourado
+05|José Goncalves
+05|Juacema
+05|Juazeiro
+05|Jucurucu
+05|Juerana
+05|Junco
+05|Jupagua
+05|Juraci
+05|Juremal
+05|Jussara
+05|Jussari
+05|Jussiape
+05|Km Sete
+05|Lafaiete Coutinho
+05|Lagoa Clara
+05|Lagoa de Melquiades
+05|Lagoa do Boi
+05|Lagoa Grande
+05|Lagoa José Luis
+05|Lagoa Preta
+05|Lagoa Real
+05|Laje
+05|Laje do Banco
+05|Lajedao
+05|Lajedinho
+05|Lajedo Alto
+05|Lajedo do Tabocal
+05|Lamarao
+05|Lamarao do Passe
+05|Lapao
+05|Largo
+05|Lauro de Freitas
+05|Lencois
+05|Licinio de Almeida
+05|Limoeiro do Bom Viver
+05|Livramento do Brumado
+05|Lucaia
+05|Luis Viana
+05|Lustosa
+05|Macajuba
+05|Macarani
+05|Macaubas
+05|Macurure
+05|Madre de Deus
+05|Maetinga
+05|Maiquinique
+05|Mairi
+05|Malhada
+05|Malhada de Pedras
+05|Mandiroba
+05|Mangue Seco
+05|Maniacu
+05|Manoel Vitorino
+05|Mansidao
+05|Mantiba
+05|Mar Grande
+05|Maracas
+05|Maragogipe
+05|Maragogipinho
+05|Marau
+05|Marcionilio Souza
+05|Marcolino Moura
+05|Maria Quiteria
+05|Maricoabo
+05|Mariquita
+05|Mascote
+05|Massacara
+05|Massaroca
+05|Mata da Alianca
+05|Mata de São Joao
+05|Mataripe
+05|Matina
+05|Matinha
+05|Medeiros Neto
+05|Miguel Calmon
+05|Milagres
+05|Mimoso do Oeste
+05|Minas do Espirito Santo
+05|Minas do Mimoso
+05|Mirandela
+05|Miranga
+05|Mirangaba
+05|Mirante
+05|Mocambo
+05|Mogiquicaba
+05|Monte Cruzeiro
+05|Monte Gordo
+05|Monte Reconcavo
+05|Monte Santo
+05|Morpara
+05|Morrinhos
+05|Morro das Flores
+05|Morro de São Paulo
+05|Morro do Chapeu
+05|Mortugaba
+05|Mucuge
+05|Mucuri
+05|Mulungu do Morro
+05|Mundo Novo
+05|Muniz Ferreira
+05|Muquem do São Francisco
+05|Muritiba
+05|Mutas
+05|Mutuipe
+05|Nage
+05|Narandiba
+05|Nazare
+05|Nilo Pecanha
+05|Nordestina
+05|Nova Alegria
+05|Nova Brasilia
+05|Nova Canaa
+05|Nova Fatima
+05|Nova Ibia
+05|Nova Itaipe
+05|Nova Itarana
+05|Nova Lidice
+05|Nova Redencao
+05|Nova Soure
+05|Nova Vicosa
+05|Novo Acre
+05|Novo Horizonte
+05|Novo Triunfo
+05|Nucleo Residencial Pilar
+05|Nuguacu
+05|Olhos D''agua Do Seco
+05|Olhos D''agua Do Serafim
+05|Olindina
+05|Oliveira dos Brejinhos
+05|Olivenca
+05|Onha
+05|Oriente Novo
+05|Ouricana
+05|Ouricangas
+05|Ouricuri do Ouro
+05|Ourolandia
+05|Outeiro Redondo
+05|Paiol
+05|Pajeu do Vento
+05|Palame
+05|Palmas de Monte Alto
+05|Palmeiras
+05|Parafuso
+05|Paramirim
+05|Parateca
+05|Paratinga
+05|Paripiranga
+05|Pataiba
+05|Patamute
+05|Pau A Pique
+05|Pau Brasil
+05|Paulo Afonso
+05|Pe de Serra
+05|Pedrao
+05|Pedras Altas do Mirim
+05|Pedro Alexandre
+05|Peixe
+05|Petim
+05|Piabanha
+05|Piata
+05|Picarrao
+05|Pilao Arcado
+05|Pimenteira
+05|Pindai
+05|Pindobacu
+05|Pinhoes
+05|Pintadas
+05|Piragi
+05|Pirai do Norte
+05|Piraja
+05|Pirajuia
+05|Piri
+05|Piripa
+05|Piritiba
+05|Pituba
+05|Planaltino
+05|Planalto
+05|Poco Central
+05|Poco de Fora
+05|Pocoes
+05|Pocos
+05|Pojuca
+05|Polo Petroquimico de Camacari
+05|Ponta da Areia
+05|Ponto Novo
+05|Porto Novo
+05|Porto Seguro
+05|Posto da Mata
+05|Potiragua
+05|Poxim do Sul
+05|Prado
+05|Presidente Dutra
+05|Presidente Janio Quadros
+05|Presidente Tancredo Neves
+05|Prevenido
+05|Quaracu
+05|Queimadas
+05|Quijingue
+05|Quixaba
+05|Quixabeira
+05|Rafael Jambeiro
+05|Recife
+05|Remanso
+05|Remedios
+05|Retirolandia
+05|Riachao das Neves
+05|Riachao do Jacuipe
+05|Riachao do Utinga
+05|Riacho da Guia
+05|Riacho de Santana
+05|Riacho Seco
+05|Ribeira do Amparo
+05|Ribeira do Pombal
+05|Ribeirao do Largo
+05|Ribeirao do Salto
+05|Rio da Dona
+05|Rio de Contas
+05|Rio do Antônio
+05|Rio do Braco
+05|Rio do Meio
+05|Rio do Pires
+05|Rio Fundo
+05|Rio Real
+05|Rodelas
+05|Ruy Barbosa
+05|Saldanha
+05|Salgadalia
+05|Salinas da Margarida
+05|Salobrinho
+05|Salobro
+05|Salvador
+05|Sambaiba
+05|Santa Barbara
+05|Santa Brigida
+05|Santa Cruz Cabralia
+05|Santa Cruz da Vitoria
+05|Santa Ines
+05|Santa Luzia
+05|Santa Maria da Vitoria
+05|Santa Rita de Cassia
+05|Santa Terezinha
+05|Santaluz
+05|Santana
+05|Santana do Sobrado
+05|Santanopolis
+05|Santiago do Iguape
+05|Santo Amaro
+05|Santo Antônio de Barcelona
+05|Santo Antônio de Jesus
+05|Santo Estevao
+05|Santo Inacio
+05|São Desiderio
+05|São Domingos
+05|São Felipe
+05|São Felix
+05|São Felix do Coribe
+05|São Francisco do Conde
+05|São Gabriel
+05|São Goncalo dos Campos
+05|São Joao da Fortaleza
+05|São Joao da Vitoria
+05|São José da Vitoria
+05|São José do Colonia
+05|São José do Jacuipe
+05|São José do Prado
+05|São José do Rio Grande
+05|São Miguel das Matas
+05|São Paulinho
+05|São Roque do Paraguacu
+05|São Sebastião do Passe
+05|São Timoteo
+05|Sapeacu
+05|Satiro Dias
+05|Saubara
+05|Saudavel
+05|Saude
+05|Seabra
+05|Sebastião Laranjeiras
+05|Senhor do Bonfim
+05|Sento Se
+05|Sergi
+05|Serra da Canabrava
+05|Serra do Ramalho
+05|Serra Dourada
+05|Serra Grande
+05|Serra Preta
+05|Serrinha
+05|Serrolandia
+05|Simoes Filho
+05|Sitio da Barauna
+05|Sitio do Mato
+05|Sitio do Meio
+05|Sitio do Quinto
+05|Sitio Grande
+05|Sitio Novo
+05|Soares
+05|Sobradinho
+05|Souto Soares
+05|Subauma
+05|Sussuarana
+05|Tabocas do Brejo Velho
+05|Taboleiro do Castro
+05|Taboquinhas
+05|Tagua
+05|Tamburil
+05|Tanhacu
+05|Tanque Novo
+05|Tanquinho
+05|Tanquinho do Poco
+05|Taperoa
+05|Tapiraipe
+05|Tapirama
+05|Tapiramuta
+05|Tapiranga
+05|Tapuia
+05|Taquarendi
+05|Taquarinha
+05|Tartaruga
+05|Tauape
+05|Teixeira de Freitas
+05|Teodoro Sampaio
+05|Teofilandia
+05|Teolandia
+05|Terra Nova
+05|Tijuacu
+05|Tiquarucu
+05|Tremedal
+05|Triunfo do Sincora
+05|Tucano
+05|Uaua
+05|Ubaira
+05|Ubaitaba
+05|Ubata
+05|Ubiracaba
+05|Ubiraita
+05|Uibai
+05|Umburanas
+05|Umbuzeiro
+05|Una
+05|Urandi
+05|Urucuca
+05|Utinga
+05|Vale Verde
+05|Valenca
+05|Valente
+05|Varzea da Roca
+05|Varzea do Caldas
+05|Varzea do Cerco
+05|Varzea do Poco
+05|Varzea Nova
+05|Varzeas
+05|Varzedo
+05|Velha Boipeba
+05|Ventura
+05|Vera Cruz
+05|Vereda
+05|Vila do Cafe
+05|Vitoria da Conquista
+05|Volta Grande
+05|Wagner
+05|Wanderley
+05|Wenceslau Guimaraes
+05|Xique-xique
+06|Abaiara
+06|Abilio Martins
+06|Acarape
+06|Acarau
+06|Acopiara
+06|Adrianopolis
+06|Agua Verde
+06|Aguai
+06|Aiua
+06|Aiuaba
+06|Alagoinha
+06|Alcantaras
+06|Algodoes
+06|Almofala
+06|Altaneira
+06|Alto Santo
+06|Amanaiara
+06|Amanari
+06|Amaniutuba
+06|Amarelas
+06|Amaro
+06|America
+06|Amontada
+06|Anaua
+06|Aningas
+06|Anjinhos
+06|Antonina do Norte
+06|Antônio Bezerra
+06|Antônio Diogo
+06|Antônio Marques
+06|Aprazivel
+06|Apuiares
+06|Aquinopolis
+06|Aquiraz
+06|Aracas
+06|Aracati
+06|Aracatiacu
+06|Aracatiara
+06|Aracoiaba
+06|Arajara
+06|Aranau
+06|Arapa
+06|Arapari
+06|Araporanga
+06|Araquem
+06|Ararenda
+06|Araripe
+06|Ararius
+06|Aratama
+06|Araticum
+06|Aratuba
+06|Areial
+06|Ariscos dos Marianos
+06|Arneiroz
+06|Aroeiras
+06|Arrojado
+06|Aruaru
+06|Assare
+06|Assuncao
+06|Aurora
+06|Baixa Grande
+06|Baixio
+06|Baixio da Donana
+06|Banabuiu
+06|Bandeira
+06|Barao de Aquiraz
+06|Barbalha
+06|Barra
+06|Barra do Sotero
+06|Barra Nova
+06|Barreira
+06|Barreira dos Vianas
+06|Barreiras
+06|Barreiros
+06|Barrento
+06|Barro
+06|Barro Alto
+06|Barroquinha
+06|Baturite
+06|Bau
+06|Beberibe
+06|Bela Cruz
+06|Bela Vista
+06|Betania
+06|Bitupita
+06|Bixopa
+06|Boa Agua
+06|Boa Esperanca
+06|Boa Viagem
+06|Boa Vista
+06|Boa Vista do Caxitore
+06|Bonfim
+06|Bonhu
+06|Bonito
+06|Borges
+06|Brejinho
+06|Brejo Grande
+06|Brejo Santo
+06|Brotas
+06|Buritizal
+06|Buritizinho
+06|Cabreiro
+06|Cachoeira
+06|Cachoeira Grande
+06|Caicara
+06|Caicarinha
+06|Caio Prado
+06|Caioca
+06|Caipu
+06|Calabaca
+06|Caldeirao
+06|California
+06|Camara
+06|Camboas
+06|Camilos
+06|Camocim
+06|Campanario
+06|Campestre
+06|Campos Sales
+06|Canaan
+06|Canafistula
+06|Cangati
+06|Caninde
+06|Canindezinho
+06|Capistrano
+06|Caponga
+06|Caponga da Bernarda
+06|Caracara
+06|Caridade
+06|Carire
+06|Caririacu
+06|Carius
+06|Cariutaba
+06|Carmelopolis
+06|Carnaubal
+06|Carnaubas
+06|Carnaubinha
+06|Carquejo
+06|Carrapateiras
+06|Caruatai
+06|Carvalho
+06|Carvoeiro
+06|Cascavel
+06|Castanhao
+06|Catarina
+06|Catole
+06|Catuana
+06|Catunda
+06|Caucaia
+06|Caxitore
+06|Cedro
+06|Cemoaba
+06|Chaval
+06|Choro
+06|Chorozinho
+06|Cipo dos Anjos
+06|Cococi
+06|Codia
+06|Coite
+06|Colina
+06|Conceicao
+06|Coreau
+06|Corrego dos Fernandes
+06|Crateus
+06|Crato
+06|Crioulos
+06|Cristais
+06|Croata
+06|Cruxati
+06|Cruz
+06|Cruz de Pedra
+06|Cruzeirinho
+06|Cuncas
+06|Curatis
+06|Curupira
+06|Custodio
+06|Daniel de Queiros
+06|Delmiro Gouveia
+06|Deputado Irapuan Pinheiro
+06|Deserto
+06|Dom Leme
+06|Dom Mauricio
+06|Dom Quintino
+06|Domingos da Costa
+06|Donato
+06|Dourados
+06|Ebron
+06|Ema
+06|Ematuba
+06|Encantado
+06|Engenheiro Joao Tome
+06|Engenheiro José Lopes
+06|Engenho Velho
+06|Erere
+06|Espacinha
+06|Esperanca
+06|Espinho
+06|Eusebio
+06|Farias Brito
+06|Fatima
+06|Feiticeiro
+06|Feitosa
+06|Felizardo
+06|Flamengo
+06|Flores
+06|Forquilha
+06|Fortaleza
+06|Fortim
+06|Frecheirinha
+06|Gado
+06|Gado dos Rodrigues
+06|Gameleira de São Sebastião
+06|Garcas
+06|Gazea
+06|General Sampaio
+06|General Tiburcio
+06|Genipapeiro
+06|Gererau
+06|Giqui
+06|Girau
+06|Graca
+06|Granja
+06|Granjeiro
+06|Groairas
+06|Guaiuba
+06|Guajiru
+06|Guanaces
+06|Guaraciaba do Norte
+06|Guaramiranga
+06|Guararu
+06|Guassi
+06|Guassosse
+06|Guia
+06|Guriu
+06|Hidrolandia
+06|Holanda
+06|Horizonte
+06|Iapi
+06|Iara
+06|Ibaretama
+06|Ibiapaba
+06|Ibiapina
+06|Ibicatu
+06|Ibicua
+06|Ibicuitaba
+06|Ibicuitinga
+06|Iborepi
+06|Ibuacu
+06|Ibuguacu
+06|Icapui
+06|Icarai
+06|Ico
+06|Icozinho
+06|Ideal
+06|Igaroi
+06|Iguatu
+06|Independencia
+06|Ingazeiras
+06|Inhamuns
+06|Inhucu
+06|Inhuporanga
+06|Ipaporanga
+06|Ipaumirim
+06|Ipu
+06|Ipueiras
+06|Ipueiras dos Gomes
+06|Iracema
+06|Iraja
+06|Irapua
+06|Iratinga
+06|Iraucuba
+06|Isidoro
+06|Itacima
+06|Itagua
+06|Itaicaba
+06|Itaipaba
+06|Itaitinga
+06|Itans
+06|Itapage
+06|Itapebussu
+06|Itapeim
+06|Itapipoca
+06|Itapiuna
+06|Itapo
+06|Itarema
+06|Itatira
+06|Jaburuna
+06|Jacampari
+06|Jacarecoara
+06|Jacauna
+06|Jaguarao
+06|Jaguaretama
+06|Jaguaribara
+06|Jaguaribe
+06|Jaguaruana
+06|Jaibaras
+06|Jamacaru
+06|Jandrangoeira
+06|Jardim
+06|Jardimirim
+06|Jati
+06|Jijoca de Jericoacoara
+06|Joao Cordeiro
+06|Jordao
+06|José de Alencar
+06|Jua
+06|Juatama
+06|Juazeiro de Baixo
+06|Juazeiro do Norte
+06|Jubaia
+06|Jucas
+06|Jurema
+06|Justiniano Serpa
+06|Lacerda
+06|Ladeira Grande
+06|Lagoa de São José
+06|Lagoa do Juvenal
+06|Lagoa do Mato
+06|Lagoa dos Crioulos
+06|Lagoa Grande
+06|Lagoinha
+06|Lambedouro
+06|Lameiro
+06|Lavras da Mangabeira
+06|Lima Campos
+06|Limoeiro do Norte
+06|Lisieux
+06|Livramento
+06|Logradouro
+06|Macambira
+06|Macaoca
+06|Macarau
+06|Maceio
+06|Madalena
+06|Major Simplicio
+06|Majorlandia
+06|Malhada Grande
+06|Mangabeira
+06|Manibu
+06|Manituba
+06|Mapua
+06|Maracanau
+06|Maragua
+06|Maranguape
+06|Mararupa
+06|Marco
+06|Marinheiros
+06|Marrecas
+06|Marrocos
+06|Marruas
+06|Martinopole
+06|Massape
+06|Mata Fresca
+06|Matias
+06|Matriz
+06|Mauriti
+06|Mel
+06|Meruoca
+06|Messejana
+06|Miguel Xavier
+06|Milagres
+06|Milha
+06|Milton Belo
+06|Mineirolandia
+06|Miragem
+06|Miraima
+06|Mirambe
+06|Missao Nova
+06|Missao Velha
+06|Missi
+06|Moitas
+06|Mombaca
+06|Mondubim
+06|Monguba
+06|Monsenhor Tabosa
+06|Monte Alegre
+06|Monte Castelo
+06|Monte Grave
+06|Monte Sion
+06|Montenebo
+06|Morada Nova
+06|Moraujo
+06|Morrinhos
+06|Morrinhos Novos
+06|Morro Branco
+06|Mucambo
+06|Mulungu
+06|Mumbaba
+06|Mundau
+06|Muribeca
+06|Muriti
+06|Mutambeiras
+06|Naraniu
+06|Nascente
+06|Nenenlandia
+06|Nossa Senhora do Livramento
+06|Nova Betania
+06|Nova Fatima
+06|Nova Floresta
+06|Nova Olinda
+06|Nova Russas
+06|Nova Vida
+06|Novo Assis
+06|Novo Oriente
+06|Ocara
+06|Oiticica
+06|Olho-d''agua
+06|Olho-d''agua Da Bica
+06|Oliveiras
+06|Oros
+06|Pacajus
+06|Pacatuba
+06|Pacoti
+06|Pacuja
+06|Padre Cicero
+06|Padre Linhares
+06|Padre Vieira
+06|Pajeu
+06|Pajucara
+06|Palestina
+06|Palestina do Norte
+06|Palhano
+06|Palmacia
+06|Palmatoria
+06|Panacui
+06|Paracua
+06|Paracuru
+06|Paraipaba
+06|Parajuru
+06|Parambu
+06|Paramoti
+06|Parangaba
+06|Parapui
+06|Parazinho
+06|Paripueira
+06|Passagem
+06|Passagem Funda
+06|Pasta
+06|Patacas
+06|Patriarca
+06|Pavuna
+06|Pecem
+06|Pedra Branca
+06|Pedras
+06|Pedrinhas
+06|Peixe
+06|Peixe Gordo
+06|Penaforte
+06|Pentecoste
+06|Pereiro
+06|Pernambuquinho
+06|Pessoa Anta
+06|Pindoguaba
+06|Pindoretama
+06|Pio X
+06|Piquet Carneiro
+06|Pirabibu
+06|Pirangi
+06|Pires Ferreira
+06|Pitombeira
+06|Pitombeiras
+06|Placido Martins
+06|Poco
+06|Poco Comprido
+06|Poco Grande
+06|Podimirim
+06|Ponta da Serra
+06|Poranga
+06|Porfirio Sampaio
+06|Porteiras
+06|Potengi
+06|Poti
+06|Potiretama
+06|Prata
+06|Prudente de Morais
+06|Quatiguaba
+06|Queimadas
+06|Quimami
+06|Quincoe
+06|Quincunca
+06|Quitaius
+06|Quiterianopolis
+06|Quixada
+06|Quixariu
+06|Quixelo
+06|Quixeramobim
+06|Quixere
+06|Quixoa
+06|Raimundo Martins
+06|Redencao
+06|Reriutaba
+06|Riachao do Banabuiu
+06|Riacho Grande
+06|Riacho Verde
+06|Riacho Vermelho
+06|Rinare
+06|Roldao
+06|Russas
+06|Sabiaguaba
+06|Saboeiro
+06|Sacramento
+06|Salao
+06|Salitre
+06|Sambaiba
+06|Santa Ana
+06|Santa Fé
+06|Santa Felicia
+06|Santa Luzia
+06|Santa Quiteria
+06|Santa Tereza
+06|Santana
+06|Santana do Acarau
+06|Santana do Cariri
+06|Santarem
+06|Santo Antônio
+06|Santo Antônio da Pindoba
+06|Santo Antônio dos Fernandes
+06|São Bartolomeu
+06|São Benedito
+06|São Domingos
+06|São Felipe
+06|São Francisco
+06|São Gerardo
+06|São Goncalo do Amarante
+06|São Goncalo do Umari
+06|São Joao de Deus
+06|São Joao do Jaguaribe
+06|São Joao dos Queiroz
+06|São Joaquim
+06|São Joaquim do Salgado
+06|São José
+06|São José das Lontras
+06|São José de Solonopole
+06|São José do Torto
+06|São Luis do Curu
+06|São Miguel
+06|São Paulo
+06|São Pedro
+06|São Romao
+06|São Sebastião
+06|São Vicente
+06|Sapo
+06|Sapupara
+06|Sebastião de Abreu
+06|Senador Carlos Jereissati
+06|Senador Pompeu
+06|Senador Sa
+06|Sereno de Cima
+06|Serra do Felix
+06|Serragem
+06|Serrota
+06|Serrote
+06|Sitia
+06|Sitios Novos
+06|Siupe
+06|Sobral
+06|Soledade
+06|Solonopole
+06|Suassurana
+06|Sucatinga
+06|Sucesso
+06|Sussuanha
+06|Tabainha
+06|Taboleiro
+06|Tabuleiro do Norte
+06|Taiba
+06|Tamboril
+06|Tanques
+06|Tapera
+06|Taperuaba
+06|Tapuiara
+06|Targinos
+06|Tarrafas
+06|Taua
+06|Tejucuoca
+06|Tiangua
+06|Timonha
+06|Tipi
+06|Tome
+06|Trairi
+06|Trapia
+06|Trici
+06|Troia
+06|Trussu
+06|Tucunduba
+06|Tucuns
+06|Tuina
+06|Tururu
+06|Ubajara
+06|Ubauna
+06|Ubiracu
+06|Uiraponga
+06|Umari
+06|Umarituba
+06|Umburanas
+06|Umirim
+06|Uruburetama
+06|Uruoca
+06|Uruque
+06|Varjota
+06|Varzea
+06|Varzea Alegre
+06|Varzea da Volta
+06|Varzea do Gilo
+06|Vazantes
+06|Ventura
+06|Vertentes do Lagedo
+06|Vicosa
+06|Vicosa do Ceara
+06|Vila Soares
+07|Brasilia
+07|Brazlandia
+07|Candangolandia
+07|Ceilandia
+07|Cruzeiro
+07|Gama
+07|Guara
+07|Lago Norte
+07|Lago Sul
+07|Nucleo Bandeirante
+07|Paranoa
+07|Planaltina
+07|Recanto das Emas
+07|Riacho Fundo
+07|Samambaia
+07|Santa Maria
+07|São Sebastião
+07|Sobradinho
+07|Taguatinga
+08|Acioli
+08|Afonso Claudio
+08|Agha
+08|Agua Doce do Norte
+08|Aguia Branca
+08|Airituba
+08|Alegre
+08|Alfredo Chaves
+08|Alto Calcado
+08|Alto Caldeirao
+08|Alto Mutum Preto
+08|Alto Rio Novo
+08|Alto Santa Maria
+08|Anchieta
+08|Angelo Frechiani
+08|Anutiba
+08|Apiaca
+08|Aracatiba
+08|Arace
+08|Aracruz
+08|Aracui
+08|Araguaia
+08|Ararai
+08|Argolas
+08|Atilio Vivacqua
+08|Baia Nova
+08|Baixo Guandu
+08|Barra de Novo Brasil
+08|Barra de São Francisco
+08|Barra do Itapemirim
+08|Barra Nova
+08|Barra Seca
+08|Baunilha
+08|Bebedouro
+08|Boa Esperanca
+08|Boapaba
+08|Bom Jesus do Norte
+08|Bonsucesso
+08|Braco do Rio
+08|Brejetuba
+08|Burarama
+08|Cachoeirinha de Itauna
+08|Cachoeiro de Itapemirim
+08|Cafe
+08|Calogi
+08|Camara
+08|Carapina
+08|Cariacica
+08|Castelo
+08|Celina
+08|Colatina
+08|Conceicao da Barra
+08|Conceicao do Castelo
+08|Conceicao do Muqui
+08|Conduru
+08|Coqueiral
+08|Corrego dos Monos
+08|Cotaxe
+08|Cristal do Norte
+08|Crubixa
+08|Desengano
+08|Divino de São Lourenco
+08|Divino Espirito Santo
+08|Djalma Coutinho
+08|Domingos Martins
+08|Dona America
+08|Dores do Rio Preto
+08|Duas Barras
+08|Ecoporanga
+08|Estrela do Norte
+08|Fartura
+08|Fazenda Guandu
+08|Fundao
+08|Garrafao
+08|Gironda
+08|Goiabeiras
+08|Governador Lacerda de Aguiar
+08|Governador Lindenberg
+08|Graca Aranha
+08|Gruta
+08|Guacui
+08|Guarana
+08|Guarapari
+08|Guararema
+08|Ibatiba
+08|Ibes
+08|Ibicaba
+08|Ibiracu
+08|Ibitirama
+08|Ibitirui
+08|Ibituba
+08|Iconha
+08|Imburana
+08|Iriritiba
+08|Irundi
+08|Irupi
+08|Isabel
+08|Itabaiana
+08|Itacu
+08|Itaguacu
+08|Itaici
+08|Itaimbe
+08|Itaipava
+08|Itamira
+08|Itaoca
+08|Itapecoa
+08|Itapemirim
+08|Itaperuna
+08|Itapina
+08|Itaquari
+08|Itarana
+08|Itaunas
+08|Itauninhas
+08|Iuna
+08|Jabaquara
+08|Jacaraipe
+08|Jacigua
+08|Jacupemba
+08|Jaguare
+08|Jeronimo Monteiro
+08|Joacuba
+08|Joao Neiva
+08|Joatuba
+08|José Carlos
+08|Jucu
+08|Lajinha
+08|Laranja da Terra
+08|Limoeiro
+08|Linhares
+08|Mangarai
+08|Mantenopolis
+08|Marataizes
+08|Marechal Floriano
+08|Marilandia
+08|Matilde
+08|Melgaco
+08|Menino Jesus
+08|Mimoso do Sul
+08|Montanha
+08|Monte Carmelo do Rio Novo
+08|Monte Pio
+08|Monte Sinai
+08|Mucurici
+08|Mundo Novo
+08|Muniz Freire
+08|Muqui
+08|Nestor Gomes
+08|Nova Almeida
+08|Nova Canaa
+08|Nova Venecia
+08|Nova Verona
+08|Novo Brasil
+08|Novo Horizonte
+08|Pacotuba
+08|Paineiras
+08|Palmeira
+08|Palmerino
+08|Pancas
+08|Paraju
+08|Paulista
+08|Pedro Canario
+08|Pendanga
+08|Pequia
+08|Perdicao
+08|Piacu
+08|Pinheiros
+08|Piracema
+08|Piuma
+08|Ponte de Itabapoana
+08|Ponto Belo
+08|Pontoes
+08|Poranga
+08|Porto Barra do Riacho
+08|Praia Grande
+08|Presidente Kennedy
+08|Princesa
+08|Queimado
+08|Quilometro Null do Mutum
+08|Regencia
+08|Riacho
+08|Ribeirao do Cristo
+08|Rio Bananal
+08|Rio Calcado
+08|Rio Muqui
+08|Rio Novo do Sul
+08|Rio Preto
+08|Rive
+08|Sagrada Familia
+08|Santa Angelica
+08|Santa Cruz
+08|Santa Julia
+08|Santa Leopoldina
+08|Santa Luzia de Mantenopolis
+08|Santa Luzia do Azul
+08|Santa Luzia do Norte
+08|Santa Maria de Jetiba
+08|Santa Marta
+08|Santa Teresa
+08|Santa Terezinha
+08|Santissima Trindade
+08|Santo Agostinho
+08|Santo Antônio
+08|Santo Antônio do Canaa
+08|Santo Antônio do Muqui
+08|Santo Antônio do Pousalegre
+08|Santo Antônio do Quinze
+08|São Domingos do Norte
+08|São Francisco do Novo Brasil
+08|São Francisco Xavier do Guandu
+08|São Gabriel da Palha
+08|São Geraldo
+08|São Jacinto
+08|São Joao de Petropolis
+08|São Joao de Vicosa
+08|São Joao do Sobrado
+08|São Jorge da Barra Seca
+08|São Jorge do Oliveira
+08|São Jorge do Tiradentes
+08|São José das Torres
+08|São José de Mantenopolis
+08|São José do Calcado
+08|São José do Sobradinho
+08|São Mateus
+08|São Pedro
+08|São Pedro de Itabapoana
+08|São Pedro de Rates
+08|São Rafael
+08|São Roque do Cannaa
+08|São Tiago
+08|São Torquato
+08|Sapucaia
+08|Serra
+08|Serra Pelada
+08|Sobreiro
+08|Sooretama
+08|Timbui
+08|Todos Os Santos
+08|Urania
+08|Vargem Alta
+08|Vargem Grande do Soturno
+08|Venda Nova do Imigrante
+08|Viana
+08|Vieira Machado
+08|Vila Nelita
+08|Vila Nova de Bananal
+08|Vila Pavao
+08|Vila Valerio
+08|Vila Velha
+08|Vila Verde
+08|Vinhatico
+08|Vinte E Cinco de Julho
+08|Vitoria
+09|Abadia de Goias
+09|Abadiania
+09|Acreuna
+09|Adelandia
+09|Agua Fria de Goias
+09|Agua Limpa
+09|Aguas Lindas de Goias
+09|Alexania
+09|Aloandia
+09|Alto Alvorada
+09|Alto Horizonte
+09|Alto Paraiso de Goias
+09|Alvorada do Norte
+09|Amaralina
+09|Americano do Brasil
+09|Amorinopolis
+09|Anapolis
+09|Anhanguera
+09|Anicuns
+09|Aparecida
+09|Aparecida de Goiania
+09|Aparecida de Goias
+09|Aparecida do Rio Claro
+09|Aparecida do Rio Doce
+09|Apore
+09|Aracu
+09|Aragarcas
+09|Aragoiania
+09|Araguapaz
+09|Arenopolis
+09|Aruana
+09|Aurilandia
+09|Auriverde
+09|Avelinopolis
+09|Bacilandia
+09|Baliza
+09|Bandeirantes
+09|Barbosilandia
+09|Barro Alto
+09|Bela Vista de Goias
+09|Bom Jardim de Goias
+09|Bom Jesus de Goias
+09|Bonfinopolis
+09|Bonopolis
+09|Brazabrantes
+09|Britania
+09|Buenolandia
+09|Buriti Alegre
+09|Buriti de Goias
+09|Buritinopolis
+09|Cabeceiras
+09|Cachoeira Alta
+09|Cachoeira de Goias
+09|Cachoeira Dourada
+09|Cacu
+09|Caiaponia
+09|Caicara
+09|Calcilandia
+09|Caldas Novas
+09|Caldazinha
+09|Calixto
+09|Campestre de Goias
+09|Campinacu
+09|Campinorte
+09|Campo Alegre de Goias
+09|Campo Limpo
+09|Campolandia
+09|Campos Belos
+09|Campos Verdes
+09|Cana Brava
+09|Canada
+09|Capelinha
+09|Caraiba
+09|Carmo do Rio Verde
+09|Castelandia
+09|Castrinopolis
+09|Catalao
+09|Caturai
+09|Cavalcante
+09|Cavalheiro
+09|Cebrasa
+09|Ceres
+09|Cezarina
+09|Chapadao do Ceu
+09|Choupana
+09|Cibele
+09|Cidade Ocidental
+09|Cirilandia
+09|Cocalzinho de Goias
+09|Colinas do Sul
+09|Corrego do Ouro
+09|Corrego Rico
+09|Corumba de Goias
+09|Corumbaiba
+09|Cristalina
+09|Cristianopolis
+09|Crixas
+09|Crominia
+09|Cruzeiro do Norte
+09|Cumari
+09|Damianopolis
+09|Damolandia
+09|Davidopolis
+09|Davinopolis
+09|Diolandia
+09|Diorama
+09|Divinopolis de Goias
+09|Domiciano Ribeiro
+09|Doverlandia
+09|Edealina
+09|Edeia
+09|Estrela do Norte
+09|Faina
+09|Fazenda Nova
+09|Firminopolis
+09|Flores de Goias
+09|Formosa
+09|Formoso
+09|Forte
+09|Gameleira de Goias
+09|Geriacu
+09|Goialandia
+09|Goianapolis
+09|Goiandira
+09|Goianesia
+09|Goiania
+09|Goianira
+09|Goias
+09|Goiatuba
+09|Gouvelandia
+09|Guapo
+09|Guaraita
+09|Guarani de Goias
+09|Guarinos
+09|Heitorai
+09|Hidrolandia
+09|Hidrolina
+09|Iaciara
+09|Inaciolandia
+09|Indiara
+09|Inhumas
+09|Interlandia
+09|Ipameri
+09|Ipora
+09|Israelandia
+09|Itaberai
+09|Itaguacu
+09|Itaguari
+09|Itaguaru
+09|Itaja
+09|Itapaci
+09|Itapirapua
+09|Itapuranga
+09|Itaruma
+09|Itaucu
+09|Itumbiara
+09|Ivolandia
+09|Jacilandia
+09|Jandaia
+09|Jaragua
+09|Jatai
+09|Jaupaci
+09|Jeroaquara
+09|Jesupolis
+09|Joanapolis
+09|Joviania
+09|Juscelandia
+09|Juscelino Kubitschek
+09|Jussara
+09|Lagoa do Bauzinho
+09|Lagolandia
+09|Leopoldo de Bulhoes
+09|Lucilandia
+09|Luziania
+09|Mairipotaba
+09|Mambai
+09|Mara Rosa
+09|Marcianopolis
+09|Marzagao
+09|Matrincha
+09|Maurilandia
+09|Meia Ponte
+09|Messianopolis
+09|Mimoso de Goias
+09|Minacu
+09|Mineiros
+09|Moipora
+09|Monte Alegre de Goias
+09|Montes Claros de Goias
+09|Montividiu
+09|Montividiu do Norte
+09|Morrinhos
+09|Morro Agudo de Goias
+09|Mossamedes
+09|Mozarlandia
+09|Mundo Novo
+09|Mutunopolis
+09|Natinopolis
+09|Nazario
+09|Neropolis
+09|Niquelandia
+09|Nova America
+09|Nova Aurora
+09|Nova Crixas
+09|Nova Gloria
+09|Nova Iguacu de Goias
+09|Nova Roma
+09|Nova Veneza
+09|Novo Brasil
+09|Novo Gama
+09|Novo Planalto
+09|Olaria do Angico
+09|Olhos D''agua
+09|Orizona
+09|Ouro Verde de Goias
+09|Ouroana
+09|Ouvidor
+09|Padre Bernardo
+09|Palestina de Goias
+09|Palmeiras de Goias
+09|Palmelo
+09|Palminopolis
+09|Panama
+09|Paranaiguara
+09|Parauna
+09|Pau-terra
+09|Pedra Branca
+09|Perolandia
+09|Petrolina de Goias
+09|Pilar de Goias
+09|Piloandia
+09|Piracanjuba
+09|Piranhas
+09|Pirenopolis
+09|Pires Belo
+09|Pires do Rio
+09|Planaltina
+09|Pontalina
+09|Porangatu
+09|Porteirao
+09|Portelandia
+09|Posse
+09|Posse D''abadia
+09|Professor Jamil
+09|Quirinopolis
+09|Registro do Araguaia
+09|Rialma
+09|Rianapolis
+09|Rio Quente
+09|Rio Verde
+09|Riverlandia
+09|Rodrigues Nascimento
+09|Rosalandia
+09|Rubiataba
+09|Sanclerlandia
+09|Santa Barbara de Goias
+09|Santa Cruz das Lajes
+09|Santa Cruz de Goias
+09|Santa Fé de Goias
+09|Santa Helena de Goias
+09|Santa Isabel
+09|Santa Rita do Araguaia
+09|Santa Rita do Novo Destino
+09|Santa Rosa
+09|Santa Rosa de Goias
+09|Santa Tereza de Goias
+09|Santa Terezinha de Goias
+09|Santo Antônio da Barra
+09|Santo Antônio de Goias
+09|Santo Antônio do Descoberto
+09|Santo Antônio do Rio Verde
+09|São Domingos
+09|São Francisco de Goias
+09|São Gabriel de Goias
+09|São Joao
+09|São Joao D''alianca
+09|São Joao da Parauna
+09|São Luis de Montes Belos
+09|São Luiz do Norte
+09|São Luiz do Tocantins
+09|São Miguel do Araguaia
+09|São Miguel do Passa Quatro
+09|São Patricio
+09|São Sebastião do Rio Claro
+09|São Simao
+09|São Vicente
+09|Sarandi
+09|Senador Canedo
+09|Serra Dourada
+09|Serranopolis
+09|Silvania
+09|Simolandia
+09|Sitio D''abadia
+09|Sousania
+09|Taquaral de Goias
+09|Taveira
+09|Teresina de Goias
+09|Terezopolis de Goias
+09|Termas do Itaja
+09|Tres Ranchos
+09|Trindade
+09|Trombas
+09|Tupiracaba
+09|Turvania
+09|Turvelandia
+09|Uirapuru
+09|Uruacu
+09|Uruana
+09|Uruita
+09|Urutai
+09|Uva
+09|Valdelandia
+09|Valparaiso de Goias
+09|Varjao
+09|Vianopolis
+09|Vicentinopolis
+09|Vila Boa
+09|Vila Brasilia
+09|Vila Propicio
+09|Vila Sertaneja
+
+10|Acailandia
+10|Afonso Cunha
+10|Agua Doce do Maranhao
+10|Alcantara
+10|Aldeias Altas
+10|Altamira do Maranhao
+10|Alto Alegre do Maranhao
+10|Alto Alegre do Pindare
+10|Alto Parnaiba
+10|Amapa do Maranhao
+10|Amarante do Maranhao
+10|Anajatuba
+10|Anapurus
+10|Anil
+10|Apicum-acu
+10|Araguana
+10|Araioses
+10|Arame
+10|Arari
+10|Aurizona
+10|Axixa
+10|Bacabal
+10|Bacabeira
+10|Bacatuba
+10|Bacuri
+10|Bacurituba
+10|Balsas
+10|Barao de Grajau
+10|Barao de Tromai
+10|Barra do Corda
+10|Barreirinhas
+10|Barro Duro
+10|Bela Vista do Maranhao
+10|Belagua
+10|Benedito Leite
+10|Bequimao
+10|Bernardo do Mearim
+10|Boa Vista do Gurupi
+10|Boa Vista do Pindare
+10|Bom Jardim
+10|Bom Jesus das Selvas
+10|Bom Lugar
+10|Bonfim do Arari
+10|Brejo
+10|Brejo de Areia
+10|Brejo de São Felix
+10|Buriti
+10|Buriti Bravo
+10|Buriti Cortado
+10|Buriticupu
+10|Buritirama
+10|Cachoeira Grande
+10|Cajapio
+10|Cajari
+10|Campestre do Maranhao
+10|Candido Mendes
+10|Cantanhede
+10|Capinzal do Norte
+10|Caraiba do Norte
+10|Carolina
+10|Carutapera
+10|Caxias
+10|Cedral
+10|Central do Maranhao
+10|Centro do Guilherme
+10|Centro Novo do Maranhao
+10|Chapadinha
+10|Cidelandia
+10|Codo
+10|Codozinho
+10|Coelho Neto
+10|Colinas
+10|Conceicao do Lago-acu
+10|Coroata
+10|Curupa
+10|Cururupu
+10|Curva Grande
+10|Custodio Lima
+10|Davinopolis
+10|Dom Pedro
+10|Duque Bacelar
+10|Esperantinopolis
+10|Estandarte
+10|Estreito
+10|Feira Nova do Maranhao
+10|Fernando Falcao
+10|Formosa da Serra Negra
+10|Fortaleza dos Nogueiras
+10|Fortuna
+10|Frecheiras
+10|Godofredo Viana
+10|Goncalves Dias
+10|Governador Archer
+10|Governador Edison Lobao
+10|Governador Eugenio Barros
+10|Governador Luiz Rocha
+10|Governador Newton Bello
+10|Governador Nunes Freire
+10|Graca Aranha
+10|Grajau
+10|Guimaraes
+10|Humberto de Campos
+10|Ibipira
+10|Icatu
+10|Igarape do Meio
+10|Igarape Grande
+10|Imperatriz
+10|Itaipava do Grajau
+10|Itamatare
+10|Itapecuru Mirim
+10|Itapera
+10|Itinga do Maranhao
+10|Jatoba
+10|Jenipapo dos Vieiras
+10|Joao Lisboa
+10|Josélandia
+10|Junco do Maranhao
+10|Lago da Pedra
+10|Lago do Junco
+10|Lago dos Rodrigues
+10|Lago Verde
+10|Lagoa do Mato
+10|Lagoa Grande do Maranhao
+10|Lajeado Novo
+10|Lapela
+10|Leandro
+10|Lima Campos
+10|Loreto
+10|Luis Domingues
+10|Magalhaes de Almeida
+10|Maioba
+10|Maracacume
+10|Maraja do Sena
+10|Maranhaozinho
+10|Marianopolis
+10|Mata
+10|Mata Roma
+10|Matinha
+10|Matoes
+10|Matoes do Norte
+10|Milagres do Maranhao
+10|Mirador
+10|Miranda do Norte
+10|Mirinzal
+10|Moncao
+10|Montes Altos
+10|Morros
+10|Nina Rodrigues
+10|Nova Colinas
+10|Nova Iorque
+10|Nova Olinda do Maranhao
+10|Olho D''agua Das Cunhas
+10|Olinda Nova do Maranhao
+10|Paco do Lumiar
+10|Palmeirandia
+10|Papagaio
+10|Paraibano
+10|Parnarama
+10|Passagem Franca
+10|Pastos Bons
+10|Paulino Neves
+10|Paulo Ramos
+10|Pedreiras
+10|Pedro do Rosario
+10|Penalva
+10|Peri Mirim
+10|Peritoro
+10|Pimentel
+10|Pindare Mirim
+10|Pinheiro
+10|Pio Xii
+10|Pirapemas
+10|Pocao de Pedras
+10|Porto das Gabarras
+10|Porto Franco
+10|Porto Rico do Maranhao
+10|Presidente Dutra
+10|Presidente Juscelino
+10|Presidente Medici
+10|Presidente Sarney
+10|Presidente Vargas
+10|Primeira Cruz
+10|Raposa
+10|Resplandes
+10|Riachao
+10|Ribamar Fiquene
+10|Ribeirao Azul
+10|Rocado
+10|Roque
+10|Rosario
+10|Sambaiba
+10|Santa Filomena do Maranhao
+10|Santa Helena
+10|Santa Ines
+10|Santa Luzia
+10|Santa Luzia do Parua
+10|Santa Quiteria do Maranhao
+10|Santa Rita
+10|Santana do Maranhao
+10|Santo Amaro
+10|Santo Antônio dos Lopes
+10|São Benedito do Rio Preto
+10|São Bento
+10|São Bernardo
+10|São Domingos do Azeitao
+10|São Domingos do Maranhao
+10|São Felix de Balsas
+10|São Francisco do Brejao
+10|São Francisco do Maranhao
+10|São Joao Batista
+10|São Joao de Cortes
+10|São Joao do Caru
+10|São Joao do Paraiso
+10|São Joao do Soter
+10|São Joao dos Patos
+10|São Joaquim dos Melos
+10|São José de Ribamar
+10|São José dos Basilios
+10|São Luis
+10|São Luis Gonzaga do Maranhao
+10|São Mateus do Maranhao
+10|São Pedro da Agua Branca
+10|São Pedro dos Crentes
+10|São Raimundo das Mangabeiras
+10|São Raimundo de Codo
+10|São Raimundo do Doca Bezerra
+10|São Roberto
+10|São Vicente Ferrer
+10|Satubinha
+10|Senador Alexandre Costa
+10|Senador La Rocque
+10|Serrano do Maranhao
+10|Sitio Novo
+10|Sucupira do Norte
+10|Sucupira do Riachao
+10|Tasso Fragoso
+10|Timbiras
+10|Timon
+10|Trizidela do Vale
+10|Tufilandia
+10|Tuntum
+10|Turiacu
+10|Turilandia
+10|Tutoia
+10|Urbano Santos
+10|Vargem Grande
+10|Viana
+10|Vila Nova dos Martirios
+10|Vitoria do Mearim
+10|Vitorino Freire
+10|Ze Doca
+11|Abadia dos Dourados
+11|Abaete
+11|Abaete dos Mendes
+11|Abaiba
+11|Abre Campo
+11|Abreus
+11|Acaiaca
+11|Acucena
+11|Acurui
+11|Adao Colares
+11|Agua Boa
+11|Agua Branca de Minas
+11|Agua Comprida
+11|Agua Viva
+11|Aguanil
+11|Aguas de Araxa
+11|Aguas de Contendas
+11|Aguas Ferreas
+11|Aguas Formosas
+11|Aguas Vermelhas
+11|Aimores
+11|Aiuruoca
+11|Alagoa
+11|Albertina
+11|Alberto Isaacson
+11|Albertos
+11|Aldeia
+11|Alegre
+11|Alegria
+11|Alem Paraiba
+11|Alexandrita
+11|Alfenas
+11|Alfredo Vasconcelos
+11|Almeida
+11|Almenara
+11|Alpercata
+11|Alpinopolis
+11|Alterosa
+11|Alto Caparao
+11|Alto Capim
+11|Alto de Santa Helena
+11|Alto Jequitiba
+11|Alto Maranhao
+11|Alto Rio Doce
+11|Altolandia
+11|Alvacao
+11|Alvarenga
+11|Alvinopolis
+11|Alvorada
+11|Alvorada de Minas
+11|Amanda
+11|Amanhece
+11|Amarantina
+11|Amparo da Serra
+11|Andiroba
+11|Andradas
+11|Andrelandia
+11|Andrequice
+11|Angaturama
+11|Angelandia
+11|Angicos de Minas
+11|Anguereta
+11|Angustura
+11|Antônio Carlos
+11|Antônio Dias
+11|Antônio dos Santos
+11|Antônio Ferreira
+11|Antônio Pereira
+11|Antônio Prado de Minas
+11|Antunes
+11|Aparecida de Minas
+11|Aracai
+11|Aracati de Minas
+11|Aracitaba
+11|Aracuai
+11|Araguari
+11|Aramirim
+11|Aranha
+11|Arantina
+11|Araponga
+11|Arapora
+11|Arapua
+11|Araujos
+11|Arauna
+11|Araxa
+11|Arcangelo
+11|Arceburgo
+11|Arcos
+11|Areado
+11|Argenita
+11|Argirita
+11|Aricanduva
+11|Arinos
+11|Aristides Batista
+11|Ascencao
+11|Assarai
+11|Astolfo Dutra
+11|Ataleia
+11|Augusto de Lima
+11|Avai do Jacinto
+11|Azurita
+11|Babilonia
+11|Bacao
+11|Baependi
+11|Baguari
+11|Baioes
+11|Baixa
+11|Balbinopolis
+11|Baldim
+11|Bambui
+11|Bandeira
+11|Bandeira do Sul
+11|Bandeirantes
+11|Barao de Cocais
+11|Barao de Monte Alto
+11|Barbacena
+11|Barra Alegre
+11|Barra da Figueira
+11|Barra do Ariranha
+11|Barra do Cuiete
+11|Barra Feliz
+11|Barra Longa
+11|Barranco Alto
+11|Barreiro
+11|Barreiro Branco
+11|Barreiro da Raiz
+11|Barreiro do Rio Verde
+11|Barretos de Alvinopolis
+11|Barrocao
+11|Barroso
+11|Bau
+11|Bela Vista de Minas
+11|Belisario
+11|Belmiro Braga
+11|Belo Horizonte
+11|Belo Oriente
+11|Belo Vale
+11|Bentopolis de Minas
+11|Berilo
+11|Berizal
+11|Bertopolis
+11|Betim
+11|Bias Fortes
+11|Bicas
+11|Bicuiba
+11|Biquinhas
+11|Bituri
+11|Boa Esperanca
+11|Boa Familia
+11|Boa Uniao de Itabirinha
+11|Boa Vista de Minas
+11|Bocaina de Minas
+11|Bocaiuva
+11|Bom Despacho
+11|Bom Jardim de Minas
+11|Bom Jesus da Cachoeira
+11|Bom Jesus da Penha
+11|Bom Jesus de Cardosos
+11|Bom Jesus do Amparo
+11|Bom Jesus do Divino
+11|Bom Jesus do Galho
+11|Bom Jesus do Madeira
+11|Bom Pastor
+11|Bom Repouso
+11|Bom Retiro
+11|Bom Sucesso
+11|Bom Sucesso de Patos
+11|Bonanca
+11|Bonfim
+11|Bonfinopolis de Minas
+11|Bonito de Minas
+11|Borba Gato
+11|Borda da Mata
+11|Botelhos
+11|Botumirim
+11|Bras Pires
+11|Brasilandia de Minas
+11|Brasilia de Minas
+11|Brasopolis
+11|Braunas
+11|Brejauba
+11|Brejaubinha
+11|Brejo Bonito
+11|Brejo do Amparo
+11|Brumadinho
+11|Brumal
+11|Buarque de Macedo
+11|Bueno
+11|Bueno Brandao
+11|Buenopolis
+11|Bugre
+11|Buritis
+11|Buritizeiro
+11|Caatinga
+11|Cabeceira Grande
+11|Cabo Verde
+11|Caburu
+11|Cacaratiba
+11|Cacarema
+11|Cachoeira Alegre
+11|Cachoeira da Prata
+11|Cachoeira de Minas
+11|Cachoeira de Pajeu
+11|Cachoeira de Santa Cruz
+11|Cachoeira do Brumado
+11|Cachoeira do Campo
+11|Cachoeira do Manteiga
+11|Cachoeira do Vale
+11|Cachoeira dos Antunes
+11|Cachoeira Dourada
+11|Cachoeirinha
+11|Caetano Lopes
+11|Caetanopolis
+11|Caete
+11|Caiana
+11|Caiapo
+11|Cajuri
+11|Caldas
+11|Calixto
+11|Camacho
+11|Camanducaia
+11|Camargos
+11|Cambui
+11|Cambuquira
+11|Campanario
+11|Campanha
+11|Campestre
+11|Campestrinho
+11|Campina Verde
+11|Campo Alegre de Minas
+11|Campo Azul
+11|Campo Belo
+11|Campo do Meio
+11|Campo Florido
+11|Campo Redondo
+11|Campolide
+11|Campos Altos
+11|Campos Gerais
+11|Cana Verde
+11|Canaa
+11|Canabrava
+11|Canapolis
+11|Canastrao
+11|Candeias
+11|Canoeiros
+11|Cantagalo
+11|Caparao
+11|Capela Nova
+11|Capelinha
+11|Capetinga
+11|Capim Branco
+11|Capinopolis
+11|Capitania
+11|Capitao Andrade
+11|Capitao Eneas
+11|Capitolio
+11|Caputira
+11|Carai
+11|Caranaiba
+11|Carandai
+11|Carangola
+11|Caratinga
+11|Carbonita
+11|Cardeal Mota
+11|Careacu
+11|Carioca
+11|Carlos Alves
+11|Carlos Chagas
+11|Carmesia
+11|Carmo da Cachoeira
+11|Carmo da Mata
+11|Carmo de Minas
+11|Carmo do Cajuru
+11|Carmo do Paranaiba
+11|Carmo do Rio Claro
+11|Carmopolis de Minas
+11|Carneirinho
+11|Carrancas
+11|Carvalho de Brito
+11|Carvalhopolis
+11|Carvalhos
+11|Casa Grande
+11|Cascalho Rico
+11|Cassia
+11|Cataguarino
+11|Cataguases
+11|Catajas
+11|Catas Altas
+11|Catas Altas da Noruega
+11|Catiara
+11|Catuji
+11|Catune
+11|Catuni
+11|Catuti
+11|Caxambu
+11|Cedro do Abaete
+11|Centenario
+11|Central de Minas
+11|Central de Santa Helena
+11|Centralina
+11|Cervo
+11|Chacara
+11|Chale
+11|Chapada de Minas
+11|Chapada do Norte
+11|Chapada Gaucha
+11|Chaveslandia
+11|Chiador
+11|Chonim
+11|Chumbo
+11|Cipotanea
+11|Cisneiros
+11|Citrolandia
+11|Claraval
+11|Claro de Minas
+11|Claro dos Pocoes
+11|Claudio
+11|Claudio Manuel
+11|Cocais
+11|Coco
+11|Coimbra
+11|Coluna
+11|Comendador Gomes
+11|Comercinho
+11|Conceicao da Aparecida
+11|Conceicao da Barra de Minas
+11|Conceicao da Boa Vista
+11|Conceicao da Brejauba
+11|Conceicao da Ibitipoca
+11|Conceicao das Alagoas
+11|Conceicao das Pedras
+11|Conceicao de Ipanema
+11|Conceicao de Itagua
+11|Conceicao de Minas
+11|Conceicao de Piracicaba
+11|Conceicao de Tronqueiras
+11|Conceicao do Capim
+11|Conceicao do Formoso
+11|Conceicao do Mato Dentro
+11|Conceicao do Para
+11|Conceicao do Rio Acima
+11|Conceicao do Rio Verde
+11|Conceicao dos Ouros
+11|Concordia de Mucuri
+11|Condado do Norte
+11|Conego Joao Pio
+11|Conego Marinho
+11|Confins
+11|Congonhal
+11|Congonhas
+11|Congonhas do Norte
+11|Conquista
+11|Conselheiro Lafaiete
+11|Conselheiro Mata
+11|Conselheiro Pena
+11|Consolacao
+11|Contagem
+11|Contrato
+11|Contria
+11|Coqueiral
+11|Coracao de Jesus
+11|Cordisburgo
+11|Cordislandia
+11|Corinto
+11|Coroaci
+11|Coromandel
+11|Coronel Fabriciano
+11|Coronel Murta
+11|Coronel Pacheco
+11|Coronel Xavier Chaves
+11|Corrego Danta
+11|Corrego do Barro
+11|Corrego do Bom Jesus
+11|Corrego do Ouro
+11|Corrego Fundo
+11|Corrego Novo
+11|Corregos
+11|Correia de Almeida
+11|Correntinho
+11|Costa Sena
+11|Costas
+11|Costas da Mantiqueira
+11|Couto de Magalhaes de Minas
+11|Crisolia
+11|Crisolita
+11|Crispim Jaques
+11|Cristais
+11|Cristalia
+11|Cristiano Otoni
+11|Cristina
+11|Crucilandia
+11|Cruzeiro da Fortaleza
+11|Cruzeiro dos Peixotos
+11|Cruzilia
+11|Cubas
+11|Cuite Velho
+11|Cuparaque
+11|Curimatai
+11|Curral de Dentro
+11|Curvelo
+11|Datas
+11|Delfim Moreira
+11|Delfinopolis
+11|Delta
+11|Deputado Augusto Clementino
+11|Derribadinha
+11|Descoberto
+11|Desembargador Otoni
+11|Desemboque
+11|Desterro de Entre Rios
+11|Desterro do Melo
+11|Diamante de Uba
+11|Diamantina
+11|Dias
+11|Dias Tavares/siderurgica
+11|Diogo de Vasconcelos
+11|Dionisio
+11|Divinesia
+11|Divino
+11|Divino das Laranjeiras
+11|Divino de Virgolandia
+11|Divino Espirito Santo
+11|Divinolandia de Minas
+11|Divinopolis
+11|Divisa Alegre
+11|Divisa Nova
+11|Divisopolis
+11|Dois de Abril
+11|Dom Bosco
+11|Dom Cavati
+11|Dom Joaquim
+11|Dom Lara
+11|Dom Modesto
+11|Dom Silverio
+11|Dom Vicoso
+11|Dona Euzebia
+11|Dores da Vitoria
+11|Dores de Campos
+11|Dores de Guanhaes
+11|Dores do Indaia
+11|Dores do Paraibuna
+11|Dores do Turvo
+11|Doresopolis
+11|Douradinho
+11|Douradoquara
+11|Doutor Campolina
+11|Doutor Lund
+11|Durande
+11|Edgard Melo
+11|Eloi Mendes
+11|Emboabas
+11|Engenheiro Caldas
+11|Engenheiro Correia
+11|Engenheiro Navarro
+11|Engenheiro Schnoor
+11|Engenho do Ribeiro
+11|Engenho Novo
+11|Entre Folhas
+11|Entre Rios de Minas
+11|Epaminondas Otoni
+11|Ermidinha
+11|Ervalia
+11|Esmeraldas
+11|Esmeraldas de Ferros
+11|Espera Feliz
+11|Espinosa
+11|Espirito Santo do Dourado
+11|Esteios
+11|Estevao de Araujo
+11|Estiva
+11|Estrela da Barra
+11|Estrela Dalva
+11|Estrela de Jordania
+11|Estrela do Indaia
+11|Estrela do Sul
+11|Eugenopolis
+11|Euxenita
+11|Ewbank da Camara
+11|Expedicionario Alicio
+11|Extracao
+11|Extrema
+11|Fama
+11|Faria Lemos
+11|Farias
+11|Fechados
+11|Felicina
+11|Felicio dos Santos
+11|Felisburgo
+11|Felixlandia
+11|Fernandes Tourinho
+11|Fernao Dias
+11|Ferreiras
+11|Ferreiropolis
+11|Ferros
+11|Ferruginha
+11|Fervedouro
+11|Fidalgo
+11|Fidelandia
+11|Flor de Minas
+11|Floralia
+11|Floresta
+11|Florestal
+11|Florestina
+11|Fonseca
+11|Formiga
+11|Formoso
+11|Fortaleza de Minas
+11|Fortuna de Minas
+11|Francisco Badaro
+11|Francisco Dumont
+11|Francisco Sa
+11|Franciscopolis
+11|Frei Eustaquio
+11|Frei Gaspar
+11|Frei Inocencio
+11|Frei Lagonegro
+11|Frei Orlando
+11|Frei Serafim
+11|Freire Cardoso
+11|Fronteira
+11|Fronteira dos Vales
+11|Fruta de Leite
+11|Frutal
+11|Funchal
+11|Funilandia
+11|Furnas
+11|Furquim
+11|Galego
+11|Galena
+11|Galileia
+11|Gama
+11|Gameleiras
+11|Garapuava
+11|Gaviao
+11|Glaucilandia
+11|Glaura
+11|Glucinio
+11|Goiabeira
+11|Goiana
+11|Goianases
+11|Goncalves
+11|Gonzaga
+11|Gororos
+11|Gorutuba
+11|Gouvea
+11|Governador Valadares
+11|Graminea
+11|Granada
+11|Grao Mogol
+11|Grota
+11|Grupiara
+11|Guacui
+11|Guaipava
+11|Guanhaes
+11|Guape
+11|Guaraciaba
+11|Guaraciama
+11|Guaranesia
+11|Guarani
+11|Guaranilandia
+11|Guarara
+11|Guarataia
+11|Guarda dos Ferreiros
+11|Guarda-mor
+11|Guardinha
+11|Guaxima
+11|Guaxupe
+11|Guidoval
+11|Guimarania
+11|Guinda
+11|Guiricema
+11|Gurinhata
+11|Heliodora
+11|Hematita
+11|Hermilo Alves
+11|Honoropolis
+11|Iapu
+11|Ibertioga
+11|Ibia
+11|Ibiai
+11|Ibiracatu
+11|Ibiraci
+11|Ibirite
+11|Ibitira
+11|Ibitiura de Minas
+11|Ibituruna
+11|Icarai de Minas
+11|Igarape
+11|Igaratinga
+11|Iguatama
+11|Ijaci
+11|Ilheus do Prata
+11|Ilicinea
+11|Imbe de Minas
+11|Inconfidentes
+11|Indaiabira
+11|Independencia
+11|Indianopolis
+11|Ingai
+11|Inhai
+11|Inhapim
+11|Inhauma
+11|Inimutaba
+11|Ipaba
+11|Ipanema
+11|Ipatinga
+11|Ipiacu
+11|Ipoema
+11|Ipuiuna
+11|Irai de Minas
+11|Itabira
+11|Itabirinha de Mantena
+11|Itabirito
+11|Itaboca
+11|Itacambira
+11|Itacarambi
+11|Itaci
+11|Itacolomi
+11|Itaguara
+11|Itaim
+11|Itaipe
+11|Itajuba
+11|Itajutiba
+11|Itamarandiba
+11|Itamarati
+11|Itamarati de Minas
+11|Itambacuri
+11|Itambe do Mato Dentro
+11|Itamirim
+11|Itamogi
+11|Itamonte
+11|Itamuri
+11|Itanhandu
+11|Itanhomi
+11|Itaobim
+11|Itapagipe
+11|Itapanhoacanga
+11|Itapecerica
+11|Itapeva
+11|Itapiru
+11|Itapirucu
+11|Itatiaiucu
+11|Itau de Minas
+11|Itauna
+11|Itauninha
+11|Itaverava
+11|Iterere
+11|Itinga
+11|Itira
+11|Itueta
+11|Itui
+11|Ituiutaba
+11|Itumirim
+11|Iturama
+11|Itutinga
+11|Jaboticatubas
+11|Jacarandira
+11|Jacare
+11|Jacinto
+11|Jacui
+11|Jacutinga
+11|Jaguaracu
+11|Jaguarao
+11|Jaguaritira
+11|Jaiba
+11|Jampruca
+11|Janauba
+11|Januaria
+11|Japaraiba
+11|Japonvar
+11|Jardinesia
+11|Jeceaba
+11|Jenipapo de Minas
+11|Jequeri
+11|Jequitai
+11|Jequitiba
+11|Jequitinhonha
+11|Jesuania
+11|Joaima
+11|Joanesia
+11|Joao Monlevade
+11|Joao Pinheiro
+11|Joaquim Felicio
+11|Jordania
+11|José Goncalves de Minas
+11|José Raydan
+11|Josélandia
+11|Josénopolis
+11|Juatuba
+11|Jubai
+11|Juiracu
+11|Juiz de Fora
+11|Junco de Minas
+11|Juramento
+11|Jureia
+11|Juruaia
+11|Jurumirim
+11|Justinopolis
+11|Juvenilia
+11|Lacerdinha
+11|Ladainha
+11|Lagamar
+11|Lagoa Bonita
+11|Lagoa da Prata
+11|Lagoa dos Patos
+11|Lagoa Dourada
+11|Lagoa Formosa
+11|Lagoa Grande
+11|Lagoa Santa
+11|Lajinha
+11|Lambari
+11|Lamim
+11|Lamounier
+11|Lapinha
+11|Laranjal
+11|Laranjeiras de Caldas
+11|Lassance
+11|Lavras
+11|Leandro Ferreira
+11|Leme do Prado
+11|Leopoldina
+11|Levinopolis
+11|Liberdade
+11|Lima Duarte
+11|Limeira D''oeste
+11|Limeira de Mantena
+11|Lobo Leite
+11|Lontra
+11|Lourenco Velho
+11|Lufa
+11|Luisburgo
+11|Luislandia
+11|Luiz Pires de Minas
+11|Luizlandia do Oeste
+11|Luminarias
+11|Luminosa
+11|Luz
+11|Macaia
+11|Machacalis
+11|Machado
+11|Macuco
+11|Macuco de Minas
+11|Madre de Deus de Minas
+11|Mae dos Homens
+11|Major Ezequiel
+11|Major Porto
+11|Malacacheta
+11|Mamonas
+11|Manga
+11|Manhuacu
+11|Manhumirim
+11|Mantena
+11|Mantiqueira
+11|Mantiqueira do Palmital
+11|Mar de Espanha
+11|Marambainha
+11|Maravilhas
+11|Maria da Fé
+11|Mariana
+11|Marilac
+11|Marilandia
+11|Mario Campos
+11|Maripa de Minas
+11|Marlieria
+11|Marmelopolis
+11|Martinesia
+11|Martinho Campos
+11|Martins Guimaraes
+11|Martins Soares
+11|Mata Verde
+11|Materlandia
+11|Mateus Leme
+11|Mathias Lobato
+11|Matias Barbosa
+11|Matias Cardoso
+11|Matipo
+11|Mato Verde
+11|Matozinhos
+11|Matutina
+11|Medeiros
+11|Medina
+11|Melo Viana
+11|Mendanha
+11|Mendes Pimentel
+11|Mendonca
+11|Merces
+11|Merces de Agua Limpa
+11|Mesquita
+11|Mestre Caetano
+11|Miguel Burnier
+11|Milagre
+11|Milho Verde
+11|Minas Novas
+11|Minduri
+11|Mirabela
+11|Miradouro
+11|Miragaia
+11|Mirai
+11|Miralta
+11|Mirantao
+11|Miraporanga
+11|Miravania
+11|Missionario
+11|Mocambeiro
+11|Mocambinho
+11|Moeda
+11|Moema
+11|Monjolinho de Minas
+11|Monjolos
+11|Monsenhor Horta
+11|Monsenhor Isidro
+11|Monsenhor Joao Alexandre
+11|Monsenhor Paulo
+11|Montalvania
+11|Monte Alegre de Minas
+11|Monte Azul
+11|Monte Belo
+11|Monte Carmelo
+11|Monte Celeste
+11|Monte Formoso
+11|Monte Rei
+11|Monte Santo de Minas
+11|Monte Siao
+11|Monte Verde
+11|Montes Claros
+11|Montezuma
+11|Morada Nova de Minas
+11|Morro
+11|Morro da Garca
+11|Morro do Ferro
+11|Morro do Pilar
+11|Morro Vermelho
+11|Mucuri
+11|Mundo Novo de Minas
+11|Munhoz
+11|Muquem
+11|Muriae
+11|Mutum
+11|Muzambinho
+11|Nacip Raydan
+11|Nanuque
+11|Naque
+11|Naque-nanuque
+11|Natalandia
+11|Natercia
+11|Nazare de Minas
+11|Nazareno
+11|Nelson de Sena
+11|Neolandia
+11|Nepomuceno
+11|Nhandutiba
+11|Nicolandia
+11|Ninheira
+11|Nova Belem
+11|Nova Era
+11|Nova Esperanca
+11|Nova Lima
+11|Nova Minda
+11|Nova Modica
+11|Nova Ponte
+11|Nova Porteirinha
+11|Nova Resende
+11|Nova Serrana
+11|Nova Uniao
+11|Novilhona
+11|Novo Cruzeiro
+11|Novo Horizonte
+11|Novo Oriente de Minas
+11|Novorizonte
+11|Ocidente
+11|Olaria
+11|Olegario Maciel
+11|Olhos D''agua Do Oeste
+11|Olhos-d''agua
+11|Olimpio Campos
+11|Olimpio Noronha
+11|Oliveira
+11|Oliveira Fortes
+11|Onca de Pitangui
+11|Oratorios
+11|Orizania
+11|Ouro Branco
+11|Ouro Fino
+11|Ouro Preto
+11|Ouro Verde de Minas
+11|Paciencia
+11|Padre Brito
+11|Padre Carvalho
+11|Padre Felisberto
+11|Padre Fialho
+11|Padre Joao Afonso
+11|Padre Julio Maria
+11|Padre Paraiso
+11|Padre Pinto
+11|Padre Viegas
+11|Pai Pedro
+11|Paineiras
+11|Pains
+11|Paiolinho
+11|Paiva
+11|Palma
+11|Palmeiral
+11|Palmeirinha
+11|Palmital dos Carvalhos
+11|Palmopolis
+11|Pantano
+11|Papagaios
+11|Para de Minas
+11|Paracatu
+11|Paraguacu
+11|Paraguai
+11|Paraiso Garcia
+11|Paraisopolis
+11|Paraopeba
+11|Paredao de Minas
+11|Parque Durval de Barros
+11|Parque Industrial
+11|Passa Dez
+11|Passa Quatro
+11|Passa Tempo
+11|Passa Vinte
+11|Passabem
+11|Passagem de Mariana
+11|Passos
+11|Patis
+11|Patos de Minas
+11|Patrimonio
+11|Patrocinio
+11|Patrocinio do Muriae
+11|Paula Candido
+11|Paula Lima
+11|Paulistas
+11|Pavao
+11|Pe do Morro
+11|Pecanha
+11|Pedra Azul
+11|Pedra Bonita
+11|Pedra Corrida
+11|Pedra do Anta
+11|Pedra do Indaia
+11|Pedra do Sino
+11|Pedra Dourada
+11|Pedra Grande
+11|Pedra Menina
+11|Pedralva
+11|Pedras de Maria da Cruz
+11|Pedrinopolis
+11|Pedro Leopoldo
+11|Pedro Lessa
+11|Pedro Teixeira
+11|Pedro Versiani
+11|Penedia
+11|Penha de Franca
+11|Penha do Capim
+11|Penha do Cassiano
+11|Penha do Norte
+11|Penha Longa
+11|Pequeri
+11|Pequi
+11|Perdigao
+11|Perdilandia
+11|Perdizes
+11|Perdoes
+11|Pereirinhas
+11|Periquito
+11|Perpetuo Socorro
+11|Pescador
+11|Petunia
+11|Piacatuba
+11|Piao
+11|Piau
+11|Pic Sagarana
+11|Piedade de Caratinga
+11|Piedade de Ponte Nova
+11|Piedade do Paraopeba
+11|Piedade do Rio Grande
+11|Piedade dos Gerais
+11|Pilar
+11|Pimenta
+11|Pindaibas
+11|Pingo-d''agua
+11|Pinheirinhos
+11|Pinheiros Altos
+11|Pinhotiba
+11|Pintopolis
+11|Pintos Negreiros
+11|Piracaiba
+11|Piracema
+11|Pirajuba
+11|Piranga
+11|Pirangucu
+11|Piranguinho
+11|Piranguita
+11|Pirapanema
+11|Pirapetinga
+11|Pirapora
+11|Pirauba
+11|Pires E Albuquerque
+11|Piscamba
+11|Pitangui
+11|Pitarana
+11|Piumhi
+11|Planalto de Minas
+11|Planura
+11|Plautino Soares
+11|Poaia
+11|Poco Fundo
+11|Pocoes de Paineiras
+11|Pocos de Caldas
+11|Pocrane
+11|Pompeu
+11|Poncianos
+11|Pontalete
+11|Ponte Alta
+11|Ponte Alta de Minas
+11|Ponte dos Ciganos
+11|Ponte Firme
+11|Ponte Nova
+11|Ponte Segura
+11|Pontevila
+11|Ponto Chique
+11|Ponto Chique do Martelo
+11|Ponto do Marambaia
+11|Ponto dos Volantes
+11|Porteirinha
+11|Porto Agrario
+11|Porto das Flores
+11|Porto dos Mendes
+11|Porto Firme
+11|Pote
+11|Pouso Alegre
+11|Pouso Alto
+11|Prados
+11|Prata
+11|Pratapolis
+11|Pratinha
+11|Presidente Bernardes
+11|Presidente Juscelino
+11|Presidente Kubitschek
+11|Presidente Olegario
+11|Presidente Pena
+11|Professor Sperber
+11|Providencia
+11|Prudente de Morais
+11|Quartel de São Joao
+11|Quartel do Sacramento
+11|Quartel Geral
+11|Quatituba
+11|Queixada
+11|Queluzita
+11|Quem-quem
+11|Quilombo
+11|Quintinos
+11|Raposos
+11|Raul Soares
+11|Ravena
+11|Realeza
+11|Recreio
+11|Reduto
+11|Resende Costa
+11|Resplendor
+11|Ressaquinha
+11|Riachinho
+11|Riacho da Cruz
+11|Riacho dos Machados
+11|Ribeirao das Neves
+11|Ribeirao de São Domingos
+11|Ribeirao Vermelho
+11|Ribeiro Junqueira
+11|Ribeiros
+11|Rio Acima
+11|Rio Casca
+11|Rio das Mortes
+11|Rio do Prado
+11|Rio Doce
+11|Rio Espera
+11|Rio Manso
+11|Rio Melo
+11|Rio Novo
+11|Rio Paranaiba
+11|Rio Pardo de Minas
+11|Rio Piracicaba
+11|Rio Pomba
+11|Rio Pretinho
+11|Rio Preto
+11|Rio Vermelho
+11|Ritapolis
+11|Roca Grande
+11|Rocas Novas
+11|Rochedo de Minas
+11|Rodeador
+11|Rodeiro
+11|Rodrigo Silva
+11|Romaria
+11|Rosario da Limeira
+11|Rosario de Minas
+11|Rosario do Pontal
+11|Roseiral
+11|Rubelita
+11|Rubim
+11|Sabara
+11|Sabinopolis
+11|Sacramento
+11|Salinas
+11|Salitre de Minas
+11|Salto da Divisa
+11|Sanatorio Santa Fé
+11|Santa Barbara
+11|Santa Barbara do Leste
+11|Santa Barbara do Monte Verde
+11|Santa Barbara do Tugurio
+11|Santa Cruz da Aparecida
+11|Santa Cruz de Botumirim
+11|Santa Cruz de Minas
+11|Santa Cruz de Salinas
+11|Santa Cruz do Escalvado
+11|Santa Cruz do Prata
+11|Santa da Pedra
+11|Santa Efigenia
+11|Santa Efigenia de Minas
+11|Santa Fé de Minas
+11|Santa Filomena
+11|Santa Helena de Minas
+11|Santa Isabel
+11|Santa Juliana
+11|Santa Luzia
+11|Santa Luzia da Serra
+11|Santa Margarida
+11|Santa Maria de Itabira
+11|Santa Maria do Salto
+11|Santa Maria do Suacui
+11|Santa Rita da Estrela
+11|Santa Rita de Caldas
+11|Santa Rita de Jacutinga
+11|Santa Rita de Minas
+11|Santa Rita de Ouro Preto
+11|Santa Rita do Cedro
+11|Santa Rita do Ibitipoca
+11|Santa Rita do Itueto
+11|Santa Rita do Rio do Peixe
+11|Santa Rita do Sapucai
+11|Santa Rita Durao
+11|Santa Rosa da Serra
+11|Santa Rosa de Lima
+11|Santa Rosa dos Dourados
+11|Santa Teresa do Bonito
+11|Santa Terezinha de Minas
+11|Santa Vitoria
+11|Santana da Vargem
+11|Santana de Caldas
+11|Santana de Cataguases
+11|Santana de Patos
+11|Santana de Pirapama
+11|Santana do Alfie
+11|Santana do Aracuai
+11|Santana do Campestre
+11|Santana do Capivari
+11|Santana do Deserto
+11|Santana do Garambeu
+11|Santana do Jacare
+11|Santana do Manhuacu
+11|Santana do Paraiso
+11|Santana do Paraopeba
+11|Santana do Riacho
+11|Santana do Tabuleiro
+11|Santana dos Montes
+11|Santo Antônio da Boa Vista
+11|Santo Antônio da Fortaleza
+11|Santo Antônio da Vargem Alegre
+11|Santo Antônio do Amparo
+11|Santo Antônio do Aventureiro
+11|Santo Antônio do Boqueirao
+11|Santo Antônio do Cruzeiro
+11|Santo Antônio do Gloria
+11|Santo Antônio do Grama
+11|Santo Antônio do Itambe
+11|Santo Antônio do Jacinto
+11|Santo Antônio do Leite
+11|Santo Antônio do Manhuacu
+11|Santo Antônio do Monte
+11|Santo Antônio do Mucuri
+11|Santo Antônio do Norte
+11|Santo Antônio do Pirapetinga
+11|Santo Antônio do Retiro
+11|Santo Antônio do Rio Abaixo
+11|Santo Antônio dos Araujos
+11|Santo Antônio dos Campos
+11|Santo Hilario
+11|Santo Hipolito
+11|Santos Dumont
+11|São Bartolomeu
+11|São Benedito
+11|São Bento Abade
+11|São Bento de Caldas
+11|São Bras do Suacui
+11|São Braz
+11|São Candido
+11|São Domingos
+11|São Domingos da Bocaina
+11|São Domingos das Dores
+11|São Domingos do Prata
+11|São Felix de Minas
+11|São Francisco
+11|São Francisco de Paula
+11|São Francisco de Sales
+11|São Francisco do Gloria
+11|São Francisco do Humaita
+11|São Geraldo
+11|São Geraldo da Piedade
+11|São Geraldo de Tumiritinga
+11|São Geraldo do Baguari
+11|São Geraldo do Baixio
+11|São Goncalo de Botelhos
+11|São Goncalo do Abaete
+11|São Goncalo do Monte
+11|São Goncalo do Para
+11|São Goncalo do Rio Abaixo
+11|São Goncalo do Rio das Pedras
+11|São Goncalo do Rio Preto
+11|São Goncalo do Sapucai
+11|São Gotardo
+11|São Jeronimo dos Pocoes
+11|São Joao Batista do Gloria
+11|São Joao da Chapada
+11|São Joao da Lagoa
+11|São Joao da Mata
+11|São Joao da Ponte
+11|São Joao da Sapucaia
+11|São Joao da Serra
+11|São Joao da Serra Negra
+11|São Joao da Vereda
+11|São Joao das Missoes
+11|São Joao Del Rei
+11|São Joao do Bonito
+11|São Joao do Jacutinga
+11|São Joao do Manhuacu
+11|São Joao do Manteninha
+11|São Joao do Oriente
+11|São Joao do Pacui
+11|São Joao do Paraiso
+11|São Joao Evangelista
+11|São Joao Nepomuceno
+11|São Joaquim
+11|São Joaquim de Bicas
+11|São José da Barra
+11|São José da Bela Vista
+11|São José da Lapa
+11|São José da Pedra Menina
+11|São José da Safira
+11|São José da Varginha
+11|São José das Tronqueiras
+11|São José do Acacio
+11|São José do Alegre
+11|São José do Barreiro
+11|São José do Batatal
+11|São José do Buriti
+11|São José do Divino
+11|São José do Goiabal
+11|São José do Itueto
+11|São José do Jacuri
+11|São José do Mantimento
+11|São José do Mato Dentro
+11|São José do Pantano
+11|São José do Paraopeba
+11|São José dos Lopes
+11|São José dos Salgados
+11|São Lourenco
+11|São Manoel do Guaiacu
+11|São Mateus de Minas
+11|São Miguel do Anta
+11|São Pedro da Garca
+11|São Pedro da Uniao
+11|São Pedro das Tabocas
+11|São Pedro de Caldas
+11|São Pedro do Avai
+11|São Pedro do Gloria
+11|São Pedro do Jequitinhonha
+11|São Pedro do Suacui
+11|São Pedro dos Ferros
+11|São Roberto
+11|São Romao
+11|São Roque de Minas
+11|São Sebastião da Barra
+11|São Sebastião da Bela Vista
+11|São Sebastião da Vala
+11|São Sebastião da Vargem Alegre
+11|São Sebastião da Vitoria
+11|São Sebastião de Braunas
+11|São Sebastião do Anta
+11|São Sebastião do Baixio
+11|São Sebastião do Barreado
+11|São Sebastião do Barreiro
+11|São Sebastião do Bonsucesso
+11|São Sebastião do Bugre
+11|São Sebastião do Gil
+11|São Sebastião do Maranhao
+11|São Sebastião do Oculo
+11|São Sebastião do Oeste
+11|São Sebastião do Paraiso
+11|São Sebastião do Pontal
+11|São Sebastião do Rio Preto
+11|São Sebastião do Rio Verde
+11|São Sebastião do Sacramento
+11|São Sebastião do Soberbo
+11|São Sebastião dos Pocoes
+11|São Sebastião dos Robertos
+11|São Sebastião dos Torres
+11|São Tiago
+11|São Tomas de Aquino
+11|São Tome das Letras
+11|São Vicente
+11|São Vicente da Estrela
+11|São Vicente de Minas
+11|São Vicente do Grama
+11|São Vicente do Rio Doce
+11|São Vitor
+11|Sapucai
+11|Sapucai-mirim
+11|Sapucaia
+11|Sapucaia de Guanhaes
+11|Sapucaia do Norte
+11|Sarandira
+11|Sardoa
+11|Sarzedo
+11|Saudade
+11|Sem Peixe
+11|Senador Amaral
+11|Senador Cortes
+11|Senador Firmino
+11|Senador José Bento
+11|Senador Melo Viana
+11|Senador Modestino Goncalves
+11|Senador Mourao
+11|Senhora da Gloria
+11|Senhora da Penha
+11|Senhora das Dores
+11|Senhora de Oliveira
+11|Senhora do Carmo
+11|Senhora do Porto
+11|Senhora dos Remedios
+11|Sereno
+11|Sericita
+11|Seritinga
+11|Serra Azul
+11|Serra Azul de Minas
+11|Serra Bonita
+11|Serra da Canastra
+11|Serra da Saudade
+11|Serra das Araras
+11|Serra do Camapua
+11|Serra do Salitre
+11|Serra dos Aimores
+11|Serra dos Lemes
+11|Serra Nova
+11|Serrania
+11|Serranopolis de Minas
+11|Serranos
+11|Serro
+11|Sertaozinho
+11|Sete Cachoeiras
+11|Sete Lagoas
+11|Setubinha
+11|Silva Campos
+11|Silva Xavier
+11|Silvano
+11|Silveira Carvalho
+11|Silveirania
+11|Silvestre
+11|Silvianopolis
+11|Simao Campos
+11|Simao Pereira
+11|Simonesia
+11|Sobral Pinto
+11|Sobralia
+11|Soledade de Minas
+11|Sopa
+11|Tabajara
+11|Tabauna
+11|Tabuao
+11|Tabuleiro
+11|Taiobeiras
+11|Taparuba
+11|Tapira
+11|Tapirai
+11|Tapuirama
+11|Taquaracu de Minas
+11|Taruacu
+11|Tarumirim
+11|Tebas
+11|Teixeiras
+11|Tejuco
+11|Teofilo Otoni
+11|Terra Branca
+11|Timoteo
+11|Tiradentes
+11|Tiros
+11|Tobati
+11|Tocandira
+11|Tocantins
+11|Tocos do Moji
+11|Toledo
+11|Tomas Gonzaga
+11|Tombos
+11|Topazio
+11|Torneiros
+11|Torreoes
+11|Tres Coracoes
+11|Tres Ilhas
+11|Tres Marias
+11|Tres Pontas
+11|Trimonte
+11|Tuiutinga
+11|Tumiritinga
+11|Tupaciguara
+11|Tuparece
+11|Turmalina
+11|Turvolandia
+11|Uba
+11|Ubai
+11|Ubaporanga
+11|Ubari
+11|Uberaba
+11|Uberlandia
+11|Umburatiba
+11|Umbuzeiro
+11|Unai
+11|Uniao de Minas
+11|Uruana de Minas
+11|Urucania
+11|Urucuia
+11|Usina Monte Alegre
+11|Vai-volta
+11|Valadares
+11|Valao
+11|Vale Verde de Minas
+11|Valo Fundo
+11|Vargem Alegre
+11|Vargem Bonita
+11|Vargem Grande do Rio Pardo
+11|Vargem Linda
+11|Varginha
+11|Varjao de Minas
+11|Varzea da Palma
+11|Varzelandia
+11|Vau-acu
+11|Vazante
+11|Vera Cruz de Minas
+11|Verdelandia
+11|Vereda do Paraiso
+11|Veredas
+11|Veredinha
+11|Verissimo
+11|Vermelho
+11|Vermelho Novo
+11|Vermelho Velho
+11|Vespasiano
+11|Vicosa
+11|Vieiras
+11|Vila Bom Jesus
+11|Vila Costina
+11|Vila Nova de Minas
+11|Vila Nova dos Pocoes
+11|Vila Pereira
+11|Vilas Boas
+11|Virgem da Lapa
+11|Virginia
+11|Virginopolis
+11|Virgolandia
+11|Visconde do Rio Branco
+11|Vista Alegre
+11|Vitorinos
+11|Volta Grande
+11|Wenceslau Braz
+11|Zelandia
+11|Zito Soares
+12|Agua Boa
+12|Agua Clara
+12|Albuquerque
+12|Alcinopolis
+12|Alto Sucuriu
+12|Amambai
+12|Amandina
+12|Amolar
+12|Anastacio
+12|Anaurilandia
+12|Angelica
+12|Anhandui
+12|Antônio Joao
+12|Aparecida do Taboado
+12|Aquidauana
+12|Aral Moreira
+12|Arapua
+12|Areado
+12|Arvore Grande
+12|Baianopolis
+12|Balsamo
+12|Bandeirantes
+12|Bataguassu
+12|Bataipora
+12|Baus
+12|Bela Vista
+12|Bocaja
+12|Bodoquena
+12|Bom Fim
+12|Bonito
+12|Boqueirao
+12|Brasilandia
+12|Caarapo
+12|Cabeceira do Apa
+12|Cachoeira
+12|Camapua
+12|Camisao
+12|Campestre
+12|Campo Grande
+12|Capao Seco
+12|Caracol
+12|Carumbe
+12|Cassilandia
+12|Chapadao do Sul
+12|Cipolandia
+12|Coimbra
+12|Congonha
+12|Corguinho
+12|Coronel Sapucaia
+12|Corumba
+12|Costa Rica
+12|Coxim
+12|Cristalina
+12|Cruzaltina
+12|Culturama
+12|Cupins
+12|Debrasa
+12|Deodapolis
+12|Dois Irmaos do Buriti
+12|Douradina
+12|Dourados
+12|Eldorado
+12|Fatima do Sul
+12|Figueirao
+12|Garcias
+12|Gloria de Dourados
+12|Guacu
+12|Guaculandia
+12|Guadalupe do Alto Parana
+12|Guia Lopes da Laguna
+12|Iguatemi
+12|Ilha Comprida
+12|Ilha Grande
+12|Indaia do Sul
+12|Indaia Grande
+12|Indapolis
+12|Inocencia
+12|Ipezal
+12|Itahum
+12|Itapora
+12|Itaquirai
+12|Ivinhema
+12|Jabuti
+12|Jacarei
+12|Japora
+12|Jaraguari
+12|Jardim
+12|Jatei
+12|Jauru
+12|Juscelandia
+12|Juti
+12|Ladario
+12|Lagoa Bonita
+12|Laguna Carapa
+12|Maracaju
+12|Miranda
+12|Montese
+12|Morangas
+12|Morraria do Sul
+12|Morumbi
+12|Mundo Novo
+12|Navirai
+12|Nhecolandia
+12|Nioaque
+12|Nossa Senhora de Fatima
+12|Nova Alvorada do Sul
+12|Nova America
+12|Nova Andradina
+12|Nova Esperanca
+12|Nova Jales
+12|Novo Horizonte do Sul
+12|Oriente
+12|Paiaguas
+12|Palmeiras
+12|Panambi
+12|Paraiso
+12|Paranaiba
+12|Paranhos
+12|Pedro Gomes
+12|Picadinha
+12|Pirapora
+12|Piraputanga
+12|Ponta Pora
+12|Ponte Vermelha
+12|Pontinha do Cocho
+12|Porto Esperanca
+12|Porto Murtinho
+12|Porto Vilma
+12|Porto Xv de Novembro
+12|Presidente Castelo
+12|Prudencio Thomaz
+12|Quebra Coco
+12|Quebracho
+12|Ribas do Rio Pardo
+12|Rio Brilhante
+12|Rio Negro
+12|Rio Verde de Mato Grosso
+12|Rochedinho
+12|Rochedo
+12|Sanga Puita
+12|Santa Rita do Pardo
+12|Santa Terezinha
+12|São Gabriel do Oeste
+12|São Joao do Apore
+12|São José
+12|São José do Sucuriu
+12|São Pedro
+12|São Romao
+12|Selviria
+12|Sete Quedas
+12|Sidrolandia
+12|Sonora
+12|Tacuru
+12|Tamandare
+12|Taquari
+12|Taquarussu
+12|Taunay
+12|Terenos
+12|Tres Lagoas
+12|Velhacaria
+12|Vicentina
+12|Vila Formosa
+12|Vila Marques
+12|Vila Rica
+12|Vila Uniao
+12|Vila Vargas
+12|Vista Alegre
+13|Acorizal
+13|Agua Boa
+13|Agua Fria
+13|Aguacu
+13|Aguapei
+13|Aguas Claras
+13|Ainhumas
+13|Alcantilado
+13|Alta Floresta
+13|Alto Araguaia
+13|Alto Boa Vista
+13|Alto Coite
+13|Alto Garcas
+13|Alto Juruena
+13|Alto Paraguai
+13|Alto Paraiso
+13|Alto Taquari
+13|Analandia do Norte
+13|Apiacas
+13|Araguaiana
+13|Araguainha
+13|Araputanga
+13|Arenapolis
+13|Aripuana
+13|Arruda
+13|Assari
+13|Barao de Melgaco
+13|Barra do Bugres
+13|Barra do Garcas
+13|Batovi
+13|Baus
+13|Bauxi
+13|Bel Rios
+13|Bezerro Branco
+13|Boa Esperanca
+13|Boa Uniao
+13|Boa Vista
+13|Bom Sucesso
+13|Brasnorte
+13|Buriti
+13|Caceres
+13|Caite
+13|Campinapolis
+13|Campo Novo do Parecis
+13|Campo Verde
+13|Campos de Julio
+13|Campos Novos
+13|Canabrava do Norte
+13|Canarana
+13|Cangas
+13|Capao Grande
+13|Capao Verde
+13|Caramujo
+13|Caravagio
+13|Carlinda
+13|Cassununga
+13|Castanheira
+13|Catuai
+13|Chapada dos Guimaraes
+13|Cidade Morena
+13|Claudia
+13|Cocalinho
+13|Colider
+13|Colorado do Norte
+13|Comodoro
+13|Confresa
+13|Coronel Ponce
+13|Cotrel
+13|Cotriguacu
+13|Coxipo Acu
+13|Coxipo da Ponte
+13|Coxipo do Ouro
+13|Cristinopolis
+13|Cristo Rei
+13|Cuiaba
+13|Curvelandia
+13|Del Rios
+13|Denise
+13|Diamantino
+13|Dom Aquino
+13|Engenho
+13|Engenho Velho
+13|Entre Rios
+13|Estrela do Leste
+13|Faval
+13|Fazenda de Cima
+13|Feliz Natal
+13|Figueiropolis D Oeste
+13|Filadelfia
+13|Flor da Serra
+13|Fontanilhas
+13|Gaucha do Norte
+13|General Carneiro
+13|Gloria D''oeste
+13|Guaranta do Norte
+13|Guarita
+13|Guiratinga
+13|Horizonte do Oeste
+13|Indianapolis
+13|Indiavai
+13|Irenopolis
+13|Itamarati Norte
+13|Itauba
+13|Itiquira
+13|Jaciara
+13|Jangada
+13|Jarudore
+13|Jatoba
+13|Jauru
+13|Josélandia
+13|Juara
+13|Juina
+13|Juruena
+13|Juscimeira
+13|Lambari D''oeste
+13|Lavouras
+13|Lucas do Rio Verde
+13|Lucialva
+13|Luciara
+13|Machado
+13|Marcelandia
+13|Marzagao
+13|Mata Dentro
+13|Matupa
+13|Mimoso
+13|Mirassol D''oeste
+13|Nobres
+13|Nonoai do Norte
+13|Nortelandia
+13|Nossa Senhora da Guia
+13|Nossa Senhora do Livramento
+13|Nova Alvorada
+13|Nova Bandeirantes
+13|Nova Brasilandia
+13|Nova Brasilia
+13|Nova Canaa do Norte
+13|Nova Catanduva
+13|Nova Galileia
+13|Nova Guarita
+13|Nova Lacerda
+13|Nova Marilandia
+13|Nova Maringa
+13|Nova Monte Verde
+13|Nova Mutum
+13|Nova Olimpia
+13|Nova Ubirata
+13|Nova Xavantina
+13|Novo Diamantino
+13|Novo Eldorado
+13|Novo Horizonte do Norte
+13|Novo Mundo
+13|Novo Parana
+13|Novo São Joaquim
+13|Padronal
+13|Pai Andre
+13|Paraiso do Leste
+13|Paranaita
+13|Paranatinga
+13|Passagem da Conceicao
+13|Pedra Preta
+13|Peixoto de Azevedo
+13|Pirizal
+13|Placa de Santo Antônio
+13|Planalto da Serra
+13|Pocone
+13|Pombas
+13|Pontal do Araguaia
+13|Ponte Branca
+13|Ponte de Pedra
+13|Pontes E Lacerda
+13|Pontinopolis
+13|Porto Alegre do Norte
+13|Porto dos Gauchos
+13|Porto Esperidiao
+13|Porto Estrela
+13|Poxoreo
+13|Praia Rica
+13|Primavera
+13|Primavera do Leste
+13|Progresso
+13|Querencia
+13|Rancharia
+13|Reserva do Cabacal
+13|Ribeirao Cascalheira
+13|Ribeirao dos Cocais
+13|Ribeiraozinho
+13|Rio Branco
+13|Rio Manso
+13|Riolandia
+13|Rondonopolis
+13|Rosario Oeste
+13|Salto do Ceu
+13|Sangradouro
+13|Santa Carmem
+13|Santa Elvira
+13|Santa Fé
+13|Santa Rita
+13|Santa Terezinha
+13|Santaninha
+13|Santo Afonso
+13|Santo Antônio do Leverger
+13|Santo Antônio do Rio Bonito
+13|São Cristovao
+13|São Domingos
+13|São Felix do Araguaia
+13|São Joaquim
+13|São Jorge
+13|São José
+13|São José do Apui
+13|São José do Planalto
+13|São José do Povo
+13|São José do Rio Claro
+13|São José do Xingu
+13|São José dos Quatro Marcos
+13|São Lourenco de Fatima
+13|São Pedro da Cipa
+13|São Vicente
+13|Sapezal
+13|Selma
+13|Serra Nova
+13|Sinop
+13|Sonho Azul
+13|Sorriso
+13|Sumidouro
+13|Tabapora
+13|Tangara da Serra
+13|Tapirapua
+13|Tapurah
+13|Terra Nova do Norte
+13|Terra Roxa
+13|Tesouro
+13|Toricueyje
+13|Torixoreu
+13|Tres Pontes
+13|Uniao do Sul
+13|Vale dos Sonhos
+13|Vale Rico
+13|Varginha
+13|Varzea Grande
+13|Vera
+13|Vila Atlantica
+13|Vila Bela da Santissima Trindade
+13|Vila Bueno
+13|Vila Mutum
+13|Vila Operaria
+13|Vila Paulista
+13|Vila Progresso
+13|Vila Rica
+13|Vila Santo Antônio
+14|Abaetetuba
+14|Abel Figueiredo
+14|Acara
+14|Afua
+14|Agropolis Bela Vista
+14|Agua Azul do Norte
+14|Agua Fria
+14|Alenquer
+14|Algodoal
+14|Almeirim
+14|Almoco
+14|Alta Para
+14|Altamira
+14|Alter do Chao
+14|Alvorada
+14|Americano
+14|Anajas
+14|Ananindeua
+14|Anapu
+14|Antônio Lemos
+14|Apeu
+14|Apinages
+14|Arapixuna
+14|Araquaim
+14|Arco-iris
+14|Areias
+14|Arumanduba
+14|Aruri
+14|Aturiai
+14|Augusto Correa
+14|Aurora do Para
+14|Aveiro
+14|Bagre
+14|Baiao
+14|Bannach
+14|Barcarena
+14|Barreira Branca
+14|Barreira dos Campos
+14|Barreiras
+14|Baturite
+14|Beja
+14|Bela Vista do Caracol
+14|Belem
+14|Belterra
+14|Benevides
+14|Benfica
+14|Boa Esperanca
+14|Boa Fé
+14|Boa Sorte
+14|Boa Vista do Iririteua
+14|Boim
+14|Bom Jardim
+14|Bom Jesus do Tocantins
+14|Bonito
+14|Braganca
+14|Brasil Novo
+14|Brasilia Legal
+14|Brejo do Meio
+14|Brejo Grande do Araguaia
+14|Breu Branco
+14|Breves
+14|Bujaru
+14|Cachoeira de Piria
+14|Cachoeira do Arari
+14|Cafezal
+14|Cairari
+14|Caju
+14|Camara do Marajo
+14|Cambuquira
+14|Cameta
+14|Camiranga
+14|Canaa dos Carajas
+14|Capanema
+14|Capitao Poco
+14|Caracara do Arari
+14|Carajas
+14|Carapajo
+14|Caraparu
+14|Caratateua
+14|Caripi
+14|Carrazedo
+14|Castanhal
+14|Castelo dos Sonhos
+14|Chaves
+14|Colares
+14|Conceicao
+14|Conceicao do Araguaia
+14|Concordia do Para
+14|Condeixa
+14|Coqueiro
+14|Cripurizao
+14|Cripurizinho
+14|Cuiu-cuiu
+14|Cumaru do Norte
+14|Curionopolis
+14|Curralinho
+14|Curua
+14|Curuai
+14|Curuca
+14|Curucambaba
+14|Curumu
+14|Dom Eliseu
+14|Eldorado dos Carajas
+14|Emborai
+14|Espirito Santo do Taua
+14|Faro
+14|Fernandes Belo
+14|Flexal
+14|Floresta
+14|Floresta do Araguaia
+14|Garrafao do Norte
+14|Goianesia do Para
+14|Gradaus
+14|Guajara-acu
+14|Guajara-miri
+14|Gurupa
+14|Gurupizinho
+14|Hidreletrica Tucurui
+14|Iatai
+14|Icoraci
+14|Igarape da Lama
+14|Igarape-acu
+14|Igarape-miri
+14|Inanu
+14|Inhangapi
+14|Ipixuna do Para
+14|Irituia
+14|Itaituba
+14|Itapixuna
+14|Itatupa
+14|Itupiranga
+14|Jacareacanga
+14|Jacunda
+14|Jaguarari
+14|Jamanxinzinho
+14|Jambuacu
+14|Jandiai
+14|Japerica
+14|Joana Coeli
+14|Joana Peres
+14|Joanes
+14|Juaba
+14|Jubim
+14|Juruti
+14|Km Null
+14|Km Null
+14|Lauro Sodre
+14|Ligacao do Para
+14|Limoeiro do Ajuru
+14|Mae do Rio
+14|Magalhaes Barata
+14|Maiauata
+14|Manjeiro
+14|Maraba
+14|Maracana
+14|Marajoara
+14|Marapanim
+14|Marituba
+14|Maruda
+14|Mata Geral
+14|Matapiquara
+14|Medicilandia
+14|Melgaco
+14|Menino Deus do Anapu
+14|Meruu
+14|Mirasselvas
+14|Miritituba
+14|Mocajuba
+14|Moiraba
+14|Moju
+14|Monsaras
+14|Monte Alegre
+14|Monte Alegre do Mau
+14|Monte Dourado
+14|Morada Nova
+14|Mosqueiro
+14|Muana
+14|Mujui dos Campos
+14|Muraja
+14|Murucupi
+14|Murumuru
+14|Muta
+14|Mutucal
+14|Nazare de Mocajuba
+14|Nazare dos Patos
+14|Nova Esperanca do Piria
+14|Nova Ipixuna
+14|Nova Mocajuba
+14|Nova Timboteua
+14|Novo Planalto
+14|Novo Progresso
+14|Novo Repartimento
+14|Nucleo Urbano Quilometro Null
+14|Obidos
+14|Oeiras do Para
+14|Oriximina
+14|Osvaldilandia
+14|Otelo
+14|Ourem
+14|Ourilandia do Norte
+14|Outeiro
+14|Pacaja
+14|Pacoval
+14|Palestina do Para
+14|Paragominas
+14|Paratins
+14|Parauapebas
+14|Pau D''arco
+14|Pedreira
+14|Peixe-boi
+14|Penhalonga
+14|Perseveranca
+14|Pesqueiro
+14|Piabas
+14|Picarra
+14|Pinhal
+14|Piraquara
+14|Piria
+14|Placas
+14|Ponta de Pedras
+14|Ponta de Ramos
+14|Portel
+14|Porto de Moz
+14|Porto Salvo
+14|Porto Trombetas
+14|Prainha
+14|Primavera
+14|Quatipuru
+14|Quatro Bocas
+14|Redencao
+14|Remansao
+14|Repartimento
+14|Rio Maria
+14|Rio Vermelho
+14|Riozinho
+14|Rondon do Para
+14|Ruropolis
+14|Salinopolis
+14|Salvaterra
+14|Santa Barbara do Para
+14|Santa Cruz do Arari
+14|Santa Isabel do Para
+14|Santa Luzia do Para
+14|Santa Maria
+14|Santa Maria das Barreiras
+14|Santa Maria do Para
+14|Santa Rosa da Vigia
+14|Santa Terezinha
+14|Santana do Araguaia
+14|Santarem
+14|Santarem Novo
+14|Santo Antônio
+14|Santo Antônio do Taua
+14|São Caetano de Odivelas
+14|São Domingos do Araguaia
+14|São Domingos do Capim
+14|São Felix do Xingu
+14|São Francisco
+14|São Francisco da Jararaca
+14|São Francisco do Para
+14|São Geraldo do Araguaia
+14|São Joao da Ponta
+14|São Joao de Pirabas
+14|São Joao do Acangata
+14|São Joao do Araguaia
+14|São Joao do Piria
+14|São Joao dos Ramos
+14|São Joaquim do Tapara
+14|São Jorge
+14|São José do Gurupi
+14|São José do Piria
+14|São Luiz do Tapajos
+14|São Miguel do Guama
+14|São Miguel dos Macacos
+14|São Pedro de Viseu
+14|São Pedro do Capim
+14|São Raimundo de Borralhos
+14|São Raimundo do Araguaia
+14|São Raimundo dos Furtados
+14|São Roberto
+14|São Sebastião da Boa Vista
+14|São Sebastião de Vicosa
+14|Sapucaia
+14|Senador José Porfirio
+14|Serra Pelada
+14|Soure
+14|Tailandia
+14|Tatuteua
+14|Tauari
+14|Tauarizinho
+14|Tentugal
+14|Terra Alta
+14|Terra Santa
+14|Tijoca
+14|Timboteua
+14|Tome-acu
+14|Tracuateua
+14|Trairao
+14|Tucuma
+14|Tucurui
+14|Ulianopolis
+14|Uruara
+14|Urucuri
+14|Urucuriteua
+14|Val-de-caes
+14|Veiros
+14|Vigia
+14|Vila do Carmo do Tocantins
+14|Vila dos Cabanos
+14|Vila Franca
+14|Vila Goreth
+14|Vila Isol
+14|Vila Nova
+14|Vila Planalto
+14|Vila Santa Fé
+14|Vila Socorro
+14|Vilarinho do Monte
+14|Viseu
+14|Vista Alegre
+14|Vista Alegre do Para
+14|Vitoria do Xingu
+14|Xinguara
+14|Xinguarinha
+15|Agua Branca
+15|Aguiar
+15|Alagoa Grande
+15|Alagoa Nova
+15|Alagoinha
+15|Alcantil
+15|Algodao de Jandaira
+15|Alhandra
+15|Amparo
+15|Aparecida
+15|Aracagi
+15|Arara
+15|Araruna
+15|Areia
+15|Areia de Baraunas
+15|Areial
+15|Areias
+15|Aroeiras
+15|Assis Chateaubriand
+15|Assuncao
+15|Baia da Traicao
+15|Balancos
+15|Bananeiras
+15|Barauna
+15|Barra de Santa Rosa
+15|Barra de Santana
+15|Barra de São Miguel
+15|Barra do Camaratuba
+15|Bayeux
+15|Belem
+15|Belem do Brejo do Cruz
+15|Bernardino Batista
+15|Boa Ventura
+15|Boa Vista
+15|Bom Jesus
+15|Bom Sucesso
+15|Bonito de Santa Fé
+15|Boqueirao
+15|Borborema
+15|Brejo do Cruz
+15|Brejo dos Santos
+15|Caapora
+15|Cabaceiras
+15|Cabedelo
+15|Cachoeira
+15|Cachoeira dos Indios
+15|Cachoeirinha
+15|Cacimba de Areia
+15|Cacimba de Dentro
+15|Cacimbas
+15|Caicara
+15|Cajazeiras
+15|Cajazeirinhas
+15|Caldas Brandao
+15|Camalau
+15|Campina Grande
+15|Campo Alegre
+15|Campo Grande
+15|Camurupim
+15|Capim
+15|Caraubas
+15|Cardoso
+15|Carrapateira
+15|Casinha do Homem
+15|Casserengue
+15|Catingueira
+15|Catole
+15|Catole do Rocha
+15|Caturite
+15|Cepilho
+15|Conceicao
+15|Condado
+15|Conde
+15|Congo
+15|Coremas
+15|Coronel Maia
+15|Coxixola
+15|Cruz do Espirito Santo
+15|Cubati
+15|Cuite
+15|Cuite de Mamanguape
+15|Cuitegi
+15|Cupissura
+15|Curral de Cima
+15|Curral Velho
+15|Damiao
+15|Desterro
+15|Diamante
+15|Dona Ines
+15|Duas Estradas
+15|Emas
+15|Engenheiro Avidos
+15|Esperanca
+15|Fagundes
+15|Fatima
+15|Fazenda Nova
+15|Forte Velho
+15|Frei Martinho
+15|Gado Bravo
+15|Galante
+15|Guarabira
+15|Guarita
+15|Gurinhem
+15|Gurjao
+15|Ibiara
+15|Igaracy
+15|Imaculada
+15|Inga
+15|Itabaiana
+15|Itajubatiba
+15|Itaporanga
+15|Itapororoca
+15|Itatuba
+15|Jacarau
+15|Jerico
+15|Joao Pessoa
+15|Juarez Tavora
+15|Juazeirinho
+15|Junco do Serido
+15|Juripiranga
+15|Juru
+15|Lagoa
+15|Lagoa de Dentro
+15|Lagoa Seca
+15|Lastro
+15|Lerolandia
+15|Livramento
+15|Logradouro
+15|Lucena
+15|Mae D''agua
+15|Maia
+15|Malta
+15|Mamanguape
+15|Manaira
+15|Marcacao
+15|Mari
+15|Marizopolis
+15|Massaranduba
+15|Mata Limpa
+15|Mata Virgem
+15|Mataraca
+15|Matinhas
+15|Mato Grosso
+15|Matureia
+15|Melo
+15|Mogeiro
+15|Montadas
+15|Monte Horebe
+15|Monteiro
+15|Montevideo
+15|Mulungu
+15|Muquem
+15|Natuba
+15|Nazare
+15|Nazarezinho
+15|Nossa Senhora do Livramento
+15|Nova Floresta
+15|Nova Olinda
+15|Nova Palmeira
+15|Nucleo N Null
+15|Nucleo N Null
+15|Odilandia
+15|Olho D''agua
+15|Olivedos
+15|Ouro Velho
+15|Parari
+15|Passagem
+15|Patos
+15|Paulista
+15|Pedra Branca
+15|Pedra Lavrada
+15|Pedras de Fogo
+15|Pedro Regis
+15|Pelo Sinal
+15|Pereiros
+15|Pianco
+15|Picui
+15|Pilar
+15|Piloes
+15|Piloezinhos
+15|Pindurao
+15|Pio X
+15|Piraua
+15|Pirpirituba
+15|Pitanga de Estrada
+15|Pitimbu
+15|Pocinhos
+15|Poco Dantas
+15|Poco de José de Moura
+15|Pombal
+15|Porteirinha de Pedra
+15|Prata
+15|Princesa Isabel
+15|Puxinana
+15|Queimadas
+15|Quixaba
+15|Remigio
+15|Riachao
+15|Riachao do Poco
+15|Riacho de Santo Antônio
+15|Riacho dos Cavalos
+15|Ribeira
+15|Rio Tinto
+15|Rua Nova
+15|Salema
+15|Salgadinho
+15|Salgado de São Felix
+15|Santa Cecilia de Umbuzeiro
+15|Santa Cruz
+15|Santa Gertrudes
+15|Santa Helena
+15|Santa Ines
+15|Santa Luzia
+15|Santa Luzia do Cariri
+15|Santa Maria
+15|Santa Rita
+15|Santa Teresinha
+15|Santa Terezinha
+15|Santana de Mangueira
+15|Santana dos Garrotes
+15|Santarem
+15|Santo Andre
+15|São Bento
+15|São Bento de Pombal
+15|São Domingos de Pombal
+15|São Domingos do Cariri
+15|São Francisco
+15|São Goncalo
+15|São Joao Bosco
+15|São Joao do Cariri
+15|São Joao do Rio do Peixe
+15|São Joao do Tigre
+15|São José da Lagoa Tapada
+15|São José da Mata
+15|São José de Caiana
+15|São José de Espinharas
+15|São José de Marimbas
+15|São José de Piranhas
+15|São José de Princesa
+15|São José do Bonfim
+15|São José do Brejo do Cruz
+15|São José do Sabugi
+15|São José dos Cordeiros
+15|São José dos Ramos
+15|São Mamede
+15|São Miguel de Taipu
+15|São Pedro
+15|São Sebastião de Lagoa de Roca
+15|São Sebastião do Umbuzeiro
+15|Sape
+15|Serido
+15|Serido/sao Vicente do Serido
+15|Serra Branca
+15|Serra da Raiz
+15|Serra Grande
+15|Serra Redonda
+15|Serraria
+15|Sertaozinho
+15|Sobrado
+15|Solanea
+15|Soledade
+15|Sossego
+15|Sousa
+15|Sucuru
+15|Sume
+15|Tacima
+15|Tambau
+15|Tambauzinho
+15|Taperoa
+15|Tavares
+15|Teixeira
+15|Tenorio
+15|Triunfo
+15|Uirauna
+15|Umari
+15|Umbuzeiro
+15|Varzea
+15|Varzea Comprida
+15|Varzea Nova
+15|Vazante
+15|Vieiropolis
+15|Vista Serrana
+15|Zabele
+16|Abreu E Lima
+16|Afogados da Ingazeira
+16|Afranio
+16|Agrestina
+16|Agua Fria
+16|Agua Preta
+16|Aguas Belas
+16|Airi
+16|Alagoinha
+16|Albuquerque Ne
+16|Algodoes
+16|Alianca
+16|Altinho
+16|Amaraji
+16|Ameixas
+16|Angelim
+16|Apoti
+16|Aracoiaba
+16|Araripina
+16|Arcoverde
+16|Aripibu
+16|Arizona
+16|Barra de Farias
+16|Barra de Guabiraba
+16|Barra de São Pedro
+16|Barra do Brejo
+16|Barra do Chata
+16|Barra do Jardim
+16|Barra do Riachao
+16|Barra do Sirinhaem
+16|Barreiros
+16|Batateira
+16|Belem de Maria
+16|Belem de São Francisco
+16|Belo Jardim
+16|Bengalas
+16|Bentivi
+16|Bernardo Vieira
+16|Betania
+16|Bezerros
+16|Bizarra
+16|Boas Novas
+16|Bodoco
+16|Bom Conselho
+16|Bom Jardim
+16|Bom Nome
+16|Bonfim
+16|Bonito
+16|Brejao
+16|Brejinho
+16|Brejo da Madre de Deus
+16|Buenos Aires
+16|Buique
+16|Cabanas
+16|Cabo de Santo Agostinho
+16|Cabrobo
+16|Cachoeira do Roberto
+16|Cachoeirinha
+16|Caetes
+16|Caicarinha da Penha
+16|Calcado
+16|Caldeiroes
+16|Calumbi
+16|Camaragibe
+16|Camela
+16|Camocim de São Felix
+16|Camutanga
+16|Canaa
+16|Canhotinho
+16|Capoeiras
+16|Caraiba
+16|Caraibeiras
+16|Carapotos
+16|Carice
+16|Carima
+16|Caririmirim
+16|Carnaiba
+16|Carnaubeira da Penha
+16|Carneiro
+16|Carpina
+16|Carqueja
+16|Caruaru
+16|Casinhas
+16|Catende
+16|Catimbau
+16|Catole
+16|Cavaleiro
+16|Cedro
+16|Cha de Alegria
+16|Cha do Rocha
+16|Cha Grande
+16|Cimbres
+16|Clarana
+16|Cocau
+16|Conceicao das Crioulas
+16|Condado
+16|Correntes
+16|Cortes
+16|Couro D''antas
+16|Cristalia
+16|Cruanji
+16|Cruzes
+16|Cuiambuca
+16|Cumaru
+16|Cupira
+16|Curral Queimado
+16|Custodia
+16|Dois Leoes
+16|Dormentes
+16|Entroncamento
+16|Escada
+16|Espirito Santo
+16|Exu
+16|Fazenda Nova
+16|Feira Nova
+16|Feitoria
+16|Fernando de Noronha
+16|Ferreiros
+16|Flores
+16|Floresta
+16|Frei Miguelinho
+16|Frexeiras
+16|Gameleira
+16|Garanhuns
+16|Gloria do Goita
+16|Goiana
+16|Goncalves Ferreira
+16|Granito
+16|Gravata
+16|Gravata do Ibiapina
+16|Grotao
+16|Guanumbi
+16|Henrique Dias
+16|Iateca
+16|Iati
+16|Ibimirim
+16|Ibirajuba
+16|Ibiranga
+16|Ibiratinga
+16|Ibitiranga
+16|Ibo
+16|Icaicara
+16|Igapo
+16|Igarapeassu
+16|Igarapeba
+16|Igarassu
+16|Iguaraci
+16|Inaja
+16|Ingazeira
+16|Ipojuca
+16|Ipubi
+16|Ipuera
+16|Iraguacu
+16|Irajai
+16|Iratama
+16|Itacuruba
+16|Itaiba
+16|Itamaraca
+16|Itambe
+16|Itapetim
+16|Itapissuma
+16|Itaquitinga
+16|Ituguacu
+16|Iuitepora
+16|Jabitaca
+16|Jaboatao
+16|Jaboatao dos Guararapes
+16|Japecanga
+16|Jaqueira
+16|Jatauba
+16|Jatiuca
+16|Jatoba
+16|Jenipapo
+16|Joao Alfredo
+16|Joaquim Nabuco
+16|José da Costa
+16|José Mariano
+16|Jucaral
+16|Jucati
+16|Jupi
+16|Jurema
+16|Jutai
+16|Lagoa
+16|Lagoa de São José
+16|Lagoa do Barro
+16|Lagoa do Carro
+16|Lagoa do Itaenga
+16|Lagoa do Ouro
+16|Lagoa do Souza
+16|Lagoa dos Gatos
+16|Lagoa Grande
+16|Laje de São José
+16|Laje Grande
+16|Lajedo
+16|Lajedo do Cedro
+16|Limoeiro
+16|Livramento do Tiuma
+16|Luanda
+16|Macaparana
+16|Machados
+16|Macuje
+16|Manari
+16|Mandacaia
+16|Mandacaru
+16|Manicoba
+16|Maraial
+16|Maravilha
+16|Mimoso
+16|Miracica
+16|Mirandiba
+16|Morais
+16|Moreilandia
+16|Moreno
+16|Moxoto
+16|Mulungu
+16|Murupe
+16|Mutuca
+16|Nascente
+16|Navarro
+16|Nazare da Mata
+16|Negras
+16|Nossa Senhora da Luz
+16|Nossa Senhora do Carmo
+16|Nossa Senhora do O
+16|Nova Cruz
+16|Olho D''agua De Dentro
+16|Olinda
+16|Oratorio
+16|Ori
+16|Orobo
+16|Oroco
+16|Ouricuri
+16|Pajeu
+16|Palmares
+16|Palmeirina
+16|Panelas
+16|Pao de Acucar
+16|Pao de Acucar do Pocao
+16|Papagaio
+16|Paquevira
+16|Para
+16|Paranatama
+16|Paratibe
+16|Parnamirim
+16|Passagem do To
+16|Passira
+16|Pau Ferro
+16|Paudalho
+16|Paulista
+16|Pedra
+16|Perpetuo Socorro
+16|Pesqueira
+16|Petrolandia
+16|Petrolina
+16|Pirituba
+16|Pocao
+16|Pocao de Afranio
+16|Poco Comprido
+16|Poco Fundo
+16|Pombos
+16|Pontas de Pedra
+16|Ponte dos Carvalhos
+16|Praia da Conceicao
+16|Primavera
+16|Quipapa
+16|Quitimbu
+16|Quixaba
+16|Rainha Isabel
+16|Rajada
+16|Rancharia
+16|Recife
+16|Riacho das Almas
+16|Riacho do Meio
+16|Riacho Fechado
+16|Riacho Pequeno
+16|Ribeirao
+16|Rio da Barra
+16|Rio Formoso
+16|Saire
+16|Salgadinho
+16|Salgueiro
+16|Saloa
+16|Salobro
+16|Sanharo
+16|Santa Cruz
+16|Santa Cruz da Baixa Verde
+16|Santa Cruz do Capibaribe
+16|Santa Filomena
+16|Santa Maria da Boa Vista
+16|Santa Maria do Cambuca
+16|Santa Rita
+16|Santa Terezinha
+16|Santana de São Joaquim
+16|Santo Agostinho
+16|Santo Antônio das Queimadas
+16|Santo Antônio dos Palmares
+16|São Benedito do Sul
+16|São Bento do Una
+16|São Caetano do Navio
+16|São Caitano
+16|São Domingos
+16|São Joao
+16|São Joaquim do Monte
+16|São José
+16|São José da Coroa Grande
+16|São José do Belmonte
+16|São José do Egito
+16|São Lazaro
+16|São Lourenco da Mata
+16|São Pedro
+16|São Vicente
+16|São Vicente Ferrer
+16|Sapucarana
+16|Saue
+16|Serra Branca
+16|Serra do Vento
+16|Serra Talhada
+16|Serrita
+16|Serrolandia
+16|Sertania
+16|Sertaozinho de Baixo
+16|Siriji
+16|Sirinhaem
+16|Sitio dos Nunes
+16|Solidao
+16|Surubim
+16|Tabira
+16|Tabocas
+16|Tacaimbo
+16|Tacaratu
+16|Tamandare
+16|Tamboata
+16|Tapiraim
+16|Taquaritinga do Norte
+16|Tara
+16|Tauapiranga
+16|Tejucupapo
+16|Terezinha
+16|Terra Nova
+16|Timbauba
+16|Timorante
+16|Toritama
+16|Tracunhaem
+16|Trapia
+16|Tres Ladeiras
+16|Trindade
+16|Triunfo
+16|Tupanaci
+16|Tupanatinga
+16|Tupaoca
+16|Tuparetama
+16|Umas
+16|Umburetama
+16|Upatininga
+16|Urimama
+16|Urucu-mirim
+16|Urucuba
+16|Vasques
+16|Veneza
+16|Venturosa
+16|Verdejante
+16|Vertente do Lerio
+16|Vertentes
+16|Vicencia
+16|Vila Nova
+16|Viracao
+16|Vitoria de Santo Antao
+16|Volta do Moxoto
+16|Xexeu
+16|Xucuru
+16|Ze Gomes
+17|Acaua
+17|Agricolandia
+17|Agua Branca
+17|Alagoinha do Piaui
+17|Alegrete do Piaui
+17|Alto Longa
+17|Altos
+17|Alvorada do Gurgueia
+17|Amarante
+17|Angical do Piaui
+17|Anisio de Abreu
+17|Antônio Almeida
+17|Aroazes
+17|Arraial
+17|Assuncao do Piaui
+17|Avelino Lopes
+17|Baixa Grande do Ribeiro
+17|Barra D''alcantara
+17|Barras
+17|Barreiras do Piaui
+17|Barro Duro
+17|Batalha
+17|Bela Vista do Piaui
+17|Belem do Piaui
+17|Beneditinos
+17|Bertolinia
+17|Betania do Piaui
+17|Boa Hora
+17|Bocaina
+17|Bom Jesus
+17|Bom Principio do Piaui
+17|Bonfim do Piaui
+17|Boqueirao do Piaui
+17|Brasileira
+17|Brejo do Piaui
+17|Buriti dos Lopes
+17|Buriti dos Montes
+17|Cabeceiras do Piaui
+17|Cajazeiras do Piaui
+17|Cajueiro da Praia
+17|Caldeirao Grande do Piaui
+17|Campinas do Piaui
+17|Campo Alegre do Fidalgo
+17|Campo Grande do Piaui
+17|Campo Largo do Piaui
+17|Campo Maior
+17|Canavieira
+17|Canto do Buriti
+17|Capitao de Campos
+17|Capitao Gervasio Oliveira
+17|Caracol
+17|Caraubas do Piaui
+17|Caridade do Piaui
+17|Castelo do Piaui
+17|Caxingo
+17|Cocal
+17|Cocal de Telha
+17|Cocal dos Alves
+17|Coivaras
+17|Colonia do Gurgueia
+17|Colonia do Piaui
+17|Conceicao do Caninde
+17|Coronel José Dias
+17|Corrente
+17|Cristalandia do Piaui
+17|Cristino Castro
+17|Curimata
+17|Currais
+17|Curral Novo do Piaui
+17|Curralinhos
+17|Demerval Lobao
+17|Dirceu Arcoverde
+17|Dom Expedito Lopes
+17|Dom Inocencio
+17|Domingos Mourao
+17|Elesbao Veloso
+17|Eliseu Martins
+17|Esperantina
+17|Fartura do Piaui
+17|Flores do Piaui
+17|Floresta do Piaui
+17|Floriano
+17|Francinopolis
+17|Francisco Ayres
+17|Francisco Macedo
+17|Francisco Santos
+17|Fronteiras
+17|Geminiano
+17|Gilbues
+17|Guadalupe
+17|Guaribas
+17|Hugo Napoleao
+17|Ilha Grande
+17|Inhuma
+17|Ipiranga do Piaui
+17|Isaias Coelho
+17|Itainopolis
+17|Itaueira
+17|Jacobina do Piaui
+17|Jaicos
+17|Jardim do Mulato
+17|Jatoba do Piaui
+17|Jerumenha
+17|Joao Costa
+17|Joaquim Pires
+17|Joca Marques
+17|José de Freitas
+17|Juazeiro do Piaui
+17|Julio Borges
+17|Jurema
+17|Lagoa Alegre
+17|Lagoa de São Francisco
+17|Lagoa do Barro do Piaui
+17|Lagoa do Piaui
+17|Lagoa do Sitio
+17|Lagoinha do Piaui
+17|Landri Sales
+17|Luis Correia
+17|Luzilandia
+17|Madeiro
+17|Manoel Emidio
+17|Marcolandia
+17|Marcos Parente
+17|Massape do Piaui
+17|Matias Olimpio
+17|Miguel Alves
+17|Miguel Leao
+17|Milton Brandao
+17|Monsenhor Gil
+17|Monsenhor Hipolito
+17|Monte Alegre do Piaui
+17|Morro Cabeca No Tempo
+
+17|Morro do Chapeu do Piaui
+17|Murici dos Portelas
+17|Nazare do Piaui
+17|Nossa Senhora de Nazare
+17|Nossa Senhora dos Remedios
+17|Nova Santa Rita
+17|Novo Nilo
+17|Novo Oriente do Piaui
+17|Novo Santo Antônio
+17|Oeiras
+17|Olho D''agua Do Piaui
+17|Padre Marcos
+17|Paes Landim
+17|Pajeu do Piaui
+17|Palmeira do Piaui
+17|Palmeirais
+17|Paqueta
+17|Parnagua
+17|Parnaiba
+17|Passagem Franca do Piaui
+17|Patos do Piaui
+17|Paulistana
+17|Pavussu
+17|Pedro Ii
+17|Pedro Laurentino
+17|Picos
+17|Pimenteiras
+17|Pio Ix
+17|Piracuruca
+17|Piripiri
+17|Porto
+17|Porto Alegre do Piaui
+17|Prata do Piaui
+17|Queimada Nova
+17|Redencao do Gurgueia
+17|Regeneracao
+17|Riacho Frio
+17|Ribeira do Piaui
+17|Ribeiro Goncalves
+17|Rio Grande do Piaui
+17|Santa Cruz do Piaui
+17|Santa Cruz dos Milagres
+17|Santa Filomena
+17|Santa Luz
+17|Santa Rosa do Piaui
+17|Santana do Piaui
+17|Santo Antônio de Lisboa
+17|Santo Antônio dos Milagres
+17|Santo Inacio do Piaui
+17|São Braz do Piaui
+17|São Felix do Piaui
+17|São Francisco de Assis do Piaui
+17|São Francisco do Piaui
+17|São Goncalo do Gurgueia
+17|São Goncalo do Piaui
+17|São Joao da Canabrava
+17|São Joao da Fronteira
+17|São Joao da Serra
+17|São Joao da Varjota
+17|São Joao do Arraial
+17|São Joao do Piaui
+17|São José do Divino
+17|São José do Peixe
+17|São José do Piaui
+17|São Juliao
+17|São Lourenco do Piaui
+17|São Luis do Piaui
+17|São Miguel da Baixa Grande
+17|São Miguel do Fidalgo
+17|São Miguel do Tapuio
+17|São Pedro do Piaui
+17|São Raimundo Nonato
+17|Sebastião Barros
+17|Sebastião Leal
+17|Sigefredo Pacheco
+17|Simoes
+17|Simplicio Mendes
+17|Socorro do Piaui
+17|Sussuapara
+17|Tamboril do Piaui
+17|Tanque do Piaui
+17|Teresina
+17|Uniao
+17|Urucui
+17|Valenca do Piaui
+17|Varzea Branca
+17|Varzea Grande
+17|Vera Mendes
+17|Vila Nova do Piaui
+17|Wall Ferraz
+18|Abapa
+18|Abatia
+18|Acampamento das Minas
+18|Acungui
+18|Adhemar de Barros
+18|Adrianopolis
+18|Agostinho
+18|Agua Azul
+18|Agua Boa
+18|Agua Branca
+18|Agua do Boi
+18|Agua Mineral
+18|Agua Vermelha
+18|Agudos do Sul
+18|Alecrim
+18|Alexandra
+18|Almirante Tamandare
+18|Altamira do Parana
+18|Altaneira
+18|Alto Alegre
+18|Alto Alegre do Iguacu
+18|Alto Amparo
+18|Alto do Amparo
+18|Alto Para
+18|Alto Parana
+18|Alto Piquiri
+18|Alto Pora
+18|Alto Sabia
+18|Alto Santa Fé
+18|Alto São Joao
+18|Altonia
+18|Alvorada do Iguacu
+18|Alvorada do Sul
+18|Amapora
+18|Amorinha
+18|Ampere
+18|Anahy
+18|Andira
+18|Andorinhas
+18|Angai
+18|Angulo
+18|Antas
+18|Antonina
+18|Antônio Brandao de Oliveira
+18|Antônio Olinto
+18|Anunciacao
+18|Aparecida do Oeste
+18|Apiaba
+18|Apucarana
+18|Aquidaban
+18|Aranha
+18|Arapongas
+18|Arapoti
+18|Arapua
+18|Arapuan
+18|Ararapira
+18|Araruna
+18|Araucaria
+18|Areia Branca dos Assis
+18|Areias
+18|Aricanduva
+18|Ariranha do Ivai
+18|Aroeira
+18|Arquimedes
+18|Assai
+18|Assis Chateaubriand
+18|Astorga
+18|Atalaia
+18|Aurora do Iguacu
+18|Bairro Cachoeira
+18|Bairro do Felisberto
+18|Bairro Limoeiro
+18|Balsa Nova
+18|Bandeirantes
+18|Bandeirantes D''oeste
+18|Banhado
+18|Barao de Lucena
+18|Barbosa Ferraz
+18|Barra Bonita
+18|Barra do Jacare
+18|Barra Grande
+18|Barra Mansa
+18|Barra Santa Salete
+18|Barracao
+18|Barras
+18|Barreiro
+18|Barreiro das Frutas
+18|Barreiros
+18|Barrinha
+18|Barro Preto
+18|Bateias
+18|Baulandia
+18|Bela Vista
+18|Bela Vista do Caroba
+18|Bela Vista do Ivai
+18|Bela Vista do Paraiso
+18|Bela Vista do Piquiri
+18|Bela Vista do Tapiracui
+18|Bentopolis
+18|Bernardelli
+18|Betaras
+18|Bituruna
+18|Boa Esperanca
+18|Boa Esperanca do Iguacu
+18|Boa Ventura de São Roque
+18|Boa Vista
+18|Boa Vista da Aparecida
+18|Bocaina
+18|Bocaiuva do Sul
+18|Bom Jardim do Sul
+18|Bom Jesus do Sul
+18|Bom Progresso
+18|Bom Retiro
+18|Bom Sucesso
+18|Bom Sucesso do Sul
+18|Borda do Campo
+18|Borda do Campo de São Sebastião
+18|Borman
+18|Borrazopolis
+18|Botuquara
+18|Bourbonia
+18|Braganey
+18|Bragantina
+18|Brasilandia do Sul
+18|Bugre
+18|Bulcao
+18|Cabrito
+18|Cacatu
+18|Cachoeira
+18|Cachoeira de Cima
+18|Cachoeira de São José
+18|Cachoeira do Espirito Santo
+18|Cachoeirinha
+18|Cadeadinho
+18|Caetano Mendes
+18|Cafeara
+18|Cafeeiros
+18|Cafelandia
+18|Cafezal do Sul
+18|Caita
+18|Caixa Prego
+18|California
+18|Calogeras
+18|Cambara
+18|Cambe
+18|Cambiju
+18|Cambira
+18|Campestrinho
+18|Campina
+18|Campina da Lagoa
+18|Campina do Miranguava
+18|Campina do Simao
+18|Campina dos Furtados
+18|Campina Grande do Sul
+18|Campinas
+18|Campo Bonito
+18|Campo do Meio
+18|Campo do Tenente
+18|Campo Largo
+18|Campo Largo da Roseira
+18|Campo Magro
+18|Campo Mourao
+18|Candido de Abreu
+18|Candoi
+18|Canela
+18|Cantagalo
+18|Canzianopolis
+18|Capanema
+18|Capao Alto
+18|Capao Bonito
+18|Capao da Lagoa
+18|Capao Grande
+18|Capao Rico
+18|Capitao Leonidas Marques
+18|Capivara
+18|Capoeirinha
+18|Cara Pintado
+18|Cara-cara
+18|Caraja
+18|Carambei
+18|Caramuru
+18|Caratuva
+18|Carazinho
+18|Carbonera
+18|Carlopolis
+18|Casa Nova
+18|Cascatinha
+18|Cascavel
+
+18|Castro
+18|Catanduvas
+18|Catanduvas do Sul
+18|Catarinenses
+18|Caxambu
+18|Cedro
+18|Centenario
+18|Centenario do Sul
+18|Central Lupion
+18|Centralito
+18|Centro Novo
+18|Cerne
+18|Cerrado Grande
+18|Cerro Azul
+18|Cerro Velho
+18|Ceu Azul
+18|Chopinzinho
+18|Cianorte
+18|Cidade Gaucha
+18|Cintra Pimentel
+18|Clevelandia
+18|Coitinho
+18|Colombo
+18|Colonia Acioli
+18|Colonia Castelhanos
+18|Colonia Castrolanda
+18|Colonia Centenario
+18|Colonia Cristina
+18|Colonia Dom Carlos
+18|Colonia Esperanca
+18|Colonia General Carneiro
+18|Colonia Iapo
+18|Colonia Melissa
+18|Colonia Murici
+18|Colonia Padre Paulo
+18|Colonia Pereira
+18|Colonia Santos Andrade
+18|Colonia São José
+18|Colonia Sapucai
+18|Colonia Saude
+18|Colonia Tapera
+18|Colorado
+18|Comur
+18|Conceicao
+18|Conchas Velhas
+18|Conciolandia
+18|Congonhas
+18|Congonhinhas
+18|Conselheiro Mairinck
+18|Conselheiro Zacarias
+18|Contenda
+18|Copacabana do Norte
+18|Corbelia
+18|Cornelio Procopio
+18|Coronel Domingos Soares
+18|Coronel Firmino Martins
+18|Coronel Vivida
+18|Correia de Freitas
+18|Corumbatai do Sul
+18|Corvo
+18|Costeira
+18|Covo
+18|Coxilha Rica
+18|Cristo Rei
+18|Cruz Machado
+18|Cruzeiro do Iguacu
+18|Cruzeiro do Norte
+18|Cruzeiro do Oeste
+18|Cruzeiro do Sul
+18|Cruzmaltina
+18|Cunhaporanga
+18|Curitiba
+18|Curiuva
+18|Curucaca
+18|Deputado José Afonso
+18|Despique
+18|Despraiado
+18|Dez de Maio
+18|Diamante
+18|Diamante D''oeste
+18|Diamante do Norte
+18|Diamante do Sul
+18|Doce Grande
+18|Dois Irmaos
+18|Dois Marcos
+18|Dois Vizinhos
+18|Dom Rodrigo
+18|Dorizon
+18|Douradina
+18|Doutor Antônio Paranhos
+18|Doutor Camargo
+18|Doutor Ernesto
+18|Doutor Oliveira Castro
+18|Doutor Ulysses
+18|Eduardo Xavier da Silva
+18|Emboguacu
+18|Emboque
+18|Encantado D''oeste
+18|Encruzilhada
+18|Eneas Marques
+18|Engenheiro Beltrao
+18|Entre Rios
+18|Entre Rios do Oeste
+18|Esperanca do Norte
+18|Esperanca Nova
+18|Espigao Alto do Iguacu
+18|Espirito Santo
+18|Estacao General Lucio
+18|Estacao Roca Nova
+18|Europa
+18|Euzebio de Oliveira
+18|Faisqueira
+18|Farol
+18|Faxina
+18|Faxinal
+18|Faxinal do Ceu
+18|Faxinal dos Elias
+18|Faxinal Santa Cruz
+18|Fazenda do Brigadeiro
+18|Fazenda dos Barbosas
+18|Fazenda Jangada
+18|Fazenda Rio Grande
+18|Fazenda Salmo Null
+18|Fazendinha
+18|Felpudo
+18|Fenix
+18|Fernandes Pinheiro
+18|Fernao Dias
+18|Ferraria
+18|Ferreiras
+18|Figueira
+18|Figueira do Oeste
+18|Fiusas
+18|Flor da Serra
+18|Flor da Serra do Sul
+18|Florai
+18|Floresta
+18|Florestopolis
+18|Floriano
+18|Florida
+18|Floropolis
+18|Fluviopolis
+18|Formigone
+18|Formosa do Oeste
+18|Foz do Iguacu
+18|Foz do Jordao
+18|Francisco Alves
+18|Francisco Beltrao
+18|Francisco Frederico Teixeira Guimaraes
+18|Frei Timoteo
+18|Fueros
+18|Fundao
+18|Gamadinho
+18|Gamela
+18|Gaucha
+18|Gaviao
+18|General Carneiro
+18|General Osorio
+18|Geremia Lunardelli
+18|Godoy Moreira
+18|Goioere
+18|Goioxim
+18|Gois
+18|Goncalves Junior
+18|Graciosa
+18|Grandes Rios
+18|Guaipora
+18|Guaira
+18|Guairaca
+18|Guajuvira
+18|Guamiranga
+18|Guamirim
+18|Guapirama
+18|Guapore
+18|Guaporema
+18|Guara
+18|Guaraci
+18|Guaragi
+18|Guaraituba
+18|Guarani
+18|Guaraniacu
+18|Guarapuava
+18|Guarapuavinha
+18|Guaraquecaba
+18|Guararema
+18|Guaratuba
+18|Guarauna
+18|Guaravera
+18|Guardamoria
+18|Harmonia
+18|Herculandia
+18|Herval Grande
+18|Herveira
+18|Hidreletrica Itaipu
+18|Honorio Serpa
+18|Iarama
+18|Ibaiti
+18|Ibema
+18|Ibiaci
+18|Ibipora
+18|Icara
+18|Icaraima
+18|Icatu
+18|Igrejinha
+18|Iguaracu
+18|Iguatemi
+18|Iguatu
+18|Iguipora
+18|Ilha do Mel
+18|Ilha dos Valadares
+18|Imbau
+18|Imbauzinho
+18|Imbituva
+18|Inacio Martins
+18|Inaja
+18|Independencia
+18|Indianopolis
+18|Inspetor Carvalho
+18|Invernada
+18|Invernadinha
+18|Iolopolis
+18|Ipiranga
+18|Ipora
+18|Iracema do Oeste
+18|Irapuan
+18|Irati
+18|Irere
+18|Iretama
+18|Itaguaje
+18|Itaiacoca
+18|Itaipulandia
+18|Itambaraca
+18|Itambe
+18|Itapanhacanga
+18|Itapara
+18|Itapejara D''oeste
+18|Itaperucu
+18|Itaqui
+18|Itauna do Sul
+18|Itinga
+18|Ivai
+18|Ivailandia
+18|Ivaipora
+18|Ivaitinga
+18|Ivate
+18|Ivatuba
+18|Jaborandi
+18|Jaboti
+18|Jaboticabal
+18|Jaburu
+18|Jacare
+18|Jacarezinho
+18|Jaciaba
+18|Jacutinga
+18|Jaguapita
+18|Jaguariaiva
+18|Jandaia do Sul
+18|Jangada
+18|Jangada do Sul
+18|Janiopolis
+18|Japira
+18|Japura
+18|Jaracatia
+18|Jardim
+18|Jardim Alegre
+18|Jardim Olinda
+18|Jardim Paredao
+18|Jardim Paulista
+18|Jardinopolis
+18|Jataizinho
+18|Javacae
+18|Jesuitas
+18|Joa
+18|Joaquim Tavora
+18|Jordaozinho
+18|José Lacerda
+18|Juciara
+18|Jundiai do Sul
+18|Juranda
+18|Jussara
+18|Juvinopolis
+18|Kalore
+18|Km Null
+18|Lagoa
+18|Lagoa Bonita
+18|Lagoa dos Ribas
+18|Lagoa Dourada
+18|Lagoa Seca
+18|Lagoa Verde
+18|Lagoinha
+18|Lajeado
+18|Lajeado Bonito
+18|Lajeado Grande
+18|Lambari
+18|Lapa
+18|Laranja Azeda
+18|Laranjal
+18|Laranjeiras do Sul
+18|Lavra
+18|Lavrinha
+18|Leopolis
+18|Lerroville
+18|Lidianopolis
+18|Lindoeste
+18|Linha Giacomini
+18|Loanda
+18|Lobato
+18|Londrina
+18|Lopei
+18|Lovat
+18|Luar
+18|Luiziana
+18|Lunardelli
+18|Lupionopolis
+18|Macaco
+18|Macucos
+18|Maira
+18|Maita
+18|Mallet
+18|Malu
+18|Mambore
+18|Mandacaia
+18|Mandaguacu
+18|Mandaguari
+18|Mandiocaba
+18|Mandirituba
+18|Manfrinopolis
+18|Mangueirinha
+18|Manoel Ribas
+18|Maraba
+18|Maracana
+18|Marajo
+18|Maravilha
+18|Marcelino
+18|Marcionopolis
+18|Marechal Candido Rondon
+18|Margarida
+18|Maria Helena
+18|Maria Luiza
+18|Marialva
+18|Mariental
+18|Marilandia do Sul
+18|Marilena
+18|Marilu
+18|Mariluz
+18|Marimbondo
+18|Maringa
+18|Mariopolis
+18|Maripa
+18|Maristela
+18|Mariza
+18|Marmelandia
+18|Marmeleiro
+18|Marques de Abrantes
+18|Marquinho
+18|Marrecas
+18|Martins
+18|Marumbi
+18|Matelandia
+18|Matinhos
+18|Mato Queimado
+18|Mato Rico
+18|Maua da Serra
+18|Medianeira
+18|Meia-lua
+18|Memoria
+18|Mendeslandia
+18|Mercedes
+18|Mirador
+18|Miranda
+18|Mirante do Piquiri
+18|Miraselva
+18|Missal
+18|Monjolinho
+18|Monte Real
+18|Moreira Sales
+18|Morretes
+18|Morro Alto
+18|Morro Ingles
+18|Munhoz de Melo
+18|Natingui
+18|Nilza
+18|Nordestina
+18|Nossa Senhora Aparecida
+18|Nossa Senhora da Aparecida
+18|Nossa Senhora da Candelaria
+18|Nossa Senhora das Gracas
+18|Nossa Senhora de Lourdes
+18|Nossa Senhora do Carmo
+18|Nova Alianca do Ivai
+18|Nova Altamira
+18|Nova America da Colina
+18|Nova Amoreira
+18|Nova Aurora
+18|Nova Bilac
+18|Nova Brasilia
+18|Nova Brasilia do Itarare
+18|Nova Cantu
+18|Nova Concordia
+18|Nova Esperanca
+18|Nova Esperanca do Sudoeste
+18|Nova Fatima
+18|Nova Laranjeiras
+18|Nova Londrina
+18|Nova Lourdes
+18|Nova Olimpia
+18|Nova Prata do Iguacu
+18|Nova Riqueza
+18|Nova Santa Barbara
+18|Nova Santa Rosa
+18|Nova Tebas
+18|Nova Tirol
+18|Nova Videira
+18|Novo Horizonte
+18|Novo Itacolomi
+18|Novo Jardim
+18|Novo Sarandi
+18|Novo Sobradinho
+18|Novo Tres Passos
+18|Olaria
+18|Olho Agudo
+18|Olho D''agua
+18|Oroite
+18|Ortigueira
+18|Ourilandia
+18|Ourizona
+18|Ouro Verde do Oeste
+18|Ouro Verde do Piquiri
+18|Padre Ponciano
+18|Paicandu
+18|Paiol de Baixo
+18|Paiol Queimado
+18|Paiquere
+18|Palmas
+18|Palmeira
+18|Palmeirinha
+18|Palmira
+18|Palmital
+18|Palmital de São Silvestre
+18|Palmitopolis
+18|Palotina
+18|Panema
+18|Pangare
+18|Papagaios Novos
+18|Paraiso do Norte
+18|Parana D''oeste
+18|Paranacity
+18|Paranagi
+18|Paranagua
+18|Paranapoema
+18|Paranavai
+18|Passa Una
+18|Passo da Ilha
+18|Passo dos Pupos
+18|Passo Fundo
+18|Passo Liso
+18|Pato Bragado
+18|Pato Branco
+18|Patos Velhos
+18|Pau D''alho Do Sul
+18|Paula Freitas
+18|Paulistania
+18|Paulo Frontin
+18|Peabiru
+18|Pedra Branca do Araraquara
+18|Pedras
+18|Pedro Lustosa
+18|Pelado
+18|Perobal
+18|Perola
+18|Perola do Oeste
+18|Perola Independente
+18|Piassuguera
+18|Pien
+18|Pinare
+18|Pinhais
+18|Pinhal do São Bento
+18|Pinhal Preto
+18|Pinhalao
+18|Pinhalzinho
+18|Pinhao
+18|Pinheiro
+18|Piquirivai
+18|Piracema
+18|Pirai do Sul
+18|Pirapo
+18|Piraquara
+18|Piriquitos
+18|Pitanga
+18|Pitangueiras
+18|Pitangui
+18|Planaltina do Parana
+18|Planalto
+18|Pocinho
+18|Poema
+18|Ponta do Pasto
+18|Ponta Grossa
+18|Pontal do Parana
+18|Porecatu
+18|Portao
+18|Porteira Preta
+18|Porto Amazonas
+18|Porto Barreiro
+18|Porto Belo
+18|Porto Brasilio
+18|Porto Camargo
+18|Porto de Cima
+18|Porto Meira
+18|Porto Mendes
+18|Porto Rico
+18|Porto San Juan
+18|Porto Santana
+18|Porto São Carlos
+18|Porto São José
+18|Porto Vitoria
+18|Prado Ferreira
+18|Pranchita
+18|Prata
+18|Prata Um
+18|Presidente Castelo Branco
+18|Presidente Kennedy
+18|Primeiro de Maio
+18|Progresso
+18|Prudentopolis
+18|Pulinopolis
+18|Quatigua
+18|Quatro Barras
+18|Quatro Pontes
+18|Quebra Freio
+18|Quedas do Iguacu
+18|Queimados
+18|Querencia do Norte
+18|Quinta do Sol
+18|Quinzopolis
+18|Quitandinha
+18|Ramilandia
+18|Rancho Alegre
+18|Rancho Alegre D''oeste
+18|Realeza
+18|Reboucas
+18|Regiao dos Valos
+18|Reianopolis
+18|Renascenca
+18|Reserva
+18|Reserva do Iguacu
+18|Retiro
+18|Retiro Grande
+18|Ribeirao Bonito
+18|Ribeirao Claro
+18|Ribeirao do Pinhal
+18|Ribeirao do Pinheiro
+18|Rio Abaixo
+18|Rio Azul
+18|Rio Bom
+18|Rio Bonito
+18|Rio Bonito do Iguacu
+18|Rio Branco do Ivai
+18|Rio Branco do Sul
+18|Rio Claro do Sul
+18|Rio da Prata
+18|Rio das Antas
+18|Rio das Mortes
+18|Rio das Pedras
+18|Rio das Pombas
+18|Rio do Mato
+18|Rio do Salto
+18|Rio Negro
+18|Rio Novo
+18|Rio Pinheiro
+18|Rio Quatorze
+18|Rio Saltinho
+18|Rio Saudade
+18|Rio Verde
+18|Roberto Silveira
+18|Roca Velha
+18|Rolandia
+18|Romeopolis
+18|Roncador
+18|Rondinha
+18|Rondon
+18|Rosario do Ivai
+18|Sabaudia
+18|Sagrada Familia
+18|Salgado Filho
+18|Salles de Oliveira
+18|Saltinho do Oeste
+18|Salto do Itarare
+18|Salto do Lontra
+18|Salto Portao
+18|Samambaia
+18|Santa Amelia
+18|Santa Cecilia do Pavao
+18|Santa Clara
+18|Santa Cruz de Monte Castelo
+18|Santa Eliza
+18|Santa Esmeralda
+18|Santa Fé
+18|Santa Fé do Pirapo
+18|Santa Helena
+18|Santa Ines
+18|Santa Isabel do Ivai
+18|Santa Izabel do Oeste
+18|Santa Lucia
+18|Santa Lurdes
+18|Santa Luzia da Alvorada
+18|Santa Margarida
+18|Santa Maria
+18|Santa Maria do Oeste
+18|Santa Maria do Rio do Peixe
+18|Santa Mariana
+18|Santa Monica
+18|Santa Quiteria
+18|Santa Rita
+18|Santa Rita do Oeste
+18|Santa Rosa
+18|Santa Tereza do Oeste
+18|Santa Terezinha de Itaipu
+18|Santa Zelia
+18|Santana
+18|Santana do Itarare
+18|Santo Antônio
+18|Santo Antônio da Platina
+18|Santo Antônio do Caiua
+18|Santo Antônio do Iratim
+18|Santo Antônio do Palmital
+18|Santo Antônio do Paraiso
+18|Santo Antônio do Sudoeste
+18|Santo Inacio
+18|Santo Rei
+18|São Bento
+18|São Braz
+18|São Camilo
+18|São Carlos do Ivai
+18|São Cirilo
+18|São Clemente
+18|São Cristovao
+18|São Domingos
+18|São Francisco
+18|São Francisco de Imbau
+18|São Francisco de Sales
+18|São Gabriel
+18|São Gotardo
+18|São Jeronimo da Serra
+18|São Joao
+18|São Joao D''oeste
+18|São Joao da Boa Vista
+18|São Joao do Caiua
+18|São Joao do Ivai
+18|São Joao do Pinhal
+18|São Joao do Triunfo
+18|São Joaquim
+18|São Joaquim do Pontal
+18|São Jorge D''oeste
+18|São Jorge do Ivai
+18|São Jorge do Patrocinio
+18|São José
+18|São José da Boa Vista
+18|São José das Palmeiras
+18|São José do Iguacu
+18|São José do Itavo
+18|São José do Ivai
+18|São José dos Pinhais
+18|São Judas Tadeu
+18|São Leonardo
+18|São Lourenco
+18|São Luiz
+18|São Luiz do Puruna
+18|São Manoel do Parana
+18|São Marcos
+18|São Martinho
+18|São Mateus do Sul
+18|São Miguel
+18|São Miguel do Cambui
+18|São Miguel do Iguacu
+18|São Paulo
+18|São Pedro
+18|São Pedro do Florido
+18|São Pedro do Iguacu
+18|São Pedro do Ivai
+18|São Pedro do Parana
+18|São Pedro Lopei
+18|São Pio X
+18|São Roque
+18|São Roque do Pinhal
+18|São Salvador
+18|São Sebastião
+18|São Sebastião da Amoreira
+18|São Silvestre
+18|São Tome
+18|São Valentim
+18|São Vicente
+18|Sape
+18|Sapopema
+18|Sarandi
+18|Saudade do Iguacu
+18|Sede Alvorada
+18|Sede Chaparral
+18|Sede Nova Sant''ana
+18|Sede Progresso
+18|Selva
+18|Senges
+18|Senhor Bom Jesus dos Gramados
+18|Serra dos Dourados
+18|Serra Negra
+18|Serranopolis do Iguacu
+18|Serraria Klas
+18|Serrinha
+18|Sertaneja
+18|Sertanopolis
+18|Sertaozinho
+18|Sete Saltos de Cima
+18|Silvolandia
+18|Siqueira Belo
+18|Siqueira Campos
+18|Socavao
+18|Socorro
+18|Sulina
+18|Sumare
+18|Sussui
+18|Sutis
+18|Taipa
+18|Tamarana
+18|Tambarutaca
+18|Tamboara
+18|Tanque Grande
+18|Tapejara
+18|Tapira
+18|Tapui
+18|Taquara
+18|Taquari dos Polacos
+18|Taquari dos Russos
+18|Taquaruna
+18|Teixeira Soares
+18|Telemaco Borba
+18|Teolandia
+18|Tereza Breda
+18|Tereza Cristina
+18|Terra Boa
+18|Terra Nova
+18|Terra Rica
+18|Terra Roxa
+18|Tibagi
+18|Tijucas do Sul
+18|Tijuco Preto
+18|Timbu Velho
+18|Tindiquera
+18|Tiradentes
+18|Toledo
+18|Tomaz Coelho
+18|Tomazina
+18|Tranqueira
+18|Tres Barras do Parana
+18|Tres Bicos
+18|Tres Bocas
+18|Tres Capoes
+18|Tres Corregos
+18|Tres Lagoas
+18|Tres Pinheiros
+18|Tres Placas
+18|Triangulo
+18|Trindade
+18|Triolandia
+18|Tronco
+18|Tunas do Parana
+18|Tuneiras do Oeste
+18|Tupassi
+18|Tupinamba
+18|Turvo
+18|Ubaldino Taques
+18|Ubauna
+18|Ubirata
+18|Umuarama
+18|Uniao
+18|Uniao da Vitoria
+18|Uniao do Oeste
+18|Uniflor
+18|Urai
+18|Usina
+18|Uvaia
+18|Valentins
+18|Valerio
+18|Vargeado
+18|Vassoural
+18|Ventania
+18|Vera Cruz do Oeste
+18|Vera Guarani
+18|Vere
+18|Vida Nova
+18|Vidigal
+18|Vila Alta
+18|Vila Diniz
+18|Vila dos Roldos
+18|Vila Florida
+18|Vila Gandhi
+18|Vila Guay
+18|Vila Nova
+18|Vila Nova de Florenca
+18|Vila Paraiso
+18|Vila Reis
+18|Vila Rica do Ivai
+18|Vila Roberto Brzezinski
+18|Vila Silva Jardim
+18|Vila Velha
+18|Virmond
+18|Vista Alegre
+18|Vista Bonita
+18|Vitoria
+18|Vitorino
+18|Warta
+18|Wenceslau Braz
+18|Xambre
+18|Xaxim
+18|Yolanda
+19|Abarracamento
+19|Abraão
+19|Afonso Arinos
+19|Agulhas Negras
+19|Amparo
+19|Andrade Pinto
+19|Angra dos Reis
+19|Anta
+19|Aperibe
+19|Araruama
+19|Areal
+19|Armação de Búzios
+19|Arraial do Cabo
+19|Arrozal
+19|Avelar
+19|Bacaxá
+19|Baltazar
+19|Banquete
+19|Barão de Juparana
+19|Barcelos
+19|Barra Alegre
+19|Barra de Macaé
+19|Barra de São João
+19|Barra do Pirai
+19|Barra Mansa
+19|Barra Seca
+19|Belford Roxo
+19|Bemposta
+19|Boa Esperança
+19|Boa Sorte
+19|Boa Ventura
+19|Bom Jardim
+19|Bom Jesus do Itabapoana
+19|Bom Jesus do Querendo
+19|Cabo Frio
+19|Cabucu
+19|Cachoeiras de Macacu
+19|Cachoeiros
+19|Calheiros
+19|Cambiasca
+19|Cambuci
+19|Campo do Coelho
+19|Campos dos Goytacazes
+19|Campos Elyseos
+19|Cantagalo
+19|Carabucu
+19|Carapebus
+19|Cardoso Moreira
+19|Carmo
+19|Cascatinha
+19|Casimiro de Abreu
+19|Cava
+19|Coelho da Rocha
+19|Colônia
+19|Comendador Levy Gasparian
+19|Comendador Venâncio
+19|Conceição de Jacarei
+19|Conceição de Macabu
+19|Conrado
+19|Conselheiro Paulino
+19|Conservatória
+19|Cordeiro
+19|Coroa Grande
+19|Correas
+19|Corrego da Prata
+19|Corrego do Ouro
+19|Correntezas
+19|Cunhambebe
+19|Dorandia
+19|Dores de Macabu
+19|Doutor Elias
+19|Doutor Loreti
+19|Duas Barras
+19|Duque de Caxias
+19|Engenheiro Passos
+19|Engenheiro Paulo de Frontin
+19|Engenheiro Pedreira
+19|Estrada Nova
+19|Euclidelândia
+19|Falcão
+19|Floriano
+19|Fumaça
+19|Funil
+19|Gaviões
+19|Getulândia
+19|Glicério
+19|Goitacazes
+19|Governador Portela
+19|Guapimirim
+19|Guia de Pacobaiba
+19|Ibitiguacu
+19|Ibitioca
+19|Ibituporanga
+19|Iguaba Grande
+19|Imbarié
+19|Inconfidência
+19|Inhomirim
+19|Inoa
+19|Ipiabas
+19|Ipiiba
+19|Ipuca
+19|Itabapoana
+19|Itaborai
+19|Itacurussa
+19|Itaguai
+19|Itaipava
+19|Itaipu
+19|Itajara
+19|Italva
+19|Itambi
+19|Itaocara
+19|Itaperuna
+19|Itatiaia
+19|Jacuecanga
+19|Jaguarembe
+19|Jamapara
+19|Japeri
+19|Japuiba
+19|Lajé do Muriaé
+19|Laranjais
+19|Lidice
+19|Lumiar
+19|Macabuzinho
+19|Macaé
+19|Macuco
+19|Magé
+19|Mambucaba
+19|Mangaratiba
+19|Maniva
+19|Manoel Ribeiro
+19|Manuel Duarte
+19|Marangatu
+19|Marica
+19|Mendes
+19|Mesquita
+19|Miguel Pereira
+19|Miracema
+19|Monera
+19|Monjolo
+19|Monte Alegre
+19|Monte Verde
+19|Monumento
+19|Morangaba
+19|Morro do Coco
+19|Morro Grande
+19|Mussurepe
+19|Natividade
+19|Neves
+19|Nhunguacu
+19|Nilópolis
+19|Niterói
+19|Nossa Senhora da Aparecida
+19|Nossa Senhora da Penha
+19|Nossa Senhora do Amparo
+19|Nova Friburgo
+19|Nova Iguaçu
+19|Olinda
+19|Ourania
+19|Papucaia
+19|Paquequer Pequeno
+19|Paracambi
+19|Paraíba do Sul
+19|Paraíso do Tobias
+19|Paraoquena
+19|Parapeuna
+19|Parati
+19|Parati Mirim
+19|Passa Tres
+19|Paty do Álferes
+19|Pedra Selada
+19|Pedro do Rio
+19|Penedo
+19|Pentagna
+19|Petrópolis
+19|Piabeta
+19|Pião
+19|Pinheiral
+19|Pipeiras
+19|Piraí
+19|Pirangai
+19|Pirapetinga de Bom Jesus
+19|Porciúncula
+19|Portela
+19|Porto das Caixas
+19|Porto Real
+19|Porto Velho do Cunha
+19|Posse
+19|Praia de Aracatiba
+19|Pureza
+19|Purilândia
+19|Quartéis
+19|Quatis
+19|Queimados
+19|Quissamã
+19|Raposo
+19|Renascença
+19|Resende
+19|Retiro do Muriaé
+19|Rialto
+19|Ribeirão de São Joaquim
+19|Rio Bonito
+19|Rio Claro
+19|Rio das Flores
+19|Rio das Ostras
+19|Rio de Janeiro
+19|Riograndina
+19|Rosal
+19|Sacra Familia do Tíngua
+19|Salutaris
+19|Sambaetiba
+19|Sampaio Correia
+19|Sana
+19|Santa Clara
+19|Santa Cruz
+19|Santa Cruz da Serra
+19|Santa Isabel
+19|Santa Isabel do Rio Preto
+19|Santa Maria
+19|Santa Maria Madalena
+19|Santa Rita da Floresta
+19|Santanesia
+19|Santo Aleixo
+19|Santo Amaro de Campos
+19|Santo Antônio de Pádua
+19|Santo Antônio do Imbé
+19|Santo Eduardo
+19|São Fidélis
+19|São Francisco de Itabapoana
+19|São Gonçalo
+19|São João da Barra
+19|São João de Meriti
+19|São João do Paraíso
+19|São Joao Marcos
+19|São Joaquim
+19|São José de Ubá
+19|São José do Ribeirão
+19|São José do Turvo
+19|São José do Vale do Rio Preto
+19|São Mateus
+19|São Pedro da Aldeia
+19|São Sebastião de Campos
+19|São Sebastião do Alto
+19|São Sebastião do Paraíba
+19|São Sebastião dos Ferreiros
+19|São Vicente de Paula
+19|Sapucaia
+19|Saquarema
+19|Saracuruna
+19|Sebastião de Lacerda
+19|Seropédica
+19|Serrinha
+19|Sete Pontes
+19|Silva Jardim
+19|Sodrelandia
+19|Sossego
+19|Subaio
+19|Sumidouro
+19|Surui
+19|Taboas
+19|Tamoios
+19|Tangua
+19|Tapera
+19|Tarituba
+19|Teresópolis
+19|Tócos
+19|Trajano de Morais
+19|Travessão
+19|Três Irmãos
+19|Três Rios
+19|Triunfo
+19|Valão do Barro
+19|Valença
+19|Vargem Alegre
+19|Varre-sai
+19|Vassouras
+19|Venda das Flores
+19|Venda das Pedras
+19|Vila da Grama
+19|Vila do Frade
+19|Vila Muriqui
+19|Vila Nova de Campos
+19|Visconde de Imbé
+19|Volta Redonda
+19|Werneck
+19|Xerém
+20|Acari
+20|Acu
+20|Afonso Bezerra
+20|Agua Nova
+20|Alexandria
+20|Almino Afonso
+20|Alto do Rodrigues
+20|Angicos
+20|Antônio Martins
+20|Apodi
+20|Areia Branca
+20|Ares
+20|Baia Formosa
+20|Barao de Serra Branca
+20|Barauna
+20|Barcelona
+20|Belo Horizonte
+20|Bento Fernandes
+20|Boa Saude
+20|Bodo
+20|Bom Jesus
+20|Brejinho
+20|Caicara do Norte
+20|Caicara do Rio do Vento
+20|Caico
+20|Campo Grande
+20|Campo Redondo
+20|Canguaretama
+20|Caraubas
+20|Carnauba dos Dantas
+20|Carnaubais
+20|Ceara-mirim
+20|Cerro Cora
+20|Coronel Ezequiel
+20|Coronel Joao Pessoa
+20|Corrego de São Mateus
+20|Cruzeta
+20|Currais Novos
+20|Doutor Severiano
+20|Encanto
+20|Equador
+20|Espirito Santo
+20|Espirito Santo do Oeste
+20|Extremoz
+20|Felipe Guerra
+20|Fernando Pedroza
+20|Firmamento
+20|Florania
+20|Francisco Dantas
+20|Frutuoso Gomes
+20|Galinhos
+20|Gameleira
+20|Goianinha
+20|Governador Dix-sept Rosado
+20|Grossos
+20|Guamare
+20|Ielmo Marinho
+20|Igreja Nova
+20|Ipanguacu
+20|Ipiranga
+20|Ipueira
+20|Itaja
+20|Itau
+20|Jacana
+20|Jandaira
+20|Janduis
+20|Japi
+20|Jardim de Angicos
+20|Jardim de Piranhas
+20|Jardim do Serido
+20|Joao Camara
+20|Joao Dias
+20|José da Penha
+20|Jucurutu
+20|Jundia de Cima
+20|Lagoa D''anta
+20|Lagoa de Pedras
+20|Lagoa de Velhos
+20|Lagoa Nova
+20|Lagoa Salgada
+20|Lajes
+20|Lajes Pintadas
+20|Lucrecia
+20|Luis Gomes
+20|Macaiba
+20|Macau
+20|Major Felipe
+20|Major Sales
+20|Marcelino Vieira
+20|Martins
+20|Mata de São Braz
+20|Maxaranguape
+20|Messias Targino
+20|Montanhas
+20|Monte Alegre
+20|Monte das Gameleiras
+20|Mossoro
+20|Natal
+20|Nisia Floresta
+20|Nova Cruz
+20|Olho-d''agua Do Borges
+20|Ouro Branco
+20|Parana
+20|Parazinho
+20|Parelhas
+20|Parnamirim
+20|Passa E Fica
+20|Passagem
+20|Patu
+20|Pau dos Ferros
+20|Pedra Grande
+20|Pedra Preta
+20|Pedro Avelino
+20|Pedro Velho
+20|Pendencias
+20|Piloes
+20|Poco Branco
+20|Portalegre
+20|Porto do Mangue
+20|Pureza
+20|Rafael Fernandes
+20|Rafael Godeiro
+20|Riacho da Cruz
+20|Riacho de Santana
+20|Riachuelo
+20|Rio do Fogo
+20|Rodolfo Fernandes
+20|Rosario
+20|Ruy Barbosa
+20|Salva Vida
+20|Santa Cruz
+20|Santa Fé
+20|Santa Maria
+20|Santa Teresa
+20|Santana do Matos
+20|Santana do Serido
+20|Santo Antônio
+20|Santo Antônio do Potengi
+20|São Bento do Norte
+20|São Bento do Trairi
+20|São Bernardo
+20|São Fernando
+20|São Francisco do Oeste
+20|São Geraldo
+20|São Goncalo do Amarante
+20|São Joao do Sabugi
+20|São José da Passagem
+20|São José de Mipibu
+20|São José do Campestre
+20|São José do Serido
+20|São Miguel
+20|São Miguel de Touros
+20|São Paulo do Potengi
+20|São Pedro
+20|São Rafael
+20|São Tome
+20|São Vicente
+20|Senador Eloi de Souza
+20|Senador Georgino Avelino
+20|Serra Caiada
+20|Serra da Tapuia
+20|Serra de São Bento
+20|Serra do Mel
+20|Serra Negra do Norte
+20|Serrinha
+20|Serrinha dos Pintos
+20|Severiano Melo
+20|Sitio Novo
+20|Taboleiro Grande
+20|Taipu
+20|Tangara
+20|Tenente Ananias
+20|Tenente Laurentino Cruz
+20|Tibau
+20|Tibau do Sul
+20|Timbauba dos Batistas
+20|Touros
+20|Trairi
+20|Triunfo Potiguar
+20|Umarizal
+20|Upanema
+20|Varzea
+20|Venha-ver
+20|Vera Cruz
+20|Vicosa
+20|Vila Flor
+21|Abuna
+21|Alta Alegre dos Parecis
+21|Alta Floresta do Oeste
+21|Alto Paraiso
+21|Alvorada do Oeste
+21|Ariquemes
+21|Buritis
+21|Cabixi
+21|Cacaulandia
+21|Cacoal
+21|Calama
+21|Campo Novo de Rondonia
+21|Candeias do Jamari
+21|Castanheiras
+21|Cerejeiras
+21|Chupinguaia
+21|Colorado do Oeste
+21|Corumbiara
+21|Costa Marques
+21|Cujubim
+21|Espigao D''oeste
+21|Governador Jorge Teixeira
+21|Guajara-mirim
+21|Jaci Parana
+21|Jamari
+21|Jaru
+21|Ji-parana
+21|Machadinho D''oeste
+21|Marco Rondon
+21|Ministro Andreazza
+21|Mirante da Serra
+21|Monte Negro
+21|Nova Brasilandia D''oeste
+21|Nova Mamore
+21|Nova Uniao
+21|Nova Vida
+21|Novo Horizonte do Oeste
+21|Ouro Preto do Oeste
+21|Parecis
+21|Pedras Negras
+21|Pimenta Bueno
+21|Pimenteiras do Oeste
+21|Porto Velho
+21|Presidente Medici
+21|Primavera de Rondonia
+21|Principe da Beira
+21|Rio Crespo
+21|Riozinho
+21|Rolim de Moura
+21|Santa Luzia do Oeste
+21|São Felipe D''oeste
+21|São Francisco do Guapore
+21|São Miguel do Guapore
+21|Seringueiras
+21|Tabajara
+21|Teixeiropolis
+21|Theobroma
+21|Urupa
+21|Vale do Anari
+21|Vale do Paraiso
+21|Vila Extrema
+21|Vilhena
+21|Vista Alegre do Abuna
+22|Alto Alegre
+22|Amajari
+22|Boa Vista
+22|Bonfim
+22|Canta
+22|Caracarai
+22|Caroebe
+22|Iracema
+22|Mucajai
+22|Normandia
+22|Pacaraima
+22|Rorainopolis
+22|São Joao da Baliza
+22|São Luiz
+22|Uiramuta
+23|Acegua
+23|Afonso Rodrigues
+23|Agua Santa
+23|Aguas Claras
+23|Agudo
+23|Ajuricaba
+23|Albardao
+23|Alecrim
+23|Alegrete
+23|Alegria
+23|Alfredo Brenner
+23|Almirante Tamandare
+23|Alpestre
+23|Alto Alegre
+23|Alto da Uniao
+23|Alto Feliz
+23|Alto Paredao
+23|Alto Recreio
+23|Alto Uruguai
+23|Alvorada
+23|Amaral Ferrador
+23|Ametista do Sul
+23|Andre da Rocha
+23|Anta Gorda
+23|Antônio Kerpel
+23|Antônio Prado
+23|Arambare
+23|Ararica
+23|Aratiba
+23|Arco Verde
+23|Arco-iris
+23|Arroio Canoas
+23|Arroio do Meio
+23|Arroio do Padre
+23|Arroio do Sal
+23|Arroio do So
+23|Arroio do Tigre
+23|Arroio dos Ratos
+23|Arroio Grande
+23|Arvore So
+23|Arvorezinha
+23|Atafona
+23|Atiacu
+23|Augusto Pestana
+23|Aurea
+23|Avelino Paranhos
+23|Azevedo Sodre
+23|Bacupari
+23|Bage
+23|Baliza
+23|Balneario Pinhal
+23|Banhado do Colegio
+23|Barao
+23|Barao de Cotegipe
+23|Barao do Triunfo
+23|Barra do Guarita
+23|Barra do Ouro
+23|Barra do Quarai
+23|Barra do Ribeiro
+23|Barra do Rio Azul
+23|Barra Funda
+23|Barracao
+23|Barreirinho
+23|Barreiro
+23|Barro Preto
+23|Barro Vermelho
+23|Barros Cassal
+23|Basilio
+23|Bela Vista
+23|Beluno
+23|Benjamin Constant do Sul
+23|Bento Goncalves
+23|Bexiga
+23|Boa Esperanca
+23|Boa Vista
+23|Boa Vista das Missoes
+23|Boa Vista do Burica
+23|Boa Vista do Cadeado
+23|Boa Vista do Incra
+23|Boa Vista do Sul
+23|Boca do Monte
+23|Boi Preto
+23|Bojuru
+23|Bom Jardim
+23|Bom Jesus
+23|Bom Principio
+23|Bom Progresso
+23|Bom Retiro
+23|Bom Retiro do Guaiba
+23|Bom Retiro do Sul
+23|Bonito
+23|Boqueirao
+23|Boqueirao do Leao
+23|Borore
+23|Bossoroca
+23|Botucarai
+23|Braga
+23|Brochier
+23|Buriti
+23|Butia
+23|Butias
+23|Cacapava do Sul
+23|Cacequi
+23|Cachoeira do Sul
+23|Cachoeirinha
+23|Cacique Doble
+23|Cadorna
+23|Caibate
+23|Caicara
+23|Camaqua
+23|Camargo
+23|Cambara do Sul
+23|Camobi
+23|Campestre Baixo
+23|Campestre da Serra
+23|Campina das Missoes
+23|Campina Redonda
+23|Campinas
+23|Campinas do Sul
+23|Campo Bom
+23|Campo Branco
+23|Campo do Meio
+23|Campo Novo
+23|Campo Santo
+23|Campo Seco
+23|Campo Vicente
+23|Campos Borges
+23|Candelaria
+23|Candido Freire
+23|Candido Godoi
+23|Candiota
+23|Canela
+23|Cangucu
+23|Canhembora
+23|Canoas
+23|Canudos
+23|Capane
+23|Capao Bonito
+23|Capao Comprido
+23|Capao da Canoa
+23|Capao da Porteira
+23|Capao do Cedro
+23|Capao do Cipo
+23|Capao do Leao
+23|Capela de Santana
+23|Capela Velha
+23|Capinzal
+23|Capitao
+23|Capivari do Sul
+23|Capivarita
+23|Capo-ere
+23|Capoeira Grande
+23|Caraa
+23|Caraja Seival
+23|Carazinho
+23|Carlos Barbosa
+23|Carlos Gomes
+23|Carovi
+23|Casca
+23|Cascata
+23|Caseiros
+23|Castelinho
+23|Catuipe
+23|Cavajureta
+23|Cavera
+23|Caxias do Sul
+23|Cazuza Ferreira
+23|Cedro Marcado
+23|Centenario
+23|Centro Linha Brasil
+23|Cerrito
+23|Cerrito Alegre
+23|Cerrito do Ouro Ou Vila do Cerrito
+23|Cerro Alto
+23|Cerro Branco
+23|Cerro Claro
+23|Cerro do Martins
+23|Cerro do Roque
+23|Cerro Grande
+23|Cerro Grande do Sul
+23|Cerro Largo
+23|Chapada
+23|Charqueadas
+23|Charrua
+23|Chiapetta
+23|Chicoloma
+23|Chimarrao
+23|Chorao
+23|Chui
+23|Chuvisca
+23|Cidreira
+23|Cinquentenario
+23|Ciriaco
+23|Clara
+23|Clemente Argolo
+23|Coimbra
+23|Colinas
+23|Colonia das Almas
+23|Colonia Medeiros
+23|Colonia Municipal
+23|Colonia Nova
+23|Colonia São Joao
+23|Colonia Z-null
+23|Coloninha
+23|Colorado
+23|Comandai
+23|Condor
+23|Consolata
+23|Constantina
+23|Coqueiro Baixo
+23|Coqueiros do Sul
+23|Cordilheira
+23|Coroados
+23|Coronel Barros
+23|Coronel Bicaco
+23|Coronel Finzito
+23|Coronel Pilar
+23|Coronel Teixeira
+23|Cortado
+23|Costa da Cadeia
+23|Costao
+23|Cotipora
+23|Coxilha
+23|Coxilha Grande
+23|Cr-null
+23|Crissiumal
+23|Cristal
+23|Cristal do Sul
+23|Criuva
+23|Cruz Alta
+23|Cruz Altense
+23|Cruzeiro
+23|Cruzeiro do Sul
+23|Curral Alto
+23|Curumim
+23|Daltro Filho
+23|Dario Lassance
+23|David Canabarro
+23|Delfina
+23|Deodoro
+23|Deposito
+23|Derrubadas
+23|Dezesseis de Novembro
+23|Dilermando de Aguiar
+23|Divino
+23|Dois Irmaos
+23|Dois Irmaos das Missoes
+23|Dois Lajeados
+23|Dom Diogo
+23|Dom Feliciano
+23|Dom Pedrito
+23|Dom Pedro de Alcantara
+23|Dona Francisca
+23|Dona Otilia
+23|Dourado
+23|Doutor Bozano
+23|Doutor Edgardo Pereira Velho
+23|Doutor Mauricio Cardoso
+23|Doutor Ricardo
+23|Eldorado do Sul
+23|Eletra
+23|Encantado
+23|Encruzilhada
+23|Encruzilhada do Sul
+23|Engenho Velho
+23|Entre Rios do Sul
+23|Entre-ijuis
+23|Entrepelado
+23|Erebango
+23|Erechim
+23|Ernestina
+23|Ernesto Alves
+23|Erval Grande
+23|Erval Seco
+23|Erveiras
+23|Esmeralda
+23|Esperanca do Sul
+23|Espigao
+23|Espigao Alto
+23|Espinilho Grande
+23|Espirito Santo
+23|Espumoso
+23|Esquina Araujo
+23|Esquina Bom Sucesso
+23|Esquina Gaucha
+23|Esquina Ipiranga
+23|Esquina Piratini
+23|Estacao
+23|Estancia Grande
+23|Estancia Velha
+23|Esteio
+23|Esteira
+23|Estreito
+23|Estrela
+23|Estrela Velha
+23|Eugenio de Castro
+23|Evangelista
+23|Fagundes Varela
+23|Fao
+23|Faria Lemos
+23|Farinhas
+23|Farrapos
+23|Farroupilha
+23|Faxinal
+23|Faxinal do Soturno
+23|Faxinalzinho
+23|Fazenda Fialho
+23|Fazenda Souza
+23|Fazenda Vilanova
+23|Feliz
+23|Ferreira
+23|Flores da Cunha
+23|Floresta
+23|Floriano Peixoto
+23|Florida
+23|Fontoura Xavier
+23|Formigueiro
+23|Formosa
+23|Forninho
+23|Forquetinha
+23|Fortaleza dos Valos
+23|Frederico Westphalen
+23|Frei Sebastião
+23|Freire
+23|Garibaldi
+23|Garibaldina
+23|Garruchos
+23|Gaurama
+23|General Camara
+23|Gentil
+23|Getulio Vargas
+23|Girua
+23|Gloria
+23|Glorinha
+23|Goio-en
+23|Gramado
+23|Gramado dos Loureiros
+23|Gramado São Pedro
+23|Gramado Xavier
+23|Gravatai
+23|Guabiju
+23|Guaiba
+23|Guajuviras
+23|Guapore
+23|Guarani das Missoes
+23|Guassupi
+23|Harmonia
+23|Herval
+23|Herveiras
+23|Hidraulica
+23|Horizontina
+23|Hulha Negra
+23|Humaita
+23|Ibarama
+23|Ibare
+23|Ibiaca
+23|Ibiraiaras
+23|Ibirapuita
+23|Ibiruba
+23|Igrejinha
+23|Ijucapirama
+23|Ijui
+23|Ilha dos Marinheiros
+23|Ilopolis
+23|Imbe
+23|Imigrante
+23|Independencia
+23|Inhacora
+23|Ipe
+23|Ipiranga
+23|Ipiranga do Sul
+23|Ipuacu
+23|Irai
+23|Irui
+23|Itaara
+23|Itacolomi
+23|Itacurubi
+23|Itai
+23|Itaimbezinho
+23|Itao
+23|Itapua
+23|Itapuca
+23|Itaqui
+23|Itati
+23|Itatiba do Sul
+23|Itauba
+23|Ituim
+23|Ivai
+23|Ivora
+23|Ivoti
+23|Jaboticaba
+23|Jacuizinho
+23|Jacutinga
+23|Jaguarao
+23|Jaguarete
+23|Jaguari
+23|Jansen
+23|Jaquirana
+23|Jari
+23|Jazidas Ou Capela São Vicente
+23|Joao Arregui
+23|Joao Rodrigues
+23|Joca Tavares
+23|Joia
+23|José Otavio
+23|Jua
+23|Julio de Castilhos
+23|Lagoa Bonita
+23|Lagoa dos Tres Cantos
+23|Lagoa Vermelha
+23|Lagoao
+23|Lajeado
+23|Lajeado Bonito
+23|Lajeado Cerne
+23|Lajeado do Bugre
+23|Lajeado Grande
+23|Lara
+23|Laranjeira
+23|Lava-pes
+23|Lavras do Sul
+23|Leonel Rocha
+23|Liberato Salzano
+23|Lindolfo Collor
+23|Linha Comprida
+23|Linha Nova
+23|Linha Vitoria
+23|Loreto
+23|Macambara
+23|Machadinho
+23|Magisterio
+23|Mampituba
+23|Manchinha
+23|Mangueiras
+23|Manoel Viana
+23|Maquine
+23|Marata
+23|Marau
+23|Marcelino Ramos
+23|Marcorama
+23|Mariana Pimentel
+23|Mariano Moro
+23|Mariante
+23|Mariapolis
+23|Marques de Souza
+23|Mata
+23|Matarazzo
+23|Mato Castelhano
+23|Mato Grande
+23|Mato Leitao
+23|Mato Queimado
+23|Maua
+23|Maximiliano de Almeida
+23|Medianeira
+23|Minas do Leao
+23|Miraguai
+23|Miraguaia
+23|Mirim
+23|Montauri
+23|Monte Alegre
+23|Monte Alegre dos Campos
+23|Monte Alverne
+23|Monte Belo do Sul
+23|Monte Bonito
+23|Montenegro
+23|Mormaco
+23|Morrinhos
+23|Morrinhos do Sul
+23|Morro Alto
+23|Morro Azul
+23|Morro Redondo
+23|Morro Reuter
+23|Morungava
+23|Mostardas
+23|Mucum
+23|Muitos Capoes
+23|Muliterno
+23|Nao-me-toque
+23|Nazare
+23|Nicolau Vergueiro
+23|Nonoai
+23|Nossa Senhora Aparecida
+23|Nossa Senhora da Conceicao
+23|Nova Alvorada
+23|Nova Araca
+23|Nova Bassano
+23|Nova Boa Vista
+23|Nova Brescia
+23|Nova Candelaria
+23|Nova Esperanca do Sul
+23|Nova Hartz
+23|Nova Milano
+23|Nova Padua
+23|Nova Palma
+23|Nova Petropolis
+23|Nova Prata
+23|Nova Ramada
+23|Nova Roma do Sul
+23|Nova Santa Rita
+23|Nova Sardenha
+23|Novo Barreiro
+23|Novo Cabrais
+23|Novo Hamburgo
+23|Novo Horizonte
+23|Novo Machado
+23|Novo Planalto
+23|Novo Tiradentes
+23|Oliva
+23|Oralina
+23|Osorio
+23|Osvaldo Cruz
+23|Osvaldo Kroeff
+23|Otavio Rocha
+23|Pacheca
+23|Padilha
+23|Padre Gonzales
+23|Paim Filho
+23|Palmares do Sul
+23|Palmas
+23|Palmeira das Missoes
+23|Palmitinho
+23|Pampeiro
+23|Panambi
+23|Pantano Grande
+23|Parai
+23|Paraiso do Sul
+23|Pareci Novo
+23|Parobe
+23|Passa Sete
+23|Passinhos
+23|Passo Burmann
+23|Passo da Areia
+23|Passo da Caveira
+23|Passo das Pedras
+23|Passo do Adao
+23|Passo do Sabao
+23|Passo do Sobrado
+23|Passo Fundo
+23|Passo Novo
+23|Passo Raso
+23|Paulo Bento
+23|Pavao
+23|Paverama
+23|Pedras Altas
+23|Pedreiras
+23|Pedro Garcia
+23|Pedro Osorio
+23|Pedro Paiva
+23|Pejucara
+23|Pelotas
+23|Picada Cafe
+23|Pinhal
+23|Pinhal Alto
+23|Pinhal da Serra
+23|Pinhal Grande
+23|Pinhalzinho
+23|Pinheirinho do Vale
+23|Pinheiro Machado
+23|Pinheiro Marcado
+23|Pinto Bandeira
+23|Pirai
+23|Pirapo
+23|Piratini
+23|Pitanga
+23|Planalto
+23|Plano Alto
+23|Poco das Antas
+23|Poligono do Erval
+23|Polo Petroquimico de Triunfo
+23|Pontao
+23|Ponte Preta
+23|Portao
+23|Porto Alegre
+23|Porto Batista
+23|Porto Lucena
+23|Porto Maua
+23|Porto Vera Cruz
+23|Porto Xavier
+23|Pouso Novo
+23|Povo Novo
+23|Povoado Tozzo
+23|Pranchada
+23|Pratos
+23|Presidente Lucena
+23|Progresso
+23|Protasio Alves
+23|Pulador
+23|Putinga
+23|Quarai
+23|Quaraim
+23|Quatro Irmaos
+23|Quevedos
+23|Quilombo
+23|Quinta
+23|Quintao
+23|Quinze de Novembro
+23|Quiteria
+23|Rancho Velho
+23|Redentora
+23|Refugiado
+23|Relvado
+23|Restinga Seca
+23|Rincao de São Pedro
+23|Rincao Del Rei
+23|Rincao do Cristovao Pereira
+23|Rincao do Meio
+23|Rincao do Segredo
+23|Rincao Doce
+23|Rincao dos Kroeff
+23|Rincao dos Mendes
+23|Rincao Vermelho
+23|Rio Azul
+23|Rio Branco
+23|Rio da Ilha
+23|Rio dos Indios
+23|Rio Grande
+23|Rio Pardinho
+23|Rio Pardo
+23|Rio Telha
+23|Rio Tigre
+23|Rio Toldo
+23|Riozinho
+23|Roca Sales
+23|Rodeio Bonito
+23|Rolador
+23|Rolante
+23|Rolantinho da Figueira
+23|Ronda Alta
+23|Rondinha
+23|Roque Gonzales
+23|Rosario
+23|Rosario do Sul
+23|Sagrada Familia
+23|Saica
+23|Saldanha Marinho
+23|Saltinho
+23|Salto
+23|Salto do Jacui
+23|Salvador das Missoes
+23|Salvador do Sul
+23|Sananduva
+23|Sant Auta
+23|Santa Barbara
+23|Santa Barbara do Sul
+23|Santa Catarina
+23|Santa Cecilia
+23|Santa Clara do Ingai
+23|Santa Clara do Sul
+23|Santa Cristina
+23|Santa Cruz
+23|Santa Cruz da Concordia
+23|Santa Cruz do Sul
+23|Santa Flora
+23|Santa Ines
+23|Santa Izabel do Sul
+23|Santa Lucia
+23|Santa Lucia do Piai
+23|Santa Luiza
+23|Santa Luzia
+23|Santa Maria
+23|Santa Maria do Herval
+23|Santa Rita do Sul
+23|Santa Rosa
+23|Santa Silvana
+23|Santa Teresinha
+23|Santa Tereza
+23|Santa Vitoria do Palmar
+23|Santana
+23|Santana da Boa Vista
+23|Santana do Livramento
+23|Santiago
+23|Santo Amaro do Sul
+23|Santo Angelo
+23|Santo Antônio
+23|Santo Antônio da Patrulha
+23|Santo Antônio das Missoes
+23|Santo Antônio de Castro
+23|Santo Antônio do Bom Retiro
+23|Santo Antônio do Palma
+23|Santo Antônio do Planalto
+23|Santo Augusto
+23|Santo Cristo
+23|Santo Expedito do Sul
+23|Santo Inacio
+23|São Bento
+23|São Bom Jesus
+23|São Borja
+23|São Carlos
+23|São Domingos do Sul
+23|São Francisco
+23|São Francisco de Assis
+23|São Francisco de Paula
+23|São Gabriel
+23|São Jeronimo
+23|São Joao
+23|São Joao Batista
+23|São Joao Bosco
+23|São Joao da Urtiga
+23|São Joao do Polesine
+23|São Jorge
+23|São José
+23|São José da Gloria
+23|São José das Missoes
+23|São José de Castro
+23|São José do Centro
+23|São José do Herval
+23|São José do Hortencio
+23|São José do Inhacora
+23|São José do Norte
+23|São José do Ouro
+23|São José dos Ausentes
+23|São Leopoldo
+23|São Lourenco das Missoes
+23|São Lourenco do Sul
+23|São Luis Rei
+23|São Luiz
+23|São Luiz Gonzaga
+23|São Manuel
+23|São Marcos
+23|São Martinho
+23|São Martinho da Serra
+23|São Miguel
+23|São Miguel das Missoes
+23|São Nicolau
+23|São Paulo
+23|São Paulo das Missoes
+23|São Pedro
+23|São Pedro da Serra
+23|São Pedro do Butia
+23|São Pedro do Iraxim
+23|São Pedro do Sul
+23|São Roque
+23|São Sebastião
+23|São Sebastião do Cai
+23|São Sepe
+23|São Simao
+23|São Valentim
+23|São Valentim do Sul
+23|São Valerio do Sul
+23|São Vendelino
+23|São Vicente do Sul
+23|Sapiranga
+23|Sapucaia do Sul
+23|Sarandi
+23|Scharlau
+23|Seberi
+23|Seca
+23|Sede Aurora
+23|Sede Nova
+23|Segredo
+23|Seival
+23|Selbach
+23|Senador Salgado Filho
+23|Sentinela do Sul
+23|Serafim Schmidt
+23|Serafina Correa
+23|Serio
+23|Serra dos Gregorios
+23|Serrinha
+23|Sertao
+23|Sertao Santana
+23|Sertaozinho
+23|Sete de Setembro
+23|Sete Lagoas
+23|Severiano de Almeida
+23|Silva Jardim
+23|Silveira
+23|Silveira Martins
+23|Sinimbu
+23|Sirio
+23|Sitio Gabriel
+23|Sobradinho
+23|Soledade
+23|Souza Ramos
+23|Suspiro
+23|Tabai
+23|Tabajara
+23|Taim
+23|Tainhas
+23|Tamandua
+23|Tanque
+23|Tapejara
+23|Tapera
+23|Tapes
+23|Taquara
+23|Taquari
+23|Taquarichim
+23|Taquarucu do Sul
+23|Tavares
+23|Tenente Portela
+23|Terra de Areia
+23|Tesouras
+23|Teutonia
+23|Tiaraju
+23|Timbauva
+23|Tiradentes do Sul
+23|Toropi
+23|Toroqua
+23|Torquato Severo
+23|Torres
+23|Torrinhas
+23|Touro Passo
+23|Tramandai
+23|Travesseiro
+23|Trentin
+23|Tres Arroios
+23|Tres Barras
+23|Tres Cachoeiras
+23|Tres Coroas
+23|Tres de Maio
+23|Tres Forquilhas
+23|Tres Palmeiras
+23|Tres Passos
+23|Tres Vendas
+23|Trindade do Sul
+23|Triunfo
+23|Tronqueiras
+23|Tucunduva
+23|Tuiuti
+23|Tunas
+23|Tunel Verde
+23|Tupanci do Sul
+23|Tupancireta
+23|Tupancy Ou Vila Block
+23|Tupandi
+23|Tupantuba
+23|Tuparendi
+23|Tupi Silveira
+23|Tupinamba
+23|Turucu
+23|Turvinho
+23|Ubiretama
+23|Umbu
+23|Uniao da Serra
+23|Unistalda
+23|Uruguaiana
+23|Vacacai
+23|Vacaria
+23|Valdastico
+23|Vale do Rio Cai
+23|Vale do Sol
+23|Vale Real
+23|Vale Veneto
+23|Vale Verde
+23|Vanini
+23|Venancio Aires
+23|Vera Cruz
+23|Veranopolis
+23|Vertentes
+23|Vespasiano Correa
+23|Viadutos
+23|Viamao
+23|Vicente Dutra
+23|Victor Graeff
+23|Vila Bender
+23|Vila Cruz
+23|Vila Flores
+23|Vila Langaro
+23|Vila Laranjeira
+23|Vila Maria
+23|Vila Nova do Sul
+23|Vila Rica
+23|Vila Seca
+23|Vila Turvo
+23|Vista Alegre
+23|Vista Alegre do Prata
+23|Vista Gaucha
+23|Vitoria
+23|Vitoria das Missoes
+23|Volta Alegre
+23|Volta Fechada
+23|Volta Grande
+23|Xadrez
+23|Xangri-la
+23|Xingu
+24|Abdon Batista
+24|Abelardo Luz
+24|Agrolandia
+24|Agronomica
+24|Agua Doce
+24|Aguas Brancas
+24|Aguas Claras
+24|Aguas de Chapeco
+24|Aguas Frias
+24|Aguas Mornas
+24|Aguti
+24|Aiure
+24|Alfredo Wagner
+24|Alto Alegre
+24|Alto Bela Vista
+24|Alto da Serra
+24|Anchieta
+24|Angelina
+24|Anita Garibaldi
+24|Anitapolis
+24|Anta Gorda
+24|Antônio Carlos
+24|Apiuna
+24|Arabuta
+24|Araquari
+24|Ararangua
+24|Armazem
+24|Arnopolis
+24|Arroio Trinta
+24|Arvoredo
+24|Ascurra
+24|Atalanta
+24|Aterrado Torto
+24|Aurora
+24|Azambuja
+24|Baia Alta
+24|Balneario Arroio do Silva
+24|Balneario Barra do Sul
+24|Balneario Camboriu
+24|Balneario Gaivota
+24|Balneario Morro dos Conventos
+24|Bandeirante
+24|Barra Bonita
+24|Barra Clara
+24|Barra da Lagoa
+24|Barra da Prata
+24|Barra Fria
+24|Barra Grande
+24|Barra Velha
+24|Barreiros
+24|Barro Branco
+24|Bateias de Baixo
+24|Bela Vista
+24|Bela Vista do Sul
+24|Bela Vista do Toldo
+24|Belmonte
+24|Benedito Novo
+24|Biguacu
+24|Blumenau
+24|Bocaina do Sul
+24|Boiteuxburgo
+24|Bom Jardim da Serra
+24|Bom Jesus
+24|Bom Jesus do Oeste
+24|Bom Retiro
+24|Bom Sucesso
+24|Bombinhas
+24|Botuvera
+24|Braco do Norte
+24|Braco do Trombudo
+24|Brunopolis
+24|Brusque
+24|Cacador
+24|Cachoeira de Fatima
+24|Cachoeira do Bom Jesus
+24|Caibi
+24|Calmon
+24|Camboriu
+24|Cambuinzal
+24|Campeche
+24|Campinas
+24|Campo Alegre
+24|Campo Belo do Sul
+24|Campo Ere
+24|Campos Novos
+24|Canasvieiras
+24|Canelinha
+24|Canoas
+24|Canoinhas
+24|Capao Alto
+24|Capinzal
+24|Capivari de Baixo
+24|Caraiba
+24|Catanduvas
+24|Catuira
+24|Caxambu do Sul
+24|Cedro Alto
+24|Celso Ramos
+24|Cerro Negro
+24|Chapadao do Lageado
+24|Chapeco
+24|Claraiba
+24|Cocal do Sul
+24|Colonia Santa Tereza
+24|Colonia Santana
+24|Concordia
+24|Cordilheira Alta
+24|Coronel Freitas
+24|Coronel Martins
+24|Correia Pinto
+24|Corupa
+24|Criciuma
+24|Cunha Pora
+24|Cunhatai
+24|Curitibanos
+24|Dal Pai
+24|Dalbergia
+24|Descanso
+24|Dionisio Cerqueira
+24|Dona Emma
+24|Doutor Pedrinho
+24|Engenho Velho
+24|Enseada de Brito
+24|Entre Rios
+24|Ermo
+24|Erval Velho
+24|Espinilho
+24|Estacao Cocal
+24|Faxinal dos Guedes
+24|Fazenda Zandavalli
+24|Felipe Schmidt
+24|Figueira
+24|Flor do Sertao
+24|Florianopolis
+24|Formosa do Sul
+24|Forquilhinha
+24|Fragosos
+24|Fraiburgo
+24|Frederico Wastner
+24|Frei Rogerio
+24|Galvao
+24|Garcia
+24|Garopaba
+24|Garuva
+24|Gaspar
+24|Goio-en
+24|Governador Celso Ramos
+24|Grao Para
+24|Grapia
+24|Gravatal
+24|Guabiruba
+24|Guaporanga
+24|Guaraciaba
+24|Guaramirim
+24|Guaruja do Sul
+24|Guata
+24|Guatambu
+24|Hercilio Luz
+24|Herciliopolis
+24|Herval D''oeste
+24|Ibiam
+24|Ibicare
+24|Ibicui
+24|Ibirama
+24|Icara
+24|Ilhota
+24|Imarui
+24|Imbituba
+24|Imbuia
+24|Indaial
+24|Indios
+24|Ingleses do Rio Vermelho
+24|Invernada
+24|Iomere
+24|Ipira
+24|Ipomeia
+24|Ipora do Oeste
+24|Ipuacu
+24|Ipumirim
+24|Iraceminha
+24|Irakitan
+24|Irani
+24|Iraputa
+24|Irati
+24|Irineopolis
+24|Ita
+24|Itaio
+24|Itaiopolis
+24|Itajai
+24|Itajuba
+24|Itapema
+24|Itapiranga
+24|Itapoa
+24|Itapocu
+24|Itoupava
+24|Ituporanga
+24|Jabora
+24|Jacinto Machado
+24|Jaguaruna
+24|Jaragua do Sul
+24|Jardinopolis
+24|Joacaba
+24|Joinville
+24|José Boiteux
+24|Jupia
+24|Lacerdopolis
+24|Lages
+24|Lagoa
+24|Lagoa da Estiva
+24|Laguna
+24|Lajeado Grande
+24|Laurentino
+24|Lauro Muller
+24|Leao
+24|Lebon Regis
+24|Leoberto Leal
+24|Lindoia do Sul
+24|Linha das Palmeiras
+24|Lontras
+24|Lourdes
+24|Luiz Alves
+24|Luzerna
+24|Machados
+24|Macieira
+24|Mafra
+24|Major Gercino
+24|Major Vieira
+24|Maracaja
+24|Marari
+24|Marata
+24|Maravilha
+24|Marcilio Dias
+24|Marechal Bormann
+24|Marema
+24|Mariflor
+24|Marombas
+24|Marombas Bossardi
+24|Massaranduba
+24|Matos Costa
+24|Meleiro
+24|Mirador
+24|Mirim
+24|Mirim Doce
+24|Modelo
+24|Mondai
+24|Monte Alegre
+24|Monte Carlo
+24|Monte Castelo
+24|Morro Chato
+24|Morro da Fumaca
+24|Morro do Meio
+24|Morro Grande
+24|Navegantes
+24|Nossa Senhora de Caravaggio
+24|Nova Cultura
+24|Nova Erechim
+24|Nova Guarita
+24|Nova Itaberaba
+24|Nova Petropolis
+24|Nova Teutonia
+24|Nova Trento
+24|Nova Veneza
+24|Novo Horizonte
+24|Orleans
+24|Otacilio Costa
+24|Ouro
+24|Ouro Verde
+24|Paial
+24|Painel
+24|Palhoca
+24|Palma Sola
+24|Palmeira
+24|Palmitos
+24|Pantano do Sul
+24|Papanduva
+24|Paraiso
+24|Passo de Torres
+24|Passo Manso
+24|Passos Maia
+24|Paula Pereira
+24|Paulo Lopes
+24|Pedras Grandes
+24|Penha
+24|Perico
+24|Peritiba
+24|Pescaria Brava
+24|Petrolandia
+24|Picarras
+24|Pindotiba
+24|Pinhalzinho
+24|Pinheiral
+24|Pinheiro Preto
+24|Pinheiros
+24|Pirabeiraba
+24|Piratuba
+24|Planalto
+24|Planalto Alegre
+24|Poco Preto
+24|Pomerode
+24|Ponte Alta
+24|Ponte Alta do Norte
+24|Ponte Serrada
+24|Porto Belo
+24|Porto Uniao
+24|Pouso Redondo
+24|Praia Grande
+24|Prata
+24|Presidente Castelo Branco
+24|Presidente Getulio
+24|Presidente Juscelino
+24|Presidente Kennedy
+24|Presidente Nereu
+24|Princesa
+24|Quarta Linha
+24|Quilombo
+24|Quilometro Doze
+24|Rancho Queimado
+24|Ratones
+24|Residencia Fuck
+24|Ribeirao da Ilha
+24|Ribeirao Pequeno
+24|Rio Antinha
+24|Rio Bonito
+24|Rio D''una
+24|Rio da Anta
+24|Rio da Luz
+
+24|Rio das Antas
+24|Rio das Furnas
+24|Rio do Campo
+24|Rio do Oeste
+24|Rio do Sul
+24|Rio dos Bugres
+24|Rio dos Cedros
+24|Rio Fortuna
+24|Rio Maina
+24|Rio Negrinho
+24|Rio Preto do Sul
+24|Rio Rufino
+24|Riqueza
+24|Rodeio
+24|Romelandia
+24|Sai
+24|Salete
+24|Saltinho
+24|Salto Veloso
+24|Sanga da Toca
+24|Sangao
+24|Santa Cecilia
+24|Santa Cruz do Timbo
+24|Santa Helena
+24|Santa Izabel
+24|Santa Lucia
+24|Santa Maria
+24|Santa Rosa de Lima
+24|Santa Rosa do Sul
+24|Santa Terezinha
+24|Santa Terezinha do Progresso
+24|Santa Terezinha do Salto
+24|Santiago do Sul
+24|Santo Amaro da Imperatriz
+24|Santo Antônio de Lisboa
+24|São Bento Baixo
+24|São Bento do Sul
+24|São Bernardino
+24|São Bonifacio
+24|São Carlos
+24|São Cristovao
+24|São Cristovao do Sul
+24|São Defende
+24|São Domingos
+24|São Francisco do Sul
+24|São Gabriel
+24|São Joao Batista
+24|São Joao do Itaperiu
+24|São Joao do Oeste
+24|São Joao do Rio Vermelho
+24|São Joao do Sul
+24|São Joaquim
+24|São José
+24|São José do Cedro
+24|São José do Cerrito
+24|São José do Laranjal
+24|São Leonardo
+24|São Lourenco do Oeste
+24|São Ludgero
+24|São Martinho
+24|São Miguel D''oeste
+24|São Miguel da Boa Vista
+24|São Miguel da Serra
+24|São Pedro de Alcantara
+24|São Pedro Tobias
+24|São Roque
+24|São Sebastião do Arvoredo
+24|São Sebastião do Sul
+24|Sapiranga
+24|Saudades
+24|Schroeder
+24|Seara
+24|Sede Oldemburg
+24|Serra Alta
+24|Sertao do Maruim
+24|Sideropolis
+24|Sombrio
+24|Sorocaba do Sul
+24|Sul Brasil
+24|Taio
+24|Tangara
+24|Taquara Verde
+24|Taquaras
+24|Tigipio
+24|Tigrinhos
+24|Tijucas
+24|Timbe do Sul
+24|Timbo
+24|Timbo Grande
+24|Tres Barras
+24|Treviso
+24|Treze de Maio
+24|Treze Tilias
+24|Trombudo Central
+24|Tubarao
+24|Tunapolis
+24|Tupitinga
+24|Turvo
+24|Uniao do Oeste
+24|Urubici
+24|Uruguai
+24|Urupema
+24|Urussanga
+24|Vargeao
+24|Vargem
+24|Vargem Bonita
+24|Vargem do Cedro
+24|Vidal Ramos
+24|Videira
+24|Vila Conceicao
+24|Vila de Volta Grande
+24|Vila Milani
+24|Vila Nova
+24|Vitor Meireles
+24|Witmarsum
+24|Xanxere
+24|Xavantina
+24|Xaxim
+24|Zortea
+25|Altos Verdes
+25|Amparo de São Francisco
+25|Aquidaba
+25|Aracaju
+25|Araua
+25|Areia Branca
+25|Barra dos Coqueiros
+25|Barracas
+25|Boquim
+25|Brejo Grande
+25|Campo do Brito
+25|Canhoba
+25|Caninde de São Francisco
+25|Capela
+25|Carira
+25|Carmopolis
+25|Cedro de São Joao
+25|Cristinapolis
+25|Cumbe
+25|Divina Pastora
+25|Estancia
+25|Feira Nova
+25|Frei Paulo
+25|Gararu
+25|General Maynard
+25|Graccho Cardoso
+25|Ilha das Flores
+25|Indiaroba
+25|Itabaiana
+25|Itabaianinha
+25|Itabi
+25|Itaporanga D''ajuda
+25|Japaratuba
+25|Japoata
+25|Lagarto
+25|Lagoa Funda
+25|Laranjeiras
+25|Macambira
+25|Malhada dos Bois
+25|Malhador
+25|Maruim
+25|Miranda
+25|Moita Bonita
+25|Monte Alegre de Sergipe
+25|Mosqueiro
+25|Muribeca
+25|Neopolis
+25|Nossa Senhora Aparecida
+25|Nossa Senhora da Gloria
+25|Nossa Senhora das Dores
+25|Nossa Senhora de Lourdes
+25|Nossa Senhora do Socorro
+25|Pacatuba
+25|Palmares
+25|Pedra Mole
+25|Pedras
+25|Pedrinhas
+25|Pinhao
+25|Pirambu
+25|Poco Redondo
+25|Poco Verde
+25|Porto da Folha
+25|Propria
+25|Riachao do Dantas
+25|Riachuelo
+25|Ribeiropolis
+25|Rosario do Catete
+25|Salgado
+25|Samambaia
+25|Santa Luzia do Itanhy
+25|Santa Rosa de Lima
+25|Santana do São Francisco
+25|Santo Amaro das Brotas
+25|São Cristovao
+25|São Domingos
+25|São Francisco
+25|São José
+25|São Mateus da Palestina
+25|São Miguel do Aleixo
+25|Simao Dias
+25|Siriri
+25|Telha
+25|Tobias Barreto
+25|Tomar do Geru
+25|Umbauba
+26|Adamantina
+26|Adolfo
+26|Agisse
+26|Agua Vermelha
+26|Aguai
+26|Aguas da Prata
+26|Aguas de Lindoia
+26|Aguas de Santa Barbara
+26|Aguas de São Pedro
+26|Agudos
+26|Agulha
+26|Ajapi
+26|Alambari
+26|Alberto Moreira
+26|Aldeia
+26|Aldeia de Carapicuiba
+26|Alfredo Guedes
+26|Alfredo Marcondes
+26|Altair
+26|Altinopolis
+26|Alto Alegre
+26|Alto Pora
+26|Aluminio
+26|Alvares Florence
+26|Alvares Machado
+26|Alvaro de Carvalho
+26|Alvinlandia
+26|Amadeu Amaral
+26|Amandaba
+26|Ameliopolis
+26|Americana
+26|Americo Brasiliense
+26|Americo de Campos
+26|Amparo
+26|Ana Dias
+26|Analandia
+26|Anapolis
+26|Andes
+26|Andradina
+26|Angatuba
+26|Anhembi
+26|Anhumas
+26|Aparecida
+26|Aparecida D''oeste
+26|Aparecida de Monte Alto
+26|Aparecida de São Manuel
+26|Aparecida do Bonito
+26|Apiai
+26|Apiai-mirim
+26|Arabela
+26|Aracacu
+26|Aracaiba
+26|Aracariguama
+26|Aracatuba
+26|Aracoiaba da Serra
+26|Aramina
+26|Arandu
+26|Arapei
+26|Araraquara
+26|Araras
+26|Araxas
+26|Arcadas
+26|Arco-iris
+26|Arealva
+26|Areias
+26|Areiopolis
+26|Ariranha
+26|Ariri
+26|Artemis
+26|Artur Nogueira
+26|Aruja
+26|Aspasia
+26|Assis
+26|Assistencia
+26|Atibaia
+26|Atlantida
+26|Auriflama
+26|Avai
+26|Avanhandava
+26|Avare
+26|Avencas
+26|Bacaetava
+26|Bacuriti
+26|Bady Bassitt
+26|Baguacu
+26|Bairro Alto
+26|Balbinos
+26|Balsamo
+26|Bananal
+26|Bandeirantes D''oeste
+26|Barao Ataliba Nogueira
+26|Barao de Antonina
+26|Barao de Geraldo
+26|Barbosa
+26|Bariri
+26|Barra Bonita
+26|Barra do Chapeu
+26|Barra do Turvo
+26|Barra Dourada
+26|Barrania
+26|Barretos
+26|Barrinha
+26|Barueri
+26|Bastos
+26|Batatais
+26|Batatuba
+26|Batista Botelho
+26|Bauru
+26|Bebedouro
+26|Bela Floresta
+26|Bela Vista São-carlense
+26|Bento de Abreu
+26|Bernardino de Campos
+26|Bertioga
+26|Bilac
+26|Birigui
+26|Biritiba-mirim
+26|Biritiba-ussu
+26|Boa Esperanca do Sul
+26|Boa Vista dos Andradas
+26|Boa Vista Paulista
+26|Bocaina
+26|Bofete
+26|Boituva
+26|Bom Fim do Bom Jesus
+26|Bom Jesus dos Perdoes
+26|Bom Retiro da Esperanca
+26|Bom Sucesso de Itarare
+26|Bonfim Paulista
+26|Bora
+26|Boraceia
+26|Borborema
+26|Borebi
+26|Botafogo
+26|Botelho
+26|Botucatu
+26|Botujuru
+26|Braco
+26|Braganca Paulista
+26|Bras Cubas
+26|Brasitania
+26|Brauna
+26|Brejo Alegre
+26|Brodowski
+26|Brotas
+26|Bueno de Andrada
+26|Buri
+26|Buritama
+26|Buritizal
+26|Cabralia Paulista
+26|Cabreuva
+26|Cacapava
+26|Cachoeira de Emas
+26|Cachoeira Paulista
+26|Caconde
+26|Cafelandia
+26|Cafesopolis
+26|Caiabu
+26|Caibura
+26|Caieiras
+26|Caiua
+26|Cajamar
+26|Cajati
+26|Cajobi
+26|Cajuru
+26|Cambaquara
+26|Cambaratiba
+26|Campestrinho
+26|Campina de Fora
+26|Campina do Monte Alegre
+26|Campinal
+26|Campinas
+26|Campo Limpo Paulista
+26|Campos de Cunha
+26|Campos do Jordao
+26|Campos Novos Paulista
+26|Cananeia
+26|Canas
+26|Candia
+26|Candido Mota
+26|Candido Rodrigues
+26|Canguera
+26|Canitar
+26|Capao Bonito
+26|Capela do Alto
+26|Capivari
+26|Capivari da Mata
+26|Caporanga
+26|Capuava
+26|Caraguatatuba
+26|Carapicuiba
+26|Cardeal
+26|Cardoso
+26|Caruara
+26|Casa Branca
+26|Cassia dos Coqueiros
+26|Castilho
+26|Catanduva
+26|Catigua
+26|Catucaba
+26|Caucaia do Alto
+26|Cedral
+26|Cerqueira Cesar
+26|Cerquilho
+26|Cesario Lange
+26|Cezar de Souza
+26|Charqueada
+26|Chavantes
+26|Cipo-guacu
+26|Clarinia
+26|Clementina
+26|Cocaes
+26|Colina
+26|Colombia
+26|Conceicao de Monte Alegre
+26|Conchal
+26|Conchas
+26|Cordeiropolis
+26|Coroados
+26|Coronel Goulart
+26|Coronel Macedo
+26|Corredeira
+26|Corrego Rico
+26|Corumbatai
+26|Cosmopolis
+26|Cosmorama
+26|Costa Machado
+26|Cotia
+26|Cravinhos
+26|Cristais Paulista
+26|Cruz das Posses
+26|Cruzalia
+26|Cruzeiro
+26|Cubatao
+26|Cuiaba Paulista
+26|Cunha
+26|Curupa
+26|Dalas
+26|Descalvado
+26|Diadema
+26|Dirce Reis
+26|Dirceu
+26|Divinolandia
+26|Dobrada
+26|Dois Corregos
+26|Dolcinopolis
+26|Domelia
+26|Dourado
+26|Dracena
+26|Duartina
+26|Dumont
+26|Duplo Ceu
+26|Echapora
+26|Eldorado
+26|Eleuterio
+26|Elias Fausto
+26|Elisiario
+26|Embauba
+26|Embu
+26|Embu-guacu
+26|Emilianopolis
+26|Eneida
+26|Engenheiro Balduino
+26|Engenheiro Coelho
+26|Engenheiro Maia
+26|Engenheiro Schmidt
+26|Esmeralda
+26|Esperanca D''oeste
+26|Espigao
+26|Espirito Santo do Pinhal
+26|Espirito Santo do Turvo
+26|Estiva Gerbi
+26|Estrela D''oeste
+26|Estrela do Norte
+26|Euclides da Cunha Paulista
+26|Eugenio de Melo
+26|Fartura
+26|Fatima
+26|Fatima Paulista
+26|Fazenda Velha
+26|Fernando Prestes
+26|Fernandopolis
+26|Fernao
+26|Ferraz de Vasconcelos
+26|Flora Rica
+26|Floreal
+26|Floresta do Sul
+26|Florida Paulista
+26|Florinea
+26|Franca
+26|Francisco Morato
+26|Franco da Rocha
+26|Frutal do Campo
+26|Gabriel Monteiro
+26|Galia
+26|Garca
+26|Gardenia
+26|Gastao Vidigal
+26|Gaviao Peixoto
+26|General Salgado
+26|Getulina
+26|Glicerio
+26|Gramadinho
+26|Guachos
+26|Guaianas
+26|Guaicara
+26|Guaimbe
+26|Guaira
+26|Guamium
+26|Guapiacu
+26|Guapiara
+26|Guapiranga
+26|Guara
+26|Guaracai
+26|Guaraci
+26|Guaraciaba D''oeste
+26|Guarani D''oeste
+26|Guaranta
+26|Guarapiranga
+26|Guarapua
+26|Guararapes
+26|Guararema
+26|Guaratingueta
+26|Guarei
+26|Guariba
+26|Guariroba
+26|Guarizinho
+26|Guaruja
+26|Guarulhos
+26|Guatapara
+26|Guzolandia
+26|Herculandia
+26|Holambra
+26|Holambra Ii
+26|Hortolandia
+26|Iacanga
+26|Iacri
+26|Iaras
+26|Ibate
+26|Ibiporanga
+26|Ibira
+26|Ibirarema
+26|Ibitinga
+26|Ibitiruna
+26|Ibitiuva
+26|Ibitu
+26|Ibiuna
+26|Icem
+26|Ida Iolanda
+26|Iepe
+26|Igacaba
+26|Igaracu do Tiete
+26|Igarai
+26|Igarapava
+26|Igarata
+26|Iguape
+26|Ilha Comprida
+26|Ilha Diana
+26|Ilha Solteira
+26|Ilhabela
+26|Indaia do Aguapei
+26|Indaiatuba
+26|Indiana
+26|Indiapora
+26|Ingas
+26|Inubia Paulista
+26|Ipaussu
+26|Ipero
+26|Ipeuna
+26|Ipigua
+26|Iporanga
+26|Ipua
+26|Iracemapolis
+26|Irape
+26|Irapua
+26|Irapuru
+26|Itabera
+26|Itaboa
+26|Itai
+26|Itaiuba
+26|Itajobi
+26|Itaju
+26|Itanhaem
+26|Itaoca
+26|Itapecerica da Serra
+26|Itapetininga
+26|Itapeuna
+26|Itapeva
+26|Itapevi
+26|Itapira
+26|Itapirapua Paulista
+26|Itapolis
+26|Itaporanga
+26|Itapui
+26|Itapura
+26|Itaquaquecetuba
+26|Itaqueri da Serra
+26|Itarare
+26|Itariri
+26|Itatiba
+26|Itatinga
+26|Itirapina
+26|Itirapua
+26|Itobi
+26|Itororo do Paranapanema
+26|Itu
+26|Itupeva
+26|Ituverava
+26|Iubatinga
+26|Jaborandi
+26|Jaboticabal
+26|Jacare
+26|Jacarei
+26|Jaci
+26|Jacipora
+26|Jacuba
+26|Jacupiranga
+26|Jafa
+26|Jaguariuna
+26|Jales
+26|Jamaica
+26|Jambeiro
+26|Jandira
+26|Jardim Belval
+26|Jardim Presidente Dutra
+26|Jardim Santa Luzia
+26|Jardim Silveira
+26|Jardinopolis
+26|Jarinu
+26|Jatoba
+26|Jau
+26|Jeriquara
+26|Joanopolis
+26|Joao Ramalho
+26|Joaquim Egidio
+26|Jordanesia
+26|José Bonifacio
+26|Juliania
+26|Julio Mesquita
+26|Jumirim
+26|Jundiai
+26|Jundiapeba
+26|Junqueira
+26|Junqueiropolis
+26|Juquia
+26|Juquiratiba
+26|Juquitiba
+26|Juritis
+26|Juruce
+26|Jurupeba
+26|Jurupema
+26|Lacio
+26|Lagoa Azul
+26|Lagoa Branca
+26|Lagoinha
+26|Laranjal Paulista
+26|Laras
+26|Lauro Penteado
+26|Lavinia
+26|Lavrinhas
+26|Leme
+26|Lencois Paulista
+26|Limeira
+26|Lindoia
+26|Lins
+26|Lobo
+26|Lorena
+26|Lourdes
+26|Louveira
+26|Lucelia
+26|Lucianopolis
+26|Luis Antônio
+26|Luiziania
+26|Lupercio
+26|Lusitania
+26|Lutecia
+26|Macatuba
+26|Macaubal
+26|Macedonia
+26|Macucos
+26|Magda
+26|Mailasqui
+26|Mairinque
+26|Mairipora
+26|Major Prado
+26|Manduri
+26|Mangaratu
+26|Maraba Paulista
+26|Maracai
+26|Marapoama
+26|Marcondesia
+26|Maresias
+26|Mariapolis
+26|Marilia
+26|Marinopolis
+26|Maristela
+26|Martim Francisco
+26|Martinho Prado Junior
+26|Martinopolis
+26|Matao
+26|Maua
+26|Mendonca
+26|Meridiano
+26|Mesopolis
+26|Miguelopolis
+26|Mineiros do Tiete
+26|Mira Estrela
+26|Miracatu
+26|Miraluz
+26|Mirandopolis
+26|Mirante do Paranapanema
+26|Mirassol
+26|Mirassolandia
+26|Mococa
+26|Mogi das Cruzes
+26|Mogi-guacu
+26|Mogi-mirim
+26|Mombuca
+26|Moncoes
+26|Mongagua
+26|Montalvao
+26|Monte Alegre do Sul
+26|Monte Alto
+26|Monte Aprazivel
+26|Monte Azul Paulista
+26|Monte Cabrao
+26|Monte Castelo
+26|Monte Mor
+26|Monte Verde Paulista
+26|Monteiro Lobato
+26|Moreira Cesar
+26|Morro Agudo
+26|Morro do Alto
+26|Morungaba
+26|Mostardas
+26|Motuca
+26|Mourao
+26|Murutinga do Sul
+26|Nantes
+26|Narandiba
+26|Natividade da Serra
+26|Nazare Paulista
+26|Neves Paulista
+26|Nhandeara
+26|Nipoa
+26|Nogueira
+26|Nossa Senhora do Remedio
+26|Nova Alexandria
+26|Nova Alianca
+26|Nova America
+26|Nova Aparecida
+26|Nova Campina
+26|Nova Canaa Paulista
+26|Nova Castilho
+26|Nova Europa
+26|Nova Granada
+26|Nova Guataporanga
+26|Nova Independencia
+26|Nova Itapirema
+26|Nova Luzitania
+26|Nova Odessa
+26|Nova Patria
+26|Nova Veneza
+26|Novais
+26|Novo Cravinhos
+26|Novo Horizonte
+26|Nuporanga
+26|Oasis
+26|Ocaucu
+26|Oleo
+26|Olimpia
+26|Oliveira Barros
+26|Onda Branca
+26|Onda Verde
+26|Oriente
+26|Orindiuva
+26|Orlandia
+26|Osasco
+26|Oscar Bressane
+26|Osvaldo Cruz
+26|Ourinhos
+26|Ouro Fino Paulista
+26|Ouro Verde
+26|Ouroeste
+26|Pacaembu
+26|Padre Nobrega
+26|Palestina
+26|Palmares Paulista
+26|Palmeira D''oeste
+26|Palmeiras de São Paulo
+26|Palmital
+26|Panorama
+26|Paraguacu Paulista
+26|Paraibuna
+26|Paraiso
+26|Paraisolandia
+26|Paranabi
+26|Paranapanema
+26|Paranapiacaba
+26|Paranapua
+26|Parapua
+26|Pardinho
+26|Pariquera-acu
+26|Parisi
+26|Parnaso
+26|Parque Meia Lua
+26|Paruru
+26|Patrocinio Paulista
+26|Pauliceia
+26|Paulinia
+26|Paulistania
+26|Paulo de Faria
+26|Paulopolis
+26|Pederneiras
+26|Pedra Bela
+26|Pedra Branca de Itarare
+26|Pedranopolis
+26|Pedregulho
+26|Pedreira
+26|Pedrinhas Paulista
+26|Pedro Barros
+26|Pedro de Toledo
+26|Penapolis
+26|Pereira Barreto
+26|Pereiras
+26|Peruibe
+26|Piacatu
+26|Picinguaba
+26|Piedade
+26|Pilar do Sul
+26|Pindamonhangaba
+26|Pindorama
+26|Pinhalzinho
+26|Pinheiros
+26|Pioneiros
+26|Piquerobi
+26|Piquete
+26|Piracaia
+26|Piracicaba
+26|Piraju
+26|Pirajui
+26|Piramboia
+26|Pirangi
+26|Pirapitingui
+26|Pirapora do Bom Jesus
+26|Pirapozinho
+26|Pirassununga
+26|Piratininga
+26|Pitangueiras
+26|Planalto
+26|Planalto do Sul
+26|Platina
+26|Poa
+26|Poloni
+26|Polvilho
+26|Pompeia
+26|Pongai
+26|Pontal
+26|Pontalinda
+26|Pontes Gestal
+26|Populina
+26|Porangaba
+26|Porto Feliz
+26|Porto Ferreira
+26|Porto Novo
+26|Potim
+26|Potirendaba
+26|Potunduva
+26|Pracinha
+26|Pradinia
+26|Pradopolis
+26|Praia Grande
+26|Pratania
+26|Presidente Alves
+26|Presidente Bernardes
+26|Presidente Epitacio
+26|Presidente Prudente
+26|Presidente Venceslau
+26|Primavera
+26|Promissao
+26|Prudencio E Moraes
+26|Quadra
+26|Quata
+26|Queiroz
+26|Queluz
+26|Quintana
+26|Quiririm
+26|Rafard
+26|Rancharia
+26|Rechan
+26|Redencao da Serra
+26|Regente Feijo
+26|Reginopolis
+26|Registro
+26|Restinga
+26|Riacho Grande
+26|Ribeira
+26|Ribeirao Bonito
+26|Ribeirao Branco
+26|Ribeirao Corrente
+26|Ribeirao do Sul
+26|Ribeirao dos Indios
+26|Ribeirao Grande
+26|Ribeirao Pires
+26|Ribeirao Preto
+26|Ribeiro do Vale
+26|Ribeiro dos Santos
+26|Rifaina
+26|Rincao
+26|Rinopolis
+26|Rio Claro
+26|Rio das Pedras
+26|Rio Grande da Serra
+26|Riolandia
+26|Riversul
+26|Roberto
+26|Rosalia
+26|Rosana
+26|Roseira
+26|Rubiacea
+26|Rubiao Junior
+26|Rubineia
+26|Ruilandia
+26|Sabauna
+26|Sabino
+26|Sagres
+26|Sales
+26|Sales Oliveira
+26|Salesopolis
+26|Salmourao
+26|Saltinho
+26|Salto
+26|Salto de Pirapora
+26|Salto do Avanhandava
+26|Salto Grande
+26|Sandovalina
+26|Santa Adelia
+26|Santa Albertina
+26|Santa America
+26|Santa Barbara D''oeste
+26|Santa Branca
+26|Santa Clara D''oeste
+26|Santa Cruz da Conceicao
+26|Santa Cruz da Esperanca
+26|Santa Cruz da Estrela
+26|Santa Cruz das Palmeiras
+26|Santa Cruz do Rio Pardo
+26|Santa Cruz dos Lopes
+26|Santa Ernestina
+26|Santa Eudoxia
+26|Santa Fé do Sul
+26|Santa Gertrudes
+26|Santa Isabel
+26|Santa Isabel do Marinheiro
+26|Santa Lucia
+26|Santa Margarida Paulista
+26|Santa Maria da Serra
+26|Santa Maria do Gurupa
+26|Santa Mercedes
+26|Santa Rita D''oeste
+26|Santa Rita do Passa Quatro
+26|Santa Rita do Ribeira
+26|Santa Rosa de Viterbo
+26|Santa Salete
+26|Santa Teresinha de Piracicaba
+26|Santana da Ponte Pensa
+26|Santana de Parnaiba
+26|Santelmo
+26|Santo Anastacio
+26|Santo Andre
+26|Santo Antônio da Alegria
+26|Santo Antônio da Estiva
+26|Santo Antônio de Posse
+26|Santo Antônio do Aracangua
+26|Santo Antônio do Jardim
+26|Santo Antônio do Paranapanema
+26|Santo Antônio do Pinhal
+26|Santo Antônio Paulista
+26|Santo Expedito
+26|Santopolis do Aguapei
+26|Santos
+26|São Benedito da Cachoeirinha
+26|São Benedito das Areias
+26|São Bento do Sapucai
+26|São Bernardo do Campo
+26|São Berto
+26|São Caetano do Sul
+26|São Carlos
+26|São Francisco
+26|São Francisco da Praia
+26|São Francisco Xavier
+26|São Joao da Boa Vista
+26|São Joao das Duas Pontes
+26|São Joao de Iracema
+26|São Joao de Itaguacu
+26|São Joao do Marinheiro
+26|São Joao Do Pau D''alho
+26|São Joao Novo
+26|São Joaquim da Barra
+26|São José da Bela Vista
+26|São José das Laranjeiras
+26|São José do Barreiro
+26|São José do Rio Pardo
+26|São José do Rio Preto
+26|São José dos Campos
+26|São Lourenco da Serra
+26|São Lourenco do Turvo
+26|São Luis do Paraitinga
+26|São Luiz do Guaricanga
+26|São Manuel
+26|São Martinho D''oeste
+26|São Miguel Arcanjo
+26|São Paulo
+26|São Pedro
+26|São Pedro do Turvo
+26|São Roque
+26|São Roque da Fartura
+26|São Sebastião
+26|São Sebastião da Grama
+26|São Sebastião da Serra
+26|São Silvestre de Jacarei
+26|São Simao
+26|São Vicente
+26|Sapezal
+26|Sarapui
+26|Sarutaia
+26|Sebastianopolis do Sul
+26|Serra Azul
+26|Serra Negra
+26|Serrana
+26|Sertaozinho
+26|Sete Barras
+26|Severinia
+26|Silvania
+26|Silveiras
+26|Simoes
+26|Simonsen
+26|Socorro
+26|Sodrelia
+26|Solemar
+26|Sorocaba
+26|Sousas
+26|Sud Mennucci
+26|Suinana
+26|Sumare
+26|Sussui
+26|Suzanapolis
+26|Suzano
+26|Tabajara
+26|Tabapua
+26|Tabatinga
+26|Taboao da Serra
+26|Taciba
+26|Taguai
+26|Taiacu
+26|Taiacupeba
+26|Taiuva
+26|Talhado
+26|Tambau
+26|Tanabi
+26|Tapinas
+26|Tapirai
+26|Tapiratiba
+26|Taquaral
+26|Taquaritinga
+26|Taquarituba
+26|Taquarivai
+26|Tarabai
+26|Taruma
+26|Tatui
+26|Taubate
+26|Tecainda
+26|Tejupa
+26|Teodoro Sampaio
+26|Termas de Ibira
+26|Terra Nova D''oeste
+26|Terra Roxa
+26|Tibirica
+26|Tibirica do Paranapanema
+26|Tiete
+26|Timburi
+26|Toledo
+26|Torre de Pedra
+26|Torrinha
+26|Trabiju
+26|Tremembe
+26|Tres Aliancas
+26|Tres Fronteiras
+26|Tres Pontes
+26|Tres Vendas
+26|Tuiuti
+26|Tujuguaba
+26|Tupa
+26|Tupi
+26|Tupi Paulista
+26|Turiba do Sul
+26|Turiuba
+26|Turmalina
+26|Turvinia
+26|Ubarana
+26|Ubatuba
+26|Ubirajara
+26|Uchoa
+26|Uniao Paulista
+26|Universo
+26|Urania
+26|Uru
+26|Urupes
+26|Ururai
+26|Utinga
+26|Vale Formoso
+26|Valentim Gentil
+26|Valinhos
+26|Valparaiso
+26|Vangloria
+26|Vargem
+26|Vargem Grande do Sul
+26|Vargem Grande Paulista
+26|Varpa
+26|Varzea Paulista
+26|Venda Branca
+26|Vera Cruz
+26|Vicente de Carvalho
+26|Vicentinopolis
+26|Vila Dirce
+26|Vila Nery
+26|Vila Xavier
+26|Vinhedo
+26|Viradouro
+26|Vista Alegre do Alto
+26|Vitoria Brasil
+26|Vitoriana
+26|Votorantim
+26|Votuporanga
+26|Zacarias
+27|Abreulandia
+27|Aguiarnopolis
+27|Alianca do Tocantins
+27|Almas
+27|Alvorada
+27|Anajanopolis
+27|Ananas
+27|Angico
+27|Aparecida do Rio Negro
+27|Apinaje
+27|Aragacui
+27|Aragominas
+27|Araguacema
+27|Araguacu
+27|Araguaina
+27|Araguana
+27|Araguatins
+27|Arapoema
+27|Arraias
+27|Augustinopolis
+27|Aurora do Tocantins
+27|Axixa do Tocantins
+27|Babaculandia
+27|Bandeirantes do Tocantins
+27|Barra do Grota
+27|Barra do Ouro
+27|Barrolandia
+27|Bernardo Sayao
+27|Bom Jesus do Tocantins
+27|Brasilandia
+27|Brasilandia do Tocantins
+27|Brejinho de Nazare
+27|Buriti do Tocantins
+27|Cachoeirinha
+27|Campos Lindos
+27|Cana Brava
+27|Cariri do Tocantins
+27|Carmolandia
+27|Carrasco Bonito
+27|Cartucho
+27|Caseara
+27|Centenario
+27|Chapada da Areia
+27|Chapada da Natividade
+27|Cocalandia
+27|Cocalinho
+27|Colinas do Tocantins
+27|Colmeia
+27|Combinado
+27|Conceicao do Tocantins
+27|Correinha
+27|Couto de Magalhaes
+27|Craolandia
+27|Cristalandia
+27|Crixas
+27|Crixas do Tocantins
+27|Darcinopolis
+27|Dianopolis
+27|Divinopolis do Tocantins
+27|Dois Irmaos do Tocantins
+27|Duere
+27|Escondido
+27|Esperantina
+27|Fatima
+27|Figueiropolis
+27|Filadelfia
+27|Formoso do Araguaia
+27|Fortaleza do Tabocao
+27|Goianorte
+27|Goiatins
+27|Guarai
+27|Gurupi
+27|Ilha Barreira Branca
+27|Ipueiras
+27|Itacaja
+27|Itaguatins
+27|Itapiratins
+27|Itapora do Tocantins
+27|Jau do Tocantins
+27|Juarina
+27|Jussara
+27|Lagoa da Confusao
+27|Lagoa do Tocantins
+27|Lajeado
+27|Lavandeira
+27|Lizarda
+27|Luzinopolis
+27|Marianopolis do Tocantins
+27|Mateiros
+27|Maurilandia do Tocantins
+27|Miracema do Tocantins
+27|Mirandopolis
+27|Miranorte
+27|Monte do Carmo
+27|Monte Lindo
+27|Monte Santo do Tocantins
+27|Mosquito
+27|Muricilandia
+27|Natal
+27|Natividade
+27|Nazare
+27|Nova Olinda
+27|Nova Rosalandia
+27|Novo Acordo
+27|Novo Alegre
+27|Novo Horizonte
+27|Novo Jardim
+27|Oliveira de Fatima
+27|Palmas
+27|Palmeirante
+27|Palmeiropolis
+27|Paraiso do Tocantins
+27|Parana
+27|Pau D''arco
+27|Pe da Serra
+27|Pedro Afonso
+27|Pedro Ludovico
+27|Peixe
+27|Pequizeiro
+27|Piloes
+27|Pindorama do Tocantins
+27|Piraque
+27|Pium
+27|Ponte Alta do Bom Jesus
+27|Ponte Alta do Tocantins
+27|Pontes
+27|Poraozinho
+27|Porto Alegre do Tocantins
+27|Porto Lemos
+27|Porto Nacional
+27|Praia Norte
+27|Presidente Kennedy
+27|Principe
+27|Pugmil
+27|Recursolandia
+27|Riachinho
+27|Rio da Conceicao
+27|Rio dos Bois
+27|Rio Sono
+27|Sampaio Fez
+27|Sandolandia
+27|Santa Fé do Araguaia
+27|Santa Maria do Tocantins
+27|Santa Rita do Tocantins
+27|Santa Rosa do Tocantins
+27|Santa Tereza do Tocantins
+27|Santa Terezinha do Tocantins
+27|São Bento do Tocantins
+27|São Felix do Tocantins
+27|São Miguel do Tocantins
+27|São Salvador do Tocantins
+27|São Sebastião do Tocantins
+27|São Valerio da Natividade
+27|Silvanopolis
+27|Sitio Novo do Tocantins
+27|Sucupira
+27|Taguatinga
+27|Taipas do Tocantins
+27|Talisma
+27|Tamboril
+27|Taquaralto
+27|Taquarussu do Tocantins
+27|Tocantinia
+27|Tocantinopolis
+27|Tupirama
+27|Tupirata
+27|Tupiratins
+27|Venus
+27|Wanderlandia
+27|Xambioa
+

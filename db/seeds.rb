@@ -140,3 +140,23 @@ open("#{Rails.root}/db/seeds_files/motivos_seed.txt") do |motivos|
 end
 Viagem.delete_all
 
+Estado.delete_all
+open("#{Rails.root}/db/seeds_files/estados_seed.txt") do |estados|
+  estados.read.each_line do |estado|
+    if estado != "\n"
+      sigla, nome = estado.chomp.split("|")
+      Estado.create!(:sigla => sigla, :nome => nome)
+    end
+  end
+end
+
+Cidade.delete_all
+open("#{Rails.root}/db/seeds_files/cidades_seed.txt") do |cidades|
+  cidades.read.each_line do |cidade|
+    if cidade != "\n"
+      estado_id, nome = cidade.chomp.split("|")
+      Cidade.create!(:estado_id => estado_id, :nome => nome)
+    end
+  end
+end
+

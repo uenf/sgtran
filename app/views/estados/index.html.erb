@@ -8,7 +8,7 @@
 
 <% @estados.each do |estado| %>
   <tr>
-    <td><%=h estado.nome %></td>
+    <td><%= estado.nome %></td>
     <td><%=h estado.sigla %></td>
     <td><%= link_to 'Show', estado %></td>
     <td><%= link_to 'Edit', edit_estado_path(estado) %></td>
@@ -20,3 +20,4 @@
 <br />
 
 <%= link_to 'New estado', new_estado_path %>
+

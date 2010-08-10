@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(:version => 20101022184205) do
   create_table "cidades", :force => true do |t|
     t.string   "nome"
     t.integer  "estado_id"
-    t.string   "status"
+    t.string   "status",     :default => "Ativo"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -3,7 +3,7 @@ class CreateCidades < ActiveRecord::Migration
     create_table :cidades do |t|
       t.string :nome
       t.references :estado
-      t.string :status
+      t.string :status, :default => Cidade::ATIVO
 
       t.timestamps
     end
