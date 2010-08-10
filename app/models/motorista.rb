@@ -72,7 +72,7 @@ class Motorista < ActiveRecord::Base
   end
 
   def ativo?
-    true ? self.estado == "Ativo" : false
+    true ? self.status == "Ativo" : false
   end
 end
 

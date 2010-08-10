@@ -1,5 +1,5 @@
 class Solicitante < ActiveRecord::Base
-  
+
   ATIVO = "Ativo"
   INATIVO = "Inativo"
 
@@ -14,7 +14,7 @@ class Solicitante < ActiveRecord::Base
                       :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
 
   def self.verificar_solicitante dados
-    return false if Solicitante.find_by_matricula_and_email_and_estado(dados[:matricula], dados[:email], Solicitante::ATIVO).nil?
+    return false if Solicitante.find_by_matricula_and_email_and_status(dados[:matricula], dados[:email], Solicitante::ATIVO).nil?
     true
   end
 

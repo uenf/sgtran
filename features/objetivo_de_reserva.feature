@@ -35,7 +35,7 @@ Para que eu possa adicinar, editar e utilizar no sistema
     Dado que eu tenha um objetivo de reserva "Aula de Campo"
     E que o objetivo de reserva esteja "<Estado do Objetivo>"
     E que eu estou na página de edição do objetivo de reserva
-    Quando eu seleciono "<Estado desejado>" em "Estado"
+    Quando eu seleciono "<Estado desejado>" em "Status"
     E eu pressiono "Atualizar"
     Então eu devo ver "Estado: <Estado desejado>"
 

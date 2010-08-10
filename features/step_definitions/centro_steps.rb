@@ -7,7 +7,6 @@ Dado /^que eu tenho um prédio com nome "([^\"]*)"$/ do |nome|
 end
 
 Dado /^que o prédio esteja "([^\"]*)"$/ do |estado|
-  @centro.estado = estado
-  @centro.save
+  @centro.update_attribute(:status, estado)
 end
 

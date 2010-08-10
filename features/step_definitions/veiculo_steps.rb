@@ -10,10 +10,8 @@ Dado /^que eu tenha um veículo da categoria "([^\"]*)", modelo "([^\"]*)" e pla
                   :prefixo_id => prefixo.id
 end
 
-Dado /^que o veículo esteja "([^\"]*)"$/ do |estado|
-  @veiculo.estado = Veiculo::ATIVO if estado == Veiculo::ATIVO
-  @veiculo.estado = Veiculo::INATIVO if estado == Veiculo::INATIVO
-  @veiculo.save
+Dado /^que o veículo esteja "([^\"]*)"$/ do |status|
+  @veiculo.update_attribute(:status, status)
 end
 
 Dado /^que eu tenho um veículo de modelo "([^"]*)" e placa "([^"]*)"$/ do |modelo, placa|
@@ -29,8 +27,7 @@ Dado /^que eu tenho um veículo de modelo "([^"]*)" e placa "([^"]*)"$/ do |mode
 end
 
 Dado /^que este veiculo esteja ligado à viagem$/ do
-  @viagem.veiculo_id = @veiculo.id
-  @viagem.save
+  @viagem.update_attribute(:veiculo_id, @veiculo.id)
 end
 
 Dado /^que eu tenha um veículo$/ do

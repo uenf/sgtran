@@ -75,14 +75,14 @@
     <%= f.label :categoria_de_veiculo_id, "Categoria de ve&iacute;culo:",
                 :class => "label_obrigatorio" %>
     <%= f.select :categoria_de_veiculo_id,
-                  CategoriaDeVeiculo.find_all_by_estado(CategoriaDeVeiculo::ATIVO).collect {|categoria| [categoria.nome, categoria.id]},
+                  CategoriaDeVeiculo.find_all_by_status(CategoriaDeVeiculo::ATIVO).collect {|categoria| [categoria.nome, categoria.id]},
                   {:include_blank => "Selecione uma categoria de ve&iacute;culo"} %>
     </p>
     <p>
       <%= f.label :objetivo_de_reserva_id, "Objetivo da reserva:",
                   :class => "label_obrigatorio" %>
       <%= f.select :objetivo_de_reserva_id,
-                    ObjetivoDeReserva.find_all_by_estado(ObjetivoDeReserva::ATIVO).collect {|objetivo| [objetivo.texto, objetivo.id]},
+                    ObjetivoDeReserva.find_all_by_status(ObjetivoDeReserva::ATIVO).collect {|objetivo| [objetivo.texto, objetivo.id]},
                     {:include_blank => "Selecione um objetivo"},
                     :onchange => "verificarOutros()" %>
     </p>

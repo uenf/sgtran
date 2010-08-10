@@ -14,7 +14,7 @@ describe Veiculo do
   end
 
   it "deve responder se está ativou ou não" do
-    motorista = Factory.create :motorista, :estado => "Ativo"
+    motorista = Factory.create :motorista
     (motorista.ativo?).should be_true
   end
 
@@ -252,8 +252,7 @@ describe Veiculo do
     it "inativos não devem aparecer na lista de veiculos ocupados" do
       data_partida = Date.today
       data_chegada = Date.today + 2.days
-      @veiculo_1.estado = "Inativo"
-      @veiculo_1.save
+      @veiculo_1.update_attribute(:status, "Inativo")
       veiculos_ocupados = Veiculo.ocupados_entre_datas_e_com_categoria(data_partida, data_chegada,@categoria_de_veiculo_1)
       veiculos_ocupados.should_not include [@veiculo_1.modelo + " - " + @veiculo_1.placa + " - " + @categoria_de_veiculo_1.nome,
                                             @veiculo_1.id]
@@ -262,8 +261,7 @@ describe Veiculo do
     it "inativos não devem aparecer na lista de veiculos desocupados" do
       data_partida = Date.today
       data_chegada = Date.today + 2.days
-      @veiculo_2.estado = "Inativo"
-      @veiculo_2.save
+      @veiculo_2.update_attribute(:status, "Inativo")
       veiculos_desocupados = Veiculo.desocupados_entre_datas_e_com_categoria(data_partida, data_chegada,@categoria_de_veiculo_2)
       veiculos_desocupados.should_not include [@veiculo_2.modelo + " - " + @veiculo_2.placa + " - " + @categoria_de_veiculo_2.nome,
                                                @veiculo_2.id]

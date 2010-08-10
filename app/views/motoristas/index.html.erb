@@ -13,8 +13,8 @@
 
 <% @motoristas.each do |motorista| %>
   <tr >
-    <%= "<td class='ativo'></td>" if motorista.estado == Motorista::ATIVO %>
-    <%= "<td class='inativo'></td>" if motorista.estado == Motorista::INATIVO %>  
+    <%= "<td class='ativo'></td>" if motorista.status == Motorista::ATIVO %>
+    <%= "<td class='inativo'></td>" if motorista.status == Motorista::INATIVO %>
     <td onclick="location.href='<%= motorista_path(motorista) %>'" onmouseover="this.style.cursor='pointer'"><%=h motorista.matricula %></td>
     <td onclick="location.href='<%= motorista_path(motorista) %>'" onmouseover="this.style.cursor='pointer'"><%=h motorista.nome %></td>
     <td onclick="location.href='<%= motorista_path(motorista) %>'" onmouseover="this.style.cursor='pointer'"><%=h motorista.telefone %></td>

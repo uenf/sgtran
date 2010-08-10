@@ -11,8 +11,8 @@
   </div>
 
   <div class="show_linha">
-    <div class="linha_titulo"><%= f.label :estado, "Estado:", :class => "label_obrigatorio" %></div>
-    <div class="linha_texto_neutro"><%= f.select :estado, { Prefixo::ATIVO => Prefixo::ATIVO,
+    <div class="linha_titulo"><%= f.label :status, "Status:", :class => "label_obrigatorio" %></div>
+    <div class="linha_texto_neutro"><%= f.select :status, { Prefixo::ATIVO => Prefixo::ATIVO,
                                                                   Prefixo::INATIVO => Prefixo::INATIVO } %></div>
   </div>
 

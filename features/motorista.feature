@@ -47,9 +47,9 @@ Para que eu possa adicionar, editar e utilizar no sistema
 
   Esquema do Cenário: Ativar/Desativar um motorista pela página de edição
     Dado que eu tenho um motorista com nome "Gustavo Santos"
-    E que o motorista esteja "<Estado do Solicitante>"
+    E que o motorista esteja "<Estado do Motorista>"
     E que eu estou na página de edição de motorista
-    Quando eu seleciono "<Estado desejado>" em "Estado"
+    Quando eu seleciono "<Estado desejado>" em "Status"
     E eu pressiono "Atualizar"
     Então eu devo ver "Estado: <Estado desejado>"
 

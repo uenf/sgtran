@@ -18,8 +18,8 @@
 
 <% @veiculos.each do |veiculo| %>
   <tr >
-    <%= "<td class='ativo'></td>" if veiculo.estado == Veiculo::ATIVO %>
-    <%= "<td class='inativo'></td>" if veiculo.estado == Veiculo::INATIVO %>  
+    <%= "<td class='ativo'></td>" if veiculo.status == Veiculo::ATIVO %>
+    <%= "<td class='inativo'></td>" if veiculo.status == Veiculo::INATIVO %>
     <td onclick="location.href='<%= veiculo_path(veiculo) %>'" onmouseover="this.style.cursor='pointer'"><%=h veiculo.marca %></td>
     <td onclick="location.href='<%= veiculo_path(veiculo) %>'" onmouseover="this.style.cursor='pointer'"><%=h veiculo.modelo %></td>
     <td onclick="location.href='<%= veiculo_path(veiculo) %>'" onmouseover="this.style.cursor='pointer'"><%=h veiculo.cor %></td>

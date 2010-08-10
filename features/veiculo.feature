@@ -50,7 +50,7 @@ Para que eu possa utiliza-lo no sistema
     Dado que eu tenha um veículo da categoria "4 Passageiros", modelo "Gol" e placa "ABC-1234"
     E que o veículo esteja "<Estado do Veículo>"
     E que eu estou na página de edição do veículo
-    Quando eu seleciono "<Estado desejado>" em "Estado"
+    Quando eu seleciono "<Estado desejado>" em "Status"
     E eu pressiono "Atualizar"
     Então eu devo ver "Estado: <Estado desejado>"
 

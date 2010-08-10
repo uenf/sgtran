@@ -21,9 +21,9 @@ describe Prefixo do
 
   it "deve retornar a lista de prefixos ativos" do
     prefixo_ativo = Factory.create :prefixo,
-                                   :estado => Prefixo::ATIVO
+                                   :status => Prefixo::ATIVO
     prefixo_inativo = Factory.create :prefixo,
-                                     :estado => Prefixo::INATIVO
+                                     :status => Prefixo::INATIVO
     Prefixo.ativos.should include(prefixo_ativo)
     Prefixo.ativos.should_not include(prefixo_inativo)
   end

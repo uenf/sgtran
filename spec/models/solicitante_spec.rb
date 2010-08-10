@@ -54,8 +54,7 @@ describe Solicitante do
     solicitante = Factory.create :solicitante, :centro_id => centro.id
     dados = {:email => solicitante.email, :matricula => solicitante.matricula}
     Solicitante.verificar_solicitante(dados).should be_true
-    solicitante.estado = Solicitante::INATIVO
-    solicitante.save
+    solicitante.update_attribute(:status, Solicitante::INATIVO)
     Solicitante.verificar_solicitante(dados).should be_false
   end
 end

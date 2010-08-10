@@ -23,8 +23,7 @@ describe Motorista do
                                :vencimento_habilitacao => Date.today + 30.days
     (Motorista.vence_cnh_em 3.days).should include(motorista.id)
 
-    motorista.vencimento_habilitacao = nil
-    motorista.save
+    motorista.update_attribute(:vencimento_habilitacao, nil)
     (Motorista.vence_cnh_em 3.days).should_not include(motorista.id)
   end
 
@@ -42,14 +41,14 @@ describe Motorista do
                                :avisado => false
     (Motorista.para_aviso_cnh).should include(motorista.id)
 
-    motorista.avisado = true
-    motorista.save
+    motorista.update_attribute(:avisado, true)
+
     (Motorista.para_aviso_cnh).should_not include(motorista.id)
     (Motorista.para_aviso_cnh).should be_empty
   end
 
   it "deve responder se está ativou ou não" do
-    motorista = Factory.create :motorista, :estado => "Ativo"
+    motorista = Factory.create :motorista
     (motorista.ativo?).should be_true
   end
 
@@ -182,8 +181,7 @@ describe Motorista do
     it "inativos não devem aparecer na lista de motoristas ocupados" do
       data_partida = Date.today
       data_chegada = Date.today + 2.days
-      @motorista_joao.estado = "Inativo"
-      @motorista_joao.save
+      @motorista_joao.update_attribute(:status, "Inativo")
       motoristas_ocupados = Motorista.ocupados_entre(data_partida, data_chegada)
       motoristas_ocupados.should_not include [@motorista_joao.nome, @motorista_joao.id]
     end
@@ -191,8 +189,7 @@ describe Motorista do
     it "inativos não devem aparecer na lista de motoristas desocupados" do
       data_partida = Date.today
       data_chegada = Date.today + 2.days
-      @motorista_zeca.estado = "Inativo"
-      @motorista_zeca.save
+      @motorista_zeca.update_attribute(:status, "Inativo")
       motoristas_desocupados = Motorista.desocupados_entre(data_partida, data_chegada)
       motoristas_desocupados.should_not include [@motorista_zeca.nome, @motorista_zeca.id]
     end

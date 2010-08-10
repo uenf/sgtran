@@ -8,7 +8,7 @@ class Prefixo < ActiveRecord::Base
   validates_presence_of :nome
 
   def self.ativos
-    Prefixo.find_all_by_estado(ATIVO)
+    Prefixo.find_all_by_status(ATIVO)
   end
 
 end

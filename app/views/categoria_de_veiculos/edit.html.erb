@@ -8,10 +8,10 @@
       <div class="linha_titulo"><%= f.label :nome, "Nome:", :class => "label_obrigatorio" %></div>
       <div class="linha_texto_neutro"><%= f.text_field :nome %></div>
     </div>
-    
+
     <div class="show_linha">
-      <div class="linha_titulo"><%= f.label :estado, "Estado:", :class => "label_obrigatorio" %></div>
-      <div class="linha_texto_neutro"><%= f.select :estado, {Solicitante::INATIVO => Solicitante::INATIVO, 
+      <div class="linha_titulo"><%= f.label :status, "Status:", :class => "label_obrigatorio" %></div>
+      <div class="linha_texto_neutro"><%= f.select :status, {Solicitante::INATIVO => Solicitante::INATIVO,
                                                           Solicitante::ATIVO => Solicitante::ATIVO} %></div>
     </div>
 

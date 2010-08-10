@@ -11,8 +11,8 @@
 
 <% @motivos.each do |motivo| %>
   <tr>
-    <%= "<td class='ativo'></td>" if motivo.estado == Motivo::ATIVO %>
-    <%= "<td class='inativo'></td>" if motivo.estado == Motivo::INATIVO %>  
+    <%= "<td class='ativo'></td>" if motivo.status == Motivo::ATIVO %>
+    <%= "<td class='inativo'></td>" if motivo.status == Motivo::INATIVO %>
     <td onclick="location.href='<%= motivo_path(motivo) %>'" onmouseover="this.style.cursor='pointer'"><%=h motivo.descricao %></td>
     <% if current_user.has_role? :admin %>
       <td onclick="location.href='<%= edit_motivo_path(motivo) %>'" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("editar_dado.png", :border => 0, :alt => "Editar"), edit_motivo_path(motivo) %></td>

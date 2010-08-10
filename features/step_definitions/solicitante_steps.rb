@@ -6,8 +6,7 @@ Dado /^que eu tenha um solicitante com e-mail "([^\"]*)", matrícula "([^\"]*)" 
                                 :centro_id => centro.id
 end
 
-Dado /^que o solicitante esteja "([^\"]*)"$/ do |estado|
-  @solicitante.estado = Solicitante::ATIVO if estado == Solicitante::ATIVO
-  @solicitante.estado = Solicitante::INATIVO if estado == Solicitante::INATIVO
-  @solicitante.save
+Dado /^que o solicitante esteja "([^\"]*)"$/ do |status|
+  @solicitante.update_attribute(:status, status)
 end
+

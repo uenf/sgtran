@@ -12,8 +12,8 @@
     <%= f.text_field :sigla %>
   </p>
   <p>
-    <%= f.label :estado %><br />
-    <%= f.select :estado, {Estado::INATIVO => Estado::INATIVO,
+    <%= f.label :status %><br />
+    <%= f.select :status, {Estado::INATIVO => Estado::INATIVO,
                            Estado::ATIVO => Estado::ATIVO} %>
   </p>
   <p>

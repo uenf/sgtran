@@ -8,6 +8,6 @@ end
 
 Então /^o estado deve estar inativo$/ do
   @estado = Estado.all.first
-  @estado.estado.should == Estado::INATIVO
+  @estado.status.should == Estado::INATIVO
 end
 

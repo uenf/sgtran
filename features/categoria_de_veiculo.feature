@@ -36,7 +36,7 @@ Para que eu possa utiliza-la no sistema
     Dado que eu tenha a categoria de veículo "4 Passageiros"
     E que a categoria de veículo esteja "<Estado do Solicitante>"
     E que eu estou na página de edição do categoria de veículo
-    Quando eu seleciono "<Estado desejado>" em "Estado"
+    Quando eu seleciono "<Estado desejado>" em "Status"
     E eu pressiono "Atualizar"
     Então eu devo ver "Estado: <Estado desejado>"
 

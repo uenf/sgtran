@@ -47,7 +47,7 @@ Para que eu possa adicinar, editar e utilizar no sistema
     Dado que eu tenha um solicitante com e-mail "prof@uenf.br", matrícula "123456" e prédio "P5"
     E que o solicitante esteja "<Estado do Solicitante>"
     E que eu estou na página de edição do solicitante
-    Quando eu seleciono "<Estado desejado>" em "Estado"
+    Quando eu seleciono "<Estado desejado>" em "Status"
     E eu pressiono "Atualizar"
     Então eu devo ver "Estado: <Estado desejado>"
 

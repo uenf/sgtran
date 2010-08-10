@@ -28,14 +28,14 @@ ActiveRecord::Schema.define(:version => 20101022184205) do
   create_table "categoria_de_veiculos", :force => true do |t|
     t.string   "nome"
     t.integer  "veiculo_id"
-    t.string   "estado",     :default => "Ativo"
+    t.string   "status",     :default => "Ativo"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "centros", :force => true do |t|
     t.string   "nome"
-    t.string   "estado",     :default => "Ativo"
+    t.string   "status",     :default => "Ativo"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20101022184205) do
   create_table "cidades", :force => true do |t|
     t.string   "nome"
     t.integer  "estado_id"
+    t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -63,14 +64,14 @@ ActiveRecord::Schema.define(:version => 20101022184205) do
   create_table "estados", :force => true do |t|
     t.string   "nome"
     t.string   "sigla"
-    t.string   "estado",     :default => "Ativo"
+    t.string   "status",     :default => "Ativo"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "motivos", :force => true do |t|
     t.string   "descricao"
-    t.string   "estado",     :default => "Ativo"
+    t.string   "status",     :default => "Ativo"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -81,7 +82,7 @@ ActiveRecord::Schema.define(:version => 20101022184205) do
     t.string   "telefone"
     t.string   "habilitacao"
     t.date     "vencimento_habilitacao"
-    t.string   "estado",                 :default => "Ativo"
+    t.string   "status",                 :default => "Ativo"
     t.boolean  "avisado",                :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -89,14 +90,14 @@ ActiveRecord::Schema.define(:version => 20101022184205) do
 
   create_table "objetivos_de_reserva", :force => true do |t|
     t.string   "texto"
-    t.string   "estado",     :default => "Ativo"
+    t.string   "status",     :default => "Ativo"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "prefixos", :force => true do |t|
     t.string   "nome"
-    t.string   "estado",     :default => "Ativo"
+    t.string   "status",     :default => "Ativo"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -148,7 +149,7 @@ ActiveRecord::Schema.define(:version => 20101022184205) do
     t.string   "matricula"
     t.string   "telefone_ou_ramal"
     t.string   "laboratorio_ou_setor"
-    t.string   "estado",               :default => "Ativo"
+    t.string   "status",               :default => "Ativo"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -179,7 +180,7 @@ ActiveRecord::Schema.define(:version => 20101022184205) do
     t.string   "placa"
     t.string   "numero_de_ordem"
     t.string   "renavam"
-    t.string   "estado",                  :default => "Ativo"
+    t.string   "status",                  :default => "Ativo"
     t.integer  "categoria_de_veiculo_id"
     t.integer  "prefixo_id"
     t.datetime "created_at"

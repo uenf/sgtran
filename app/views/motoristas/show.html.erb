@@ -26,18 +26,18 @@
     <div class="linha_titulo">Vencimento da habilitação:</div>
     <div class="linha_texto"><%=h @motorista.vencimento_habilitacao.strftime("%d/%m/%Y") if @motorista.vencimento_habilitacao %></div>
   </div>
-  
+
   <div class="show_linha">
     <div class="linha_titulo">Estado:</div>
-    <div class="linha_texto"><%=h @motorista.estado %></div>
-  </div>  
+    <div class="linha_texto"><%=h @motorista.status %></div>
+  </div>
 
 </div>
 
 <div id="opcoes_da_visao">
   <ul>
     <li id="opcao_voltar" onclick="history.back(-1)" onmouseover="this.style.cursor = 'pointer'">Voltar</li>
-    <li id="opcao_editar" onclick="location.href='<%= edit_motorista_path(@motorista) %>'" onmouseover="this.style.cursor = 'pointer'"><%= link_to 'Editar', edit_motorista_path(@motorista) %></li>  
+    <li id="opcao_editar" onclick="location.href='<%= edit_motorista_path(@motorista) %>'" onmouseover="this.style.cursor = 'pointer'"><%= link_to 'Editar', edit_motorista_path(@motorista) %></li>
   </ul>
 </div>
 

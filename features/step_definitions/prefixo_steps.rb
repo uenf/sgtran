@@ -6,13 +6,12 @@ Dado /^que eu tenho o prefixo "([^"]*)"$/ do |nome|
   @prefixo = Factory.create :prefixo, :nome => nome
 end
 
-Dado /^que o prefixo esteja "([^"]*)"$/ do |estado|
-  @prefixo.estado = estado
-  @prefixo.save
+Dado /^que o prefixo esteja "([^"]*)"$/ do |status|
+  @prefixo.update_attribute(:status, status)
 end
 
-Então /^eu devo ter um prefixo "([^"]*)"$/ do |estado|
-  Prefixo.all.first.estado.should == estado
+Então /^eu devo ter um prefixo "([^"]*)"$/ do |status|
+  Prefixo.all.first.status.should == status
 end
 
 Então /^eu não devo ter um prefixo$/ do

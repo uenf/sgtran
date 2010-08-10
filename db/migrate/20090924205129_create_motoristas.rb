@@ -7,7 +7,7 @@ class CreateMotoristas < ActiveRecord::Migration
       t.string  :telefone
       t.string  :habilitacao
       t.date    :vencimento_habilitacao
-      t.string  :estado, :default => "Ativo"
+      t.string  :status, :default => "Ativo"
       t.boolean :avisado, :default => true
 
       t.timestamps

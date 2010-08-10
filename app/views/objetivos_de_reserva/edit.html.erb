@@ -9,12 +9,12 @@
     <div class="linha_titulo"><%= f.label :texto, "Texto:", :class => "label_obrigatorio" %></div>
     <div class="linha_texto_neutro"><%= f.text_field :texto %></div>
   </div>
-  
+
   <div class="show_linha">
-    <div class="linha_titulo"><%= f.label :estado, "Estado:" %></div>
-    <div class="linha_texto_neutro"><%= f.select :estado, {Solicitante::INATIVO => Solicitante::INATIVO, 
+    <div class="linha_titulo"><%= f.label :status, "Status:" %></div>
+    <div class="linha_texto_neutro"><%= f.select :status, {Solicitante::INATIVO => Solicitante::INATIVO,
                                                           Solicitante::ATIVO => Solicitante::ATIVO} %></div>
-  </div>   
+  </div>
 
   <div class="botao_concluir"><%= f.submit 'Atualizar' %></div>
 

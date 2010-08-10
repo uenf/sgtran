@@ -24,7 +24,7 @@ class Veiculo < ActiveRecord::Base
   end
 
   def ativo?
-    true ? self.estado == ATIVO : false
+    true ? self.status == ATIVO : false
   end
 
   def validar_categoria_de_veiculo

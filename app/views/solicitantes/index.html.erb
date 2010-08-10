@@ -14,8 +14,8 @@
 
 <% @solicitantes.each do |solicitante| %>
   <tr >
-    <%= "<td class='ativo'></td>" if solicitante.estado == Solicitante::ATIVO %>
-    <%= "<td class='inativo'></td>" if solicitante.estado == Solicitante::INATIVO %>
+    <%= "<td class='ativo'></td>" if solicitante.status == Solicitante::ATIVO %>
+    <%= "<td class='inativo'></td>" if solicitante.status == Solicitante::INATIVO %>
     <td onclick="location.href='<%= solicitante_path(solicitante) %>'" onmouseover="this.style.cursor='pointer'"><%=h solicitante.nome %></td>
     <td onclick="location.href='<%= solicitante_path(solicitante) %>'" onmouseover="this.style.cursor='pointer'"><%=h solicitante.email %></td>
     <td onclick="location.href='<%= solicitante_path(solicitante) %>'" onmouseover="this.style.cursor='pointer'"><%=h solicitante.matricula %></td>

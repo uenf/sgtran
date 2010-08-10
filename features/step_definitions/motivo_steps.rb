@@ -3,6 +3,6 @@ Dado /^que eu tenho um motivo com descrição "([^\"]*)"$/ do |motivo|
 end
 
 Dado /^que o motivo esteja "([^\"]*)"$/ do |estado|
-  @motivo.estado = estado
-  @motivo.save
+  @motivo.update_attribute(:status, estado)
 end
+

@@ -36,7 +36,7 @@ Funcionalidade: Manipular um motivo
       Dado que eu tenho um motivo com descrição "Algum motivo"
       E que o motivo esteja "<Estado do Motivo>"
       E que eu estou na página de edição do motivo
-      Quando eu seleciono "<Estado desejado>" em "Estado"
+      Quando eu seleciono "<Estado desejado>" em "Status"
       E eu pressiono "Atualizar"
       Então eu devo ver "Estado: <Estado desejado>"
 

@@ -8,7 +8,7 @@ class CreateVeiculos < ActiveRecord::Migration
       t.string :placa
       t.string :numero_de_ordem
       t.string :renavam
-      t.string :estado, :default => Veiculo::ATIVO
+      t.string :status, :default => Veiculo::ATIVO
       t.references :categoria_de_veiculo
       t.references :prefixo
 

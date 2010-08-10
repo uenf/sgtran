@@ -40,9 +40,9 @@
   </div>
 
   <div class="show_linha">
-    <div class="linha_titulo"><%= f.label :estado, "Estado:" %></div>
-    <div class="linha_texto_neutro"><%= f.select :estado, {Solicitante::INATIVO => Solicitante::INATIVO,
-                                                          Solicitante::ATIVO => Solicitante::ATIVO} %></div>
+    <div class="linha_titulo"><%= f.label :status, "Status:" %></div>
+    <div class="linha_texto_neutro"><%= f.select :status, {Motorista::INATIVO => Motorista::INATIVO,
+                                                          Motorista::ATIVO => Motorista::ATIVO} %></div>
   </div>
 
     <div class="botao_concluir"><%= f.submit 'Atualizar' %></div>

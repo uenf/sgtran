@@ -14,6 +14,12 @@
   </p>
 
   <p>
+    <%= f.label :status, "Status" %>
+    <%= f.select :status, {Cidade::ATIVO => Cidade::ATIVO,
+                           Cidade::INATIVO => Cidade::INATIVO } %>
+  </p>
+
+  <p>
     <%= f.submit 'Atualizar' %>
   </p>
 <% end %>

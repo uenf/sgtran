@@ -27,6 +27,7 @@ Para que eu possa utiliza-la no sistema
     E que eu estou na página de edição da Cidade
     Quando eu preencho "Nome" com "Guarapari"
     E eu seleciono "ES" em "Estado"
+    E eu seleciono "Inativo" em "Status"
     E eu pressiono "Atualizar"
     Então eu devo ver "Cidade modificada com sucesso!"
 

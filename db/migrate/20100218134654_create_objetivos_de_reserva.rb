@@ -2,7 +2,7 @@ class CreateObjetivosDeReserva < ActiveRecord::Migration
   def self.up
     create_table :objetivos_de_reserva do |t|
       t.string :texto
-      t.string :estado, :default => ObjetivoDeReserva::ATIVO
+      t.string :status, :default => ObjetivoDeReserva::ATIVO
 
       t.timestamps
     end
