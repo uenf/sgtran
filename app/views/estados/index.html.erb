@@ -1,23 +1,27 @@
-<h1>Listing estados</h1>
+<% if current_user.has_role? :admin %>
+  <a href="/estados/new" class="link_botao">Adicionar Estado</a>
+<% end %>
 
-<table>
+<table id="base_de_dados" class="tabela_base_de_dados">
   <tr>
+    <th class="celula_neutra_estatica"></th>
     <th>Nome</th>
     <th>Sigla</th>
+    <th class="celula_neutra_estatica"></th>
   </tr>
 
 <% @estados.each do |estado| %>
   <tr>
-    <td><%= estado.nome %></td>
-    <td><%=h estado.sigla %></td>
-    <td><%= link_to 'Show', estado %></td>
-    <td><%= link_to 'Edit', edit_estado_path(estado) %></td>
-    <td><%= link_to 'Destroy', estado, :confirm => 'Are you sure?', :method => :delete %></td>
+    <%= "<td class='ativo'></td>" if estado.status == Estado::ATIVO %>
+    <%= "<td class='inativo'></td>" if estado.status == Estado::INATIVO %>
+    <td onclick="location.href='<%= estado_path(estado) %>'" onmouseover="this.style.cursor='pointer'"><%=h estado.nome %></td>
+    <td onclick="location.href='<%= estado_path(estado) %>'" onmouseover="this.style.cursor='pointer'"><%=h estado.sigla %></td>
+    <% if current_user.has_role? :admin %>
+      <td onclick="location.href='<%= edit_estado_path(estado) %>'" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("editar_dado.png", :border => 0, :alt => "Editar"), edit_estado_path(estado) %></td>
+    <% else %>
+      <td></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New estado', new_estado_path %>
 

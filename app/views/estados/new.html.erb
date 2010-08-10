@@ -1,20 +1,28 @@
-<h1>New estado</h1>
+<div class="show_padrao">
 
-<% form_for(@estado) do |f| %>
-  <%= f.error_messages %>
+  <h1>Novo Estado</h1>
 
-  <p>
-    <%= f.label :nome %><br />
-    <%= f.text_field :nome %>
-  </p>
-  <p>
-    <%= f.label :sigla %><br />
-    <%= f.text_field :sigla %>
-  </p>
-  <p>
-    <%= f.submit 'Criar' %>
-  </p>
-<% end %>
+  <% form_for(@estado) do |f| %>
+    <%= mensagem_de_erro(@estado) %>
 
-<%= link_to 'Back', estados_path %>
+    <div class="show_linha">
+      <div class="linha_titulo"><%= f.label :nome, "Nome:", :class => "label_obrigatorio" %></div>
+      <div class="linha_texto_neutro"><%= f.text_field :nome %></div>
+    </div>
+
+    <div class="show_linha">
+      <div class="linha_titulo"><%= f.label :sigla, "Sigla:", :class => "label_obrigatorio" %></div>
+      <div class="linha_texto_neutro"><%= f.text_field :sigla %></div>
+    </div>
+
+    <div class="botao_concluir"><%= f.submit 'Criar Estado' %></div>
+
+  <% end %>
+</div>
+
+<div id="opcoes_da_visao">
+  <ul>
+    <li id="opcao_voltar" onclick="history.back(-1)" onmouseover="this.style.cursor='pointer'">Voltar</li>
+  </ul>
+</div>
 

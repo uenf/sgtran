@@ -1,29 +1,39 @@
-<h1>Editing cidade</h1>
+<div class="show_padrao">
 
-<% form_for(@cidade) do |f| %>
-  <%= f.error_messages %>
+  <h1>Editar Cidade</h1>
 
-  <p>
-    <%= f.label :nome %><br />
-    <%= f.text_field :nome %>
-  </p>
+  <% form_for(@cidade) do |f| %>
+    <%= mensagem_de_erro(@cidade) %>
 
-  <p>
-    <%= f.label :estado_id, "Estado" %><br />
-    <%= f.select :estado_id, Estado.all.collect { |e| [ e.sigla, e.id ] }, {:include_blank => "-"} %>
-  </p>
+    <div class="show_linha">
+      <div class="linha_titulo"><%= f.label :nome, "Nome:", :class => "label_obrigatorio" %></div>
+      <div class="linha_texto_neutro"><%= f.text_field :nome %></div>
+    </div>
 
-  <p>
-    <%= f.label :status, "Status" %>
-    <%= f.select :status, {Cidade::ATIVO => Cidade::ATIVO,
-                           Cidade::INATIVO => Cidade::INATIVO } %>
-  </p>
+    <div class="show_linha">
+      <div class="linha_titulo">
+        <%= f.label :estado_id, "Estado:", :class => "label_obrigatorio" %>
+      </div>
+        <div class="linha_texto_neutro">
+          <%= f.select :estado_id, Estado.all.collect { |e| [ e.sigla, e.id ] },
+                                                      {:include_blank => "-"} %>
+        </div>
+    </div>
 
-  <p>
-    <%= f.submit 'Atualizar' %>
-  </p>
-<% end %>
+    <div class="show_linha">
+      <div class="linha_titulo"><%= f.label :status, "Status:", :class => "label_obrigatorio" %></div>
+      <div class="linha_texto_neutro"><%= f.select :status, {Cidade::INATIVO => Cidade::INATIVO,
+                                                            Cidade::ATIVO => Cidade::ATIVO} %></div>
+    </div>
 
-<%= link_to 'Show', @cidade %> |
-<%= link_to 'Back', cidades_path %>
+    <div class="botao_concluir"><%= f.submit 'Atualizar' %></div>
+
+  <% end %>
+</div>
+
+<div id="opcoes_da_visao">
+  <ul>
+    <li id="opcao_voltar" onclick="history.back(-1)" onmouseover="this.style.cursor = 'pointer'">Voltar</li>
+  </ul>
+</div>
 

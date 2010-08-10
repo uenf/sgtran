@@ -1,26 +1,37 @@
 class CidadesController < ApplicationController
 
+  access_control do
+    allow :admin
+    allow :visit, :to => [:index, :show]
+  end
+
+  layout "sistema"
+
   def index
     @cidades = Cidade.all
+    @sub_layout = "base"
   end
 
   def show
     @cidade = Cidade.find(params[:id])
+    @sub_layout = "base"
   end
 
   def new
     @cidade = Cidade.new
+    @sub_layout = "base"
   end
 
   def edit
     @cidade = Cidade.find(params[:id])
+    @sub_layout = "base"
   end
 
   def create
     @cidade = Cidade.new(params[:cidade])
 
     if @cidade.save
-      flash[:notice] = 'Cidade criada com sucesso!'
+      flash[:sucesso] = 'Cidade criada com sucesso!'
       redirect_to(@cidade)
     else
       render :action => "new"
@@ -32,7 +43,7 @@ class CidadesController < ApplicationController
     @cidade = Cidade.find(params[:id])
 
     if @cidade.update_attributes(params[:cidade])
-      flash[:notice] = 'Cidade modificada com sucesso!'
+      flash[:sucesso] = 'Cidade modificada com sucesso!'
       redirect_to(@cidade)
     else
       render :action => "edit"

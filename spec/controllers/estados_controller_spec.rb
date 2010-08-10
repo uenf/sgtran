@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe EstadosController do
 
+  before(:each) do
+    login({}, { :roles => {'admin' => nil} })
+  end
+
   def mock_estado(stubs={})
     @mock_estado ||= mock_model(Estado, stubs)
   end
@@ -129,3 +133,4 @@ describe EstadosController do
   end
 
 end
+
