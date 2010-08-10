@@ -1,5 +1,10 @@
 class CidadesController < ApplicationController
 
+  access_control do
+    allow :admin
+    allow :visit, :to => [:index, :show]
+  end
+
   layout "sistema"
 
   def index

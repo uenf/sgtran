@@ -1,26 +1,37 @@
 class EstadosController < ApplicationController
 
+  access_control do
+    allow :admin
+    allow :visit, :to => [:index, :show]
+  end
+
+  layout "sistema"
+
   def index
     @estados = Estado.all
+    @sub_layout = "base"
   end
 
   def show
     @estado = Estado.find(params[:id])
+    @sub_layout = "base"
   end
 
   def new
     @estado = Estado.new
+    @sub_layout = "base"
   end
 
   def edit
     @estado = Estado.find(params[:id])
+    @sub_layout = "base"
   end
 
   def create
     @estado = Estado.new(params[:estado])
 
     if @estado.save
-      flash[:notice] = 'Estado criado com sucesso!'
+      flash[:sucesso] = 'Estado criado com sucesso!'
       redirect_to(@estado)
     else
       render :action => "new"
@@ -31,7 +42,7 @@ class EstadosController < ApplicationController
     @estado = Estado.find(params[:id])
 
     if @estado.update_attributes(params[:estado])
-      flash[:notice] = 'Estado modificado com sucesso!'
+      flash[:sucesso] = 'Estado modificado com sucesso!'
       redirect_to(@estado)
     else
       render :action => "edit"

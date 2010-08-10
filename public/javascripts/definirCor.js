@@ -35,10 +35,12 @@ function definirCor()
     (url.search(/solicitantes/) != -1) ||
     (url.search(/motoristas/) != -1) ||
     (url.search(/\/veiculos/) != -1) ||
-    (url.search(/usuario/) != -1) ||
-    (url.search(/motivo/) != -1) ||
+    (url.search(/usuarios/) != -1) ||
+    (url.search(/motivos/) != -1) ||
     (url.search(/objetivos_de_reserva/) != -1) ||
-    (url.search(/centro/) != -1)
+    (url.search(/centros/) != -1) ||
+    (url.search(/cidades/) != -1) ||
+    (url.search(/estados/) != -1)
     )
     {
         definir_aba("opcao_base_de_dados")

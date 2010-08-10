@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe CidadesController do
 
+  before(:each) do
+    login({}, { :roles => {'admin' => nil} })
+  end
+
   def mock_cidade(stubs={})
     @mock_cidade ||= mock_model(Cidade, stubs)
   end
@@ -129,3 +133,4 @@ describe CidadesController do
   end
 
 end
+
