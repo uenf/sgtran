@@ -1,11 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :cidades
-
   map.resources :estados
-
   map.resources :prefixos
-
-
   map.resources :bdts
   map.resources :centros
   map.resources :objetivos_de_reserva
@@ -46,6 +42,7 @@ ActionController::Routing::Routes.draw do |map|
   map.cancelar_viagem "viagens/:id/cancelar_viagem", :controller => "viagens", :action => "cancelar_viagem"
   map.cancelamento_da_viagem "viagens/cancelamento_da_viagem", :controller => "viagens", :action => "cancelamento_da_viagem"
   map.fechar_viagem "viagens/:id/bdt/", :controller => "bdts", :action => "new"
+  map.viagens_sem_bdt "viagens_sem_bdt", :controller => "viagens", :action => "viagens_sem_bdt"
 
   # Rotas para solicitantes
   map.ativar_solicitante "solicitantes/ativacao/:id", :controller => "solicitantes", :action => "ativar_solicitante"

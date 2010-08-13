@@ -85,3 +85,15 @@ Para que eu possa mudar seus dados de acordo com a dinâmica do trabalho
     E a viagem deve estar cancelada
     E a requisição deve estar ligada a uma viagem
 
+  @viagem_sem_bdt
+  Cenário: Listar as viagens atendidas para terem o bdt preenchido
+    Dado que eu tenho uma requisição de "2" dias atrás e com estado "Aceita"
+    E que eu tenho uma viagem com o estado "Aguardando"
+    E que a requisição esteja ligada à viagem
+    E que eu tenho uma requisição de "2" dias atrás e com estado "Finalizada"
+    E que eu tenho uma viagem com o estado "Atendida"
+    E que a requisição esteja ligada à viagem
+    E que eu estou na página de visualização de viagens sem bdt
+    Então eu devo ver "Atendida"
+    E eu não devo ver "Aguardando"
+

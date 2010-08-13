@@ -39,6 +39,9 @@ module NavigationHelpers
     when /^página de visualização da viagem$/
       viagem_path(@viagem)
 
+    when /página de visualização de viagens sem bdt/
+      viagens_sem_bdt_path
+
     when /página de filtragem de viagens/
       filtrar_viagem_path
 

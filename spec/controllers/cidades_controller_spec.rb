@@ -12,7 +12,7 @@ describe CidadesController do
 
   describe "GET index" do
     it "assigns all cidades as @cidades" do
-      Cidade.stub(:find).with(:all).and_return([mock_cidade])
+      Cidade.stub(:paginate).with(:page => nil, :order => 'nome ASC').and_return([mock_cidade])
       get :index
       assigns[:cidades].should == [mock_cidade]
     end
