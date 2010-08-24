@@ -393,7 +393,7 @@ describe Requisicao do
     requisicao.cancelar_requisicao motivo.id, corpo_do_email, destinatarios
     requisicao.estado.should == Requisicao::CANCELADO_PELO_SISTEMA
     requisicao.motivo_id.should == motivo.id
-    requisicao.viagem_id.should_not == nil
+    requisicao.viagem_id.should == nil
   end
 
   it "Caso a requisição esteja ligada a uma viagem, a viagem tenha apenas essa requisição e a requisição é cancelada, a viagem deve ser cancelada" do
@@ -415,7 +415,7 @@ describe Requisicao do
     requisicao.cancelar_requisicao motivo.id, corpo_do_email, destinatarios
     requisicao.estado.should == Requisicao::CANCELADO_PELO_SISTEMA
     requisicao.motivo_id.should == motivo.id
-    requisicao.viagem_id.should_not == nil
+    requisicao.viagem_id.should == nil
     Viagem.all.collect(&:id).should_not include(viagem_id)
   end
 

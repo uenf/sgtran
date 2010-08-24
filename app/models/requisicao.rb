@@ -133,11 +133,13 @@ class Requisicao < ActiveRecord::Base
   def cancelar_pelo_professor(motivo)
     if self.pode_ser_cancelada_pelo_professor?
       if not motivo.empty?
+        viagem_id = self.viagem_id
         self.estado = CANCELADO_PELO_PROFESSOR
         self.motivo_professor = motivo
         self.motivo_id = nil
+        self.viagem_id = nil
         self.save_with_validation false
-        Viagem.verificar_viagem self.viagem_id if self.viagem_id
+        Viagem.verificar_viagem viagem_id if viagem_id
         return true
       else
         self.errors.add(:motivo, "não pode ser vazio")

@@ -34,7 +34,8 @@ Funcionalidade: Cancelar viagem
     Quando eu vou para "página de cancelamento de requisição"
     Então eu devo ver "Esta requisição já foi cancelada."
 
-  Cenário: Cancelar a viagem caso a requisição cancelada seja a última
+  @now
+  Cenário: Excluir a viagem caso a requisição cancelada seja a última
     Dado que eu tenho uma requisição com estado "Aceita" e id "25"
     E que eu tenho uma viagem com o estado "Aguardando"
     E que a requisição esteja ligada à viagem
@@ -42,8 +43,7 @@ Funcionalidade: Cancelar viagem
     Quando eu preencho "Motivo do Cancelamento" com "algum motivo"
     E eu pressiono "Cancelar requisição"
     Então eu devo ver "Requisição cancelada com sucesso!"
-    E a viagem deve estar cancelada
-    E a viagem deve ter uma requisição
+    E eu devo ter 0 viagens
 
   Cenário: Cancelar requisição ligada à viagem que possui 2 ou mais requisições
     Dado que eu tenho uma requisição com estado "Aceita" e id "25"
@@ -55,8 +55,8 @@ Funcionalidade: Cancelar viagem
     Quando eu preencho "Motivo do Cancelamento" com "algum motivo"
     E eu pressiono "Cancelar requisição"
     Então eu devo ver "Requisição cancelada com sucesso!"
-    E a requisição deve estar cancelada pelo professor
-    E a requisição deve estar ligada a uma viagem
+    E a requisição com id "27" não deve estar ligada a uma viagem
+    E a requisição com id "25" deve estar ligada a uma viagem
     E a viagem deve ter uma requisição
 
   Esquema do Cenário: Cancelar uma requisição pelo professor com data anterior a hoje

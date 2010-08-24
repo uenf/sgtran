@@ -108,7 +108,7 @@ class Viagem < ActiveRecord::Base
     requisicoes_atendidas = Requisicao.find(:all, :conditions => ["viagem_id = ?
                                             AND estado <> 'Cancelado pelo professor' AND
                                             estado <> 'Cancelado pelo sistema'", viagem.id])
-    viagem.estado = Viagem::CANCELADA and viagem.save if requisicoes_atendidas.empty?
+    viagem.destroy if requisicoes_atendidas.empty?
   end
 
   def self.buscar_por_data_de_partida(data_de_partida)

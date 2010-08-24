@@ -185,11 +185,11 @@ describe Viagem do
   end
 
   it "deve apagar a viagem se ela não possui requisição" do
+    Viagem.delete_all
     motorista = Factory.create :motorista
     viagem = Factory.create :viagem, :estado => Viagem::CANCELADA, :motorista_id => motorista.id
     Viagem.verificar_viagem viagem.id
-    viagem.reload
-    viagem.estado.should == Viagem::CANCELADA
+    Viagem.all.should be_empty
   end
 
   it "deve buscar as viagens pela data de partida" do
