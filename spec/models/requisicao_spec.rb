@@ -2,34 +2,6 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe Requisicao do
 
-  before(:each) do
-    categoria_de_veiculo = Factory.create :categoria_de_veiculo
-    objetivo_de_reserva = Factory.create :objetivo_de_reserva
-    @valid_attributes = {
-      :solicitante_id => "5",
-      :celular => "2020202",
-      :data_de_reserva => Date.tomorrow.tomorrow,
-      :categoria_de_veiculo_id => categoria_de_veiculo.id,
-      :objetivo_de_reserva_id => objetivo_de_reserva.id,
-      :outros => "vfdsvdfvfdv",
-      :nome_telefone_passageiros => "fhjdsvcdsvghsvd",
-      :roteiro_da_agenda => "djvsdghvsvdsv",
-      :observacao => "bfdbfdbdfbfdbd",
-      :chave_de_seguranca => "a6170a5d995e53fe01f9b02f60e3bbc1c2bfcc74",
-      :estado => Requisicao::ESPERA,
-      :motivo_id => nil,
-      :motivo_professor => "",
-      :tipo => nil,
-      :referencia_id => nil,
-      :viagem_id => "12"
-    }
-  end
-
-  it "Deve criar uma nova instancia com valores válidos" do
-    Requisicao.create!(@valid_attributes)
-  end
-
-
   it "deve aceitar uma requisição" do
     motorista = Factory.create :motorista
     viagem = Factory.create :viagem, :motorista_id => motorista.id
@@ -68,7 +40,7 @@ describe Requisicao do
     end
   end
 
-  context "para alterar a viagem de uma requisição com uma viagem existente" do
+  describe "para alterar a viagem de uma requisição com uma viagem existente" do
     Viagem.delete_all
     motorista = Factory.create :motorista
     viagem = Factory.create :viagem, :motorista_id => motorista.id
@@ -427,6 +399,7 @@ describe Requisicao do
   it "Caso a requisição esteja ligada a uma viagem, a viagem tenha apenas essa requisição e a requisição é cancelada, a viagem deve ser cancelada" do
     motorista = Factory.create :motorista
     viagem = Factory.create :viagem, :motorista_id => motorista.id
+    viagem_id = viagem.id
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     objetivo_de_reserva = Factory.create :objetivo_de_reserva
     motivo = Factory.create :motivo
@@ -440,11 +413,10 @@ describe Requisicao do
                                              :solicitante_id => solicitante.id
 
     requisicao.cancelar_requisicao motivo.id, corpo_do_email, destinatarios
-    viagem = Viagem.find(viagem.id)
     requisicao.estado.should == Requisicao::CANCELADO_PELO_SISTEMA
     requisicao.motivo_id.should == motivo.id
     requisicao.viagem_id.should_not == nil
-    viagem.estado.should == Viagem::CANCELADA
+    Viagem.all.collect(&:id).should_not include(viagem_id)
   end
 
   it "Deve verificar se uma requisição está no estado Rejeitada" do

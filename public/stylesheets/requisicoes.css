@@ -15,13 +15,13 @@ p {
 }
 
 p.legenda_obrigatorio {
-	font: 10px Verdana;
+	font-size: 10px;
 	font-weight: normal;
 	color: red;
 }
 
 a {
-    font: 12px Sans, Verdana;
+    font-size: 12px;
     color: black;
     padding: 8px;
     padding-left: 30px;
@@ -46,7 +46,8 @@ a.voltar {
 
 h1 {
 	padding-top: 20px;
-	font: bold 20px Verdana;
+	font-size: 20px;
+	font-weight: bold
 }
 
 fieldset {
@@ -58,7 +59,8 @@ legend {
     margin-left: 5px;
     margin-bottom: 5px;
     float: left;
-	font: bold 12px Verdana;
+	font-size:12px;
+	font-weight: bold
 }
 
 select {
@@ -66,7 +68,8 @@ select {
 }
 
 label {
-    font: bold 12px Verdana;
+    font-size: 12px;
+    font-weight: bold
 }
 
 .label,
@@ -101,7 +104,8 @@ label {
 
 .label_lateral ul li{
     padding: 3px;
-    font: normal 10px Verdana;
+    font-size: 10px;
+    font-weight: normal;
     margin-left: 15px;
 }
 

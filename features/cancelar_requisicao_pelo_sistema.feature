@@ -4,7 +4,7 @@ Funcionalidade: Cancelar uma requisição pelo sistema
   Eu quero cancelar uma requisição
   Para que eu possa informar ao solicitante o problema ocorrido
 
-  Cenário: Cancelar a viagem se apenas a requisição cancelada é atendida pela viagem
+  Cenário: Excluir a viagem se apenas a requisição cancelada é atendida pela viagem
     Dado que eu tenho uma requisição com estado "Aceita" e id "25"
     E que eu tenho um motivo com descrição "Falta de verba"
     E que eu tenho uma viagem com o estado "Aguardando"
@@ -16,10 +16,10 @@ Funcionalidade: Cancelar uma requisição pelo sistema
     E eu preencho "Destinatários" com "astran@uenf.br"
     E eu pressiono "Cancelar requisição"
     Então a requisição deve estar cancelada pelo sistema
-    E a requisição deve estar ligada a uma viagem
-    E a viagem deve estar cancelada
-    E a viagem deve ter uma requisição
+    E a requisição não deve estar ligada a uma viagem
+    E eu devo ter 0 viagens
 
+  @now
   Cenário: Viagem com mais de uma requisição e uma requisição é cancelada
     Dado que eu tenho uma requisição com estado "Aceita" e id "25"
     E que eu tenho uma viagem com o estado "Aguardando"
@@ -35,7 +35,8 @@ Funcionalidade: Cancelar uma requisição pelo sistema
     E eu pressiono "Cancelar requisição"
     Dado que eu estou na página de visualização da viagem
     Então eu devo ver "Estado: Aguardando"
-    E a requisição deve estar ligada a uma viagem
+    E a requisição com id "27" não deve estar ligada a uma viagem
+    E a requisição com id "25" deve estar ligada a uma viagem
 
   Cenário: Cancelar uma requisição aceita pelo sistema com data anterior a hoje
     Dado que eu tenho uma requisição de "2" dias atrás e com estado "Aceita"
@@ -49,5 +50,5 @@ Funcionalidade: Cancelar uma requisição pelo sistema
     E eu preencho "Destinatários" com "astran@uenf.br"
     E eu pressiono "Cancelar requisição"
     E a requisição deve estar cancelada pelo sistema
-    E a requisição deve estar ligada a uma viagem
+    E a requisição não deve estar ligada a uma viagem
 

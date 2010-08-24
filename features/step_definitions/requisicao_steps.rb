@@ -202,6 +202,11 @@ Então /^a requisição deve estar ligada a uma viagem$/ do
   @requisicao.viagem_id.should_not be_nil
 end
 
+Então /^a requisição não deve estar ligada a uma viagem$/ do
+  @requisicao.reload
+  @requisicao.viagem_id.should be_nil
+end
+
 Então /^eu devo ter (\d+) requisições$/ do |quantidade|
   Requisicao.all.should have(quantidade.to_i).requisicoes
 end
@@ -214,6 +219,14 @@ end
 Então /^a requisição deve estar ligada à última viagem$/ do
   @requisicao.reload
   @requisicao.viagem_id.should == Viagem.all.last.id
+end
+
+Então /^a requisição com id "([^"]*)" não deve estar ligada a uma viagem$/ do |requisicao_id|
+  Requisicao.find(requisicao_id).viagem_id.should be_nil
+end
+
+Então /^a requisição com id "([^"]*)" deve estar ligada a uma viagem$/ do |requisicao_id|
+  Requisicao.find(requisicao_id).viagem_id.should_not be_nil
 end
 
 Então /^o local de origem da requisição com id "([^"]*)" deve ser "([^"]*)" do "([^"]*)"$/ do |requisicao_id, city, sigla|

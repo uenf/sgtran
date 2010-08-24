@@ -244,12 +244,13 @@ class Requisicao < ActiveRecord::Base
 
   def cancelar_requisicao motivo_id, corpo_do_email, destinatarios
     if self.esta_aceita?
-      viagem = Viagem.find(self.viagem_id) if self.viagem_id
+      viagem = Viagem.find(self.viagem_id)
       self.estado = Requisicao::CANCELADO_PELO_SISTEMA
       self.motivo_id = motivo_id.to_i if motivo_id
-      requisicoes_atendidas = Requisicao.find_all_by_viagem_id(viagem.id).length if viagem
-      viagem.update_attribute(:estado, Viagem::CANCELADA) if requisicoes_atendidas == 1
       self.motivo_observacao = observacao
+      self.viagem_id = nil
+      viagem.destroy if viagem.requisicoes.length == 1
+
       if self.motivo_id
         self.save_with_validation false
         return true
