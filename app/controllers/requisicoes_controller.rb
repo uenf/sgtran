@@ -351,7 +351,5 @@ class RequisicoesController < ApplicationController
     end
   end
 
-  def base_de_dados
-  end
 end
 
