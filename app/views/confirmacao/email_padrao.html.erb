@@ -17,6 +17,17 @@
     <p>
       <%= @corpo_do_email %>
     </p>
+    <% if not @requisicao.motivo_id.nil? %>
+      <p>
+      <strong>Motivo:</strong> <%= Motivo.find(@requisicao.motivo_id).descricao %>
+      </p>
+    <% end %>
+
+    <% if @requisicao.motivo_professor %>
+      <p>
+        <strong>Motivo:</strong> <%= @requisicao.motivo_professor %>
+      </p>
+    <% end %>
     <p>
       <div style="color: #a2a2a2">
       ASTRAN/UENF<br />
