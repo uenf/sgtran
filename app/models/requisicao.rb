@@ -159,10 +159,8 @@ class Requisicao < ActiveRecord::Base
     self.motivo_id = nil
     self.motivo_observacao = nil
     if self.save_with_validation false
-      if viagem_antiga
-        if Viagem.pode_ser_cancelada? viagem_antiga
-          Viagem.cancelar_viagem_que_nao_atende_nenhuma_requisicao viagem_antiga
-        end
+      if viagem_antiga and Requisicao.find_all_by_viagem_id(viagem_antiga).empty?
+        Viagem.cancelar_viagem_que_nao_atende_nenhuma_requisicao viagem_antiga
       end
     end
   end

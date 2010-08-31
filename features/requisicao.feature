@@ -145,7 +145,7 @@ Funcionalidade: Solicitar viagem
     Então a requisição deve estar ligada à primeira viagem
     Então eu devo ter 1 viagem cancelada
 
-  Cenário: Mudar a viagem de uma requisição com uma nova viagem
+  Cenário: Mudar a viagem de uma requisição com uma nova viagem quando a viagem tem uma requisição
     Dado que eu tenho uma requisição com estado "Aceita" e id "25"
     E que eu tenho uma viagem com o estado "Aguardando"
     E que a requisição esteja ligada à viagem
@@ -160,4 +160,22 @@ Funcionalidade: Solicitar viagem
     E eu pressiono "Concluir"
     Então a requisição deve estar ligada à última viagem
     E eu devo ter 1 viagem cancelada
+
+  Cenário: Mudar a viagem de uma requisição com uma nova viagem quando a viagem tem uma requisição
+    Dado que eu tenho uma requisição com estado "Aceita" e id "25"
+    E que eu tenho uma viagem com o estado "Aguardando"
+    E que a requisição esteja ligada à viagem
+    Dado que eu tenho uma requisição com estado "Aceita" e id "27"
+    E que a requisição esteja ligada à viagem
+    E que eu tenho um motorista com nome "Gustavo Santos"
+    E que eu tenha um veículo da categoria "Automóvel até 4 passageiros", modelo "Gol" e placa "KQI 5899"
+    E que eu estou na página de detalhes da requisição
+    Quando eu clico em "Alterar viagem"
+    Então eu devo estar na página de aceitar a requisição
+    Quando eu marco o radiobutton "escolha_de_viagem_nova"
+    E eu seleciono "Gustavo Santos" em "Motorista"
+    E eu seleciono "Gol - KQI 5899 - Automóvel até 4 passageiros" em "Veículo"
+    E eu pressiono "Concluir"
+    Então a requisição deve estar ligada à última viagem
+    E eu devo ter 0 viagem cancelada
 

@@ -297,7 +297,7 @@ describe Viagem do
                                                :objetivo_de_reserva_id => objetivo_de_reserva.id,
                                                :estado => Requisicao::ACEITA,
                                                :viagem_id => viagem.id
-    Viagem.pode_ser_cancelada?(viagem).should be_true
+    Viagem.pode_ser_cancelada?(viagem).should be_false
   end
 
   it "deve cancelar uma viagem que não atende nenhuma requisição" do

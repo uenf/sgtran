@@ -203,7 +203,7 @@ Entao /^a viagem não deve atender essa requisição$/ do
 end
 
 Então /^eu devo ter (\d+) viagem cancelada$/ do |quantidade|
-  Viagem.find_all_by_estado(Viagem::CANCELADA).should_not be_empty
+  Viagem.find_all_by_estado(Viagem::CANCELADA).should have(quantidade.to_i).viagens
 end
 
 Então /^eu devo ter (\d+) viagens$/ do |quantidade|

@@ -154,13 +154,12 @@ class Viagem < ActiveRecord::Base
   end
 
   def self.pode_ser_cancelada? viagem_id
-    Requisicao.find_all_by_viagem_id(viagem_id).length <= 1
+    Requisicao.find_all_by_viagem_id(viagem_id).length <= 0
   end
 
   def self.cancelar_viagem_que_nao_atende_nenhuma_requisicao viagem_id
     viagem = Viagem.find(viagem_id) if viagem_id
-    viagem.estado = CANCELADA
-    viagem.save!
+    viagem.update_attribute(:estado, CANCELADA)
   end
 
 end
