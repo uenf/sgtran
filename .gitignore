@@ -3,4 +3,4 @@ webrat-*.html
 rerun.txt
 log.txt
 public/stylesheets/scaffold.css
-
+config/database.yml
