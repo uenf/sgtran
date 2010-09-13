@@ -31,7 +31,7 @@
       <%= label_tag :motorista, "Nome:" %>
       <%= text_field_tag :motorista %>
     </div>
-    
+
     <div <%= @placa.nil? ? 'class="invisivel"' : 'class="visivel"' %> id="box_placa">
       <%= label_tag :placa, "Placa:" %>
       <%= text_field_tag :placa %>
@@ -66,7 +66,7 @@
       <th>Data de chegada</th>
       <th>Hor&aacute;rio de partida</th>
       <th>Solicitantes</th>
-      <th>Motorista</th>
+      <th>Motoristas</th>
       <th>Ve&iacute;culo</th>
       <th>Requisi&ccedil;&atilde;o(s) atendida(s)</th>
     </tr>
@@ -80,7 +80,7 @@
     <td><%=h (viagem.data_chegada.strftime("%d/%m/%Y")) if viagem.data_chegada %></td>
     <td><%=h (viagem.horario_partida.strftime("%H : %M")) if (viagem.horario_partida) %></td>
     <td><%=h viagem.nomes_solicitantes.to_sentence  %></td>
-    <td><%=h (viagem.motorista.nome) if viagem.motorista  %></td>
+    <td><%=h (viagem.motoristas.collect(&:nome).to_sentence) if viagem.motoristas  %></td>
     <td>
     <%=h veiculo.modelo + " - " +
         veiculo.placa + " - " +

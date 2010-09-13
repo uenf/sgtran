@@ -32,7 +32,7 @@
 
     <div class="show_linha">
       <div class="linha_titulo">
-        <%= label_tag :motorista_id, "Condutor", :class => "label_obrigatorio" %>
+        <%= label_tag :motorista_id, "Condutores", :class => "label_obrigatorio" %>
       </div>
       <div class="linha_texto_neutro">
         <%= collection_select :motorista, :id, Motorista.all, :id, :nome,

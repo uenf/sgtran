@@ -6,7 +6,7 @@ class Viagem < ActiveRecord::Base
   use_in_brazilian_format :data_partida, :data_chegada
 
   has_many   :requisicoes
-  belongs_to :motorista
+  has_and_belongs_to_many :motoristas
   belongs_to :veiculo
   belongs_to :bdt
 
@@ -14,7 +14,7 @@ class Viagem < ActiveRecord::Base
   ATENDIDA   = "Atendida"
   CANCELADA  = "Cancelada"
 
-  validates_presence_of :motorista_id
+  validates_presence_of :motorista_ids
   validate :validar_data
 
   def validar_data

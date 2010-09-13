@@ -15,7 +15,7 @@ class BdtsController < ApplicationController
     @bdt = Bdt.find(params[:id])
     @viagem = Viagem.find(@bdt.viagem_id)
     @requisicoes_ids = @viagem.requisicao_ids
-    @motorista = Motorista.find(@viagem.motorista_id)
+    @motorista = @viagem.motoristas
     @veiculo = Veiculo.find(@viagem.veiculo_id)
   end
 
@@ -23,7 +23,7 @@ class BdtsController < ApplicationController
     @bdt = Bdt.new
     @viagem = Viagem.find(params[:id])
     @requisicoes_ids = @viagem.requisicao_ids
-    @motorista = Motorista.find(@viagem.motorista_id)
+    @motoristas = @viagem.motoristas
     @veiculo = Veiculo.find(@viagem.veiculo_id)
   end
 
@@ -31,7 +31,7 @@ class BdtsController < ApplicationController
     @bdt = Bdt.find(params[:id])
     @viagem = Viagem.find(@bdt.viagem_id)
     @requisicoes_ids = @viagem.requisicao_ids
-    @motorista = Motorista.find(@viagem.motorista_id)
+    @motorista = @viagem.motoristas
     @veiculo = Veiculo.find(@viagem.veiculo_id)
   end
 
@@ -40,7 +40,7 @@ class BdtsController < ApplicationController
     @viagem = Viagem.find(params[:viagem_id])
     @requisicoes_ids = @viagem.requisicao_ids
     dados_viagem = {:veiculo_id => params[:veiculo][:id],
-                    :motorista_id => params[:motorista][:id],
+                    :motorista_ids => params[:motorista][:ids],
                     :viagem_id => params[:viagem_id]}
 
     if @bdt.salvar dados_viagem
@@ -51,7 +51,7 @@ class BdtsController < ApplicationController
       redirect_to(@bdt)
     else
       @viagem = Viagem.find(dados_viagem[:viagem_id])
-      @motorista = Motorista.find(@viagem.motorista_id)
+      @motoristas = @viagem.motoristas
       @veiculo = Veiculo.find(@viagem.veiculo_id)
       render :action => "new"
     end
@@ -61,7 +61,7 @@ class BdtsController < ApplicationController
     @bdt = Bdt.find(params[:id])
 
     dados_viagem = {:veiculo_id => params[:veiculo][:id],
-                    :motorista_id => params[:motorista][:id],
+                    :motorista_ids => params[:motorista][:ids],
                     :viagem_id => params[:viagem_id]}
 
     if @bdt.atualizar params[:bdt], dados_viagem

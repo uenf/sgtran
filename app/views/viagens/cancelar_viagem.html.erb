@@ -47,7 +47,7 @@
   <div class="show_linha">
     <div class="linha_titulo">Motorista: </div>
     <div class="linha_texto">
-      <%=h @motorista.nome if not @motorista.nil?%>
+      <%=h @motoristas.collect(&:nome).to_sentence if @motoristas %>
     </div>
   </div>
 

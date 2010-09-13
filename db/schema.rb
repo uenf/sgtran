@@ -88,6 +88,11 @@ ActiveRecord::Schema.define(:version => 20101022184205) do
     t.boolean  "avisado",                               :default => false
   end
 
+  create_table "motoristas_viagens", :id => false, :force => true do |t|
+    t.integer "motorista_id"
+    t.integer "viagem_id"
+  end
+
   create_table "objetivos_de_reserva", :force => true do |t|
     t.string   "texto"
     t.datetime "created_at"
@@ -196,11 +201,6 @@ ActiveRecord::Schema.define(:version => 20101022184205) do
     t.integer  "motivo_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "viagens_motoristas", :id => false, :force => true do |t|
-    t.integer "motorista_id"
-    t.integer "viagem_id"
   end
 
 end

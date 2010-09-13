@@ -19,7 +19,7 @@ Dado /^que ele não está avisado sobre o vencimento deu sua cnh$/ do
 end
 
 Dado /^que este motorista esteja ligado à viagem$/ do
-  @viagem.motorista_id = @motorista.id
+  @viagem.motoristas << @motorista
   @viagem.save
 end
 

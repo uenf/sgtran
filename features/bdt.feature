@@ -5,6 +5,7 @@ Funcionalidade: Fechar viagem com o BDT
     Eu quero fechar uma viagem com o BDT
     Para que eu finalizar o ciclo de uma ou mais requisições, e com esses dados fazer relatórios mais completos
 
+    @now
   Esquema do Cenário: Fechar uma viagem com o BDT
     E que eu tenho uma requisição com estado "Aceita" e id "15"
     E que eu tenho uma viagem com o estado "Aguardando"
@@ -19,7 +20,7 @@ Funcionalidade: Fechar viagem com o BDT
     Quando eu clico em "Fechar viagem"
     Então eu devo estar na página de criação do BDT
     E eu devo ver "Corsa - LCD-6969" selecionado em "Veículo"
-    E eu devo ver "Gustavo Ribeiro" selecionado em "Condutor"
+    E eu devo ver "Gustavo Ribeiro" selecionado em "Condutores"
 
     Quando eu preencho "Número físico" com "<numero>"
 #    E eu seleciono "RJ" em "estado_origem[15]"

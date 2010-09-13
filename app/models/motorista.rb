@@ -4,7 +4,7 @@ class Motorista < ActiveRecord::Base
   ATIVO = "Ativo"
   INATIVO = "Inativo"
 
-  has_many :viagens
+  has_and_belongs_to_many :viagens
 
   use_in_brazilian_format :vencimento_habilitacao
 
