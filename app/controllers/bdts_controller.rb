@@ -15,7 +15,7 @@ class BdtsController < ApplicationController
     @bdt = Bdt.find(params[:id])
     @viagem = Viagem.find(@bdt.viagem_id)
     @requisicoes_ids = @viagem.requisicao_ids
-    @motorista = @viagem.motoristas
+    @motoristas = @viagem.motoristas
     @veiculo = Veiculo.find(@viagem.veiculo_id)
   end
 
