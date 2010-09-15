@@ -4,7 +4,7 @@ describe Requisicao do
 
   it "deve aceitar uma requisição" do
     motorista = Factory.create :motorista
-    viagem = Factory.create :viagem, :motorista_id => motorista.id
+    viagem = Factory.create :viagem, :motorista_ids => [motorista.id]
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     objetivo_de_reserva = Factory.create :objetivo_de_reserva
     requisicao = Factory.create :requisicao,
@@ -17,8 +17,8 @@ describe Requisicao do
 
   describe "que já possuem uma viagem" do
       motorista = Factory.create :motorista
-      viagem = Factory.create :viagem, :motorista_id => motorista.id
-      viagem_2 = Factory.create :viagem, :motorista_id => motorista.id
+      viagem = Factory.create :viagem, :motorista_ids => [motorista.id]
+      viagem_2 = Factory.create :viagem, :motorista_ids => [motorista.id]
       categoria_de_veiculo = Factory.create :categoria_de_veiculo
       objetivo_de_reserva = Factory.create :objetivo_de_reserva
       requisicao = Factory.create :requisicao,
@@ -43,8 +43,8 @@ describe Requisicao do
   describe "para alterar a viagem de uma requisição com uma viagem existente" do
     Viagem.delete_all
     motorista = Factory.create :motorista
-    viagem = Factory.create :viagem, :motorista_id => motorista.id
-    viagem_2 = Factory.create :viagem, :motorista_id => motorista.id
+    viagem = Factory.create :viagem, :motorista_ids => [motorista.id]
+    viagem_2 = Factory.create :viagem, :motorista_ids => [motorista.id]
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     objetivo_de_reserva = Factory.create :objetivo_de_reserva
     requisicao = Factory.create :requisicao,
@@ -377,7 +377,7 @@ describe Requisicao do
 
   it "Deve cancelar uma requisição" do
     motorista = Factory.create :motorista
-    viagem = Factory.create :viagem, :motorista_id => motorista.id
+    viagem = Factory.create :viagem, :motorista_ids => [motorista.id]
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     objetivo_de_reserva = Factory.create :objetivo_de_reserva
     motivo = Factory.create :motivo
@@ -398,7 +398,7 @@ describe Requisicao do
 
   it "Caso a requisição esteja ligada a uma viagem, a viagem tenha apenas essa requisição e a requisição é cancelada, a viagem deve ser cancelada" do
     motorista = Factory.create :motorista
-    viagem = Factory.create :viagem, :motorista_id => motorista.id
+    viagem = Factory.create :viagem, :motorista_ids => [motorista.id]
     viagem_id = viagem.id
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     objetivo_de_reserva = Factory.create :objetivo_de_reserva
@@ -432,7 +432,7 @@ describe Requisicao do
 
   it "Deve verificar se a viagem de uma requisição pode ser alterada" do
     motorista = Factory.create :motorista
-    viagem = Factory.create :viagem, :motorista_id => motorista.id
+    viagem = Factory.create :viagem, :motorista_ids => [motorista.id]
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     objetivo_de_reserva = Factory.create :objetivo_de_reserva
     motivo = Factory.create :motivo
@@ -446,8 +446,8 @@ describe Requisicao do
 
   it "Deve alterar a viagem que atende a requisicao" do
     motorista = Factory.create :motorista
-    viagem_1 = Factory.create :viagem, :motorista_id => motorista.id
-    viagem_2 = Factory.create :viagem, :motorista_id => motorista.id
+    viagem_1 = Factory.create :viagem, :motorista_ids => [motorista.id]
+    viagem_2 = Factory.create :viagem, :motorista_ids => [motorista.id]
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     objetivo_de_reserva = Factory.create :objetivo_de_reserva
     motivo = Factory.create :motivo
@@ -519,7 +519,7 @@ describe Requisicao do
 
   it "não deve cancelar uma requisição com estado de 'Finalizada'" do
     motorista = Factory.create :motorista
-    viagem = Factory.create :viagem, :motorista_id => motorista.id
+    viagem = Factory.create :viagem, :motorista_ids => [motorista.id]
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     objetivo_de_reserva = Factory.create :objetivo_de_reserva
     motivo = Factory.create :motivo
@@ -539,7 +539,7 @@ describe Requisicao do
 
   it "deve verificar se a requisição pode ser cancelada" do
     motorista = Factory.create :motorista
-    viagem = Factory.create :viagem, :motorista_id => motorista.id
+    viagem = Factory.create :viagem, :motorista_ids => [motorista.id]
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     objetivo_de_reserva = Factory.create :objetivo_de_reserva
     motivo = Factory.create :motivo
@@ -560,7 +560,7 @@ describe Requisicao do
 
   it "deve verificar se uma requisição pode ser finalizada" do
     motorista = Factory.create :motorista
-    viagem = Factory.create :viagem, :motorista_id => motorista.id
+    viagem = Factory.create :viagem, :motorista_ids => [motorista.id]
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     objetivo_de_reserva = Factory.create :objetivo_de_reserva
     motivo = Factory.create :motivo
@@ -583,7 +583,7 @@ describe Requisicao do
   describe "deve atualizar" do
 
     motorista = Factory.create :motorista
-    viagem = Factory.create :viagem, :motorista_id => motorista.id
+    viagem = Factory.create :viagem, :motorista_ids => [motorista.id]
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     objetivo_de_reserva = Factory.create :objetivo_de_reserva
     motivo = Factory.create :motivo

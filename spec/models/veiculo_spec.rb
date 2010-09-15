@@ -97,7 +97,7 @@ describe Veiculo do
                                   :prefixo_id => prefixo.id
       viagem = Factory.create :viagem,
                               :veiculo_id => @veiculo_1.id,
-                              :motorista_id => motorista.id,
+                              :motorista_ids => [motorista.id],
                               :data_partida => Date.today,
                               :data_chegada => Date.today + 2.days
     end
@@ -108,7 +108,7 @@ describe Veiculo do
       data_chegada = Date.today + 2.days
       viagem2 = Factory.create :viagem,
                                :veiculo_id => @veiculo_2.id,
-                               :motorista_id => motorista.id,
+                               :motorista_ids => [motorista.id],
                                :data_partida => data_partida,
                                :data_chegada => data_chegada,
                                :estado => Viagem::ATENDIDA
@@ -126,7 +126,7 @@ describe Veiculo do
                                  :prefixo_id => prefixo.id
       viagem3 = Factory.create :viagem,
                                :veiculo_id => veiculo_4.id,
-                               :motorista_id => motorista.id,
+                               :motorista_ids => [motorista.id],
                                :data_partida => data_partida,
                                :data_chegada => data_chegada,
                                :estado => Viagem::ATENDIDA
@@ -142,7 +142,7 @@ describe Veiculo do
       data_chegada = Date.today + 2.days
       viagem2 = Factory.create :viagem,
                                :veiculo_id => @veiculo_1.id,
-                               :motorista_id => motorista.id,
+                               :motorista_ids => [motorista.id],
                                :data_partida => data_partida,
                                :data_chegada => data_chegada
       veiculos_ocupados = Veiculo.ocupados_entre_datas_e_com_categoria(data_partida, data_chegada, @categoria_de_veiculo_1.id)
@@ -157,7 +157,7 @@ describe Veiculo do
       data_chegada = Date.today + 2.days
       viagem2 = Factory.create :viagem,
                                :veiculo_id => @veiculo_1.id,
-                               :motorista_id => motorista.id,
+                               :motorista_ids => [motorista.id],
                                :data_partida => data_partida,
                                :data_chegada => data_chegada
       veiculos_desocupados = Veiculo.desocupados_entre_datas_e_com_categoria(data_partida + 4.days, data_chegada + 4.days, @categoria_de_veiculo_1.id)

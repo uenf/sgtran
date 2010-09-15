@@ -81,7 +81,7 @@ describe Bdt do
                              :categoria_de_veiculo_id => categoria_de_veiculo.id,
                              :combustivel_ids => [combustivel.id],
                              :prefixo_id => prefixo.id
-    viagem = Factory.create :viagem, :motorista_id => motorista.id
+    viagem = Factory.create :viagem, :motorista_ids => [motorista.id]
     objetivo_de_reserva = Factory.create :objetivo_de_reserva
     requisicao_1 = Factory.create :requisicao,
                                 :categoria_de_veiculo_id => categoria_de_veiculo.id,
@@ -96,7 +96,7 @@ describe Bdt do
                                 :motivo_id => motivo.id
     bdt = Factory.build :bdt
     dados_viagem = {:veiculo_id => veiculo.id,
-                    :motorista_id => motorista.id,
+                    :motorista_ids => [motorista.id],
                     :viagem_id => viagem.id}
 
     bdt.salvar(dados_viagem).should be_true
@@ -106,7 +106,7 @@ describe Bdt do
 
     viagem.reload
     viagem.estado.should == Viagem::ATENDIDA
-    viagem.motorista_id.should == motorista.id
+    viagem.motorista_ids.should == [motorista.id]
     viagem.veiculo_id.should == veiculo.id
 
     requisicao_1.reload
@@ -137,12 +137,12 @@ describe Bdt do
                                :placa => "LLL-0000"
 
       viagem = Factory.create :viagem,
-                              :motorista_id => motorista_1.id,
+                              :motorista_ids => [motorista_1.id],
                               :veiculo_id => veiculo_1
       bdt = Factory.create :bdt, :odometro_partida => 1200,
                                  :odometro_recolhimento => 1300
       dados_viagem = {:veiculo_id => veiculo_2.id,
-                      :motorista_id => motorista_2.id,
+                      :motorista_ids => [motorista_2.id],
                       :viagem_id => viagem.id}
       dados_bdt = {:odometro_recolhimento => 1350}
 
@@ -169,19 +169,19 @@ describe Bdt do
                                :placa => "LLL-0000"
 
       viagem = Factory.create :viagem,
-                              :motorista_id => motorista_1.id,
+                              :motorista_ids => [motorista_1.id],
                               :veiculo_id => veiculo_1
       bdt = Factory.create :bdt, :odometro_partida => 1200,
                                  :odometro_recolhimento => 1300
       dados_viagem = {:veiculo_id => veiculo_2.id,
-                      :motorista_id => motorista_2.id,
+                      :motorista_ids => [motorista_2.id],
                       :viagem_id => viagem.id}
       dados_bdt = {:odometro_recolhimento => 1350}
 
       dados_viagem[:viagem_id] = viagem.id
       bdt.atualizar(dados_bdt, dados_viagem).should be_true
       viagem.reload
-      viagem.motorista_id.should == motorista_2.id
+      viagem.motorista_ids.should == [motorista_2.id]
       viagem.veiculo_id.should == veiculo_2.id
     end
 

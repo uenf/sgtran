@@ -135,7 +135,7 @@ class Viagem < ActiveRecord::Base
     motorista, viagens = "%" + motorista.to_s + "%", []
     motoristas = Motorista.find(:all, :conditions => ["nome LIKE ?", motorista])
     motoristas.each do |m|
-      viagens_do_motorista = Viagem.find_all_by_motorista_id(m.id)
+      viagens_do_motorista = Viagem.find_all_by_motorista_ids(m.id)
       viagens_do_motorista.each do |v|
         viagens << v
       end

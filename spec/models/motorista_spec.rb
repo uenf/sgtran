@@ -64,7 +64,7 @@ describe Motorista do
       @motorista_zeca = Factory.create :motorista, :nome => "Zeca"
       @motorista_marco = Factory.create :motorista, :nome => "Marco"
       viagem = Factory.create :viagem,
-                              :motorista_id => @motorista_joao.id,
+                              :motorista_ids => [@motorista_joao.id],
                               :data_partida => Date.today,
                               :data_chegada => Date.today + 2.days
     end
@@ -73,7 +73,7 @@ describe Motorista do
       data_partida = Date.today
       data_chegada = Date.today + 2.days
       viagem2 = Factory.create :viagem,
-                               :motorista_id => @motorista_zeca.id,
+                               :motorista_ids => [@motorista_zeca.id],
                                :data_partida => data_partida,
                                :data_chegada => data_chegada,
                                :estado => Viagem::ATENDIDA
@@ -86,7 +86,7 @@ describe Motorista do
       data_partida = Date.today
       data_chegada = Date.today + 2.days
       viagem2 = Factory.create :viagem,
-                               :motorista_id => @motorista_joao.id,
+                               :motorista_ids => [@motorista_joao.id],
                                :data_partida => data_partida,
                                :data_chegada => data_chegada
       motoristas_ocupados = Motorista.ocupados_entre(data_partida, data_chegada)
@@ -99,7 +99,7 @@ describe Motorista do
       data_partida = Date.today
       data_chegada = Date.today + 2.days
       viagem2 = Factory.create :viagem,
-                               :motorista_id => @motorista_joao.id,
+                               :motorista_ids => [@motorista_joao.id],
                                :data_partida => data_partida,
                                :data_chegada => data_chegada
       motoristas_desocupados = Motorista.desocupados_entre(data_partida + 4.days, data_chegada + 4.days)

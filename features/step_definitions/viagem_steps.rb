@@ -12,7 +12,7 @@ Dado /^que eu tenho outra viagem com o estado "([^\"]*)"$/ do |estado|
                                :objetivo_de_reserva_id => objetivo_de_reserva.id
   viagem = Factory.create :viagem,
                           :estado => estado,
-                          :motorista_id => motorista.id
+                          :motorista_ids => [motorista.id]
   viagem.requisicoes << @requisicao_viagem
 end
 
@@ -55,7 +55,7 @@ Dado /^que eu tenha uma viagem$/ do
                               :categoria_de_veiculo_id => categoria_de_veiculo.id,
                               :objetivo_de_reserva_id => objetivo_de_reserva.id
   @viagem = Factory.create :viagem,
-                           :motorista_id => motorista.id,
+                           :motorista_ids => [motorista.id],
                            :veiculo_id => veiculo.id,
                            :data_partida => requisicao.data_de_reserva,
                            :data_chegada => requisicao.data_de_reserva + 3.days
@@ -75,7 +75,7 @@ Dado /^que eu tenho uma viagem em "([^\"]*)" com data de partida "([^\"]*)"$/ do
                   :prefixo_id => prefixo.id
   motorista = Factory.create :motorista
   @viagem = Factory.create :viagem,
-                           :motorista_id => motorista.id,
+                           :motorista_ids => [motorista.id],
                            :veiculo_id => veiculo.id,
                            :data_partida => data,
                            :data_chegada => data + 1.days,
@@ -94,7 +94,7 @@ Dado /^que eu tenho uma viagem em "([^\"]*)" com data de chegada "([^\"]*)"$/ do
                   :prefixo_id => prefixo.id
   motorista = Factory.create :motorista
   @viagem = Factory.create :viagem,
-                           :motorista_id => motorista.id,
+                           :motorista_ids => [motorista.id],
                            :veiculo_id => veiculo.id,
                            :data_partida => data,
                            :data_chegada => data,
@@ -111,7 +111,7 @@ Dado /^que eu tenho uma viagem em "([^"]*)" com o motorista "([^"]*)"$/ do |esta
                   :combustivel_ids => [combustivel.id],
                   :prefixo_id => prefixo.id
   @viagem = Factory.create :viagem,
-                           :motorista_id => motorista.id,
+                           :motorista_ids => [motorista.id],
                            :veiculo_id => veiculo.id,
                            :data_partida => Date.today,
                            :data_chegada => Date.today,
@@ -121,7 +121,7 @@ end
 Dado /^que eu tenho uma viagem com esse veículo$/ do
   motorista = Factory.create :motorista
   @viagem = Factory.create :viagem,
-                           :motorista_id => motorista.id,
+                           :motorista_ids => [motorista.id],
                            :veiculo_id => @veiculo.id,
                            :data_partida => Date.today,
                            :data_chegada => Date.today
@@ -153,7 +153,7 @@ end
 
 Entao /^eu devo ter uma nova viagem$/ do
   motorista = Factory.create :motorista
-  viagem = Factory.create :viagem, :motorista_id => motorista.id
+  viagem = Factory.create :viagem, :motorista_ids => [motorista.id]
   Requisicao.update(@requisicao.id, :viagem_id => viagem.id)
   @requisicao.viagem = viagem
   @viagem_id = viagem.id + 1

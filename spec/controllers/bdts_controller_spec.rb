@@ -109,7 +109,7 @@ describe BdtsController do
         Bdt.should_receive(:find).with("37").and_return(mock_bdt)
         stub_viagem
         mock_bdt.should_receive(:atualizar).with({"these" => "params"}, {:veiculo_id => nil, :motorista_ids => [], :viagem_id => "1"})
-        put :update, :id => "37", :bdt => {"these" => "params"}, :veiculo => {}, :motorista => {}, :viagem_id => "1", :cidade_origem => {}, :cidade_destino => {}
+        put :update, :id => "37", :bdt => {"these" => "params"}, :veiculo => {}, :motoristas => {}, :viagem_id => "1", :cidade_origem => {}, :cidade_destino => {}
       end
 
       it "assigns the requested bdt as @bdt" do
@@ -129,21 +129,21 @@ describe BdtsController do
       it "updates the requested bdt" do
         Bdt.should_receive(:find).with("37").and_return(mock_bdt)
         stub_viagem
-        mock_bdt.should_receive(:atualizar).with({'these' => 'params'}, {:veiculo_id => nil, :motorista_ids => [], :viagem_id => "1"})
-        put :update, :id => "37", :bdt => {:these => 'params'}, :veiculo => {}, :motorista => {}, :viagem_id => "1", :cidade_origem => {}, :cidade_destino => {}
+        mock_bdt.should_receive(:atualizar).with({'these' => 'params'}, {:veiculo_id => nil, :motorista_ids => nil, :viagem_id => "1"})
+        put :update, :id => "37", :bdt => {:these => 'params'}, :veiculo => {}, :motorista_ids => {}, :viagem_id => "1", :cidade_origem => {}, :cidade_destino => {}
       end
 
       it "assigns the bdt as @bdt" do
         Bdt.stub(:find).and_return(mock_bdt(:atualizar => false))
         stub_viagem
-        put :update, :id => "1", :veiculo => { :id => nil }, :motorista => { :id => nil }, :viagem_id => "1", :cidade_origem => {}, :cidade_destino => {}
+        put :update, :id => "1", :veiculo => { :id => nil }, :motorista_ids => {}, :viagem_id => "1", :cidade_origem => {}, :cidade_destino => {}
         assigns[:bdt].should equal(mock_bdt)
       end
 
       it "re-renders the 'edit' template" do
         Bdt.stub(:find).and_return(mock_bdt(:atualizar => false))
         stub_viagem
-        put :update, :id => "1", :veiculo => { :id => nil }, :motorista => { :id => nil }, :viagem_id => "1", :cidade_origem => {}, :cidade_destino => {}
+        put :update, :id => "1", :veiculo => { :id => nil }, :motorista_ids => {}, :viagem_id => "1", :cidade_origem => {}, :cidade_destino => {}
         response.should render_template('edit')
       end
     end
