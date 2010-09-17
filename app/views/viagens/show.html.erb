@@ -31,9 +31,9 @@
 
 
   <div class="show_linha">
-    <div class="linha_titulo">Motorista: </div>
+    <div class="linha_titulo">Motoristas: </div>
     <div class="linha_texto">
-      <%=h @motoristas.collect(&:nome).to_sentence if @motoristas %>
+      <%=h @viagem.motoristas.collect(&:nome).to_sentence if @viagem.motoristas %>
     </div>
   </div>
 

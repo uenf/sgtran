@@ -180,7 +180,7 @@ class RequisicoesController < ApplicationController
 
     if params[:escolha_de_viagem].eql?("nova")
 
-      @viagem = Viagem.new :motorista_id => params[:motorista_id],
+      @viagem = Viagem.new :motorista_ids => params[:motorista_ids],
                           :veiculo_id => params[:veiculo_id],
                           :data_partida => data_nula(params[:data_saida]),
                           :data_chegada => data_nula(params[:data_chegada]),

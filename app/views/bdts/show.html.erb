@@ -18,8 +18,8 @@
   </div>
 
   <div class="show_linha">
-    <div class="linha_titulo">Condutor:</div>
-    <div class="linha_texto"><%=h @motoristas.collect(&:nome).to_sentence if @motoristas %></div>
+    <div class="linha_titulo">Condutores:</div>
+    <div class="linha_texto"><%=h @viagem.motoristas.collect(&:nome).to_sentence if @viagem.motoristas %></div>
   </div>
 
   <div class="show_linha">

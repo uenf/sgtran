@@ -15,7 +15,6 @@ class BdtsController < ApplicationController
     @bdt = Bdt.find(params[:id])
     @viagem = Viagem.find(@bdt.viagem_id)
     @requisicoes_ids = @viagem.requisicao_ids
-    @motoristas = @viagem.motoristas
     @veiculo = Veiculo.find(@viagem.veiculo_id)
   end
 
@@ -23,7 +22,6 @@ class BdtsController < ApplicationController
     @bdt = Bdt.new
     @viagem = Viagem.find(params[:id])
     @requisicoes_ids = @viagem.requisicao_ids
-    @motoristas = @viagem.motoristas
     @veiculo = Veiculo.find(@viagem.veiculo_id)
   end
 
@@ -31,7 +29,6 @@ class BdtsController < ApplicationController
     @bdt = Bdt.find(params[:id])
     @viagem = Viagem.find(@bdt.viagem_id)
     @requisicoes_ids = @viagem.requisicao_ids
-    @motorista = @viagem.motoristas
     @veiculo = Veiculo.find(@viagem.veiculo_id)
   end
 
@@ -39,8 +36,11 @@ class BdtsController < ApplicationController
     @bdt = Bdt.new(params[:bdt])
     @viagem = Viagem.find(params[:viagem_id])
     @requisicoes_ids = @viagem.requisicao_ids
+
+    puts params[:motorista]
+
     dados_viagem = {:veiculo_id => params[:veiculo][:id],
-                    :motorista_ids => params[:motorista][:ids],
+                    :motorista_ids => params[:motorista][:id],
                     :viagem_id => params[:viagem_id]}
 
     if @bdt.salvar dados_viagem
@@ -51,7 +51,6 @@ class BdtsController < ApplicationController
       redirect_to(@bdt)
     else
       @viagem = Viagem.find(dados_viagem[:viagem_id])
-      @motoristas = @viagem.motoristas
       @veiculo = Veiculo.find(@viagem.veiculo_id)
       render :action => "new"
     end
@@ -61,7 +60,7 @@ class BdtsController < ApplicationController
     @bdt = Bdt.find(params[:id])
 
     dados_viagem = {:veiculo_id => params[:veiculo][:id],
-                    :motorista_ids => params[:motorista][:ids],
+                    :motorista_ids => params[:motorista][:id],
                     :viagem_id => params[:viagem_id]}
 
     if @bdt.atualizar params[:bdt], dados_viagem
@@ -73,7 +72,6 @@ class BdtsController < ApplicationController
     else
       @viagem = Viagem.find(dados_viagem[:viagem_id])
       @requisicoes_ids = @viagem.requisicao_ids
-      @motorista = Motorista.find(@viagem.motorista_id)
       @veiculo = Veiculo.find(@viagem.veiculo_id)
       render :action => "edit"
     end

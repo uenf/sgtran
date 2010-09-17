@@ -21,7 +21,6 @@ class ViagensController < ApplicationController
 
   def show
     @viagem = Viagem.find(params[:id])
-    @motorista = @viagem.motoristas
     @veiculo = Veiculo.find(@viagem.veiculo_id) if not @viagem.veiculo_id.nil?
   end
 

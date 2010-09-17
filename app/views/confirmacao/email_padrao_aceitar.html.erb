@@ -14,10 +14,12 @@
     <br/>
     <p>
       <% viagem = Viagem.find(@requisicao.viagem_id) %>
-      <% if viagem.motorista_id %>
-        <% motorista = Motorista.find(viagem.motorista_id) %>
-        Motorista: <%=h motorista.nome %><br />
-        Telefone do motorista: <%=h motorista.telefone %>
+      <% if viagem.motoristas %>
+        Motorista(s): <%=h viagem.motoristas.collect(&:nome).to_sentence %><br />
+        Telefones:
+        <% viagem.motoristas.each do |motorista| %>
+          <%=h motorista.nome %> - <%=h motorista.telefone %><br />
+        <% end %>
       <% end %>
     </p>
     <p>

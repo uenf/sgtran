@@ -20,7 +20,7 @@ Funcionalidade: Aceitar requisição de viagem
       E eu preencho "Data de saída" com a data daqui a "<data de saída>" dias
       E eu preencho "Data de chegada" com a data daqui a "<data de chegada>" dias
       E eu seleciono "<horario>" no campo hora "Horário de saída"
-      E eu seleciono "<motorista_selecao>" em "Motorista"
+      E eu seleciono "<motorista_selecao>" em "Motoristas"
       E eu seleciono "<veiculo_selecao>" em "Veículo"
 
       E eu pressiono "Concluir"
@@ -28,7 +28,7 @@ Funcionalidade: Aceitar requisição de viagem
       Então eu devo ver "Data de saída: " com a data daqui a "<data de saída>" dias
       E eu devo ver "Data de chegada: " com a data daqui a "<data de chegada>" dias
       E eu devo ver "Horário de partida: <horario>"
-      E eu devo ver "Motorista: <motorista_visao>"
+      E eu devo ver "Motoristas: <motorista_visao>"
       E eu devo ver "Veículo: <veiculo_visao>"
       E eu devo ver "Estado: Aguardando"
 
@@ -88,7 +88,7 @@ Funcionalidade: Aceitar requisição de viagem
       E eu preencho "Data de saída" com a data daqui a "0" dias
       E eu preencho "Data de chegada" com a data daqui a "2" dias
       E eu pressiono "Concluir"
-      Então eu devo ver "Motorista não pode ser vazio"
+      Então eu devo ver "Motoristas não pode ser vazio"
 
     Cenário: Aceitar uma requisição com uma viagem em estado Aguardando
       Dado que eu tenho uma requisição com estado "Em Espera" e id "25"

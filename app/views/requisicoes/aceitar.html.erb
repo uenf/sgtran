@@ -52,7 +52,7 @@
           <%= observe_field :viagem_data_de_saida,
                             :url => { :controller => :requisicoes,
                               :action => :opcoes_motoristas },
-                            :update => :motorista_id,
+                            :update => :motorista_ids,
                             :with => "'data_partida=' + document.getElementById('viagem_data_de_saida').value + '&data_chegada=' + document.getElementById('viagem_data_de_chegada').value"
                             %>
 
@@ -75,7 +75,7 @@
           <%= observe_field :viagem_data_de_chegada,
                             :url => { :controller => :requisicoes,
                               :action => :opcoes_motoristas },
-                            :update => :motorista_id,
+                            :update => :motorista_ids,
                             :with => "'data_partida=' + document.getElementById('viagem_data_de_saida').value + '&data_chegada=' + document.getElementById('viagem_data_de_chegada').value"
                             %>
 
@@ -90,9 +90,9 @@
           <%= time_select :horario, :partida, {:minute_step => 5, :prompt => "-", :ignore_date => true}%>
           <br class="pular_linha"/>
 
-          <label for="motorista_id" class ="label_obrigatorio">Motorista:</label>
-          <select name="motorista_id" id="motorista_id">
-            <%= grouped_options_for_select(@lista_motoristas, "", "Selecione um motorista") %>
+          <label for="motorista_ids" class ="label_obrigatorio">Motoristas:</label>
+          <select name="motorista_ids" id="motorista_ids">
+            <%= grouped_options_for_select(@lista_motoristas, "", "Selecione os motoristas") %>
           </select>
           <br class="pular_linha"/>
 
@@ -128,7 +128,7 @@
             <td><%=h (viagem.data_partida.strftime("%d/%m/%Y")) if viagem.data_partida %></td>
             <td><%=h (viagem.data_chegada.strftime("%d/%m/%Y")) if viagem.data_chegada %></td>
             <td><%=h (viagem.horario_partida.strftime("%H : %M")) if (viagem.horario_partida) %></td>
-            <td><%=h (viagem.motorista.nome) if viagem.motorista  %></td>
+            <td><%=h (viagem.motoristas.collect(&:nome)).to_sentence if viagem.motoristas  %></td>
             <td>
               <%=h CategoriaDeVeiculo.find(veiculo.categoria_de_veiculo_id).nome +
                 " - " + veiculo.modelo + " - " + veiculo.placa if veiculo%>

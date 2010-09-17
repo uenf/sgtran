@@ -152,6 +152,8 @@ pt-BR:
         data_recolhimento: "Data de recolhimento"
         horario_recolhimento: "Horário de recolhimento"
         odometro_recolhimento: "Odômetro de recolhimento"
+      viagem:
+        motorista_ids: 'Motoristas'
 
   authlogic:
     error_messages:

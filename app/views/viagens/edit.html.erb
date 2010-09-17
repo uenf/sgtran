@@ -23,7 +23,7 @@
     <%= observe_field :viagem_data_partida,
                       :url => { :controller => :viagens,
                         :action => :opcoes_motoristas },
-                      :update => :motorista_id,
+                      :update => :motorista_ids,
                       :with => "'data_partida=' + document.getElementById('viagem_data_partida').value + '&data_chegada=' + document.getElementById('viagem_data_chegada').value"
                       %>
 
@@ -49,7 +49,7 @@
     <%= observe_field :viagem_data_chegada,
                       :url => { :controller => :viagens,
                         :action => :opcoes_motoristas },
-                      :update => :motorista_id,
+                      :update => :motorista_ids,
                       :with => "'data_partida=' + document.getElementById('viagem_data_partida').value + '&data_chegada=' + document.getElementById('viagem_data_chegada').value"
                       %>
 
@@ -69,10 +69,10 @@
 
     <div class="show_linha">
       <div class="linha_titulo">
-        <%= f.label :motorista_id, "Motorista:", :class => "label_obrigatorio"%>
+        <%= f.label :motorista_ids, "Motoristas:", :class => "label_obrigatorio"%>
       </div>
-      <select name="viagem[motorista_id]" id="viagem_motorista_id">
-        <%= grouped_options_for_select(@lista_motoristas, @viagem.motorista_id, "Selecione um motorista") %>
+      <select name="viagem[motorista_ids]" id="viagem_motorista_ids">
+        <%= grouped_options_for_select(@lista_motoristas, @viagem.motorista_ids, "Selecione os motoristas") %>
       </select>
     </div>
 

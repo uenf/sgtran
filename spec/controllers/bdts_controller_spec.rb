@@ -95,7 +95,7 @@ describe BdtsController do
       it "re-renders the 'new' template" do
         Bdt.stub(:new).and_return(mock_bdt(:salvar => false))
         stub_viagem
-        post :create, :bdt => {}, :veiculo => {}, :motoristas => {}, :viagem_id => "1"
+        post :create, :bdt => {}, :veiculo => {}, :viagem_id => "1"
         response.should render_template('new')
       end
     end
