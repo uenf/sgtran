@@ -37,8 +37,6 @@ class BdtsController < ApplicationController
     @viagem = Viagem.find(params[:viagem_id])
     @requisicoes_ids = @viagem.requisicao_ids
 
-    puts params[:motorista]
-
     dados_viagem = {:veiculo_id => params[:veiculo][:id],
                     :motorista_ids => params[:motorista][:id],
                     :viagem_id => params[:viagem_id]}
