@@ -28,16 +28,16 @@ ActiveRecord::Schema.define(:version => 20101022184205) do
   create_table "categoria_de_veiculos", :force => true do |t|
     t.string   "nome"
     t.integer  "veiculo_id"
+    t.string   "status",     :default => "Ativo"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "status",     :limit => 100, :default => "Ativo"
   end
 
   create_table "centros", :force => true do |t|
     t.string   "nome"
+    t.string   "status",     :default => "Ativo"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "status",     :limit => 100, :default => "Ativo"
   end
 
   create_table "cidades", :force => true do |t|
@@ -71,21 +71,21 @@ ActiveRecord::Schema.define(:version => 20101022184205) do
 
   create_table "motivos", :force => true do |t|
     t.string   "descricao"
+    t.string   "status",     :default => "Ativo"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "status",     :limit => 100, :default => "Ativo"
   end
 
   create_table "motoristas", :force => true do |t|
     t.string   "matricula"
     t.string   "nome"
     t.string   "telefone"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "habilitacao"
     t.date     "vencimento_habilitacao"
-    t.string   "status",                 :limit => 100, :default => "Ativo"
-    t.boolean  "avisado",                               :default => false
+    t.string   "status",                 :default => "Ativo"
+    t.boolean  "avisado",                :default => true
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "motoristas_viagens", :id => false, :force => true do |t|
@@ -95,9 +95,9 @@ ActiveRecord::Schema.define(:version => 20101022184205) do
 
   create_table "objetivos_de_reserva", :force => true do |t|
     t.string   "texto"
+    t.string   "status",     :default => "Ativo"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "status",     :limit => 100, :default => "Ativo"
   end
 
   create_table "prefixos", :force => true do |t|
@@ -118,6 +118,8 @@ ActiveRecord::Schema.define(:version => 20101022184205) do
     t.text     "nome_telefone_passageiros"
     t.text     "roteiro_da_agenda"
     t.text     "observacao"
+    t.integer  "local_origem_id"
+    t.integer  "local_destino_id"
     t.string   "estado",                    :default => "Espera"
     t.string   "chave_de_seguranca"
     t.integer  "motivo_id"
@@ -127,8 +129,6 @@ ActiveRecord::Schema.define(:version => 20101022184205) do
     t.string   "referencia_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "local_origem_id"
-    t.integer  "local_destino_id"
   end
 
   create_table "roles", :force => true do |t|
@@ -154,9 +154,9 @@ ActiveRecord::Schema.define(:version => 20101022184205) do
     t.string   "matricula"
     t.string   "telefone_ou_ramal"
     t.string   "laboratorio_ou_setor"
+    t.string   "status",               :default => "Ativo"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "status",               :limit => 100, :default => "Ativo"
   end
 
   create_table "usuario_sessions", :force => true do |t|
@@ -185,11 +185,11 @@ ActiveRecord::Schema.define(:version => 20101022184205) do
     t.string   "placa"
     t.string   "numero_de_ordem"
     t.string   "renavam"
+    t.string   "status",                  :default => "Ativo"
     t.integer  "categoria_de_veiculo_id"
+    t.integer  "prefixo_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "status",                  :limit => 100, :default => "Ativo"
-    t.integer  "prefixo_id"
   end
 
   create_table "viagens", :force => true do |t|

@@ -14,7 +14,7 @@ Para que eu possa ter uma visão mais personalizada
     E eu pressiono "OK"
     Então eu devo estar na página de filtragem de viagens
     E eu devo ver a tabela "viagens" com
-      | Estado     | Data de partida   | Data de chegada   | Horário de partida | Solicitantes | Motorista       | Veículo | Requisição(s) atendida(s) |
+      | Estado     | Data de partida   | Data de chegada   | Horário de partida | Solicitantes | Motoristas      | Veículo | Requisição(s) atendida(s) |
       | Aguardando | Daqui a dois dias | Daqui a dois dias |                    | Fulano       | Gustavo Ribeiro |         | ID                        |
 
 
@@ -27,7 +27,7 @@ Para que eu possa ter uma visão mais personalizada
     E eu pressiono "OK"
     Então eu devo estar na página de filtragem de viagens
     E eu devo ver a tabela "viagens" com
-      | Estado    | Data de partida   | Data de chegada   | Horário de partida | Solicitantes | Motorista       | Veículo | Requisição(s) atendida(s) |
+      | Estado    | Data de partida   | Data de chegada   | Horário de partida | Solicitantes | Motoristas      | Veículo | Requisição(s) atendida(s) |
       | Cancelada | Daqui a dois dias | Daqui a dois dias |                    | Fulano       | Gustavo Ribeiro |         | ID                        |
 
 
@@ -40,6 +40,6 @@ Para que eu possa ter uma visão mais personalizada
     E eu pressiono "OK"
     Então eu devo estar na página de filtragem de viagens
     E eu devo ver a tabela "viagens" com
-      | Estado   | Data de partida   | Data de chegada   | Horário de partida | Solicitantes | Motorista       | Veículo | Requisição(s) atendida(s) |
+      | Estado   | Data de partida   | Data de chegada   | Horário de partida | Solicitantes | Motoristas      | Veículo | Requisição(s) atendida(s) |
       | Atendida | Daqui a dois dias | Daqui a dois dias |                    | Fulano       | Gustavo Ribeiro |         | ID                        |
 
