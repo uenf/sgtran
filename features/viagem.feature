@@ -17,14 +17,14 @@ Para que eu possa mudar seus dados de acordo com a dinâmica do trabalho
     Quando eu preencho "Data de saída:" com a data daqui a "<data de saída>" dias
     E eu preencho "Data de chegada:" com a data daqui a "<data de chegada>" dias
     E eu seleciono "<horario>" no campo hora "Horário de saída:"
-    E eu seleciono "<motorista>" em "Motorista:"
+    E eu seleciono "<motorista>" em "Motoristas:"
     E eu seleciono "<veiculo>" em "Veículo:"
     E eu pressiono "Atualizar"
 
     Então eu devo ver "<sentença>"
     E eu devo ver "Data de chegada: " com a data daqui a "<data de chegada>" dias
     E eu devo ver "Horário de partida: <horario>"
-    E eu devo ver "Motorista: <motorista>"
+    E eu devo ver "Motoristas: <motorista>"
     E eu devo ver "Veículo: <veiculo>"
     E eu devo ver "Estado: Aguardando"
 
@@ -36,6 +36,7 @@ Para que eu possa mudar seus dados de acordo com a dinâmica do trabalho
         | data de saída | data de chegada | horario | motorista      | veiculo                                      | sentença                       |
         | -1            | -1              | 13:00   | Gustavo Santos | Gol - KQI 5899 - Automóvel até 4 passageiros | Viagem atualizada com sucesso! |
 
+   @now
   Esquema do Cenário: Fechar uma viagem com estado Aguardando e com requisição em estado Cancelada
     Dado que eu tenho uma requisição com estado "Aceita" e id "15"
     E que eu tenho uma viagem com o estado "Aguardando"
@@ -48,7 +49,7 @@ Para que eu possa mudar seus dados de acordo com a dinâmica do trabalho
     Quando eu clico em "Fechar viagem"
     Então eu devo estar na página de criação do BDT
     E eu devo ver "Corsa - LCD-6969" selecionado em "Veículo"
-    E eu devo ver "Gustavo Ribeiro" selecionado em "Condutor"
+    E eu devo ver "Gustavo Ribeiro" selecionado em "Condutores"
     E que eu tenho uma requisição com estado "<Estado>" e id "17"
     E que a requisição esteja ligada à viagem
     E que eu estou na página de visualização da viagem

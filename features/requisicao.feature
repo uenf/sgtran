@@ -155,7 +155,7 @@ Funcionalidade: Solicitar viagem
     Quando eu clico em "Alterar viagem"
     Então eu devo estar na página de aceitar a requisição
     Quando eu marco o radiobutton "escolha_de_viagem_nova"
-    E eu seleciono "Gustavo Santos" em "Motorista"
+    E eu seleciono "Gustavo Santos" em "Motoristas"
     E eu seleciono "Gol - KQI 5899 - Automóvel até 4 passageiros" em "Veículo"
     E eu pressiono "Concluir"
     Então a requisição deve estar ligada à última viagem
@@ -173,7 +173,7 @@ Funcionalidade: Solicitar viagem
     Quando eu clico em "Alterar viagem"
     Então eu devo estar na página de aceitar a requisição
     Quando eu marco o radiobutton "escolha_de_viagem_nova"
-    E eu seleciono "Gustavo Santos" em "Motorista"
+    E eu seleciono "Gustavo Santos" em "Motoristas"
     E eu seleciono "Gol - KQI 5899 - Automóvel até 4 passageiros" em "Veículo"
     E eu pressiono "Concluir"
     Então a requisição deve estar ligada à última viagem
