@@ -5,15 +5,14 @@ Funcionalidade: Fechar viagem com o BDT
     Eu quero fechar uma viagem com o BDT
     Para que eu finalizar o ciclo de uma ou mais requisições, e com esses dados fazer relatórios mais completos
 
-    @now
   Esquema do Cenário: Fechar uma viagem com o BDT
-    E que eu tenho uma requisição com estado "Aceita" e id "15"
+    Dado que eu tenho uma requisição com estado "Aceita" e id "15"
     E que eu tenho uma viagem com o estado "Aguardando"
+    E que a requisição esteja ligada à viagem
     E que eu tenho um veículo de modelo "Corsa" e placa "LCD-6969"
     E que este veiculo esteja ligado à viagem
     E que eu tenho um motorista com nome "Gustavo Ribeiro"
     E que este motorista esteja ligado à viagem
-    E que a requisição esteja ligada à viagem
     E que eu estou na página de visualização da viagem
 #    E que eu tenho a cidade "Campos dos Goytacazes" do "RJ"
 #    E que eu tenho a cidade "Rio de Janeiro" do "RJ"
