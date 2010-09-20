@@ -1,4 +1,4 @@
-<%= javascript_include_tag :defaults %>
+<%= javascript_include_tag 'prototype' %>
 <%= javascript_include_tag "viagem_nova_existente.js" %>
 <%= calendar_date_select_includes "silver", :locale => "pt"%>
 <%= javascript_include_tag "calendar_date_select/format_italian" %>
@@ -53,14 +53,16 @@
                             :url => { :controller => :requisicoes,
                               :action => :opcoes_motoristas },
                             :update => :motorista_ids,
-                            :with => "'data_partida=' + document.getElementById('viagem_data_de_saida').value + '&data_chegada=' + document.getElementById('viagem_data_de_chegada').value"
+                            :with => "'data_partida=' + document.getElementById('viagem_data_de_saida').value + '&data_chegada=' + document.getElementById('viagem_data_de_chegada').value",
+                            :frequency => 0.1
                             %>
 
           <%= observe_field :viagem_data_de_saida,
                             :url => { :controller => :requisicoes,
                               :action => :opcoes_veiculos },
                             :update => :veiculo_id,
-                            :with => "'data_partida=' + document.getElementById('viagem_data_de_saida').value + '&data_chegada=' + document.getElementById('viagem_data_de_chegada').value + '&categoria_de_veiculo_id=' + '#{@requisicao.categoria_de_veiculo_id}'"
+                            :with => "'data_partida=' + document.getElementById('viagem_data_de_saida').value + '&data_chegada=' + document.getElementById('viagem_data_de_chegada').value + '&categoria_de_veiculo_id=' + '#{@requisicao.categoria_de_veiculo_id}'",
+                            :frequency => 0.1
                             %>
 
           <label for="viagem_data_de_chegada">Data de chegada:</label>
@@ -76,14 +78,16 @@
                             :url => { :controller => :requisicoes,
                               :action => :opcoes_motoristas },
                             :update => :motorista_ids,
-                            :with => "'data_partida=' + document.getElementById('viagem_data_de_saida').value + '&data_chegada=' + document.getElementById('viagem_data_de_chegada').value"
+                            :with => "'data_partida=' + document.getElementById('viagem_data_de_saida').value + '&data_chegada=' + document.getElementById('viagem_data_de_chegada').value",
+                            :frequency => 0.1
                             %>
 
           <%= observe_field :viagem_data_de_chegada,
                             :url => { :controller => :requisicoes,
                               :action => :opcoes_veiculos },
                             :update => :veiculo_id,
-                            :with => "'data_partida=' + document.getElementById('viagem_data_de_saida').value + '&data_chegada=' + document.getElementById('viagem_data_de_chegada').value + '&categoria_de_veiculo_id=' + '#{@requisicao.categoria_de_veiculo_id}'"
+                            :with => "'data_partida=' + document.getElementById('viagem_data_de_saida').value + '&data_chegada=' + document.getElementById('viagem_data_de_chegada').value + '&categoria_de_veiculo_id=' + '#{@requisicao.categoria_de_veiculo_id}'",
+                            :frequency => 0.1
                             %>
 
           <label for="horario_partida">Hor&aacute;rio de sa&iacute;da:</label>
@@ -124,16 +128,16 @@
 
         <% @viagens.each do |viagem|%>
           <% (veiculo = Veiculo.find(viagem.veiculo_id)) if viagem.veiculo_id%>
-          <tr onmouseover="this.style.cursor='pointer'" onclick="location.href='<%= viagem_path(viagem) %>'">
-            <td><%=h (viagem.data_partida.strftime("%d/%m/%Y")) if viagem.data_partida %></td>
-            <td><%=h (viagem.data_chegada.strftime("%d/%m/%Y")) if viagem.data_chegada %></td>
-            <td><%=h (viagem.horario_partida.strftime("%H : %M")) if (viagem.horario_partida) %></td>
-            <td><%=h (viagem.motoristas.collect(&:nome)).to_sentence if viagem.motoristas  %></td>
-            <td>
+          <tr onmouseover="this.style.cursor='pointer'">
+            <td onclick="location.href='<%= viagem_path(viagem) %>'"><%=h (viagem.data_partida.strftime("%d/%m/%Y")) if viagem.data_partida %></td>
+            <td onclick="location.href='<%= viagem_path(viagem) %>'"><%=h (viagem.data_chegada.strftime("%d/%m/%Y")) if viagem.data_chegada %></td>
+            <td onclick="location.href='<%= viagem_path(viagem) %>'"><%=h (viagem.horario_partida.strftime("%H : %M")) if (viagem.horario_partida) %></td>
+            <td onclick="location.href='<%= viagem_path(viagem) %>'"><%=h (viagem.motoristas.collect(&:nome)).to_sentence if viagem.motoristas  %></td>
+            <td onclick="location.href='<%= viagem_path(viagem) %>'">
               <%=h CategoriaDeVeiculo.find(veiculo.categoria_de_veiculo_id).nome +
                 " - " + veiculo.modelo + " - " + veiculo.placa if veiculo%>
             </td>
-            <td><%=h viagem.requisicoes_atendidas.to_sentence %></td>
+            <td onclick="location.href='<%= viagem_path(viagem) %>'"><%=h viagem.requisicoes_atendidas.to_sentence %></td>
             <td><%= radio_button_tag :id_da_viagem, viagem.id, false%></td>
           </tr>
 

@@ -24,14 +24,16 @@
                       :url => { :controller => :viagens,
                         :action => :opcoes_motoristas },
                       :update => :motorista_ids,
-                      :with => "'data_partida=' + document.getElementById('viagem_data_partida').value + '&data_chegada=' + document.getElementById('viagem_data_chegada').value"
+                      :with => "'data_partida=' + document.getElementById('viagem_data_partida').value + '&data_chegada=' + document.getElementById('viagem_data_chegada').value",
+                      :frequency => 0.1
                       %>
 
     <%= observe_field :viagem_data_partida,
                       :url => { :controller => :viagens,
                         :action => :opcoes_veiculos },
                       :update => :veiculo_id,
-                      :with => "'data_partida=' + document.getElementById('viagem_data_partida').value + '&data_chegada=' + document.getElementById('viagem_data_chegada').value + '&categoria_de_veiculo_id=' + '#{@categoria_de_veiculo_id}'"
+                      :with => "'data_partida=' + document.getElementById('viagem_data_partida').value + '&data_chegada=' + document.getElementById('viagem_data_chegada').value + '&categoria_de_veiculo_id=' + '#{@categoria_de_veiculo_id}'",
+                      :frequency => 0.1
                       %>
 
     <div class="show_linha">
@@ -50,14 +52,16 @@
                       :url => { :controller => :viagens,
                         :action => :opcoes_motoristas },
                       :update => :motorista_ids,
-                      :with => "'data_partida=' + document.getElementById('viagem_data_partida').value + '&data_chegada=' + document.getElementById('viagem_data_chegada').value"
+                      :with => "'data_partida=' + document.getElementById('viagem_data_partida').value + '&data_chegada=' + document.getElementById('viagem_data_chegada').value",
+                      :frequency => 0.1
                       %>
 
     <%= observe_field :viagem_data_chegada,
                       :url => { :controller => :viagens,
                         :action => :opcoes_veiculos },
                       :update => :veiculo_id,
-                      :with => "'data_partida=' + document.getElementById('viagem_data_partida').value + '&data_chegada=' + document.getElementById('viagem_data_chegada').value + '&categoria_de_veiculo_id=' + '#{@categoria_de_veiculo_id}'"
+                      :with => "'data_partida=' + document.getElementById('viagem_data_partida').value + '&data_chegada=' + document.getElementById('viagem_data_chegada').value + '&categoria_de_veiculo_id=' + '#{@categoria_de_veiculo_id}'",
+                      :frequency => 0.1
                       %>
 
     <div class="show_linha">

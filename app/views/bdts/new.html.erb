@@ -144,7 +144,8 @@
           <%= observe_field "estado_origem_#{@id}",
                             :update => "origem_req_#{@id}",
                             :url => {:action => :carregar_cidades_origem},
-                            :with => "'estado_id='+value + '&requisicao_id='+#{@id}" %>
+                            :with => "'estado_id='+value + '&requisicao_id='+#{@id}",
+                            :frequency => 0.1 %>
 
 
         <div class="show_linha">
@@ -163,7 +164,8 @@
         <%= observe_field "estado_destino_#{@id}",
                           :update => "destino_req_#{@id}",
                           :url => {:action => :carregar_cidades_destino},
-                          :with => "'estado_id='+value + '&requisicao_id='+#{@id}" %>
+                          :with => "'estado_id='+value + '&requisicao_id='+#{@id}",
+                          :frequency => 0.1 %>
 
       </fieldset>
     <% end %>
