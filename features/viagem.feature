@@ -36,7 +36,6 @@ Para que eu possa mudar seus dados de acordo com a dinâmica do trabalho
         | data de saída | data de chegada | horario | motorista      | veiculo                                      | sentença                       |
         | -1            | -1              | 13:00   | Gustavo Santos | Gol - KQI 5899 - Automóvel até 4 passageiros | Viagem atualizada com sucesso! |
 
-   @now
   Esquema do Cenário: Fechar uma viagem com estado Aguardando e com requisição em estado Cancelada
     Dado que eu tenho uma requisição com estado "Aceita" e id "15"
     E que eu tenho uma viagem com o estado "Aguardando"

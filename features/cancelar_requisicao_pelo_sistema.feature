@@ -19,7 +19,6 @@ Funcionalidade: Cancelar uma requisição pelo sistema
     E a requisição não deve estar ligada a uma viagem
     E eu devo ter 0 viagens
 
-  @now
   Cenário: Viagem com mais de uma requisição e uma requisição é cancelada
     Dado que eu tenho uma requisição com estado "Aceita" e id "25"
     E que eu tenho uma viagem com o estado "Aguardando"

@@ -34,7 +34,6 @@ Funcionalidade: Cancelar viagem
     Quando eu vou para "página de cancelamento de requisição"
     Então eu devo ver "Esta requisição já foi cancelada."
 
-  @now
   Cenário: Excluir a viagem caso a requisição cancelada seja a última
     Dado que eu tenho uma requisição com estado "Aceita" e id "25"
     E que eu tenho uma viagem com o estado "Aguardando"
