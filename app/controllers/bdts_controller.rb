@@ -48,7 +48,7 @@ class BdtsController < ApplicationController
       flash[:sucesso] = 'Bdt criado com sucesso.'
       redirect_to(@bdt)
     else
-      @viagem = Viagem.find(dados_viagem[:viagem_id])
+#      @viagem = Viagem.find(dados_viagem[:viagem_id])
       @veiculo = Veiculo.find(@viagem.veiculo_id)
       render :action => "new"
     end

@@ -33,6 +33,7 @@ Rails::Initializer.run do |config|
   config.gem "mysql"
   config.gem "factory_girl"
   config.gem "will_paginate", :version => '~> 2.3.11', :source => 'http://gemcutter.org'
+  config.gem 'i18n', :version => "0.3.7"
 
 
 
