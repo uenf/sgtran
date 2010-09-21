@@ -6,37 +6,23 @@ Como um administrador
 Eu quero editar uma viagem
 Para que eu possa mudar seus dados de acordo com a dinâmica do trabalho
 
-  Esquema do Cenário: Editar viagem
+  Cenário: Editar viagem com mais de um motorista
     Dado que eu tenho uma requisição com estado "Aceita" e id "25"
     E que eu tenho uma viagem com o estado "Aguardando"
+    # Essa viagem já tem o motorista Gustavo Ribeiro
     E que a requisição esteja ligada à viagem
-    E que eu tenho um motorista com nome "Gustavo Santos"
-    E que eu tenha um veículo da categoria "Automóvel até 4 passageiros", modelo "Gol" e placa "KQI 5899"
+    E que eu tenho um motorista com nome "Eduardo Silva"
+    E que este motorista esteja ligado à viagem
+    E que eu tenho um motorista com nome "Pedro Correia"
+    E que este motorista esteja ligado à viagem
     E que eu estou na página de edição de viagem
-
-    Quando eu preencho "Data de saída:" com a data daqui a "<data de saída>" dias
-    E eu preencho "Data de chegada:" com a data daqui a "<data de chegada>" dias
-    E eu seleciono "<horario>" no campo hora "Horário de saída:"
-    E eu seleciono "<motorista>" em "Motoristas:"
-    E eu seleciono "<veiculo>" em "Veículo:"
+    Quando eu seleciono "Eduardo Silva" em "Motoristas:"
+    E eu seleciono "Pedro Correia" em "Motoristas:"
     E eu pressiono "Atualizar"
-
-    Então eu devo ver "<sentença>"
-    E eu devo ver "Data de chegada: " com a data daqui a "<data de chegada>" dias
-    E eu devo ver "Horário de partida: <horario>"
-    E eu devo ver "Motoristas: <motorista>"
-    E eu devo ver "Veículo: <veiculo>"
+    Então eu devo ver "Viagem atualizada com sucesso!"
+    E eu devo ver "Motoristas: Gustavo Ribeiro, Eduardo Silva e Pedro Correia"
     E eu devo ver "Estado: Aguardando"
 
-    Exemplos: (Campos válidos)
-        | data de saída | data de chegada | horario | motorista      | veiculo                                      | sentença                       |
-        | 1             | 3               | 11:25   | Gustavo Santos | Gol - KQI 5899 - Automóvel até 4 passageiros | Viagem atualizada com sucesso! |
-
-    Exemplos: (Campos inválidos)
-        | data de saída | data de chegada | horario | motorista      | veiculo                                      | sentença                       |
-        | -1            | -1              | 13:00   | Gustavo Santos | Gol - KQI 5899 - Automóvel até 4 passageiros | Viagem atualizada com sucesso! |
-
-  @now
   Esquema do Cenário: Fechar uma viagem com estado Aguardando e com requisição em estado Cancelada
     Dado que eu tenho uma requisição com estado "Aceita" e id "15"
     E que eu tenho uma viagem com o estado "Aguardando"

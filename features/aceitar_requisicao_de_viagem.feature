@@ -20,7 +20,7 @@ Funcionalidade: Aceitar requisição de viagem
       E eu preencho "Data de saída" com a data daqui a "<data de saída>" dias
       E eu preencho "Data de chegada" com a data daqui a "<data de chegada>" dias
       E eu seleciono "<horario>" no campo hora "Horário de saída"
-      E eu seleciono "<motorista_selecao>" em "Motoristas"
+      E eu seleciono "Gustavo Santos" em "Motoristas"
       E eu seleciono "<veiculo_selecao>" em "Veículo"
 
       E eu pressiono "Concluir"
@@ -28,19 +28,34 @@ Funcionalidade: Aceitar requisição de viagem
       Então eu devo ver "Data de saída: " com a data daqui a "<data de saída>" dias
       E eu devo ver "Data de chegada: " com a data daqui a "<data de chegada>" dias
       E eu devo ver "Horário de partida: <horario>"
-      E eu devo ver "Motoristas: <motorista_visao>"
+      E eu devo ver "Motoristas: Gustavo Santos"
       E eu devo ver "Veículo: <veiculo_visao>"
       E eu devo ver "Estado: Aguardando"
 
         Exemplos: (preenchimento dos dados da viagem)
 
-        | data de saída | data de chegada | horario | motorista_selecao | motorista_visao | veiculo_selecao                              | veiculo_visao                                |
-        | 0             | 2               | 13:00   | Gustavo Santos    | Gustavo Santos  | Gol - KQI 5899 - Automóvel até 4 passageiros | Gol - KQI 5899 - Automóvel até 4 passageiros |
-        | 2             | 2               | 13:00   | Gustavo Santos    | Gustavo Santos  | Gol - KQI 5899 - Automóvel até 4 passageiros | Gol - KQI 5899 - Automóvel até 4 passageiros |
-        | 0             | 0               | 10:00   | Gustavo Santos    | Gustavo Santos  | Gol - KQI 5899 - Automóvel até 4 passageiros | Gol - KQI 5899 - Automóvel até 4 passageiros |
-        | 0             | 0               | 10:00   | Gustavo Santos    | Gustavo Santos  | Selecione um veículo                         |                                              |
-        | 0             | 0               | 10:00   | Gustavo Santos    | Gustavo Santos  | Gol - KQI 5899 - Automóvel até 4 passageiros | Gol - KQI 5899 - Automóvel até 4 passageiros |
+        | data de saída | data de chegada | horario | veiculo_selecao                              | veiculo_visao                                |
+        | 0             | 2               | 13:00   | Gol - KQI 5899 - Automóvel até 4 passageiros | Gol - KQI 5899 - Automóvel até 4 passageiros |
+        | 2             | 2               | 13:00   | Gol - KQI 5899 - Automóvel até 4 passageiros | Gol - KQI 5899 - Automóvel até 4 passageiros |
+        | 0             | 0               | 10:00   | Gol - KQI 5899 - Automóvel até 4 passageiros | Gol - KQI 5899 - Automóvel até 4 passageiros |
+        | 0             | 0               | 10:00   | Selecione um veículo                         |                                              |
 
+    Cenário: Aceitar requisição com uma nova viagem e mais de um motorista
+      Dado que eu tenho uma requisição com estado "Em Espera" e id "25"
+      E que eu tenho um motorista com nome "Gustavo Santos"
+      E que eu tenho um motorista com nome "Eduardo Silva"
+      E que eu tenho um motorista com nome "Pedro Correia"
+      E que eu estou na página de detalhes da requisição
+      Quando eu clico em "Aceitar"
+      Então eu devo estar na página de aceitar requisição
+      Quando eu escolho "Nova"
+      E eu preencho "Data de saída" com a data daqui a "0" dias
+      E eu preencho "Data de chegada" com a data daqui a "5" dias
+      E eu seleciono "Gustavo Santos" em "Motoristas"
+      E eu seleciono "Eduardo Silva" em "Motoristas"
+      E eu seleciono "Pedro Correia" em "Motoristas"
+      E eu pressiono "Concluir"
+      Então eu devo ver "Motoristas: Gustavo Santos, Eduardo Silva e Pedro Correia"
 
     Esquema do Cenário: Aceitar com uma viagem já existente
       Dado que eu tenho uma requisição com estado "Em Espera" e id "25"

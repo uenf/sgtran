@@ -73,19 +73,19 @@
 
     <div class="show_linha">
       <div class="linha_titulo">
-        <%= f.label :motorista_ids, "Motoristas:", :class => "label_obrigatorio"%>
+        <%= f.label :veiculo_id, "Ve&iacute;culo:" %>
       </div>
-      <select name="viagem[motorista_ids]" id="viagem_motorista_ids">
-        <%= grouped_options_for_select(@lista_motoristas, @viagem.motorista_ids, "Selecione os motoristas") %>
+      <select name="viagem[veiculo_id]" id="viagem_veiculo_id">
+        <%= grouped_options_for_select(@lista_veiculos, @viagem.veiculo_id, "Selecione um ve&iacute;culo") %>
       </select>
     </div>
 
     <div class="show_linha">
       <div class="linha_titulo">
-        <%= f.label :veiculo_id, "Ve&iacute;culo:" %>
+        <%= f.label :motorista_ids, "Motoristas:", :class => "label_obrigatorio"%>
       </div>
-      <select name="viagem[veiculo_id]" id="viagem_veiculo_id">
-        <%= grouped_options_for_select(@lista_veiculos, @viagem.veiculo_id, "Selecione um ve&iacute;culo") %>
+      <select name="viagem[motorista_ids][]" id="viagem_motorista_ids" multiple="multiple" size="5">
+        <%= grouped_options_for_select(@lista_motoristas, @viagem.motorista_ids) %>
       </select>
     </div>
 

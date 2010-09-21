@@ -35,9 +35,15 @@
         <%= label_tag :motorista_id, "Condutores", :class => "label_obrigatorio" %>
       </div>
       <div class="linha_texto_neutro">
-        <%= collection_select :motorista, :id, Motorista.all, :id, :nome,
-                              {:prompt => "Selecione os condutores"},
-                              {:multiple => "multiple", :size => 8} %>
+        <select name="motorista[id][]" multiple="multiple" size="5" id="motorista_id">
+          <% Motorista.all.each do |m| %>
+            <% if @viagem.motorista_ids.include? m.id %>
+              <option selected="selected" value="<%= m.id %>"><%= m.nome %></option>
+            <% else %>
+              <option value="<%= m.id %>"><%= m.nome %></option>
+            <% end %>
+          <% end %>
+        </select>
       </div>
     </div>
 

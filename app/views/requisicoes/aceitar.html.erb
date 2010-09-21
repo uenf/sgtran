@@ -94,18 +94,18 @@
           <%= time_select :horario, :partida, {:minute_step => 5, :prompt => "-", :ignore_date => true}%>
           <br class="pular_linha"/>
 
-          <label for="motorista_ids" class ="label_obrigatorio">Motoristas:</label>
-          <select name="motorista_ids" id="motorista_ids">
-            <%= grouped_options_for_select(@lista_motoristas, "", "Selecione os motoristas") %>
-          </select>
-          <br class="pular_linha"/>
-
-
           <label for="veiculo_id">Ve&iacute;culo:</label>
           <select name="veiculo_id" id="veiculo_id">
             <%= grouped_options_for_select(@lista_veiculos, "", "Selecione um ve&iacute;culo") %>
           </select>
           <br class="pular_linha"/>
+
+          <label for="motorista_ids" class="label_obrigatorio">Motoristas:</label>
+          <select name="motorista_ids[]" id="motorista_ids" multiple="multiple" size="5">
+            <%= grouped_options_for_select(@lista_motoristas) %>
+          </select>
+          <br class="pular_linha"/>
+
         </fieldset>
 
 

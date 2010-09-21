@@ -839,7 +839,7 @@ div#viagem_nova fieldset legend {
 	padding:0px !important;
 }
 .label_obrigatorio {
-  color: red
+  color: red !important;
 }
 .texto_livre {
     padding: 5px
