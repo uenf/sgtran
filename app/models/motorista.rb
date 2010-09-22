@@ -42,19 +42,18 @@ class Motorista < ActiveRecord::Base
 
   def self.ocupados_entre(data_partida, data_chegada)
     motoristas_ocupados = []
-    viagens_aguardando = Viagem.find_all_by_estado('Aguardando')
+    viagens = Viagem.find(:all,
+              :conditions => ["estado = ? AND  \
+              ((? BETWEEN data_partida AND data_chegada) OR \
+              (? BETWEEN data_partida AND data_chegada))",
+              'Aguardando',
+              data_partida,
+              data_chegada])
 
-    Motorista.all.each do |motorista|
-      if motorista.ativo?
-        viagens = []
-
-        viagens_aguardando.each do |viagem|
-          if viagem.motoristas.include? motorista
-            if (data_partida >= viagem.data_partida and data_partida <= viagem.data_chegada) or
-               (data_chegada >= viagem.data_partida and data_chegada <= viagem.data_chegada)
-              motoristas_ocupados << [motorista.nome, motorista.id]
-            end
-          end
+    Motorista.find_all_by_status("Ativo").each do |motorista|
+      viagens.each do |viagem|
+        if viagem.motoristas.include? motorista
+          motoristas_ocupados << [motorista.nome, motorista.id]
         end
       end
     end
