@@ -49,16 +49,13 @@ class Motorista < ActiveRecord::Base
         viagens = []
 
         viagens_aguardando.each do |viagem|
-          viagens << viagem if viagem.motoristas.include? motorista
-        end
-
-        viagens.each do |viagem|
-          if (data_partida >= viagem.data_partida and data_partida <= viagem.data_chegada) or
-             (data_chegada >= viagem.data_partida and data_chegada <= viagem.data_chegada)
-            motoristas_ocupados << [motorista.nome, motorista.id]
+          if viagem.motoristas.include? motorista
+            if (data_partida >= viagem.data_partida and data_partida <= viagem.data_chegada) or
+               (data_chegada >= viagem.data_partida and data_chegada <= viagem.data_chegada)
+              motoristas_ocupados << [motorista.nome, motorista.id]
+            end
           end
         end
-
       end
     end
     return motoristas_ocupados.uniq
