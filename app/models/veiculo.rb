@@ -51,55 +51,43 @@ class Veiculo < ActiveRecord::Base
 
   def self.ocupados_entre_datas_e_com_categoria(data_partida, data_chegada, categoria_de_veiculo_da_requisicao_id)
     veiculos_ocupados = []
+    Veiculo.find_all_by_status("Ativo").each do |veiculo|
+      viagens = Viagem.find(:all,
+              :conditions => ["veiculo_id = ? AND estado = ? AND  \
+              ((? BETWEEN data_partida AND data_chegada) OR \
+              (? BETWEEN data_partida AND data_chegada))",
+              veiculo.id,
+              'Aguardando',
+              data_partida,
+              data_chegada])
 
-    Veiculo.all.each do |veiculo|
-
-      viagens = Viagem.find_all_by_veiculo_id_and_estado(veiculo.id, "Aguardando")
-
-      if not viagens.empty? and veiculo.ativo?
-        viagens.each do |viagem|
-
-          categoria_de_veiculo = CategoriaDeVeiculo.find(veiculo.categoria_de_veiculo_id)
-
-          if (data_partida >= viagem.data_partida and data_partida <= viagem.data_chegada) or
-           (data_chegada >= viagem.data_partida and data_chegada <= viagem.data_chegada)
-
-            categoria_de_veiculo.id == categoria_de_veiculo_da_requisicao_id ? marcador = "* " : marcador = ""
-
-            veiculos_ocupados << [marcador + veiculo.modelo + " - " + veiculo.placa + " - " + categoria_de_veiculo.nome,
-                                  veiculo.id]
-          end
-        end
+      viagens.each do |viagem|
+        categoria_de_veiculo = CategoriaDeVeiculo.find(veiculo.categoria_de_veiculo_id)
+        categoria_de_veiculo.id == categoria_de_veiculo_da_requisicao_id ? marcador = "* " : marcador = ""
+        veiculos_ocupados << ["#{marcador}#{veiculo.modelo} - #{veiculo.placa} - #{categoria_de_veiculo.nome}",
+                                veiculo.id]
       end
     end
     return veiculos_ocupados.uniq
   end
 
   def self.desocupados_entre_datas_e_com_categoria(data_partida, data_chegada, categoria_de_veiculo_da_requisicao_id)
-    veiculos_desocupados = []
+    veiculos_ocupados = self.ocupados_entre_datas_e_com_categoria(data_partida, data_chegada, categoria_de_veiculo_da_requisicao_id)
+    veiculos_ocupados_ids, veiculos_desocupados = [], []
 
-    Veiculo.all.each do |veiculo|
+    veiculos_ocupados.each { |veiculo| veiculos_ocupados_ids << veiculo[1] }
+    veiculos_desocupados_ids = Veiculo.find_all_by_status("Ativo").collect(&:id) - veiculos_ocupados_ids
 
-      if veiculo.ativo?
-        categoria_de_veiculo = CategoriaDeVeiculo.find(veiculo.categoria_de_veiculo_id)
-        categoria_de_veiculo.id == categoria_de_veiculo_da_requisicao_id ? marcador = "* " : marcador = ""
-        viagens = Viagem.find_all_by_veiculo_id_and_estado(veiculo.id, "Aguardando")
+    veiculos_desocupados_ids.each do |veiculo_id|
+      veiculo = Veiculo.find(veiculo_id)
+      categoria_de_veiculo = CategoriaDeVeiculo.find(veiculo.categoria_de_veiculo_id)
+      categoria_de_veiculo.id == categoria_de_veiculo_da_requisicao_id ? marcador = "* " : marcador = ""
 
-        if not viagens.empty?
-          viagens.each do |viagem|
-            if not (data_partida >= viagem.data_partida and data_partida <= viagem.data_chegada) and
-             not (data_chegada >= viagem.data_partida and data_chegada <= viagem.data_chegada)
-              veiculos_desocupados << [marcador + veiculo.modelo + " - " + veiculo.placa + " - " + categoria_de_veiculo.nome,
-                                       veiculo.id]
-            end
-          end
-        else
-          veiculos_desocupados << [marcador + veiculo.modelo + " - " + veiculo.placa + " - " + categoria_de_veiculo.nome,
-                                   veiculo.id]
-        end
-      end
+      veiculos_desocupados << ["#{marcador}#{veiculo.modelo} - #{veiculo.placa} - #{categoria_de_veiculo.nome}",
+                                veiculo.id]
     end
-    return veiculos_desocupados.uniq
+
+    return veiculos_desocupados
   end
 end
 
