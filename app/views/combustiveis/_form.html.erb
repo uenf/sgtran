@@ -1,0 +1,12 @@
+<% form_for(@combustivel) do |f| %>
+  <%= mensagem_de_erro(@combustivel) %>
+
+  <p>
+    <%= f.label :nome, "Nome:", :class => "label_obrigatorio" %>
+    <%= f.text_field :nome %>
+  </p>
+
+  <%= f.submit 'Salvar' %>
+
+<% end %>
+

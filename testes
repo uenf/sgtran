@@ -5,7 +5,7 @@ echo "===================================="
 echo "Rodando testes unitários com o Rspec"
 echo "===================================="
 echo ""
-rake spec --format progress
+rake spec
 
 echo ""
 echo "=========================================="

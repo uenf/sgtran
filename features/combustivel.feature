@@ -9,7 +9,7 @@ Para que eu possa utiliza-lo no sistema
   Esquema do Cenário: Adicionar combustível
     Dado que eu estou na página de adição de combustível
     Quando eu preencho "Nome" com "<nome>"
-    E eu pressiono "Criar"
+    E eu pressiono "Salvar"
     Então eu devo ver "<sentença>"
 
     Exemplos:
@@ -22,7 +22,7 @@ Para que eu possa utiliza-lo no sistema
     Dado que eu tenho o combustível "Álcool"
     E que eu estou na página de edição de combustível
     Quando eu preencho "Nome" com "<nome>"
-    E eu pressiono "Atualizar"
+    E eu pressiono "Salvar"
     Então eu devo ver "<sentença>"
 
     Exemplos:
