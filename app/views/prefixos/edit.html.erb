@@ -1,24 +1,7 @@
 <div class="show_padrao">
+  <h1>Editar prefixo</h1>
 
-<h1>Editar Prefixo</h1>
-
-<% form_for(@prefixo) do |f| %>
-  <%= mensagem_de_erro(@prefixo) %>
-
-  <div class="show_linha">
-    <div class="linha_titulo"><%= f.label :nome, "Nome:", :class => "label_obrigatorio" %></div>
-    <div class="linha_texto_neutro"><%= f.text_field :nome %></div>
-  </div>
-
-  <div class="show_linha">
-    <div class="linha_titulo"><%= f.label :status, "Status:", :class => "label_obrigatorio" %></div>
-    <div class="linha_texto_neutro"><%= f.select :status, {Prefixo::INATIVO => Prefixo::INATIVO,
-                                                          Prefixo::ATIVO => Prefixo::ATIVO} %></div>
-  </div>
-
-  <div class="botao_concluir"><%= f.submit 'Atualizar' %></div>
-
-<% end %>
+  <%= render 'form' %>
 </div>
 
 <div id="opcoes_da_visao">
