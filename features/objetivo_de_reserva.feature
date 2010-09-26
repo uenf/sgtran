@@ -9,7 +9,7 @@ Para que eu possa adicinar, editar e utilizar no sistema
   Esquema do Cenário: Adicionar objetivo de reserva
     Dado que eu estou na página de adição de objetivo de reserva
     Quando eu preencho "Texto" com "<texto>"
-    E eu pressiono "Criar"
+    E eu pressiono "Salvar"
     Então eu devo ver "<sentença>"
 
     Exemplos:
@@ -22,7 +22,7 @@ Para que eu possa adicinar, editar e utilizar no sistema
     Dado que eu tenha um objetivo de reserva "Aula de Campo"
     E que eu estou na página de edição do objetivo de reserva
     Quando eu preencho "Texto" com "<texto>"
-    E eu pressiono "Atualizar"
+    E eu pressiono "Salvar"
     Então eu devo ver "<sentença>"
 
     Exemplos:
@@ -33,26 +33,26 @@ Para que eu possa adicinar, editar e utilizar no sistema
 
   Esquema do Cenário: Ativar/Desativar um objetivo de reserva pela página de edição
     Dado que eu tenha um objetivo de reserva "Aula de Campo"
-    E que o objetivo de reserva esteja "<Estado do Objetivo>"
+    E que o objetivo de reserva esteja "<Status do Objetivo>"
     E que eu estou na página de edição do objetivo de reserva
-    Quando eu seleciono "<Estado desejado>" em "Status"
-    E eu pressiono "Atualizar"
-    Então eu devo ver "Estado: <Estado desejado>"
+    Quando eu seleciono "<Status desejado>" em "Status"
+    E eu pressiono "Salvar"
+    Então eu devo ver "Status: <Status desejado>"
 
   Exemplos:
-  | Estado do Objetivo | Estado desejado |
+  | Status do Objetivo | Status desejado |
   | Ativo              | Inativo         |
   | Inativo            | Ativo           |
 
   Esquema do Cenário: Deve mostrar apenas objetivos de reserva ativos
     Dado que eu tenha a categoria de veículo "Automóvel até 4 passageiros"
     E que eu tenha um objetivo de reserva "Aula de Campo"
-    E que o objetivo de reserva esteja "<Estado>"
+    E que o objetivo de reserva esteja "<Status>"
     E que eu estou na página de requisição
     Então eu <Visão>
 
   Exemplos:
-  | Estado  | Visão                        |
+  | Status  | Visão                        |
   | Ativo   | devo ver "Aula de Campo"     |
   | Inativo | não devo ver "Aula de Campo" |
 
