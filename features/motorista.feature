@@ -13,7 +13,7 @@ Para que eu possa adicionar, editar e utilizar no sistema
     E eu preencho "Telefone" com "<telefone>"
     E eu preencho "Habilitação" com "<habilitacao>"
     E eu preencho "Vencimento da habilitação" com "<vencimento_habilitacao>"
-    E eu pressiono "Criar Motorista"
+    E eu pressiono "Salvar"
     Então eu devo ver "<sentença>"
 
     Exemplos:
@@ -33,7 +33,7 @@ Para que eu possa adicionar, editar e utilizar no sistema
     E eu preencho "Telefone" com "<telefone>"
     E eu preencho "Habilitação" com "<habilitacao>"
     E eu preencho "Vencimento da habilitação" com "<vencimento_habilitacao>"
-    E eu pressiono "Atualizar"
+    E eu pressiono "Salvar"
     Então eu devo ver "<sentença>"
 
     Exemplos:
@@ -47,14 +47,14 @@ Para que eu possa adicionar, editar e utilizar no sistema
 
   Esquema do Cenário: Ativar/Desativar um motorista pela página de edição
     Dado que eu tenho um motorista com nome "Gustavo Santos"
-    E que o motorista esteja "<Estado do Motorista>"
+    E que o motorista esteja "<Status do Motorista>"
     E que eu estou na página de edição de motorista
-    Quando eu seleciono "<Estado desejado>" em "Status"
-    E eu pressiono "Atualizar"
-    Então eu devo ver "Estado: <Estado desejado>"
+    Quando eu seleciono "<Status desejado>" em "Status"
+    E eu pressiono "Salvar"
+    Então eu devo ver "Status: <Status desejado>"
 
   Exemplos:
-  | Estado do Solicitante | Estado desejado |
+  | Status do Solicitante | Status desejado |
   | Ativo                 | Inativo         |
   | Inativo               | Ativo           |
 

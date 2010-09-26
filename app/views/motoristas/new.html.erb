@@ -1,44 +1,11 @@
+<%= javascript_include_tag :defaults %>
+<%= calendar_date_select_includes "silver", :locale => "pt"%>
+<%= javascript_include_tag "calendar_date_select/format_italian" %>
+
 <div class="show_padrao">
-<h1>Novo Motorista</h1>
+  <h1>Novo motorista</h1>
 
-<% form_for(@motorista) do |f| %>
-  <%= mensagem_de_erro(@motorista) %>
-
-  <div class="show_linha">
-    <div class="linha_titulo"><%= f.label :matricula, "Matr&iacute;cula:", :class => "label_obrigatorio" %></div>
-    <div class="linha_texto_neutro"><%= f.text_field :matricula %></div>
-  </div>
-
-  <div class="show_linha">
-    <div class="linha_titulo"><%= f.label :nome, "Nome:", :class => "label_obrigatorio" %></div>
-    <div class="linha_texto_neutro"><%= f.text_field :nome %></div>
-  </div>
-
-  <div class="show_linha">
-    <div class="linha_titulo"><%= f.label :telefone, "Telefone:", :class => "label_obrigatorio" %></div>
-    <div class="linha_texto_neutro"><%= f.text_field :telefone %></div>
-  </div>
-
-  <div class="show_linha">
-    <div class="linha_titulo"><%= f.label :habilitacao, "Habilitação:" %></div>
-    <div class="linha_texto_neutro"><%= f.text_field :habilitacao %></div>
-  </div>
-
-  <div class="show_linha">
-    <div class="linha_titulo">
-      <%= f.label :vencimento_habilitacao_br, "Vencimento da habilitação:" %>
-    </div>
-    <%= calendar_date_select_tag "motorista_vencimento_habilitacao_br",
-                                @motorista.vencimento_habilitacao ? @motorista.vencimento_habilitacao.to_date.to_s_br : "",
-                                :name => "motorista[vencimento_habilitacao_br]",
-                                :month_year => "label",
-                                :class => "campo_de_poucos_digitos"%>
-  </div>
-
-
-    <%= f.submit 'Criar Motorista', :class => "botao_concluir" %>
-
-<% end %>
+  <%= render 'form' %>
 </div>
 
 <div id="opcoes_da_visao">

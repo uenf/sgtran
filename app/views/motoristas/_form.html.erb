@@ -1,0 +1,42 @@
+<% form_for(@motorista) do |f| %>
+  <%= mensagem_de_erro(@motorista) %>
+
+  <p>
+    <%= f.label :matricula, "Matr&iacute;cula:", :class => "label_obrigatorio" %>
+    <%= f.text_field :matricula %>
+  </p>
+
+  <p>
+    <%= f.label :nome, "Nome:", :class => "label_obrigatorio" %>
+    <%= f.text_field :nome %>
+  </p>
+
+  <p>
+    <%= f.label :telefone, "Telefone:", :class => "label_obrigatorio" %>
+    <%= f.text_field :telefone %>
+  </p>
+
+  <p>
+    <%= f.label :habilitacao, "Habilitação:" %>
+    <%= f.text_field :habilitacao %>
+  </p>
+
+  <p>
+    <%= f.label :vencimento_habilitacao_br, "Vencimento da habilitação:" %>
+    <%= calendar_date_select_tag "motorista_vencimento_habilitacao_br",
+                                @motorista.vencimento_habilitacao ? @motorista.vencimento_habilitacao.to_date.to_s_br : "",
+                                :name => "motorista[vencimento_habilitacao_br]",
+                                :month_year => "label",
+                                :class => "campo_de_poucos_digitos"%>
+  </p>
+
+  <p>
+    <%= f.label :status, "Status:", :class => "label_obrigatorio" %>
+    <%= f.select :status, {Solicitante::ATIVO => Solicitante::ATIVO,
+                           Solicitante::INATIVO => Solicitante::INATIVO} %>
+  </p>
+
+  <%= f.submit 'Salvar' %>
+
+<% end %>
+

@@ -1,36 +1,36 @@
 <div class="show_padrao">
 
-  <h1>Dados do Motorista</h1>
+  <h1>Dados do motorista</h1>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Matr&iacute;cula:</div>
-    <div class="linha_texto"><%=h @motorista.matricula %></div>
-  </div>
+  <p>
+    <label>Matr&iacute;cula:</label>
+    <spam><%=h @motorista.matricula %></spam>
+  </p>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Nome do Motorista:</div>
-    <div class="linha_texto"><%=h @motorista.nome %></div>
-  </div>
+  <p>
+    <label>Nome do Motorista:</label>
+    <spam><%=h @motorista.nome %></spam>
+  </p>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Telefone:</div>
-    <div class="linha_texto"><%=h @motorista.telefone %></div>
-  </div>
+  <p>
+    <label>Telefone:</label>
+    <spam><%=h @motorista.telefone %></spam>
+  </p>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Habilitação:</div>
-    <div class="linha_texto"><%=h @motorista.habilitacao %></div>
-  </div>
+  <p>
+    <label>Habilitação:</label>
+    <spam><%=h @motorista.habilitacao %></spam>
+  </p>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Vencimento da habilitação:</div>
-    <div class="linha_texto"><%=h @motorista.vencimento_habilitacao.strftime("%d/%m/%Y") if @motorista.vencimento_habilitacao %></div>
-  </div>
+  <p>
+    <label>Vencimento da habilitação:</label>
+    <spam><%=h @motorista.vencimento_habilitacao.strftime("%d/%m/%Y") if @motorista.vencimento_habilitacao %></spam>
+  </p>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Estado:</div>
-    <div class="linha_texto"><%=h @motorista.status %></div>
-  </div>
+  <p>
+    <label>Status:</label>
+    <spam><%=h @motorista.status %></spam>
+  </p>
 
 </div>
 
