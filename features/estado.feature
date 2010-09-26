@@ -10,7 +10,7 @@ Para que eu possa utiliza-lo no sistema
     Dado que eu estou na página de adição de Estado
     Quando eu preencho "Nome" com "<nome>"
     E eu preencho "Sigla" com "<sigla>"
-    E eu pressiono "Criar"
+    E eu pressiono "Salvar"
     Então eu devo ver "<sentença>"
 
     Exemplos:
@@ -25,7 +25,7 @@ Para que eu possa utiliza-lo no sistema
     E que eu estou na página de edição do Estado
     Quando eu preencho "Nome" com "São Paulo"
     E eu seleciono "Inativo" em "Status"
-    E eu pressiono "Atualizar"
+    E eu pressiono "Salvar"
     Então eu devo ver "Estado modificado com sucesso!"
     E o estado deve estar inativo
 

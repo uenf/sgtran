@@ -1,0 +1,23 @@
+<% form_for(@estado) do |f| %>
+  <%= mensagem_de_erro(@estado) %>
+
+  <p>
+    <%= f.label :nome, "Nome:", :class => "label_obrigatorio" %>
+    <%= f.text_field :nome %>
+  </p>
+
+  <p>
+    <%= f.label :sigla, "Sigla:", :class => "label_obrigatorio" %>
+    <%= f.text_field :sigla %>
+  </p>
+
+  <p>
+    <%= f.label :status, "Status:", :class => "label_obrigatorio" %>
+    <%= f.select :status, {Solicitante::ATIVO => Solicitante::ATIVO,
+                           Solicitante::INATIVO => Solicitante::INATIVO} %>
+  </p>
+
+  <%= f.submit 'Salvar' %>
+
+<% end %>
+
