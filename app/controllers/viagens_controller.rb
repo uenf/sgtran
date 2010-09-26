@@ -140,7 +140,7 @@ class ViagensController < ApplicationController
 
   def viagens_sem_bdt
     @viagens = []
-    lista_de_viagens = Viagem.find_all_by_estado(Viagem::ATENDIDA)
+    lista_de_viagens = Viagem.find_all_by_estado(Viagem::ATENDIDA, :order => "data_partida DESC")
     lista_de_viagens.each do |viagem|
       @viagens << viagem if Bdt.find_by_viagem_id(viagem.id).nil?
     end
