@@ -9,7 +9,7 @@ Para que eu possa adicinar, editar e utilizar no sistema
   Esquema do Cenário: Adicionar prédio
     Dado que eu estou na página de adição de prédio
     Quando eu preencho "Nome" com "<nome>"
-    E eu pressiono "Criar"
+    E eu pressiono "Salvar"
     Então eu devo ver "<sentença>"
 
     Exemplos:
@@ -23,7 +23,7 @@ Para que eu possa adicinar, editar e utilizar no sistema
     Dado que eu tenho um prédio
     E que eu estou na página de edição de prédio
     Quando eu preencho "Nome" com "<nome>"
-    E eu pressiono "Atualizar"
+    E eu pressiono "Salvar"
     Então eu devo ver "<sentença>"
 
     Exemplos:
@@ -36,7 +36,7 @@ Para que eu possa adicinar, editar e utilizar no sistema
     E que o prédio esteja "<Status do Objetivo>"
     E que eu estou na página de edição do prédio
     Quando eu seleciono "<Status desejado>" em "Status"
-    E eu pressiono "Atualizar"
+    E eu pressiono "Salvar"
     Então eu devo ver "Status: <Status desejado>"
 
   Exemplos:

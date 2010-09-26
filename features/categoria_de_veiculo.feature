@@ -34,27 +34,27 @@ Para que eu possa utiliza-la no sistema
 
   Esquema do Cenário: Ativar/Desativar uma categoria de veículo pela página de edição
     Dado que eu tenha a categoria de veículo "4 Passageiros"
-    E que a categoria de veículo esteja "<Estado do Solicitante>"
+    E que a categoria de veículo esteja "<Status do Solicitante>"
     E que eu estou na página de edição do categoria de veículo
-    Quando eu seleciono "<Estado desejado>" em "Status"
+    Quando eu seleciono "<Status desejado>" em "Status"
     E eu pressiono "Salvar"
-    Então eu devo ver "Estado: <Estado desejado>"
+    Então eu devo ver "Status: <Status desejado>"
 
   Exemplos:
-  | Estado do Solicitante | Estado desejado |
+  | Status do Solicitante | Status desejado |
   | Ativo                 | Inativo         |
   | Inativo               | Ativo           |
 
 
   Esquema do Cenário: Deve mostrar apenas categorias de veículo ativos
     Dado que eu tenha a categoria de veículo "Automóvel até 4 passageiros"
-    E que a categoria de veículo esteja "<Estado>"
+    E que a categoria de veículo esteja "<Status>"
     E que eu tenha um objetivo de reserva "Aula de Campo"
     E que eu estou na página de requisição
     Então eu <Visão>
 
   Exemplos:
-  | Estado  | Visão                                      |
+  | Status  | Visão                                      |
   | Ativo   | devo ver "Automóvel até 4 passageiros"     |
   | Inativo | não devo ver "Automóvel até 4 passageiros" |
 
