@@ -2,20 +2,20 @@
 
   <h1>Dados da Cidade</h1>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Nome:</div>
-    <div class="linha_texto"><%=h @cidade.nome %></div>
-  </div>
+  <p>
+    <label>Nome:</label>
+    <spam><%=h @cidade.nome %></spam>
+  </p>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Estado:</div>
-    <div class="linha_texto"><%=h Estado.find(@cidade.estado_id).sigla %></div>
-  </div>
+  <p>
+    <label>Estado:</label>
+    <spam><%=h Estado.find(@cidade.estado_id).sigla %></spam>
+  </p>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Status:</div>
-    <div class="linha_texto"><%=h @cidade.status %></div>
-  </div>
+  <p>
+    <label>Status:</label>
+    <spam><%=h @cidade.status %></spam>
+  </p>
 
 </div>
 

@@ -1,0 +1,16 @@
+#!/bin/bash
+
+echo ""
+echo "===================================="
+echo "Rodando testes unitários com o Rspec"
+echo "===================================="
+echo ""
+rake spec --format progress
+
+echo ""
+echo "=========================================="
+echo "Rodando testes de aceitação com o Cucumber"
+echo "=========================================="
+echo ""
+cucumber features --format progress
+

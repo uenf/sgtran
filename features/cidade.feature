@@ -11,7 +11,7 @@ Para que eu possa utiliza-la no sistema
     E que eu estou na página de adição de Cidade
     Quando eu preencho "Nome" com "<nome>"
     E eu seleciono "<estado>" em "Estado"
-    E eu pressiono "Criar"
+    E eu pressiono "Salvar"
     Então eu devo ver "<sentença>"
 
     Exemplos:
@@ -28,6 +28,6 @@ Para que eu possa utiliza-la no sistema
     Quando eu preencho "Nome" com "Guarapari"
     E eu seleciono "ES" em "Estado"
     E eu seleciono "Inativo" em "Status"
-    E eu pressiono "Atualizar"
+    E eu pressiono "Salvar"
     Então eu devo ver "Cidade modificada com sucesso!"
 

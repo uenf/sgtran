@@ -1,9 +1,15 @@
-<% form_for(@categoria_de_veiculo) do |f| %>
-  <%= mensagem_de_erro(@categoria_de_veiculo) %>
+<% form_for(@cidade) do |f| %>
+  <%= mensagem_de_erro(@cidade) %>
 
   <p>
     <%= f.label :nome, "Nome:", :class => "label_obrigatorio" %>
     <%= f.text_field :nome %>
+  </p>
+
+  <p>
+    <%= f.label :estado_id, "Estado:", :class => "label_obrigatorio" %>
+    <%= f.select :estado_id, Estado.all.collect { |e| [ e.sigla, e.id ] },
+                                                {:include_blank => "-"} %>
   </p>
 
   <p>
