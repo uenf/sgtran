@@ -274,7 +274,15 @@ table.tabela_base_de_dados tr td {
 */
 
 #tabela_exibir {
-    width: 1020px;
+    width: 1020px;.show_padrao label {
+    background-color: #EFEFEF;
+    float: left;
+    font-weight: bold;
+    margin: 1px;
+    padding: 2px;
+    text-align: right;
+    width: 16%;
+}
     margin: 0px;
     margin-top: -1px;
     padding: 0px;
@@ -303,11 +311,8 @@ table.tabela_base_de_dados tr td {
 
 .show_padrao {
     width: 100%;
-    background-color: #F5F5F5;
     border: solid 1px #999999;
-    padding: 2px;
-    padding-bottom: 10px;
-    margin-top: -1px;
+    padding: 0px 0px 15px 0px;
     display: table;
 }
 
@@ -317,62 +322,31 @@ table.tabela_base_de_dados tr td {
     font-weight: bold;
     background-image: url("/images/fundo_tabela_01.jpg");
     padding: 5px;
-    margin: 0px;
+    margin: 0px 0px 10px 0px;
     clear: both;
 }
 
-.show_padrao .show_linha {
-    font-size: 13px;
-    font-weight: bold;
+.show_padrao p {
     margin: 2px;
     padding: 0px;
-    clear: both;
 }
 
-.show_padrao .show_linha .linha_titulo {
-    text-align: right;
-    font-size: 13px;
-    font-weight: bold;
-    width: 16%;
+.show_padrao label {
     background-color: #EFEFEF;
-    padding: 2px;
-    margin: 1px;
-
-    min-height: 17px;
-    height: auto !important;
-    height: 17px;
-
     float: left;
+    font-weight: bold;
+    margin: 1px;
+    padding: 2px;
+    text-align: right;
+    width: 16%;
 }
 
-.show_padrao .show_linha .linha_texto_neutro {
-    width: 80%;
-    padding: 2px;
-    margin: 1px;
-
-
-    min-height: 17px;
-    height: auto !important;
-    height: 17px;
-
-    float: left;
-}
-
-.show_padrao .show_linha .linha_texto {
-    width: 80%;
-    padding: 2px;
-    margin: 1px;
+.show_padrao spam {
     background-color: #FFFFFF;
-    font-weight: normal;
-    min-height: 17px;
-    height: auto !important;
-    height: 17px;
-
     float: left;
-}
-
-.show_padrao .show_linha .linha_texto:hover {
-    background-color: #B9CEE4;
+    margin: 1px;
+    padding: 2px;
+    width: 80%;
 }
 
 /*

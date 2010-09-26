@@ -9,7 +9,7 @@ Para que eu possa utiliza-la no sistema
   Esquema do Cenário: Adicionar categoria de veículo
     Dado que eu estou na página de adição de categoria de veículo
     Quando eu preencho "Nome" com "<nome>"
-    E eu pressiono "Criar Categoria de veículo"
+    E eu pressiono "Salvar"
     Então eu devo ver "<sentença>"
 
     Exemplos:
@@ -23,7 +23,7 @@ Para que eu possa utiliza-la no sistema
     Dado que eu tenha a categoria de veículo "Automóvel até 4 passageiros"
     E que eu estou na página de edição de categoria de veículo
     Quando eu preencho "Nome" com "<nome>"
-    E eu pressiono "Atualizar"
+    E eu pressiono "Salvar"
     Então eu devo ver "<sentença>"
 
     Exemplos:
@@ -37,7 +37,7 @@ Para que eu possa utiliza-la no sistema
     E que a categoria de veículo esteja "<Estado do Solicitante>"
     E que eu estou na página de edição do categoria de veículo
     Quando eu seleciono "<Estado desejado>" em "Status"
-    E eu pressiono "Atualizar"
+    E eu pressiono "Salvar"
     Então eu devo ver "Estado: <Estado desejado>"
 
   Exemplos:
