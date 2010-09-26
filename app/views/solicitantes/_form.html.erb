@@ -1,0 +1,50 @@
+<% form_for(@solicitante) do |f| %>
+  <%= mensagem_de_erro(@solicitante) %>
+
+  <p>
+    <%= f.label :nome, "Nome:", :class => "label_obrigatorio" %>
+    <%= f.text_field :nome %>
+  </p>
+
+  <p>
+    <%= f.label :email, "E-mail:", :class => "label_obrigatorio" %>
+    <%= f.text_field :email %>
+  </p>
+
+  <p>
+    <%= f.label :matricula, "Matr&iacute;cula", :class => "label_obrigatorio" %>
+    <%= f.text_field :matricula %>
+  </p>
+
+  <p>
+    <%= f.label :cargo, "Cargo:", :class => "label_obrigatorio" %>
+    <%= f.text_field :cargo %>
+  </p>
+
+  <p>
+    <%= f.label :telefone_ou_ramal, "Ramal:" %>
+    <%= f.text_field :telefone_ou_ramal %>
+  </p>
+
+  <p>
+    <%= f.label :laboratorio_ou_setor, "Lab. ou Setor:" %>
+    <%= f.text_field :laboratorio_ou_setor %>
+  </p>
+
+  <p>
+    <%= f.label :centro_id, "Centro:"%>
+    <%= f.select :centro_id,
+                 Centro.find_all_by_status(Centro::ATIVO).collect {|centro| [centro.nome, centro.id]},
+                 {:include_blank => "Selecione um Centro"} %>
+  </p>
+
+  <p>
+    <%= f.label :status, "Status:", :class => "label_obrigatorio" %>
+    <%= f.select :status, {Solicitante::ATIVO => Solicitante::ATIVO,
+                           Solicitante::INATIVO => Solicitante::INATIVO} %>
+  </p>
+
+  <%= f.submit 'Salvar' %>
+
+<% end %>
+

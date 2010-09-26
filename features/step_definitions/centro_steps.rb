@@ -1,12 +1,12 @@
-Dado /^que eu tenho um prédio$/ do
+Dado /^que eu tenho um centro$/ do
   @centro = Factory.create :centro
 end
 
-Dado /^que eu tenho um prédio com nome "([^\"]*)"$/ do |nome|
+Dado /^que eu tenho um centro com nome "([^\"]*)"$/ do |nome|
   @centro = Factory.create :centro, :nome => nome
 end
 
-Dado /^que o prédio esteja "([^\"]*)"$/ do |estado|
-  @centro.update_attribute(:status, estado)
+Dado /^que o centro esteja "([^\"]*)"$/ do |status|
+  @centro.update_attribute(:status, status)
 end
 

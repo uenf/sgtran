@@ -117,13 +117,13 @@ module NavigationHelpers
     when /^página de aceitar a requisição$/
       aceitar_path(:id => @requisicao)
 
-    when /^página de adição de prédio$/
+    when /^página de adição de centro$/
       new_centro_path
 
-    when /^página de edição de prédio$/
+    when /^página de edição de centro$/
       edit_centro_path(:id => @centro)
 
-    when /^página de edição do prédio$/
+    when /^página de edição do centro$/
       edit_centro_path(@centro)
 
     when /^página de cancelamento da viagem$/

@@ -1,47 +1,49 @@
 <div class="show_padrao">
 
-<h1>Dados do Solicitante</h1>
-  <div class="show_linha">
-    <div class="linha_titulo">Nome:</div>
-    <div class="linha_texto"><%=h @solicitante.nome %></div>
-  </div>
+  <h1>Dados do solicitante</h1>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Email:</div>
-    <div class="linha_texto"><%=h @solicitante.email %></div>
-  </div>
+  <p>
+    <label>Nome:</label>
+    <spam><%=h @solicitante.nome %></spam>
+  </p>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Matricula:</div>
-    <div class="linha_texto"><%=h @solicitante.matricula %></div>
-  </div>
+  <p>
+    <label>Email:</label>
+    <spam><%=h @solicitante.email %></spam>
+  </p>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Cargo:</div>
-    <div class="linha_texto"><%=h @solicitante.cargo %></div>
-  </div>
+  <p>
+    <label>Matricula:</label>
+    <spam><%=h @solicitante.matricula %></spam>
+  </p>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Ramal:</div>
-    <div class="linha_texto"><%=h @solicitante.telefone_ou_ramal %></div>
-  </div>
+  <p>
+    <label>Cargo:</label>
+    <spam><%=h @solicitante.cargo %></spam>
+  </p>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Lab. ou Setor:</div>
-    <div class="linha_texto"><%=h @solicitante.laboratorio_ou_setor %></div>
-  </div>
+  <p>
+    <label>Ramal:</label>
+    <spam><%=h @solicitante.telefone_ou_ramal %></spam>
+  </p>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Centro:</div>
-    <div class="linha_texto"><%=h Centro.find(@solicitante.centro_id).nome if @solicitante.centro_id %></div>
-  </div>
+  <p>
+    <label>Lab. ou Setor:</label>
+    <spam><%=h @solicitante.laboratorio_ou_setor %></spam>
+  </p>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Estado:</div>
-    <div class="linha_texto"><%=h @solicitante.status %></div>
-  </div>
-<!-- ' -->
+  <p>
+    <label>Centro:</label>
+    <spam><%=h Centro.find(@solicitante.centro_id).nome if @solicitante.centro_id %></spam>
+  </p>
+
+  <p>
+    <label>Status:</label>
+    <spam><%=h @solicitante.status %></spam>
+  </p>
+
 </div>
+
 <div id="opcoes_da_visao">
   <ul>
     <li id="opcao_voltar" onclick="history.back(-1)" onmouseover="this.style.cursor = 'pointer'">Voltar</li>

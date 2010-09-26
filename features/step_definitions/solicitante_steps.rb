@@ -1,4 +1,4 @@
-Dado /^que eu tenha um solicitante com e-mail "([^\"]*)", matrícula "([^\"]*)" e prédio "([^\"]*)"$/ do |email, matricula, centro_nome|
+Dado /^que eu tenha um solicitante com e-mail "([^\"]*)", matrícula "([^\"]*)" e centro "([^\"]*)"$/ do |email, matricula, centro_nome|
   centro = Factory.create :centro, :nome => centro_nome
   @solicitante = Factory.create :solicitante,
                                 :email => email,

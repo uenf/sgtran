@@ -6,7 +6,7 @@ Funcionalidade: Verificar se a requisição de ida e volta estão corretas
     Para que eu possa ter um maior melhor controle
 
     Esquema do Cenário: Devo ver a requisição de ida e de volta
-      Dado que eu tenha um solicitante com e-mail "ronaldo@corinthians.com", matrícula "01210" e prédio "P5"
+      Dado que eu tenha um solicitante com e-mail "ronaldo@corinthians.com", matrícula "01210" e centro "P5"
       E que eu tenho uma requisição de ida com número de protocolo <id_ida>
       E que eu tenho uma requisição de volta com número de protocolo <id_volta>
       Quando eu vou para a "página da lista de requisições"
@@ -25,7 +25,7 @@ Funcionalidade: Verificar se a requisição de ida e volta estão corretas
       Dado que eu tenha a categoria de veículo "Micro-ônibus - até 32 passageiros"
       E que eu tenha um objetivo de reserva "Aula de Campo"
       E que eu tenha um objetivo de reserva "Outros"
-      E que eu tenha um solicitante com e-mail "ronaldo@corinthians.com", matrícula "01210" e prédio "P5"
+      E que eu tenha um solicitante com e-mail "ronaldo@corinthians.com", matrícula "01210" e centro "P5"
       E que eu estou na página de requisição
       Quando eu preencho "Matrícula" com "<Matrícula>"
       E eu preencho "E-mail" com "<E-mail>"

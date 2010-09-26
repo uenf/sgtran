@@ -7,18 +7,18 @@ Eu quero manipular um solicitante
 Para que eu possa adicinar, editar e utilizar no sistema
 
   Esquema do Cenário: Adicionar solicitante
-    Dado que eu tenho um prédio com nome "P5"
+    Dado que eu tenho um centro com nome "P5"
     E que eu estou na página de adição de solicitante
     Quando eu preencho "Nome" com "<nome>"
     E eu preencho "E-mail" com "<e-mail>"
     E eu preencho "Matrícula" com "<matrícula>"
     E eu preencho "Cargo" com "<cargo>"
-    E eu seleciono "<prédio>" em "Centro"
-    E eu pressiono "Criar Solicitante"
+    E eu seleciono "<centro>" em "Centro"
+    E eu pressiono "Salvar"
     Então eu devo ver "<sentença>"
 
     Exemplos:
-    | nome             | e-mail       | matrícula | cargo     | prédio | sentença                        |
+    | nome             | e-mail       | matrícula | cargo     | centro | sentença                        |
     | Professor Fulano | prof@uenf.br | 123456    | Professor | P5     | Solicitante criado com sucesso! |
     |                  | prof@uenf.br | 123456    | Professor | P5     | Nome não pode ser vazio         |
     | Professor Fulano | prof@uenf    | 123456    | Professor | P5     | Email não é válido              |
@@ -29,30 +29,30 @@ Para que eu possa adicinar, editar e utilizar no sistema
 
 
   Esquema do Cenário: Editar solicitante
-    Dado que eu tenha um solicitante com e-mail "prof@uenf.br", matrícula "123456" e prédio "P5"
+    Dado que eu tenha um solicitante com e-mail "prof@uenf.br", matrícula "123456" e centro "P5"
     E que eu estou na página de edição de solicitante
     Quando eu preencho "Nome" com "<nome>"
     E eu preencho "E-mail" com "<e-mail>"
     E eu preencho "Matrícula" com "<matrícula>"
     E eu preencho "Cargo" com "<cargo>"
-    E eu seleciono "<prédio>" em "Centro"
-    E eu pressiono "Atualizar"
+    E eu seleciono "<centro>" em "Centro"
+    E eu pressiono "Salvar"
     Então eu devo ver "<sentença>"
 
     Exemplos:
-    | nome             | e-mail       | matrícula | cargo   | prédio | sentença                            |
+    | nome             | e-mail       | matrícula | cargo   | centro | sentença                            |
     | Tecnico Beltrano | prof@uenf.br | 123456    | Tecnico | P5     | Solicitante modificado com sucesso! |
 
   Esquema do Cenário: Ativar/Desativar um solicitante pela página de edição do solicitante
-    Dado que eu tenha um solicitante com e-mail "prof@uenf.br", matrícula "123456" e prédio "P5"
-    E que o solicitante esteja "<Estado do Solicitante>"
+    Dado que eu tenha um solicitante com e-mail "prof@uenf.br", matrícula "123456" e centro "P5"
+    E que o solicitante esteja "<Status do Solicitante>"
     E que eu estou na página de edição do solicitante
-    Quando eu seleciono "<Estado desejado>" em "Status"
-    E eu pressiono "Atualizar"
-    Então eu devo ver "Estado: <Estado desejado>"
+    Quando eu seleciono "<Status desejado>" em "Status"
+    E eu pressiono "Salvar"
+    Então eu devo ver "Status: <Status desejado>"
 
   Exemplos:
-  | Estado do Solicitante | Estado desejado |
+  | Status do Solicitante | Status desejado |
   | Ativo                 | Inativo         |
   | Inativo               | Ativo           |
 
