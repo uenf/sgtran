@@ -1,0 +1,18 @@
+<% form_for(@motivo) do |f| %>
+  <%= mensagem_de_erro(@motivo) %>
+
+  <p>
+    <%= f.label :descricao, "Descri&ccedil;&atilde;o:", :class => "label_obrigatorio" %>
+    <%= f.text_field :descricao %>
+  </p>
+
+  <p>
+    <%= f.label :status, "Status:", :class => "label_obrigatorio" %>
+    <%= f.select :status, {Solicitante::ATIVO => Solicitante::ATIVO,
+                           Solicitante::INATIVO => Solicitante::INATIVO} %>
+  </p>
+
+  <%= f.submit 'Salvar' %>
+
+<% end %>
+
