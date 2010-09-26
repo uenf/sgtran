@@ -1,0 +1,43 @@
+<% form_for(@usuario) do |f| %>
+  <%= mensagem_de_erro(@usuario) %>
+
+  <p>
+    <%= f.label :nome, "Nome:", :class => "label_obrigatorio" %>
+    <%= f.text_field :nome %>
+  </p>
+
+  <p>
+    <%= f.label :email, "E-mail:", :class => "label_obrigatorio" %>
+    <%= f.text_field :email %>
+  </p>
+
+  <p>
+    <%= f.label :login, "Login:", :class => "label_obrigatorio" %>
+    <%= f.text_field :login %>
+  </p>
+
+  <p>
+    <%= f.label :password, "Senha:", :class => "label_obrigatorio" %>
+    <%= f.password_field :password %>
+  </p>
+
+  <p>
+    <%= f.label :password_confirmation, "Confirme a senha:",
+                :class => "label_obrigatorio" %>
+    <%= f.password_field :password_confirmation %>
+  </p>
+
+  <% if current_user and current_user.has_role? :admin %>
+    <p>
+      <label for="role_" class="label_obrigatorio">Privil&eacute;gio:</label>
+      <select name="role" id="role_">
+        <option value="admin">Administrador</option>
+        <option value="visit">Visitante</option>
+      </select>
+    </p>
+  <% end %>
+
+  <%= f.submit 'Salvar' %>
+
+<% end %>
+

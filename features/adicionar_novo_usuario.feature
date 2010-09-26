@@ -12,9 +12,9 @@ Funcionalidade: Inserir um novo usuário
         E eu preencho "Login" com "<Login>"
         E eu preencho "E-mail" com "<E-mail>"
         E eu preencho "Senha" com "<Senha>"
-        E eu preencho "Confirmação da senha" com "<Confirmação>"
+        E eu preencho "Confirme a senha" com "<Confirmação>"
         E eu seleciono "<Privilégio>" em "Privilégio"
-        E eu pressiono "Criar"
+        E eu pressiono "Salvar"
         Então eu devo ver "<Resposta>"
 
         Exemplos:

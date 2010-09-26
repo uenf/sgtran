@@ -1,36 +1,36 @@
 <div class="show_padrao">
 
-  <h1>Dados do Usu&aacute;rios</h1>
+  <h1>Dados do usu&aacute;rios</h1>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Nome:</div>
-    <div class="linha_texto"><%=h @usuario.nome %></div>
-  </div>
+  <p>
+    <label>Nome:</label>
+    <spam><%=h @usuario.nome %></spam>
+  </p>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Email:</div>
-    <div class="linha_texto"><%=h @usuario.email %></div>
-  </div>
+  <p>
+    <label>Email:</label>
+    <spam><%=h @usuario.email %></spam>
+  </p>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Login:</div>
-    <div class="linha_texto"><%=h @usuario.login %></div>
-  </div>
+  <p>
+    <label>Login:</label>
+    <spam><%=h @usuario.login %></spam>
+  </p>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Permiss&atilde;o:</div>
+  <p>
+    <label>Permiss&atilde;o:</label>
     <% @roles.each do |r| %>
-      <div class="linha_texto">
-      <% if r.name == "admin" %>
-        <%= "Administrador" %>
-      <% else %>
-        <% if r.name == "visit" %>
-          <%= "Visitante" %>
+      <spam>
+        <% if r.name == "admin" %>
+          <%= "Administrador" %>
+        <% else %>
+          <% if r.name == "visit" %>
+            <%= "Visitante" %>
+          <% end %>
         <% end %>
-      <% end %>
-      </div>
+      </spam>
     <% end %>
-  </div>
+  </p>
 
 </div>
 
