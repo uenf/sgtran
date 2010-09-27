@@ -1,60 +1,65 @@
 <div class="show_padrao">
 
-  <h1>Dados do Ve&iacute;culo</h1>
+  <h1>Dados do ve&iacute;culo</h1>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Marca:</div>
-    <div class="linha_texto"><%=h @veiculo.marca %></div>
-  </div>
+  <p>
+    <label>Marca:</label>
+    <spam><%=h @veiculo.marca %></spam>
+  </p>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Modelo:</div>
-    <div class="linha_texto"><%=h @veiculo.modelo %></div>
-  </div>
+  <p>
+    <label>Modelo:</label>
+    <spam><%=h @veiculo.modelo %></spam>
+  </p>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Cor:</div>
-    <div class="linha_texto"><%=h @veiculo.cor %></div>
-  </div>
+  <p>
+    <label>Cor:</label>
+    <spam><%=h @veiculo.cor %></spam>
+  </p>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Ano:</div>
-    <div class="linha_texto"><%=h @veiculo.ano %></div>
-  </div>
+  <p>
+    <label>Ano:</label>
+    <spam><%=h @veiculo.ano %></spam>
+  </p>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Placa:</div>
-    <div class="linha_texto"><%=h @veiculo.placa %></div>
-  </div>
+  <p>
+    <label>Placa:</label>
+    <spam><%=h @veiculo.placa %></spam>
+  </p>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Numero de ordem:</div>
-    <div class="linha_texto"><%=h @veiculo.numero_de_ordem %></div>
-  </div>
+  <p>
+    <label>Número de ordem:</label>
+    <spam><%=h @veiculo.numero_de_ordem %></spam>
+  </p>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Renavam:</div>
-    <div class="linha_texto"><%=h @veiculo.renavam %></div>
-  </div>
+  <p>
+    <label>Renavam:</label>
+    <spam><%=h @veiculo.renavam %></spam>
+  </p>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Combust&iacute;vel(is):</div>
-    <div class="linha_texto">
+  <p>
+    <label>Prefixo:</label>
+    <spam><%=h Prefixo.find(@veiculo.prefixo_id).nome %></spam>
+  </p>
+
+  <p>
+    <label>Combust&iacute;vel(is):</label>
+    <spam>
     <% @veiculo.combustiveis.each do |combustivel| %>
       <%= combustivel.nome %><br />
     <% end %>
-    </div>
-  </div>
+    </spam>
+  </p>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Categoria:</div>
-    <div class="linha_texto"><%=h CategoriaDeVeiculo.find(@veiculo.categoria_de_veiculo_id).nome %></div>
-  </div>
+  <p>
+    <label>Categoria:</label>
+    <spam><%=h CategoriaDeVeiculo.find(@veiculo.categoria_de_veiculo_id).nome %></spam>
+  </p>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Estado:</div>
-    <div class="linha_texto"><%=h @veiculo.status %></div>
-  </div>
+  <p>
+    <label>Status:</label>
+    <spam><%=h @veiculo.status %></spam>
+  </p>
 
 </div>
 

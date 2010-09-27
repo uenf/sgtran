@@ -1,0 +1,73 @@
+<% form_for(@veiculo) do |f| %>
+  <%= mensagem_de_erro(@veiculo) %>
+
+  <p>
+    <%= f.label :marca, "Marca:", :class => "label_obrigatorio" %>
+    <%= f.text_field :marca %>
+  </p>
+
+  <p>
+    <%= f.label :modelo, "Modelo:", :class => "label_obrigatorio" %>
+    <%= f.text_field :modelo %>
+  </p>
+
+  <p>
+    <%= f.label :cor, "Cor:", :class => "label_obrigatorio" %>
+    <%= f.text_field :cor %>
+  </p>
+
+  <p>
+    <%= f.label :ano, "Ano:", :class => "label_obrigatorio" %>
+    <%= f.text_field :ano %>
+  </p>
+
+  <p>
+    <%= f.label :placa, "Placa:", :class => "label_obrigatorio" %>
+    <%= f.text_field :placa %>
+  </p>
+
+  <p>
+    <%= f.label :numero_de_ordem, "N&uacute;mero de Ordem:", :class => "label_obrigatorio" %>
+    <%= f.text_field :numero_de_ordem %>
+  </p>
+
+  <p>
+    <%= f.label :renavam, "Renavam:", :class => "label_obrigatorio" %>
+    <%= f.text_field :renavam %>
+  </p>
+
+  <p>
+    <%= f.label :prefixo_id, "Prefixo:", :class => "label_obrigatorio" %>
+    <%= f.select :prefixo_id, @prefixos.collect { |p| [p.nome, p.id] },
+                              { :include_blank => "Selecione um prefixo" } %>
+  </p>
+
+  <p>
+    <%= f.label :categoria_de_veiculo_id, "Categoria", :class=> "label_obrigatorio" %>
+    <%= f.select :categoria_de_veiculo_id,
+                 CategoriaDeVeiculo.all.collect { |c| [c.nome, c.id] },
+                 { :include_blank => "Selecione uma categoria" } %>
+  </p>
+
+  <p>
+    <label class="label_obrigatorio">Combust&iacute;veis:</label>
+    <div style="display:table;">
+      <% Combustivel.all.each do |combustivel| %>
+        <%= check_box_tag "veiculo[combustivel_ids][]", combustivel.id,
+                          @veiculo.combustiveis.include?(combustivel),
+                          :id => combustivel.nome %>
+        <%= combustivel.nome %><br />
+      <% end %>
+    </div>
+  </p>
+
+  <p>
+    <%= f.label :status, "Status:", :class => "label_obrigatorio" %>
+    <%= f.select :status, {Solicitante::ATIVO => Solicitante::ATIVO,
+                           Solicitante::INATIVO => Solicitante::INATIVO} %>
+  </p>
+
+  <%= f.submit 'Salvar' %>
+
+<% end %>
+

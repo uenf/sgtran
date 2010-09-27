@@ -1,66 +1,7 @@
 <div class="show_padrao">
+  <h1>Novo ve&iacute;culo</h1>
 
-<h1>Novo Ve&iacute;culo</h1>
-
-<% form_for(@veiculo) do |f| %>
-  <%= mensagem_de_erro(@veiculo) %>
-
-  <div class="show_linha">
-    <div class="linha_titulo"><%= f.label :marca, "Marca:", :class => "label_obrigatorio" %></div>
-    <div class="linha_texto_neutro"><%= f.text_field :marca %></div>
-  </div>
-  <div class="show_linha">
-    <div class="linha_titulo"><%= f.label :modelo, "Modelo:", :class => "label_obrigatorio" %></div>
-    <div class="linha_texto_neutro"><%= f.text_field :modelo %></div>
-  </div>
-  <div class="show_linha">
-    <div class="linha_titulo"><%= f.label :cor, "Cor:", :class => "label_obrigatorio" %></div>
-    <div class="linha_texto_neutro"><%= f.text_field :cor %></div>
-  </div>
-  <div class="show_linha">
-    <div class="linha_titulo"><%= f.label :ano, "Ano:", :class => "label_obrigatorio" %></div>
-    <div class="linha_texto_neutro"><%= f.text_field :ano %></div>
-  </div>
-
-<div class="show_linha">
-  <div class="linha_titulo"><label for="categoria_de_veiculo_id" class="label_obrigatorio">Categoria:</label></div>
-  <div class="linha_texto_neutro"><%= collection_select :categoria_de_veiculo, :id, CategoriaDeVeiculo.all, :id,
-                        :nome, {:include_blank => "Selecione uma categoria"},
-                        :name => "veiculo[categoria_de_veiculo_id]"%></div>
-</div>
-  <div class="show_linha">
-    <div class="linha_titulo"><span class="label_obrigatorio">Combust&iacute;veis:</span></div>
-    <div class="linha_texto_neutro">
-      <% Combustivel.all.each do |combustivel| %>
-        <%= check_box_tag "veiculo[combustivel_ids][]", combustivel.id,
-            @veiculo.combustiveis.include?(combustivel), :id => combustivel.nome %>
-        <%= label_tag combustivel.nome %><br />
-      <% end %>
-    </div>
-  </div>
-  <div class="show_linha">
-    <div class="linha_titulo"><%= f.label :placa, "Placa:", :class => "label_obrigatorio" %></div>
-    <div class="linha_texto_neutro"><%= f.text_field :placa %></div>
-  </div>
-
-  <div class="show_linha">
-    <div class="linha_titulo"><%= f.label :numero_de_ordem, "N&uacute;mero de ordem:", :class => "label_obrigatorio" %></div>
-    <div class="linha_texto_neutro"><%= f.text_field :numero_de_ordem %></div>
-  </div>
-
-  <div class="show_linha">
-    <div class="linha_titulo"><%= f.label :renavam, "Renavam:", :class => "label_obrigatorio" %></div>
-    <div class="linha_texto_neutro"><%= f.text_field :renavam %></div>
-  </div>
-
-  <div class="show_linha">
-    <div class="linha_titulo"><%= f.label :prefixo_id, "Prefixo:", :class => "label_obrigatorio" %></div>
-    <div class="linha_texto_neutro"><%= f.select :prefixo_id, @prefixos.collect { |p| [p.nome, p.id] }, { :include_blank => "Selecione um prefixo" } %></div>
-  </div>
-
-    <div class="botao_concluir"><%= f.submit 'Criar Ve&iacute;culo' %></div>
-
-<% end %>
+  <%= render 'form' %>
 </div>
 
 <div id="opcoes_da_visao">

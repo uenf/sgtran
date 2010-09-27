@@ -23,16 +23,14 @@ Para que eu possa utiliza-lo no sistema
     E eu preencho "Número de ordem" com "<Ordem>"
     E eu preencho "Renavam" com "<Renavam>"
     E eu seleciono "<Prefixo>" em "Prefixo"
-    E eu pressiono "Criar Veículo"
+    E eu pressiono "Salvar"
     Então eu devo ver "<Sentença>"
 
     Exemplos:(Veiculo criado com sucesso)
     | Marca | Modelo | Cor  | Ano  | Combustivel1 | Combustivel2 | Categoria                   | Placa    | Ordem  | Renavam | Prefixo              | Sentença                       |
     | Fiat  | Uno    | Azul | 2008 | marco        | marco        | Automóvel até 4 passageiros | LAC-4583 | 145623 | 7961313 | Locado               | Veículo cadastrado com sucesso |
 
-
     Exemplos:(Veiculo não criado)
-
     | Marca | Modelo | Cor  | Ano  | Combustivel1 | Combustivel2 | Categoria                   | Placa    | Ordem  | Renavam | Prefixo              | Sentença                             |
     |       | Uno    | Azul | 2008 | marco        | marco        | Automóvel até 4 passageiros | LAC-4583 | 145623 | 7961313 | Locado               | Marca não pode ser vazio             |
     | Fiat  |        | Azul | 2008 | marco        | marco        | Automóvel até 4 passageiros | LAC-4583 | 145623 | 7961313 | Locado               | Modelo não pode ser vazio            |
@@ -45,17 +43,16 @@ Para que eu possa utiliza-lo no sistema
     | Fiat  | Uno    | Azul | 2008 | marco        | marco        | Automóvel até 4 passageiros | LAC-4583 | 145623 |         | Locado               | Renavam não pode ser vazio           |
     | Fiat  | Uno    | Azul | 2008 | marco        | marco        | Automóvel até 4 passageiros | LAC-4583 | 145623 | 7961313 | Selecione um prefixo | Prefixo não selecionado              |
 
-
   Esquema do Cenário: Ativar/Desativar um veículo pela página de edição
     Dado que eu tenha um veículo da categoria "4 Passageiros", modelo "Gol" e placa "ABC-1234"
-    E que o veículo esteja "<Estado do Veículo>"
+    E que o veículo esteja "<Status do Veículo>"
     E que eu estou na página de edição do veículo
-    Quando eu seleciono "<Estado desejado>" em "Status"
-    E eu pressiono "Atualizar"
-    Então eu devo ver "Estado: <Estado desejado>"
+    Quando eu seleciono "<Status desejado>" em "Status"
+    E eu pressiono "Salvar"
+    Então eu devo ver "Status: <Status desejado>"
 
   Exemplos:
-  | Estado do Veículo | Estado desejado |
+  | Status do Veículo | Status desejado |
   | Ativo             | Inativo         |
   | Inativo           | Ativo           |
 
