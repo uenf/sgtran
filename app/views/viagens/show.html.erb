@@ -6,59 +6,54 @@
 
   <h1>Dados gerais</h1>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Data de sa&iacute;da: </div>
-    <div class="linha_texto">
+  <p>
+    <label>Data de sa&iacute;da:</label>
+    <spam>
       <%=h @viagem.data_partida.strftime("%d/%m/%Y") if @viagem.data_partida %>
-    </div>
-  </div>
+    </spam>
+  </p>
 
 
-  <div class="show_linha">
-    <div class="linha_titulo">Data de chegada: </div>
-    <div class="linha_texto">
+  <p>
+    <label>Data de chegada: </label>
+    <spam>
       <%=h @viagem.data_chegada.strftime("%d/%m/%Y") if @viagem.data_chegada %>
-    </div>
-  </div>
+    </spam>
+  </p>
 
 
-  <div class="show_linha">
-    <div class="linha_titulo">Hor&aacute;rio de partida: </div>
-    <div class="linha_texto">
+  <p>
+    <label>Hor&aacute;rio de partida: </label>
+    <spam>
       <%=h @viagem.horario_partida.strftime("%H:%M") if @viagem.horario_partida %>
-    </div>
-  </div>
+    </spam>
+  </p>
 
 
-  <div class="show_linha">
-    <div class="linha_titulo">Motoristas: </div>
-    <div class="linha_texto">
+  <p>
+    <label>Motoristas: </label>
+    <spam>
       <%=h @viagem.motoristas.collect(&:nome).to_sentence if @viagem.motoristas %>
-    </div>
-  </div>
+    </spam>
+  </p>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Ve&iacute;culo: </div>
-    <div class="linha_texto">
-      <%=h @veiculo.modelo + " - " + @veiculo.placa + " - " +
-          CategoriaDeVeiculo.find(@veiculo.categoria_de_veiculo_id).nome  if @veiculo %>
-    </div>
-  </div>
+  <p>
+    <label>Ve&iacute;culo: </label>
+    <spam>
+      <%=h "#{@veiculo.modelo} - #{@veiculo.placa} - #{CategoriaDeVeiculo.find(@veiculo.categoria_de_veiculo_id).nome}" if @veiculo %>
+    </spam>
+  </p>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Estado: </div>
-    <div class="linha_texto">
-      <%=h @viagem.estado %>
-    </div>
-  </div>
+  <p>
+    <label>Estado:</label>
+    <spam><%=h @viagem.estado %></spam>
+  </p>
 
   <% if !@viagem.motivo_id.nil? %>
-    <div class="show_linha">
-      <div class="linha_titulo">Motivo: </div>
-      <div class="linha_texto">
-        <%=h Motivo.find(@viagem.motivo_id).descricao %>
-      </div>
-    </div>
+    <p>
+      <label>Motivo:</label>
+      <spam><%=h Motivo.find(@viagem.motivo_id).descricao %></spam>
+    </p>
   <% end %>
 
   <h1>Requisi&ccedil;&otilde;es atendidas</h1>
