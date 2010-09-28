@@ -18,7 +18,7 @@ Para que eu possa mudar seus dados de acordo com a dinâmica do trabalho
     E que eu estou na página de edição de viagem
     Quando eu seleciono "Eduardo Silva" em "Motoristas:"
     E eu seleciono "Pedro Correia" em "Motoristas:"
-    E eu pressiono "Atualizar"
+    E eu pressiono "Salvar"
     Então eu devo ver "Viagem atualizada com sucesso!"
     E eu devo ver "Motoristas: Gustavo Ribeiro, Eduardo Silva e Pedro Correia"
     E eu devo ver "Estado: Aguardando"

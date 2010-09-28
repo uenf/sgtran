@@ -8,17 +8,15 @@
   <% form_for @viagem, :url => { :action => "update" } do |f| %>
     <%= mensagem_de_erro(@viagem) %>
 
-    <div class="show_linha">
-      <div class="linha_titulo">
-        <%= f.label :data_partida, "Data de sa&iacute;da:" %>
-      </div>
+    <p>
+      <%= f.label :data_partida, "Data de sa&iacute;da:" %>
       <%= calendar_date_select_tag "viagem_data_partida",
                                   @viagem.data_partida ? @viagem.data_partida.to_date.to_s_br : "",
                                   :name => "viagem[data_partida]",
                                   :year_range => [0.years.ago, 2.years.from_now],
                                   :month_year => "label",
                                   :class => "campo_de_poucos_digitos"%>
-    </div>
+    </p>
 
     <%= observe_field :viagem_data_partida,
                       :url => { :controller => :viagens,
@@ -36,17 +34,15 @@
                       :frequency => 0.1
                       %>
 
-    <div class="show_linha">
-      <div class="linha_titulo">
-        <%= f.label :data_chegada, "Data de chegada:" %>
-      </div>
+    <p>
+      <%= f.label :data_chegada, "Data de chegada:" %>
       <%= calendar_date_select_tag "viagem_data_chegada",
                                   @viagem.data_chegada ? @viagem.data_chegada.to_date.to_s_br : "",
                                   :name => "viagem[data_chegada]",
                                   :year_range => [0.years.ago, 2.years.from_now],
                                   :month_year => "label",
                                   :class => "campo_de_poucos_digitos"%>
-    </div>
+    </p>
 
     <%= observe_field :viagem_data_chegada,
                       :url => { :controller => :viagens,
@@ -64,32 +60,26 @@
                       :frequency => 0.1
                       %>
 
-    <div class="show_linha">
-      <div class="linha_titulo">
-        <%= f.label :horario_partida, "Hor&aacute;rio de sa&iacute;da:" %>
-      </div>
+    <p>
+      <%= f.label :horario_partida, "Hor&aacute;rio de sa&iacute;da:" %>
       <%= time_select :viagem, :horario_partida, {:minute_step => 5, :prompt => "-", :ignore_date => true} %>
-    </div>
+    </p>
 
-    <div class="show_linha">
-      <div class="linha_titulo">
-        <%= f.label :veiculo_id, "Ve&iacute;culo:" %>
-      </div>
+    <p>
+      <%= f.label :veiculo_id, "Ve&iacute;culo:" %>
       <select name="viagem[veiculo_id]" id="viagem_veiculo_id">
         <%= grouped_options_for_select(@lista_veiculos, @viagem.veiculo_id, "Selecione um ve&iacute;culo") %>
       </select>
-    </div>
+    </p>
 
-    <div class="show_linha">
-      <div class="linha_titulo">
-        <%= f.label :motorista_ids, "Motoristas:", :class => "label_obrigatorio"%>
-      </div>
+    <p>
+      <%= f.label :motorista_ids, "Motoristas:", :class => "label_obrigatorio"%>
       <select name="viagem[motorista_ids][]" id="viagem_motorista_ids" multiple="multiple" size="5">
         <%= grouped_options_for_select(@lista_motoristas, @viagem.motorista_ids) %>
       </select>
-    </div>
+    </p>
 
-    <div class ="botao_concluir"><%= f.submit "Atualizar" %></div>
+    <%= f.submit "Salvar" %>
   <% end %>
 
 
