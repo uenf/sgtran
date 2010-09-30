@@ -1,39 +1,6 @@
 <div class="show_padrao">
 
-    <h1>Dados do solicitante</h1>
-
-
-    <div class="show_linha">
-      <div class="linha_titulo"> Matricula: </div> <div class="linha_texto"> <%=h @solicitante.matricula %> </div>
-    </div>
-
-    <div class="show_linha">
-      <div class="linha_titulo"> Nome do solicitante: </div> <div class="linha_texto"> <%=h @solicitante.nome %> </div>
-    </div>
-
-    <div class="show_linha">
-      <div class="linha_titulo"> Email: </div> <div class="linha_texto"> <%=h @solicitante.email %> </div>
-    </div>
-
-    <div class="show_linha">
-      <div class="linha_titulo"> Cargo: </div> <div class="linha_texto"> <%=h @solicitante.cargo %> </div>
-    </div>
-
-    <div class="show_linha">
-      <div class="linha_titulo"> Telefone ou ramal: </div> <div class="linha_texto"> <%=h @solicitante.telefone_ou_ramal %> </div>
-    </div>
-
-    <div class="show_linha">
-      <div class="linha_titulo"> Celular: </div> <div class="linha_texto"> <%=h @requisicao.celular %> </div>
-    </div>
-
-    <div class="show_linha">
-      <div class="linha_titulo"> Lab. ou setor: </div> <div class="linha_texto"> <%=h @solicitante.laboratorio_ou_setor %> </div>
-    </div>
-
-    <div class="show_linha">
-      <div class="linha_titulo"> Centro: </div> <div class="linha_texto"> <%=h Centro.find(@solicitante.centro_id).nome %> </div>
-    </div>
+    <%= render :file => "solicitantes/_show" %>
 
     <h1>Dados da reserva</h1>
 
