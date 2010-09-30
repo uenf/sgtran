@@ -1,73 +1,8 @@
 <div class="show_padrao">
 
-  <%= render :file => "solicitantes/_show" %>
+  <%= render :file => 'solicitantes/_show' %>
 
-  <h1>Dados da reserva</h1>
-
-  <p>
-    <label>Protocolo:</label>
-    <spam><%=h @requisicao.id%></spam>
-  </p>
-
-  <p>
-    <label>Data de reserva:</label>
-    <spam><%=h @requisicao.data_de_reserva.strftime("%d/%m/%Y")%></spam>
-  </p>
-
-  <p>
-    <label>Categoria de ve&iacute;culo:</label>
-    <spam><%=h CategoriaDeVeiculo.find(@requisicao.categoria_de_veiculo_id).nome %></spam>
-  </p>
-
-  <p>
-    <label>Objetivo da reserva:</label>
-    <spam>
-      <%=h ObjetivoDeReserva.find(@requisicao.objetivo_de_reserva_id).texto \
-        + ( @requisicao.outros.blank? ? '' : ": #{@requisicao.outros}" )
-      %>
-    </spam>
-  </p>
-
-  <p>
-    <label>Passageiros:</label>
-    <spam><%=h @requisicao.nome_telefone_passageiros %></spam>
-  </p>
-
-  <p>
-    <label>Roteiro da agenda:</label>
-    <spam><%=h @requisicao.roteiro_da_agenda %></spam>
-  </p>
-
-  <p>
-    <label>Observacao:</label>
-    <spam><%=h @requisicao.observacao.blank? ? '-' : @requisicao.observacao %></spam>
-  </p>
-
-  <p>
-    <label>Estado:</label>
-    <spam><%=h @requisicao.estado.to_s %></spam>
-  </p>
-
-  <% if !@requisicao.motivo_id.nil? %>
-    <p>
-      <label>Motivo informado pelo Sistema: </label>
-      <spam><%=h Motivo.find(@requisicao.motivo_id).descricao %></spam>
-    </p>
-  <% end %>
-
-  <% if !@requisicao.motivo_observacao.nil? %>
-    <p>
-      <label>Observa&ccedil;&otilde;es do motivo:</label>
-      <spam><%=h @requisicao.motivo_observacao %></spam>
-    </p>
-  <% end %>
-
-  <% if !@requisicao.motivo_professor.nil? %>
-    <p>
-      <label>Motivo informado pelo Professor:</label>
-      <spam><%=h @requisicao.motivo_professor.to_s %></spam>
-    </p>
-  <% end %>
+  <%= render 'show' %>
 
 </div>
 

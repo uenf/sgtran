@@ -2,12 +2,10 @@
 
   <%= f.error_messages %>
 
-<div id="exibir_requisicao">
+  <div id="exibir_requisicao">
 
-
-  <h1>Cancelamento de reserva de ve&iacute;culos</h1>
-  <p class="legenda_obrigatorio"><strong>* Os campos em vermelho s&atilde;o obrigat&oacute;rios</strong><p>
-
+    <h1>Cancelamento de reserva de ve&iacute;culos</h1>
+    <p class="legenda_obrigatorio"><strong>* Os campos em vermelho s&atilde;o obrigat&oacute;rios</strong><p>
 
     <p>
       <strong>Data de reserva:</strong>
@@ -44,14 +42,14 @@
       <%=h @requisicao.observacao %>
     </p>
 
-<br/>
+    <br/>
 
-  <%= f.label :motivo_professor, "Motivo do Cancelamento:", :class => "campo_obrigatorio" %>
-  <%= f.text_area :motivo_professor, :cols => nil, :rows => nil %>
+    <%= f.label :motivo_professor, "Motivo do Cancelamento:", :class => "campo_obrigatorio" %>
+    <%= f.text_area :motivo_professor, :cols => nil, :rows => nil %>
 
-  <%= f.submit 'Cancelar requisi&ccedil;&atilde;o' %>
+    <%= f.submit 'Cancelar requisi&ccedil;&atilde;o' %>
+
+  </div>
 
 <% end %>
-
-</div>
 
