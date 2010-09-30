@@ -1,65 +1,73 @@
 <div class="show_padrao">
 
-    <%= render :file => "solicitantes/_show" %>
+  <%= render :file => "solicitantes/_show" %>
 
-    <h1>Dados da reserva</h1>
+  <h1>Dados da reserva</h1>
 
-    <div class="show_linha">
-      <div class="linha_titulo"> Protocolo: </div> <div class="linha_texto"> <%=h @requisicao.id%> </div>
-    </div>
+  <p>
+    <label>Protocolo:</label>
+    <spam><%=h @requisicao.id%></spam>
+  </p>
 
-    <div class="show_linha">
-      <div class="linha_titulo"> Data de reserva: </div> <div class="linha_texto"> <%=h @requisicao.data_de_reserva.strftime("%d/%m/%Y")%> </div>
-    </div>
+  <p>
+    <label>Data de reserva:</label>
+    <spam><%=h @requisicao.data_de_reserva.strftime("%d/%m/%Y")%></spam>
+  </p>
 
-    <div class="show_linha">
-      <div class="linha_titulo"> Categoria de ve&iacute;culo: </div> <div class="linha_texto"> <%=h CategoriaDeVeiculo.find(@requisicao.categoria_de_veiculo_id).nome %> </div>
-    </div>
+  <p>
+    <label>Categoria de ve&iacute;culo:</label>
+    <spam><%=h CategoriaDeVeiculo.find(@requisicao.categoria_de_veiculo_id).nome %></spam>
+  </p>
 
-    <div class="show_linha">
-      <div class="linha_titulo"> Objetivo da reserva: </div> <div class="linha_texto"> <%=h ObjetivoDeReserva.find(@requisicao.objetivo_de_reserva_id).texto %> </div>
-    </div>
+  <p>
+    <label>Objetivo da reserva:</label>
+    <spam>
+      <%=h ObjetivoDeReserva.find(@requisicao.objetivo_de_reserva_id).texto \
+        + ( @requisicao.outros.blank? ? '' : ": #{@requisicao.outros}" )
+      %>
+    </spam>
+  </p>
 
-    <div class="show_linha">
-      <div class="linha_titulo"> Outros: </div> <div class="linha_texto"> <%=h @requisicao.outros %> </div>
-    </div>
+  <p>
+    <label>Passageiros:</label>
+    <spam><%=h @requisicao.nome_telefone_passageiros %></spam>
+  </p>
 
-    <div class="show_linha">
-      <div class="linha_titulo"> Passageiros: </div> <div class="linha_texto"> <%=h @requisicao.nome_telefone_passageiros %> </div>
-    </div>
+  <p>
+    <label>Roteiro da agenda:</label>
+    <spam><%=h @requisicao.roteiro_da_agenda %></spam>
+  </p>
 
-    <div class="show_linha">
-      <div class="linha_titulo"> Roteiro da agenda (ida): </div> <div class="linha_texto"> <%=h @requisicao.roteiro_da_agenda %> </div>
-    </div>
+  <p>
+    <label>Observacao:</label>
+    <spam><%=h @requisicao.observacao.blank? ? '-' : @requisicao.observacao %></spam>
+  </p>
 
-    <div class="show_linha">
-      <div class="linha_titulo"> Observacao: </div> <div class="linha_texto"> <%=h @requisicao.observacao %> </div>
-    </div>
+  <p>
+    <label>Estado:</label>
+    <spam><%=h @requisicao.estado.to_s %></spam>
+  </p>
 
-    <div class="show_linha">
-      <div class="linha_titulo"> Estado: </div> <div class="linha_texto"> <%=h @requisicao.estado.to_s %> </div>
-    </div>
+  <% if !@requisicao.motivo_id.nil? %>
+    <p>
+      <label>Motivo informado pelo Sistema: </label>
+      <spam><%=h Motivo.find(@requisicao.motivo_id).descricao %></spam>
+    </p>
+  <% end %>
 
-    <% if !@requisicao.motivo_id.nil? %>
-      <div class="show_linha">
-        <div class="linha_titulo"> Motivo informado pelo Sistema: </div>
-        <div class="linha_texto"> <%=h Motivo.find(@requisicao.motivo_id).descricao %> </div>
-      </div>
-    <% end %>
+  <% if !@requisicao.motivo_observacao.nil? %>
+    <p>
+      <label>Observa&ccedil;&otilde;es do motivo:</label>
+      <spam><%=h @requisicao.motivo_observacao %></spam>
+    </p>
+  <% end %>
 
-    <% if !@requisicao.motivo_observacao.nil? %>
-      <div class="show_linha">
-        <div class="linha_titulo">Observa&ccedil;&otilde;es do motivo: </div>
-        <div class="linha_texto"> <%=h @requisicao.motivo_observacao %> </div>
-      </div>
-    <% end %>
-
-    <% if !@requisicao.motivo_professor.nil? %>
-      <div class="show_linha">
-        <div class="linha_titulo"> Motivo informado pelo Professor: </div>
-        <div class="linha_texto"> <%=h @requisicao.motivo_professor.to_s %> </div>
-      </div>
-    <% end %>
+  <% if !@requisicao.motivo_professor.nil? %>
+    <p>
+      <label>Motivo informado pelo Professor:</label>
+      <spam><%=h @requisicao.motivo_professor.to_s %></spam>
+    </p>
+  <% end %>
 
 </div>
 
@@ -69,10 +77,6 @@
   <ul>
     <li id="opcao_voltar" onclick="history.back(-1)" onmouseover="this.style.cursor = 'pointer'">Voltar</li>
     <li id="opcao_imprimir" onclick="window.print()" onmouseover="this.style.cursor = 'pointer'"><a href="javaScript:window.print()">Imprimir</a></li>
-
-    <!-- <li id="opcao_aceitar"><%= link_to 'Aceitar', :controller => 'requisicoes', :action => 'aceitar', :id => @requisicao %></li>
-    <li id="opcao_rejeitar"><%= link_to 'Rejeitar'%></li>
-    <li id="opcao_cancelar"><%= link_to 'Cancelar' %></li> -->
 
     <% if requisicao_pode_ser_aceita(@requisicao.estado) %>
       <li id="opcao_aceitar" onclick="location.href='<%= aceitar_viagem_path(@requisicao) %>'" onmouseover="this.style.cursor = 'pointer'"><%= link_to 'Aceitar', aceitar_viagem_path(@requisicao) %>
@@ -93,8 +97,6 @@
         <%= link_to 'Alterar viagem', aceitar_path(@requisicao) %>
       </li>
     <% end %>
-
   </ul>
-  <div class="pular_linha"></li>
 </div>
 

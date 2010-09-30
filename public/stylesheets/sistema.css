@@ -225,13 +225,10 @@ div.index_base_de_dados span a {
 }
 
 #tabela_exibir_base_de_dados {
-    width: 978px;
+    width: 998px;
     margin: 0px;
-    margin-top: -1px;
-    padding: 10px;
     height: auto;
     background-color: #F5F5F5;
-    border: solid 1px #999999;
     display: table
 }
 
@@ -274,15 +271,7 @@ table.tabela_base_de_dados tr td {
 */
 
 #tabela_exibir {
-    width: 1020px;.show_padrao label {
-    background-color: #EFEFEF;
-    float: left;
-    font-weight: bold;
-    margin: 1px;
-    padding: 2px;
-    text-align: right;
-    width: 16%;
-}
+    width: 1020px;
     margin: 0px;
     margin-top: -1px;
     padding: 0px;
@@ -310,10 +299,12 @@ table.tabela_base_de_dados tr td {
 */
 
 .show_padrao {
+    background-color: #F5F5F5;
     width: 100%;
     border: solid 1px #999999;
     padding: 0px 0px 15px 0px;
     display: table;
+    margin-top: -1px;
 }
 
 .show_padrao h1 {
@@ -322,7 +313,7 @@ table.tabela_base_de_dados tr td {
     font-weight: bold;
     background-image: url("/images/fundo_tabela_01.jpg");
     padding: 5px;
-    margin: 0px 0px 10px 0px;
+    margin: 2px 2px 10px 2px;
     clear: both;
 }
 
@@ -536,7 +527,7 @@ table.tabela_padrao tr td.cancelada {
 */
 
 #rodape {
-    width: 1020px;
+    width: 1012px;
     margin-top: 10px;
     padding: 5px;
     height: auto;
