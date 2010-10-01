@@ -5,8 +5,8 @@
       <fieldset>
         <legend>Rejeitar requisi&ccedil;&atilde;o</legend>
         <p>
-          Para rejeitar a requisi&ccedil;&atilde;o, selecione o motivo abaixo. Caso o motivo que
-          voc&ecirc; deseja n&atilde;o esteja na lista abaixo,
+          Para rejeitar a requisi&ccedil;&atilde;o, selecione o motivo abaixo.
+          Caso o motivo que voc&ecirc; deseja n&atilde;o esteja na lista abaixo,
           <%= link_to "adicione", new_motivo_path %> outro motivo.
         </p>
         <p>
@@ -30,83 +30,15 @@
     <% end -%>
   </div>
 
-        <!---------------------------------------------------------------------------->
+  <!-- ===================================================================== -->
 
-    <h1>Dados do solicitante</h1>
+  <%= render :file => 'solicitantes/_show' %>
 
-    <div class="show_linha">
-      <div class="linha_titulo"> Matricula: </div> <div class="linha_texto"> <%=h @solicitante.matricula %> </div>
-    </div>
-
-    <div class="show_linha">
-      <div class="linha_titulo"> Nome do solicitante: </div> <div class="linha_texto"> <%=h @solicitante.nome %> </div>
-    </div>
-
-    <div class="show_linha">
-      <div class="linha_titulo"> Email: </div> <div class="linha_texto"> <%=h @solicitante.email %> </div>
-    </div>
-
-    <div class="show_linha">
-      <div class="linha_titulo"> Cargo: </div> <div class="linha_texto"> <%=h @solicitante.cargo %> </div>
-    </div>
-
-    <div class="show_linha">
-      <div class="linha_titulo"> Telefone ou ramal: </div> <div class="linha_texto"> <%=h @solicitante.telefone_ou_ramal %> </div>
-    </div>
-
-    <div class="show_linha">
-      <div class="linha_titulo"> Celular: </div> <div class="linha_texto"> <%=h @requisicao.celular %> </div>
-    </div>
-
-    <div class="show_linha">
-      <div class="linha_titulo"> Lab. ou setor: </div> <div class="linha_texto"> <%=h @solicitante.laboratorio_ou_setor %> </div>
-    </div>
-
-    <div class="show_linha">
-      <div class="linha_titulo"> Centro: </div> <div class="linha_texto"> <%=h Centro.find(@solicitante.centro_id).nome %> </div>
-    </div>
-
-    <h1>Dados da reserva</h1>
-
-    <div class="show_linha">
-      <div class="linha_titulo"> Protocolo: </div> <div class="linha_texto"> <%=h @requisicao.id%> </div>
-    </div>
-
-    <div class="show_linha">
-      <div class="linha_titulo"> Data de reserva: </div> <div class="linha_texto"> <%=h @requisicao.data_de_reserva.strftime("%d/%m/%Y")%> </div>
-    </div>
-
-    <div class="show_linha">
-      <div class="linha_titulo"> Categoria do ve&iacute;culo: </div> <div class="linha_texto"> <%=h CategoriaDeVeiculo.find(@requisicao.categoria_de_veiculo_id).nome %> </div>
-    </div>
-
-    <div class="show_linha">
-      <div class="linha_titulo"> Objetivo da reserva: </div> <div class="linha_texto"> <%=h ObjetivoDeReserva.find(@requisicao.objetivo_de_reserva_id).texto %> </div>
-    </div>
-
-    <div class="show_linha">
-      <div class="linha_titulo"> Outros: </div> <div class="linha_texto"> <%=h @requisicao.outros %> </div>
-    </div>
-
-    <div class="show_linha">
-      <div class="linha_titulo"> Nome e telefone dos passageiros: </div> <div class="linha_texto"> <%=h @requisicao.nome_telefone_passageiros %> </div>
-    </div>
-
-    <div class="show_linha">
-      <div class="linha_titulo"> Roteiro da agenda (ida): </div> <div class="linha_texto"> <%=h @requisicao.roteiro_da_agenda %> </div>
-    </div>
-
-    <div class="show_linha">
-      <div class="linha_titulo"> Observacao: </div> <div class="linha_texto"> <%=h @requisicao.observacao %> </div>
-    </div>
-
-    <div class="show_linha">
-      <div class="linha_titulo"> Estado: </div> <div class="linha_texto"> <%=h @requisicao.estado.to_s %> </div>
-    </div>
+  <%= render 'show' %>
 
 </div>
 
-<!---------------------------------------------------------------------------->
+<!-- ======================================================================= -->
 
 <div id="opcoes_da_visao">
   <ul>

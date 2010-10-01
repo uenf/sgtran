@@ -3,33 +3,39 @@
     <h2>N&uacute;mero de Protocolo: <%= @requisicao.id %></h2>
   </p>
   <p>
-    <label>Solicitante: </label><%= Solicitante.find(@requisicao.solicitante_id).nome %>
+    <label>Solicitante:</label>
+    <%= Solicitante.find(@requisicao.solicitante_id).nome %>
   </p>
   <p>
-    <label>Celular do solicitante: </label><%= @requisicao.celular %>
+    <label>Celular do solicitante:</label>
+    <%= @requisicao.celular %>
   </p>
   <p>
-    <label>Data de Reserva: </label><%= @requisicao.data_de_reserva.strftime("%d/%m/%Y") %>
+    <label>Data de Reserva:</label>
+    <%= @requisicao.data_de_reserva.strftime("%d/%m/%Y") %>
   </p>
   <p>
-    <label>Categoria de ve&iacute;culo: </label><%= CategoriaDeVeiculo.find(@requisicao.categoria_de_veiculo_id).nome %>
+    <label>Categoria de ve&iacute;culo:</label>
+    <%= CategoriaDeVeiculo.find(@requisicao.categoria_de_veiculo_id).nome %>
   </p>
   <p>
-    <label>Objetivo da Reserva: </label><%= ObjetivoDeReserva.find(@requisicao.objetivo_de_reserva_id).texto %>
+    <label>Objetivo da Reserva:</label>
+    <%= ObjetivoDeReserva.find(@requisicao.objetivo_de_reserva_id).texto \
+      + ( @requisicao.outros.blank? ? '' : ": #{@requisicao.outros}" )
+    %>
   </p>
 
-  <% unless @requisicao.outros.blank? %>
-    <p><%= "Outros: " + @requisicao.outros %></p>
-  <% end %>
-
   <p>
-    <label>Nome(s) e telefone do(s) passageiro(s): </label><%= @requisicao.nome_telefone_passageiros %>
+    <label>Nome(s) e telefone do(s) passageiro(s):</label>
+    <%= @requisicao.nome_telefone_passageiros %>
   </p>
   <p>
-    <label>Roteiro da agenda (ida): </label><%= @requisicao.roteiro_da_agenda %>
+    <label>Roteiro da agenda:</label>
+    <%= @requisicao.roteiro_da_agenda %>
   </p>
   <p>
-    <label>Observa&ccedil;&atilde;o:</label> <%= @requisicao.observacao %>&nbsp;
+    <label>Observa&ccedil;&atilde;o:</label>
+    <%=h @requisicao.observacao.blank? ? '-' : @requisicao.observacao %>&nbsp;
   </p>
 </div>
 

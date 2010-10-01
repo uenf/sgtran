@@ -1,46 +1,6 @@
 <div class="show_padrao">
 
-  <h1>Dados do solicitante</h1>
-
-  <p>
-    <label>Nome:</label>
-    <spam><%=h @solicitante.nome %></spam>
-  </p>
-
-  <p>
-    <label>Email:</label>
-    <spam><%=h @solicitante.email %></spam>
-  </p>
-
-  <p>
-    <label>Matricula:</label>
-    <spam><%=h @solicitante.matricula %></spam>
-  </p>
-
-  <p>
-    <label>Cargo:</label>
-    <spam><%=h @solicitante.cargo %></spam>
-  </p>
-
-  <p>
-    <label>Ramal:</label>
-    <spam><%=h @solicitante.telefone_ou_ramal %></spam>
-  </p>
-
-  <p>
-    <label>Lab. ou Setor:</label>
-    <spam><%=h @solicitante.laboratorio_ou_setor %></spam>
-  </p>
-
-  <p>
-    <label>Centro:</label>
-    <spam><%=h Centro.find(@solicitante.centro_id).nome if @solicitante.centro_id %></spam>
-  </p>
-
-  <p>
-    <label>Status:</label>
-    <spam><%=h @solicitante.status %></spam>
-  </p>
+  <%= render 'show' %>
 
 </div>
 
