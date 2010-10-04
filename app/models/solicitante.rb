@@ -5,6 +5,8 @@ class Solicitante < ActiveRecord::Base
 
   belongs_to :centro
 
+  has_many :requisicoes
+
   validates_presence_of :nome,
                         :email,
                         :matricula,

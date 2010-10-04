@@ -25,7 +25,7 @@ describe RequisicoesController do
   describe "GET show" do
     it "assigns the requested requisicao as @requisicao" do
       Solicitante.stub(:find).with("12").and_return(mock_solicitante)
-      Requisicao.stub(:find).with("37").and_return(mock_requisicao(:solicitante_id => "12"))
+      Requisicao.stub(:find).with("37").and_return(mock_requisicao(:solicitante => nil))
       get :show, :id => "37"
       assigns[:requisicao].should equal(mock_requisicao)
     end

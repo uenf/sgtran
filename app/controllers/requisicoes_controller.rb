@@ -35,13 +35,12 @@ class RequisicoesController < ApplicationController
     if @requisicao.blank?
       redirect_to(requisicoes_path)
     else
-      @solicitante = Solicitante.find(@requisicao.solicitante_id)
+      @solicitante = @requisicao.solicitante
     end
   end
 
   def new
     @requisicao = Requisicao.new
-    flash[:sucesso] = ""
     render :action => "new", :layout => "requisicoes"
   end
 
@@ -56,32 +55,18 @@ class RequisicoesController < ApplicationController
     else
       dados = {:matricula => params[:matricula], :email => params[:email], :requisicao => params[:requisicao], :tipo => "Ida"}
     end
-    @requisicao = Requisicao.analisar_requisicao dados
-    if @requisicao.length == 1
-      if @requisicao[IDA].valid?
-        session[:requisicao] = [@requisicao[IDA].id]
-        Confirmacao.deliver_email_confirmacao_de_cadastro_de_requisicao(@requisicao[IDA])
-        redirect_to(confirmar_requisicao_path)
-      else
-        @requisicao = @requisicao[IDA]
-        render :action => "new", :layout => "requisicoes"
+    session[:requisicao] = []
+    @requisicoes = Requisicao.analisar_requisicao dados
+
+    if not @requisicoes.collect(&:valid?).include? false
+      @requisicoes.each do |requisicao|
+        session[:requisicao] << requisicao.id
+        Confirmacao.deliver_email_confirmacao_de_cadastro_de_requisicao(requisicao)
       end
+      redirect_to(confirmar_requisicao_path)
     else
-      if @requisicao[IDA].valid?
-        if @requisicao[VOLTA].valid?
-          session[:requisicao] = [@requisicao[IDA].id, @requisicao[VOLTA].id]
-          @requisicao.each do |requisicao|
-            Confirmacao.deliver_email_confirmacao_de_cadastro_de_requisicao(requisicao)
-          end
-          redirect_to(confirmar_requisicao_path)
-        else
-          @requisicao = @requisicao[VOLTA]
-          render :action => "new", :layout => "requisicoes"
-        end
-      else
-        @requisicao = @requisicao[IDA]
-        render :action => "new", :layout => "requisicoes"
-      end
+      @requisicoes.each { |requisicao| @requisicao = requisicao if not requisicao.valid? }
+      render :action => "new", :layout => "requisicoes"
     end
   end
 

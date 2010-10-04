@@ -3,11 +3,13 @@ require 'brazilian-rails'
 
 
 class Requisicao < ActiveRecord::Base
+
   belongs_to :viagem
   belongs_to :categoria_de_veiculo
   belongs_to :objetivo_de_reserva
   belongs_to :local_origem, :class_name => 'Cidade'
   belongs_to :local_destino, :class_name => 'Cidade'
+  belongs_to :solicitante
 
   ESPERA                   = "Espera"
   ACEITA                   = "Aceita"
