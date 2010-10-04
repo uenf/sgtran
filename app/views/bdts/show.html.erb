@@ -2,71 +2,71 @@
 
   <h1>Dados do BDT</h1>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Número no sistema:</div>
-    <div class="linha_texto"><%=h @bdt.id %></div>
-  </div>
+  <p>
+    <label>Número no sistema:</label>
+    <span><%=h @bdt.id %></span>
+  </p>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Número físico:</div>
-    <div class="linha_texto"><%=h @bdt.numero %></div>
-  </div>
+  <p>
+    <label>Número físico:</label>
+    <span><%=h @bdt.numero %></span>
+  </p>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Veículo:</div>
-    <div class="linha_texto"><%=h @veiculo.modelo + ' - ' + @veiculo.placa %></div>
-  </div>
+  <p>
+    <label>Veículo:</label>
+    <span><%=h @veiculo.modelo + ' - ' + @veiculo.placa %></span>
+  </p>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Condutores:</div>
-    <div class="linha_texto"><%=h @viagem.motoristas.collect(&:nome).to_sentence if @viagem.motoristas %></div>
-  </div>
+  <p>
+    <label>Condutores:</label>
+    <span><%=h @viagem.motoristas.collect(&:nome).to_sentence if @viagem.motoristas %></span>
+  </p>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Data de partida:</div>
-    <div class="linha_texto"><%=h @bdt.data_partida.to_s_br %></div>
-  </div>
+  <p>
+    <label>Data de partida:</label>
+    <span><%=h @bdt.data_partida.to_s_br %></span>
+  </p>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Horário de partida:</div>
-    <div class="linha_texto"><%=h @bdt.horario_partida.to_s_br.split[1] %></div>
-  </div>
+  <p>
+    <label>Horário de partida:</label>
+    <span><%=h @bdt.horario_partida.to_s_br.split[1] %></span>
+  </p>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Odômetro na partida:</div>
-    <div class="linha_texto"><%=h @bdt.odometro_partida %></div>
-  </div>
+  <p>
+    <label>Odômetro na partida:</label>
+    <span><%=h @bdt.odometro_partida %></span>
+  </p>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Data de reco.:</div>
-    <div class="linha_texto"><%=h @bdt.data_recolhimento.to_s_br %></div>
-  </div>
+  <p>
+    <label>Data de reco.:</label>
+    <span><%=h @bdt.data_recolhimento.to_s_br %></span>
+  </p>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Horário de reco.:</div>
-    <div class="linha_texto"><%=h @bdt.horario_recolhimento.to_s_br.split[1]%></div>
-  </div>
+  <p>
+    <label>Horário de reco.:</label>
+    <span><%=h @bdt.horario_recolhimento.to_s_br.split[1]%></span>
+  </p>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Odômetro no reco.:</div>
-    <div class="linha_texto"><%=h @bdt.odometro_recolhimento %></div>
-  </div>
+  <p>
+    <label>Odômetro no reco.:</label>
+    <span><%=h @bdt.odometro_recolhimento %></span>
+  </p>
 
   <% @requisicoes_ids.each do |id| %>
     <% requisicao = Requisicao.find(id) %>
     <% cidade_origem = requisicao.local_origem ? Cidade.find(requisicao.local_origem).nome : "" %>
     <% cidade_destino = requisicao.local_destino ? Cidade.find(requisicao.local_destino).nome : "" %>
 
-    <div class="show_linha">
-      <div class="linha_titulo">Requisição <%= id %>:</div>
-      <div class="linha_texto"><%= cidade_origem %> - <%= cidade_destino %></div>
-    </div>
+    <p>
+      <label>Requisição <%= id %>:</label>
+      <span><%= cidade_origem %> - <%= cidade_destino %></span>
+    </p>
   <% end %>
 
-  <div class="show_linha">
-    <div class="linha_titulo">Objetivo:</div>
-    <div class="linha_texto"><%=h @bdt.objetivo %></div>
-  </div>
+  <p>
+    <label>Objetivo:</label>
+    <span><%=h @bdt.objetivo %></span>
+  </p>
 
 </div>
 

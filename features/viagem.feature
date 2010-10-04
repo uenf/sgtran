@@ -47,7 +47,7 @@ Para que eu possa mudar seus dados de acordo com a dinâmica do trabalho
     E eu preencho "bdt_odometro_partida" com "15020"
     E eu preencho "bdt_data_recolhimento" com "16/02/2010"
     E eu preencho "bdt_odometro_recolhimento" com "15810"
-    E eu pressiono "Criar"
+    E eu pressiono "Salvar"
 
     Então a viagem deve estar atendida
     E a requisição deve estar <Tipo de cancelamento>
