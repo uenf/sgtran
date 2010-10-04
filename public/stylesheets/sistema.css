@@ -320,6 +320,7 @@ table.tabela_base_de_dados tr td {
 .show_padrao p {
     margin: 2px;
     padding: 0px;
+    clear: both;
 }
 
 .show_padrao label {
@@ -338,6 +339,11 @@ table.tabela_base_de_dados tr td {
     margin: 1px;
     padding: 2px;
     width: 80%;
+}
+
+.show_padrao span:after {
+    content: ".";
+    visibility: hidden;
 }
 
 .show_padrao input[type='submit'] {

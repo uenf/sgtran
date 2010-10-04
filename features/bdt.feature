@@ -31,7 +31,7 @@ Funcionalidade: Fechar viagem com o BDT
     E eu preencho "bdt_data_recolhimento" com "<data_recolhimento>"
     E eu preencho "bdt_odometro_recolhimento" com "<odometro_recolhimento>"
     E eu preencho "Objetivo" com "Ir ao Rio para levar alunos ao aeroporto"
-    E eu pressiono "Criar"
+    E eu pressiono "Salvar"
     Então eu devo ver "<sentença>"
 
     Exemplos: (Sucesso)
@@ -75,7 +75,7 @@ Funcionalidade: Fechar viagem com o BDT
 #    E eu seleciono "RJ" em "estado_destino[15]"
 #    E eu seleciono "Rio de Janeiro" em "cidade_destino[15]"
     E eu preencho "Objetivo" com "Ir ao Rio para levar alunos ao aeroporto"
-    E eu pressiono "Atualizar"
+    E eu pressiono "Salvar"
     Então eu devo ver "BDT atualizado com sucesso."
     E eu devo estar na página de visualização do BDT
     E eu devo ver "Condutores: Gustavo Ribeiro e Ronaldo Silva"
