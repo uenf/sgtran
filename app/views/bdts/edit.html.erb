@@ -133,10 +133,10 @@
               <%= collection_select :estado_origem, @id, Estado.all, :id, :sigla,
                                     {:prompt => "-", :selected => estado_local_origem } %>
 
-              <spam id="origem_req_<%=@id%>">
+              <span id="origem_req_<%=@id%>">
                 <%= collection_select :cidade_origem, @id, cidades_origem, :id, :nome,
                                       {:prompt => "-", :selected => cidade_local_origem} %>
-              </spam>
+              </span>
             </div>
           </div>
 
@@ -153,10 +153,10 @@
             <%= collection_select :estado_destino, @id, Estado.all, :id, :sigla,
                                   {:prompt => "-", :selected => estado_local_destino } %>
 
-            <spam id="destino_req_<%=@id%>">
+            <span id="destino_req_<%=@id%>">
               <%= collection_select :cidade_destino, @id, cidades_destino, :id, :nome,
                                     {:prompt => "-", :selected => cidade_local_destino } %>
-            </spam>
+            </span>
           </div>
         </div>
 

@@ -4,61 +4,61 @@
 
   <p>
     <label>Marca:</label>
-    <spam><%=h @veiculo.marca %></spam>
+    <span><%=h @veiculo.marca %></span>
   </p>
 
   <p>
     <label>Modelo:</label>
-    <spam><%=h @veiculo.modelo %></spam>
+    <span><%=h @veiculo.modelo %></span>
   </p>
 
   <p>
     <label>Cor:</label>
-    <spam><%=h @veiculo.cor %></spam>
+    <span><%=h @veiculo.cor %></span>
   </p>
 
   <p>
     <label>Ano:</label>
-    <spam><%=h @veiculo.ano %></spam>
+    <span><%=h @veiculo.ano %></span>
   </p>
 
   <p>
     <label>Placa:</label>
-    <spam><%=h @veiculo.placa %></spam>
+    <span><%=h @veiculo.placa %></span>
   </p>
 
   <p>
     <label>Número de ordem:</label>
-    <spam><%=h @veiculo.numero_de_ordem %></spam>
+    <span><%=h @veiculo.numero_de_ordem %></span>
   </p>
 
   <p>
     <label>Renavam:</label>
-    <spam><%=h @veiculo.renavam %></spam>
+    <span><%=h @veiculo.renavam %></span>
   </p>
 
   <p>
     <label>Prefixo:</label>
-    <spam><%=h Prefixo.find(@veiculo.prefixo_id).nome %></spam>
+    <span><%=h Prefixo.find(@veiculo.prefixo_id).nome %></span>
   </p>
 
   <p>
     <label>Combust&iacute;vel(is):</label>
-    <spam>
+    <span>
     <% @veiculo.combustiveis.each do |combustivel| %>
       <%= combustivel.nome %><br />
     <% end %>
-    </spam>
+    </span>
   </p>
 
   <p>
     <label>Categoria:</label>
-    <spam><%=h CategoriaDeVeiculo.find(@veiculo.categoria_de_veiculo_id).nome %></spam>
+    <span><%=h CategoriaDeVeiculo.find(@veiculo.categoria_de_veiculo_id).nome %></span>
   </p>
 
   <p>
     <label>Status:</label>
-    <spam><%=h @veiculo.status %></spam>
+    <span><%=h @veiculo.status %></span>
   </p>
 
 </div>

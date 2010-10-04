@@ -4,32 +4,32 @@
 
   <p>
     <label>Matr&iacute;cula:</label>
-    <spam><%=h @motorista.matricula %></spam>
+    <span><%=h @motorista.matricula %></span>
   </p>
 
   <p>
     <label>Nome do Motorista:</label>
-    <spam><%=h @motorista.nome %></spam>
+    <span><%=h @motorista.nome %></span>
   </p>
 
   <p>
     <label>Telefone:</label>
-    <spam><%=h @motorista.telefone %></spam>
+    <span><%=h @motorista.telefone %></span>
   </p>
 
   <p>
     <label>Habilitação:</label>
-    <spam><%=h @motorista.habilitacao %></spam>
+    <span><%=h @motorista.habilitacao %></span>
   </p>
 
   <p>
     <label>Vencimento da habilitação:</label>
-    <spam><%=h @motorista.vencimento_habilitacao.strftime("%d/%m/%Y") if @motorista.vencimento_habilitacao %></spam>
+    <span><%=h @motorista.vencimento_habilitacao.strftime("%d/%m/%Y") if @motorista.vencimento_habilitacao %></span>
   </p>
 
   <p>
     <label>Status:</label>
-    <spam><%=h @motorista.status %></spam>
+    <span><%=h @motorista.status %></span>
   </p>
 
 </div>

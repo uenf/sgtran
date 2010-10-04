@@ -2,66 +2,66 @@
 
 <p>
   <label>Protocolo:</label>
-  <spam><%=h @requisicao.id%></spam>
+  <span><%=h @requisicao.id%></span>
 </p>
 
 <p>
   <label>Data de reserva:</label>
-  <spam><%=h @requisicao.data_de_reserva.strftime("%d/%m/%Y")%></spam>
+  <span><%=h @requisicao.data_de_reserva.strftime("%d/%m/%Y")%></span>
 </p>
 
 <p>
   <label>Categoria de ve&iacute;culo:</label>
-  <spam><%=h CategoriaDeVeiculo.find(@requisicao.categoria_de_veiculo_id).nome %></spam>
+  <span><%=h CategoriaDeVeiculo.find(@requisicao.categoria_de_veiculo_id).nome %></span>
 </p>
 
 <p>
   <label>Objetivo da reserva:</label>
-  <spam>
+  <span>
     <%=h ObjetivoDeReserva.find(@requisicao.objetivo_de_reserva_id).texto \
       + ( @requisicao.outros.blank? ? '' : ": #{@requisicao.outros}" )
     %>
-  </spam>
+  </span>
 </p>
 
 <p>
   <label>Passageiros:</label>
-  <spam><%=h @requisicao.nome_telefone_passageiros %></spam>
+  <span><%=h @requisicao.nome_telefone_passageiros %></span>
 </p>
 
 <p>
   <label>Roteiro da agenda:</label>
-  <spam><%=h @requisicao.roteiro_da_agenda %></spam>
+  <span><%=h @requisicao.roteiro_da_agenda %></span>
 </p>
 
 <p>
   <label>Observacao:</label>
-  <spam><%=h @requisicao.observacao.blank? ? '-' : @requisicao.observacao %></spam>
+  <span><%=h @requisicao.observacao.blank? ? '-' : @requisicao.observacao %></span>
 </p>
 
 <p>
   <label>Estado:</label>
-  <spam><%=h @requisicao.estado.to_s %></spam>
+  <span><%=h @requisicao.estado.to_s %></span>
 </p>
 
 <% if !@requisicao.motivo_id.nil? %>
   <p>
     <label>Motivo informado pelo Sistema: </label>
-    <spam><%=h Motivo.find(@requisicao.motivo_id).descricao %></spam>
+    <span><%=h Motivo.find(@requisicao.motivo_id).descricao %></span>
   </p>
 <% end %>
 
 <% if !@requisicao.motivo_observacao.nil? %>
   <p>
     <label>Observa&ccedil;&otilde;es do motivo:</label>
-    <spam><%=h @requisicao.motivo_observacao %></spam>
+    <span><%=h @requisicao.motivo_observacao %></span>
   </p>
 <% end %>
 
 <% if !@requisicao.motivo_professor.nil? %>
   <p>
     <label>Motivo informado pelo Professor:</label>
-    <spam><%=h @requisicao.motivo_professor.to_s %></spam>
+    <span><%=h @requisicao.motivo_professor.to_s %></span>
   </p>
 <% end %>
 
