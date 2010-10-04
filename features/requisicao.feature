@@ -179,3 +179,19 @@ Funcionalidade: Solicitar viagem
     Então a requisição deve estar ligada à última viagem
     E eu devo ter 0 viagem cancelada
 
+  @now
+  Cenário: Criar uma requisição sem validação
+    Dado que eu tenho um solicitante com nome "Solicitante 1"
+    E que eu estou na página da lista de requisições
+    Quando eu clico em "Nova requisição"
+    E eu seleciono "Solicitante 1" em "Solicitante"
+    E eu preencho "Celular" com "9999-9999"
+    E eu preencho "Data de Reserva de Ida" com "25/09/2010"
+    E eu seleciono "" em "Categoria de veículo"
+    E eu seleciono "" em "Objetivo da reserva"
+    E eu preencho "Nome(s) e telefone do(s) passageiro(s)" com "Algumas pessoas"
+    E eu preencho "Roteiro da agenda (ida)" com "Algum roteiro de agenda de ida"
+    E eu preencho "Observação" com "ALguma observação"
+    E eu pressiono "Enviar"
+    Então eu devo ver "Requisição enviada com sucesso!"
+

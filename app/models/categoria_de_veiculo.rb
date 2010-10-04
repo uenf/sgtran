@@ -3,8 +3,8 @@ class CategoriaDeVeiculo < ActiveRecord::Base
   ATIVO = "Ativo"
   INATIVO = "Inativo"
 
-  has_one :veiculo
-  belongs_to :requisicao
+  has_many :veiculos
+  has_many :requisicoes
 
   validates_presence_of :nome
 end

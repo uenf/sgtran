@@ -3,7 +3,7 @@ class Solicitante < ActiveRecord::Base
   ATIVO = "Ativo"
   INATIVO = "Inativo"
 
-  has_one :centro
+  belongs_to :centro
 
   validates_presence_of :nome,
                         :email,

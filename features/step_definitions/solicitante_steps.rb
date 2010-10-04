@@ -6,6 +6,13 @@ Dado /^que eu tenha um solicitante com e-mail "([^\"]*)", matrícula "([^\"]*)" 
                                 :centro_id => centro.id
 end
 
+Dado /^que eu tenho um solicitante com nome "([^"]*)"$/ do |nome|
+  centro = Factory.create :centro
+  @solicitante = Factory.create :solicitante,
+                                :nome => nome,
+                                :centro_id => centro.id
+end
+
 Dado /^que o solicitante esteja "([^\"]*)"$/ do |status|
   @solicitante.update_attribute(:status, status)
 end

@@ -1,9 +1,9 @@
 class ObjetivoDeReserva < ActiveRecord::Base
-  
+
   ATIVO = "Ativo"
   INATIVO = "Inativo"
 
-  belongs_to :requisicao
+  has_many :requisicoes
 
   validates_presence_of :texto
 

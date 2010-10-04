@@ -1,7 +1,7 @@
 class Centro < ActiveRecord::Base
   ATIVO = "Ativo"
   INATIVO = "Inativo"
-  belongs_to :solicitante
+  has_many :solicitantes
 
   validates_presence_of :nome
 end

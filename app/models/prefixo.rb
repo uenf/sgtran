@@ -3,7 +3,7 @@ class Prefixo < ActiveRecord::Base
   ATIVO = "Ativo"
   INATIVO = "Inativo"
 
-  belongs_to :veiculo
+  has_many :veiculo
 
   validates_presence_of :nome
 
