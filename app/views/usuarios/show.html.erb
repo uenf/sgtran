@@ -4,23 +4,23 @@
 
   <p>
     <label>Nome:</label>
-    <spam><%=h @usuario.nome %></spam>
+    <span><%=h @usuario.nome %></span>
   </p>
 
   <p>
     <label>Email:</label>
-    <spam><%=h @usuario.email %></spam>
+    <span><%=h @usuario.email %></span>
   </p>
 
   <p>
     <label>Login:</label>
-    <spam><%=h @usuario.login %></spam>
+    <span><%=h @usuario.login %></span>
   </p>
 
   <p>
     <label>Permiss&atilde;o:</label>
     <% @roles.each do |r| %>
-      <spam>
+      <span>
         <% if r.name == "admin" %>
           <%= "Administrador" %>
         <% else %>
@@ -28,7 +28,7 @@
             <%= "Visitante" %>
           <% end %>
         <% end %>
-      </spam>
+      </span>
     <% end %>
   </p>
 

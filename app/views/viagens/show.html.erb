@@ -8,51 +8,51 @@
 
   <p>
     <label>Data de sa&iacute;da:</label>
-    <spam>
+    <span>
       <%=h @viagem.data_partida.strftime("%d/%m/%Y") if @viagem.data_partida %>
-    </spam>
+    </span>
   </p>
 
 
   <p>
     <label>Data de chegada: </label>
-    <spam>
+    <span>
       <%=h @viagem.data_chegada.strftime("%d/%m/%Y") if @viagem.data_chegada %>
-    </spam>
+    </span>
   </p>
 
 
   <p>
     <label>Hor&aacute;rio de partida: </label>
-    <spam>
+    <span>
       <%=h @viagem.horario_partida.strftime("%H:%M") if @viagem.horario_partida %>
-    </spam>
+    </span>
   </p>
 
 
   <p>
     <label>Motoristas: </label>
-    <spam>
+    <span>
       <%=h @viagem.motoristas.collect(&:nome).to_sentence if @viagem.motoristas %>
-    </spam>
+    </span>
   </p>
 
   <p>
     <label>Ve&iacute;culo: </label>
-    <spam>
+    <span>
       <%=h "#{@veiculo.modelo} - #{@veiculo.placa} - #{CategoriaDeVeiculo.find(@veiculo.categoria_de_veiculo_id).nome}" if @veiculo %>
-    </spam>
+    </span>
   </p>
 
   <p>
     <label>Estado:</label>
-    <spam><%=h @viagem.estado %></spam>
+    <span><%=h @viagem.estado %></span>
   </p>
 
   <% if !@viagem.motivo_id.nil? %>
     <p>
       <label>Motivo:</label>
-      <spam><%=h Motivo.find(@viagem.motivo_id).descricao %></spam>
+      <span><%=h Motivo.find(@viagem.motivo_id).descricao %></span>
     </p>
   <% end %>
 

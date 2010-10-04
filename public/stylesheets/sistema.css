@@ -332,7 +332,7 @@ table.tabela_base_de_dados tr td {
     width: 16%;
 }
 
-.show_padrao spam {
+.show_padrao span {
     background-color: #FFFFFF;
     float: left;
     margin: 1px;
