@@ -62,13 +62,13 @@ input {
 }
 
 #errorExplanation {
-    width : 300px;
-    padding : 20px;
-    color : #444444;
+    width: 300px;
+    color: #e13232;
+    padding: 0px 20px 1px 20px;
 }
 
-#errorExplanation h2 {
-    font-family: Verdana, Arial;
-    font-size : 15px;
+#errorExplanation h2,
+#errorExplanation p {
+    display: none;
 }
 
