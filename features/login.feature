@@ -15,14 +15,13 @@ Funcionalidade: Login para o sistema
         E eu pressiono "Entrar"
         Entao <Ação>
 
-
         Exemplos:
          | Solicitante | Login  | Senha | Ação                                         |
          | Pedro       | sgtran | teste | eu devo ver "Pedro"                          |
          | Pedro       | sgtran |       | eu devo ver "Senha não pode ficar em branco" |
          | Pedro       |        | admin | eu devo ver "Login não pode ficar em branco" |
-         | Pedro       | sgtran | admin | eu devo ver "Senha inválida."                |
-         | Pedro       | admin  | admin | eu devo ver "Login inválido."                |
+         | Pedro       | sgtran | admin | eu devo ver "Senha ou login inválidos."      |
+         | Pedro       | admin  | admin | eu devo ver "Login ou senha inválidos."      |
 
     Esquema do Cenário: Usuário não logado deve sempre ser redirecionado para a página de requisições
         Dado que eu não estou logado

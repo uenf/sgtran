@@ -158,18 +158,18 @@ pt-BR:
   authlogic:
     error_messages:
       login_blank: "não pode ficar em branco"
-      login_not_found: "inválido.\nSenha inválida."
-      login_invalid: "deve usar somente letras, números, espaços e .-_@ por favor."
+      login_not_found: "ou senha inválidos."
+      login_invalid: "deve conter somente letras, números, espaços e .-_@ por favor."
       consecutive_failed_logins_limit_exceeded: "Consecutivos logins que falharam limite excedido, a conta está desativada."
       email_invalid: "deve ser semelhante a um endereço de email."
       password_blank: "não pode ficar em branco"
-      password_invalid: "inválida.\nLogin inválido."
+      password_invalid: "ou login inválidos."
       not_active: "Sua conta não está ativa"
       not_confirmed: "Sua conta não está confirmada"
       not_approved: "Sua conta não foi aprovada"
       no_authentication_details: "Você não forneceu nenhum detalhe para autenticação."
     models:
-      user: "Usuario"
+      user: "Usuário"
       usuario_session: "UsuarioSession"
     attributes:
       user:
@@ -179,7 +179,7 @@ pt-BR:
         password_confirmation: "Confirmação da senha"
       usuario_session:
         login: "Login"
-        email: "Email"
+        email: "E-mail"
         password: "Senha"
         remember_me: "Lembrar me"
 
