@@ -4,6 +4,11 @@
 <%= javascript_include_tag "calendar_date_select/format_italian" %>
 
 <div id="tabela_exibir">
+
+<% if current_user.has_role? :admin %>
+  <%= link_to "Nova requisição", admin_requisicao_path, :class => "link_botao" %>
+<% end %>
+
 <div id="box_busca">
 
   <div id="box_buscar">
@@ -20,13 +25,13 @@
             <% if @fim or @inicio %>
               <div class="visivel" id="box_data">
             <% else %>
-              <div class="invisivel" id="box_data">          
+              <div class="invisivel" id="box_data">
             <% end %>
               <%= label_tag :inicio, "Início:" %>
               <%= calendar_date_select_tag :inicio, @inicio, :name => "inicio", :size => 9 %>
               <%= label_tag :fim, "Fim:" %>
               <%= calendar_date_select_tag :fim, @fim, :name => "fim", :size => 9 %>
-            </div>          
+            </div>
             <% if @nome %>
               <div class="visivel" id="box_nome">
             <% else %>
@@ -35,14 +40,14 @@
             <%= label_tag :nome, "Nome:" %>
             <%= text_field_tag :nome, @nome %>
             </div>
-            
-            <% if @protocolo %>  
+
+            <% if @protocolo %>
               <div class="visivel" id="box_protocolo">
             <% else %>
               <div class="invisivel" id="box_protocolo">
             <% end %>
             <%= label_tag :protocolo, "Protocolo:" %>
-            <%= text_field_tag :protocolo, @protocolo %>            
+            <%= text_field_tag :protocolo, @protocolo %>
             </div>
         <%= submit_tag "Buscar" %>
     <% end -%>
@@ -60,7 +65,7 @@
             <option value="Aceita" <%= "selected='selected'" if @filtro == "Aceita" %>>Aceita</option>
           </select>
           <%= submit_tag "OK" %>
-    <% end -%>  
+    <% end -%>
   </div>
   <div class="clear"></div>
 </div>

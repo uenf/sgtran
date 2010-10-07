@@ -7,7 +7,8 @@ Funcionalidade: Solicitar viagem
   Para que eu possa realizar uma viagem
 
   Esquema do Cenário: Envio de requisição
-    Dado que eu tenha a categoria de veículo "Micro-ônibus - até 32 passageiros"
+    Dado que eu não estou logado
+    E que eu tenha a categoria de veículo "Micro-ônibus - até 32 passageiros"
     E que eu tenha um objetivo de reserva "Aula de Campo"
     E que eu tenha um objetivo de reserva "Outros"
     E que eu tenha um solicitante com e-mail "ronaldo@corinthians.com", matrícula "01210" e centro "P5"
@@ -182,16 +183,18 @@ Funcionalidade: Solicitar viagem
   @now
   Cenário: Criar uma requisição sem validação
     Dado que eu tenho um solicitante com nome "Solicitante 1"
+    E que eu tenha um veículo da categoria "Automóvel até 4 passageiros", modelo "Gol" e placa "KQI 5899"
+    E que eu tenha um objetivo de reserva "Aula de Campo"
     E que eu estou na página da lista de requisições
     Quando eu clico em "Nova requisição"
     E eu seleciono "Solicitante 1" em "Solicitante"
     E eu preencho "Celular" com "9999-9999"
     E eu preencho "Data de Reserva de Ida" com "25/09/2010"
-    E eu seleciono "" em "Categoria de veículo"
-    E eu seleciono "" em "Objetivo da reserva"
-    E eu preencho "Nome(s) e telefone do(s) passageiro(s)" com "Algumas pessoas"
-    E eu preencho "Roteiro da agenda (ida)" com "Algum roteiro de agenda de ida"
+    E eu seleciono "Automóvel até 4 passageiros" em "Categoria de veículo"
+    E eu seleciono "Aula de Campo" em "Objetivo da reserva"
+    E eu preencho "Nome(s) e telefone do(s) passageiro(s):" com "Algumas pessoas"
+    E eu preencho "Roteiro da agenda (ida):" com "Algum roteiro de agenda de ida"
     E eu preencho "Observação" com "ALguma observação"
     E eu pressiono "Enviar"
-    Então eu devo ver "Requisição enviada com sucesso!"
+    Então eu devo ver "Requisição enviada com sucesso."
 

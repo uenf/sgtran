@@ -44,6 +44,18 @@ class RequisicoesController < ApplicationController
     render :action => "new", :layout => "requisicoes"
   end
 
+  def new_admin
+    @requisicao = Requisicao.new
+  end
+
+  def nova_requisicao
+    @requisicao = Requisicao.new(params[:requisicao])
+    if @requisicao.save_with_validation false
+      flash[:sucesso] = "Requisição enviada com sucesso."
+      redirect_to(@requisicao)
+    end
+  end
+
   def create
     if params[:tipo_requisicao] == "volta"
       dados = {:matricula => params[:matricula],
@@ -79,14 +91,12 @@ class RequisicoesController < ApplicationController
       flash[:sucesso] = "Requisição enviada com sucesso!"
       render :action => "confirmar_requisicao", :layout => "requisicoes"
     else
-      flash[:sucesso] = ""
       redirect_to(new_requisicao_path)
     end
   end
 
   def cancelar_requisicao
     begin
-      flash[:sucesso] = ""
       @requisicao = Requisicao.find(params[:id])
 
       #bloqueia acesso caso chave nao esteja correta, redirecionando para nova requisição

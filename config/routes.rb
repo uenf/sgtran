@@ -35,6 +35,7 @@ ActionController::Routing::Routes.draw do |map|
   map.imprimir_requisicao "imprimir", :controller => "requisicoes", :action => "imprimir_requisicao"
   map.visualizar_requisicao "requisicoes/visualizar/:id/:chave_de_seguranca", :controller => "requisicoes", :action => "visualizar_requisicao"
   map.filtrar_requisicao "/filtrar_requisicao", :controller => "requisicoes", :action => "filtrar"
+  map.admin_requisicao "/nova_requisicao", :controller => "requisicoes", :action => "new_admin"
 
   # Rotas para viagens
   map.viagem "viagem/show/:id", :controller => "viagens", :action => "show"
