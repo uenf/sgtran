@@ -753,7 +753,7 @@ a:hover.error {
 ** LINK BOTÃO
 */
 
-a.link_botao {
+a.link_new {
     text-decoration: none;
     color: #000000;
     padding: 2px;
@@ -763,9 +763,11 @@ a.link_botao {
     background-repeat: no-repeat;
     background-position: 2px center;
     border: 1px solid #BBBBBB;
+    display: table;
+    margin: 8px 0px 0px 5px;
 }
 
-a.link_botao:hover {
+a.link_new:hover {
     background-color: #B9CEE4;
 }
 

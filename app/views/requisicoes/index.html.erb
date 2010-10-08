@@ -6,7 +6,7 @@
 <div id="tabela_exibir">
 
 <% if current_user.has_role? :admin %>
-  <%= link_to "Nova requisição", admin_requisicao_path, :class => "link_botao" %>
+  <%= link_to "Nova requisição", admin_requisicao_path, :class => "link_new" %>
 <% end %>
 
 <div id="box_busca">
