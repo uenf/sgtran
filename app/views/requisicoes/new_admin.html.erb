@@ -3,164 +3,170 @@
 <%= calendar_date_select_includes "red", :locale => "pt"%>
 <%= javascript_include_tag "calendar_date_select/format_italian" %>
 
-<% form_tag("/requisicoes/nova_requisicao") do -%>
+<div class="show_padrao">
 
-  <% fields_for(@requisicao) do |f| %>
-    <%= f.error_messages %>
+  <% form_tag("/requisicoes/nova_requisicao") do -%>
+    <br/>
+    <% fields_for(@requisicao) do |f| %>
+      <%= f.error_messages %>
 
-    <p class="legenda_obrigatorio">
-      <strong>* Os campos em vermelho s&atilde;o obrigat&oacute;rios</strong>
-    <p>
+      <fieldset class="nova_requisicao">
+        <legend>Dados do solicitante</legend>
+        <p>
+          <%= f.label :solicitante_id, "Solicitante:" %>
+          <%= f.select :solicitante_id,
+              options_from_collection_for_select(Solicitante.find(:all,
+                                                 :order => "nome ASC"),
+                                                  'id', 'nome') %>
+        </p>
+        <p>
+          <%= f.label :celular, "Celular:", :class => "label_obrigatorio" %>
+          <%= f.text_field :celular, :class => "celular" %>
+        </p>
+      </fieldset>
 
-    <fieldset>
-      <legend>Dados do solicitante</legend>
-      <p>
-        <%= f.label :solicitante_id, "Solicitante:" %>
-        <%= f.select :solicitante_id, options_from_collection_for_select(Solicitante.all, 'id', 'nome') %>
-      </p>
-      <p>
-        <%= f.label :celular, "Celular:", :class => "label_obrigatorio" %>
-        <%= f.text_field :celular %>
-      </p>
-    </fieldset>
+      <fieldset class="nova_requisicao">
+        <legend>Dados da reserva</legend>
+          <div id="ida_e_volta">
+            <p>Selecione uma das op&ccedil;&otilde;es:</p>
 
-    <fieldset>
-      <legend>Dados da reserva</legend>
-        <div id="ida_e_volta">
-          <p>Selecione uma das op&ccedil;&otilde;es:</p>
+            <p>
+              <%= radio_button_tag 'tipo_requisicao', 'ida', true,
+                                    :onclick => "idaeVolta()" %>
+              <%= label_tag :tipo_requisicao_ida, "Ida" %>
+            </p>
 
-          <span>
-            <%= radio_button_tag 'tipo_requisicao', 'ida', true,
-                                  :onclick => "idaeVolta()" %>
-            <%= label_tag :tipo_requisicao_ida, "Ida" %>
-          </span>
-          <br/>
-          <span>
-            <%= radio_button_tag 'tipo_requisicao', 'volta', false,
-                                  :onclick => "idaeVolta()" %>
-            <%= label_tag :tipo_requisicao_volta, "Ida e Volta" %>
-          </span>
+            <p>
+              <%= radio_button_tag 'tipo_requisicao', 'volta', false,
+                                    :onclick => "idaeVolta()" %>
+              <%= label_tag :tipo_requisicao_volta, "Ida e Volta" %>
+            </p>
+            <p>
+              Obs.: Em caso de <strong>ida e volta no mesmo dia</strong> ou se
+              <strong>o carro tiver que permanecer no local durante a estada</strong>,
+              marque a op&ccedil;&atilde;o <strong>Ida</strong>, caso
+              contr&aacute;rio marque a op&ccedil;&atilde;o
+              <strong>Ida e Volta</strong>.
+            </p>
+          </div>
+
+        <p>
+          <%= f.label :data_de_reserva_br, "Data da ida:",
+                      :class => "label_obrigatorio" %>
+          <%= calendar_date_select_tag "requisicao_data_de_reserva_br",
+                                        @requisicao.data_de_reserva ? @requisicao.data_de_reserva.to_date.to_s_br : "",
+                                        :name => "requisicao[data_de_reserva_br]",
+                                        :year_range => [Time.now.year],
+                                        :month_year => "label",
+                                        :class => "campo_de_poucos_digitos" %>
+        </p>
+        <p id="data_volta">
+          <%= label_tag :data_de_reserva_ida_volta_br, "Data da volta:",
+                        :class => "label_obrigatorio" %>
+          <%= calendar_date_select_tag "data_de_reserva_ida_volta_br",
+                                        @requisicao.data_de_reserva ? @requisicao.data_de_reserva.to_date.to_s_br : "",
+                                        :name => "data_de_reserva_ida_volta_br",
+                                        :year_range => [Time.now.year],
+                                        :month_year => "label",
+                                        :class => "campo_de_poucos_digitos",
+                                        :after_close => "verificarDataIdaeVolta();" %>
+        </p>
+        <p>
+        <%= f.label :categoria_de_veiculo_id, "Categoria de ve&iacute;culo:",
+                    :class => "label_obrigatorio" %>
+        <%= f.select :categoria_de_veiculo_id,
+                      CategoriaDeVeiculo.find_all_by_status(CategoriaDeVeiculo::ATIVO).collect {|categoria| [categoria.nome, categoria.id]},
+                      {:include_blank => "Selecione uma categoria de ve&iacute;culo"} %>
+        </p>
+        <p>
+          <%= f.label :objetivo_de_reserva_id, "Objetivo da reserva:",
+                      :class => "label_obrigatorio" %>
+          <%= f.select :objetivo_de_reserva_id,
+                        ObjetivoDeReserva.find_all_by_status(ObjetivoDeReserva::ATIVO).collect {|objetivo| [objetivo.texto, objetivo.id]},
+                        {:include_blank => "Selecione um objetivo"},
+                        :onchange => "verificarOutros()" %>
+        </p>
+
+        <p>
+          <%= f.label :outros, "Outros:", :class => "invisivel",
+                      :id => 'requisicao_outros_label' %>
+          <%= f.text_field :outros, :class => "invisivel" %>
+        </p>
+        <p>
+          <div class="label_lateral">
+            <%= f.label :nome_telefone_passageiros, "Nome e telefone dos passageiros:",
+                        :class => "label_obrigatorio" %>
+            <ul>
+              Informar:
+              <li>Nome completo;</li>
+              <li>Telefone de contato.</li>
+            </ul>
+          </div>
+          <%= f.text_area :nome_telefone_passageiros, :class => "nova_requisicao" %>
+        </p>
+        <p>
+          <div class="label_lateral">
+            <%= f.label :roteiro_da_agenda, "Roteiro da ida:",
+                        :class => "label_obrigatorio" %>
+            <ul>
+              Informar:
+              <li>Endere&ccedil;o;</li>
+              <li>Cidade;</li>
+              <li>Local de destino;</li>
+              <li>Local que ir&aacute; buscar passageiro (com refer&ecirc;ncia);</li>
+              <li>Data e hor&aacute;rio previstos de sa&iacute;da e chegada do passageiro;</li>
+              <li>Data e hor&aacute;rio previstos de retorno do passageiro.</li>
+            </ul>
+          </div>
+          <%= f.text_area :roteiro_da_agenda, :class => "nova_requisicao" %>
+        </p>
+
+        <div id="roteiro_de_volta">
           <p>
-            Obs.: Em caso de <strong>ida e volta no mesmo dia</strong> ou se
-            <strong>o carro tiver que permanecer no local durante a estada</strong>,
-            marque a op&ccedil;&atilde;o <strong>Ida</strong>, caso contr&aacute;rio marque a op&ccedil;&atilde;o
-            <strong>Ida e Volta</strong>.
+            <div class="label_lateral">
+              <%= label_tag :roteiro_da_agenda_volta, "Roteiro da volta:",
+                            :class => "label_obrigatorio" %>
+              <ul>
+                Informar:
+                <li>Endere&ccedil;o;</li>
+                <li>Cidade;</li>
+                <li>Local de destino;</li>
+                <li>Local que ir&aacute; buscar passageiro (com refer&ecirc;ncia);</li>
+                <li>Data e hor&aacute;rio previstos de sa&iacute;da e chegada do passageiro;</li>
+                <li>Data e hor&aacute;rio previstos de retorno do passageiro.</li>
+              </ul>
+            </div>
+            <%= text_area_tag :roteiro_da_agenda_volta, nil, :class => "nova_requisicao" %>
           </p>
         </div>
 
-      <p>
-        <%= f.label :data_de_reserva_br, "Data de Reserva de Ida:",
-                    :class => "label_obrigatorio" %>
-        <%= calendar_date_select_tag "requisicao_data_de_reserva_br",
-                                      @requisicao.data_de_reserva ? @requisicao.data_de_reserva.to_date.to_s_br : "",
-                                      :name => "requisicao[data_de_reserva_br]",
-                                      :year_range => [Time.now.year],
-                                      :month_year => "label" %>
-      </p>
-      <p id="data_volta">
-        <%= label_tag :data_de_reserva_ida_volta_br, "Data de Reserva de Volta:",
-                      :class => "label_obrigatorio" %>
-        <%= calendar_date_select_tag "data_de_reserva_ida_volta_br",
-                                      @requisicao.data_de_reserva ? @requisicao.data_de_reserva.to_date.to_s_br : "",
-                                      :name => "data_de_reserva_ida_volta_br",
-                                      :year_range => [Time.now.year],
-                                      :month_year => "label",
-                                      :after_close => "verificarDataIdaeVolta();" %>
-      </p>
-      <p>
-      <%= f.label :categoria_de_veiculo_id, "Categoria de ve&iacute;culo:",
-                  :class => "label_obrigatorio" %>
-      <%= f.select :categoria_de_veiculo_id,
-                    CategoriaDeVeiculo.find_all_by_status(CategoriaDeVeiculo::ATIVO).collect {|categoria| [categoria.nome, categoria.id]},
-                    {:include_blank => "Selecione uma categoria de ve&iacute;culo"} %>
-      </p>
-      <p>
-        <%= f.label :objetivo_de_reserva_id, "Objetivo da reserva:",
-                    :class => "label_obrigatorio" %>
-        <%= f.select :objetivo_de_reserva_id,
-                      ObjetivoDeReserva.find_all_by_status(ObjetivoDeReserva::ATIVO).collect {|objetivo| [objetivo.texto, objetivo.id]},
-                      {:include_blank => "Selecione um objetivo"},
-                      :onchange => "verificarOutros()" %>
-      </p>
+        <p>
+          <div class="label_lateral">
+            <%= f.label :observacao, "Observa&ccedil;&atilde;o:", :class => "label" %>
+            <ul>
+              Utilizar este espa&ccedil;o nos casos de:
+              <li>
+                <em>Buscar ou levar passageiro ao Aeroporto</em>: informar o a
+                eroporto, n&uacute;mero do v&ocirc;o, companhia a&eacute;rea e hor&aacute;rio de chegada do
+                v&ocirc;o.
+              </li>
+              <li>
+                <em>Participa&ccedil;&otilde;es em reuni&otilde;es ou eventos</em>: informar o hor&aacute;rio de
+                inicio e previs&atilde;o de t&eacute;rmino do evento.
+              </li>
+              <li>
+                <em>Solicita&ccedil;&otilde;es de micro&ocirc;nibus</em>: informar a lista de
+                passageiros com nome completo, matr&iacute;cula ou CPF. A lista dever&aacute; ser
+                entregue &agrave; ASTRAN 1 dia antes da agenda.
+              </li>
+            </ul>
+          </div>
+          <%= f.text_area :observacao, :class => "nova_requisicao" %>
+        </p>
+      </fieldset>
 
-      <p>
-        <%= f.label :outros, "Outros:", :class => "invisivel",
-                    :id => 'requisicao_outros_label' %>
-        <%= f.text_field :outros, :class => "invisivel" %>
-      </p>
-      <p>
-        <div class="label_lateral">
-          <%= f.label :nome_telefone_passageiros, "Nome(s) e telefone do(s) passageiro(s):",
-                      :class => "label_obrigatorio" %>
-          <ul>
-            <p>Informar:</p>
-            <li>Nome completo;</li>
-            <li>Telefone de contato.</li>
-          </ul>
-        </div>
-        <%= f.text_area :nome_telefone_passageiros, :rows => nil, :cols => nil %>
-      </p>
-      <p>
-        <div class="label_lateral">
-          <%= f.label :roteiro_da_agenda, "Roteiro da agenda (ida):",
-                      :class => "label_obrigatorio" %>
-          <ul>
-            <p>Informar:</p>
-            <li>Endere&ccedil;o;</li>
-            <li>Cidade;</li>
-            <li>Local de destino;</li>
-            <li>Local que ir&aacute; buscar passageiro (com refer&ecirc;ncia);</li>
-            <li>Data e hor&aacute;rio previstos de sa&iacute;da e chegada do passageiro;</li>
-            <li>Data e hor&aacute;rio previstos de retorno do passageiro.</li>
-          </ul>
-        </div>
-        <%= f.text_area :roteiro_da_agenda, :rows => nil, :cols => nil %>
-      </p>
-      <div id="roteiro_de_volta">
-      <p>
-        <div class="label_lateral">
-          <%= label_tag :roteiro_da_agenda_volta, "Roteiro da agenda (volta):",
-                        :class => "label_obrigatorio" %>
-          <ul>
-            <p>Informar:</p>
-            <li>Endere&ccedil;o;</li>
-            <li>Cidade;</li>
-            <li>Local de destino;</li>
-            <li>Local que ir&aacute; buscar passageiro (com refer&ecirc;ncia);</li>
-            <li>Data e hor&aacute;rio previstos de sa&iacute;da e chegada do passageiro;</li>
-            <li>Data e hor&aacute;rio previstos de retorno do passageiro.</li>
-          </ul>
-        </div>
-        <%= text_area_tag :roteiro_da_agenda_volta %>
-      </p>
-      </div>
-      <p>
-        <div class="label_lateral">
-          <%= f.label :observacao, "Observa&ccedil;&atilde;o:", :class => "label" %>
-          <ul>
-            <p>Utilizar este espa&ccedil;o nos casos de:</p>
-            <li>
-              <em>Buscar ou levar passageiro ao Aeroporto</em>: informar o a
-              eroporto, n&uacute;mero do v&ocirc;o, companhia a&eacute;rea e hor&aacute;rio de chegada do
-              v&ocirc;o.
-            </li>
-            <li>
-              <em>Participa&ccedil;&otilde;es em reuni&otilde;es ou eventos</em>: informar o hor&aacute;rio de
-              inicio e previs&atilde;o de t&eacute;rmino do evento.
-            </li>
-            <li>
-              <em>Solicita&ccedil;&otilde;es de micro&ocirc;nibus</em>: informar a lista de
-              passageiros com nome completo, matr&iacute;cula ou CPF. A lista dever&aacute; ser
-              entregue &agrave; ASTRAN 1 dia antes da agenda.
-            </li>
-          </ul>
-        </div>
-        <%= f.text_area :observacao, :rows => nil, :cols => nil %>
-      </p>
-    </fieldset>
-    <p>
-    </p>
-  <% end %>
-  <%= submit_tag 'Enviar' %>
-<% end -%>
+    <% end %>
+    <%= submit_tag 'Enviar' %>
+  <% end -%>
+</div>
 

@@ -19,7 +19,7 @@ Para que eu não tenha problemas com a gerência das requisições
     E eu preencho "Data de Reserva de Ida" com <Data>
     E eu seleciono "Micro-ônibus - até 32 passageiros" em "Categoria de veículo"
     E eu seleciono "Aula de Campo" em "Objetivo da Reserva"
-    E eu preencho "Nome(s) e telefone do(s) passageiro(s):" com "Zina, Ronaldo e Alfinete"
+    E eu preencho "Nome e telefone dos passageiros:" com "Zina, Ronaldo e Alfinete"
     E eu preencho "Roteiro da agenda (ida):" com "Ir ao Pacaembu"
     E <Roteiro_Volta>
     E eu marco "Li e concordo com os termos"

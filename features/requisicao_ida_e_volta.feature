@@ -36,7 +36,7 @@ Funcionalidade: Verificar se a requisição de ida e volta estão corretas
       E eu seleciono "<Categoria de veículo>" em "Categoria de veículo"
       E eu seleciono "<Objetivo>" em "Objetivo da Reserva"
       E eu preencho "Outros" com "<Outros>"
-      E eu preencho "Nome(s) e telefone do(s) passageiro(s):" com "<Nome_passageiros>"
+      E eu preencho "Nome e telefone dos passageiros:" com "<Nome_passageiros>"
       E eu preencho "Roteiro da agenda (ida):" com "<Roteiro>"
       E eu preencho "Roteiro da agenda (volta):" com "<Roteiro>"
       E eu preencho "Observação" com "<Observação>"

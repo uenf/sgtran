@@ -21,7 +21,7 @@ Funcionalidade: Solicitar viagem
     E eu seleciono "<Categoria de veículo>" em "Categoria de veículo"
     E eu seleciono "<Objetivo>" em "Objetivo da Reserva"
     E eu preencho "Outros" com "<Outros>"
-    E eu preencho "Nome(s) e telefone do(s) passageiro(s):" com "<Nome_passageiros>"
+    E eu preencho "Nome e telefone dos passageiros:" com "<Nome_passageiros>"
     E eu preencho "Roteiro da agenda (ida):" com "<Roteiro>"
     E eu preencho "Observação" com "<Observação>"
     E <Termo>
@@ -64,7 +64,7 @@ Funcionalidade: Solicitar viagem
     E eu preencho "Data de Reserva" com <Data>
     E eu seleciono "Automóvel até 4 passageiros" em "Categoria de veículo"
     E eu seleciono "Aula de Campo" em "Objetivo da Reserva"
-    E eu preencho "Nome(s) e telefone do(s) passageiro(s):" com "Zina, Ronaldo e Alfinete"
+    E eu preencho "Nome e telefone dos passageiros:" com "Zina, Ronaldo e Alfinete"
     E eu preencho "Roteiro da agenda (ida):" com "Ir ao Pacaembu"
     E eu marco "Li e concordo com os termos"
     E eu pressiono "Enviar"
@@ -100,7 +100,7 @@ Funcionalidade: Solicitar viagem
     E eu preencho "Data de Reserva" com uma data de dois dias seguintes a partir de hoje
     E eu seleciono "Automóvel até 4 passageiros" em "Categoria de veículo"
     E eu seleciono "Aula de Campo" em "Objetivo da Reserva"
-    E eu preencho "Nome(s) e telefone do(s) passageiro(s):" com "Zina, Ronaldo e Alfinete"
+    E eu preencho "Nome e telefone dos passageiros:" com "Zina, Ronaldo e Alfinete"
     E eu preencho "Roteiro da agenda (ida):" com "Ir ao Pacaembu"
     E eu marco "Li e concordo com os termos"
     E eu pressiono "Enviar"
@@ -118,7 +118,7 @@ Funcionalidade: Solicitar viagem
     E eu preencho "Data de Reserva" com uma data de dois dias seguintes a partir de hoje
     E eu seleciono "Automóvel até 4 passageiros" em "Categoria de veículo"
     E eu seleciono "Aula de Campo" em "Objetivo da Reserva"
-    E eu preencho "Nome(s) e telefone do(s) passageiro(s):" com "Zina, Ronaldo e Alfinete"
+    E eu preencho "Nome e telefone dos passageiros:" com "Zina, Ronaldo e Alfinete"
     E eu preencho "Roteiro da agenda (ida):" com "Ir ao Pacaembu"
     E eu marco "Li e concordo com os termos"
     E eu pressiono "Enviar"
@@ -180,7 +180,6 @@ Funcionalidade: Solicitar viagem
     Então a requisição deve estar ligada à última viagem
     E eu devo ter 0 viagem cancelada
 
-  @now
   Cenário: Criar uma requisição sem validação
     Dado que eu tenho um solicitante com nome "Solicitante 1"
     E que eu tenha um veículo da categoria "Automóvel até 4 passageiros", modelo "Gol" e placa "KQI 5899"
@@ -189,11 +188,11 @@ Funcionalidade: Solicitar viagem
     Quando eu clico em "Nova requisição"
     E eu seleciono "Solicitante 1" em "Solicitante"
     E eu preencho "Celular" com "9999-9999"
-    E eu preencho "Data de Reserva de Ida" com "25/09/2010"
+    E eu preencho "Data da Ida" com "25/09/2010"
     E eu seleciono "Automóvel até 4 passageiros" em "Categoria de veículo"
     E eu seleciono "Aula de Campo" em "Objetivo da reserva"
-    E eu preencho "Nome(s) e telefone do(s) passageiro(s):" com "Algumas pessoas"
-    E eu preencho "Roteiro da agenda (ida):" com "Algum roteiro de agenda de ida"
+    E eu preencho "Nome e telefone dos passageiros:" com "Algumas pessoas"
+    E eu preencho "Roteiro da ida:" com "Algum roteiro de agenda de ida"
     E eu preencho "Observação" com "ALguma observação"
     E eu pressiono "Enviar"
     Então eu devo ver "Requisição enviada com sucesso."
