@@ -50,9 +50,16 @@ class RequisicoesController < ApplicationController
 
   def nova_requisicao
     @requisicao = Requisicao.new(params[:requisicao])
-    if @requisicao.save_with_validation false
+    data = @requisicao.data_de_reserva
+    @requisicao.data_de_reserva = Date.today + 2.days
+
+    if @requisicao.valid?
+      @requisicao.data_de_reserva = data
+      @requisicao.save_with_validation false
       flash[:sucesso] = "Requisição enviada com sucesso."
       redirect_to(@requisicao)
+    else
+      render :action => "new_admin"
     end
   end
 

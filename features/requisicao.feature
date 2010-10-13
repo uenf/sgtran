@@ -180,20 +180,33 @@ Funcionalidade: Solicitar viagem
     Então a requisição deve estar ligada à última viagem
     E eu devo ter 0 viagem cancelada
 
-  Cenário: Criar uma requisição sem validação
+  @now
+  Esquema do Cenário: Criar uma requisição sem validação
     Dado que eu tenho um solicitante com nome "Solicitante 1"
     E que eu tenha um veículo da categoria "Automóvel até 4 passageiros", modelo "Gol" e placa "KQI 5899"
     E que eu tenha um objetivo de reserva "Aula de Campo"
+    E que eu tenha um objetivo de reserva "Outros"
     E que eu estou na página da lista de requisições
     Quando eu clico em "Nova requisição"
     E eu seleciono "Solicitante 1" em "Solicitante"
-    E eu preencho "Celular" com "9999-9999"
+    E eu preencho "Celular" com "<Celular>"
     E eu preencho "Data da Ida" com "25/09/2010"
-    E eu seleciono "Automóvel até 4 passageiros" em "Categoria de veículo"
-    E eu seleciono "Aula de Campo" em "Objetivo da reserva"
-    E eu preencho "Nome e telefone dos passageiros:" com "Algumas pessoas"
-    E eu preencho "Roteiro da ida:" com "Algum roteiro de agenda de ida"
-    E eu preencho "Observação" com "ALguma observação"
+    E eu seleciono "<Categoria de veículo>" em "Categoria de veículo"
+    E eu seleciono "<Objetivo>" em "Objetivo da reserva"
+    E eu preencho "Nome e telefone dos passageiros:" com "<Nome dos passageiros>"
+    E eu preencho "Roteiro da ida:" com "<Roteiro>"
+    E eu preencho "Observação" com "<Observação>"
     E eu pressiono "Enviar"
-    Então eu devo ver "Requisição enviada com sucesso."
+    Então eu devo ver "<Sentença>"
+    E "fulano@uenf.br" deve receber 0 emails
+
+  Exemplos:
+    | Celular   | Categoria de veículo               | Objetivo              | Nome dos passageiros     | Roteiro        | Observação | Sentença                                     |
+    | 9997-3421 | Automóvel até 4 passageiros        | Aula de Campo         | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | Requisição enviada com sucesso.              |
+    | 9997-3421 | Selecione uma categoria de veículo | Aula de Campo         | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | Categoria de veiculo não selecionada         |
+    | 9997-3421 | Automóvel até 4 passageiros        | Selecione um objetivo | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | Objetivo de reserva não selecionado          |
+    | 9997-3421 | Automóvel até 4 passageiros        | Aula de Campo         |                          | Ir ao Pacaembu |            | Nome telefone passageiros não pode ser vazio |
+    | 9997-3421 | Automóvel até 4 passageiros        | Aula de Campo         | Zina, Ronaldo e Alfinete |                |            | Roteiro da agenda não pode ser vazio         |
+    | 9997-3421 | Automóvel até 4 passageiros        | Outros                | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | Outros não pode ser vazio                    |
+    |           | Automóvel até 4 passageiros        | Aula de Campo         | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | Celular não pode ser vazio                   |
 
