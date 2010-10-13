@@ -26,6 +26,9 @@
 
         <fieldset>
           <legend>Dados para envio de E-mail</legend>
+          <%= check_box_tag :email, "email", false, :onclick => "verificarEmail()" %>
+          <%= label_tag :email, "Não enviar e-mail" %>
+          <br class="pular_linha" />
           <%= label_tag "corpo_do_email", "Corpo do E-mail:" %>
           <%= text_area_tag "corpo_do_email" %>
           <br class="pular_linha" />

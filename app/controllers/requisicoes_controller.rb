@@ -185,7 +185,7 @@ class RequisicoesController < ApplicationController
       if @viagem.valid?
         @viagem.save!
         @requisicao.aceitar @viagem
-        Confirmacao.deliver_enviar_email_aceitar(corpo_do_email, destinatarios, @requisicao)
+        Confirmacao.deliver_enviar_email_aceitar(corpo_do_email, destinatarios, @requisicao) if not params[:email]
         redirect_to :controller => "viagem", :action => "show", :id => @viagem.id
       else
         session[:viagem] = @viagem
@@ -196,7 +196,7 @@ class RequisicoesController < ApplicationController
       if params[:id_da_viagem]
         @viagem = @requisicao.aceitar_com_viagem_existente(params[:id_da_viagem])
         if @viagem
-          Confirmacao.deliver_enviar_email_aceitar(corpo_do_email, destinatarios, @requisicao)
+          Confirmacao.deliver_enviar_email_aceitar(corpo_do_email, destinatarios, @requisicao) if not params[:email]
           redirect_to :controller => "viagem", :action => "show", :id => @viagem.id
         else
           session[:requisicao] = {:id => @requisicao.id, :erro => " não foi selecionada."}

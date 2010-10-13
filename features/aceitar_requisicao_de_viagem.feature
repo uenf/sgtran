@@ -31,6 +31,7 @@ Funcionalidade: Aceitar requisição de viagem
       E eu devo ver "Motoristas: Gustavo Santos"
       E eu devo ver "Veículo: <veiculo_visao>"
       E eu devo ver "Estado: Aguardando"
+      E "fulano@uenf.br" deve receber 1 email
 
         Exemplos: (preenchimento dos dados da viagem)
 
@@ -39,6 +40,27 @@ Funcionalidade: Aceitar requisição de viagem
         | 2             | 2               | 13:00   | Gol - KQI 5899 - Automóvel até 4 passageiros | Gol - KQI 5899 - Automóvel até 4 passageiros |
         | 0             | 0               | 10:00   | Gol - KQI 5899 - Automóvel até 4 passageiros | Gol - KQI 5899 - Automóvel até 4 passageiros |
         | 0             | 0               | 10:00   | Selecione um veículo                         |                                              |
+
+
+
+  Cenário: Aceitar requisição com uma nova viagem e não enviar e-mail
+    Dado que eu tenho uma requisição com estado "Em Espera" e id "25"
+    E que eu tenho um motorista com nome "Gustavo Santos"
+    E que eu tenho um motorista com nome "Eduardo Silva"
+    E que eu tenha um veículo da categoria "Automóvel até 4 passageiros", modelo "Gol" e placa "KQI 5899"
+    E que eu estou na página de detalhes da requisição
+    Quando eu clico em "Aceitar"
+    E eu escolho "Nova"
+    E eu preencho "Data de saída" com a data daqui a "0" dias
+    E eu preencho "Data de chegada" com a data daqui a "2" dias
+    E eu seleciono "13:00" no campo hora "Horário de saída"
+    E eu seleciono "Gustavo Santos" em "Motoristas"
+    E eu seleciono "Gol - KQI 5899 - Automóvel até 4 passageiros" em "Veículo"
+    E eu marco "Não enviar e-mail"
+    E eu pressiono "Concluir"
+    E eu devo ver "Estado: Aguardando"
+    Então "fulano@uenf.br" deve receber 0 emails
+
 
     Cenário: Aceitar requisição com uma nova viagem e mais de um motorista
       Dado que eu tenho uma requisição com estado "Em Espera" e id "25"

@@ -19,3 +19,19 @@ function viagemNovaOuExistente()
     }
 }
 
+function verificarEmail()
+{
+    var escolha = document.getElementById('email').checked;
+
+    if (escolha == true) {
+        document.getElementById('corpo_do_email').disabled = 'disabled'
+        document.getElementById('destinatarios').disabled = 'disabled'
+    }
+    else
+    {
+        document.getElementById('corpo_do_email').disabled = false
+        document.getElementById('destinatarios').disabled = false
+    }
+
+}
+
