@@ -51,10 +51,13 @@ class RequisicoesController < ApplicationController
   def nova_requisicao
     @requisicao = Requisicao.new(params[:requisicao])
     data = @requisicao.data_de_reserva
+    celular = @requisicao.celular
     @requisicao.data_de_reserva = Date.today + 2.days
+    @requisicao.celular = '9999-9999'
 
     if @requisicao.valid?
       @requisicao.data_de_reserva = data
+      @requisicao.celular = celular
       @requisicao.save_with_validation false
       flash[:sucesso] = "Requisição enviada com sucesso."
       redirect_to(@requisicao)

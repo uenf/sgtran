@@ -13,14 +13,17 @@
       <fieldset class="nova_requisicao">
         <legend>Dados do solicitante</legend>
         <p>
-          <%= f.label :solicitante_id, "Solicitante:" %>
+          <%= f.label :solicitante_id, "Solicitante:",
+                      :class => "label_obrigatorio"%>
           <%= f.select :solicitante_id,
-              options_from_collection_for_select(Solicitante.find(:all,
-                                                 :order => "nome ASC"),
-                                                  'id', 'nome') %>
+                       options_from_collection_for_select(
+                         Solicitante.find(:all, :order => "nome ASC"),
+                         'id',
+                         'nome'),
+                       :prompt => "Selecione um solicitante" %>
         </p>
         <p>
-          <%= f.label :celular, "Celular:", :class => "label_obrigatorio" %>
+          <%= f.label :celular, "Celular:" %>
           <%= f.text_field :celular, :class => "celular" %>
         </p>
       </fieldset>
@@ -111,7 +114,7 @@
       </fieldset>
 
     <% end %>
-    <%= submit_tag 'Enviar' %>
+    <%= submit_tag 'Salvar' %>
   <% end -%>
 </div>
 

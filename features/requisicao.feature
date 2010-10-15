@@ -180,7 +180,6 @@ Funcionalidade: Solicitar viagem
     Então a requisição deve estar ligada à última viagem
     E eu devo ter 0 viagem cancelada
 
-  @now
   Esquema do Cenário: Criar uma requisição sem validação
     Dado que eu tenho um solicitante com nome "Solicitante 1"
     E que eu tenha um veículo da categoria "Automóvel até 4 passageiros", modelo "Gol" e placa "KQI 5899"
@@ -196,7 +195,7 @@ Funcionalidade: Solicitar viagem
     E eu preencho "Nome e telefone dos passageiros:" com "<Nome dos passageiros>"
     E eu preencho "Roteiro:" com "<Roteiro>"
     E eu preencho "Observação" com "<Observação>"
-    E eu pressiono "Enviar"
+    E eu pressiono "Salvar"
     Então eu devo ver "<Sentença>"
     E "fulano@uenf.br" deve receber 0 emails
 
@@ -208,5 +207,5 @@ Funcionalidade: Solicitar viagem
     | 9997-3421 | Automóvel até 4 passageiros        | Aula de Campo         |                          | Ir ao Pacaembu |            | Nome telefone passageiros não pode ser vazio |
     | 9997-3421 | Automóvel até 4 passageiros        | Aula de Campo         | Zina, Ronaldo e Alfinete |                |            | Roteiro da agenda não pode ser vazio         |
     | 9997-3421 | Automóvel até 4 passageiros        | Outros                | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | Outros não pode ser vazio                    |
-    |           | Automóvel até 4 passageiros        | Aula de Campo         | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | Celular não pode ser vazio                   |
+    |           | Automóvel até 4 passageiros        | Aula de Campo         | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | Requisição enviada com sucesso.              |
 
