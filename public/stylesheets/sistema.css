@@ -597,13 +597,6 @@ div.erro {
 ** Nova requisição
 */
 
-#ida_e_volta {
-    background-color: #EEEEEE;
-    padding: 1px 15px;
-    margin: 2px 2px 10px 2px;
-    margin-bottom: 5px;
-}
-
 fieldset.nova_requisicao {
     margin: 0px 10px 5px 10px;
 }
