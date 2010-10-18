@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   rescue_from Acl9::AccessDenied, :with => :access_denied
   rescue_from ActiveRecord::RecordNotFound, :with => :render_404
 
+  filter_parameter_logging :password, :password_confirmation
+
   def access_denied
     if current_user.nil?
       redirect_to(new_requisicao_path)
