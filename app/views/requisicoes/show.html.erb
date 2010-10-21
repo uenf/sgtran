@@ -2,6 +2,13 @@
 
   <%= render :file => 'solicitantes/_show' %>
 
+  <% if not @requisicao.celular.blank? %>
+    <p>
+      <label>Celular:</label>
+      <span><%= @requisicao.celular %></span>
+    </p>
+  <% end %>
+
   <%= render 'show' %>
 
 </div>
