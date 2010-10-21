@@ -39,7 +39,7 @@
 
   <p>
     <label>Prefixo:</label>
-    <span><%=h Prefixo.find(@veiculo.prefixo_id).nome %></span>
+    <span><%=h @veiculo.prefixo.nome if @veiculo.prefixo %></span>
   </p>
 
   <p>
@@ -53,7 +53,7 @@
 
   <p>
     <label>Categoria:</label>
-    <span><%=h CategoriaDeVeiculo.find(@veiculo.categoria_de_veiculo_id).nome %></span>
+    <span><%=h @veiculo.categoria_de_veiculo.nome if @veiculo.categoria_de_veiculo %></span>
   </p>
 
   <p>
