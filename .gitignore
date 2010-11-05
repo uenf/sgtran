@@ -5,4 +5,5 @@ log.txt
 public/stylesheets/scaffold.css
 config/database.yml
 app/controllers/requisicoes_controller.rb.teste
+tmp/*
 
