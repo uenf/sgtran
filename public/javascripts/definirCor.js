@@ -1,6 +1,6 @@
 function definir_aba(aba)
 {
-    abas = ["opcao_requisicao", "opcao_viagem", "opcao_bdt", "opcao_base_de_dados", "opcao_relatorios"]
+    abas = ["opcao_requisicao", "opcao_viagem", "opcao_bdt", "opcao_base_de_dados", "opcao_relatorios", 'opcao_configuracoes']
 
     for (i = 0; i < abas.length; i++)
     {
@@ -31,6 +31,10 @@ function definirCor()
     else if (url.search(/relatorio(s)?/) != -1)
     {
         definir_aba("opcao_relatorios")
+    }
+    else if (url.search(/configuracoes/) != -1)
+    {
+        definir_aba("opcao_configuracoes")
     }
     else if (
     (url.search(/base_de_dados/) != -1) ||
