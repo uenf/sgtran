@@ -23,7 +23,8 @@ Funcionalidade: Inserir um novo usuário
     | João | teste | teste@teste.com | teste | teste       | Visitante     | teste@teste.com                                   |
     |      | teste | teste@teste.com | teste | teste       | Administrador | Nome não pode ser vazio                           |
     | João |       | teste@teste.com | teste | teste       | Administrador | Login não pode ser vazio                          |
-    | João | teste | teste@teste.com |       | teste       | Administrador | Password não pode ser vazio                       |
+    | João | teste | teste@teste.com |       | teste       | Administrador | Senha não pode ser vazio                       |
+    | João | teste | teste@teste.com |       |             | Administrador | Confirmação da senha não pode ser vazio                       |
     | João | teste |                 |       | teste       | Administrador | Email não pode ser vazio                          |
     | João | teste | teste.com       | teste | teste       | Administrador | Email deve ser semelhante a um endereço de email. |
 

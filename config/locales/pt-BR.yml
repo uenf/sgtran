@@ -143,7 +143,15 @@ pt-BR:
         record_invalid: "Dado inválido. %{errors}"
     models:
       bdt: "BDT"
+      usuario: 'Usuario'
+      user_session: 'UsuarioSession'
     attributes:
+      usuario:
+        password: "Senha"
+        password_confirmation: 'Confirmação da senha'
+      user_session:
+        password: 'Senha'
+        passowrd_confirmation: 'Confirmação da senha'
       bdt:
         numero: "Número"
         data_partida: "Data de partida"
@@ -169,10 +177,10 @@ pt-BR:
       not_approved: "Sua conta não foi aprovada"
       no_authentication_details: "Você não forneceu nenhum detalhe para autenticação."
     models:
-      user: "Usuário"
+      usuario: "Usuario"
       usuario_session: "UsuarioSession"
     attributes:
-      user:
+      usuario:
         login: "Login"
         email: "E-mail"
         password: "Senha"
