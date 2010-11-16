@@ -143,6 +143,10 @@ a:hover {
     list-style-image: url("/images/relatorios.png");
 }
 
+#abas_do_sistema ul #opcao_configuracoes {
+    list-style-image: url("/images/configuracoes.png");
+}
+
     /*********************************************/
 
 #abas_do_sistema ul li a {
