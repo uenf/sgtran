@@ -18,7 +18,16 @@ module ApplicationHelper
 
     return string_return + "</ul> </div>"
   end
-  
+
+  def to_permissao lista
+    permissoes = {'admin' => 'Administrador', 'visit' => 'Visitante'}
+    lista.each do |l|
+      indice = lista.index(l)
+      lista[indice] = permissoes[l]
+    end
+    lista
+  end
+
 
 
 end

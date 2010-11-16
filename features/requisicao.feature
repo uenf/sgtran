@@ -55,7 +55,8 @@ Funcionalidade: Solicitar viagem
 
 
   Esquema do Cenário: Envio de requisição com datas inválidas
-    Dado que eu tenha a categoria de veículo "Automóvel até 4 passageiros"
+    Dado que eu não estou logado
+    E que eu tenha a categoria de veículo "Automóvel até 4 passageiros"
     E que eu tenha um objetivo de reserva "Aula de Campo"
     E que eu tenha um solicitante com e-mail "ronaldo@corinthians.com", matrícula "01210" e centro "P5"
     E que eu estou na página de requisição
@@ -80,7 +81,8 @@ Funcionalidade: Solicitar viagem
     | ""                                               | eu devo ver "Data de reserva não pode ser vazio"                                                                         |
 
   Cenário: Mudar a viagem que atende uma requisição sem escolher a viagem
-    Dado que eu tenho uma requisição com estado "Aceita" e id "25"
+    Dado que eu sou um usuário administrador logado
+    E que eu tenho uma requisição com estado "Aceita" e id "25"
     E que eu tenho uma viagem com o estado "Aguardando"
     E que a requisição esteja ligada à viagem
     E que eu estou na página de detalhes da requisição
@@ -90,6 +92,7 @@ Funcionalidade: Solicitar viagem
     Então eu devo ver "Viagem não foi selecionada."
 
   Cenário: Enviar uma requisição sem os zeros à esquerda
+    Dado que eu não estou logado
     Dado que eu tenha a categoria de veículo "Automóvel até 4 passageiros"
     E que eu tenha um objetivo de reserva "Aula de Campo"
     E que eu tenha um solicitante com e-mail "ronaldo@corinthians.com", matrícula "00210" e centro "P5"
@@ -131,7 +134,8 @@ Funcionalidade: Solicitar viagem
 
 
   Cenário: Mudar a viagem de uma requisição com uma viagem existente
-    Dado que eu tenho uma requisição com estado "Aceita" e id "25"
+    Dado que eu sou um usuário administrador logado
+    E que eu tenho uma requisição com estado "Aceita" e id "25"
     E que eu tenho uma viagem com o estado "Aguardando"
     E que a requisição esteja ligada à viagem
     E que eu tenho uma requisição com estado "Aceita" e id "27"
@@ -147,7 +151,8 @@ Funcionalidade: Solicitar viagem
     Então eu devo ter 1 viagem cancelada
 
   Cenário: Mudar a viagem de uma requisição com uma nova viagem quando a viagem tem uma requisição
-    Dado que eu tenho uma requisição com estado "Aceita" e id "25"
+    Dado que eu sou um usuário administrador logado
+    E que eu tenho uma requisição com estado "Aceita" e id "25"
     E que eu tenho uma viagem com o estado "Aguardando"
     E que a requisição esteja ligada à viagem
     E que eu tenho um motorista com nome "Gustavo Santos"
@@ -163,7 +168,8 @@ Funcionalidade: Solicitar viagem
     E eu devo ter 1 viagem cancelada
 
   Cenário: Mudar a viagem de uma requisição com uma nova viagem quando a viagem tem uma requisição
-    Dado que eu tenho uma requisição com estado "Aceita" e id "25"
+    Dado que eu sou um usuário administrador logado
+    E que eu tenho uma requisição com estado "Aceita" e id "25"
     E que eu tenho uma viagem com o estado "Aguardando"
     E que a requisição esteja ligada à viagem
     Dado que eu tenho uma requisição com estado "Aceita" e id "27"
@@ -181,7 +187,8 @@ Funcionalidade: Solicitar viagem
     E eu devo ter 0 viagem cancelada
 
   Esquema do Cenário: Criar uma requisição sem validação
-    Dado que eu tenho um solicitante com nome "Solicitante 1"
+    Dado que eu sou um usuário administrador logado
+    E que eu tenho um solicitante com nome "Solicitante 1"
     E que eu tenha um veículo da categoria "Automóvel até 4 passageiros", modelo "Gol" e placa "KQI 5899"
     E que eu tenha um objetivo de reserva "Aula de Campo"
     E que eu tenha um objetivo de reserva "Outros"

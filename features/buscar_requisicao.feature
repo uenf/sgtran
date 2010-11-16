@@ -6,6 +6,7 @@ Funcionalidade: Buscar requisições por data, solicitante
   Para que eu possa ter os dados desejados
 
     Cenário: Buscar uma requisição pela data
+      Dado que eu sou um usuário administrador logado
       Dado que eu tenho uma requisição com data de reserva "Daqui a 2 dias" e com solicitante com nome "Professor 1" e com matrícula "10200"
       Dado que eu tenho uma requisição com data de reserva "Daqui a 6 dias" e com solicitante com nome "Professor 2" e com matrícula "10200"
       E que eu estou na página de visualização de requisições
@@ -17,6 +18,7 @@ Funcionalidade: Buscar requisições por data, solicitante
       E eu não devo ver "Professor 2"
 
     Cenário: Buscar uma requisição pelo nome do solicitante
+      Dado que eu sou um usuário administrador logado
       Dado que eu tenho uma requisição com data de reserva "Daqui a 2 dias" e com solicitante com nome "Professor 1" e com matrícula "10200"
       Dado que eu tenho uma requisição com data de reserva "Daqui a 6 dias" e com solicitante com nome "Professor 2" e com matrícula "10200"
       E que eu estou na página de visualização de requisições
@@ -25,7 +27,8 @@ Funcionalidade: Buscar requisições por data, solicitante
       E eu pressiono "Buscar"
       Então eu devo ver "Professor 1"
 
-    Cenário: Buscar uma requisição pelo protocolor
+    Cenário: Buscar uma requisição pelo protocolo
+      Dado que eu sou um usuário administrador logado
       Dado que eu tenho uma requisição com protocolo "43"
       Dado que eu tenho uma requisição com protocolo "45"
       E que eu estou na página de visualização de requisições

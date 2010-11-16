@@ -7,7 +7,8 @@ Eu quero editar uma viagem
 Para que eu possa mudar seus dados de acordo com a dinâmica do trabalho
 
   Cenário: Editar viagem com mais de um motorista
-    Dado que eu tenho uma requisição com estado "Aceita" e id "25"
+    Dado que eu sou um usuário administrador logado
+    E que eu tenho uma requisição com estado "Aceita" e id "25"
     E que eu tenho uma viagem com o estado "Aguardando"
     # Essa viagem já tem o motorista Gustavo Ribeiro
     E que a requisição esteja ligada à viagem
@@ -24,7 +25,8 @@ Para que eu possa mudar seus dados de acordo com a dinâmica do trabalho
     E eu devo ver "Estado: Aguardando"
 
   Esquema do Cenário: Fechar uma viagem com estado Aguardando e com requisição em estado Cancelada
-    Dado que eu tenho uma requisição com estado "Aceita" e id "15"
+    Dado que eu sou um usuário administrador logado
+    E que eu tenho uma requisição com estado "Aceita" e id "15"
     E que eu tenho uma viagem com o estado "Aguardando"
     E que a requisição esteja ligada à viagem
     E que eu tenho um veículo de modelo "Corsa" e placa "LCD-6969"
@@ -60,7 +62,8 @@ Para que eu possa mudar seus dados de acordo com a dinâmica do trabalho
 
 
   Cenário: Cancelar a viagem com uma requisição aceita com data anterior a hoje
-    Dado que eu tenho uma requisição de "2" dias atrás e com estado "Aceita"
+    Dado que eu sou um usuário administrador logado
+    E que eu tenho uma requisição de "2" dias atrás e com estado "Aceita"
     E que eu tenho uma viagem com o estado "Aguardando"
     E que a requisição esteja ligada à viagem
     E que eu tenho um motivo com descrição "Não há carro disponível"
@@ -73,7 +76,8 @@ Para que eu possa mudar seus dados de acordo com a dinâmica do trabalho
     E a requisição deve estar ligada a uma viagem
 
   Cenário: Listar as viagens atendidas para terem o bdt preenchido
-    Dado que eu tenho uma requisição de "2" dias atrás e com estado "Aceita"
+    Dado que eu sou um usuário administrador logado
+    E que eu tenho uma requisição de "2" dias atrás e com estado "Aceita"
     E que eu tenho uma viagem com o estado "Aguardando"
     E que a requisição esteja ligada à viagem
     E que eu tenho uma requisição de "2" dias atrás e com estado "Finalizada"

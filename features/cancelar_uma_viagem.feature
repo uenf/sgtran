@@ -5,6 +5,7 @@ Funcionalidade: Cancelar uma viagem
   Para que eu possa controlar as viagens
 
   Cenário: Cancelar uma viagem com motivo
+    Dado que eu sou um usuário administrador logado
     Dado que eu tenho uma requisição com estado "Aceita" e id "25"
     E que eu tenho uma viagem com o estado "Aguardando"
     E que a requisição esteja ligada à viagem

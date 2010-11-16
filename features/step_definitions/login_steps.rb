@@ -1,14 +1,3 @@
-Before do
-  username = "sgtran"
-  senha = "teste"
-  usuario = Factory.create :usuario,
-                           :login => username,
-                           :password => senha,
-                           :password_confirmation => senha
-  usuario.has_role! :admin
-  login(username, senha)
-end
-
 def logout
   visit sair_path
 end
@@ -20,7 +9,29 @@ def login(username, senha)
   click_button("Entrar")
 end
 
+def tipo_usuario tipo
+  tipos = {'administrador' => :admin, 'visitante' => :visit}
+  tipos[tipo]
+end
 
+Dado /^que eu sou um usuário (.+) logado$/ do |tipo|
+  tipo = tipo_usuario(tipo)
+  usuario = Factory.create :usuario,
+                             :login => "admin",
+                             :password => "admin",
+                             :password_confirmation => "admin"
+  usuario.has_role! tipo
+  login("admin", "admin")
+end
+
+Dado /^que eu tenho um usuário (.+) com login "([^"]*)" e senha "([^"]*)"$/ do |tipo, login, senha|
+  tipo = tipo_usuario(tipo)
+  usuario = Factory.create :usuario,
+                             :login => login,
+                             :password => senha,
+                             :password_confirmation => senha
+  usuario.has_role! tipo
+end
 
 Dado /^que eu tenho uma requisição com solicitante "([^\"]*)"$/ do |solicitante|
   centro = Factory.create :centro
@@ -37,9 +48,5 @@ end
 
 Dado /^que eu não estou logado$/ do
   logout
-end
-
-Dado /^que eu estou logado$/ do
-
 end
 

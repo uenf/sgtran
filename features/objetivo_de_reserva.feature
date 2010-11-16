@@ -7,7 +7,8 @@ Eu quero manipular um objetivo de reserva
 Para que eu possa adicinar, editar e utilizar no sistema
 
   Esquema do Cenário: Adicionar objetivo de reserva
-    Dado que eu estou na página de adição de objetivo de reserva
+    Dado que eu sou um usuário administrador logado
+    E que eu estou na página de adição de objetivo de reserva
     Quando eu preencho "Texto" com "<texto>"
     E eu pressiono "Salvar"
     Então eu devo ver "<sentença>"
@@ -19,7 +20,8 @@ Para que eu possa adicinar, editar e utilizar no sistema
     |               | Texto não pode ser vazio                |
 
   Esquema do Cenário: Editar objetivo de reserva
-    Dado que eu tenha um objetivo de reserva "Aula de Campo"
+    Dado que eu sou um usuário administrador logado
+    E que eu tenha um objetivo de reserva "Aula de Campo"
     E que eu estou na página de edição do objetivo de reserva
     Quando eu preencho "Texto" com "<texto>"
     E eu pressiono "Salvar"
@@ -32,7 +34,8 @@ Para que eu possa adicinar, editar e utilizar no sistema
     |                 | Texto não pode ser vazio                    |
 
   Esquema do Cenário: Ativar/Desativar um objetivo de reserva pela página de edição
-    Dado que eu tenha um objetivo de reserva "Aula de Campo"
+    Dado que eu sou um usuário administrador logado
+    E que eu tenha um objetivo de reserva "Aula de Campo"
     E que o objetivo de reserva esteja "<Status do Objetivo>"
     E que eu estou na página de edição do objetivo de reserva
     Quando eu seleciono "<Status desejado>" em "Status"
@@ -45,7 +48,8 @@ Para que eu possa adicinar, editar e utilizar no sistema
   | Inativo            | Ativo           |
 
   Esquema do Cenário: Deve mostrar apenas objetivos de reserva ativos
-    Dado que eu tenha a categoria de veículo "Automóvel até 4 passageiros"
+    Dado que eu sou um usuário administrador logado
+    E que eu tenha a categoria de veículo "Automóvel até 4 passageiros"
     E que eu tenha um objetivo de reserva "Aula de Campo"
     E que o objetivo de reserva esteja "<Status>"
     E que eu estou na página de requisição

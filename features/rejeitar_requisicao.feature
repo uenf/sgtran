@@ -5,7 +5,8 @@ Eu quero rejeitar uma requisição
 Para que eu possa avisar ao professor que não posso atender a requisição
 
   Cenário:
-    Dado que eu tenho uma requisição com estado "Em Espera" e id "25"
+    Dado que eu sou um usuário administrador logado
+    E que eu tenho uma requisição com estado "Em Espera" e id "25"
     E que eu tenho um motivo com descrição "Falta de carros"
     E que eu estou na página de detalhes da requisição
     Quando eu clico em "Rejeitar"

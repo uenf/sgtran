@@ -7,7 +7,8 @@ Eu quero manipular um solicitante
 Para que eu possa adicinar, editar e utilizar no sistema
 
   Esquema do Cenário: Adicionar solicitante
-    Dado que eu tenho um centro com nome "P5"
+    Dado que eu sou um usuário administrador logado
+    E que eu tenho um centro com nome "P5"
     E que eu estou na página de adição de solicitante
     Quando eu preencho "Nome" com "<nome>"
     E eu preencho "E-mail" com "<e-mail>"
@@ -29,7 +30,8 @@ Para que eu possa adicinar, editar e utilizar no sistema
 
 
   Esquema do Cenário: Editar solicitante
-    Dado que eu tenha um solicitante com e-mail "prof@uenf.br", matrícula "123456" e centro "P5"
+    Dado que eu sou um usuário administrador logado
+    E que eu tenha um solicitante com e-mail "prof@uenf.br", matrícula "123456" e centro "P5"
     E que eu estou na página de edição de solicitante
     Quando eu preencho "Nome" com "<nome>"
     E eu preencho "E-mail" com "<e-mail>"
@@ -44,7 +46,8 @@ Para que eu possa adicinar, editar e utilizar no sistema
     | Tecnico Beltrano | prof@uenf.br | 123456    | Tecnico | P5     | Solicitante modificado com sucesso! |
 
   Esquema do Cenário: Ativar/Desativar um solicitante pela página de edição do solicitante
-    Dado que eu tenha um solicitante com e-mail "prof@uenf.br", matrícula "123456" e centro "P5"
+    Dado que eu sou um usuário administrador logado
+    E que eu tenha um solicitante com e-mail "prof@uenf.br", matrícula "123456" e centro "P5"
     E que o solicitante esteja "<Status do Solicitante>"
     E que eu estou na página de edição do solicitante
     Quando eu seleciono "<Status desejado>" em "Status"

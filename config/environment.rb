@@ -2,7 +2,7 @@
 # Be sure to restart your server when you modify this file
 
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
+RAILS_GEM_VERSION = '2.3.8' unless defined? RAILS_GEM_VERSION
 
 #RAILS_ENV="production"
 
@@ -26,14 +26,14 @@ Rails::Initializer.run do |config|
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
 
-  config.gem "brazilian-rails"
-  config.gem "calendar_date_select"
-  config.gem "authlogic"
-  config.gem "acl9", :source => "http://gemcutter.org", :lib => "acl9"
-  config.gem "mysql"
-  config.gem "factory_girl"
+  config.gem "brazilian-rails", :version => '2.1.13'
+  config.gem "calendar_date_select", :version => '1.16.1'
+  config.gem "authlogic", :version => '2.1.6'
+  config.gem "acl9", :source => "http://gemcutter.org", :lib => "acl9", :version => '0.12.0'
+  config.gem "mysql", :version => '2.8.1'
+  config.gem "factory_girl", :version => '1.3.2'
   config.gem "will_paginate", :version => '~> 2.3.11', :source => 'http://gemcutter.org'
-  config.gem 'i18n', :version => "0.3.7"
+  config.gem 'i18n', :version => "0.4.2"
 
 
 
