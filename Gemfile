@@ -4,12 +4,10 @@ source :gemcutter
 gem 'rails', '2.3.8'
 gem 'mysql', '2.8.1'
 
-
 gem 'brazilian-rails', '2.1.13'
 gem 'calendar_date_select', '1.16.1'
 gem 'authlogic', '2.1.6'
 gem 'acl9', '0.12.0', :require => 'acl9'
-gem 'mysql', '2.8.1'
 gem 'factory_girl', '1.3.2'
 gem 'will_paginate', '2.3.11'
 gem 'i18n', '0.4.2'
