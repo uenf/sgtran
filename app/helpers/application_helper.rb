@@ -28,6 +28,14 @@ module ApplicationHelper
     lista
   end
 
+  def visibilidade obj
+    obj ? 'visivel' : 'invisivel'
+  end
+
+  def selecao obj
+    obj ? 'selected="selected"' : nil
+  end
+
 
 
 end

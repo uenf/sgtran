@@ -5,34 +5,35 @@
 <div id="tabela_exibir">
 
 <div id="box_busca">
+
   <div id="box_buscar">
     <% form_tag("/viagens/buscar_viagem") do -%>
     <div id="buscar_select">
       <%= label_tag :busca, "Buscar por:" %>
       <select name="busca" id="busca">
         <option onclick="busca_viagem(this)" value="(Selecionar)">(Selecionar)</option>
-        <option value="Data de partida" onclick="busca_viagem(this)">Data de Partida</option>
-        <option value="Data de chegada" onclick="busca_viagem(this)">Data de Chegada</option>
-        <option value="Motorista" onclick="busca_viagem(this)">Motorista</option>
-        <option value="Placa" onclick="busca_viagem(this)">Placa</option>
+        <option value="Data de partida" onclick="busca_viagem(this)" <%= selecao(@data_de_partida) %>>Data de Partida</option>
+        <option value="Data de chegada" onclick="busca_viagem(this)" <%= selecao(@data_de_chegada)%>>Data de Chegada</option>
+        <option value="Motorista" onclick="busca_viagem(this)" <%= selecao(@motorista)%>>Motorista</option>
+        <option value="Placa" onclick="busca_viagem(this)" <%= selecao(@placa)%>>Placa</option>
       </select>
     </div>
-    <div <%= @data_de_partida.nil? ? 'class="invisivel"' : 'class="visivel"' %> id="box_data_de_partida">
+    <div class="<%= visibilidade(@data_de_partida) %>" id="box_data_de_partida">
       <%= label_tag :data_de_partida, "Data de Partida:" %>
       <%= calendar_date_select_tag :data_de_partida, @data_de_partida, :name => "data_de_partida", :size => 9 %>
     </div>
 
-    <div <%= @data_de_chegada.nil? ? 'class="invisivel"' : 'class="visivel"' %> id="box_data_de_chegada">
+    <div class="<%= visibilidade(@data_de_chegada) %>" id="box_data_de_chegada">
       <%= label_tag :data_de_chegada, "Data de Chegada:" %>
       <%= calendar_date_select_tag :data_de_chegada, @data_de_chegada, :name => "data_de_chegada", :size => 9 %>
     </div>
 
-    <div <%= @motorista.nil? ? 'class="invisivel"' : 'class="visivel"' %> id="box_motorista">
+    <div class="<%= visibilidade(@motorista) %>" id="box_motorista">
       <%= label_tag :motorista, "Nome:" %>
       <%= text_field_tag :motorista %>
     </div>
 
-    <div <%= @placa.nil? ? 'class="invisivel"' : 'class="visivel"' %> id="box_placa">
+    <div class="<%= visibilidade(@placa) %>" id="box_placa">
       <%= label_tag :placa, "Placa:" %>
       <%= text_field_tag :placa %>
     </div>
@@ -47,10 +48,12 @@
     <p class="filtro">
     <%= label_tag :filtro, "Filtrar por:" %>
       <select name="filtro" id="filtro">
-        <option value="Todos" <%= "selected='selected'" if @filtro == "Todos" %>>Todos</option>
-        <option value="Aguardando" <%= "selected='selected'" if @filtro == "Aguardando" or !@filtro %>>Aguardando</option>
-        <option value="Cancelada" <%= "selected='selected'" if @filtro == "Cancelada" %>>Cancelada</option>
-        <option value="Atendida" <%= "selected='selected'" if @filtro == "Atendida" %>>Atendida</option>
+        <%= options_for_select([
+                    'Todos',
+                    'Aguardando',
+                    'Cancelada',
+                    'Atendida'],
+                    :selected => @filtro) %>
       </select>
       <%= submit_tag "OK" %>
       </p>
