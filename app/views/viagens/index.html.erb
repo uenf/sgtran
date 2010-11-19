@@ -64,11 +64,11 @@
       <th>Estado</th>
       <th>Data de partida</th>
       <th>Data de chegada</th>
-      <th>Hor&aacute;rio de partida</th>
+      <th>Horário de partida</th>
       <th>Solicitantes</th>
       <th>Motoristas</th>
-      <th>Ve&iacute;culo</th>
-      <th>Requisi&ccedil;&atilde;o(s) atendida(s)</th>
+      <th>Veículo</th>
+      <th>Requisição(s) atendida(s)</th>
     </tr>
 <% @viagens.each do |viagem| %>
   <% (veiculo = Veiculo.find(viagem.veiculo_id)) if viagem.veiculo_id%>

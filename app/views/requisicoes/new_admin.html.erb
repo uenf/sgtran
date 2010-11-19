@@ -40,11 +40,11 @@
                                         :class => "campo_de_poucos_digitos" %>
         </p>
         <p>
-          <%= f.label :categoria_de_veiculo_id, "Categoria de ve&iacute;culo:",
+          <%= f.label :categoria_de_veiculo_id, "Categoria de veículo:",
                       :class => "label_obrigatorio" %>
           <%= f.select :categoria_de_veiculo_id,
                         CategoriaDeVeiculo.find_all_by_status(CategoriaDeVeiculo::ATIVO).collect {|categoria| [categoria.nome, categoria.id]},
-                        {:include_blank => "Selecione uma categoria de ve&iacute;culo"} %>
+                        {:include_blank => "Selecione uma categoria de veículo"} %>
         </p>
         <p>
           <%= f.label :objetivo_de_reserva_id, "Objetivo da reserva:",
@@ -78,34 +78,34 @@
                         :class => "label_obrigatorio" %>
             <ul>
               Informar:
-              <li>Endere&ccedil;o;</li>
+              <li>Endereço;</li>
               <li>Cidade;</li>
               <li>Local de destino;</li>
-              <li>Local que ir&aacute; buscar passageiro (com refer&ecirc;ncia);</li>
-              <li>Data e hor&aacute;rio previstos de sa&iacute;da e chegada do passageiro;</li>
-              <li>Data e hor&aacute;rio previstos de retorno do passageiro.</li>
+              <li>Local que irá buscar passageiro (com referência);</li>
+              <li>Data e horário previstos de saída e chegada do passageiro;</li>
+              <li>Data e horário previstos de retorno do passageiro.</li>
             </ul>
           </div>
           <%= f.text_area :roteiro_da_agenda, :class => "nova_requisicao" %>
         </p>
         <p>
           <div class="label_lateral">
-            <%= f.label :observacao, "Observa&ccedil;&atilde;o:", :class => "label" %>
+            <%= f.label :observacao, "Observação:", :class => "label" %>
             <ul>
-              Utilizar este espa&ccedil;o nos casos de:
+              Utilizar este espaço nos casos de:
               <li>
                 <em>Buscar ou levar passageiro ao Aeroporto</em>: informar o a
-                eroporto, n&uacute;mero do v&ocirc;o, companhia a&eacute;rea e hor&aacute;rio de chegada do
-                v&ocirc;o.
+                eroporto, número do vôo, companhia aérea e horário de chegada do
+                vôo.
               </li>
               <li>
-                <em>Participa&ccedil;&otilde;es em reuni&otilde;es ou eventos</em>: informar o hor&aacute;rio de
-                inicio e previs&atilde;o de t&eacute;rmino do evento.
+                <em>Participações em reuniões ou eventos</em>: informar o horário de
+                inicio e previsão de término do evento.
               </li>
               <li>
-                <em>Solicita&ccedil;&otilde;es de micro&ocirc;nibus</em>: informar a lista de
-                passageiros com nome completo, matr&iacute;cula ou CPF. A lista dever&aacute; ser
-                entregue &agrave; ASTRAN 1 dia antes da agenda.
+                <em>Solicitações de microônibus</em>: informar a lista de
+                passageiros com nome completo, matrícula ou CPF. A lista deverá ser
+                entregue à ASTRAN 1 dia antes da agenda.
               </li>
             </ul>
           </div>

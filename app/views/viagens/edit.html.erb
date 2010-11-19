@@ -9,7 +9,7 @@
     <%= mensagem_de_erro(@viagem) %>
 
     <p>
-      <%= f.label :data_partida, "Data de sa&iacute;da:" %>
+      <%= f.label :data_partida, "Data de saída:" %>
       <%= calendar_date_select_tag "viagem_data_partida",
                                   @viagem.data_partida ? @viagem.data_partida.to_date.to_s_br : "",
                                   :name => "viagem[data_partida]",
@@ -61,14 +61,14 @@
                       %>
 
     <p>
-      <%= f.label :horario_partida, "Hor&aacute;rio de sa&iacute;da:" %>
+      <%= f.label :horario_partida, "Horário de saída:" %>
       <%= time_select :viagem, :horario_partida, {:minute_step => 5, :prompt => "-", :ignore_date => true} %>
     </p>
 
     <p>
-      <%= f.label :veiculo_id, "Ve&iacute;culo:" %>
+      <%= f.label :veiculo_id, "Veículo:" %>
       <select name="viagem[veiculo_id]" id="viagem_veiculo_id">
-        <%= grouped_options_for_select(@lista_veiculos, @viagem.veiculo_id, "Selecione um ve&iacute;culo") %>
+        <%= grouped_options_for_select(@lista_veiculos, @viagem.veiculo_id, "Selecione um veículo") %>
       </select>
     </p>
 
@@ -83,7 +83,7 @@
   <% end %>
 
 
-  <h1>Requisi&ccedil;&otilde;es atendidas</h1>
+  <h1>Requisições atendidas</h1>
     <div id="tabela_exibir">
 
       <table id="requisicoes" class="tabela_padrao">
@@ -96,10 +96,10 @@
             <th>Email</th>
             <th>Telefone</th>
             <th>Data</th>
-            <th>Ve&iacute;culo</th>
+            <th>Veículo</th>
             <th>Objetivo</th>
             <th>Tipo</th>
-            <th>Refer&ecirc;ncia</th>
+            <th>Referência</th>
           </tr>
         </thead>
 
