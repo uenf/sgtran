@@ -3,10 +3,10 @@
     <% form_tag("/rejeitar_requisicao") do -%>
       <%= hidden_field_tag "requisicao", "#{@requisicao.id}" %>
       <fieldset>
-        <legend>Rejeitar requisi&ccedil;&atilde;o</legend>
+        <legend>Rejeitar requisição</legend>
         <p>
-          Para rejeitar a requisi&ccedil;&atilde;o, selecione o motivo abaixo.
-          Caso o motivo que voc&ecirc; deseja n&atilde;o esteja na lista abaixo,
+          Para rejeitar a requisição, selecione o motivo abaixo.
+          Caso o motivo que você deseja não esteja na lista abaixo,
           <%= link_to "adicione", new_motivo_path %> outro motivo.
         </p>
         <p>
@@ -21,10 +21,10 @@
         </p>
         <p>
           <%= label_tag "destinatarios", "Destinatários:" %>
-          <%= text_field_tag "destinatarios" %> (Separar com ponto e v&iacute;rgula)
+          <%= text_field_tag "destinatarios" %> (Separar com ponto e vírgula)
         </p>
         <p>
-          <%= submit_tag "Rejeitar requisi&ccedil;&atilde;o", :confirm => "Deseja realmente rejeitar essa requisi&ccedil;&atilde;o?" %>
+          <%= submit_tag "Rejeitar requisição", :confirm => "Deseja realmente rejeitar essa requisição?" %>
         <p>
       </fieldset>
     <% end -%>

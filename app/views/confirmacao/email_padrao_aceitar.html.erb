@@ -23,17 +23,17 @@
       <% end %>
     </p>
     <p>
-      Caso queira visualizar os dados de sua requisi&ccedil;&atilde;o, clique no link abaixo:
+      Caso queira visualizar os dados de sua requisição, clique no link abaixo:
       <br/>
       <a href="<%= endereco %><%= visualizar_requisicao_path(:id => @requisicao.id, :chave_de_seguranca => @requisicao.chave_de_seguranca) %>">
-        Ver detalhes de sua requisi&ccedil;&atilde;o.
+        Ver detalhes de sua requisição.
       </a>
     </p>
     <p>
-      Caso deseje cancelar sua requisi&ccedil;&atilde;o, clique no link abaixo:
+      Caso deseje cancelar sua requisição, clique no link abaixo:
       <br/>
       <a href="<%= endereco %><%= cancelar_requisicao_path(:id => @requisicao.id, :chave_de_seguranca => @requisicao.chave_de_seguranca) %>">
-        Cancelar sua requisi&ccedil;&atilde;o.
+        Cancelar sua requisição.
       </a>
     </p>
     <p>

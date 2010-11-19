@@ -7,7 +7,7 @@
   <h1>Dados gerais</h1>
 
   <p>
-    <label>Data de sa&iacute;da:</label>
+    <label>Data de saída:</label>
     <span>
       <%=h @viagem.data_partida.strftime("%d/%m/%Y") if @viagem.data_partida %>
     </span>
@@ -23,7 +23,7 @@
 
 
   <p>
-    <label>Hor&aacute;rio de partida: </label>
+    <label>Horário de partida: </label>
     <span>
       <%=h @viagem.horario_partida.strftime("%H:%M") if @viagem.horario_partida %>
     </span>
@@ -38,7 +38,7 @@
   </p>
 
   <p>
-    <label>Ve&iacute;culo: </label>
+    <label>Veículo: </label>
     <span>
       <%=h "#{@veiculo.modelo} - #{@veiculo.placa} - #{CategoriaDeVeiculo.find(@veiculo.categoria_de_veiculo_id).nome}" if @veiculo %>
     </span>
@@ -56,7 +56,7 @@
     </p>
   <% end %>
 
-  <h1>Requisi&ccedil;&otilde;es atendidas</h1>
+  <h1>Requisições atendidas</h1>
     <div id="tabela_exibir">
 
       <table id="requisicoes" class="tabela_padrao">
@@ -69,10 +69,10 @@
             <th>Email</th>
             <th>Telefone</th>
             <th>Data</th>
-            <th>Ve&iacute;culo</th>
+            <th>Veículo</th>
             <th>Objetivo</th>
             <th>Tipo</th>
-            <th>Refer&ecirc;ncia</th>
+            <th>Referência</th>
           </tr>
         </thead>
 

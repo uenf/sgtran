@@ -5,7 +5,7 @@
   </head>
   <body>
       <% solicitante = Solicitante.find(@requisicao.solicitante_id) %>  
-      <h3>A requisi&ccedil;&atilde;o de n&uacute;mero de protocolo <%=h @requisicao.id %> foi cancelada pelo solicitante.</h3>
+      <h3>A requisição de número de protocolo <%=h @requisicao.id %> foi cancelada pelo solicitante.</h3>
       <p><strong>Motivo:</strong> <%= @requisicao.motivo_professor %></p>
       <hr />
 

@@ -4,7 +4,7 @@
       <fieldset>
         <legend>Cancelar pelo Sistema</legend>
         <p>
-          Para cancelar a requisi&ccedil;&atilde;o, selecione o motivo abaixo. Caso o motivo que voc&ecirc; deseja n&atilde;o esteja na lista abaixo, <%= link_to "adicione", new_motivo_path %> outros motivos.
+          Para cancelar a requisição, selecione o motivo abaixo. Caso o motivo que você deseja não esteja na lista abaixo, <%= link_to "adicione", new_motivo_path %> outros motivos.
         </p>
         <p>
           <label for="motivo_cancelamento">Motivo:</label>
@@ -16,11 +16,11 @@
           <%= text_area_tag "corpo_email" %>
         </p>
         <p>
-          <%= label_tag "destinatarios", "Destinat&aacute;rios:" %>
-          <%= text_field_tag "destinatarios" %> (Separar com ponto e v&iacute;rgula)
+          <%= label_tag "destinatarios", "Destinatários:" %>
+          <%= text_field_tag "destinatarios" %> (Separar com ponto e vírgula)
         </p>
         <p>
-          <%= submit_tag "Cancelar requisi&ccedil;&atilde;o", :confirm => "Deseja realmente cancelar essa requisi&ccedil;&atilde;o?" %>
+          <%= submit_tag "Cancelar requisição", :confirm => "Deseja realmente cancelar essa requisição?" %>
         <p>
       </fieldset>
     <% end -%>

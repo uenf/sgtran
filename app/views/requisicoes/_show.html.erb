@@ -11,7 +11,7 @@
 </p>
 
 <p>
-  <label>Categoria de ve&iacute;culo:</label>
+  <label>Categoria de veículo:</label>
   <span><%=h CategoriaDeVeiculo.find(@requisicao.categoria_de_veiculo_id).nome %></span>
 </p>
 
@@ -53,7 +53,7 @@
 
 <% if !@requisicao.motivo_observacao.nil? %>
   <p>
-    <label>Observa&ccedil;&otilde;es do motivo:</label>
+    <label>Observações do motivo:</label>
     <span><%=h @requisicao.motivo_observacao %></span>
   </p>
 <% end %>

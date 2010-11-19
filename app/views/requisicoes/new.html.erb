@@ -5,18 +5,18 @@
 <% form_for @requisicao do |f| %>
   <%= f.error_messages %>
 
-  <h1>Solicita&ccedil;&atilde;o de reserva de ve&iacute;culos</h1>
+  <h1>Solicitação de reserva de veículos</h1>
   <p class="legenda_obrigatorio">
-    <strong>* Os campos em vermelho s&atilde;o obrigat&oacute;rios</strong>
+    <strong>* Os campos em vermelho são obrigatórios</strong>
   <p>
 
   <fieldset>
     <legend>Dados do solicitante</legend>
 
     <p>
-      <%= label_tag :matricula, "Matr&iacute;cula:",
+      <%= label_tag :matricula, "Matrícula:",
                     :class => "label_obrigatorio" %>
-      <%= text_field_tag :matricula %> (Colocar matr&iacute;cula sem o dígito)
+      <%= text_field_tag :matricula %> (Colocar matrícula sem o dígito)
     </p>
     <p>
       <%= label_tag :email, "E-mail:", :class => "label_obrigatorio" %>
@@ -31,7 +31,7 @@
   <fieldset>
     <legend>Dados da reserva</legend>
       <div id="ida_e_volta">
-        <p>Selecione uma das op&ccedil;&otilde;es:</p>
+        <p>Selecione uma das opções:</p>
 
         <span>
           <%= radio_button_tag 'tipo_requisicao', 'ida', true,
@@ -47,7 +47,7 @@
         <p>
           Obs.: Em caso de <strong>ida e volta no mesmo dia</strong> ou se
           <strong>o carro tiver que permanecer no local durante a estada</strong>,
-          marque a op&ccedil;&atilde;o <strong>Ida</strong>, caso contr&aacute;rio marque a op&ccedil;&atilde;o
+          marque a opção <strong>Ida</strong>, caso contrário marque a opção
           <strong>Ida e Volta</strong>.
         </p>
       </div>
@@ -72,11 +72,11 @@
                                     :after_close => "verificarDataIdaeVolta();" %>
     </p>
     <p>
-    <%= f.label :categoria_de_veiculo_id, "Categoria de ve&iacute;culo:",
+    <%= f.label :categoria_de_veiculo_id, "Categoria de veículo:",
                 :class => "label_obrigatorio" %>
     <%= f.select :categoria_de_veiculo_id,
                   CategoriaDeVeiculo.find_all_by_status(CategoriaDeVeiculo::ATIVO).collect {|categoria| [categoria.nome, categoria.id]},
-                  {:include_blank => "Selecione uma categoria de ve&iacute;culo"} %>
+                  {:include_blank => "Selecione uma categoria de veículo"} %>
     </p>
     <p>
       <%= f.label :objetivo_de_reserva_id, "Objetivo da reserva:",
@@ -110,12 +110,12 @@
                     :class => "label_obrigatorio" %>
         <ul>
           <p>Informar:</p>
-          <li>Endere&ccedil;o;</li>
+          <li>Endereço;</li>
           <li>Cidade;</li>
           <li>Local de destino;</li>
-          <li>Local que ir&aacute; buscar passageiro (com refer&ecirc;ncia);</li>
-          <li>Data e hor&aacute;rio previstos de sa&iacute;da e chegada do passageiro;</li>
-          <li>Data e hor&aacute;rio previstos de retorno do passageiro.</li>
+          <li>Local que irá buscar passageiro (com referência);</li>
+          <li>Data e horário previstos de saída e chegada do passageiro;</li>
+          <li>Data e horário previstos de retorno do passageiro.</li>
         </ul>
       </div>
       <%= f.text_area :roteiro_da_agenda, :rows => nil, :cols => nil %>
@@ -127,12 +127,12 @@
                       :class => "label_obrigatorio" %>
         <ul>
           <p>Informar:</p>
-          <li>Endere&ccedil;o;</li>
+          <li>Endereço;</li>
           <li>Cidade;</li>
           <li>Local de destino;</li>
-          <li>Local que ir&aacute; buscar passageiro (com refer&ecirc;ncia);</li>
-          <li>Data e hor&aacute;rio previstos de sa&iacute;da e chegada do passageiro;</li>
-          <li>Data e hor&aacute;rio previstos de retorno do passageiro.</li>
+          <li>Local que irá buscar passageiro (com referência);</li>
+          <li>Data e horário previstos de saída e chegada do passageiro;</li>
+          <li>Data e horário previstos de retorno do passageiro.</li>
         </ul>
       </div>
       <%= text_area_tag :roteiro_da_agenda_volta %>
@@ -140,22 +140,22 @@
     </div>
     <p>
       <div class="label_lateral">
-        <%= f.label :observacao, "Observa&ccedil;&atilde;o:", :class => "label" %>
+        <%= f.label :observacao, "Observação:", :class => "label" %>
         <ul>
-          <p>Utilizar este espa&ccedil;o nos casos de:</p>
+          <p>Utilizar este espaço nos casos de:</p>
           <li>
             <em>Buscar ou levar passageiro ao Aeroporto</em>: informar o a
-            eroporto, n&uacute;mero do v&ocirc;o, companhia a&eacute;rea e hor&aacute;rio de chegada do
-            v&ocirc;o.
+            eroporto, número do vôo, companhia aérea e horário de chegada do
+            vôo.
           </li>
           <li>
-            <em>Participa&ccedil;&otilde;es em reuni&otilde;es ou eventos</em>: informar o hor&aacute;rio de
-            inicio e previs&atilde;o de t&eacute;rmino do evento.
+            <em>Participações em reuniões ou eventos</em>: informar o horário de
+            inicio e previsão de término do evento.
           </li>
           <li>
-            <em>Solicita&ccedil;&otilde;es de micro&ocirc;nibus</em>: informar a lista de
-            passageiros com nome completo, matr&iacute;cula ou CPF. A lista dever&aacute; ser
-            entregue &agrave; ASTRAN 1 dia antes da agenda.
+            <em>Solicitações de microônibus</em>: informar a lista de
+            passageiros com nome completo, matrícula ou CPF. A lista deverá ser
+            entregue à ASTRAN 1 dia antes da agenda.
           </li>
         </ul>
       </div>
@@ -163,26 +163,26 @@
     </p>
 
     <div class="termo">
-      <textarea readonly="readonly">REGRAS DA ASTRAN PARA UTILIZA&Ccedil;&Atilde;O DE VE&Iacute;CULOS
+      <textarea readonly="readonly">REGRAS DA ASTRAN PARA UTILIZAÇÃO DE VEÍCULOS
 
 
-  1.DOS VE&Iacute;CULOS:
-    1.1.&Ocirc;NIBUS, MICRO-&Ocirc;NIBUS E VAN
-      a) O limite m&aacute;ximo de afastamento dos &ocirc;nibus do campus Leonel Brizola ser&aacute; de 800 km de raio e n&atilde;o ser&atilde;o permitidos afastamentos dos ve&iacute;culos em per&iacute;odos superiores a 10 (dez) dias;
-      b) Ser&aacute; cancelada a sa&iacute;da do ve&iacute;culo que estiver com menos da metade de sua capacidade total, ou seja, ve&iacute;culo com capacidade para 16 passageiros dever&aacute; ter no m&iacute;nimo 8 passageiros.
+  1.DOS VEÍCULOS:
+    1.1.ÔNIBUS, MICRO-ÔNIBUS E VAN
+      a) O limite máximo de afastamento dos ônibus do campus Leonel Brizola será de 800 km de raio e não serão permitidos afastamentos dos veículos em períodos superiores a 10 (dez) dias;
+      b) Será cancelada a saída do veículo que estiver com menos da metade de sua capacidade total, ou seja, veículo com capacidade para 16 passageiros deverá ter no mínimo 8 passageiros.
 
   2.DO AGENDAMENTO:
-    a) Os agendamentos de ve&iacute;culos dever&atilde;o ser solicitados via formul&aacute;rio on-line na p&aacute;gina da ASTRAN e poder&atilde;o ser solicitados com m&iacute;nimo de 2 (dois) dias &uacute;teis e m&aacute;ximo de 15 (quinze) dias. Exceto os &ocirc;nibus, micro-&ocirc;nibus e Van que poder&atilde;o ser requisitados a qualquer tempo (dentro do corrente ano);
-    b) Ser&atilde;o considerados os formul&aacute;rios que constar as seguintes informa&ccedil;&otilde;es:
-      - Data, hor&aacute;rio e local da sa&iacute;da e de retorno;
-      - Respons&aacute;vel e destino da viagem;
-      - Nome e Telefone dos passageiros. E nas reservas dos &Ocirc;nibus, Micro-&ocirc;nibus e Van, a listagem com nome, CPF e contato telef&ocirc;nico dos passageiros, em at&eacute; 24 horas antes da partida;
-    c) &Eacute; responsabilidade do motorista decidir em quais locais ser&aacute; poss&iacute;vel ter acesso com o ve&iacute;culo.
-    d) &Eacute; vedado ingresso e perman&ecirc;ncia no &ocirc;nibus de passageiros trajando roupas de banho, sem camisa, estando molhado; bem como o transporte e/ou ingest&atilde;o de bebidas alco&oacute;licas ou fumar no interior do ve&iacute;culo;
-    e) &Eacute; responsabilidade de cada passageiro a conserva&ccedil;&atilde;o e guarda da bagagem pessoal;
-    f) O trajeto a ser realizado ser&aacute; aquele definido na solicita&ccedil;&atilde;o. Qualquer altera&ccedil;&atilde;o dever&aacute; ter autoriza&ccedil;&atilde;o da chefia da ASTRAN;
-    g) O cancelamento da agenda dever&aacute; ser notificado &agrave; ASTRAN via e-mail (agendas@uenf.br) com, no m&iacute;nimo, 24 horas de anteced&ecirc;ncia;
-    h) O respons&aacute;vel solicitante da reserva dever&aacute; arcar com as despesas inerentes a viagem, tais como: combust&iacute;vel, motoristas, entre outras;
+    a) Os agendamentos de veículos deverão ser solicitados via formulário on-line na página da ASTRAN e poderão ser solicitados com mínimo de 2 (dois) dias úteis e máximo de 15 (quinze) dias. Exceto os ônibus, micro-ônibus e Van que poderão ser requisitados a qualquer tempo (dentro do corrente ano);
+    b) Serão considerados os formulários que constar as seguintes informações:
+      - Data, horário e local da saída e de retorno;
+      - Responsável e destino da viagem;
+      - Nome e Telefone dos passageiros. E nas reservas dos Ônibus, Micro-ônibus e Van, a listagem com nome, CPF e contato telefônico dos passageiros, em até 24 horas antes da partida;
+    c) É responsabilidade do motorista decidir em quais locais será possível ter acesso com o veículo.
+    d) É vedado ingresso e permanência no ônibus de passageiros trajando roupas de banho, sem camisa, estando molhado; bem como o transporte e/ou ingestão de bebidas alcoólicas ou fumar no interior do veículo;
+    e) É responsabilidade de cada passageiro a conservação e guarda da bagagem pessoal;
+    f) O trajeto a ser realizado será aquele definido na solicitação. Qualquer alteração deverá ter autorização da chefia da ASTRAN;
+    g) O cancelamento da agenda deverá ser notificado à ASTRAN via e-mail (agendas@uenf.br) com, no mínimo, 24 horas de antecedência;
+    h) O responsável solicitante da reserva deverá arcar com as despesas inerentes a viagem, tais como: combustível, motoristas, entre outras;
     i) O passageiro ou motorista devem obedecer aos dispositivos disciplinares previstos no Decreto N° 41.952, de 16 de julho de 2009."
       </textarea><br />
       <%= f.check_box :termo %>

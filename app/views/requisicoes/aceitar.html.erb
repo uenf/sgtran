@@ -32,8 +32,8 @@
           <%= label_tag "corpo_do_email", "Corpo do E-mail:" %>
           <%= text_area_tag "corpo_do_email" %>
           <br class="pular_linha" />
-          <%= label_tag "destinatarios", "Destinat&aacute;rios:" %>
-          <%= text_field_tag "destinatarios" %> (Separar com ponto e v&iacute;rgula)
+          <%= label_tag "destinatarios", "Destinatários:" %>
+          <%= text_field_tag "destinatarios" %> (Separar com ponto e vírgula)
         </fieldset>
       </div>
 
@@ -42,7 +42,7 @@
       <div id="viagem_nova">
       <fieldset>
         <legend>Dados da nova viagem:</legend>
-          <label for="viagem_data_de_saida">Data de sa&iacute;da:</label>
+          <label for="viagem_data_de_saida">Data de saída:</label>
           <%= calendar_date_select_tag "viagem_data_de_saida",
                                       @viagem.data_partida ? @viagem.data_partida.to_date.to_s_br : "",
                                       :name => "data_saida",
@@ -91,13 +91,13 @@
                             :frequency => 0.1
                             %>
 
-          <label for="horario_partida">Hor&aacute;rio de sa&iacute;da:</label>
+          <label for="horario_partida">Horário de saída:</label>
           <%= time_select :horario, :partida, {:minute_step => 5, :prompt => "-", :ignore_date => true}%>
           <br class="pular_linha"/>
 
-          <label for="veiculo_id">Ve&iacute;culo:</label>
+          <label for="veiculo_id">Veículo:</label>
           <select name="veiculo_id" id="veiculo_id">
-            <%= grouped_options_for_select(@lista_veiculos, "", "Selecione um ve&iacute;culo") %>
+            <%= grouped_options_for_select(@lista_veiculos, "", "Selecione um veículo") %>
           </select>
           <br class="pular_linha"/>
 
@@ -118,10 +118,10 @@
           <tr>
             <th>Data de partida</th>
             <th>Data de chegada</th>
-            <th>Hor&aacute;rio de partida</th>
+            <th>Horário de partida</th>
             <th>Motorista</th>
-            <th>Ve&iacute;culo</th>
-            <th>Requisi&ccedil;&atilde;o(s) atendida(s)</th>
+            <th>Veículo</th>
+            <th>Requisição(s) atendida(s)</th>
             <th>Escolha</th>
           </tr>
 

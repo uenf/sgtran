@@ -4,8 +4,8 @@
 
   <div id="exibir_requisicao">
 
-    <h1>Cancelamento de reserva de ve&iacute;culos</h1>
-    <p class="legenda_obrigatorio"><strong>* Os campos em vermelho s&atilde;o obrigat&oacute;rios</strong><p>
+    <h1>Cancelamento de reserva de veículos</h1>
+    <p class="legenda_obrigatorio"><strong>* Os campos em vermelho são obrigatórios</strong><p>
 
     <p>
       <strong>Data de reserva:</strong>
@@ -13,7 +13,7 @@
     </p>
 
     <p>
-      <strong>Categoria de ve&iacute;culo:</strong>
+      <strong>Categoria de veículo:</strong>
       <%=h CategoriaDeVeiculo.find(@requisicao.categoria_de_veiculo_id).nome %>
     </p>
 
@@ -47,7 +47,7 @@
     <%= f.label :motivo_professor, "Motivo do Cancelamento:", :class => "campo_obrigatorio" %>
     <%= f.text_area :motivo_professor, :cols => nil, :rows => nil %>
 
-    <%= f.submit 'Cancelar requisi&ccedil;&atilde;o' %>
+    <%= f.submit 'Cancelar requisição' %>
 
   </div>
 
