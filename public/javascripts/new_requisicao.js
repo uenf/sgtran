@@ -1,8 +1,6 @@
 function initialize()
 {
     verificarOutros();
-    setarDataVoltaInvisivel();
-    idaeVolta();
 }
 
 
@@ -31,41 +29,5 @@ function verificarOutros()
         document.getElementById("requisicao_outros").className = 'invisivel'
         document.getElementById("requisicao_outros_label").className = 'invisivel'
     }
-}
-
-
-function setarDataVoltaInvisivel()
-{
-    document.getElementById("data_volta").className = "invisivel"
-}
-
-function idaeVolta()
-{
-    var dataIda = document.getElementById("tipo_requisicao_ida").checked
-
-    if (dataIda == true)
-    {
-        document.getElementById("data_volta").className = "invisivel"
-        document.getElementById("roteiro_de_volta").className = "invisivel"
-        document.getElementById("data_de_reserva_ida_volta_br").value = ""
-        document.getElementById("roteiro_da_agenda_volta").value = ""
-    }
-    else
-    {
-        document.getElementById("data_volta").className = "visivel"
-        document.getElementById("roteiro_de_volta").className = "visivel"
-    }
-}
-
-function verificarDataIdaeVolta()
-{
-  var data_de_ida = document.getElementById("requisicao_data_de_reserva_br").value
-  var data_de_volta = document.getElementById("data_de_reserva_ida_volta_br").value
-
-  if (data_de_ida == data_de_volta)
-  {
-    alert("Para ir e voltar no mesmo dia, selecione \"Ida\" ao invés de \"Ida e Volta\".")
-    document.getElementById("data_de_reserva_ida_volta_br").value = ""
-  }
 }
 
