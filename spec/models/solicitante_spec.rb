@@ -33,13 +33,6 @@ describe Solicitante do
     solicitante.valid?.should be_false
   end
 
-  it "deve verificar se um solicitante existe" do
-    centro = Factory.create :centro
-    solicitante = Factory.create :solicitante, :centro_id => centro.id
-    dados = {:email => solicitante.email, :matricula => solicitante.matricula}
-    Solicitante.verificar_solicitante(dados).should be_true
-  end
-
   it "Deve normalizar a matrícula" do
     matricula = "210"
     Solicitante.normalizar_matricula(matricula).should == "00210"
@@ -49,13 +42,35 @@ describe Solicitante do
     Solicitante.normalizar_matricula(matricula).should == "100210"
   end
 
-  it "deve retornar apenas um solicitante que seja ativo" do
+  it "deve verificar se um solicitante existe e está ativo" do
     centro = Factory.create :centro
-    solicitante = Factory.create :solicitante, :centro_id => centro.id
-    dados = {:email => solicitante.email, :matricula => solicitante.matricula}
-    Solicitante.verificar_solicitante(dados).should be_true
-    solicitante.update_attribute(:status, Solicitante::INATIVO)
-    Solicitante.verificar_solicitante(dados).should be_false
+
+    Factory.create :solicitante,
+                     :centro_id => centro.id,
+                     :matricula => "1234",
+                     :email => "professor@uenf.br"
+
+    solicitante = Factory.build :solicitante,
+                                 :matricula => "1234",
+                                 :email => "professor@uenf.br"
+    Solicitante.existe_e_esta_ativo?(solicitante).should be_true
+
+    Factory.create :solicitante,
+                     :centro_id => centro.id,
+                     :matricula => "12345",
+                     :email => "professor@uenf.br",
+                     :status => Solicitante::INATIVO
+
+
+    solicitante = Factory.build :solicitante,
+                                  :matricula => "12345",
+                                  :email => "professor@uenf.br"
+    Solicitante.existe_e_esta_ativo?(solicitante).should be_false
+
+    solicitante = Factory.build :solicitante, :centro_id => centro.id, :matricula => "1234",
+                                  :email => "professor@uenf.com.br"
+    Solicitante.existe_e_esta_ativo?(solicitante).should be_false
+
   end
 end
 

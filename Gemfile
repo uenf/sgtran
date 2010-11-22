@@ -21,5 +21,6 @@ group :development, :test, :cucumber do
     gem 'factory_girl',     '1.3.2', :require => 'factory_girl'
     gem 'email_spec',       '0.6.2', :require => 'email_spec'
     gem 'remarkable_rails', '3.1.10'
+    gem 'launchy'
 end
 

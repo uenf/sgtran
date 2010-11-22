@@ -122,6 +122,10 @@ Quando /^eu preencho "([^\"]*)" com uma data do ano que vem$/ do |campo|
   fill_in(campo, :with => Date.today.years_since(1))
 end
 
+Quando /^eu preencho "([^\"]*)" com uma data vazia$/ do |campo|
+  fill_in(campo, :with => '')
+end
+
 Quando /^eu preencho "([^\"]*)" com uma data de um dia seguinte a partir de hoje$/ do |campo|
   fill_in(campo, :with => Date.tomorrow)
 end

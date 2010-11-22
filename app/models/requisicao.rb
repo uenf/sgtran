@@ -27,6 +27,15 @@ class Requisicao < ActiveRecord::Base
 
   validate :validar_categoria_de_veiculo, :validar_objetivo, :validar_outros, :validar_motivo_professor, :validar_motivo_id, :validar_data
 
+  validates_presence_of :nome_telefone_passageiros,
+                        :roteiro_da_agenda,
+                        :data_de_reserva,
+                        :celular
+
+  validates_presence_of :solicitante_id, :message => 'não existe'
+
+  validates_acceptance_of :termo
+
   def validar_data
     unless self.data_de_reserva == nil
       if self.data_de_reserva < Date.tomorrow.tomorrow
@@ -77,52 +86,16 @@ class Requisicao < ActiveRecord::Base
     end
   end
 
-  validates_presence_of :nome_telefone_passageiros,
-                        :roteiro_da_agenda,
-                        :data_de_reserva,
-                        :celular
+  def analisar_requisicao solicitante
+    solicitante.matricula = Solicitante.normalizar_matricula(solicitante.matricula)
 
-  validates_presence_of :solicitante_id, :message => 'não existe'
-
-  validates_acceptance_of :termo
-
-  def self.analisar_requisicao dados
-    dados[:matricula] = Solicitante.normalizar_matricula(dados[:matricula])
-    dados_solicitante = {:matricula => dados[:matricula], :email => dados[:email] }
-    if Solicitante.verificar_solicitante dados_solicitante
-      solicitante = Solicitante.find_by_matricula_and_email(dados_solicitante[:matricula], dados_solicitante[:email])
-      if dados[:tipo] == "Ida e Volta"
-        requisicao_ida = Requisicao.new(dados[:requisicao])
-
-        dados[:requisicao][:data_de_reserva_br] = dados[:data_de_reserva_ida_volta]
-        dados[:requisicao][:roteiro_da_agenda] = dados[:roteiro_da_agenda_volta]
-
-        requisicao_volta = Requisicao.new(dados[:requisicao])
-
-        requisicao_ida.solicitante_id = solicitante.id
-        requisicao_volta.solicitante_id = solicitante.id
-        requisicao_ida.save
-        requisicao_volta.save
-
-        requisicao_ida.referencia_id = requisicao_volta.id
-        requisicao_volta.referencia_id = requisicao_ida.id
-
-        requisicao_ida.tipo = "Ida"
-        requisicao_volta.tipo = "Volta"
-
-        requisicao_ida.save
-        requisicao_volta.save
-        return [requisicao_ida, requisicao_volta]
-      else
-        requisicao = Requisicao.new(dados[:requisicao])
-        requisicao.solicitante_id = solicitante.id
-        requisicao.save
-        return [requisicao]
-      end
+    if Solicitante.existe_e_esta_ativo? solicitante
+      self.solicitante_id = Solicitante.find_by_matricula(solicitante.matricula).id
+      return self.save
     else
-      requisicao = Requisicao.new(dados[:requisicao])
-      requisicao.save
-      return [requisicao]
+      self.valid?
+      self.errors.add(:base, "Solicitante não existe.;.....")
+      return false
     end
   end
 

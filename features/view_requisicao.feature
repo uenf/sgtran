@@ -11,16 +11,16 @@ Funcionalidade: Garantir ordem e visualização das requisições
     E que eu tenha 3 requisições em espera
     E que eu estou na página de visualização de requisições
     Então eu devo ver a tabela "requisicoes" com
-      | Estado | Protocolo | Solicitante | Cargo     | Email          | Data              | Tipo | Referência |
-      | Espera | 1         | fulano 1    | Professor | fulano@uenf.br | Daqui a dois dias | Ida  | -          |
-      | Espera | 2         | fulano 2    | Professor | fulano@uenf.br | Daqui a dois dias | Ida  | -          |
-      | Espera | 3         | fulano 3    | Professor | fulano@uenf.br | Daqui a dois dias | Ida  | -          |
+      | Estado | Protocolo | Solicitante | Cargo     | Email          | Data              |
+      | Espera | 1         | fulano 1    | Professor | fulano@uenf.br | Daqui a dois dias |
+      | Espera | 2         | fulano 2    | Professor | fulano@uenf.br | Daqui a dois dias |
+      | Espera | 3         | fulano 3    | Professor | fulano@uenf.br | Daqui a dois dias |
 
     Quando eu aceito a requisição 2
 
     E eu vou para a "página de visualização de requisições"
     Então eu devo ver a tabela "requisicoes" com
-      | Estado | Protocolo | Solicitante | Cargo     | Email          | Data              | Tipo | Referência |
-      | Espera | 1         | fulano 1    | Professor | fulano@uenf.br | Daqui a dois dias | Ida  | -          |
-      | Espera | 3         | fulano 3    | Professor | fulano@uenf.br | Daqui a dois dias | Ida  | -          |
+      | Estado | Protocolo | Solicitante | Cargo     | Email          | Data              |
+      | Espera | 1         | fulano 1    | Professor | fulano@uenf.br | Daqui a dois dias |
+      | Espera | 3         | fulano 3    | Professor | fulano@uenf.br | Daqui a dois dias |
 

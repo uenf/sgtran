@@ -16,13 +16,12 @@ Funcionalidade: Solicitar viagem
     Quando eu preencho "Matrícula" com "<Matrícula>"
     E eu preencho "E-mail" com "<E-mail>"
     E eu preencho "Celular" com "<Celular>"
-    E eu escolho requisição de "Ida"
-    E eu preencho "Data de Reserva de Ida" com uma data de dois dias seguintes a partir de hoje
+    E eu preencho "Data de Reserva" com uma data de dois dias seguintes a partir de hoje
     E eu seleciono "<Categoria de veículo>" em "Categoria de veículo"
     E eu seleciono "<Objetivo>" em "Objetivo da Reserva"
     E eu preencho "Outros" com "<Outros>"
     E eu preencho "Nome e telefone dos passageiros:" com "<Nome_passageiros>"
-    E eu preencho "Roteiro da agenda (ida):" com "<Roteiro>"
+    E eu preencho "Roteiro da agenda:" com "<Roteiro>"
     E eu preencho "Observação" com "<Observação>"
     E <Termo>
     E <Ação>
@@ -47,12 +46,15 @@ Funcionalidade: Solicitar viagem
     | 01210     | ronaldo@corinthians.com | 9997-3421 | Micro-ônibus - até 32 passageiros  | Aula de Campo         |        | Zina, Ronaldo e Alfinete |                |            | eu marco "Li e concordo com os termos" | eu pressiono "Enviar" | eu devo ver "Roteiro da agenda não pode ser vazio"         |
     | 01210     | ronaldo@corinthians.com | 9997-3421 | Micro-ônibus - até 32 passageiros  | Outros                |        | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | eu marco "Li e concordo com os termos" | eu pressiono "Enviar" | eu devo ver "Outros não pode ser vazio"                    |
     | 01210     | ronaldo@corinthians.com |           | Micro-ônibus - até 32 passageiros  | Outros                | Bla    | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | eu marco "Li e concordo com os termos" | eu pressiono "Enviar" | eu devo ver "Celular não pode ser vazio"                   |
+    | 01210     | ronaldo@corinthians     | 9997-3421 | Micro-ônibus - até 32 passageiros  | Aula de Campo         |        | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | eu marco "Li e concordo com os termos" | eu pressiono "Enviar" | eu devo ver "Solicitante não existe"                       |
 
-    Exemplos:(Campos preenchidos com dados incorretos)
-
-    | Matrícula | E-mail              | Celular   | Categoria de veículo              | Objetivo      | Outros | Nome_passageiros         | Roteiro        | Observação | Termo                                  | Ação                  | Sentença                             |
-    | 01210     | ronaldo@corinthians | 9997-3421 | Micro-ônibus - até 32 passageiros | Aula de Campo |        | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | eu marco "Li e concordo com os termos" | eu pressiono "Enviar" | eu devo ver "Solicitante não existe" |
-
+  Cenário: Devo ver a requisição
+    Dado que eu sou um usuário administrador logado
+    E que eu tenho uma requisição com estado "Em Espera" e id "25"
+    Quando eu vou para a "página da lista de requisições"
+    Então eu devo ver a tabela "requisicoes" com
+      | Estado | Protocolo | Solicitante | Cargo     | Email                   | Data              |
+      | Espera | 25        | Fulano      | Professor | fulano@uenf.br | Daqui a dois dias |
 
   Esquema do Cenário: Envio de requisição com datas inválidas
     Dado que eu não estou logado
@@ -66,7 +68,7 @@ Funcionalidade: Solicitar viagem
     E eu seleciono "Automóvel até 4 passageiros" em "Categoria de veículo"
     E eu seleciono "Aula de Campo" em "Objetivo da Reserva"
     E eu preencho "Nome e telefone dos passageiros:" com "Zina, Ronaldo e Alfinete"
-    E eu preencho "Roteiro da agenda (ida):" com "Ir ao Pacaembu"
+    E eu preencho "Roteiro da agenda:" com "Ir ao Pacaembu"
     E eu marco "Li e concordo com os termos"
     E eu pressiono "Enviar"
     Então <Sentença>
@@ -79,17 +81,6 @@ Funcionalidade: Solicitar viagem
     | uma data de "16" dias seguintes a partir de hoje | eu devo ver "Data de reserva deve ser no máximo 15 dias posterior à data atual, para a categoria de veículo selecionada" |
     | "50/05/1986"                                     | eu devo ver "Data de reserva inválida"                                                                                   |
     | ""                                               | eu devo ver "Data de reserva não pode ser vazio"                                                                         |
-
-  Cenário: Mudar a viagem que atende uma requisição sem escolher a viagem
-    Dado que eu sou um usuário administrador logado
-    E que eu tenho uma requisição com estado "Aceita" e id "25"
-    E que eu tenho uma viagem com o estado "Aguardando"
-    E que a requisição esteja ligada à viagem
-    E que eu estou na página de detalhes da requisição
-    Quando eu clico em "Alterar viagem"
-    Quando eu marco o radiobutton "escolha_de_viagem_existente"
-    E eu pressiono "Concluir"
-    Então eu devo ver "Viagem não foi selecionada."
 
   Cenário: Enviar uma requisição sem os zeros à esquerda
     Dado que eu não estou logado
@@ -104,7 +95,7 @@ Funcionalidade: Solicitar viagem
     E eu seleciono "Automóvel até 4 passageiros" em "Categoria de veículo"
     E eu seleciono "Aula de Campo" em "Objetivo da Reserva"
     E eu preencho "Nome e telefone dos passageiros:" com "Zina, Ronaldo e Alfinete"
-    E eu preencho "Roteiro da agenda (ida):" com "Ir ao Pacaembu"
+    E eu preencho "Roteiro da agenda:" com "Ir ao Pacaembu"
     E eu marco "Li e concordo com os termos"
     E eu pressiono "Enviar"
     Então eu devo ver "Requisição enviada com sucesso!"
@@ -122,7 +113,7 @@ Funcionalidade: Solicitar viagem
     E eu seleciono "Automóvel até 4 passageiros" em "Categoria de veículo"
     E eu seleciono "Aula de Campo" em "Objetivo da Reserva"
     E eu preencho "Nome e telefone dos passageiros:" com "Zina, Ronaldo e Alfinete"
-    E eu preencho "Roteiro da agenda (ida):" com "Ir ao Pacaembu"
+    E eu preencho "Roteiro da agenda:" com "Ir ao Pacaembu"
     E eu marco "Li e concordo com os termos"
     E eu pressiono "Enviar"
     Então eu devo ver "<Resposta>"

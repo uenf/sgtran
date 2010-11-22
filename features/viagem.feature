@@ -87,3 +87,14 @@ Para que eu possa mudar seus dados de acordo com a dinâmica do trabalho
     Então eu devo ver "Atendida"
     E eu não devo ver "Aguardando"
 
+  Cenário: Mudar a viagem que atende uma requisição sem escolher a viagem
+    Dado que eu sou um usuário administrador logado
+    E que eu tenho uma requisição com estado "Aceita" e id "25"
+    E que eu tenho uma viagem com o estado "Aguardando"
+    E que a requisição esteja ligada à viagem
+    E que eu estou na página de detalhes da requisição
+    Quando eu clico em "Alterar viagem"
+    Quando eu marco o radiobutton "escolha_de_viagem_existente"
+    E eu pressiono "Concluir"
+    Então eu devo ver "Viagem não foi selecionada."
+

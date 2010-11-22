@@ -15,9 +15,12 @@ class Solicitante < ActiveRecord::Base
   validates_format_of :email,
                       :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
 
-  def self.verificar_solicitante dados
-    return false if Solicitante.find_by_matricula_and_email_and_status(dados[:matricula], dados[:email], Solicitante::ATIVO).nil?
-    true
+  def self.existe_e_esta_ativo? solicitante
+    solicitante = Solicitante.find_by_matricula_and_email(solicitante.matricula, solicitante.email)
+    if solicitante
+      return true if solicitante.status == Solicitante::ATIVO
+    end
+    return false
   end
 
   def self.normalizar_matricula matricula

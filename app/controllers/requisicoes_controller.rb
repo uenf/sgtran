@@ -41,6 +41,7 @@ class RequisicoesController < ApplicationController
 
   def new
     @requisicao = Requisicao.new
+    @solicitante = Solicitante.new
     render :action => "new", :layout => "requisicoes"
   end
 
@@ -67,36 +68,24 @@ class RequisicoesController < ApplicationController
   end
 
   def create
-    if params[:tipo_requisicao] == "volta"
-      dados = {:matricula => params[:matricula],
-                :email => params[:email],
-                :requisicao => params[:requisicao],
-                :roteiro_da_agenda_volta => params[:roteiro_da_agenda_volta],
-                :data_de_reserva_ida_volta => params[:data_de_reserva_ida_volta_br],
-                :tipo => "Ida e Volta"}
-    else
-      dados = {:matricula => params[:matricula], :email => params[:email], :requisicao => params[:requisicao], :tipo => "Ida"}
-    end
-    session[:requisicao] = []
-    @requisicoes = Requisicao.analisar_requisicao dados
+    @requisicao = Requisicao.new(params[:requisicao])
+    @solicitante = Solicitante.new(params[:solicitante])
 
-    if not @requisicoes.collect(&:valid?).include? false
-      @requisicoes.each do |requisicao|
-        session[:requisicao] << requisicao.id
-        Confirmacao.deliver_email_confirmacao_de_cadastro_de_requisicao(requisicao)
-      end
+    if @requisicao.analisar_requisicao @solicitante
+      @requisicao.reload
+      session[:requisicao] = @requisicao.id
+      Confirmacao.deliver_email_confirmacao_de_cadastro_de_requisicao(@requisicao)
       redirect_to(confirmar_requisicao_path)
     else
-      @requisicoes.each { |requisicao| @requisicao = requisicao if not requisicao.valid? }
       render :action => "new", :layout => "requisicoes"
     end
   end
 
 
   def confirmar_requisicao
-    @requisicao = Requisicao.find_all_by_id(session[:requisicao]) if session[:requisicao]
-    session.delete :requisicao
-    if @requisicao
+    if not session[:requisicao].nil?
+      @requisicao = Requisicao.find(session[:requisicao])
+      session.delete :requisicao
       @solicitante = Solicitante.find_by_matricula_and_email(params[:matricula], params[:email])
       flash[:sucesso] = "Requisição enviada com sucesso!"
       render :action => "confirmar_requisicao", :layout => "requisicoes"
