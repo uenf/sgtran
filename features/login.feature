@@ -7,6 +7,7 @@ Funcionalidade: Login para o sistema
   Para que eu possar gerenciar as requisições
 
   Esquema do Cenário:
+    Dado que eu tenho uma configuração inicial
     Dado que eu tenho um usuário administrador com login "sgtran" e senha "teste"
     E que eu tenho uma requisição com solicitante "<Solicitante>"
     E que eu não estou logado
@@ -26,7 +27,7 @@ Funcionalidade: Login para o sistema
 
   Esquema do Cenário: Usuário não logado deve sempre ser redirecionado para a página de requisições
       Dado que eu não estou logado
-      Quando eu vou para a "<Página desejada>"
+      Quando eu vou para a <Página desejada>
       Então eu devo estar na página de requisição
 
       Exemplos:
@@ -38,8 +39,9 @@ Funcionalidade: Login para o sistema
        | página de visualização de viagens      |
 
   Esquema do Cenário: Usuário logado deve ser redirecionado para a página de que dejeja normalmente
+      Dado que eu tenho uma configuração inicial
       Dado que eu sou um usuário administrador logado
-      Quando eu vou para a "<Página desejada>"
+      Quando eu vou para a <Página desejada>
       Então eu devo estar na <Página desejada>
 
       Exemplos:
@@ -51,12 +53,13 @@ Funcionalidade: Login para o sistema
        | página de visualização de viagens      |
 
   Cenário: Usuário logado deve ser redirecionado caso acesse a página de login
+    Dado que eu tenho uma configuração inicial
     Dado que eu sou um usuário administrador logado
-    Quando eu vou para a "página de login"
+    Quando eu vou para a página de login
     Então eu devo estar na página de visualização de requisições
 
   Cenário: Usuário que não esteja logado deve ver a página de login
     Dado que eu não estou logado
-    Quando eu vou para a "página de login"
+    Quando eu vou para a página de login
     Então eu devo estar na página de login
 

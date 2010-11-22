@@ -7,6 +7,7 @@ Eu quero manipular um motorista
 Para que eu possa adicionar, editar e utilizar no sistema
 
   Esquema do Cenário: Adicionar motorista
+    Dado que eu tenho uma configuração inicial
     Dado que eu sou um usuário administrador logado
     E que eu estou na página de adição de motorista
     Quando eu preencho "Matrícula" com "<matricula>"
@@ -27,6 +28,7 @@ Para que eu possa adicionar, editar e utilizar no sistema
 
 
   Esquema do Cenário: Editar motorista
+    Dado que eu tenho uma configuração inicial
     Dado que eu sou um usuário administrador logado
     E que eu tenho um motorista com nome "Gustavo Santos"
     E que eu estou na página de edição de motorista
@@ -48,6 +50,7 @@ Para que eu possa adicionar, editar e utilizar no sistema
 
 
   Esquema do Cenário: Ativar/Desativar um motorista pela página de edição
+    Dado que eu tenho uma configuração inicial
     Dado que eu sou um usuário administrador logado
     E que eu tenho um motorista com nome "Gustavo Santos"
     E que o motorista esteja "<Status do Motorista>"

@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+
   map.resources :cidades
   map.resources :estados
   map.resources :prefixos
@@ -15,6 +16,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :solicitantes
   map.resources :viagens
   map.resources :requisicoes
+  map.resources :configuracoes, :only => [:edit, :update]
+
 
   # Outras rotas
   map.root :controller => "requisicoes", :action => "new"

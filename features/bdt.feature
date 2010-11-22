@@ -6,6 +6,7 @@ Funcionalidade: Fechar viagem com o BDT
     Para que eu finalizar o ciclo de uma ou mais requisições, e com esses dados fazer relatórios mais completos
 
   Esquema do Cenário: Fechar uma viagem com o BDT
+    Dado que eu tenho uma configuração inicial
     Dado que eu sou um usuário administrador logado
     Dado que eu tenho uma requisição com estado "Aceita" e id "15"
     E que eu tenho uma viagem com o estado "Aguardando"
@@ -49,6 +50,7 @@ Funcionalidade: Fechar viagem com o BDT
     | 15     | 15/02/2010   | 1780             | 20/02/2010        | 1580                  | Odômetro de recolhimento deve ser maior do que o de partida |
 
   Cenário: Editar um BDT
+    Dado que eu tenho uma configuração inicial
     Dado que eu sou um usuário administrador logado
     Dado que eu tenho uma requisição com estado "Aceita" e id "15"
     E que eu tenho uma viagem com o estado "Aguardando"

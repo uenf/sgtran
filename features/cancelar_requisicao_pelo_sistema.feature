@@ -5,6 +5,7 @@ Funcionalidade: Cancelar uma requisição pelo sistema
   Para que eu possa informar ao solicitante o problema ocorrido
 
   Cenário: Excluir a viagem se apenas a requisição cancelada é atendida pela viagem
+    Dado que eu tenho uma configuração inicial
     Dado que eu sou um usuário administrador logado
     Dado que eu tenho uma requisição com estado "Aceita" e id "25"
     E que eu tenho um motivo com descrição "Falta de verba"
@@ -21,6 +22,7 @@ Funcionalidade: Cancelar uma requisição pelo sistema
     E eu devo ter 0 viagens
 
   Cenário: Viagem com mais de uma requisição e uma requisição é cancelada
+    Dado que eu tenho uma configuração inicial
     Dado que eu sou um usuário administrador logado
     Dado que eu tenho uma requisição com estado "Aceita" e id "25"
     E que eu tenho uma viagem com o estado "Aguardando"
@@ -40,6 +42,7 @@ Funcionalidade: Cancelar uma requisição pelo sistema
     E a requisição com id "25" deve estar ligada a uma viagem
 
   Cenário: Cancelar uma requisição aceita pelo sistema com data anterior a hoje
+    Dado que eu tenho uma configuração inicial
     Dado que eu sou um usuário administrador logado
     Dado que eu tenho uma requisição de "2" dias atrás e com estado "Aceita"
     E que eu tenho uma viagem com o estado "Aguardando"

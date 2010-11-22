@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101022184205) do
+ActiveRecord::Schema.define(:version => 20101122194231) do
 
   create_table "bdts", :force => true do |t|
     t.date     "data_recolhimento"
@@ -57,6 +57,12 @@ ActiveRecord::Schema.define(:version => 20101022184205) do
   create_table "combustiveis_veiculos", :id => false, :force => true do |t|
     t.integer  "combustivel_id"
     t.integer  "veiculo_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "configuracoes", :force => true do |t|
+    t.string   "orgao_utilizador"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

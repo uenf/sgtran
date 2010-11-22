@@ -7,6 +7,7 @@ Eu quero receber um aviso que a CNH do motorista está para vencer
 Para que eu possa informá-lo quanto a renovação
 
   Cenário: Aviso de vencimento
+    Dado que eu tenho uma configuração inicial
     Dado que eu sou um usuário administrador logado
     E que eu tenho um motorista com nome "Gustavo Santos"
     E que sua carteira irá vencer em "30" dias
@@ -15,6 +16,7 @@ Para que eu possa informá-lo quanto a renovação
     Então eu devo ver "Existe(m) motorista(s) com a carteira para vencer"
 
   Cenário: Verificar quais motoristas estão com a carteira para vencer e dizer que não precisa mais do aviso
+    Dado que eu tenho uma configuração inicial
     Dado que eu sou um usuário administrador logado
     E que eu tenho um motorista com nome "Gustavo Santos"
     E que sua carteira irá vencer em "30" dias

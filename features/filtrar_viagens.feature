@@ -6,6 +6,7 @@ Para que eu possa ter uma visão mais personalizada
 
 
   Cenário: Filtrar as viagens Aguardando
+    Dado que eu tenho uma configuração inicial
     Dado que eu sou um usuário administrador logado
     E que eu tenho uma viagem com o estado "Cancelada"
     E que eu tenho outra viagem com o estado "Cancelada"
@@ -20,6 +21,7 @@ Para que eu possa ter uma visão mais personalizada
 
 
   Cenário: Filtrar as viagens Canceladas
+    Dado que eu tenho uma configuração inicial
     Dado que eu sou um usuário administrador logado
     E que eu tenho uma viagem com o estado "Aguardando"
     E que eu tenho outra viagem com o estado "Atendida"
@@ -34,6 +36,7 @@ Para que eu possa ter uma visão mais personalizada
 
 
   Cenário: Filtrar as viagens Atendidas
+    Dado que eu tenho uma configuração inicial
     Dado que eu sou um usuário administrador logado
     E que eu tenho uma viagem com o estado "Aguardando"
     E que eu tenho outra viagem com o estado "Cancelada"

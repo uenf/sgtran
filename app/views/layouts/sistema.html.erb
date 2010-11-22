@@ -11,13 +11,13 @@
 </head>
 <body onload="definirCor()">
 
-
+<% configuracao = Configuracao.all.first %>
 
 <div id="cabecalho">
   <div id="logotipo"></div>
   <div id="nome_sistema">
     <h1>Sistema de gerenciamento de transporte</h1>
-    <h2>Universidade Estadual do Norte Fluminense Darcy Ribeiro</h2>
+    <h2><%= configuracao.orgao_utilizador if configuracao.orgao_utilizador %></h2>
     <h3>Prefeitura da UENF</h3>
     <h4>Assessoria de Transporte</h4>
   </div>
@@ -47,7 +47,6 @@
 <% end %>
 
 <!-- ======================================================================= -->
-
 <div id="abas_do_sistema">
   <ul>
     <li id="opcao_requisicao" onmouseover="this.style.cursor='pointer'" onclick="location.href='<%= requisicoes_path %>'"><%= link_to "Requisições", requisicoes_path %></li>
@@ -55,7 +54,7 @@
     <li id="opcao_bdt" onmouseover="this.style.cursor='pointer'" onclick="location.href='<%= bdts_path %>'"><%=link_to "BDTs", bdts_path %></li>
     <li id="opcao_base_de_dados" onmouseover="this.style.cursor='pointer'" onclick="location.href='<%= base_de_dados_path %>'"><%= link_to "Base de Dados", base_de_dados_path %></li>
     <li id="opcao_relatorios" onmouseover="this.style.cursor='pointer'" onclick="location.href='<%= relatorios_path %>'"><%= link_to "Relatórios", relatorios_path %></li>
-    <li id="opcao_configuracoes" onmouseover="this.style.cursor='pointer'" onclick="location.href='<%= relatorios_path %>'"><%= link_to "Configurações", relatorios_path %></li>
+    <li id="opcao_configuracoes" onmouseover="this.style.cursor='pointer'" onclick="location.href='<%= edit_configuracao_path(configuracao.id) %>'"><%= link_to "Configurações", edit_configuracao_path(configuracao.id) %></li>
   </ul>
   <br class="pular_linha" />
 </div>

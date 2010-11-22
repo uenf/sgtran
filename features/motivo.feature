@@ -7,6 +7,7 @@ Funcionalidade: Manipular um motivo
   Para que eu possa adicinar, editar e utilizar no sistema
 
   Esquema do Cenário: Adicionar motivo
+    Dado que eu tenho uma configuração inicial
     Dado que eu sou um usuário administrador logado
     E que eu estou na página de adição de motivo
     Quando eu preencho "Descrição" com "<descricao>"
@@ -21,6 +22,7 @@ Funcionalidade: Manipular um motivo
 
 
   Esquema do Cenário: Editar motivo
+    Dado que eu tenho uma configuração inicial
     Dado que eu sou um usuário administrador logado
     E que eu tenho um motivo com descrição "Não há carro disponível"
     E que eu estou na página de edição de motivo
@@ -35,6 +37,7 @@ Funcionalidade: Manipular um motivo
     |                           | Descricao não pode ser vazio   |
 
   Esquema do Cenário: Ativar/Desativar um motivo pela página de edição
+    Dado que eu tenho uma configuração inicial
     Dado que eu sou um usuário administrador logado
     E que eu tenho um motivo com descrição "Algum motivo"
     E que o motivo esteja "<Estado do Motivo>"
@@ -49,6 +52,7 @@ Funcionalidade: Manipular um motivo
   | Inativo          | Ativo           |
 
   Esquema do Cenário: Mostrar apenas motivos ativos ao rejeitar a requisição
+    Dado que eu tenho uma configuração inicial
     Dado que eu sou um usuário administrador logado
     E que eu tenho uma requisição com estado "Em Espera" e id "25"
     E que eu tenho um motivo com descrição "Falta de carros"
@@ -62,6 +66,7 @@ Funcionalidade: Manipular um motivo
   | Inativo | não devo ver "Falta de carros" |
 
   Esquema do Cenário: Mostrar apenas motivos ativos ao cancelar a requisição pelo sistema
+    Dado que eu tenho uma configuração inicial
     Dado que eu sou um usuário administrador logado
     E que eu tenho uma requisição com estado "Aceita" e id "25"
     E que eu tenho um motivo com descrição "Falta de verba"

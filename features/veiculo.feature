@@ -7,6 +7,7 @@ Eu quero adicionar um novo veículo
 Para que eu possa utiliza-lo no sistema
 
   Esquema do Cenário: Adicionar veículo
+    Dado que eu tenho uma configuração inicial
     Dado que eu sou um usuário administrador logado
     E que eu tenho o combustível "Gasolina"
     E que eu tenho o combustível "Alcool"
@@ -45,6 +46,7 @@ Para que eu possa utiliza-lo no sistema
     | Fiat  | Uno    | Azul | 2008 | marco        | marco        | Automóvel até 4 passageiros | LAC-4583 | 145623 | 7961313 | Selecione um prefixo | Prefixo não selecionado              |
 
   Esquema do Cenário: Ativar/Desativar um veículo pela página de edição
+    Dado que eu tenho uma configuração inicial
     Dado que eu sou um usuário administrador logado
     E que eu tenha um veículo da categoria "4 Passageiros", modelo "Gol" e placa "ABC-1234"
     E que o veículo esteja "<Status do Veículo>"

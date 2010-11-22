@@ -1,0 +1,17 @@
+<div class="show_padrao">
+  <h1>Configurações</h1>
+
+  <% form_for(@configuracao) do |f| %>
+    <%= mensagem_de_erro(@combustivel) %>
+
+    <p>
+      <%= f.label :orgao_utilizador, "Órgão utilizador:" %>
+      <%= f.text_field :orgao_utilizador %>
+    </p>
+    <p>
+      <%= f.submit 'Salvar' %>
+    </p>
+  <% end %>
+
+</div>
+

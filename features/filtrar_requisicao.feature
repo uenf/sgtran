@@ -6,6 +6,7 @@ Para que eu possa ter uma visão mais personalizada
 
 
   Cenário: Filtrar as requisições Em Espera
+    Dado que eu tenho uma configuração inicial
     Dado que eu sou um usuário administrador logado
     E que eu tenho uma requisição com estado "Em Espera" e id "25"
     E que eu estou na página de visualização de requisições
@@ -17,6 +18,7 @@ Para que eu possa ter uma visão mais personalizada
       | Espera | ID        | Fulano      | Professor | fulano@uenf.br | Daqui a dois dias |
 
   Cenário: Filtrar as requisições Rejeitadas
+    Dado que eu tenho uma configuração inicial
     Dado que eu sou um usuário administrador logado
     E que eu tenho uma requisição com estado "Rejeitada" e id "25"
     E que eu estou na página de visualização de requisições
@@ -29,6 +31,7 @@ Para que eu possa ter uma visão mais personalizada
 
 
   Cenário: Filtrar as requisições Canceladas pelo Professor
+    Dado que eu tenho uma configuração inicial
     Dado que eu sou um usuário administrador logado
     E que eu tenho uma requisição com estado "Cancelada pelo Professor" e id "25"
     E que eu estou na página de visualização de requisições
@@ -42,6 +45,7 @@ Para que eu possa ter uma visão mais personalizada
 
 
   Cenário: Filtrar as requisições Canceladas pelo Sistema
+    Dado que eu tenho uma configuração inicial
     Dado que eu sou um usuário administrador logado
     E que eu tenho uma requisição com estado "Cancelada pelo Sistema" e id "25"
     E que eu estou na página de visualização de requisições
@@ -54,6 +58,7 @@ Para que eu possa ter uma visão mais personalizada
 
 
   Cenário: Filtrar as requisições Aceitas
+    Dado que eu tenho uma configuração inicial
     Dado que eu sou um usuário administrador logado
     E que eu tenho uma requisição com estado "Aceita" e id "25"
     E que eu tenho uma viagem com o estado "Aguardando"

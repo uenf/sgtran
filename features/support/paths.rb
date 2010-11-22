@@ -6,6 +6,9 @@ module NavigationHelpers
     when /^página de requisição$/
       new_requisicao_path
 
+    when /^página de edição das configurações$/
+      edit_configuracao_path(@configuracao)
+
     when /^página de visualização de requisições$/
       requisicoes_path
 

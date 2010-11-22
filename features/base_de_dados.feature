@@ -5,6 +5,7 @@ Funcionalidade: Verificar a aba Base de Dados
     Para que eu possa ter controle do sistema
 
     Esquema do Cenário:
+      Dado que eu tenho uma configuração inicial
       Dado que eu sou um usuário administrador logado
       Quando eu clico em "Base de Dados"
       Então eu devo ver "<item>"

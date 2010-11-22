@@ -7,6 +7,7 @@ Eu quero adicionar uma nova categoria de veículo
 Para que eu possa utiliza-la no sistema
 
   Esquema do Cenário: Adicionar categoria de veículo
+    Dado que eu tenho uma configuração inicial
     Dado que eu sou um usuário administrador logado
     Dado que eu estou na página de adição de categoria de veículo
     Quando eu preencho "Nome" com "<nome>"
@@ -21,6 +22,7 @@ Para que eu possa utiliza-la no sistema
 
 
   Esquema do Cenário: Editar categoria de veículo
+    Dado que eu tenho uma configuração inicial
     Dado que eu sou um usuário administrador logado
     Dado que eu tenha a categoria de veículo "Automóvel até 4 passageiros"
     E que eu estou na página de edição de categoria de veículo
@@ -35,6 +37,7 @@ Para que eu possa utiliza-la no sistema
     |                             | Nome não pode ser vazio                      |
 
   Esquema do Cenário: Ativar/Desativar uma categoria de veículo pela página de edição
+    Dado que eu tenho uma configuração inicial
     Dado que eu sou um usuário administrador logado
     Dado que eu tenha a categoria de veículo "4 Passageiros"
     E que a categoria de veículo esteja "<Status do Solicitante>"
@@ -50,6 +53,7 @@ Para que eu possa utiliza-la no sistema
 
 
   Esquema do Cenário: Deve mostrar apenas categorias de veículo ativos
+    Dado que eu tenho uma configuração inicial
     Dado que eu sou um usuário administrador logado
     Dado que eu tenha a categoria de veículo "Automóvel até 4 passageiros"
     E que a categoria de veículo esteja "<Status>"

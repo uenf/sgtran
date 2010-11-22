@@ -27,7 +27,7 @@ rescue MissingSourceFile
         def initialize(name)
           task name do
             # if rspec-rails is a configured gem, this will output helpful material and exit ...
-            require File.expand_path(File.dirname(__FILE__) + "/../../config/environment")
+            require File.expand_path(File.join(File.dirname(__FILE__),"..","..","config","environment"))
 
             # ... otherwise, do this:
             raise <<-MSG
@@ -83,7 +83,7 @@ namespace :spec do
     t.spec_files = FileList['vendor/plugins/**/spec/**/*_spec.rb'].exclude('vendor/plugins/rspec/*')
   end
 
-  [:models, :controllers, :views, :helpers, :lib, :integration, :routing].each do |sub|
+  [:models, :controllers, :views, :helpers, :lib, :integration].each do |sub|
     desc "Run the code examples in spec/#{sub}"
     Spec::Rake::SpecTask.new(sub => spec_prereq) do |t|
       t.spec_opts = ['--options', "\"#{RAILS_ROOT}/spec/spec.opts\""]
@@ -115,7 +115,6 @@ namespace :spec do
     ::STATS_DIRECTORIES << %w(Library\ specs spec/lib) if File.exist?('spec/lib')
     ::STATS_DIRECTORIES << %w(Routing\ specs spec/routing) if File.exist?('spec/routing')
     ::STATS_DIRECTORIES << %w(Integration\ specs spec/integration) if File.exist?('spec/integration')
-    ::STATS_DIRECTORIES << %w(Step\ definitions features/step_definitions) if File.exist?('features/step_definitions')
     ::CodeStatistics::TEST_TYPES << "Model specs" if File.exist?('spec/models')
     ::CodeStatistics::TEST_TYPES << "View specs" if File.exist?('spec/views')
     ::CodeStatistics::TEST_TYPES << "Controller specs" if File.exist?('spec/controllers')
@@ -123,8 +122,6 @@ namespace :spec do
     ::CodeStatistics::TEST_TYPES << "Library specs" if File.exist?('spec/lib')
     ::CodeStatistics::TEST_TYPES << "Routing specs" if File.exist?('spec/routing')
     ::CodeStatistics::TEST_TYPES << "Integration specs" if File.exist?('spec/integration')
-    ::CodeStatistics::TEST_TYPES << "Step definitions" if File.exist?('features/step_definitions')
-
   end
 
   namespace :db do
@@ -142,45 +139,6 @@ namespace :spec do
       end
     end
   end
-
-  namespace :server do
-    daemonized_server_pid = File.expand_path("#{RAILS_ROOT}/tmp/pids/spec_server.pid")
-
-    desc "start spec_server."
-    task :start do
-      if File.exist?(daemonized_server_pid)
-        $stderr.puts "spec_server is already running."
-      else
-        $stderr.puts %Q{Starting up spec_server ...}
-        FileUtils.mkdir_p('tmp/pids') unless test ?d, 'tmp/pids'
-        system("ruby", "script/spec_server", "--daemon", "--pid", daemonized_server_pid)
-      end
-    end
-
-    desc "stop spec_server."
-    task :stop do
-      unless File.exist?(daemonized_server_pid)
-        $stderr.puts "No server running."
-      else
-        $stderr.puts "Shutting down spec_server ..."
-        system("kill", "-s", "TERM", File.read(daemonized_server_pid).strip) &&
-        File.delete(daemonized_server_pid)
-      end
-    end
-
-    desc "restart spec_server."
-    task :restart => [:stop, :start]
-
-    desc "check if spec server is running"
-    task :status do
-      if File.exist?(daemonized_server_pid)
-        $stderr.puts %Q{spec_server is running (PID: #{File.read(daemonized_server_pid).gsub("\n","")})}
-      else
-        $stderr.puts "No server running."
-      end
-    end
-  end
 end
 
 end
-

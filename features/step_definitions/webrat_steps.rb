@@ -29,6 +29,10 @@ Quando /^eu preencho "([^\"]*)" com "([^\"]*)"$/ do |field, value|
   fill_in(field, :with => value)
 end
 
+Quando /^eu vou para a (.+)$/ do |page|
+  visit path_to(page)
+end
+
 Quando /^eu preencho "([^\"]*)" com a data "([^\"]*)"$/ do |field, value|
   fill_in(field, :with => value)
 end
@@ -71,10 +75,6 @@ end
 
 Quando /^eu seleciono "([^\"]*)" no campo hora "([^\"]*)"$/ do |time, time_label|
   select_time(time, :from => time_label)
-end
-
-Quando /^eu vou para a "(.+)"$/ do |page_name|
-  visit path_to(page_name)
 end
 
 Entao /^eu devo ver "([^\"]*)"$/ do |text|

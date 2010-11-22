@@ -7,6 +7,7 @@ Eu quero manipular um Estado
 Para que eu possa utiliza-lo no sistema
 
   Esquema do Cenário: Adicionar Estado
+    Dado que eu tenho uma configuração inicial
     Dado que eu sou um usuário administrador logado
     E que eu estou na página de adição de Estado
     Quando eu preencho "Nome" com "<nome>"
@@ -22,6 +23,7 @@ Para que eu possa utiliza-lo no sistema
 
 
   Cenário: Editar Estado
+    Dado que eu tenho uma configuração inicial
     Dado que eu sou um usuário administrador logado
     E que eu tenho um estado
     E que eu estou na página de edição do Estado

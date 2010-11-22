@@ -7,6 +7,7 @@ Eu quero manipular uma Cidade
 Para que eu possa utiliza-la no sistema
 
   Esquema do Cenário: Adicionar Cidade
+    Dado que eu tenho uma configuração inicial
     Dado que eu sou um usuário administrador logado
     E que eu tenho o estado com a sigla "RJ"
     E que eu estou na página de adição de Cidade
@@ -23,6 +24,7 @@ Para que eu possa utiliza-la no sistema
 
 
   Cenário: Editar Estado
+    Dado que eu tenho uma configuração inicial
     Dado que eu sou um usuário administrador logado
     E que eu tenho uma cidade
     E que eu tenho o estado com a sigla "ES"

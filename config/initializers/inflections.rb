@@ -9,6 +9,7 @@
    inflect.irregular 'viagem', 'viagens'
    inflect.irregular 'combustivel', 'combustiveis'
    inflect.irregular 'objetivo_de_reserva', 'objetivos_de_reserva'
+   inflect.irregular 'configuracao', 'configuracoes'
 #   inflect.uncountable %w( fish sheep )
  end
 

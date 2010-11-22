@@ -6,6 +6,7 @@ Funcionalidade: Inserir um novo usuário
     Para que eu possa dar acesso a quem eu quiser
 
   Esquema do Cenário:
+    Dado que eu tenho uma configuração inicial
     Dado que eu sou um usuário administrador logado
     E que eu estou na página de usuário
     Quando eu preencho "Nome" com "<Nome>"
