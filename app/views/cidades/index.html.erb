@@ -1,4 +1,5 @@
 <% if current_user.has_role? :admin %>
+  <% admin = "True" %>
   <a href="/cidades/new" class="link_new">Adicionar Cidade</a>
 <% end %>
 
@@ -7,18 +8,17 @@
     <th class="celula_neutra_estatica"></th>
     <th>Nome</th>
     <th>Estado</th>
-    <th>
     <th class="celula_neutra_estatica"></th>
   </tr>
 
 <% @cidades.each do |cidade| %>
   <tr>
-    <%= "<td class='ativo'></td>" if cidade.status == Cidade::ATIVO %>
-    <%= "<td class='inativo'></td>" if cidade.status == Cidade::INATIVO %>
-    <td onclick="location.href='<%= cidade_path(cidade) %>'" onmouseover="this.style.cursor='pointer'"><%=h cidade.nome %></td>
-    <td onclick="location.href='<%= cidade_path(cidade) %>'" onmouseover="this.style.cursor='pointer'"><%=h Estado.find(cidade.estado_id).sigla %></td>
-    <% if current_user.has_role? :admin %>
-      <td onclick="location.href='<%= edit_cidade_path(cidade) %>'" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("editar_dado.png", :border => 0, :alt => "Editar"), edit_cidade_path(cidade) %></td>
+    <%= td_status cidade %>
+    <%= td_clickable cidade_path(cidade), cidade.nome %>
+    <%= td_clickable cidade_path(cidade), Estado.find(cidade.estado_id).sigla %>
+    <% if admin %>
+      <%= td_clickable edit_cidade_path(cidade),
+                       image_tag("editar_dado.png", :border => 0, :alt => "Editar") %>
     <% else %>
       <td></td>
     <% end %>
