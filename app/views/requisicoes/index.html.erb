@@ -73,7 +73,7 @@
     </tr>
 <% @requisicoes.each do |requisicao| %>
 
-  <% solicitante = Solicitante.find(requisicao.solicitante_id) %>
+  <% solicitante = requisicao.solicitante %>
 
       <tr onmouseover="this.style.cursor='pointer'" onclick="location.href='<%= requisicao_path(requisicao) %>'">
         <td class="<%=h traduz_class_css(requisicao.estado) %>"><%=h requisicao.estado[0,10] %></td>
