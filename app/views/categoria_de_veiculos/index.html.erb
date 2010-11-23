@@ -1,4 +1,5 @@
 <% if current_user.has_role? :admin %>
+  <% admin = "True" %>
   <a href="/categoria_de_veiculos/new" class="link_new">Adicionar Categoria de Veículo</a>
 <% end %>
 
@@ -11,11 +12,11 @@
 
 <% @categoria_de_veiculos.each do |categoria_de_veiculo| %>
   <tr>
-    <%= "<td class='ativo'></td>" if categoria_de_veiculo.status == CategoriaDeVeiculo::ATIVO %>
-    <%= "<td class='inativo'></td>" if categoria_de_veiculo.status == CategoriaDeVeiculo::INATIVO %>
-    <td onclick="location.href='<%= categoria_de_veiculo_path(categoria_de_veiculo) %>'" onmouseover="this.style.cursor='pointer'"><%=h categoria_de_veiculo.nome %></td>
-    <% if current_user.has_role? :admin %>
-      <td onclick="location.href='<%= edit_categoria_de_veiculo_path(categoria_de_veiculo) %>'" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("editar_dado.png", :border => 0, :alt => "Editar"), edit_categoria_de_veiculo_path(categoria_de_veiculo) %></td>
+    <%= td_status categoria_de_veiculo %>
+    <%= td_clickable categoria_de_veiculo_path(categoria_de_veiculo), categoria_de_veiculo.nome %>
+    <% if admin %>
+      <%= td_clickable edit_categoria_de_veiculo_path(categoria_de_veiculo),
+                       image_tag("editar_dado.png", :border => 0, :alt => "Editar") %>
     <% else %>
       <td></td>
     <% end %>
