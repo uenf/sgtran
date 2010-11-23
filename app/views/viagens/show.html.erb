@@ -9,38 +9,35 @@
   <p>
     <label>Data de saída:</label>
     <span>
-      <%=h @viagem.data_partida.strftime("%d/%m/%Y") if @viagem.data_partida %>
+      <%=h @viagem.data_partida ? @viagem.data_partida.strftime("%d/%m/%Y") : '-' %>
     </span>
   </p>
-
 
   <p>
     <label>Data de chegada: </label>
     <span>
-      <%=h @viagem.data_chegada.strftime("%d/%m/%Y") if @viagem.data_chegada %>
+      <%=h @viagem.data_chegada ? @viagem.data_chegada.strftime("%d/%m/%Y") : '-' %>
     </span>
   </p>
-
 
   <p>
     <label>Horário de partida: </label>
     <span>
-      <%=h @viagem.horario_partida.strftime("%H:%M") if @viagem.horario_partida %>
+      <%=h @viagem.horario_partida ? @viagem.horario_partida.strftime("%H:%M") : '-' %>
     </span>
   </p>
-
 
   <p>
     <label>Motoristas: </label>
     <span>
-      <%=h @viagem.motoristas.collect(&:nome).to_sentence if @viagem.motoristas %>
+      <%=h @viagem.motoristas ? @viagem.motoristas.collect(&:nome).to_sentence : '-' %>
     </span>
   </p>
 
   <p>
     <label>Veículo: </label>
     <span>
-      <%=h "#{@veiculo.modelo} - #{@veiculo.placa} - #{CategoriaDeVeiculo.find(@veiculo.categoria_de_veiculo_id).nome}" if @veiculo %>
+      <%=h @veiculo ? "#{@veiculo.modelo} - #{@veiculo.placa} - #{CategoriaDeVeiculo.find(@veiculo.categoria_de_veiculo_id).nome}" : '-' %>
     </span>
   </p>
 
@@ -56,49 +53,8 @@
     </p>
   <% end %>
 
-  <h1>Requisições atendidas</h1>
-    <div id="tabela_exibir">
+  <%= render :partial => 'requisicoes_atendidas' %>
 
-      <table id="requisicoes" class="tabela_padrao">
-        <thead>
-          <tr>
-            <th>Estado</th>
-            <th>Protocolo</th>
-            <th>Solicitante</th>
-            <th>Cargo</th>
-            <th>Email</th>
-            <th>Telefone</th>
-            <th>Data</th>
-            <th>Veículo</th>
-            <th>Objetivo</th>
-            <th>Tipo</th>
-            <th>Referência</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @viagem.requisicoes_atendidas.each do |r_id| %>
-            <% requisicao = Requisicao.find(r_id)%>
-            <% solicitante = Solicitante.find(requisicao.solicitante_id) %>
-
-            <tr onmouseover="this.style.cursor='pointer'" onclick="location.href='<%= requisicao_path(requisicao) %>'">
-              <td class="<%=h traduz_class_css(requisicao.estado) %>"><%=h requisicao.estado[0,10] %></td>
-              <td><%=h requisicao.id %></td>
-              <td><%=h solicitante.nome %></td>
-              <td><%=h solicitante.cargo %></td>
-              <td><%=h solicitante.email %></td>
-              <td><%=h solicitante.telefone_ou_ramal %></td>
-              <td><%=h requisicao.data_de_reserva.strftime("%d/%m/%Y") %></td>
-              <td><%=h CategoriaDeVeiculo.find(requisicao.categoria_de_veiculo_id).nome %></td>
-              <td><%=h ObjetivoDeReserva.find(requisicao.objetivo_de_reserva_id).texto %></td>
-              <td><%=h requisicao.tipo ? requisicao.tipo : "-" %></td>
-              <td><%=h requisicao.referencia_id ? requisicao.referencia_id : "-" %></td>
-            </tr>
-
-          <% end %>
-        </tbody>
-      </table>
-    </div>
 </div>
 
 <!-- ======================================================================= -->
