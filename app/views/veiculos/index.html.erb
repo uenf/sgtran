@@ -1,4 +1,5 @@
 <% if current_user.has_role? :admin %>
+  <% admin = "True" %>
   <a href="/veiculos/new" class="link_new">Adicionar Veiculo</a>
 <% end %>
 
@@ -17,28 +18,24 @@
   </tr>
 
 <% @veiculos.each do |veiculo| %>
-  <tr >
-    <%= "<td class='ativo'></td>" if veiculo.status == Veiculo::ATIVO %>
-    <%= "<td class='inativo'></td>" if veiculo.status == Veiculo::INATIVO %>
-    <td onclick="location.href='<%= veiculo_path(veiculo) %>'" onmouseover="this.style.cursor='pointer'"><%=h veiculo.marca %></td>
-    <td onclick="location.href='<%= veiculo_path(veiculo) %>'" onmouseover="this.style.cursor='pointer'"><%=h veiculo.modelo %></td>
-    <td onclick="location.href='<%= veiculo_path(veiculo) %>'" onmouseover="this.style.cursor='pointer'"><%=h veiculo.cor %></td>
-    <td onclick="location.href='<%= veiculo_path(veiculo) %>'" onmouseover="this.style.cursor='pointer'"><%=h veiculo.ano %></td>
-    <td onclick="location.href='<%= veiculo_path(veiculo) %>'" onmouseover="this.style.cursor='pointer'"><%=h veiculo.placa %></td>
-    <td onclick="location.href='<%= veiculo_path(veiculo) %>'" onmouseover="this.style.cursor='pointer'"><%=h veiculo.numero_de_ordem %></td>
-    <td onclick="location.href='<%= veiculo_path(veiculo) %>'" onmouseover="this.style.cursor='pointer'"><%=h veiculo.renavam %></td>
-    <td onclick="location.href='<%= veiculo_path(veiculo) %>'" onmouseover="this.style.cursor='pointer'">
-      <% if veiculo.categoria_de_veiculo_id %>
-        <%=h CategoriaDeVeiculo.find(veiculo.categoria_de_veiculo_id).nome %>
-      <% else %>
-        -
-      <% end %>
-    </td>
-    <% if current_user.has_role? :admin %>
-      <td onclick="location.href='<%= edit_veiculo_path(veiculo) %>'" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("editar_dado.png", :border => 0, :alt => "Editar"), edit_veiculo_path(veiculo) %></td>
+  <tr>
+    <%= td_status veiculo %>
+    <%= td_clickable veiculo_path(veiculo), veiculo.marca %>
+    <%= td_clickable veiculo_path(veiculo), veiculo.modelo %>
+    <%= td_clickable veiculo_path(veiculo), veiculo.cor %>
+    <%= td_clickable veiculo_path(veiculo), veiculo.ano %>
+    <%= td_clickable veiculo_path(veiculo), veiculo.placa %>
+    <%= td_clickable veiculo_path(veiculo), veiculo.numero_de_ordem %>
+    <%= td_clickable veiculo_path(veiculo), veiculo.renavam %>
+    <%= td_clickable veiculo_path(veiculo), veiculo.categoria_de_veiculo.nome %>
+
+    <% if admin %>
+      <%= td_clickable edit_veiculo_path(veiculo),
+                       image_tag("editar_dado.png", :border => 0, :alt => "Editar") %>
     <% else %>
       <td></td>
     <% end %>
+
   </tr>
 <% end %>
 </table>
