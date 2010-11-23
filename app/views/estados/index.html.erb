@@ -1,4 +1,5 @@
 <% if current_user.has_role? :admin %>
+  <% admin = "True" %>
   <a href="/estados/new" class="link_new">Adicionar Estado</a>
 <% end %>
 
@@ -12,12 +13,12 @@
 
 <% @estados.each do |estado| %>
   <tr>
-    <%= "<td class='ativo'></td>" if estado.status == Estado::ATIVO %>
-    <%= "<td class='inativo'></td>" if estado.status == Estado::INATIVO %>
-    <td onclick="location.href='<%= estado_path(estado) %>'" onmouseover="this.style.cursor='pointer'"><%=h estado.nome %></td>
-    <td onclick="location.href='<%= estado_path(estado) %>'" onmouseover="this.style.cursor='pointer'"><%=h estado.sigla %></td>
-    <% if current_user.has_role? :admin %>
-      <td onclick="location.href='<%= edit_estado_path(estado) %>'" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("editar_dado.png", :border => 0, :alt => "Editar"), edit_estado_path(estado) %></td>
+    <%= td_status estado %>
+    <%= td_clickable estado_path(estado), estado.nome %>
+    <%= td_clickable estado_path(estado), estado.sigla %>
+    <% if admin %>
+      <%= td_clickable edit_estado_path(estado),
+                       image_tag("editar_dado.png", :border => 0, :alt => "Editar") %>
     <% else %>
       <td></td>
     <% end %>
