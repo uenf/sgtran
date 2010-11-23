@@ -160,3 +160,7 @@ end
 #  end
 #end
 
+Configuracao.delete_all
+Configuracao.create!(
+        :orgao_utilizador => "Universidade Estadual do Norte Fluminense - UENF")
+
