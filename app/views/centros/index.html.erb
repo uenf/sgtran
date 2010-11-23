@@ -1,4 +1,5 @@
 <% if current_user.has_role? :admin %>
+  <% admin = "True" %>
   <a href="/centros/new" class="link_new">Adicionar Centro</a>
 <% end %>
 
@@ -11,11 +12,11 @@
 
 <% @centros.each do |centro| %>
   <tr>
-    <%= "<td class='ativo'></td>" if centro.status == Centro::ATIVO %>
-    <%= "<td class='inativo'></td>" if centro.status == Centro::INATIVO %>
-    <td onclick="location.href='<%= centro_path(centro) %>'" onmouseover="this.style.cursor='pointer'"><%=h centro.nome %></td>
-    <% if current_user.has_role? :admin %>
-      <td onclick="location.href='<%= edit_centro_path(centro) %>'" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("editar_dado.png", :border => 0, :alt => "Editar"), edit_centro_path(centro) %></td>
+    <%= td_status centro %>
+    <%= td_clickable centro_path(centro), centro.nome %>
+    <% if admin %>
+      <%= td_clickable edit_centro_path(centro),
+                       image_tag("editar_dado.png", :border => 0, :alt => "Editar") %>
     <% else %>
       <td></td>
     <% end %>
