@@ -16,5 +16,27 @@ describe ApplicationHelper do
     helper.selecao('anything').should == 'selected="selected"'
   end
 
+  it 'deve retornar uma tag html td com class igual ao status do objeto' do
+    motorista = Factory.create :motorista, :status => Motorista::ATIVO
+    helper.td_status(motorista).should == '<td class="ativo"></td>'
+
+    solicitante = Factory.create :solicitante, :status => Solicitante::INATIVO
+    helper.td_status(solicitante).should == '<td class="inativo"></td>'
+  end
+
+  it 'deve retornar uma tag html td clicavel' do
+    motorista = Factory.create :motorista, :id => 3, :nome => "Hugo Maia"
+    path = motorista_path(motorista)
+    content = motorista.nome
+    helper.td_clickable(path, content).should ==
+    "<td onclick=\"location.href=\'/motoristas/3\'\" onmouseover=\"this.style.cursor='pointer'\">Hugo Maia</td>"
+
+    solicitante = Factory.create :solicitante, :id => 5, :nome => "Eduardo Hertz"
+    path = solicitante_path(solicitante)
+    content = solicitante.nome
+    helper.td_clickable(path, content).should ==
+    "<td onclick=\"location.href=\'/solicitantes/5\'\" onmouseover=\"this.style.cursor='pointer'\">Eduardo Hertz</td>"
+  end
+
 end
 

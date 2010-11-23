@@ -36,7 +36,15 @@ module ApplicationHelper
     obj ? 'selected="selected"' : nil
   end
 
+  def td_status objeto
+    status = objeto.status.downcase
+    "<td class=\"#{status}\"></td>".html_safe
+  end
 
+  def td_clickable path, content
+    ("<td onclick=\"location.href=\'#{path}\'\" onmouseover=\"this.style.cursor='pointer'\">" +
+    content + "</td>").html_safe
+  end
 
 end
 
