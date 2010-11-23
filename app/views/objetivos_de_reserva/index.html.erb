@@ -1,4 +1,5 @@
 <% if current_user.has_role? :admin %>
+  <% admin = "True" %>
   <a href="/objetivos_de_reserva/new" class="link_new">Adicionar Objetivo de reserva</a>
 <% end %>
 
@@ -11,11 +12,11 @@
 
 <% @objetivos_de_reserva.each do |objetivo_de_reserva| %>
   <tr>
-    <%= "<td class='ativo'></td>" if objetivo_de_reserva.status == ObjetivoDeReserva::ATIVO %>
-    <%= "<td class='inativo'></td>" if objetivo_de_reserva.status == ObjetivoDeReserva::INATIVO %>
-    <td onclick="location.href='<%= objetivo_de_reserva_path(objetivo_de_reserva) %>'" onmouseover="this.style.cursor='pointer'"><%=h objetivo_de_reserva.texto %></td>
-    <% if current_user.has_role? :admin %>
-      <td onclick="location.href='<%= edit_objetivo_de_reserva_path(objetivo_de_reserva) %>'" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("editar_dado.png", :border => 0, :alt => "Editar"), edit_objetivo_de_reserva_path(objetivo_de_reserva) %></td>
+    <%= td_status objetivo_de_reserva %>
+    <%= td_clickable objetivo_de_reserva_path(objetivo_de_reserva), objetivo_de_reserva.texto %>
+    <% if admin %>
+      <%= td_clickable edit_objetivo_de_reserva_path(objetivo_de_reserva),
+                 image_tag("editar_dado.png", :border => 0, :alt => "Editar") %>
     <% else %>
       <td></td>
     <% end %>
