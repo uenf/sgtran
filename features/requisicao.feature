@@ -7,6 +7,7 @@ Funcionalidade: Solicitar viagem
   Para que eu possa realizar uma viagem
 
   Esquema do Cenário: Envio de requisição
+    Dado que eu tenho uma configuração inicial
     Dado que eu não estou logado
     E que eu tenha a categoria de veículo "Micro-ônibus - até 32 passageiros"
     E que eu tenha um objetivo de reserva "Aula de Campo"
@@ -58,6 +59,7 @@ Funcionalidade: Solicitar viagem
       | Espera | 25        | Fulano      | Professor | fulano@uenf.br | Daqui a dois dias |
 
   Esquema do Cenário: Envio de requisição com datas inválidas
+    Dado que eu tenho uma configuração inicial
     Dado que eu não estou logado
     E que eu tenha a categoria de veículo "Automóvel até 4 passageiros"
     E que eu tenha um objetivo de reserva "Aula de Campo"
@@ -84,6 +86,7 @@ Funcionalidade: Solicitar viagem
     | ""                                               | eu devo ver "Data de reserva não pode ser vazio"                                                                         |
 
   Cenário: Enviar uma requisição sem os zeros à esquerda
+    Dado que eu tenho uma configuração inicial
     Dado que eu não estou logado
     Dado que eu tenha a categoria de veículo "Automóvel até 4 passageiros"
     E que eu tenha um objetivo de reserva "Aula de Campo"
@@ -102,6 +105,7 @@ Funcionalidade: Solicitar viagem
     Então eu devo ver "Requisição enviada com sucesso!"
 
   Esquema do Cenário: Deve aceitar apenas solicitantes ativos
+    Dado que eu tenho uma configuração inicial
     Dado que eu não estou logado
     Dado que eu tenha a categoria de veículo "Automóvel até 4 passageiros"
     E que eu tenha um objetivo de reserva "Aula de Campo"

@@ -8,6 +8,11 @@
       <%= f.label :orgao_utilizador, "Órgão utilizador:" %>
       <%= f.text_field :orgao_utilizador %>
     </p>
+
+    <p>
+      <%= f.check_box :retirar_formulario %>
+      <%= f.label :retirar_formulario, "Retirar formulário do ar" %>
+    </p>
     <p>
       <%= f.submit 'Salvar' %>
     </p>

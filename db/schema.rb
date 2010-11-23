@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(:version => 20101122194231) do
 
   create_table "configuracoes", :force => true do |t|
     t.string   "orgao_utilizador"
+    t.integer  "retirar_formulario", :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
