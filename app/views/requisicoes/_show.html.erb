@@ -7,7 +7,9 @@
 
 <p>
   <label>Data de reserva:</label>
-  <span><%=h @requisicao.data_de_reserva.strftime("%d/%m/%Y")%></span>
+  <span>
+    <%=h @requisicao.data_de_reserva ? @requisicao.data_de_reserva.strftime("%d/%m/%Y") : '-'  %>
+  </span>
 </p>
 
 <p>

@@ -81,7 +81,7 @@
         <td><%=h solicitante.nome %></td>
         <td><%=h solicitante.cargo %></td>
         <td><%=h solicitante.email %></td>
-        <td><%=h requisicao.data_de_reserva.strftime("%d/%m/%Y") %></td>
+        <td><%=h requisicao.data_de_reserva.strftime("%d/%m/%Y") if requisicao.data_de_reserva %></td>
       </tr>
 <% end %>
 
