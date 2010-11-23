@@ -1,4 +1,5 @@
 <% if current_user.has_role? :admin %>
+  <% admin = "True" %>
   <a href="/combustiveis/new" class="link_new">Adicionar Combustível</a>
 <% end %>
 
@@ -10,9 +11,10 @@
 
 <% @combustiveis.each do |combustivel| %>
   <tr>
-    <td onclick="location.href='<%= combustivel_path(combustivel) %>'" onmouseover="this.style.cursor='pointer'"><%=h combustivel.nome %></td>
-    <% if current_user.has_role? :admin %>
-      <td onclick="location.href='<%= edit_combustivel_path(combustivel) %>'" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("editar_dado.png", :border => 0, :alt => "Editar"), edit_combustivel_path(combustivel) %></td>
+    <%= td_clickable combustivel_path(combustivel), combustivel.nome %>
+    <% if admin %>
+      <%= td_clickable edit_combustivel_path(combustivel),
+                       image_tag("editar_dado.png", :border => 0, :alt => "Editar") %>
     <% else %>
       <td></td>
     <% end %>
