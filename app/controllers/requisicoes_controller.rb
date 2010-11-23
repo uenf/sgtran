@@ -39,16 +39,16 @@ class RequisicoesController < ApplicationController
     end
   end
 
-  def retirar_formulario
+  def formulario_inativo
   end
 
   def new
-    if configuracoes.retirar_formulario.zero?
+    if configuracoes.formulario_ativo?
       @requisicao = Requisicao.new
       @solicitante = Solicitante.new
       render :action => "new", :layout => "requisicoes"
     else
-      render :action => "retirar_formulario", :layout => "requisicoes"
+      render :action => "formulario_inativo", :layout => "requisicoes"
     end
   end
 

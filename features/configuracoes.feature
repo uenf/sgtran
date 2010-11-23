@@ -26,20 +26,19 @@ Para que ele possa se adaptar as minhas necessidades
     Dado que eu tenho uma configuração inicial
     E que eu sou um usuário administrador logado
     Quando eu clico em "Configurações"
-    E eu marco "Retirar formulário do ar"
+    E eu desmarco "Formulário ativo"
     E eu pressiono "Salvar"
     Então eu devo ver "Configurações atualizadas com sucesso."
     Quando eu clico em "Sair"
     E eu vou para a página de requisição
     Então eu devo ver "No momento as solicitações de veículo não estão disponíveis."
 
-  @now
   Cenário: Colocar formulário de requisição do ar
     Dado que eu tenho uma configuração inicial
     E que o formulário de requisição está fora do ar
     E que eu sou um usuário administrador logado
     Quando eu clico em "Configurações"
-    E eu desmarco "Retirar formulário do ar"
+    E eu marco "Formulário ativo"
     E eu pressiono "Salvar"
     Então eu devo ver "Configurações atualizadas com sucesso."
     Quando eu clico em "Sair"

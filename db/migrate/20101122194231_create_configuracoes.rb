@@ -2,7 +2,7 @@ class CreateConfiguracoes < ActiveRecord::Migration
   def self.up
     create_table :configuracoes do |t|
       t.string :orgao_utilizador
-      t.integer :retirar_formulario, :default => 0
+      t.boolean :formulario_ativo, :default => true
 
       t.timestamps
     end

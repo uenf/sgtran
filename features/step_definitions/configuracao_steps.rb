@@ -3,7 +3,7 @@ Dado /^que eu tenho uma configuração inicial$/ do
 end
 
 Dado /^que o formulário de requisição está fora do ar$/ do
-  @configuracao.retirar_formulario = 0
+  @configuracao.formulario_ativo = false
   @configuracao.save
 end
 
