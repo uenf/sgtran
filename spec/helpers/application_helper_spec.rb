@@ -25,6 +25,7 @@ describe ApplicationHelper do
   end
 
   it 'deve retornar uma tag html td clicavel' do
+    Motorista.delete_all # limpando a tabela motoristas
     motorista = Factory.create :motorista, :id => 3, :nome => "Hugo Maia"
     path = motorista_path(motorista)
     content = motorista.nome
