@@ -50,6 +50,10 @@ Quando /^eu marco "([^\"]*)"$/ do |field|
   check(field)
 end
 
+Quando /^eu desmarco "([^"]*)"$/ do |field|
+  uncheck(field)
+end
+
 Quando /^eu não marco "([^\"]*)"$/ do |field|
   uncheck(field)
 end

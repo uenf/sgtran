@@ -14,9 +14,14 @@ describe RequisicoesController do
     @mock_solicitante ||= mock_model(Solicitante, stubs)
   end
 
+  def mock_configuracao(stubs={})
+    @mock_configuracao ||= mock_model(Configuracao, stubs)
+  end
+
   describe "GET index" do
     it "assigns all requisicoes as @requisicoes" do
       Requisicao.stub!(:find).with(:all, :conditions => "estado = '"+ Requisicao::ESPERA + "'", :order => "id ASC").and_return([mock_requisicao])
+
       get :index
       assigns[:requisicoes].should == [mock_requisicao]
     end
@@ -27,14 +32,6 @@ describe RequisicoesController do
       Solicitante.stub(:find).with("12").and_return(mock_solicitante)
       Requisicao.stub(:find).with("37").and_return(mock_requisicao(:solicitante => nil))
       get :show, :id => "37"
-      assigns[:requisicao].should equal(mock_requisicao)
-    end
-  end
-
-  describe "GET new" do
-    it "assigns a new requisicao as @requisicao" do
-      Requisicao.stub!(:new).and_return(mock_requisicao)
-      get :new
       assigns[:requisicao].should equal(mock_requisicao)
     end
   end

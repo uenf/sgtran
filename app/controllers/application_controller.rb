@@ -7,6 +7,11 @@ class ApplicationController < ActionController::Base
 
   filter_parameter_logging :password, :password_confirmation
 
+  def configuracoes
+    @configuracao ||= Configuracao.all.first
+    @configuracao
+  end
+
   def access_denied
     if current_user.nil?
       redirect_to(new_requisicao_path)

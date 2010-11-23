@@ -39,10 +39,17 @@ class RequisicoesController < ApplicationController
     end
   end
 
+  def retirar_formulario
+  end
+
   def new
-    @requisicao = Requisicao.new
-    @solicitante = Solicitante.new
-    render :action => "new", :layout => "requisicoes"
+    if configuracoes.retirar_formulario.zero?
+      @requisicao = Requisicao.new
+      @solicitante = Solicitante.new
+      render :action => "new", :layout => "requisicoes"
+    else
+      render :action => "retirar_formulario", :layout => "requisicoes"
+    end
   end
 
   def new_admin
