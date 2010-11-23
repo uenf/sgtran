@@ -1,4 +1,5 @@
 <% if current_user.has_role? :admin %>
+  <% admin = "True" %>
   <a href="/solicitantes/new" class="link_new">Adicionar Solicitante</a>
 <% end %>
 
@@ -14,14 +15,14 @@
 
 <% @solicitantes.each do |solicitante| %>
   <tr >
-    <%= "<td class='ativo'></td>" if solicitante.status == Solicitante::ATIVO %>
-    <%= "<td class='inativo'></td>" if solicitante.status == Solicitante::INATIVO %>
-    <td onclick="location.href='<%= solicitante_path(solicitante) %>'" onmouseover="this.style.cursor='pointer'"><%=h solicitante.nome %></td>
-    <td onclick="location.href='<%= solicitante_path(solicitante) %>'" onmouseover="this.style.cursor='pointer'"><%=h solicitante.email %></td>
-    <td onclick="location.href='<%= solicitante_path(solicitante) %>'" onmouseover="this.style.cursor='pointer'"><%=h solicitante.matricula %></td>
-    <td onclick="location.href='<%= solicitante_path(solicitante) %>'" onmouseover="this.style.cursor='pointer'"><%=h solicitante.cargo %></td>
-    <% if current_user.has_role? :admin %>
-      <td onclick="location.href='<%= edit_solicitante_path(solicitante) %>'" onmouseover="this.style.cursor='pointer'"><%= link_to image_tag("editar_dado.png", :border => 0, :alt => "Editar"), edit_solicitante_path(solicitante) %></td>
+    <%= td_status solicitante %>
+    <%= td_clickable solicitante_path(solicitante), solicitante.nome %>
+    <%= td_clickable solicitante_path(solicitante), solicitante.email %>
+    <%= td_clickable solicitante_path(solicitante), solicitante.matricula %>
+    <%= td_clickable solicitante_path(solicitante), solicitante.cargo %>
+    <% if admin %>
+      <%= td_clickable edit_solicitante_path(solicitante),
+                       image_tag("editar_dado.png", :border => 0, :alt => "Editar") %>
     <% else %>
       <td></td>
     <% end %>
