@@ -1,0 +1,35 @@
+body {
+	position: absolute;
+	width: 750px;
+	left: 50%;
+	margin-left: -375px;
+	font-family: Verdana, Arial;
+}
+
+.explicacao_inativacao {
+    background: url("/images/temporary.png") no-repeat 0% 50% #f9f9f9;
+    margin: 50px 20px 0px 20px;
+    padding: 30px 20px;
+    text-align: center;
+    color: #8293AE;
+    border: solid #e2e2e2;
+
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -opera-border-radius: 10px;
+}
+
+.explicacao_inativacao h1 {
+    padding: 15px 0 0 90px;
+    font-size: 30px;
+}
+
+#cabecalho {
+    background-image: url("/images/topo_astran.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 234px;
+}
+

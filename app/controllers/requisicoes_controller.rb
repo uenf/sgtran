@@ -48,7 +48,7 @@ class RequisicoesController < ApplicationController
       @solicitante = Solicitante.new
       render :action => "new", :layout => "requisicoes"
     else
-      render :action => "formulario_inativo", :layout => "requisicoes"
+      render :action => "formulario_inativo", :layout => "erros_e_avisos"
     end
   end
 
