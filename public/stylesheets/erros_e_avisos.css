@@ -7,9 +7,9 @@ body {
 }
 
 .explicacao_inativacao {
-    background: url("/images/temporary.png") no-repeat 0% 50% #f9f9f9;
+    background: url("/images/temporary.png") no-repeat 3% 50% #f9f9f9;
     margin: 50px 20px 0px 20px;
-    padding: 30px 20px;
+    padding: 30px 0px 30px 20px;
     text-align: center;
     color: #8293AE;
     border: solid #e2e2e2;
@@ -27,6 +27,7 @@ body {
 }
 
 #cabecalho {
+	margin-top:10px;
     background-image: url("/images/topo_astran.png");
     background-repeat: no-repeat;
     background-position: center;
