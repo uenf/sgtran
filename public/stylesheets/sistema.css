@@ -477,14 +477,6 @@ table.tabela_padrao tr td.cancelada {
 
     /*********************************************/
 
-#opcao_editar {
-    list-style-image: url("/images/editar_big.png");
-}
-
-#opcao_excluir {
-    list-style: url("/images/cancelar.png");
-}
-
 #opcoes_da_visao ul #opcao_voltar {
     list-style-image: url("/images/voltar.png");
 }

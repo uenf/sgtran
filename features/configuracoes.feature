@@ -31,7 +31,7 @@ Para que ele possa se adaptar as minhas necessidades
     Então eu devo ver "Configurações atualizadas com sucesso."
     Quando eu clico em "Sair"
     E eu vou para a página de requisição
-    Então eu devo ver "No momento as solicitações de veículo não estão disponíveis."
+    Então eu devo ver "A requisição de veículos está temporariamente indisponível."
 
   Cenário: Colocar formulário de requisição do ar
     Dado que eu tenho uma configuração inicial

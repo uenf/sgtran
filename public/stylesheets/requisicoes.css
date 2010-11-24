@@ -1,8 +1,8 @@
 body {
 	width: 750px;
 	padding: 10px;
-	border: solid 1px #000000;
-	border-bottom: solid 20px #000000;
+	border: solid #000000;
+	border-width: 1px 1px 5px 1px;
 	position: absolute;
 	left: 50%;
 	margin-left: -375px;
@@ -165,16 +165,6 @@ textarea {
     display: block;
 }
 
-#ida_e_volta {
-    clear: both;
-    background-color: #EEEEEE;
-    padding: 1px 15px 1px 15px;
-}
-
-#ida_e_volta span {
-    margin: 50px;
-}
-
 div.sucesso {
     font-family: verdana,arial,helvetica,sans-serif;
     font-size: 14px;
@@ -189,6 +179,21 @@ div.sucesso {
 #confirmar_requisicao {
     margin-bottom: 30px;
 }
+
+.explicacao_inativacao {
+    background: url("/images/temporary.png") no-repeat 0% 50%;
+    padding: 20px;
+    color: #8293AE;
+    margin: 50px 20px 100px 20px;
+    text-align: center;
+}
+
+.explicacao_inativacao h1 {
+    font-size: 30px;
+    padding: 30px 0 0 90px;
+    margin: 0px;
+}
+
 
 /* errorExplanation */
 
