@@ -3,7 +3,6 @@ Dado /^que eu tenho uma configuração inicial$/ do
 end
 
 Dado /^que o formulário de requisição está fora do ar$/ do
-  @configuracao.formulario_ativo = false
-  @configuracao.save
+  @configuracao.update_attribute(:formulario_ativo, false)
 end
 
