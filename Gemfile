@@ -9,7 +9,7 @@ gem 'calendar_date_select', '1.16.1'
 gem 'authlogic', '2.1.6'
 gem 'acl9', '0.12.0', :require => 'acl9'
 gem 'will_paginate', '2.3.11'
-gem 'i18n', '0.4.2'
+gem 'i18n', '0.3.7'
 
 group :development, :test, :cucumber do
     gem 'rspec',            '1.3.0'
