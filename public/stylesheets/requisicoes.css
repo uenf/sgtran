@@ -141,8 +141,7 @@ textarea {
 
 #matricula,
 #requisicao_celular,
-#requisicao_data_de_reserva_br,
-#data_de_reserva_ida_volta_br {
+#requisicao_data_de_reserva_br {
 	width: 100px;
 }
 

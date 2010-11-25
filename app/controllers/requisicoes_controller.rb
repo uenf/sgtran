@@ -1,8 +1,5 @@
 class RequisicoesController < ApplicationController
 
-  IDA   = 0
-  VOLTA = 1
-
   layout "sistema"
 
   access_control do

@@ -21,9 +21,6 @@ class CreateRequisicoes < ActiveRecord::Migration
       t.references :motivo
       t.string :motivo_professor
       t.string :motivo_observacao
-      t.string :tipo, :default => "Ida"
-      t.string :referencia_id
-
 
       t.timestamps
     end
