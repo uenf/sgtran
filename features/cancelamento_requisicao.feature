@@ -29,7 +29,7 @@ Funcionalidade: Cancelar viagem
     Dado que eu tenho uma configuração inicial
     Dado que eu tenho uma requisição do solicitante com matricula "01210" e com o nome "Carlos"
     Quando eu vou para página de cancelamento de requisição com id "1" e chave de segurança "123abc"
-    Então eu devo ver "Solicitação de reserva de veículos"
+    Então eu devo ver "Solicitação de veículo"
 
   Cenário: Cancelamento de requisição que já foi cancelada
     Dado que eu tenho uma configuração inicial

@@ -1,0 +1,170 @@
+body {
+	position: absolute;
+	width: 750px;
+	left: 50%;
+	margin-left: -375px;
+	padding-bottom:30px;
+	font-family: Verdana, Arial;
+    color: #305693;
+}
+
+h1 {
+    margin: 60px 0px 0px 0px;
+}
+
+hr {
+    margin: 0px 0px 10px 0px;
+}
+
+em {
+    padding-left: 5px;
+    font-size: 12px;
+}
+
+ul {
+    list-style: disc inside none;
+    padding: 0;
+    margin: 0px;
+}
+
+label {
+    text-align: right;
+    width: 225px;
+    display: block;
+    float: left;
+}
+
+input, textarea {
+    display: block;
+    float: left;
+}
+
+
+input[type="submit"] {
+    float: right;
+}
+
+.invisivel {
+    display: none;
+}
+
+.obrigatorio {
+    color: red;
+}
+
+.item {
+    display: table;
+    padding: 3px 0px;
+}
+
+.item_info_label {
+    width: 225px;
+    float: left;
+}
+
+.item_info_label label {
+    float: none;
+}
+
+.termo label {
+	width: default !important;
+	text-align: left;
+	width: 300px;
+}
+
+.termo textarea {
+    float: none;
+	width: 695px;
+	height: 280px;
+	margin: 0;
+}
+
+#cabecalho {
+	margin-top:10px;
+    background-image: url("/images/topo_astran.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 234px;
+}
+
+.informacoes {
+    font-size: 13px;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: solid #e2e2e2;
+    width: 197px;
+
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -opera-border-radius: 5px;
+}
+
+.informacoes p {
+    margin-top: 0px;
+}
+
+/* Textareas da solicitação */
+
+#requisicao_nome_telefone_passageiros {
+    width: 450px;
+    height: 75px;
+}
+
+#requisicao_roteiro_da_agenda {
+    width: 450px;
+    height: 211px;
+}
+
+#requisicao_observacao {
+    width: 450px;
+    height: 346px;
+}
+
+/* errorExplanation */
+
+#errorExplanation {
+    margin-top: 15px;
+    border: 2px solid #c00;
+    padding: 7px;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -opera-border-radius: 5px;
+}
+
+#errorExplanation h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 35px;
+    font-size: 16px;
+    margin: -7px;
+    background: #ff8989 url(../images/erro.png) no-repeat scroll 8px 5px;;
+    border-bottom: 2px solid #c00;
+    color: #c00;
+}
+
+#errorExplanation p {
+    margin-bottom: 0;
+    padding: 5px;
+    font-size: 14px;
+}
+
+#errorExplanation ul {
+    padding-left: 15px;
+}
+
+#errorExplanation ul li {
+    font-size: 12px;
+}
+
+.fieldWithErrors {
+    display: inline;
+}
+

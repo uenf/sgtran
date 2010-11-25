@@ -16,13 +16,13 @@ Para que eu não tenha problemas com a gerência das requisições
     Quando eu preencho "Matrícula" com "01210"
     E eu preencho "E-mail" com "ronaldo@corinthians.com"
     E eu preencho "Celular" com "9958-1425"
-    E eu preencho "Data de Reserva" com <Data>
-    E eu seleciono "Micro-ônibus - até 32 passageiros" em "Categoria de veículo"
-    E eu seleciono "Aula de Campo" em "Objetivo da Reserva"
-    E eu preencho "Nome e telefone dos passageiros:" com "Zina, Ronaldo e Alfinete"
-    E eu preencho "Roteiro da agenda:" com "Ir ao Pacaembu"
+    E eu preencho "Data" com <Data>
+    E eu seleciono "Micro-ônibus - até 32 passageiros" em "Veículo"
+    E eu seleciono "Aula de Campo" em "Objetivo"
+    E eu preencho "Passageiros:" com "Zina, Ronaldo e Alfinete"
+    E eu preencho "Roteiro:" com "Ir ao Pacaembu"
     E eu marco "Li e concordo com os termos"
-    E eu pressiono "Enviar"
+    E eu pressiono "Enviar solicitação"
     Então <Sentença>
 
     Exemplos:(Datas invalidas)

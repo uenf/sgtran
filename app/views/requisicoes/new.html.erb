@@ -1,122 +1,149 @@
-<%= javascript_include_tag :defaults %>
-<%= javascript_include_tag "new_requisicao.js" %>
-<%= calendar_date_select_includes "red", :locale => "pt"%>
-<%= javascript_include_tag "calendar_date_select/format_italian" %>
+<% configuracao = Configuracao.all.first %>
+
+<% content_for :head do %>
+  <title>Solicitação de veículo: <%= configuracao.orgao_utilizador %></title>
+  <%= javascript_include_tag :defaults %>
+  <%= javascript_include_tag "new_requisicao.js" %>
+  <%= calendar_date_select_includes "red", :locale => "pt"%>
+  <%= javascript_include_tag "calendar_date_select/format_italian" %>
+<% end %>
+
+<h1>Solicitação de veículo</h1>
+<hr/>
+
+<p>
+  <em>Obs.: os campos com <span class='obrigatorio'>*</span> são obrigatórios</em>
+<p>
+
 <% form_for @requisicao do |f| %>
   <%= f.error_messages %>
-
-  <h1>Solicitação de reserva de veículos</h1>
-  <p class="legenda_obrigatorio">
-    <strong>* Os campos em vermelho são obrigatórios</strong>
-  <p>
 
   <fieldset>
     <legend>Dados do solicitante</legend>
 
     <% fields_for @solicitante do |s|  %>
-      <p>
-        <%= s.label :matricula, "Matrícula:",
-                      :class => "label_obrigatorio" %>
-        <%= s.text_field :matricula %> (Colocar matrícula sem o dígito)
-      </p>
-      <p>
-        <%= s.label :email, "E-mail:", :class => "label_obrigatorio" %>
+
+      <div class="item">
+        <%= s.label :matricula, "<span class='obrigatorio'>*</span>Matrícula:" %>
+        <%= s.text_field :matricula %>
+        <em>(Colocar matrícula sem o dígito)</em>
+      </div>
+
+      <div class="item">
+        <%= s.label :email, "<span class='obrigatorio'>*</span>E-mail:" %>
         <%= s.text_field :email %>
-      </p>
+      </div>
+
     <% end %>
-    <p>
-      <%= f.label :celular, "Celular:", :class => "label_obrigatorio" %>
+
+    <div class="item">
+      <%= f.label :celular, "<span class='obrigatorio'>*</span>Celular:" %>
       <%= f.text_field :celular %>
-    </p>
+    </div>
+
   </fieldset>
 
   <fieldset>
     <legend>Dados da reserva</legend>
 
-    <p>
-      <%= f.label :data_de_reserva_br, "Data de Reserva:",
-                  :class => "label_obrigatorio" %>
+    <div class="item">
+      <%= f.label :data_de_reserva_br, "<span class='obrigatorio'>*</span>Data:" %>
       <%= calendar_date_select_tag "requisicao_data_de_reserva_br",
                                     @requisicao.data_de_reserva ? @requisicao.data_de_reserva.to_date.to_s_br : "",
                                     :name => "requisicao[data_de_reserva_br]",
                                     :year_range => [Time.now.year],
                                     :month_year => "label" %>
-    </p>
-    <p>
-    <%= f.label :categoria_de_veiculo_id, "Categoria de veículo:",
-                :class => "label_obrigatorio" %>
-    <%= f.select :categoria_de_veiculo_id,
-                  CategoriaDeVeiculo.find_all_by_status(CategoriaDeVeiculo::ATIVO).collect {|categoria| [categoria.nome, categoria.id]},
-                  {:include_blank => "Selecione uma categoria de veículo"} %>
-    </p>
-    <p>
-      <%= f.label :objetivo_de_reserva_id, "Objetivo da reserva:",
-                  :class => "label_obrigatorio" %>
+    </div>
+
+    <div class="item">
+      <%= f.label :objetivo_de_reserva_id,
+                  "<span class='obrigatorio'>*</span>Objetivo:" %>
       <%= f.select :objetivo_de_reserva_id,
                     ObjetivoDeReserva.find_all_by_status(ObjetivoDeReserva::ATIVO).collect {|objetivo| [objetivo.texto, objetivo.id]},
                     {:include_blank => "Selecione um objetivo"},
                     :onchange => "verificarOutros()" %>
-    </p>
+    </div>
 
-    <p>
-      <%= f.label :outros, "Outros:", :class => "invisivel",
+    <div class="item">
+      <%= f.label :outros, "<span class='obrigatorio'>*</span>Outros:",
+                  :class => "invisivel",
                   :id => 'requisicao_outros_label' %>
       <%= f.text_field :outros, :class => "invisivel" %>
-    </p>
-    <p>
-      <div class="label_lateral">
-        <%= f.label :nome_telefone_passageiros, "Nome e telefone dos passageiros:",
-                    :class => "label_obrigatorio" %>
-        <ul>
-          <p>Informar:</p>
-          <li>Nome completo;</li>
-          <li>Telefone de contato.</li>
-        </ul>
+    </div>
+
+    <div class="item">
+      <%= f.label :categoria_de_veiculo_id, "<span class='obrigatorio'>*</span>Veículo:" %>
+      <%= f.select :categoria_de_veiculo_id,
+                    CategoriaDeVeiculo.find_all_by_status(CategoriaDeVeiculo::ATIVO).collect {|categoria| [categoria.nome, categoria.id]},
+                    {:include_blank => "Selecione uma categoria de veículo"} %>
+    </div>
+
+
+    <div class="item">
+      <div class="item_info_label">
+        <%= f.label :nome_telefone_passageiros,
+                    "<span class='obrigatorio'>*</span>Passageiros:" %>
+
+        <div class="informacoes">
+          <ul>
+            <li>Nome completo;</li>
+            <li>Telefone de contato.</li>
+          </ul>
+        </div>
       </div>
-      <%= f.text_area :nome_telefone_passageiros, :rows => nil, :cols => nil %>
-    </p>
-    <p>
-      <div class="label_lateral">
-        <%= f.label :roteiro_da_agenda, "Roteiro da agenda:",
-                    :class => "label_obrigatorio" %>
-        <ul>
-          <p>Informar:</p>
-          <li>Endereço;</li>
-          <li>Cidade;</li>
-          <li>Local de destino;</li>
-          <li>Local que irá buscar passageiro (com referência);</li>
-          <li>Data e horário previstos de saída e chegada do passageiro;</li>
-          <li>Data e horário previstos de retorno do passageiro.</li>
-        </ul>
+
+      <%= f.text_area :nome_telefone_passageiros, :rows => nil, :cols => nil,
+        :value => "Saci Pererê - (22) 2739-4178\nDona Benta - (22) 2739-5993" %>
+    </div>
+
+    <div class="item">
+      <div class="item_info_label">
+        <%= f.label :roteiro_da_agenda,
+                    "<span class='obrigatorio'>*</span>Roteiro:" %>
+
+        <div class="informacoes">
+          <ul>
+            <li>Endereço;</li>
+            <li>Cidade;</li>
+            <li>Local de destino;</li>
+            <li>Local que irá buscar passageiro (com referência);</li>
+            <li>Data e horário previstos de saída e chegada do passageiro;</li>
+            <li>Data e horário previstos de retorno do passageiro.</li>
+          </ul>
+        </div>
       </div>
       <%= f.text_area :roteiro_da_agenda, :rows => nil, :cols => nil %>
-    </p>
-    <p>
-      <div class="label_lateral">
-        <%= f.label :observacao, "Observação:", :class => "label" %>
-        <ul>
-          <p>Utilizar este espaço nos casos de:</p>
-          <li>
-            <em>Buscar ou levar passageiro ao Aeroporto</em>: informar o a
-            eroporto, número do vôo, companhia aérea e horário de chegada do
-            vôo.
-          </li>
-          <li>
-            <em>Participações em reuniões ou eventos</em>: informar o horário de
-            inicio e previsão de término do evento.
-          </li>
-          <li>
-            <em>Solicitações de microônibus</em>: informar a lista de
-            passageiros com nome completo, matrícula ou CPF. A lista deverá ser
-            entregue à ASTRAN 1 dia antes da agenda.
-          </li>
-        </ul>
+    </div>
+
+    <div class="item">
+      <div class="item_info_label">
+        <%= f.label :observacao, "Observações:" %>
+
+        <div class="informacoes">
+          <ul>
+            <li>
+              <strong>Buscar ou levar passageiro ao Aeroporto:</strong>
+              informar o aeroporto, número do vôo, companhia aérea e horário de
+              chegada do vôo.
+            </li>
+            <li>
+              <strong>Participações em reuniões ou eventos:</strong>
+              informar o horário de inicio e previsão de término do evento.
+            </li>
+            <li>
+              <strong>Solicitações de microônibus:</strong>
+              informar a lista de passageiros com nome completo, matrícula ou
+              CPF. A lista deverá ser entregue à ASTRAN 1 dia antes da agenda.
+            </li>
+          </ul>
+        </div>
       </div>
       <%= f.text_area :observacao, :rows => nil, :cols => nil %>
-    </p>
+    </div>
 
-    <div class="termo">
-      <textarea readonly="readonly">REGRAS DA ASTRAN PARA UTILIZAÇÃO DE VEÍCULOS
+    <div class="item">
+      <div class="termo">
+        <textarea readonly="readonly">REGRAS DA ASTRAN PARA UTILIZAÇÃO DE VEÍCULOS
 
 
   1.DOS VEÍCULOS:
@@ -137,13 +164,15 @@
     g) O cancelamento da agenda deverá ser notificado à ASTRAN via e-mail (agendas@uenf.br) com, no mínimo, 24 horas de antecedência;
     h) O responsável solicitante da reserva deverá arcar com as despesas inerentes a viagem, tais como: combustível, motoristas, entre outras;
     i) O passageiro ou motorista devem obedecer aos dispositivos disciplinares previstos no Decreto N° 41.952, de 16 de julho de 2009."
-      </textarea><br />
-      <%= f.check_box :termo %>
-      <%= f.label :termo, "Li e concordo com os termos" %>
+        </textarea>
+        <%= f.check_box :termo %>
+        <%= f.label :termo, "Li e concordo com os termos<span class='obrigatorio'>*</span>" %>
+      </div>
     </div>
+
   </fieldset>
-  <p>
-    <%= f.submit 'Enviar' %>
-  </p>
+
+  <p><%= f.submit 'Enviar solicitação' %></p>
+
 <% end %>
 

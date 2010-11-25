@@ -43,7 +43,7 @@ class RequisicoesController < ApplicationController
     if configuracoes.formulario_ativo?
       @requisicao = Requisicao.new
       @solicitante = Solicitante.new
-      render :action => "new", :layout => "requisicoes"
+      render :action => "new", :layout => "front_end"
     else
       render :action => "formulario_inativo", :layout => "erros_e_avisos"
     end
@@ -81,7 +81,7 @@ class RequisicoesController < ApplicationController
       Confirmacao.deliver_email_confirmacao_de_cadastro_de_requisicao(@requisicao)
       redirect_to(confirmar_requisicao_path)
     else
-      render :action => "new", :layout => "requisicoes"
+      render :action => "new", :layout => "front_end"
     end
   end
 

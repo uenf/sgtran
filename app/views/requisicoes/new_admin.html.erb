@@ -40,14 +40,14 @@
                                         :class => "campo_de_poucos_digitos" %>
         </p>
         <p>
-          <%= f.label :categoria_de_veiculo_id, "Categoria de veículo:",
+          <%= f.label :categoria_de_veiculo_id, "Veículo:",
                       :class => "label_obrigatorio" %>
           <%= f.select :categoria_de_veiculo_id,
                         CategoriaDeVeiculo.find_all_by_status(CategoriaDeVeiculo::ATIVO).collect {|categoria| [categoria.nome, categoria.id]},
                         {:include_blank => "Selecione uma categoria de veículo"} %>
         </p>
         <p>
-          <%= f.label :objetivo_de_reserva_id, "Objetivo da reserva:",
+          <%= f.label :objetivo_de_reserva_id, "Objetivo:",
                       :class => "label_obrigatorio" %>
           <%= f.select :objetivo_de_reserva_id,
                         ObjetivoDeReserva.find_all_by_status(ObjetivoDeReserva::ATIVO).collect {|objetivo| [objetivo.texto, objetivo.id]},
@@ -62,7 +62,7 @@
         </p>
         <p>
           <div class="label_lateral">
-            <%= f.label :nome_telefone_passageiros, "Nome e telefone dos passageiros:",
+            <%= f.label :nome_telefone_passageiros, "Passageiros:",
                         :class => "label_obrigatorio" %>
             <ul>
               Informar:
@@ -90,7 +90,7 @@
         </p>
         <p>
           <div class="label_lateral">
-            <%= f.label :observacao, "Observação:", :class => "label" %>
+            <%= f.label :observacao, "Observações:", :class => "label" %>
             <ul>
               Utilizar este espaço nos casos de:
               <li>
