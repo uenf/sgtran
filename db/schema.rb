@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(:version => 20101122194231) do
   end
 
   create_table "configuracoes", :force => true do |t|
-    t.string   "orgao_utilizador"
+    t.string   "orgao_utilizador", :default => "Universidade Estadual do Norte Fluminense Darcy Ribeiro"
     t.boolean  "formulario_ativo", :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
