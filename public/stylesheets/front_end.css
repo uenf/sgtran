@@ -122,6 +122,12 @@ input[type="submit"] {
     height: 346px;
 }
 
+#solicitante_matricula,
+#requisicao_celular,
+#requisicao_data_de_reserva_br {
+	width: 100px;
+}
+
 /* errorExplanation */
 
 #errorExplanation {
