@@ -110,7 +110,7 @@ end
 #open("#{Rails.root}/db/seeds_files/requisicoes_seed.txt") do |requisicoes|
 #  requisicoes.read.each do |r|
 #    if r != "\n"
-#      sol, categoria_veiculo, celular, objetivo, outros, passageiros, roteiro, observacao, tipo = r.chomp.split("|")
+#      sol, categoria_veiculo, celular, objetivo, outros, passageiros, roteiro, observacao = r.chomp.split("|")
 #      data = Date.tomorrow.tomorrow
 #      solicitante = Solicitante.find_by_matricula(sol)
 #      categoria_de_veiculo = CategoriaDeVeiculo.find_by_nome(categoria_veiculo)
@@ -123,8 +123,7 @@ end
 #                          :outros => outros,
 #                          :nome_telefone_passageiros => passageiros,
 #                          :roteiro_da_agenda => roteiro,
-#                          :observacao => observacao,
-#                          :tipo => tipo)
+#                          :observacao => observacao)
 #    end
 #  end
 #end

@@ -30,33 +30,6 @@ Dado /^que eu tenho uma requisição com estado "([^\"]*)" e id "([^\"]*)"$/ do 
   end
 end
 
-Dado /^que eu tenho uma requisição de ida com número de protocolo ([^\"]*)$/ do |protocolo|
-  categoria_de_veiculo = Factory.create :categoria_de_veiculo
-  objetivo_de_reserva = Factory.create :objetivo_de_reserva
-  @requisicao_ida = Factory.create :requisicao,
-                                   :tipo => "Ida",
-                                   :id => protocolo,
-                                   :solicitante_id => @solicitante.id,
-                                   :categoria_de_veiculo_id => categoria_de_veiculo.id,
-                                   :objetivo_de_reserva_id => objetivo_de_reserva.id
-end
-
-Dado /^que eu tenho uma requisição de volta com número de protocolo ([^\"]*)$/ do |protocolo|
-  categoria_de_veiculo = Factory.create :categoria_de_veiculo
-  objetivo_de_reserva = Factory.create :objetivo_de_reserva
-  @requisicao_volta = Factory.create :requisicao,
-                                     :tipo => "Volta",
-                                     :id => protocolo,
-                                     :solicitante_id => @solicitante.id,
-                                     :categoria_de_veiculo_id => categoria_de_veiculo.id,
-                                     :objetivo_de_reserva_id => objetivo_de_reserva.id,
-                                     :data_de_reserva => Date.today + 4.days
-  @requisicao_volta.referencia_id = @requisicao_ida.id
-  @requisicao_ida.referencia_id = @requisicao_volta.id
-  @requisicao_volta.save!
-  @requisicao_ida.save!
-end
-
 Dado /^que eu estou logado com o login "([^\"]*)" e a senha "([^\"]*)"$/ do |login, senha|
   usuario = Factory.create :usuario, :login => login, :password => senha, :password_confirmation => senha
   Factory.create :usuario_session, :login => usuario.login, :senha => usuario.password
@@ -134,26 +107,6 @@ Quando /^eu preencho "([^\"]*)" com uma data de "([^\"]*)" dias seguintes a part
   fill_in(campo, :with => (Date.today + dias.to_i.days))
 end
 
-Quando /^eu escolho requisição de "([^\"]*)"$/ do |field|
-
-  choose(field)
-
-  if (field == "Ida e Volta")
-    @ida_e_volta = true
-  else
-    @ida_e_volta = false
-  end
-
-end
-
-Quando /^eu preencho data de reserva de volta com "([^\"]*)"$/ do |value|
-
-  if (@ida_e_volta)
-    fill_in('Data de Reserva de Volta', :with => value)
-  end
-
-end
-
 Quando /^eu não devo ver "([^\"]*)"$/ do |text|
   response.should_not contain(text)
 end
@@ -179,8 +132,6 @@ Entao /^eu devo ver na linha ([0-9]+) da tabela "([^\"]*)"$/ do |row, table_id, 
     end
   end
 end
-
-
 
 Entao /^a requisição deve estar cancelada pelo professor$/ do
   @requisicao.reload

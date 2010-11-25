@@ -18,9 +18,6 @@ class Requisicao < ActiveRecord::Base
   REJEITADA                = "Rejeitada"
   FINALIZADA               = "Finalizada"
 
-  IDA = 0
-  VOLTA = 1
-
   use_in_brazilian_format :data_de_reserva
 
   before_create :gerar_chave_de_seguranca

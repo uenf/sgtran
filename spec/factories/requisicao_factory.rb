@@ -12,8 +12,6 @@ Factory.define :requisicao do |requisicao|
   requisicao.chave_de_seguranca "a6170a5d995e53fe01f9b02f60e3bbc1c2bfcc74"
   requisicao.estado Requisicao::ESPERA
   requisicao.motivo_id nil
-  requisicao.tipo "Ida"
-  requisicao.referencia_id nil
   requisicao.viagem_id nil
 
 end

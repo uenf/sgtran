@@ -13,8 +13,6 @@
         <th>Data</th>
         <th>Veículo</th>
         <th>Objetivo</th>
-        <th>Tipo</th>
-        <th>Referência</th>
       </tr>
     </thead>
 
@@ -33,8 +31,6 @@
           <td><%=h requisicao.data_de_reserva.strftime("%d/%m/%Y") if requisicao.data_de_reserva %></td>
           <td><%=h CategoriaDeVeiculo.find(requisicao.categoria_de_veiculo_id).nome %></td>
           <td><%=h ObjetivoDeReserva.find(requisicao.objetivo_de_reserva_id).texto %></td>
-          <td><%=h requisicao.tipo ? requisicao.tipo : "-" %></td>
-          <td><%=h requisicao.referencia_id ? requisicao.referencia_id : "-" %></td>
         </tr>
 
       <% end %>

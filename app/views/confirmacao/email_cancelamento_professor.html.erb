@@ -4,39 +4,39 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-      <% solicitante = Solicitante.find(@requisicao.solicitante_id) %>  
+      <% solicitante = Solicitante.find(@requisicao.solicitante_id) %>
       <h3>A requisição de número de protocolo <%=h @requisicao.id %> foi cancelada pelo solicitante.</h3>
       <p><strong>Motivo:</strong> <%= @requisicao.motivo_professor %></p>
       <hr />
 
       <p><strong>Matricula:</strong>
       <%=h solicitante.matricula %></p>
-    
+
       <p><strong>Nome do solicitante:</strong>
       <%=h solicitante.nome %></p>
-    
+
       <p><strong>Data de reserva:</strong>
       <%=h @requisicao.data_de_reserva.strftime("%d/%m/%Y") if @requisicao.data_de_reserva %></p>
-    
+
       <p><strong>Veiculo:</strong>
       <% categoria_de_veiculo = CategoriaDeVeiculo.find(@requisicao.categoria_de_veiculo_id) %>
       <%=h categoria_de_veiculo.nome.to_s %></p>
 
       <p><strong>Objetivo da reserva:</strong>
       <%=h ObjetivoDeReserva.find(@requisicao.objetivo_de_reserva_id).texto if @requisicao.objetivo_de_reserva_id %></p>
-    
+
       <p><strong>Outros:</strong>
       <%=h @requisicao.outros %></p>
-    
+
       <p><strong>Nome telefone passageiros:</strong>
       <%=h @requisicao.nome_telefone_passageiros %></p>
-    
-      <p><strong>Roteiro da agenda (ida):</strong>
+
+      <p><strong>Roteiro da agenda:</strong>
       <%=h @requisicao.roteiro_da_agenda %></p>
-    
+
       <p><strong>Observacao:</strong>
       <%=h @requisicao.observacao %></p>
-    
+
   </body>
 </html>
 
