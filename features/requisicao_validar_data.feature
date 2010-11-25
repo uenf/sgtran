@@ -22,7 +22,7 @@ Para que eu não tenha problemas com a gerência das requisições
     E eu preencho "Passageiros:" com "Zina, Ronaldo e Alfinete"
     E eu preencho "Roteiro:" com "Ir ao Pacaembu"
     E eu marco "Li e concordo com os termos"
-    E eu pressiono "Enviar solicitação"
+    E eu pressiono "Enviar requisição"
     Então <Sentença>
 
     Exemplos:(Datas invalidas)

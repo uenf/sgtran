@@ -43,7 +43,7 @@ Para que ele possa se adaptar as minhas necessidades
     Então eu devo ver "Configurações atualizadas com sucesso."
     Quando eu clico em "Sair"
     E eu vou para a página de requisição
-    Então eu devo ver "Solicitação de veículo"
+    Então eu devo ver "Requisição de veículo"
     Então eu devo ver "Matrícula:"
     Então eu devo ver "Objetivo:"
 
