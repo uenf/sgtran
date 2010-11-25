@@ -6,7 +6,7 @@ body {
 	font-family: Verdana, Arial;
 }
 
-.explicacao_inativacao {
+.conteudo {
     background: url("/images/temporary.png") no-repeat 3% 50% #f9f9f9;
     margin: 50px 20px 0px 20px;
     padding: 30px 0px 30px 20px;
@@ -21,7 +21,7 @@ body {
     -opera-border-radius: 10px;
 }
 
-.explicacao_inativacao h1 {
+.conteudo h1 {
     padding: 15px 0 0 90px;
     font-size: 30px;
 }
