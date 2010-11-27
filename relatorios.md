@@ -12,6 +12,28 @@
     dividir a quilometragem da viagem?
 
 
+## Km percorridos em um determinado período
+
+  + bdt tem datas de partida e chegada
+  + bdt tem a quilometragem
+
+
+## Km percorridos por motorista em um determinado período
+
+  + bdt tem datas de partida e chegada
+  + bdt tem a quilometragem
+  + bdt está ligado a viagem
+  + viagem tem motorista
+
+
+## Km percorridos por veículo em um determinado período
+
+  + bdt tem datas de partida e chegada
+  + bdt tem a quilometragem
+  + bdt está ligado a viagem
+  + viagem tem veículo
+
+
 ## Status de todas as requisições em um determinado período
 
   + requisição tem status
@@ -38,7 +60,7 @@
   + solicitante tem laboratótio
 
 
-# Horas trabalhadas por motorista em um determinado período
+## Horas trabalhadas por motorista em um determinado período
 
   + bdt tem horarios de partida e chegada
   + bdt está ligado a viagem
