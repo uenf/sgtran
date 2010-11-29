@@ -37,6 +37,5 @@ class Relatorio < ActiveRecord::Base
     end
   end
 
-
 end
 

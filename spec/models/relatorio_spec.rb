@@ -14,6 +14,17 @@ describe Relatorio do
     relatorio.should be_invalid
   end
 
+  it 'deve ter uma data de fim válida' do
+    relatorio = Relatorio.new :data_inicio => '19/05/20010',
+                              :data_fim => '22/05/20010'
+    relatorio.should be_valid
+
+    relatorio.data_fim = '39/05/20010'
+    relatorio.should be_invalid
+
+    relatorio.data_fim = ''
+    relatorio.should be_invalid
+  end
 
 end
 
