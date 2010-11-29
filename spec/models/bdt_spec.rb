@@ -187,5 +187,43 @@ describe Bdt do
 
   end
 
+  it 'deve retornar a distancia percorrida' do
+    bdt = Factory.create :bdt, :data_partida => '19/05/2009',
+                               :data_recolhimento => '19/05/2009',
+                               :odometro_partida => 12330,
+                               :odometro_recolhimento => 12527
+
+    bdt.distancia_percorrida.should == 197
+  end
+
+  it 'deve retornar o total de km percorridos em um determinado período' do
+
+    bdt_maio = Factory.create :bdt, :data_partida => '19/05/2009',
+                              :data_recolhimento => '19/05/2009',
+                              :odometro_partida => 12000,
+                              :odometro_recolhimento => 12500
+
+    bdt_junho = Factory.create :bdt, :data_partida => '25/06/2009',
+                               :data_recolhimento => '27/06/2009',
+                               :odometro_partida => 23000,
+                               :odometro_recolhimento => 23874
+
+    bdt_julho = Factory.create :bdt, :data_partida => '01/03/2010',
+                               :data_recolhimento => '02/03/2010',
+                               :odometro_partida => 3380,
+                               :odometro_recolhimento => 4620
+
+
+    Bdt.distancia_percorrida_entre('05/05/2009', '18/05/2009').should == 0
+    Bdt.distancia_percorrida_entre('18/05/2009', '19/05/2009').should == 500
+    Bdt.distancia_percorrida_entre('19/05/2009', '19/05/2009').should == 500
+    Bdt.distancia_percorrida_entre('19/05/2009', '20/05/2009').should == 500
+    Bdt.distancia_percorrida_entre('23/06/2009', '26/06/2009').should == 0
+    Bdt.distancia_percorrida_entre('25/06/2009', '27/06/2009').should == 874
+    Bdt.distancia_percorrida_entre('10/05/2009', '30/06/2009').should == 1374
+    Bdt.distancia_percorrida_entre('10/05/2009', '03/03/2010').should == 2614
+
+  end
+
 end
 
