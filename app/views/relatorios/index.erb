@@ -2,11 +2,45 @@
   <div class="index_relatorios">
     <ul>
       <li>
-        <%= link_to "Km percorridos", relatorios_km_percorridos_path %>
+        Km percorridos:
       </li>
+        <ul>
+          <li>
+            <%= link_to "total", relatorios_km_percorridos_path %>
+          </li>
+          <li>
+            <%= link_to "por centro", relatorios_km_percorridos_path %>
+          </li>
+          <li>
+            <%= link_to "por laboratótio", relatorios_km_percorridos_path %>
+          </li>
+          <li>
+            <%= link_to "por solicitante", relatorios_km_percorridos_path %>
+          </li>
+          <li>
+            <%= link_to "por veículo", relatorios_km_percorridos_path %>
+          </li>
+          <li>
+            <%= link_to "por motorista", relatorios_km_percorridos_path %>
+          </li>
+        </ul>
       <li>
-        <%= link_to "Status das requisições", relatorios_path %>
+        Status das requisições:
       </li>
+        <ul>
+          <li>
+            <%= link_to "todas", relatorios_km_percorridos_path %>
+          </li>
+          <li>
+            <%= link_to "por centro", relatorios_km_percorridos_path %>
+          </li>
+          <li>
+            <%= link_to "por laboratótio", relatorios_km_percorridos_path %>
+          </li>
+          <li>
+            <%= link_to "por solicitante", relatorios_km_percorridos_path %>
+          </li>
+        </ul>
       <li>
         <%= link_to "Horas trabalhadas por motorista", relatorios_path %>
       </li>

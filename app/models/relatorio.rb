@@ -7,33 +7,25 @@ class Relatorio < ActiveRecord::Base
     columns << ActiveRecord::ConnectionAdapters::Column.new(name.to_s, default, sql_type.to_s, null)
   end
 
-  column :data_inicio, :date
-  column :data_fim, :date
+  column :data_inicial, :date
+  column :data_final, :date
   # end macumba para fazer um model tableless
 
-  attr_accessor :data_inicio, :data_fim
+  validate :validar_data_inicial, :validar_data_final
 
-  validate :validar_data_inicio, :validar_data_fim
-
-  def validar_data_inicio
+  def validar_data_inicial
     begin
-      self.data_inicio.to_date
+      self.data_inicial.to_date
     rescue
-      errors.add(:data_inicio, 'inválida')
+      errors.add(:data_inicial, 'inválida')
     end
   end
 
-  def validar_data_fim
+  def validar_data_final
     begin
-      self.data_fim.to_date
+      self.data_final.to_date
     rescue
-      errors.add(:data_fim, 'inválida')
-    end
-  end
-
-  def initialize(attributes = {})
-    attributes.each do |name, value|
-      send("#{name}=", value)
+      errors.add(:data_final, 'inválida')
     end
   end
 

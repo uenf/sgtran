@@ -17,7 +17,6 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :viagens
   map.resources :requisicoes
   map.resources :configuracoes, :only => [:edit, :update]
-  map.resources :relatorios
 
   # Outras rotas
   map.root :controller => "requisicoes", :action => "new"
@@ -27,6 +26,7 @@ ActionController::Routing::Routes.draw do |map|
 
   # Rotas para relatórios
   map.relatorios_km_percorridos "relatorios/km_percorridos", :controller => "relatorios", :action => "km_percorridos"
+  map.resources :relatorios
 
   # Rotas para requisições
   map.aceitar "/requisicoes/:id/aceitar", :controller => "requisicoes", :action => "aceitar"
