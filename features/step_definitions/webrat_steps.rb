@@ -58,6 +58,14 @@ Quando /^eu não marco "([^\"]*)"$/ do |field|
   uncheck(field)
 end
 
+Quando /^eu seleciono "([^\"]*)" em "([^\"]*)"$/ do |value, field|
+  select(value, :from => field)
+end
+
+Quando /^eu seleciono "([^\"]*)" no campo hora "([^\"]*)"$/ do |time, time_label|
+  select_time(time, :from => time_label)
+end
+
 Entao /^eu devo ver "([^\"]*)" selecionado em "([^\"]*)"$/ do |texto, label|
 #  field_labeled(label).should be_a_kind_of(Webrat::MultipleSelectField)
 
@@ -71,14 +79,6 @@ end
 
 Entao /^eu devo ver o campo "([^\"]*)" preenchido com "([^\"]*)"$/ do |campo, valor|
   field_labeled(campo).value.should =~ /#{valor}/
-end
-
-Quando /^eu seleciono "([^\"]*)" em "([^\"]*)"$/ do |value, field|
-  select(value, :from => field)
-end
-
-Quando /^eu seleciono "([^\"]*)" no campo hora "([^\"]*)"$/ do |time, time_label|
-  select_time(time, :from => time_label)
 end
 
 Entao /^eu devo ver "([^\"]*)"$/ do |text|

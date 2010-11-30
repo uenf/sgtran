@@ -120,14 +120,19 @@ describe Requisicao do
       requisicao.errors.invalid?(:motivo).should be_true
     end
 
-    it "A data de requisição deve ser marcada com no mínimo 2 dias de antecedência" do
-      categoria_de_veiculo = Factory.create :categoria_de_veiculo
+    it "A data mínima e máxima deve varia de acordo com a categoria de veículo" do
+      categoria_de_veiculo = Factory.create :categoria_de_veiculo,
+                                              :numero_minimo_dias => 4,
+                                              :numero_maximo_dias => 8
       objetivo_de_reserva = Factory.create :objetivo_de_reserva
       requisicao = Factory.build :requisicao,
                                  :categoria_de_veiculo_id => categoria_de_veiculo.id,
                                  :objetivo_de_reserva_id => objetivo_de_reserva.id,
                                  :data_de_reserva => Date.today + 2.days
-      requisicao.save.should be_true
+      requisicao.save.should be_false
+
+      requisicao.data_de_reserva = Date.today + 10.days
+      requisicao.save.should be_false
     end
 
     it "O ano da data de requisição tem que ser o mesmo do ano corrente" do
@@ -139,16 +144,6 @@ describe Requisicao do
       requisicao.errors.invalid?(:data_de_reserva).should be_true
     end
 
-    it "Para veículos diferentes de Ônibus, Micro-ônibus e Vans a data de
-        requisição deve ser marcada com no máximo 15 dias de antecedência" do
-      categoria_de_veiculo = Factory.create :categoria_de_veiculo,
-                                            :nome => "Automóvel até 4 passageiros"
-      requisicao = Factory.build :requisicao,
-                                 :categoria_de_veiculo_id => categoria_de_veiculo.id,
-                                 :data_de_reserva => Date.today + 16.days
-      requisicao.save.should be_false
-      requisicao.errors.invalid?(:data_de_reserva).should be_true
-    end
   end
 
   it "Deve retornar falso caso não tenha marcado as regras" do
