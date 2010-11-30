@@ -1,6 +1,21 @@
 <% form_for(@categoria_de_veiculo) do |f| %>
   <%= mensagem_de_erro(@categoria_de_veiculo) %>
 
+  <fieldset>
+
+    <legend>Limite mínimo e máximo de dias para fazer uma requisição dessa categoria</legend>
+    <p>
+      <%= f.label :numero_minimo_dias, "Mínimo (dias):" %>
+      <%= f.text_field :numero_minimo_dias %>
+    </p>
+
+    <p>
+      <%= f.label :numero_maximo_dias, "Máximo (dias):" %>
+      <%= f.text_field :numero_maximo_dias %>
+    </p>
+
+  </fieldset>
+
   <p>
     <%= f.label :nome, "Nome:", :class => "label_obrigatorio" %>
     <%= f.text_field :nome %>

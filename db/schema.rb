@@ -28,7 +28,9 @@ ActiveRecord::Schema.define(:version => 20101122194231) do
   create_table "categoria_de_veiculos", :force => true do |t|
     t.string   "nome"
     t.integer  "veiculo_id"
-    t.string   "status",     :default => "Ativo"
+    t.string   "status",             :default => "Ativo"
+    t.integer  "numero_minimo_dias", :default => 0
+    t.integer  "numero_maximo_dias", :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
