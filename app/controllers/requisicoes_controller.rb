@@ -92,7 +92,7 @@ class RequisicoesController < ApplicationController
       session.delete :requisicao
       @solicitante = Solicitante.find_by_matricula_and_email(params[:matricula], params[:email])
       flash[:sucesso] = "Requisição enviada com sucesso!"
-      render :action => "confirmar_requisicao", :layout => "requisicoes"
+      render :action => "confirmar_requisicao", :layout => "front_end"
     else
       redirect_to(new_requisicao_path)
     end
@@ -109,15 +109,35 @@ class RequisicoesController < ApplicationController
 
       #checa se a requisição já foi cancelada
       if @requisicao.estado == Requisicao::CANCELADO_PELO_PROFESSOR
-        render :action => "requisicao_ja_foi_cancelada", :layout => "requisicoes"
+        render :action => "requisicao_ja_foi_cancelada", :layout => "front_end"
       else
         @solicitante = Solicitante.find(@requisicao.solicitante_id)
-        render :action => "cancelar_requisicao", :id => params[:id], :chave_de_seguranca => params[:chave_de_seguranca], :layout => "requisicoes"
+        render :action => "cancelar_requisicao",
+               :chave_de_seguranca => params[:chave_de_seguranca],
+               :id => params[:id],
+               :layout => "front_end"
       end
 
     rescue ActiveRecord::RecordNotFound
       redirect_to :action => "new"
     end
+  end
+
+  def cancelar_requisicao_pelo_professor
+    @requisicao = Requisicao.find(params[:id])
+    @solicitante = Solicitante.find(@requisicao.solicitante_id)
+
+    if @requisicao.cancelar_pelo_professor(params[:requisicao][:motivo_professor])
+      render :layout => "front_end"
+      session[:requisicao] = @requisicao
+      #incluindo linha para enviar o emailtesteuenf para ailton informando que professor cancelou a requisição
+      #Confirmacao.deliver_email_cancelamento_professor(@requisicao)
+    else
+      render :action => "cancelar_requisicao", :layout => "front_end"
+    end
+  end
+
+  def requisicao_ja_foi_cancelada
   end
 
   def visualizar_requisicao
@@ -130,7 +150,10 @@ class RequisicoesController < ApplicationController
       end
 
       @solicitante = Solicitante.find(@requisicao.solicitante_id)
-      render :action => "visualizar_requisicao", :id => params[:id], :chave_de_seguranca => params[:chave_de_seguranca], :layout => "requisicoes"
+      render :action => "visualizar_requisicao",
+             :chave_de_seguranca => params[:chave_de_seguranca],
+             :id => params[:id],
+             :layout => "front_end"
 
     rescue ActiveRecord::RecordNotFound
       redirect_to :action => "new"
@@ -213,24 +236,6 @@ class RequisicoesController < ApplicationController
     else
       redirect_to :action => "show"
     end
-  end
-
-  def cancelar_requisicao_pelo_professor
-    @requisicao = Requisicao.find(params[:id])
-    @solicitante = Solicitante.find(@requisicao.solicitante_id)
-
-    if @requisicao.cancelar_pelo_professor(params[:requisicao][:motivo_professor])
-      flash[:sucesso] = 'Requisição cancelada com sucesso!'
-      render :layout => "requisicoes"
-      session[:requisicao] = @requisicao
-      #incluindo linha para enviar o emailtesteuenf para ailton informando que professor cancelou a requisição
-      #Confirmacao.deliver_email_cancelamento_professor(@requisicao)
-    else
-      render :action => "cancelar_requisicao", :layout => "requisicoes"
-    end
-  end
-
-  def requisicao_ja_foi_cancelada
   end
 
   def opcoes_motoristas

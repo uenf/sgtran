@@ -10,19 +10,18 @@ Funcionalidade: Cancelar viagem
     Dado que eu tenho uma configuração inicial
     Dado que eu tenho uma requisição do solicitante com matricula "01210" e com o nome "Carlos"
     E que eu estou na página de cancelamento de requisição
-    Então eu devo ver "Motivo do Cancelamento"
-    Quando eu preencho "Motivo do Cancelamento" com "<Motivo>"
+    Quando eu preencho "Motivo do cancelamento" com "<Motivo>"
     E eu pressiono "Cancelar requisição"
     Então eu devo ver "<Sentença>"
 
     Exemplos:(Requisição cancelada com sucesso)
-      | Motivo       | Sentença                            |
-      | Estou doente | Requisição cancelada com sucesso!   |
-      | Faltou verba | Requisição cancelada com sucesso!   |
+      | Motivo       | Sentença                          |
+      | Estou doente | foi cancelada com sucesso. |
+      | Faltou verba | foi cancelada com sucesso. |
 
     Exemplos:(Campos vazios)
-      | Motivo       | Sentença                    |
-      |              | Motivo não pode ser vazio   |
+      | Motivo | Sentença                  |
+      |        | Motivo não pode ser vazio |
 
 
   Cenário: Cancelamento de requisição com dados incorretos
@@ -43,9 +42,9 @@ Funcionalidade: Cancelar viagem
     E que eu tenho uma viagem com o estado "Aguardando"
     E que a requisição esteja ligada à viagem
     E que eu estou na página de cancelamento de requisição
-    Quando eu preencho "Motivo do Cancelamento" com "algum motivo"
+    Quando eu preencho "Motivo do cancelamento" com "algum motivo"
     E eu pressiono "Cancelar requisição"
-    Então eu devo ver "Requisição cancelada com sucesso!"
+    Então eu devo ver "foi cancelada com sucesso."
     E eu devo ter 0 viagens
 
   Cenário: Cancelar requisição ligada à viagem que possui 2 ou mais requisições
@@ -58,7 +57,7 @@ Funcionalidade: Cancelar viagem
     E que eu estou na página de cancelamento de requisição
     Quando eu preencho "Motivo do Cancelamento" com "algum motivo"
     E eu pressiono "Cancelar requisição"
-    Então eu devo ver "Requisição cancelada com sucesso!"
+    Então eu devo ver "foi cancelada com sucesso."
     E a requisição com id "27" não deve estar ligada a uma viagem
     E a requisição com id "25" deve estar ligada a uma viagem
     E a viagem deve ter uma requisição
@@ -67,13 +66,13 @@ Funcionalidade: Cancelar viagem
     Dado que eu tenho uma configuração inicial
     Dado que eu tenho uma requisição de "2" dias atrás e com estado "<Estado>"
     E que eu estou na página de cancelamento de requisição
-    Quando eu preencho "Motivo do Cancelamento" com "algum motivo"
+    Quando eu preencho "Motivo do cancelamento" com "algum motivo"
     E eu pressiono "Cancelar requisição"
     Então eu devo ver "<Sentença>"
     E <Expectativa>
 
   Exemplos:
-  | Estado      | Sentença                          | Expectativa                                      |
-  | Espera      | Requisição cancelada com sucesso! | a requisição deve estar cancelada pelo professor |
-  | Finalizada  | Requisição não pode ser cancelada | a requisição não deve estar cancelada            |
+  | Estado     | Sentença                          | Expectativa                                      |
+  | Espera     | foi cancelada com sucesso. | a requisição deve estar cancelada pelo professor |
+  | Finalizada | Requisição não pode ser cancelada | a requisição não deve estar cancelada            |
 
