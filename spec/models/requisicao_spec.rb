@@ -2,6 +2,10 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe Requisicao do
 
+   before(:each) do
+     Factory.create :configuracao
+   end
+
   it "deve aceitar uma requisição" do
     motorista = Factory.create :motorista
     viagem = Factory.create :viagem, :motorista_ids => [motorista.id]

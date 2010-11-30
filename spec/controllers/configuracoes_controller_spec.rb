@@ -36,7 +36,7 @@ describe ConfiguracoesController do
       it "redirects to the configuracao" do
         Configuracao.stub(:find).and_return(mock_configuracao(:update_attributes => true))
         put :update, :id => "1"
-        response.should redirect_to(edit_configuracao_url(mock_configuracao))
+        response.should redirect_to(configuracoes_url)
       end
     end
 

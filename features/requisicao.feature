@@ -217,3 +217,24 @@ Funcionalidade: Solicitar viagem
     | 9997-3421 | Automóvel até 4 passageiros        | Outros                | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | Outros não pode ser vazio                    |
     |           | Automóvel até 4 passageiros        | Aula de Campo         | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | Requisição enviada com sucesso.              |
 
+  @now
+  Cenário: Não é possível realizar uma solicitação quando estiver definido nas configurações
+    Dado que eu tenho uma configuração inicial
+    E que a data inicial de proibição seja daqui a 3 dias
+    E que a data final de proibição seja daqui a 5 dias
+    E que eu tenha a categoria de veículo "Automóvel até 4 passageiros"
+    E que eu tenha um objetivo de reserva "Aula de Campo"
+    E que eu tenha um solicitante com e-mail "ronaldo@corinthians.com", matrícula "00210" e centro "P5"
+    E que eu estou na página de requisição
+    Quando eu preencho "Matrícula" com "210"
+    E eu preencho "E-mail" com "ronaldo@corinthians.com"
+    E eu preencho "Celular" com "9999-9999"
+    E eu preencho "Data" com uma data de "4" dias seguintes a partir de hoje
+    E eu seleciono "Automóvel até 4 passageiros" em "Veículo"
+    E eu seleciono "Aula de Campo" em "Objetivo"
+    E eu preencho "Passageiros:" com "Zina, Ronaldo e Alfinete"
+    E eu preencho "Roteiro:" com "Ir ao Pacaembu"
+    E eu marco "Li e concordo com os termos"
+    E eu pressiono "Enviar requisição"
+    Então eu devo ver a mensagem de proibição
+

@@ -8,4 +8,10 @@ describe ConfiguracoesHelper do
     included_modules.should include(ConfiguracoesHelper)
   end
 
+  it 'mostrar os campos dos formulários de acordo com o path' do
+    helper.mostrar_formulario("/configuracoes/formulario").should == "formulario_requisicao"
+    helper.mostrar_formulario("/configuracoes/instituicao").should == "formulario_instituicao"
+  end
+
 end
+

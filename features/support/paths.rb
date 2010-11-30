@@ -3,11 +3,18 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
 
-    when /^página de requisição$/
-      new_requisicao_path
+    # Configurações
 
     when /^página de edição das configurações$/
       edit_configuracao_path(@configuracao)
+
+    when /página das configurações/
+      configuracoes_path
+
+    # Requisições
+
+    when /^página de requisição$/
+      new_requisicao_path
 
     when /^página de visualização de requisições$/
       requisicoes_path

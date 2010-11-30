@@ -29,6 +29,13 @@
       </p>
     <% end %>
     <p>
+    <p>
+      Caso queira visualizar os dados de sua requisição, clique no link abaixo:
+      <br/>
+      <a href="<%= endereco %><%= visualizar_requisicao_path(:id => @requisicao.id, :chave_de_seguranca => @requisicao.chave_de_seguranca) %>">
+        Ver detalhes de sua requisição.
+      </a>
+    </p>
       <div style="color: #a2a2a2">
       ASTRAN/UENF<br />
       Ramais: 97025 / 97026

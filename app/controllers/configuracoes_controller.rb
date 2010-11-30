@@ -6,6 +6,10 @@ class ConfiguracoesController < ApplicationController
 
   layout 'sistema'
 
+  def index
+
+  end
+
   def edit
     @configuracao = Configuracao.all.first
   end
@@ -16,7 +20,7 @@ class ConfiguracoesController < ApplicationController
 
     if @configuracao.update_attributes(params[:configuracao])
       flash[:sucesso] = 'Configurações atualizadas com sucesso.'
-      redirect_to(edit_configuracao_path(@configuracao))
+      redirect_to(configuracoes_path)
     else
       render :action => "edit"
     end

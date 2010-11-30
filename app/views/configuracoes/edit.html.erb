@@ -4,18 +4,12 @@
   <% form_for(@configuracao) do |f| %>
     <%= mensagem_de_erro(@combustivel) %>
 
-    <p>
-      <%= f.label :orgao_utilizador, "Órgão utilizador:" %>
-      <%= f.text_field :orgao_utilizador %>
-    </p>
+    <%= render :partial => mostrar_formulario(request.path), :locals => {:f => f} %>
 
-    <p>
-      <%= f.check_box :formulario_ativo %>
-      <%= f.label :formulario_ativo, "Formulário ativo" %>
-    </p>
     <p>
       <%= f.submit 'Salvar' %>
     </p>
+
   <% end %>
 
 </div>

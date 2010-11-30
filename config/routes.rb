@@ -16,7 +16,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :solicitantes
   map.resources :viagens
   map.resources :requisicoes
-  map.resources :configuracoes, :only => [:edit, :update]
+  map.resources :configuracoes, :only => [:index, :edit, :update]
 
 
   # Outras rotas
@@ -58,6 +58,11 @@ ActionController::Routing::Routes.draw do |map|
   map.ativar_motorista "motoristas/ativacao/:id", :controller => "motoristas", :action => "ativar_motorista"
   map.desativar_motorista "motoristas/desativacao/:id", :controller => "motoristas", :action => "desativar_motorista"
   map.resources :motoristas
+
+  # Rotas para configurações
+  map.config_formulario_requisicao "/configuracoes/formulario", :controller => "configuracoes", :action => "edit"
+  map.config_instituicao "/configuracoes/instituicao", :controller => "configuracoes", :action => "edit"
+
 
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'

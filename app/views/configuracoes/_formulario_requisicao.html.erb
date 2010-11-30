@@ -1,0 +1,23 @@
+<%= javascript_include_tag 'prototype' %>
+<%= calendar_date_select_includes "silver", :locale => "pt"%>
+<%= javascript_include_tag "calendar_date_select/format_italian" %>
+<% range_valido = (Date.today.year)..(Date.today.year + 1) %>
+
+  <fieldset>
+    <legend>Proibir requisição durante o período</legend>
+    <p>
+      <%= f.label :data_inicial_br, "Data inicial" %>
+      <%= f.calendar_date_select :data_inicial_br, :year_range => range_valido %>
+    </p>
+
+    <p>
+      <%= f.label :data_final_br, "Data final" %>
+      <%= f.calendar_date_select :data_final_br %>
+    </p>
+  </fieldset>
+
+  <p>
+    <%= f.check_box :formulario_ativo %>
+    <%= f.label :formulario_ativo, "Formulário ativo" %>
+  </p>
+
