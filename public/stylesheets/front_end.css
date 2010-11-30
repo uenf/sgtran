@@ -12,6 +12,10 @@ h1 {
     margin: 60px 0px 0px 0px;
 }
 
+h2 {
+    margin: 0px;
+}
+
 hr {
     margin: 0px 0px 10px 0px;
 }
@@ -126,6 +130,54 @@ input[type="submit"] {
 #requisicao_celular,
 #requisicao_data_de_reserva_br {
 	width: 100px;
+}
+
+.sucesso {
+    font-size: 14px;
+    color :#005F00;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #9FCF9F;
+    padding: 3px 3px 3px 30px;
+    background :#DFFFDF url(../images/verdadeiro.png) no-repeat scroll 8px 5px;
+}
+
+a {
+    font-size: 12px;
+    padding: 8px;
+    padding-left: 30px;
+    color: #305693;
+}
+
+a.imprimir {
+    background: url("/images/imprimir_miniatura.png") no-repeat;
+    background-position: 10px center;
+}
+
+a.voltar {
+    background: url("/images/voltar_miniatura.png") no-repeat;
+    background-position: 10px center;
+}
+
+/* Confirmar requisição */
+
+#confirmar_requisicao {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #CCCCCC;
+
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -opera-border-radius: 5px;
+}
+
+#confirmar_requisicao label {
+    text-align: left;
+    font-weight: bold;
+    float: none;
+    display: inline;
 }
 
 /* errorExplanation */

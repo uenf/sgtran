@@ -92,7 +92,7 @@ class RequisicoesController < ApplicationController
       session.delete :requisicao
       @solicitante = Solicitante.find_by_matricula_and_email(params[:matricula], params[:email])
       flash[:sucesso] = "Requisição enviada com sucesso!"
-      render :action => "confirmar_requisicao", :layout => "requisicoes"
+      render :action => "confirmar_requisicao", :layout => "front_end"
     else
       redirect_to(new_requisicao_path)
     end
