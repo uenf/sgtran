@@ -1,5 +1,11 @@
-<br />
-<p>
-  <%= link_to 'Preencher outra requisição', new_requisicao_path, :class => "voltar" %>
-</p>
+<div class="wrapper">
+  <p align='center'>
+    <strong>
+      A requisição com número de protocolo <%= @requisicao.id %>
+      foi cancelada com sucesso.
+    </strong>
+  </p>
+</div>
+<br/>
+<%= link_to 'Preencher outra requisição', new_requisicao_path, :class => "voltar" %>
 

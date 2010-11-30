@@ -1,4 +1,4 @@
-<div id="confirmar_requisicao">
+<div class="wrapper">
   <h2>Número de Protocolo: <%= @requisicao.id %></h2>
   <hr/>
   <p>
@@ -37,7 +37,7 @@
     <%= @requisicao.observacao.blank? ? '-' : @requisicao.observacao %>
   </p>
 </div>
-
+<br/>
 <%= link_to 'Preencher outra requisição', new_requisicao_path, :class => "voltar" %>
 <a href="javaScript:window.print()" class="imprimir">Imprimir Requisição</a>
 

@@ -159,12 +159,13 @@ a.voltar {
     background-position: 10px center;
 }
 
-/* Confirmar requisição */
+/* Wrapper */
 
-#confirmar_requisicao {
+.wrapper {
     background-color: #f9f9f9;
     padding: 10px;
     border: 1px solid #CCCCCC;
+    margin-top: 10px;
 
     border-radius: 5px;
     -moz-border-radius: 5px;
@@ -173,11 +174,25 @@ a.voltar {
     -opera-border-radius: 5px;
 }
 
-#confirmar_requisicao label {
-    text-align: left;
+.wrapper label {
     font-weight: bold;
     float: none;
     display: inline;
+}
+
+/* Wrapper form */
+
+.wrapper_form label {
+    display: block;
+    float: left;
+    width: auto;
+    margin-right: 2px;
+}
+
+.wrapper_form textarea {
+    float: none;
+    width: 300px;
+    height: 100px;
 }
 
 /* errorExplanation */

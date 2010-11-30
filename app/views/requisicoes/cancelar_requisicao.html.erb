@@ -2,52 +2,55 @@
 
   <%= f.error_messages %>
 
-  <div id="exibir_requisicao">
+  <div class="wrapper">
 
-    <h1>Cancelamento de reserva de veículos</h1>
-    <p class="legenda_obrigatorio"><strong>* Os campos em vermelho são obrigatórios</strong><p>
+    <h2>Cancelamento de requisição de veículo</h2>
+    <hr/>
 
     <p>
-      <strong>Data de reserva:</strong>
+      <label>Número de Protocolo:</label>
+      <%=h @requisicao.id %>
+    </p>
+
+    <p>
+      <label>Data:</label>
       <%=h @requisicao.data_de_reserva.strftime("%d/%m/%Y")%>
     </p>
 
     <p>
-      <strong>Categoria de veículo:</strong>
+      <label>Veículo:</label>
       <%=h CategoriaDeVeiculo.find(@requisicao.categoria_de_veiculo_id).nome %>
     </p>
 
     <p>
-      <strong>Objetivo da reserva:</strong>
+      <label>Objetivo:</label>
       <%=h ObjetivoDeReserva.find(@requisicao.objetivo_de_reserva_id).texto %>
     </p>
 
     <p>
-      <strong>Outros:</strong>
-      <%=h @requisicao.outros %>
-    </p>
-
-    <p>
-      <strong>Nome telefone passageiros:</strong>
+      <label>Passageiros:</label>
       <%=h @requisicao.nome_telefone_passageiros %>
     </p>
 
     <p>
-      <strong>Roteiro da agenda:</strong>
+      <label>Roteiro:</label>
       <%=h @requisicao.roteiro_da_agenda %>
     </p>
 
     <p>
-      <strong>Observacao:</strong>
-      <%=h @requisicao.observacao %>
+      <label>Observações:</label>
+      <%=h @requisicao.observacao.blank? ? '-' : @requisicao.observacao %>
     </p>
 
+    <div class="wrapper_form">
+      <%= f.label :motivo_professor,
+          "<span class='obrigatorio'>*</span>Motivo do cancelamento:" %>
+      <%= f.text_area :motivo_professor, :cols => nil, :rows => nil %>
+
+      <%= f.submit 'Cancelar requisição' %>
+    </div>
+
     <br/>
-
-    <%= f.label :motivo_professor, "Motivo do Cancelamento:", :class => "campo_obrigatorio" %>
-    <%= f.text_area :motivo_professor, :cols => nil, :rows => nil %>
-
-    <%= f.submit 'Cancelar requisição' %>
 
   </div>
 
