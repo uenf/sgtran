@@ -36,10 +36,10 @@ class Requisicao < ActiveRecord::Base
   def validar_data
     unless self.data_de_reserva.nil?
       @configuracao = Configuracao.all.first
-      if not (@configuracao.nil? or @configuracao.data_inicial.nil? or @configuracao.data_final.nil?) and
-        self.data_de_reserva.between?(@configuracao.data_inicial, @configuracao.data_final)
-        errors.add(:base, "Excepcionalmente entre as datas #{@configuracao.data_inicial.to_s_br} \
-          e #{@configuracao.data_final.to_s_br} não aceitaremos requisição.")
+      if not (@configuracao.nil? or @configuracao.data_inicial_proibicao.nil? or @configuracao.data_final_proibicao.nil?) and
+        self.data_de_reserva.between?(@configuracao.data_inicial_proibicao, @configuracao.data_final_proibicao)
+        errors.add(:base, "Excepcionalmente entre as datas #{@configuracao.data_inicial_proibicao.to_s_br} \
+          e #{@configuracao.data_final_proibicao.to_s_br} não aceitaremos requisição.")
       end
       if self.data_de_reserva < Date.tomorrow.tomorrow
         errors.add(:data_de_reserva, "deve ser no mínimo 2 dias posterior à data atual")

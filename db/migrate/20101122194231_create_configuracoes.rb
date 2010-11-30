@@ -3,8 +3,8 @@ class CreateConfiguracoes < ActiveRecord::Migration
     create_table :configuracoes do |t|
       t.string :orgao_utilizador, :default => "Universidade Estadual do Norte Fluminense Darcy Ribeiro"
       t.boolean :formulario_ativo, :default => true
-      t.date :data_inicial
-      t.date :data_final
+      t.date :data_inicial_proibicao
+      t.date :data_final_proibicao
 
       t.timestamps
     end
