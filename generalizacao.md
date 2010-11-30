@@ -1,6 +1,7 @@
 # TODO
 
 - Definir os links para mudar determinado área (fazer como em Base de Dados)
+- Adicionar opção para desabilitar requisições durante o fim de semana.
 
 # Doing
 - Adicionar campo para ser possível requisitar veículo desse ano e do ano corrente
