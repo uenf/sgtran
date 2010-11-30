@@ -99,7 +99,7 @@ class Requisicao < ActiveRecord::Base
       return self.save
     else
       self.valid?
-      self.errors.add(:base, "Solicitante não existe.;.....")
+      self.errors.add(:base, "Solicitante não existe.")
       return false
     end
   end
