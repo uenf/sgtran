@@ -150,7 +150,10 @@ class RequisicoesController < ApplicationController
       end
 
       @solicitante = Solicitante.find(@requisicao.solicitante_id)
-      render :action => "visualizar_requisicao", :id => params[:id], :chave_de_seguranca => params[:chave_de_seguranca], :layout => "requisicoes"
+      render :action => "visualizar_requisicao",
+             :chave_de_seguranca => params[:chave_de_seguranca],
+             :id => params[:id],
+             :layout => "front_end"
 
     rescue ActiveRecord::RecordNotFound
       redirect_to :action => "new"
