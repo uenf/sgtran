@@ -8,7 +8,7 @@
   <% form_tag("/requisicoes/nova_requisicao") do -%>
     <br/>
     <% fields_for(@requisicao) do |f| %>
-      <%= f.error_messages %>
+      <%= mensagem_de_erro(@requisicao) %>
 
       <fieldset class="nova_requisicao">
         <legend>Dados do solicitante</legend>

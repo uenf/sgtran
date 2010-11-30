@@ -48,5 +48,19 @@ class Bdt < ActiveRecord::Base
     self.odometro_recolhimento - self.odometro_partida
   end
 
+  def self.distancia_percorrida_entre inicio, fim
+    inicio =  inicio.to_date
+    fim =  fim.to_date
+    bdts = Bdt.find(:all, :conditions => [":inicio <= data_partida AND \
+                                          :fim >= data_recolhimento",
+                                         {:inicio => inicio,
+                                          :fim => fim}])
+    soma_km = 0
+    bdts.each do |bdt|
+      soma_km += bdt.distancia_percorrida
+    end
+    soma_km
+  end
+
 end
 

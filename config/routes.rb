@@ -18,13 +18,15 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :requisicoes
   map.resources :configuracoes, :only => [:index, :edit, :update]
 
-
   # Outras rotas
   map.root :controller => "requisicoes", :action => "new"
   map.admin "/admin", :controller => "usuario_sessions", :action => "new"
   map.sair "/sair", :controller => "usuario_sessions", :action => "destroy"
   map.base_de_dados "base_de_dados", :controller => "sistema", :action => "base_de_dados"
-  map.relatorios "relatorios", :controller => "sistema", :action => "relatorios"
+
+  # Rotas para relatórios
+  map.relatorios_km_percorridos "relatorios/km_percorridos", :controller => "relatorios", :action => "km_percorridos"
+  map.resources :relatorios
 
   # Rotas para requisições
   map.aceitar "/requisicoes/:id/aceitar", :controller => "requisicoes", :action => "aceitar"

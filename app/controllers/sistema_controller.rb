@@ -8,8 +8,5 @@ class SistemaController < ApplicationController
   def base_de_dados
   end
 
-  def relatorios
-  end
-
 end
 

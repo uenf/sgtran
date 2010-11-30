@@ -186,6 +186,7 @@ Funcionalidade: Solicitar viagem
     Então a requisição deve estar ligada à última viagem
     E eu devo ter 0 viagem cancelada
 
+  @now
   Esquema do Cenário: Criar uma requisição sem validação
     Dado que eu tenho uma configuração inicial
     Dado que eu sou um usuário administrador logado
@@ -197,7 +198,7 @@ Funcionalidade: Solicitar viagem
     Quando eu clico em "Nova requisição"
     E eu seleciono "Solicitante 1" em "Solicitante"
     E eu preencho "Celular" com "<Celular>"
-    E eu preencho "Data" com "25/09/2010"
+    E eu preencho "Data" com "<Data>"
     E eu seleciono "<Categoria de veículo>" em "Veículo"
     E eu seleciono "<Objetivo>" em "Objetivo"
     E eu preencho "Passageiros:" com "<Nome dos passageiros>"
@@ -208,14 +209,16 @@ Funcionalidade: Solicitar viagem
     E "fulano@uenf.br" deve receber 0 emails
 
   Exemplos:
-    | Celular   | Categoria de veículo               | Objetivo              | Nome dos passageiros     | Roteiro        | Observação | Sentença                                     |
-    | 9997-3421 | Automóvel até 4 passageiros        | Aula de Campo         | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | Requisição enviada com sucesso.              |
-    | 9997-3421 | Selecione uma categoria de veículo | Aula de Campo         | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | Categoria de veiculo não selecionada         |
-    | 9997-3421 | Automóvel até 4 passageiros        | Selecione um objetivo | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | Objetivo de reserva não selecionado          |
-    | 9997-3421 | Automóvel até 4 passageiros        | Aula de Campo         |                          | Ir ao Pacaembu |            | Nome telefone passageiros não pode ser vazio |
-    | 9997-3421 | Automóvel até 4 passageiros        | Aula de Campo         | Zina, Ronaldo e Alfinete |                |            | Roteiro da agenda não pode ser vazio         |
-    | 9997-3421 | Automóvel até 4 passageiros        | Outros                | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | Outros não pode ser vazio                    |
-    |           | Automóvel até 4 passageiros        | Aula de Campo         | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | Requisição enviada com sucesso.              |
+    | Celular   | Data       | Categoria de veículo               | Objetivo              | Nome dos passageiros     | Roteiro        | Observação | Sentença                                     |
+    | 9997-3421 | 25/09/2010 | Automóvel até 4 passageiros        | Aula de Campo         | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | Requisição enviada com sucesso.              |
+    | 9997-3421 | 25/09/2010 | Selecione uma categoria de veículo | Aula de Campo         | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | Categoria de veiculo não selecionada         |
+    | 9997-3421 | 25/09/2010 | Automóvel até 4 passageiros        | Selecione um objetivo | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | Objetivo de reserva não selecionado          |
+    | 9997-3421 | 25/09/2010 | Automóvel até 4 passageiros        | Aula de Campo         |                          | Ir ao Pacaembu |            | Nome telefone passageiros não pode ser vazio |
+    | 9997-3421 | 25/09/2010 | Automóvel até 4 passageiros        | Aula de Campo         | Zina, Ronaldo e Alfinete |                |            | Roteiro da agenda não pode ser vazio         |
+    | 9997-3421 | 25/09/2010 | Automóvel até 4 passageiros        | Outros                | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | Outros não pode ser vazio                    |
+    |           | 25/09/2010 | Automóvel até 4 passageiros        | Aula de Campo         | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | Requisição enviada com sucesso.              |
+    | 9997-3421 |            | Automóvel até 4 passageiros        | Aula de Campo         | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | Data de reserva não pode ser vazio           |
+    | 9997-3421 | 25/09/2005 | Automóvel até 4 passageiros        | Aula de Campo         | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | Requisição enviada com sucesso.              |
 
   @now
   Cenário: Não é possível realizar uma solicitação quando estiver definido nas configurações
