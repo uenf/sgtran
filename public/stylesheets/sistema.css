@@ -698,12 +698,10 @@ textarea.nova_requisicao {
 */
 
 #error_messages {
-    width: 93%;
-    margin: 4px;
-    padding: 2px;
-    padding-left: 60px;
+    margin: 0px 10px 10px 10px;
+    padding: 5px;
+    padding-left: 70px;
     background: #ed6969 url("/images/erro_alerta.png") no-repeat center left;
-    display: table;
     clear: both;
 }
 
