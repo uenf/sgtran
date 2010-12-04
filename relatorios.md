@@ -1,3 +1,19 @@
+# Fontes de prequisa:
+
+## Plotagem de gráficos
+  * Gruff
+    - http://gruff.rubyforge.org/
+    - http://nubyonrails.com/pages/gruff
+    - http://www.igvita.com/2007/01/05/dynamic-stat-graphs-in-rails/
+    - http://tomcopeland.blogs.com/juniordeveloper/2006/02/charts_and_grap.html
+  * Gchartrb
+    - http://badpopcorn.com/blog/2008/09/08/rails-google-charts-gchartrb/
+    - http://code.google.com/intl/pt-BR/apis/chart/
+
+## Geração do relatório
+  - http://www.infoblogs.com.br/view.action?contentId=176183&PDF-+-Rails-+-RGhost-Now-in-the-View.html
+  - http://alvaromateus.wordpress.com/2009/04/15/relatorio-com-ghostscript-rghost/
+
 # Levantamentos para relatórios:
 
 ## Km por centro (ver com Ailton como resolver *)
