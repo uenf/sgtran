@@ -11,8 +11,7 @@
     - http://code.google.com/intl/pt-BR/apis/chart/
 
 ## Geração do relatório
-  - http://www.infoblogs.com.br/view.action?contentId=176183&PDF-+-Rails-+-RGhost-Now-in-the-View.html
-  - http://alvaromateus.wordpress.com/2009/04/15/relatorio-com-ghostscript-rghost/
+  - https://github.com/sandrods/odf-report
 
 # Levantamentos para relatórios:
 
