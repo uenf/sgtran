@@ -17,13 +17,15 @@ class RelatoriosController < ApplicationController
     if @relatorio.valid?
       @kms = Bdt.distancia_percorrida_entre(@relatorio.data_inicial,
                                             @relatorio.data_final)
-
+      @ano = @relatorio.data_inicial.year
       @motoristas = Motorista.find(:all)
+      @centros = Centro.find(:all)
 
       report = ODFReport::Report.new("#{RAILS_ROOT}/public/reports/quilometragem.odt") do |r|
 
-        r.add_field 'KM_TOTAL', @kms.to_s
-        r.add_field 'KM_MEDIA', (@kms/@motoristas.count).to_s
+        r.add_field 'ANO', @ano
+        r.add_field 'KM_TOTAL', @kms
+        r.add_field 'KM_MEDIA', (@kms/@motoristas.count)
         # Adicinar método no odf-report para conseguir fazer isso.
         # As images no cabeçalho ficam no styles.xml e não no content.xml
         # r.add_image 'CABECALHO', "#{RAILS_ROOT}/public/images/cabecalho_relatorio.eps"
@@ -31,6 +33,10 @@ class RelatoriosController < ApplicationController
         r.add_table("TABELA_KM_MOTORISTA", @motoristas, :header=>true) do |t|
           t.add_column 'NOME', :nome
           t.add_column 'MATRICULA', :matricula
+        end
+
+        r.add_table("TABELA_KM_CENTRO", @centros, :header=>true) do |t|
+          t.add_column 'CNOME', :nome
         end
 
       end
