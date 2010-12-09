@@ -11,7 +11,9 @@ class Relatorio < ActiveRecord::Base
   column :data_final, :date
   # end macumba para fazer um model tableless
 
-  validate :validar_data_inicial, :validar_data_final
+  validate :validar_data_final_maior_igual_incial,
+           :validar_data_inicial,
+           :validar_data_final
 
   def validar_data_inicial
     begin
@@ -26,6 +28,17 @@ class Relatorio < ActiveRecord::Base
       self.data_final.to_date
     rescue
       errors.add(:data_final, 'inválida')
+    end
+  end
+
+  def validar_data_final_maior_igual_incial
+    begin
+      inicial = self.data_inicial.to_date
+      final = self.data_final.to_date
+      unless inicial <= final
+        errors.add(:data_final, 'deve ser maior ou igual a Data inicial')
+      end
+    rescue
     end
   end
 

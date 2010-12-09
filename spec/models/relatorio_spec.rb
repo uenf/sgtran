@@ -26,5 +26,14 @@ describe Relatorio do
     relatorio.should be_invalid
   end
 
+  it 'deve ter uma data final maior ou igual a data inicial' do
+    relatorio = Relatorio.new :data_inicial => '19/05/2010',
+                              :data_final => '22/05/2010'
+    relatorio.should be_valid
+
+    relatorio.data_final = "12/04/2010"
+    relatorio.should be_invalid
+  end
+
 end
 
