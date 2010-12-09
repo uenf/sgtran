@@ -25,7 +25,7 @@ ActionController::Routing::Routes.draw do |map|
   map.base_de_dados "base_de_dados", :controller => "sistema", :action => "base_de_dados"
 
   # Rotas para relatórios
-  map.relatorios_km_percorridos "relatorios/km_percorridos", :controller => "relatorios", :action => "km_percorridos"
+  map.relatorios_quilometragem "relatorios/quilometragem", :controller => "relatorios", :action => "quilometragem"
   map.resources :relatorios
 
   # Rotas para requisições

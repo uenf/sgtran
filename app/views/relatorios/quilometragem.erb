@@ -1,7 +1,7 @@
 <div id="tabela_exibir">
-  <h1>Km percorridos</h1>
+  <h1>Relatório de quilometragem</h1>
 
-  <% form_for @relatorio, :url => {:action => 'show_km_percorridos'} do |f| %>
+  <% form_for @relatorio, :url => {:action => 'generate_quilometragem'} do |f| %>
     <%= mensagem_de_erro(@relatorio) %>
     <p>
       <%= f.label :data_inicial, "Data inicial" %>

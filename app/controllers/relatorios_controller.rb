@@ -8,12 +8,13 @@ class RelatoriosController < ApplicationController
   def index
   end
 
-  def km_percorridos
+  def quilometragem
     @relatorio = Relatorio.new
   end
 
-  def show_km_percorridos
+  def generate_quilometragem
     @relatorio = Relatorio.new(params[:relatorio])
+
     if @relatorio.valid?
       @kms = Bdt.distancia_percorrida_entre(@relatorio.data_inicial,
                                             @relatorio.data_final)
@@ -46,7 +47,7 @@ class RelatoriosController < ApplicationController
       send_file(report_file_name)
 
     else
-      render :action => :km_percorridos
+      render :action => :quilometragem
     end
   end
 
