@@ -32,12 +32,12 @@ class RelatoriosController < ApplicationController
         # r.add_image 'CABECALHO', "#{RAILS_ROOT}/public/images/cabecalho_relatorio.eps"
 
         r.add_table("TABELA_KM_MOTORISTA", @motoristas, :header=>true) do |t|
-          t.add_column 'NOME', :nome
-          t.add_column 'MATRICULA', :matricula
+          t.add_column :nome
+          t.add_column :matricula
         end
 
         r.add_table("TABELA_KM_CENTRO", @centros, :header=>true) do |t|
-          t.add_column 'CNOME', :nome
+          t.add_column :nome
         end
 
       end
