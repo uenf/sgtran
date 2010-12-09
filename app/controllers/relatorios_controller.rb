@@ -19,6 +19,7 @@ class RelatoriosController < ApplicationController
       @kms = Bdt.distancia_percorrida_entre(@relatorio.data_inicial,
                                             @relatorio.data_final)
       @ano = @relatorio.data_inicial.year
+      @mes = @relatorio.data_inicial.month
       @motoristas = Motorista.find(:all)
       @centros = Centro.find(:all)
 
@@ -32,8 +33,9 @@ class RelatoriosController < ApplicationController
         # r.add_image 'CABECALHO', "#{RAILS_ROOT}/public/images/cabecalho_relatorio.eps"
 
         r.add_table("TABELA_KM_MOTORISTA", @motoristas, :header=>true) do |t|
-          t.add_column :nome
-          t.add_column :matricula
+          t.add_column('NOME') { |motorista| motorista.nome.split.first }
+          t.add_column('01') { |motorista| motorista.distancia_percorrida_entre(
+                                    "01/#{@mes}/#{@ano}", "31/#{@mes}/#{@ano}")}
         end
 
         r.add_table("TABELA_KM_CENTRO", @centros, :header=>true) do |t|

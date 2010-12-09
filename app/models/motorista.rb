@@ -74,6 +74,26 @@ class Motorista < ActiveRecord::Base
     return motoristas_desocupados
   end
 
+  def distancia_percorrida_entre inicio, fim
+    inicio =  inicio.to_date
+    fim =  fim.to_date
+    viagens_atendidas = Viagem.find_all_by_estado(Viagem::ATENDIDA)
+    viagens_do_motorista = []
+
+    viagens_atendidas.each do |viagem|
+      viagens_do_motorista << viagem if viagem.motoristas.include?(self)
+    end
+
+    soma_km = 0
+    viagens_do_motorista.each do |viagem|
+      bdt = Bdt.find_by_viagem_id(viagem.id)
+      if inicio <= bdt.data_partida and fim >= bdt.data_recolhimento:
+        soma_km += bdt.distancia_percorrida
+      end
+    end
+    soma_km
+  end
+
   def ativo?
     self.status == "Ativo"
   end
