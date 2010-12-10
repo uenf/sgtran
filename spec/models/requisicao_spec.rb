@@ -3,7 +3,7 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe Requisicao do
 
    before(:each) do
-     Factory.create :configuracao
+     @configuracao = Factory.create :configuracao
    end
 
   it "deve aceitar uma requisição" do
@@ -20,6 +20,8 @@ describe Requisicao do
   end
 
   describe "que já possuem uma viagem" do
+      @configuracao ||= Factory.create :configuracao
+      @configuracao.update_attribute(:ano_corrente, true)
       motorista = Factory.create :motorista
       viagem = Factory.create :viagem, :motorista_ids => [motorista.id]
       viagem_2 = Factory.create :viagem, :motorista_ids => [motorista.id]
@@ -135,13 +137,38 @@ describe Requisicao do
       requisicao.save.should be_false
     end
 
-    it "O ano da data de requisição tem que ser o mesmo do ano corrente" do
-      categoria_de_veiculo = Factory.create :categoria_de_veiculo
-      requisicao = Factory.build :requisicao,
-                                 :categoria_de_veiculo_id => categoria_de_veiculo.id,
-                                 :data_de_reserva => Date.today.years_since(1)
-      requisicao.save.should be_false
-      requisicao.errors.invalid?(:data_de_reserva).should be_true
+    describe 'ano da data de requisição' do
+
+      @configuracao ||= Factory.create :configuracao
+      it "o mesmo do ano corrente" do
+        @configuracao.update_attribute(:ano_corrente, true)
+        categoria_de_veiculo = Factory.create :categoria_de_veiculo,
+                                                :numero_minimo_dias => 0,
+                                                :numero_maximo_dias => 0
+        objetivo_de_reserva = Factory.create :objetivo_de_reserva
+        requisicao = Factory.build :requisicao,
+                                   :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                   :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                                   :data_de_reserva => Date.today.years_since(1)
+        requisicao.save.should be_false
+        requisicao.errors.invalid?(:data_de_reserva).should be_true
+      end
+
+      it "qualquer ano" do
+        Configuracao.delete_all
+        @configruacao = Factory.create :configuracao, :ano_corrente => false
+
+        categoria_de_veiculo = Factory.create :categoria_de_veiculo,
+                                                :numero_minimo_dias => 0,
+                                                :numero_maximo_dias => 0
+        objetivo_de_reserva = Factory.create :objetivo_de_reserva
+        requisicao = Factory.build :requisicao,
+                                   :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                   :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                                   :data_de_reserva => Date.today.years_since(1)
+        requisicao.save.should be_true
+      end
+
     end
 
   end

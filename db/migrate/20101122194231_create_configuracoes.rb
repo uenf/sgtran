@@ -5,6 +5,7 @@ class CreateConfiguracoes < ActiveRecord::Migration
       t.boolean :formulario_ativo, :default => true
       t.date :data_inicial_proibicao
       t.date :data_final_proibicao
+      t.boolean :ano_corrente, :default => true
 
       t.timestamps
     end

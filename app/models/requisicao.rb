@@ -43,15 +43,19 @@ class Requisicao < ActiveRecord::Base
       end
 
       if not self.categoria_de_veiculo.blank? and
-         self.data_de_reserva < (Date.today + self.categoria_de_veiculo.numero_minimo_dias.days)
+        not self.categoria_de_veiculo.numero_minimo_dias.zero? and
+        self.data_de_reserva < (Date.today + self.categoria_de_veiculo.numero_minimo_dias.days)
         errors.add(:data_de_reserva, "deve ser no mínimo #{self.categoria_de_veiculo.numero_minimo_dias} dias posterior à data atual")
       end
 
-      if self.data_de_reserva.year != Date.today.year
-        errors.add(:data_de_reserva, "deve estar no ano corrente")
+      if @configuracao.requisicao_somente_este_ano?
+        if self.data_de_reserva.year != Date.today.year
+          errors.add(:data_de_reserva, "deve estar no ano corrente")
+        end
       end
 
       if (not self.categoria_de_veiculo_id.blank?) and
+          not self.categoria_de_veiculo.numero_maximo_dias.zero? and
           self.data_de_reserva > (Date.today + self.categoria_de_veiculo.numero_maximo_dias.days)
           errors.add(:data_de_reserva, "deve ser no máximo #{self.categoria_de_veiculo.numero_maximo_dias} dias posterior à data atual, para a categoria de veículo selecionada")
       end

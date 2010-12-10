@@ -50,7 +50,6 @@ Para que ele possa se adaptar as minhas necessidades
     Então eu devo ver "Matrícula:"
     Então eu devo ver "Objetivo:"
 
-  @now
   Cenário: Definir intervalo de datas que não é possível agendar uma requisição
     Dado que eu tenho uma configuração inicial
     E que eu sou um usuário administrador logado
@@ -58,6 +57,16 @@ Para que ele possa se adaptar as minhas necessidades
     E eu clico em "Formulário de requisição"
     E eu preencho "Data inicial" com uma data de "3" dias seguintes a partir de hoje
     E eu preencho "Data final" com uma data de "5" dias seguintes a partir de hoje
+    E eu pressiono "Salvar"
+    Então eu devo ver "Configurações atualizadas com sucesso."
+
+  @now
+  Cenário: Ter a opção para fazer as requisições somente para o ano corrente
+    Dado que eu tenho uma configuração inicial
+    E que eu sou um usuário administrador logado
+    Quando eu clico em "Configurações"
+    E eu clico em "Formulário de requisição"
+    E eu marco "Somente para este ano"
     E eu pressiono "Salvar"
     Então eu devo ver "Configurações atualizadas com sucesso."
 

@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(:version => 20101122194231) do
     t.boolean  "formulario_ativo",       :default => true
     t.date     "data_inicial_proibicao"
     t.date     "data_final_proibicao"
+    t.boolean  "ano_corrente",           :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
