@@ -109,6 +109,15 @@ class Motorista < ActiveRecord::Base
     soma_km
   end
 
+  def nome_e_sobrenome
+    conectores = ['da', 'das', 'do', 'dos', 'de']
+    nome_lista = self.nome.split
+    if conectores.include? nome_lista[-2].downcase
+      return "#{nome_lista.first} #{nome_lista[-2]} #{nome_lista.last}"
+    end
+    "#{nome_lista.first} #{nome_lista.last}"
+  end
+
   def ativo?
     self.status == "Ativo"
   end

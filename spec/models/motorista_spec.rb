@@ -18,6 +18,17 @@ describe Motorista do
     Motorista.create!(@valid_attributes)
   end
 
+  it "deve retornar o primeiro e último nome" do
+    motorista = Factory.create :motorista, :nome => "Ailton Algumas Coisa da Silva"
+    motorista.nome_e_sobrenome.should == "Ailton da Silva"
+
+    motorista.nome = "ROGERIO ATEM DE CARVALHO"
+    motorista.nome_e_sobrenome.should == "ROGERIO DE CARVALHO"
+
+    motorista.nome = "Hugo Henriques Maia Vieira"
+    motorista.nome_e_sobrenome.should == "Hugo Vieira"
+  end
+
   it 'deve retornar uma lista com as quantidades de quilometros percorridos em um dado ano' do
     motorista1 = Factory.create :motorista
     motorista2 = Factory.create :motorista
