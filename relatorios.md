@@ -40,6 +40,34 @@
   + bdt está ligado a viagem
   + viagem tem motorista
 
+bdts
+---------------------
+viagem_id
+data_partida
+data_recolhimento
+odometro_partida
+odometro_recolhimento
+
+
+motoristas_viagens
+------------------
+motorista_id
+viagem_id
+
+
+Dados de entrada: DATA_INICIAL, DATA_FINAL, MOTORISTA_ID
+Saída: quilomentros percorridos entre as datas pelo motorista
+
+
+(A) select viagem_id from motoristas_viagens where motorista_id = MOTORISTA_ID
+(Ex) select viagem_id from motoristas_viagens where motorista_id = 1
+
+(B) select viagem_id from bdts where DATA_INICIAL <= data_partida and DATA_FINAL >= data_recolhimento
+(Ex) select viagem_id from bdts where '2010-10-10' <= data_partida and '2010-11-09' >= data_recolhimento;
+
+
+SELECT bdts.viagem_id, bdts.odometro_partida, bdts.odometro_recolhimento FROM bdts, motoristas_viagens where '2010-10-10' <= data_partida AND '2010-11-09' >= data_recolhimento AND motorista_id = 1;
+SELECT tabela1.viagem_id, tabela1.odometro_partida, tabela1.odometro_recolhimento FROM (SELECT * from bdts WHERE '2010-10-10' <= data_partida AND '2010-11-09' >= data_recolhimento) as tabela1 JOIN (SELECT viagem_id from motoristas_viagens WHERE motorista_id = 1) as tabela2 ON tabela1.viagem_id = tabela2.viagem_id;
 
 ## Km percorridos por veículo em um determinado período
 
