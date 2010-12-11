@@ -78,10 +78,10 @@ class Motorista < ActiveRecord::Base
     inicio =  inicio.to_date
     fim =  fim.to_date
 
-    bdts = Bdt.find_by_sql(["SELECT * FROM (SELECT \
-             viagem_id, odometro_recolhimento, odometro_partida from bdts WHERE \
+    bdts = Bdt.find_by_sql(["SELECT * FROM (SELECT
+             viagem_id, odometro_recolhimento, odometro_partida from bdts WHERE
              :inicio <= data_partida AND :fim >= data_recolhimento) as t1 JOIN
-             (SELECT viagem_id from motoristas_viagens WHERE motorista_id = :id) as t2 \
+             (SELECT viagem_id from motoristas_viagens WHERE motorista_id = :id) as t2
              ON t1.viagem_id = t2.viagem_id",
              {:inicio => inicio, :fim => fim, :id => self.id}])
 
