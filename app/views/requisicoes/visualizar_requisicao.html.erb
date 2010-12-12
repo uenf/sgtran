@@ -19,9 +19,7 @@
   </p>
   <p>
     <label>Objetivo:</label>
-    <%= ObjetivoDeReserva.find(@requisicao.objetivo_de_reserva_id).texto \
-      + ( @requisicao.outros.blank? ? '' : ": #{@requisicao.outros}" )
-    %>
+    <%= ObjetivoDeReserva.find(@requisicao.objetivo_de_reserva_id).texto %>
   </p>
   <p>
     <label>Passageiro(s):</label>

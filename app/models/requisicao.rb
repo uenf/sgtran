@@ -22,7 +22,7 @@ class Requisicao < ActiveRecord::Base
 
   before_create :gerar_chave_de_seguranca
 
-  validate :validar_categoria_de_veiculo, :validar_objetivo, :validar_outros, :validar_motivo_professor, :validar_motivo_id, :validar_data
+  validate :validar_categoria_de_veiculo, :validar_objetivo, :validar_observacao, :validar_motivo_professor, :validar_motivo_id, :validar_data
 
   validates_presence_of :nome_telefone_passageiros,
                         :roteiro_da_agenda,
@@ -74,11 +74,10 @@ class Requisicao < ActiveRecord::Base
     end
   end
 
-  def validar_outros
-    if not self.objetivo_de_reserva_id.blank?
-      objetivo_de_reserva = ObjetivoDeReserva.find(self.objetivo_de_reserva_id)
-      if objetivo_de_reserva.texto == "Outros" and (self.outros.empty?)
-        errors.add(:outros, 'não pode ser vazio')
+  def validar_observacao
+    if not self.objetivo_de_reserva_id.blank? and self.objetivo_de_reserva.obrigatorio
+      if self.observacao.blank?
+        errors.add(:observacao, 'não pode ser vazio')
       end
     end
   end

@@ -108,7 +108,8 @@ ActiveRecord::Schema.define(:version => 20101122194231) do
 
   create_table "objetivos_de_reserva", :force => true do |t|
     t.string   "texto"
-    t.string   "status",     :default => "Ativo"
+    t.boolean  "obrigatorio", :default => false
+    t.string   "status",      :default => "Ativo"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -127,7 +128,6 @@ ActiveRecord::Schema.define(:version => 20101122194231) do
     t.integer  "objetivo_de_reserva_id"
     t.string   "celular"
     t.date     "data_de_reserva"
-    t.string   "outros"
     t.text     "nome_telefone_passageiros"
     t.text     "roteiro_da_agenda"
     t.text     "observacao"

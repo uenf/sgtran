@@ -20,7 +20,6 @@ Funcionalidade: Solicitar viagem
     E eu preencho "Data" com uma data de dois dias seguintes a partir de hoje
     E eu seleciono "<Categoria de veículo>" em "Veículo"
     E eu seleciono "<Objetivo>" em "Objetivo"
-    E eu preencho "Outros" com "<Outros>"
     E eu preencho "Passageiros:" com "<Nome_passageiros>"
     E eu preencho "Roteiro:" com "<Roteiro>"
     E eu preencho "Observações" com "<Observação>"
@@ -31,23 +30,22 @@ Funcionalidade: Solicitar viagem
 
     Exemplos:(Requisição enviada com sucesso)
 
-    | Matrícula | E-mail                  | Celular   | Categoria de veículo              | Objetivo      | Outros | Nome_passageiros         | Roteiro        | Observação | Termo                                  | Ação                              | Sentença                                      |
-    | 01210     | ronaldo@corinthians.com | 9997-3421 | Micro-ônibus - até 32 passageiros | Aula de Campo |        | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | eu marco "Li e concordo com os termos" | eu pressiono "Enviar requisição" | eu devo ver "Requisição enviada com sucesso!" |
-    | 01210     | ronaldo@corinthians.com | 9997-3421 | Micro-ônibus - até 32 passageiros | Outros        | Bla    | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | eu marco "Li e concordo com os termos" | eu pressiono "Enviar requisição" | eu devo ver "Requisição enviada com sucesso!" |
+    | Matrícula | E-mail                  | Celular   | Categoria de veículo              | Objetivo      | Nome_passageiros         | Roteiro        | Observação | Termo                                  | Ação                              | Sentença                                      |
+    | 01210     | ronaldo@corinthians.com | 9997-3421 | Micro-ônibus - até 32 passageiros | Aula de Campo | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | eu marco "Li e concordo com os termos" | eu pressiono "Enviar requisição" | eu devo ver "Requisição enviada com sucesso!" |
+    | 01210     | ronaldo@corinthians.com | 9997-3421 | Micro-ônibus - até 32 passageiros | Outros        | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | eu marco "Li e concordo com os termos" | eu pressiono "Enviar requisição" | eu devo ver "Requisição enviada com sucesso!" |
 
 
     Exemplos:(Campos vazios)
 
-    | Matrícula | E-mail                  | Celular   | Categoria de veículo               | Objetivo              | Outros | Nome_passageiros         | Roteiro        | Observação | Termo                                  | Ação                              | Sentença                                                   |
-    |           | ronaldo@corinthians.com | 9997-3421 | Micro-ônibus - até 32 passageiros  | Aula de Campo         |        | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | eu marco "Li e concordo com os termos" | eu pressiono "Enviar requisição" | eu devo ver "Solicitante não existe"                       |
-    | 01210     |                         | 9997-3421 | Micro-ônibus - até 32 passageiros  | Aula de Campo         |        | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | eu marco "Li e concordo com os termos" | eu pressiono "Enviar requisição" | eu devo ver "Solicitante não existe"                       |
-    | 01210     | ronaldo@corinthians.com | 9997-3421 | Selecione uma categoria de veículo | Aula de Campo         |        | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | eu marco "Li e concordo com os termos" | eu pressiono "Enviar requisição" | eu devo ver "Categoria de veiculo não selecionada"         |
-    | 01210     | ronaldo@corinthians.com | 9997-3421 | Micro-ônibus - até 32 passageiros  | Selecione um objetivo |        | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | eu marco "Li e concordo com os termos" | eu pressiono "Enviar requisição" | eu devo ver "Objetivo de reserva não selecionado"          |
-    | 01210     | ronaldo@corinthians.com | 9997-3421 | Micro-ônibus - até 32 passageiros  | Aula de Campo         |        |                          | Ir ao Pacaembu |            | eu marco "Li e concordo com os termos" | eu pressiono "Enviar requisição" | eu devo ver "Nome telefone passageiros não pode ser vazio" |
-    | 01210     | ronaldo@corinthians.com | 9997-3421 | Micro-ônibus - até 32 passageiros  | Aula de Campo         |        | Zina, Ronaldo e Alfinete |                |            | eu marco "Li e concordo com os termos" | eu pressiono "Enviar requisição" | eu devo ver "Roteiro da agenda não pode ser vazio"         |
-    | 01210     | ronaldo@corinthians.com | 9997-3421 | Micro-ônibus - até 32 passageiros  | Outros                |        | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | eu marco "Li e concordo com os termos" | eu pressiono "Enviar requisição" | eu devo ver "Outros não pode ser vazio"                    |
-    | 01210     | ronaldo@corinthians.com |           | Micro-ônibus - até 32 passageiros  | Outros                | Bla    | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | eu marco "Li e concordo com os termos" | eu pressiono "Enviar requisição" | eu devo ver "Celular não pode ser vazio"                   |
-    | 01210     | ronaldo@corinthians     | 9997-3421 | Micro-ônibus - até 32 passageiros  | Aula de Campo         |        | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | eu marco "Li e concordo com os termos" | eu pressiono "Enviar requisição" | eu devo ver "Solicitante não existe"                       |
+    | Matrícula | E-mail                  | Celular   | Categoria de veículo               | Objetivo              | Nome_passageiros         | Roteiro        | Observação | Termo                                  | Ação                              | Sentença                                                   |
+    |           | ronaldo@corinthians.com | 9997-3421 | Micro-ônibus - até 32 passageiros  | Aula de Campo         | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | eu marco "Li e concordo com os termos" | eu pressiono "Enviar requisição" | eu devo ver "Solicitante não existe"                       |
+    | 01210     |                         | 9997-3421 | Micro-ônibus - até 32 passageiros  | Aula de Campo         | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | eu marco "Li e concordo com os termos" | eu pressiono "Enviar requisição" | eu devo ver "Solicitante não existe"                       |
+    | 01210     | ronaldo@corinthians.com | 9997-3421 | Selecione uma categoria de veículo | Aula de Campo         | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | eu marco "Li e concordo com os termos" | eu pressiono "Enviar requisição" | eu devo ver "Categoria de veiculo não selecionada"         |
+    | 01210     | ronaldo@corinthians.com | 9997-3421 | Micro-ônibus - até 32 passageiros  | Selecione um objetivo | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | eu marco "Li e concordo com os termos" | eu pressiono "Enviar requisição" | eu devo ver "Objetivo de reserva não selecionado"          |
+    | 01210     | ronaldo@corinthians.com | 9997-3421 | Micro-ônibus - até 32 passageiros  | Aula de Campo         |                          | Ir ao Pacaembu |            | eu marco "Li e concordo com os termos" | eu pressiono "Enviar requisição" | eu devo ver "Nome telefone passageiros não pode ser vazio" |
+    | 01210     | ronaldo@corinthians.com | 9997-3421 | Micro-ônibus - até 32 passageiros  | Aula de Campo         | Zina, Ronaldo e Alfinete |                |            | eu marco "Li e concordo com os termos" | eu pressiono "Enviar requisição" | eu devo ver "Roteiro da agenda não pode ser vazio"         |
+    | 01210     | ronaldo@corinthians.com |           | Micro-ônibus - até 32 passageiros  | Outros                | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | eu marco "Li e concordo com os termos" | eu pressiono "Enviar requisição" | eu devo ver "Celular não pode ser vazio"                   |
+    | 01210     | ronaldo@corinthians     | 9997-3421 | Micro-ônibus - até 32 passageiros  | Aula de Campo         | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | eu marco "Li e concordo com os termos" | eu pressiono "Enviar requisição" | eu devo ver "Solicitante não existe"                       |
 
   Cenário: Devo ver a requisição
     Dado que eu tenho uma configuração inicial
@@ -214,7 +212,6 @@ Funcionalidade: Solicitar viagem
     | 9997-3421 | 25/09/2010 | Automóvel até 4 passageiros        | Selecione um objetivo | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | Objetivo de reserva não selecionado          |
     | 9997-3421 | 25/09/2010 | Automóvel até 4 passageiros        | Aula de Campo         |                          | Ir ao Pacaembu |            | Nome telefone passageiros não pode ser vazio |
     | 9997-3421 | 25/09/2010 | Automóvel até 4 passageiros        | Aula de Campo         | Zina, Ronaldo e Alfinete |                |            | Roteiro da agenda não pode ser vazio         |
-    | 9997-3421 | 25/09/2010 | Automóvel até 4 passageiros        | Outros                | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | Outros não pode ser vazio                    |
     |           | 25/09/2010 | Automóvel até 4 passageiros        | Aula de Campo         | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | Requisição enviada com sucesso.              |
     | 9997-3421 |            | Automóvel até 4 passageiros        | Aula de Campo         | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | Data de reserva não pode ser vazio           |
     | 9997-3421 | 25/09/2005 | Automóvel até 4 passageiros        | Aula de Campo         | Zina, Ronaldo e Alfinete | Ir ao Pacaembu |            | Requisição enviada com sucesso.              |
@@ -239,7 +236,6 @@ Funcionalidade: Solicitar viagem
     E eu pressiono "Enviar requisição"
     Então eu devo ver a mensagem de proibição
 
-  @now
   Esquema do Cenário: Não é possível requisitar carro para o ano que vem, caso esteja assim configurado
     Dado que eu tenho uma configuração inicial
     E que é possível requisitar veículo <Opção> ano
@@ -265,24 +261,30 @@ Funcionalidade: Solicitar viagem
     | este        | 2              | Requisição enviada com sucesso             |
     | em qualquer | 370            | Requisição enviada com sucesso             |
 
+  @now
+  Esquema do Cenário: Um objetivo de reserva pode ser ou não obrigatório
+    Dado que eu tenho uma configuração inicial
+    E que eu tenha a categoria de veículo "Automóvel até 4 passageiros" padrão
+    E que eu tenha um objetivo de reserva "Aula de Campo" <Obrigatoriedade>
+    E que eu tenha um solicitante com e-mail "ronaldo@corinthians.com", matrícula "00210" e centro "P5"
+    E que eu estou na página de requisição
+    Quando eu preencho "Matrícula" com "210"
+    E eu preencho "E-mail" com "ronaldo@corinthians.com"
+    E eu preencho "Celular" com "9999-9999"
+    E eu preencho "Data" com uma data de "2" dias seguintes a partir de hoje
+    E eu seleciono "Automóvel até 4 passageiros" em "Veículo"
+    E eu seleciono "Aula de Campo" em "Objetivo"
+    E eu preencho "Passageiros:" com "Zina, Ronaldo e Alfinete"
+    E eu preencho "Roteiro:" com "Ir ao Pacaembu"
+    E eu preencho "Observações" com "<Observações>"
+    E eu marco "Li e concordo com os termos"
+    E eu pressiono "Enviar requisição"
+    Então eu devo ver "<Resposta>"
 
-#  Esquema do Cenário: Não é possível realizar uma requisição para o fim de semana durante o fim de semana
-#    Dado que eu tenho uma configuração inicial
-#    E que hoje é "<Dia>"
-#    E que são "<Hora>" horas
-#    E que eu tenha a categoria de veículo "Automóvel até 4 passageiros"
-#    E que eu tenha um objetivo de reserva "Aula de Campo"
-#    E que eu tenha um solicitante com e-mail "ronaldo@corinthians.com", matrícula "00210" e centro "P5"
-#    E que eu estou na página de requisição
-#    Quando eu preencho "Matrícula" com "210"
-#    E eu preencho "E-mail" com "ronaldo@corinthians.com"
-#    E eu preencho "Celular" com "9999-9999"
-#    E eu preencho "Data" com uma data do próximo "<Dia da requisição>"
-#    E eu seleciono "Automóvel até 4 passageiros" em "Veículo"
-#    E eu seleciono "Aula de Campo" em "Objetivo"
-#    E eu preencho "Passageiros:" com "Zina, Ronaldo e Alfinete"
-#    E eu preencho "Roteiro:" com "Ir ao Pacaembu"
-#    E eu marco "Li e concordo com os termos"
-#    E eu pressiono "Enviar requisição"
-#    Então eu devo ver "Não é possível fazer requisições fora do expediente."
+    Exemplos:
+    | Obrigatoriedade | Observações       | Resposta                       |
+    | obrigatório     | Alguma observação | Requisição enviada com sucesso |
+    | obrigatório     |                   | Observações não pode ser vazio |
+    | não obrigatório | Alguma observação | Requisição enviada com sucesso |
+    | não obrigatório |                   | Requisição enviada com sucesso |
 

@@ -99,18 +99,6 @@ describe Requisicao do
       requisicao.errors.invalid?(:objetivo_de_reserva).should be_true
     end
 
-    it "O campo Descrição de Outros não deve ser nulo quando Objetivo da reserva
-        for Outros" do
-      categoria_de_veiculo = Factory.create :categoria_de_veiculo
-      objetivo_de_reserva = Factory.create :objetivo_de_reserva, :texto => "Outros"
-      requisicao = Factory.build :requisicao,
-                                 :outros => "",
-                                 :objetivo_de_reserva_id => objetivo_de_reserva.id,
-                                 :categoria_de_veiculo_id => categoria_de_veiculo.id
-      requisicao.save.should be_false
-      requisicao.errors.invalid?(:outros).should be_true
-    end
-
     it "O campo Motivo não deve ser nulo quando Estado for Cancelado pelo
         Professor" do
       categoria_de_veiculo = Factory.create :categoria_de_veiculo
@@ -135,6 +123,23 @@ describe Requisicao do
 
       requisicao.data_de_reserva = Date.today + 10.days
       requisicao.save.should be_false
+    end
+
+    it 'observações não pode ser vazio caso o objetivo de reserva requeira' do
+      categoria_de_veiculo = Factory.create :categoria_de_veiculo
+      objetivo_de_reserva = Factory.create :objetivo_de_reserva, :obrigatorio => true
+      requisicao = Factory.build :requisicao,
+                                 :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                 :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                                 :observacao => ''
+      requisicao.save.should be_false
+
+      objetivo_de_reserva.update_attribute(:obrigatorio, false)
+      requisicao_2 = Factory.build :requisicao,
+                                 :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                 :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                                 :observacao => ''
+      requisicao_2.save.should be_true
     end
 
     describe 'ano da data de requisição' do

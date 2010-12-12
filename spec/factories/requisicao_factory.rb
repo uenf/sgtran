@@ -5,7 +5,6 @@ Factory.define :requisicao do |requisicao|
   requisicao.data_de_reserva Date.today + 2.days
   requisicao.categoria_de_veiculo_id nil
   requisicao.objetivo_de_reserva_id nil
-  requisicao.outros "vfdsvdfvfdv"
   requisicao.nome_telefone_passageiros "fhjdsvcdsvghsvd"
   requisicao.roteiro_da_agenda "djvsdghvsvdsv"
   requisicao.observacao "bfdbfdbdfbfdbd"

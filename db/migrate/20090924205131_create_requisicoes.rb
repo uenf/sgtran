@@ -7,7 +7,6 @@ class CreateRequisicoes < ActiveRecord::Migration
       t.references :objetivo_de_reserva
       t.string :celular
       t.date :data_de_reserva
-      t.string :outros
       t.text :nome_telefone_passageiros
       t.text :roteiro_da_agenda
       t.text :observacao

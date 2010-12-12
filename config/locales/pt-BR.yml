@@ -145,7 +145,10 @@ pt-BR:
       bdt: "BDT"
       usuario: 'Usuario'
       user_session: 'UsuarioSession'
+      requisicao: "Requisicao"
     attributes:
+      requisicao:
+        observacao: "Observações"
       usuario:
         password: "Senha"
         password_confirmation: 'Confirmação da senha'

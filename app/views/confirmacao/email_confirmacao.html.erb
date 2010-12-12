@@ -24,10 +24,6 @@
     <label>Objetivo da Reserva: </label><%= ObjetivoDeReserva.find(@requisicao.objetivo_de_reserva_id).texto %>
   </p>
 
-  <% unless @requisicao.outros.blank? %>
-    <p><%= "Outros: " + @requisicao.outros %></p>
-  <% end %>
-
   <p>
     <label>Nome(s) e telefone do(s) passageiro(s): </label><%= @requisicao.nome_telefone_passageiros %>
   </p>
