@@ -17,6 +17,20 @@ Para que ele possa se adaptar as minhas necessidades
     Quando eu clico em "Requisições"
     Então eu devo ver "CEDERJ"
 
+
+  @now
+  Cenário: Mudar o nome do setor de transporte
+    Dado que eu tenho uma configuração inicial
+    E que eu sou um usuário administrador logado
+    Quando eu clico em "Configurações"
+    E eu clico em "Instituição utilizadora"
+    E eu preencho "Setor de transporte" com "ASTRAN"
+    E eu pressiono "Salvar"
+    Então eu devo ver "Configurações atualizadas com sucesso."
+    E eu devo estar na página das configurações
+    Quando eu clico em "Requisições"
+    Então eu devo ver "ASTRAN"
+
   Cenário: Somente usuário administrador podem entrar nas configurações
     Dado que eu tenho uma configuração inicial
     E que eu sou um usuário visitante logado
@@ -60,7 +74,6 @@ Para que ele possa se adaptar as minhas necessidades
     E eu pressiono "Salvar"
     Então eu devo ver "Configurações atualizadas com sucesso."
 
-  @now
   Cenário: Ter a opção para fazer as requisições somente para o ano corrente
     Dado que eu tenho uma configuração inicial
     E que eu sou um usuário administrador logado

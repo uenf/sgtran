@@ -19,7 +19,7 @@
     <h1>Sistema de gerenciamento de transporte</h1>
     <h2><%= configuracao.orgao_utilizador if configuracao.orgao_utilizador %></h2>
     <h3>Prefeitura da UENF</h3>
-    <h4>Assessoria de Transporte</h4>
+    <h4><%= configuracao.nome_do_setor if configuracao.nome_do_setor %></h4>
   </div>
   <div id="login">
     <% if current_user %>
