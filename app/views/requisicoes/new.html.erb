@@ -12,7 +12,7 @@
 <hr/>
 
 <p>
-  <em>Obs.: os campos com <span class='obrigatorio'>*</span> são obrigatórios</em>
+  <em>Obs.: os campos com <span class='obrigatorio'></span> são obrigatórios</em>
 <p>
 
 <% form_for @requisicao do |f| %>
@@ -24,20 +24,20 @@
     <% fields_for @solicitante do |s|  %>
 
       <div class="item">
-        <%= s.label :matricula, "<span class='obrigatorio'>*</span>Matrícula:" %>
+        <%= s.label :matricula, "Matrícula:", :class => :obrigatorio %>
         <%= s.text_field :matricula %>
         <em>(Colocar matrícula sem o dígito)</em>
       </div>
 
       <div class="item">
-        <%= s.label :email, "<span class='obrigatorio'>*</span>E-mail:" %>
+        <%= s.label :email, "E-mail:", :class => :obrigatorio %>
         <%= s.text_field :email %>
       </div>
 
     <% end %>
 
     <div class="item">
-      <%= f.label :celular, "<span class='obrigatorio'>*</span>Celular:" %>
+      <%= f.label :celular, "Celular:", :class => :obrigatorio %>
       <%= f.text_field :celular %>
     </div>
 
@@ -47,7 +47,7 @@
     <legend>Dados da reserva</legend>
 
     <div class="item">
-      <%= f.label :data_de_reserva_br, "<span class='obrigatorio'>*</span>Data:" %>
+      <%= f.label :data_de_reserva_br, "Data:", :class => :obrigatorio %>
       <%= calendar_date_select_tag "requisicao_data_de_reserva_br",
                                     @requisicao.data_de_reserva ? @requisicao.data_de_reserva.to_s_br : "",
                                     :name => "requisicao[data_de_reserva_br]",
@@ -56,8 +56,7 @@
     </div>
 
     <div class="item">
-      <%= f.label :objetivo_de_reserva_id,
-                  "<span class='obrigatorio'>*</span>Objetivo:" %>
+      <%= f.label :objetivo_de_reserva_id, "Objetivo:", :class => :obrigatorio %>
       <select name="requisicao[objetivo_de_reserva_id]" id="requisicao_objetivo_de_reserva_id">
         <option value="">Selecione um objetivo</option>
         <% objetivo = ObjetivoDeReserva.find_all_by_status(ObjetivoDeReserva::ATIVO) %>
@@ -72,7 +71,7 @@
     </div>
 
     <div class="item">
-      <%= f.label :categoria_de_veiculo_id, "<span class='obrigatorio'>*</span>Veículo:" %>
+      <%= f.label :categoria_de_veiculo_id, "Veículo:", :class => :obrigatorio %>
       <%= f.select :categoria_de_veiculo_id,
                     CategoriaDeVeiculo.find_all_by_status(CategoriaDeVeiculo::ATIVO).collect {|categoria| [categoria.nome, categoria.id]},
                     {:include_blank => "Selecione uma categoria de veículo"} %>
@@ -81,8 +80,7 @@
 
     <div class="item">
       <div class="item_info_label">
-        <%= f.label :nome_telefone_passageiros,
-                    "<span class='obrigatorio'>*</span>Passageiros:" %>
+        <%= f.label :nome_telefone_passageiros, "Passageiros:", :class => :obrigatorio %>
 
         <div class="informacoes">
           <ul>
@@ -99,8 +97,7 @@
 
     <div class="item">
       <div class="item_info_label">
-        <%= f.label :roteiro_da_agenda,
-                    "<span class='obrigatorio'>*</span>Roteiro:" %>
+        <%= f.label :roteiro_da_agenda, "Roteiro:", :class => :obrigatorio %>
 
         <div class="informacoes">
           <ul>
@@ -167,7 +164,7 @@
     i) O passageiro ou motorista devem obedecer aos dispositivos disciplinares previstos no Decreto N° 41.952, de 16 de julho de 2009."
         </textarea>
         <%= f.check_box :termo %>
-        <%= f.label :termo, "Li e concordo com os termos<span class='obrigatorio'>*</span>" %>
+        <%= f.label :termo, "Li e concordo com os termos", :class => :obrigatorio %>
       </div>
     </div>
 

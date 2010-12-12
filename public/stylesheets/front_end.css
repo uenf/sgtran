@@ -52,7 +52,8 @@ input[type="submit"] {
     display: none;
 }
 
-.obrigatorio {
+.obrigatorio:before {
+    content: "*";
     color: red;
 }
 
