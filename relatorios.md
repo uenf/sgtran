@@ -15,7 +15,10 @@
 
 # Levantamentos para relatórios:
 
-## Km por centro (ver com Ailton como resolver *)
+## Km por centro (Colocar para cada requisição a quilometragem do BDT)
+
+Dados de entrada: DATA_INICIAL, DATA_FINAL, CENTRO_ID
+Saída: quilomentros percorridos entre as datas pelo centro
 
   + bdt tem a quilometragem
   + bdt está ligado a viagem
@@ -23,9 +26,24 @@
   + requisição está ligada ao solicitante
   + solicitante tem o centro
 
-  * Como fazer nesse caso, já que a viagem atende a mais de um centro? Como
-    dividir a quilometragem da viagem?
 
+bdts
+---------------------
+viagem_id
+data_partida
+data_recolhimento
+odometro_partida
+odometro_recolhimento
+
+requisicoes
+--------------
+viagem_id
+solicitante_id
+
+solicitantes
+-------------
+id
+centro_id
 
 ## Km percorridos em um determinado período
 
@@ -67,6 +85,7 @@ Saída: quilomentros percorridos entre as datas pelo motorista
 
 
 SELECT bdts.viagem_id, bdts.odometro_partida, bdts.odometro_recolhimento FROM bdts, motoristas_viagens where '2010-10-10' <= data_partida AND '2010-11-09' >= data_recolhimento AND motorista_id = 1;
+SELECT tabela1.viagem_id, tabela1.odometro_partida, tabela1.odometro_recolhimento FROM (SELECT * from bdts WHERE '2010-10-10' <= data_partida AND '2010-11-09' >= data_recolhimento) as tabela1 JOIN (SELECT viagem_id from motoristas_viagens WHERE motorista_id = 1) as tabela2 ON tabela1.viagem_id = tabela2.viagem_id;
 SELECT tabela1.viagem_id, tabela1.odometro_partida, tabela1.odometro_recolhimento FROM (SELECT * from bdts WHERE '2010-10-10' <= data_partida AND '2010-11-09' >= data_recolhimento) as tabela1 JOIN (SELECT viagem_id from motoristas_viagens WHERE motorista_id = 1) as tabela2 ON tabela1.viagem_id = tabela2.viagem_id;
 
 ## Km percorridos por veículo em um determinado período
