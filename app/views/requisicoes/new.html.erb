@@ -58,10 +58,17 @@
     <div class="item">
       <%= f.label :objetivo_de_reserva_id,
                   "<span class='obrigatorio'>*</span>Objetivo:" %>
-      <%= f.select :objetivo_de_reserva_id,
-                    ObjetivoDeReserva.find_all_by_status(ObjetivoDeReserva::ATIVO).collect {|objetivo| [objetivo.texto, objetivo.id]},
-                    {:include_blank => "Selecione um objetivo"},
-                    :onchange => "verificarOutros()" %>
+      <select name="requisicao[objetivo_de_reserva_id]" id="requisicao_objetivo_de_reserva_id">
+        <option value="">Selecione um objetivo</option>
+        <% objetivo = ObjetivoDeReserva.find_all_by_status(ObjetivoDeReserva::ATIVO) %>
+        <% objetivo.each do |obj| %>
+          <% if obj.eh_obrigatorio? %>
+            <option value="<%= obj.id %>" onclick="observacoesObrigatorio()"><%= obj.texto %></option>
+          <% else %>
+            <option value="<%= obj.id %>" onclick="removeObservacoesObrigatorio()"><%= obj.texto %></option>
+          <% end %>
+        <% end %>
+      </select>
     </div>
 
     <div class="item">
@@ -111,7 +118,7 @@
 
     <div class="item">
       <div class="item_info_label">
-        <%= f.label :observacao, "Observações:" %>
+        <%= f.label :observacao, "<span id='char_observacao' class='invisivel'>*</span>Observações:" %>
 
         <div class="informacoes">
           <ul>

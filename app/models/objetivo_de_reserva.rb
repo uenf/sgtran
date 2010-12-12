@@ -7,5 +7,10 @@ class ObjetivoDeReserva < ActiveRecord::Base
 
   validates_presence_of :texto
 
+
+  def eh_obrigatorio?
+    self.obrigatorio
+  end
+
 end
 
