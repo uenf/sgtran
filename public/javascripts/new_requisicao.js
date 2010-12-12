@@ -1,11 +1,7 @@
-function initialize()
-{
-}
-
 function observacoesObrigatorio() {
-    document.getElementById("char_observacao").className = 'obrigatorio'
+    document.getElementById("observacao_label").className = 'obrigatorio'
 }
 function removeObservacoesObrigatorio() {
-    document.getElementById("char_observacao").className = 'invisivel'
+    document.getElementById("observacao_label").className = ''
 }
 
