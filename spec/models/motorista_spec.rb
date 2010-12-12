@@ -29,7 +29,7 @@ describe Motorista do
     motorista.nome_e_sobrenome.should == "Hugo Vieira"
   end
 
-  it 'deve retornar uma lista com as quantidades de quilometros percorridos em um dado ano' do
+  it 'deve retornar a quantidade de quilometros percorridos em um intervalo de tempo' do
     motorista1 = Factory.create :motorista
     motorista2 = Factory.create :motorista
     viagem_maio = Factory.create :viagem, :motoristas => [motorista1],
@@ -51,8 +51,8 @@ describe Motorista do
                                :odometro_recolhimento => 23874,
                                :viagem_id => viagem_junho.id
 
-    bdt_julho = Factory.create :bdt, :data_partida => '01/03/2010',
-                               :data_recolhimento => '02/03/2010',
+    bdt_julho = Factory.create :bdt, :data_partida => '01/07/2009',
+                               :data_recolhimento => '02/07/2009',
                                :odometro_partida => 3380,
                                :odometro_recolhimento => 4620,
                                :viagem_id => viagem_julho.id
@@ -64,8 +64,8 @@ describe Motorista do
     motorista1.distancia_percorrida_entre('23/06/2009', '26/06/2009').should == 0
     motorista1.distancia_percorrida_entre('25/06/2009', '27/06/2009').should == 874
     motorista1.distancia_percorrida_entre('10/05/2009', '30/06/2009').should == 1374
-    motorista1.distancia_percorrida_entre('10/05/2009', '03/03/2010').should == 1374
-    motorista2.distancia_percorrida_entre('10/05/2009', '03/03/2010').should == 2114
+    motorista1.distancia_percorrida_entre('10/05/2009', '03/07/2009').should == 1374
+    motorista2.distancia_percorrida_entre('10/05/2009', '03/07/2009').should == 2114
   end
 
   it "deve verificar que sua carteira irá vencer em 30 dias" do
