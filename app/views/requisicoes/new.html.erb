@@ -141,28 +141,9 @@
 
     <div class="item">
       <div class="termo">
-        <textarea readonly="readonly">REGRAS DA ASTRAN PARA UTILIZAÇÃO DE VEÍCULOS
-
-
-  1.DOS VEÍCULOS:
-    1.1.ÔNIBUS, MICRO-ÔNIBUS E VAN
-      a) O limite máximo de afastamento dos ônibus do campus Leonel Brizola será de 800 km de raio e não serão permitidos afastamentos dos veículos em períodos superiores a 10 (dez) dias;
-      b) Será cancelada a saída do veículo que estiver com menos da metade de sua capacidade total, ou seja, veículo com capacidade para 16 passageiros deverá ter no mínimo 8 passageiros.
-
-  2.DO AGENDAMENTO:
-    a) Os agendamentos de veículos deverão ser solicitados via formulário on-line na página da ASTRAN e poderão ser solicitados com mínimo de 2 (dois) dias úteis e máximo de 15 (quinze) dias. Exceto os ônibus, micro-ônibus e Van que poderão ser requisitados a qualquer tempo (dentro do corrente ano);
-    b) Serão considerados os formulários que constar as seguintes informações:
-      - Data, horário e local da saída e de retorno;
-      - Responsável e destino da viagem;
-      - Nome e Telefone dos passageiros. E nas reservas dos Ônibus, Micro-ônibus e Van, a listagem com nome, CPF e contato telefônico dos passageiros, em até 24 horas antes da partida;
-    c) É responsabilidade do motorista decidir em quais locais será possível ter acesso com o veículo.
-    d) É vedado ingresso e permanência no ônibus de passageiros trajando roupas de banho, sem camisa, estando molhado; bem como o transporte e/ou ingestão de bebidas alcoólicas ou fumar no interior do veículo;
-    e) É responsabilidade de cada passageiro a conservação e guarda da bagagem pessoal;
-    f) O trajeto a ser realizado será aquele definido na requisição. Qualquer alteração deverá ter autorização da chefia da ASTRAN;
-    g) O cancelamento da agenda deverá ser notificado à ASTRAN via e-mail (agendas@uenf.br) com, no mínimo, 24 horas de antecedência;
-    h) O responsável solicitante da reserva deverá arcar com as despesas inerentes a viagem, tais como: combustível, motoristas, entre outras;
-    i) O passageiro ou motorista devem obedecer aos dispositivos disciplinares previstos no Decreto N° 41.952, de 16 de julho de 2009."
-        </textarea>
+        <div class="box">
+          <pre><%= configuracao.conteudo_termo %></pre>
+        </div>
         <%= f.check_box :termo %>
         <%= f.label :termo, "Li e concordo com os termos", :class => :obrigatorio %>
       </div>

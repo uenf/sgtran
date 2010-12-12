@@ -7,6 +7,7 @@ class CreateConfiguracoes < ActiveRecord::Migration
       t.date :data_inicial_proibicao
       t.date :data_final_proibicao
       t.boolean :ano_corrente, :default => true
+      t.text :conteudo_termo
 
       t.timestamps
     end
