@@ -7,12 +7,15 @@
     <legend>Proibir requisição durante o período</legend>
     <p>
       <%= f.label :data_inicial_proibicao_br, "Data inicial" %>
-      <%= f.calendar_date_select :data_inicial_proibicao_br, :year_range => range_valido %>
+      <%= f.calendar_date_select :data_inicial_proibicao_br,
+                                 :value => @configuracao.data_inicial_proibicao ?  @configuracao.data_inicial_proibicao.to_s_br : '',
+                                 :year_range => range_valido %>
     </p>
 
     <p>
       <%= f.label :data_final_proibicao_br, "Data final" %>
-      <%= f.calendar_date_select :data_final_proibicao_br %>
+      <%= f.calendar_date_select :data_final_proibicao_br,
+                                 :value => @configuracao.data_final_proibicao ?  @configuracao.data_final_proibicao.to_s_br : '' %>
     </p>
   </fieldset>
 

@@ -2,13 +2,12 @@
 
 - Definir os links para mudar determinado área (fazer como em Base de Dados)
 - Definir links que mudem os textos dos modelos no site.
-- Definir a possibilidade de no, objetivo de reserva, definir se é obrigatório ou não.
-- Adicionar as temo de utilização como um textarea.
+- Adicionar os termos de utilização como um textarea.
 - Mudar orgão utilizador por outra coisa (instituição)
 
 
 # Doing
-- Adicionar opção para desabilitar requisições durante um período
+- Definir a possibilidade de no, objetivo de reserva, definir se é obrigatório ou não.
 
 
 # Done
@@ -16,6 +15,7 @@
 - Fazer a restrição para alocação por categoria de veículo (data mínima e data máxima)
 - Adicionar campo para ser possível requisitar veículo desse ano e do ano corrente
 - Adicionar nome do setor de transporte
+- Adicionar opção para desabilitar requisições durante um período
 
 
 
