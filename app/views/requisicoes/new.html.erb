@@ -62,9 +62,9 @@
         <% objetivo = ObjetivoDeReserva.find_all_by_status(ObjetivoDeReserva::ATIVO) %>
         <% objetivo.each do |obj| %>
           <% if obj.eh_obrigatorio? %>
-            <option value="<%= obj.id %>" onclick="observacoesObrigatorio()"><%= obj.texto %></option>
+            <option value="<%= obj.id %>" onclick="observacoesObrigatorio('obrigatorio')"><%= obj.texto %></option>
           <% else %>
-            <option value="<%= obj.id %>" onclick="removeObservacoesObrigatorio()"><%= obj.texto %></option>
+            <option value="<%= obj.id %>" onclick="removeObservacoesObrigatorio('')"><%= obj.texto %></option>
           <% end %>
         <% end %>
       </select>

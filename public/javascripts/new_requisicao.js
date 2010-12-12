@@ -1,7 +1,7 @@
-function observacoesObrigatorio() {
-    document.getElementById("observacao_label").className = 'obrigatorio'
+function observacoesObrigatorio(cssClass) {
+    document.getElementById("observacao_label").className = cssClass
 }
-function removeObservacoesObrigatorio() {
-    document.getElementById("observacao_label").className = ''
+function removeObservacoesObrigatorio(cssClass) {
+    document.getElementById("observacao_label").className = cssClass
 }
 
