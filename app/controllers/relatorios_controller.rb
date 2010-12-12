@@ -21,7 +21,7 @@ class RelatoriosController < ApplicationController
 
     if @relatorio.valid?
 
-      @ano = @relatorio.data_inicial.year
+      @ano = @relatorio.ano
       @motoristas = Motorista.find(:all, :order => "nome ASC")
       @centros = Centro.find(:all, :order => "nome ASC")
       @km_total = Bdt.distancia_percorrida_entre("01/01/#{@ano}", "31/12/#{@ano}")
