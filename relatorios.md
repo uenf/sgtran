@@ -1,17 +1,16 @@
 # Fontes de prequisa:
 
 ## Plotagem de gráficos
-  * Gruff
-    - http://gruff.rubyforge.org/
-    - http://nubyonrails.com/pages/gruff
-    - http://www.igvita.com/2007/01/05/dynamic-stat-graphs-in-rails/
-    - http://tomcopeland.blogs.com/juniordeveloper/2006/02/charts_and_grap.html
   * Gchartrb
+    - http://github.com/deepakjois/gchartrb
     - http://badpopcorn.com/blog/2008/09/08/rails-google-charts-gchartrb/
-    - http://code.google.com/intl/pt-BR/apis/chart/
+    - http://blog.deepak.jois.name/search/label/gchartrb
+    - http://gchartrb.rubyforge.org/
+    - http://code.google.com/intl/en/apis/chart/docs/making_charts.html
 
 ## Geração do relatório
-  - https://github.com/sandrods/odf-report
+  *Odf-report
+    - https://github.com/sandrods/odf-report
 
 # Levantamentos para relatórios:
 

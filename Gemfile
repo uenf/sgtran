@@ -11,6 +11,7 @@ gem 'acl9', '0.12.0', :require => 'acl9'
 gem 'will_paginate', '2.3.11'
 gem 'i18n', '0.3.7'
 gem 'odf-report'
+gem 'gchartrb'
 
 group :development, :test, :cucumber do
     gem 'rspec',            '1.3.0'
