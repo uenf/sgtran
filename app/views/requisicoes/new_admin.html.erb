@@ -49,10 +49,17 @@
         <p>
           <%= f.label :objetivo_de_reserva_id, "Objetivo:",
                       :class => "label_obrigatorio" %>
-          <%= f.select :objetivo_de_reserva_id,
-                        ObjetivoDeReserva.find_all_by_status(ObjetivoDeReserva::ATIVO).collect {|objetivo| [objetivo.texto, objetivo.id]},
-                        {:include_blank => "Selecione um objetivo"},
-                        :onchange => "verificarOutros()" %>
+        <select name="requisicao[objetivo_de_reserva_id]" id="requisicao_objetivo_de_reserva_id">
+          <option value="">Selecione um objetivo</option>
+          <% objetivo = ObjetivoDeReserva.find_all_by_status(ObjetivoDeReserva::ATIVO) %>
+          <% objetivo.each do |obj| %>
+            <% if obj.eh_obrigatorio? %>
+              <option value="<%= obj.id %>" onclick="observacoesObrigatorio('label_obrigatorio')"><%= obj.texto %></option>
+            <% else %>
+              <option value="<%= obj.id %>" onclick="removeObservacoesObrigatorio('label')"><%= obj.texto %></option>
+            <% end %>
+          <% end %>
+      </select>
         </p>
 
         <p>
@@ -85,7 +92,7 @@
         </p>
         <p>
           <div class="label_lateral">
-            <%= f.label :observacao, "Observações:", :class => "label" %>
+            <%= f.label :observacao, "Observações:", :class => "label", :id => 'observacao_label' %>
             <ul>
               Utilizar este espaço nos casos de:
               <li>

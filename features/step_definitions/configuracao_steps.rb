@@ -22,6 +22,10 @@ Dado /^que é possível requisitar veículo (.+) ano$/ do |opcao|
   end
 end
 
+Dado /^que o termo deve conter "([^"]*)"$/ do |conteudo|
+  @configuracao.update_attribute(:conteudo_termo, conteudo)
+end
+
 Então /^eu devo ver a mensagem de proibição$/ do
   str = "Excepcionalmente entre as datas #{@configuracao.data_inicial_proibicao.to_s_br} \
 e #{@configuracao.data_final_proibicao.to_s_br} não aceitaremos requisição."

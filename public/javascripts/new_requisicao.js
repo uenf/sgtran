@@ -1,11 +1,7 @@
-function initialize()
-{
+function observacoesObrigatorio(cssClass) {
+    document.getElementById("observacao_label").className = cssClass
 }
-
-function observacoesObrigatorio() {
-    document.getElementById("char_observacao").className = 'obrigatorio'
-}
-function removeObservacoesObrigatorio() {
-    document.getElementById("char_observacao").className = 'invisivel'
+function removeObservacoesObrigatorio(cssClass) {
+    document.getElementById("observacao_label").className = cssClass
 }
 

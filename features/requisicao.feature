@@ -261,7 +261,6 @@ Funcionalidade: Solicitar viagem
     | este        | 2              | Requisição enviada com sucesso             |
     | em qualquer | 370            | Requisição enviada com sucesso             |
 
-  @now
   Esquema do Cenário: Um objetivo de reserva pode ser ou não obrigatório
     Dado que eu tenho uma configuração inicial
     E que eu tenha a categoria de veículo "Automóvel até 4 passageiros" padrão
@@ -287,4 +286,14 @@ Funcionalidade: Solicitar viagem
     | obrigatório     |                   | Observações não pode ser vazio |
     | não obrigatório | Alguma observação | Requisição enviada com sucesso |
     | não obrigatório |                   | Requisição enviada com sucesso |
+
+  @now
+  Cenário: O texto do termo deve ser definido por mim
+    Dado que eu tenho uma configuração inicial
+    E que o termo deve conter "<b>Texto do termo aqui</b>"
+    E que eu tenha a categoria de veículo "Automóvel até 4 passageiros" padrão
+    E que eu tenha um objetivo de reserva "Aula de Campo" obrigatório
+    E que eu tenha um solicitante com e-mail "ronaldo@corinthians.com", matrícula "00210" e centro "P5"
+    E que eu estou na página de requisição
+    Então eu devo ver "Texto do termo aqui"
 
