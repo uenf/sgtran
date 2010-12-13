@@ -18,6 +18,56 @@ describe Motorista do
     Motorista.create!(@valid_attributes)
   end
 
+  it "deve retornar o primeiro e último nome" do
+    motorista = Factory.create :motorista, :nome => "Ailton Algumas Coisa da Silva"
+    motorista.nome_e_sobrenome.should == "Ailton da Silva"
+
+    motorista.nome = "ROGERIO ATEM DE CARVALHO"
+    motorista.nome_e_sobrenome.should == "ROGERIO DE CARVALHO"
+
+    motorista.nome = "Hugo Henriques Maia Vieira"
+    motorista.nome_e_sobrenome.should == "Hugo Vieira"
+  end
+
+  it 'deve retornar a quantidade de quilometros percorridos em um intervalo de tempo' do
+    motorista1 = Factory.create :motorista
+    motorista2 = Factory.create :motorista
+    viagem_maio = Factory.create :viagem, :motoristas => [motorista1],
+                                          :estado => Viagem::ATENDIDA
+    viagem_junho = Factory.create :viagem, :motoristas => [motorista1, motorista2],
+                                          :estado => Viagem::ATENDIDA
+    viagem_julho = Factory.create :viagem, :motoristas => [motorista2],
+                                          :estado => Viagem::ATENDIDA
+
+    bdt_maio = Factory.create :bdt, :data_partida => '19/05/2009',
+                              :data_recolhimento => '19/05/2009',
+                              :odometro_partida => 12000,
+                              :odometro_recolhimento => 12500,
+                              :viagem_id => viagem_maio.id
+
+    bdt_junho = Factory.create :bdt, :data_partida => '25/06/2009',
+                               :data_recolhimento => '27/06/2009',
+                               :odometro_partida => 23000,
+                               :odometro_recolhimento => 23874,
+                               :viagem_id => viagem_junho.id
+
+    bdt_julho = Factory.create :bdt, :data_partida => '01/07/2009',
+                               :data_recolhimento => '02/07/2009',
+                               :odometro_partida => 3380,
+                               :odometro_recolhimento => 4620,
+                               :viagem_id => viagem_julho.id
+
+    motorista1.distancia_percorrida_entre('05/05/2009', '18/05/2009').should == 0
+    motorista1.distancia_percorrida_entre('18/05/2009', '19/05/2009').should == 500
+    motorista1.distancia_percorrida_entre('19/05/2009', '19/05/2009').should == 500
+    motorista1.distancia_percorrida_entre('19/05/2009', '20/05/2009').should == 500
+    motorista1.distancia_percorrida_entre('23/06/2009', '26/06/2009').should == 0
+    motorista1.distancia_percorrida_entre('25/06/2009', '27/06/2009').should == 874
+    motorista1.distancia_percorrida_entre('10/05/2009', '30/06/2009').should == 1374
+    motorista1.distancia_percorrida_entre('10/05/2009', '03/07/2009').should == 1374
+    motorista2.distancia_percorrida_entre('10/05/2009', '03/07/2009').should == 2114
+  end
+
   it "deve verificar que sua carteira irá vencer em 30 dias" do
     motorista = Factory.create :motorista,
                                :vencimento_habilitacao => Date.today + 30.days

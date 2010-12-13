@@ -74,6 +74,33 @@ class Motorista < ActiveRecord::Base
     return motoristas_desocupados
   end
 
+  def distancia_percorrida_entre inicio, fim
+    inicio =  inicio.to_date
+    fim =  fim.to_date
+
+    bdts = Bdt.find_by_sql(["SELECT * FROM (SELECT
+             viagem_id, odometro_recolhimento, odometro_partida FROM bdts WHERE
+             :inicio <= data_partida AND :fim >= data_recolhimento) AS t1 JOIN
+             (SELECT viagem_id FROM motoristas_viagens WHERE motorista_id = :id) AS t2
+             ON t1.viagem_id = t2.viagem_id",
+             {:inicio => inicio, :fim => fim, :id => self.id}])
+
+    soma_km = 0
+    bdts.each do |bdt|
+      soma_km += bdt.distancia_percorrida
+    end
+    soma_km
+  end
+
+  def nome_e_sobrenome
+    conectores = ['da', 'das', 'do', 'dos', 'de']
+    nome_lista = self.nome.split
+    if conectores.include? nome_lista[-2].downcase
+      return "#{nome_lista.first} #{nome_lista[-2]} #{nome_lista.last}"
+    end
+    "#{nome_lista.first} #{nome_lista.last}"
+  end
+
   def ativo?
     self.status == "Ativo"
   end
