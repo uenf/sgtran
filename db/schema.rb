@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(:version => 20101122194231) do
   end
 
   create_table "configuracoes", :force => true do |t|
-    t.string   "orgao_utilizador",       :default => "Universidade Estadual do Norte Fluminense Darcy Ribeiro"
+    t.string   "instituicao",            :default => "Universidade Estadual do Norte Fluminense Darcy Ribeiro"
     t.string   "nome_do_setor",          :default => "Assessoria de Transporte"
     t.boolean  "formulario_ativo",       :default => true
     t.date     "data_inicial_proibicao"

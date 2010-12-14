@@ -1,4 +1,5 @@
 class RelatoriosController < ApplicationController
+
   require 'google_chart'
 
   access_control do

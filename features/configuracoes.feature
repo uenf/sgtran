@@ -5,12 +5,12 @@ Como um administrador
 Eu quero configurar o sistema
 Para que ele possa se adaptar as minhas necessidades
 
-  Cenário: Mudar o nome do órgão utilizador do sistema
+  Cenário: Mudar o nome da instituição do sistema
     Dado que eu tenho uma configuração inicial
     E que eu sou um usuário administrador logado
     Quando eu clico em "Configurações"
     E eu clico em "Instituição utilizadora"
-    E eu preencho "Órgão utilizador" com "CEDERJ"
+    E eu preencho "Instituição" com "CEDERJ"
     E eu pressiono "Salvar"
     Então eu devo ver "Configurações atualizadas com sucesso."
     E eu devo estar na página das configurações

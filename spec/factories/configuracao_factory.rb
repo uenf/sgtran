@@ -1,5 +1,5 @@
 Factory.define :configuracao do |configuracao|
-  configuracao.orgao_utilizador 'Universidade Estadual do Norte Fluminense'
+  configuracao.instituicao 'Universidade Estadual do Norte Fluminense'
   configuracao.formulario_ativo true
 end
 

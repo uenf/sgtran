@@ -1,7 +1,7 @@
 <% configuracao = Configuracao.all.first %>
 
 <% content_for :head do %>
-  <title>Requisição de veículo: <%= configuracao.orgao_utilizador %></title>
+  <title>Requisição de veículo: <%= configuracao.instituicao %></title>
   <%= javascript_include_tag :defaults %>
   <%= javascript_include_tag "new_requisicao.js" %>
   <%= calendar_date_select_includes "red", :locale => "pt"%>

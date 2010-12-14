@@ -2,7 +2,6 @@
 
 - Definir links que mudem os textos dos modelos no site.
 - Adicionar os termos de utilização como um textarea.
-- Mudar orgão utilizador por outra coisa (instituição)
 
 
 # Doing
@@ -15,6 +14,7 @@
 - Adicionar nome do setor de transporte
 - Adicionar opção para desabilitar requisições durante um período
 - Definir a possibilidade de no, objetivo de reserva, definir se é obrigatório ou não.
+- Mudar orgão utilizador por outra coisa (instituição)
 
 
 

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Configuracao do
   before(:each) do
     @valid_attributes = {
-      :orgao_utilizador => "value for orgao_utilizador"
+      :instituicao => "value for instituicao"
     }
   end
 
