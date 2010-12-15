@@ -33,7 +33,8 @@ class RelatoriosController < ApplicationController
 
         r.add_field 'ANO', @ano
         r.add_field 'KM_MEDIA_MOTORISTA', milhar(@km_total/@motoristas.count)
-        # XXX: Tem que corrigir o odf-report para poder funcionar o código abaixo
+        # XXX: Adiconar essa imagem nas configurações para poder substituir aqui.
+        #      Lembrar de colocar o nome da imagem do odt e ripar a imagem de lá
         # r.add_image 'CABECALHO', "#{RAILS_ROOT}/public/images/cabecalho_relatorio.eps"
 
         nome_meses=['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago',
@@ -54,16 +55,16 @@ class RelatoriosController < ApplicationController
             bc.data "#{nome_meses[i]} - #{milhar(km_geral[i])}", [km_geral[i]], cores[i]
           end
           bc.width_spacing_options :bar_width => 20, :bar_spacing => 8
-          system "wget -O '/tmp/km_barras.png' '#{bc.to_url(:chts => '676767,16')}'"
-          r.add_image 'KM_BARRAS', '/tmp/km_barras.png'
+          system "wget -O '/tmp/10000000000001C20000019015AFAFCA.png' '#{bc.to_url(:chts => '676767,16')}'"
+          r.add_image 'KM_BARRAS', '/tmp/10000000000001C20000019015AFAFCA.png'
         end
 
         GoogleChart::PieChart.new('400x300', 'Porcentagem de quilômetros rodados no ano', false) do |pc|
           for i in 0..11 do
             pc.data nome_meses[i], km_geral[i], cores[i]
           end
-          system "wget -O '/tmp/km_pizza.png' '#{pc.to_url(:chts => '676767,16')}'"
-          r.add_image 'KM_PIZZA', '/tmp/km_pizza.png'
+          system "wget -O '/tmp/10000000000001900000012CEF03521D.png' '#{pc.to_url(:chts => '676767,16')}'"
+          r.add_image 'KM_PIZZA', '/tmp/10000000000001900000012CEF03521D.png'
         end
 
         # XXX: Está sendo feito 12x iterações do que o necessário. Isso devido
@@ -114,6 +115,17 @@ class RelatoriosController < ApplicationController
                                     "01/12/#{@ano}", "31/12/#{@ano}"))}
           t.add_column('TOTAL') { |centro| milhar(centro.distancia_percorrida_entre(
                                     "01/01/#{@ano}", "31/12/#{@ano}"))}
+        end
+
+        GoogleChart::PieChart.new('450x300', 'Porcentagem de quilômetros rodados por centro', false) do |pc|
+          @centros.each do |centro|
+            pc.data centro.nome,
+                    centro.distancia_percorrida_entre("01/01/#{@ano}",
+                                                      "31/12/#{@ano}"),
+                    "%06x" % (rand * 0xffffff) # Cor aleatória
+          end
+          system "wget -O '/tmp/10000000000001C20000012CF01E15F4.png' '#{pc.to_url(:chts => '676767,16')}'"
+          r.add_image 'CENTROS_PIZZA', '/tmp/10000000000001C20000012CF01E15F4.png'
         end
 
         r.add_table("TABELA_KM_MOTORISTA", @motoristas, :header=>true) do |t|
