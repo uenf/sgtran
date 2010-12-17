@@ -10,7 +10,7 @@ Para que ele possa se adaptar as minhas necessidades
     E que eu sou um usuário administrador logado
     Quando eu clico em "Configurações"
     E eu clico em "Instituição utilizadora"
-    E eu preencho "Instituição" com "CEDERJ"
+    E eu preencho "Nome" com "CEDERJ"
     E eu pressiono "Salvar"
     Então eu devo ver "Configurações atualizadas com sucesso."
     E eu devo estar na página das configurações
