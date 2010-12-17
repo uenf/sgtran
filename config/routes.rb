@@ -26,6 +26,7 @@ ActionController::Routing::Routes.draw do |map|
 
   # Rotas para relatórios
   map.relatorios_quilometragem "relatorios/quilometragem", :controller => "relatorios", :action => "quilometragem"
+  map.relatorios_atendimento "relatorios/atendimento", :controller => "relatorios", :action => "atendimento"
   map.resources :relatorios
 
   # Rotas para requisições

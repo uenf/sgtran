@@ -8,15 +8,15 @@ class RelatoriosController < ApplicationController
 
   layout "sistema"
 
+  def milhar numero
+    numero.to_s.contabil[0..-4]
+  end
+
   def index
   end
 
   def quilometragem
     @relatorio = Relatorio.new
-  end
-
-  def milhar numero
-    numero.to_s.contabil[0..-4]
   end
 
   def generate_quilometragem
@@ -166,6 +166,58 @@ class RelatoriosController < ApplicationController
           t.add_column('TOTAL') { |motorista| milhar(motorista.distancia_percorrida_entre(
                                     "01/01/#{@ano}", "31/12/#{@ano}"))}
         end
+
+      end
+
+      report_file_name = report.generate
+      send_file(report_file_name)
+
+    else
+      render :action => :quilometragem
+    end
+  end
+
+  def atendimento
+    @relatorio = Relatorio.new
+  end
+
+  def porcentagem parte, total
+    "%.1f%" % (parte*100/total.to_f)
+  end
+
+  def generate_atendimento
+    @relatorio = Relatorio.new(params[:relatorio])
+
+    if @relatorio.valid?
+
+      @ano = @relatorio.ano
+      @centros = Centro.find(:all, :order => "nome ASC")
+      @total = Bdt.distancia_percorrida_entre("01/01/#{@ano}", "31/12/#{@ano}")
+
+      report = ODFReport::Report.new("#{RAILS_ROOT}/public/reports/atendimento.odt") do |r|
+
+        r.add_field 'ANO', @ano
+        # XXX: Adiconar essa imagem nas configurações para poder substituir aqui.
+        #      Lembrar de colocar o nome da imagem do odt e ripar a imagem de lá
+        # r.add_image 'CABECALHO', "#{RAILS_ROOT}/public/images/cabecalho_relatorio.eps"
+
+#        tem que adicionar as datas de inicio e fim nessas consultas
+        total = Requisicao.find(:all, :conditions => [
+                                      "estado != ? AND estado != ?",
+                                      Requisicao::ESPERA, Requisicao::ACEITA]).count
+        r.add_field 'GERAL_TOTAL', total
+        atendidas = Requisicao.find_all_by_estado(Requisicao::FINALIZADA).count
+        r.add_field 'GERAL_ATEN', atendidas
+        r.add_field 'GERAL_ATEN_PORC', porcentagem(atendidas,total)
+        rejeitadas = Requisicao.find_all_by_estado(Requisicao::REJEITADA).count
+        r.add_field 'GERAL_REJEI', rejeitadas
+        r.add_field 'GERAL_REJEI_PORC', porcentagem(rejeitadas,total)
+        canceladas_setor = Requisicao.find_all_by_estado(Requisicao::CANCELADO_PELO_SISTEMA).count
+        r.add_field 'GERAL_C_SET', canceladas_setor
+        r.add_field 'GERAL_C_SET_PORC', porcentagem(canceladas_setor,total)
+        canceladas_solicitante = Requisicao.find_all_by_estado(Requisicao::CANCELADO_PELO_PROFESSOR).count
+        r.add_field 'GERAL_C_SOL', canceladas_solicitante
+        r.add_field 'GERAL_C_SOL_PORC', porcentagem(canceladas_solicitante,total)
 
       end
 

@@ -1,0 +1,15 @@
+<div id="tabela_exibir">
+  <h1>Relatório anual de atendimento</h1>
+
+  <% form_for @relatorio, :url => {:action => 'generate_atendimento'} do |f| %>
+    <%= mensagem_de_erro(@relatorio) %>
+
+    <p>
+      <%= f.label :ano, "Ano" %>
+      <%= f.text_field :ano %>
+    </p>
+
+    <%= f.submit 'Gerar relatório' %>
+  <% end %>
+</div>
+
