@@ -77,7 +77,7 @@ Para que ele possa se adaptar as minhas necessidades
     E que eu sou um usuário administrador logado
     Quando eu clico em "Configurações"
     E eu clico em "Formulário de requisição"
-    E eu marco "Somente para este ano"
+    E eu marco "Ano corrente"
     E eu pressiono "Salvar"
     Então eu devo ver "Configurações atualizadas com sucesso."
 
