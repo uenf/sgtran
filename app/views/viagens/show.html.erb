@@ -75,7 +75,7 @@
     </li>
     <% if current_user and current_user.has_role? :admin %>
       <% if viagem_pode_ser_cancelada(@viagem.estado) %>
-        <li id="opcao_excluir" onclick="location.href='<%= cancelar_viagem_path(@viagem) %>'"
+        <li id="opcao_cancelar" onclick="location.href='<%= cancelar_viagem_path(@viagem) %>'"
         onmouseover="this.style.cursor='pointer'">
           <%= link_to "Cancelar viagem", cancelar_viagem_path(@viagem) %>
         </li>
