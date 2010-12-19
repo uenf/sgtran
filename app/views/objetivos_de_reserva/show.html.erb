@@ -12,6 +12,11 @@
     <span><%=h @objetivo_de_reserva.status %></span>
   </p>
 
+  <p>
+    <label>Obs. obrigatória:</label>
+    <span><%=h @objetivo_de_reserva.obrigatorio ? 'Sim' : 'Não' %></span>
+  </p>
+
 </div>
 
 <div id="opcoes_da_visao">

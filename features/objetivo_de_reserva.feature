@@ -11,7 +11,7 @@ Para que eu possa adicinar, editar e utilizar no sistema
     Dado que eu sou um usuário administrador logado
     E que eu estou na página de adição de objetivo de reserva
     Quando eu preencho "Texto" com "<texto>"
-    E eu marco "Obrigatório"
+    E eu marco "Obs. obrigatória"
     E eu pressiono "Salvar"
     Então eu devo ver "<sentença>"
 

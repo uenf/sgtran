@@ -12,8 +12,8 @@ Para que eu possa utiliza-la no sistema
     E que eu sou um usuário administrador logado
     E que eu estou na página de adição de categoria de veículo
     Quando eu preencho "Nome" com "<Nome>"
-    E eu preencho "Mínimo (dias):" com "<Mínimo>"
-    E eu preencho "Máximo (dias):" com "<Máximo>"
+    E eu preencho "Mínimo:" com "<Mínimo>"
+    E eu preencho "Máximo:" com "<Máximo>"
     E eu pressiono "Salvar"
     Então eu devo ver "<Sentença>"
 

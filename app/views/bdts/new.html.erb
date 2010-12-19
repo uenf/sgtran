@@ -42,7 +42,6 @@
         <%= calendar_date_select_tag "bdt_data_partida",
             @viagem.data_partida ? @viagem.data_partida.to_date.to_s_br : "",
             :name => "bdt[data_partida]",
-            :year_range => [0.years.ago, 2.years.from_now],
             :month_year => "label",
             :class => "campo_de_poucos_digitos"%>
       </p>
@@ -67,7 +66,6 @@
         <%= calendar_date_select_tag "bdt_data_recolhimento",
             @viagem.data_chegada ? @viagem.data_chegada.to_date.to_s_br : "",
             :name => "bdt[data_recolhimento]",
-            :year_range => [0.years.ago, 2.years.from_now],
             :month_year => "label",
             :class => "campo_de_poucos_digitos"%>
       </p>

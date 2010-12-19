@@ -1,4 +1,4 @@
-<div id="tabela_exibir">
+<div class="show_padrao">
   <h1>Relatório anual de atendimento</h1>
 
   <% form_for @relatorio, :url => {:action => 'generate_atendimento'} do |f| %>
@@ -6,7 +6,7 @@
 
     <p>
       <%= f.label :ano, "Ano" %>
-      <%= f.text_field :ano %>
+      <%= f.text_field :ano, :class => "campo_de_poucos_digitos" %>
     </p>
 
     <%= f.submit 'Gerar relatório' %>

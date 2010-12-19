@@ -104,8 +104,8 @@ Para que ele possa se adaptar as minhas necessidades
     Dado que eu tenho uma configuração inicial
     E que eu sou um usuário administrador logado
     Quando eu clico em "Configurações"
-    E eu clico em "Mudar 'Centro' para 'Setor'"
-    E eu preencho "Novo nome" com "Setor"
+    E eu clico em "Instituição utilizadora"
+    E eu preencho "Unidade hierárquica" com "Setor"
     E eu pressiono "Salvar"
     Então eu devo ver "Configurações atualizadas com sucesso."
     E todos os campos Centro devem estar como Setor

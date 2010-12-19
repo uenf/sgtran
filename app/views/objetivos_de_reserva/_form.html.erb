@@ -7,14 +7,14 @@
   </p>
 
   <p>
-    <%= f.check_box :obrigatorio %>
-    <%= f.label :obrigatorio, "Obrigatório" %>
-  </p>
-
-  <p>
     <%= f.label :status, "Status:", :class => "label_obrigatorio" %>
     <%= f.select :status, {Solicitante::ATIVO => Solicitante::ATIVO,
                            Solicitante::INATIVO => Solicitante::INATIVO} %>
+  </p>
+
+  <p>
+    <%= f.check_box :obrigatorio %>
+    <%= f.label :obrigatorio, "Obs. obrigatória" %>
   </p>
 
   <%= f.submit 'Salvar' %>
