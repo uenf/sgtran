@@ -78,26 +78,15 @@ Dado /^que a requisição esteja no meu conjunto de requisições$/ do
   @conjunto_de_requisicoes[@requisicao.id] = @requisicao
 end
 
-Dado /^que hoje é (.+)$/ do |dia_da_semana|
-  if dia_da_semana == "Sexta-feira"
-    def Requisicao.hoje
-      (Date.new.end_of_week - 2.days).strftime("%A")
-    end
-  elsif dia_da_semana == "Sábado"
-    def Requisicao.hoje
-      (Date.new.end_of_week - 1.days).strftime("%A")
-    end
-  else
-    def Requisicao.hoje
-      Date.new.end_of_week.strftime("%A")
-    end
+Dado /^que hoje é (.+) às (\d+):(\d+):(\d+)$/ do |dia, horas, minutos, segundos|
+  if dia == "Sexta-Feira"
+    time = Time.local(2010, 12, 17, horas.to_i, minutos.to_s, segundos.to_i)
+  elsif dia == "Sábado"
+    time = Time.local(2010, 12, 18, horas.to_i, minutos.to_s, segundos.to_i)
+  elsif dia == "Domingo"
+    time = Time.local(2010, 12, 19, horas.to_i, minutos.to_s, segundos.to_i)
   end
-end
-
-Dado /^que agora é (\d+)$/ do |hora|
-  def Requisicao.hora_atual
-    hora.to_i
-  end
+  Timecop.freeze(time)
 end
 
 Quando /^eu preencho data de "([^\"]*)" com "([^\"]*)"$/ do |campo, data|
@@ -220,5 +209,9 @@ Então /^o local de destino da requisição com id "([^"]*)" deve ser "([^"]*)" 
   @requisicao = @conjunto_de_requisicoes[requisicao_id.to_i]
   @requisicao.reload
   @requisicao.local_destino_id.should == cidade.id
+end
+
+Então /^que o Timecop volta ao normal$/ do
+  Timecop.return
 end
 

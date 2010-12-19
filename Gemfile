@@ -1,6 +1,7 @@
 source :gemcutter
 
 
+
 gem 'rails', '2.3.8'
 gem 'mysql', '2.8.1'
 
@@ -18,6 +19,7 @@ group :development, :test, :cucumber do
     gem 'rspec-rails',      '1.3.2'
     gem 'factory_girl',     '1.3.2', :require => 'factory_girl'
     gem 'remarkable_rails', '3.1.10'
+    gem 'timecop'
 end
 
 group :cucumber do

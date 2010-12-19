@@ -26,6 +26,9 @@ config.action_mailer.delivery_method = :test
 # This is necessary if your schema can't be completely dumped by the schema dumper,
 # like if you have constraints or database-specific column types
 # config.active_record.schema_format = :sql
+config.after_initialize do
+  # Set Time.now to September 1, 2008 10:05:00 AM (at this instant), but allow it to move forward
+  t = Time.local(2010, 8, 2, 10, 0, 0)
+  Timecop.travel(t)
+end
 
-
-  config.gem 'rspec-rails', :version => '>= 1.3.2', :lib => false unless File.directory?(File.join(Rails.root, 'vendor/plugins/rspec-rails'))

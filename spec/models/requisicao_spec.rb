@@ -176,25 +176,98 @@ describe Requisicao do
 
     end
 
-    describe 'requisição para o fim de semana' do
+    describe 'impedir requisição para o fim de semana' do
 
-      it 'sexta-feira após 18h pedir para sábado' do
-        class Requisicao
-          def self.hora; 18; end
-          def self.hoje; Date.today.end_of_week - 2.days; end
+      it 'sexta-feira após 18h' do
+        # Define o time para 17/12/2010 (uma sexta-feira) às 18:00
+        novo_tempo = Time.local(2010, 12, 17, 18, 0, 0)
+        Timecop.freeze(novo_tempo) do
+
+          categoria_de_veiculo = Factory.create :categoria_de_veiculo,
+                                                  :numero_minimo_dias => 0,
+                                                  :numero_maximo_dias => 0
+          objetivo_de_reserva = Factory.create :objetivo_de_reserva
+          requisicao = []
+
+          # Sexta-feira, Sábado, Domingo, Segunda-feira às 18h
+          (0..3).each do |i|
+            requisicao[i] = Factory.build :requisicao,
+                             :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                             :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                             :data_de_reserva => Date.today + i.days
+          end
+          (0..3).each do |i|
+            requisicao[i].para_o_fim_de_semana?.should be_true
+            requisicao[i].save.should be_false
+            requisicao[i].errors.to_a.should include(["base","Requisição não pode ser feita após o expediente para o fim de semana."])
+          end
         end
 
-        categoria_de_veiculo = Factory.create :categoria_de_veiculo,
-                                                :numero_minimo_dias => 0,
-                                                :numero_maximo_dias => 0
-        objetivo_de_reserva = Factory.create :objetivo_de_reserva
-        requisicao = Factory.build :requisicao,
-                           :categoria_de_veiculo_id => categoria_de_veiculo.id,
-                           :objetivo_de_reserva_id => objetivo_de_reserva.id,
-                           :data_de_reserva => Date.new.end_of_week - 1.day
-        requisicao.para_o_fim_de_semana?.should be_true
-        requisicao.save.should be_false
-        requisicao.errors.to_a.should include("Requisição não pode ser feita após o expediente para o fim de semana.")
+        # Define o time para 17/12/2010 às 17:59 para testar a requisição para Segunda-feira
+        novo_tempo = Time.local(2010, 12, 17, 17, 59, 0)
+        Timecop.freeze(novo_tempo) do
+          categoria_de_veiculo = Factory.create :categoria_de_veiculo,
+                                                  :numero_minimo_dias => 0,
+                                                  :numero_maximo_dias => 0
+          objetivo_de_reserva = Factory.create :objetivo_de_reserva
+          requisicao = Factory.build :requisicao,
+                             :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                             :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                             :data_de_reserva => Date.today + 3.days
+          requisicao.para_o_fim_de_semana?.should be_false
+          requisicao.save.should be_true
+        end
+      end
+
+      it 'sábado qualquer horário' do
+        novo_tempo = Time.local(2010, 12, 18, 13, 59, 0)
+        Timecop.freeze(novo_tempo) do
+          categoria_de_veiculo = Factory.create :categoria_de_veiculo,
+                                                  :numero_minimo_dias => 0,
+                                                  :numero_maximo_dias => 0
+          objetivo_de_reserva = Factory.create :objetivo_de_reserva
+          requisicao = []
+
+          # Sábado, Domingo, Segunda-feira
+          (0..2).each do |i|
+            requisicao[i] = Factory.build :requisicao,
+                             :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                             :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                             :data_de_reserva => Date.today + i.days
+          end
+
+          (0..2).each do |i|
+            requisicao[i].para_o_fim_de_semana?.should be_true
+            requisicao[i].save.should be_false
+          end
+        end
+      end
+
+      it 'domingo qualquer horário' do
+        novo_tempo = Time.local(2010, 12, 19, 13, 59, 0)
+        Timecop.freeze(novo_tempo) do
+          categoria_de_veiculo = Factory.create :categoria_de_veiculo,
+                                                  :numero_minimo_dias => 0,
+                                                  :numero_maximo_dias => 0
+          objetivo_de_reserva = Factory.create :objetivo_de_reserva
+          requisicao = []
+
+          # Domingo, Segunda-feira
+          (0..2).each do |i|
+            requisicao[i] = Factory.build :requisicao,
+                             :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                             :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                             :data_de_reserva => Date.today + i.days
+          end
+
+          (0..1).each do |i|
+            requisicao[i].para_o_fim_de_semana?.should be_true
+            requisicao[i].save.should be_false
+          end
+
+          requisicao[2].para_o_fim_de_semana?.should be_false
+          requisicao[2].save.should be_true
+        end
       end
 
     end

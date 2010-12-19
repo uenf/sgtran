@@ -320,8 +320,7 @@ Funcionalidade: Solicitar viagem
     E que eu tenha a categoria de veículo "Automóvel até 4 passageiros" padrão
     E que eu tenha um objetivo de reserva "Aula de Campo" <Obrigatoriedade>
     E que eu tenha um solicitante com e-mail "ronaldo@corinthians.com", matrícula "00210" e centro "P5"
-    E que hoje é <Dia>
-    E que agora é <Hora>
+    E que hoje é <Dia> às <Hora>
     E que eu estou na página de requisição
     Quando eu preencho "Matrícula" com "210"
     E eu preencho "E-mail" com "ronaldo@corinthians.com"
@@ -335,9 +334,21 @@ Funcionalidade: Solicitar viagem
     E eu marco "Li e concordo com os termos"
     E eu pressiono "Enviar requisição"
     Então eu devo ver "<Resposta>"
+    E que o Timecop volta ao normal
 
     Exemplos:
-    | Dia         | Hora | Dias para requisição | Resposta                                                              |
-    | Sexta-feira | 17   | 1                    | Requisição enviada com sucesso!                                       |
-    | Sexta-feira | 18   | 1                    | Requisição não pode ser feita após o expediente para o fim de semana. |
+    | Dia         | Hora     | Dias para requisição | Resposta                                                              |
+    | Sexta-Feira | 17:59:00 | 1                    | Requisição enviada com sucesso!                                       |
+    | Sexta-Feira | 18:01:00 | 0                    | Requisição não pode ser feita após o expediente para o fim de semana. |
+    | Sexta-Feira | 18:00:00 | 1                    | Requisição não pode ser feita após o expediente para o fim de semana. |
+    | Sexta-Feira | 10:00:00 | 2                    | Requisição enviada com sucesso!                                       |
+    | Sexta-Feira | 13:59:00 | 3                    | Requisição enviada com sucesso!                                       |
+    | Sexta-Feira | 18:00:00 | 4                    | Requisição enviada com sucesso!                                       |
+    | Sábado      | 13:59:00 | 0                    | Requisição não pode ser feita após o expediente para o fim de semana. |
+    | Sábado      | 13:59:00 | 1                    | Requisição não pode ser feita após o expediente para o fim de semana. |
+    | Sábado      | 13:59:00 | 2                    | Requisição não pode ser feita após o expediente para o fim de semana. |
+    | Sábado      | 13:59:00 | 4                    | Requisição enviada com sucesso!                                       |
+    | Domingo     | 13:59:00 | 0                    | Requisição não pode ser feita após o expediente para o fim de semana. |
+    | Domingo     | 13:59:00 | 1                    | Requisição não pode ser feita após o expediente para o fim de semana. |
+    | Domingo     | 13:59:00 | 2                    | Requisição enviada com sucesso!                                       |
 

@@ -312,20 +312,15 @@ class Requisicao < ActiveRecord::Base
     self.viagem.nil?
   end
 
-  def self.hora
-    puts Time.now.strftime("%H")
-    Time.now.strftime("%H").to_i
-  end
-
-  def self.hoje
-    puts Date.today.strftime("%A")
-    Date.today.strftime("%A")
-  end
-
   def para_o_fim_de_semana?
-    if Requisicao.hoje == 'Domingo' and Requisicao.hora >= 18
-      return true
+    dias = {'Sexta-Feira' => 3, 'Sábado' => 2, 'Domingo' => 1}
+    dia_atual = Date.today.strftime("%A")
+
+    if (dia_atual == "Sexta-Feira" and Time.now.strftime("%H").to_i >= 18) or
+      (dia_atual == "Sábado") or (dia_atual == "Domingo")
+        return true if self.data_de_reserva <= (Date.today + dias[dia_atual].days)
     end
+
     false
   end
 
