@@ -85,6 +85,13 @@ class RequisicoesController < ApplicationController
     end
   end
 
+  def destroy
+    @requisicao = Requisicao.find(params[:id])
+    @requisicao.destroy
+    flash[:sucesso] = "Requisição excluída com sucesso."
+    redirect_to(requisicoes_path)
+  end
+
 
   def confirmar_requisicao
     if not session[:requisicao].nil?

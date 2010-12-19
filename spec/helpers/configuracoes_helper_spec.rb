@@ -11,6 +11,7 @@ describe ConfiguracoesHelper do
   it 'mostrar os campos dos formulários de acordo com o path' do
     helper.mostrar_formulario("/configuracoes/formulario").should == "formulario_requisicao"
     helper.mostrar_formulario("/configuracoes/instituicao").should == "formulario_instituicao"
+    helper.mostrar_formulario("/configuracoes/centro").should == "formulario_centro"
   end
 
 end

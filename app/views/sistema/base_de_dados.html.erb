@@ -8,7 +8,7 @@
         <% end %>
       </li>
       <li>
-        <%= link_to "Centros", centros_path %>
+        <%= link_to configuracoes.nome_centro, centros_path %>
         <% if current_user.has_role? :admin %>
           <span><%= link_to "Adicionar", new_centro_path %></span>
         <% end %>

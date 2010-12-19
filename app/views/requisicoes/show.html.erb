@@ -39,6 +39,9 @@
         <%= link_to 'Alterar viagem', aceitar_path(@requisicao) %>
       </li>
     <% end %>
+    <li id="opcao_excluir" onclick="location.href='<%= requisicao_path(@requisicao, :method => :delete) %>'" onmouseover="this.style.cursor = 'pointer'">
+      <%= link_to 'Excluir', @requisicao, :confirm => 'Tem certeza que deseja apagar?', :method => :delete %>
+    </li>
   </ul>
 </div>
 

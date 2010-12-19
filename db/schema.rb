@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(:version => 20101122194231) do
     t.date     "data_final_proibicao"
     t.boolean  "ano_corrente",           :default => true
     t.text     "conteudo_termo"
+    t.string   "nome_centro",            :default => "Centro"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

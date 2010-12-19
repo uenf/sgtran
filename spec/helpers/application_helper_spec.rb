@@ -2,6 +2,12 @@ require 'spec_helper'
 
 describe ApplicationHelper do
 
+  def mock_configuracao(stubs={})
+    (@mock_configuracao ||= mock_model(Configuracao).as_null_object).tap do |config|
+      config.stub(stubs) unless stubs.empty?
+    end
+  end
+
   it 'deve retornar o nome por extenso da permissão do usuario' do
     helper.to_permissao(['admin','visit']).should == ["Administrador", "Visitante"]
   end
@@ -38,6 +44,11 @@ describe ApplicationHelper do
     helper.td_clickable(path, content).should ==
     "<td onclick=\"location.href=\'/solicitantes/5\'\" onmouseover=\"this.style.cursor='pointer'\">Eduardo Hertz</td>"
   end
+
+#  it 'deve retornar o objeot da configuração inicial' do
+#    helper.stub(Configuracao).and_return(mock_configuracao)
+#    helper.configuracoes.should == mock_configuracao
+#  end
 
 end
 

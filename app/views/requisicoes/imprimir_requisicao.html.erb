@@ -4,7 +4,7 @@ Cargo ou Função: <%= @requisicao.cargo %><br />
 Ramal: <%= @requisicao.telefone_ou_ramal %><br />
 Celular: <%= @requisicao.celular %><br />
 Lab. ou Setor: <%= @requisicao.laboratorio_ou_setor %><br />
-Centro: <%= @requisicao.centro %><br />
+<%= configuracoes.nome_certo %>: <%= @requisicao.centro %><br />
 Data de Reserva: <%= @requisicao.data_de_reserva.strftime("%d/%m/%Y") %><br />
 Categoria de veículo: <%= CategoriaDeVeiculo.find(@requisicao.categoria_de_veiculo_id).nome %><br />
 Objetivo da Reserva: <%= ObjetivoDeReserva.find(@requisicao.objetivo_de_reserva_id).texto %><br />
