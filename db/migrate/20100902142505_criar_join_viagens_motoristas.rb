@@ -5,19 +5,6 @@ class CriarJoinViagensMotoristas < ActiveRecord::Migration
       t.references :viagem
     end
 
-    execute <<-SQL
-      INSERT INTO motoristas_viagens (motorista_id,  viagem_id)
-        (SELECT motorista_id, id FROM viagens)
-    SQL
-
-    execute <<-SQL
-      ALTER TABLE viagens DROP FOREIGN KEY fk_viagem_motorista
-    SQL
-
-    execute <<-SQL
-      ALTER TABLE viagens DROP COLUMN motorista_id
-    SQL
-
   end
 
   def self.down
