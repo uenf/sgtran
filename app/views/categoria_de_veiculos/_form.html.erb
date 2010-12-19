@@ -3,15 +3,17 @@
 
   <fieldset>
 
-    <legend>Limite mínimo e máximo de dias para fazer uma requisição dessa categoria</legend>
+    <legend>Limite para fazer uma requisição com essa categoria</legend>
     <p>
-      <%= f.label :numero_minimo_dias, "Mínimo (dias):" %>
-      <%= f.text_field :numero_minimo_dias %>
+      <%= f.label :numero_minimo_dias, "Mínimo:" %>
+      <%= f.text_field :numero_minimo_dias, :class => "campo_de_poucos_digitos" %>
+      (dias)
     </p>
 
     <p>
-      <%= f.label :numero_maximo_dias, "Máximo (dias):" %>
-      <%= f.text_field :numero_maximo_dias %>
+      <%= f.label :numero_maximo_dias, "Máximo:" %>
+      <%= f.text_field :numero_maximo_dias, :class => "campo_de_poucos_digitos" %>
+      (dias)
     </p>
 
   </fieldset>
