@@ -6,14 +6,14 @@
   <fieldset>
     <legend>Proibir requisição durante o período</legend>
     <p>
-      <%= f.label :data_inicial_proibicao_br, "Data inicial" %>
+      <%= f.label :data_inicial_proibicao_br, "Data inicial:" %>
       <%= f.calendar_date_select :data_inicial_proibicao_br,
                                  :value => @configuracao.data_inicial_proibicao ?  @configuracao.data_inicial_proibicao.to_s_br : '',
                                  :year_range => range_valido %>
     </p>
 
     <p>
-      <%= f.label :data_final_proibicao_br, "Data final" %>
+      <%= f.label :data_final_proibicao_br, "Data final:" %>
       <%= f.calendar_date_select :data_final_proibicao_br,
                                  :value => @configuracao.data_final_proibicao ?  @configuracao.data_final_proibicao.to_s_br : '' %>
     </p>
@@ -21,16 +21,17 @@
 
   <p>
     <%= f.check_box :formulario_ativo %>
-    <%= f.label :formulario_ativo, "Formulário ativo" %>
+    <%= f.label :formulario_ativo, "Formulário ativo:" %>
   </p>
 
   <p>
     <%= f.check_box :ano_corrente %>
-    <%= f.label :ano_corrente, "Somente para este ano" %>
+    <%= f.label :ano_corrente, "Ano corrente:" %>
+    <em>(Apenas poderão ser feitas requisições para o ano corrente)</em>
   </p>
 
   <p>
-    <%= f.label :conteudo_termo, "Termo" %>
+    <%= f.label :conteudo_termo, "Termo:" %>
     <%= f.text_area :conteudo_termo %>
   </p>
 
