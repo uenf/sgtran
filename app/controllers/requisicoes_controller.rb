@@ -293,9 +293,7 @@ class RequisicoesController < ApplicationController
 
     if @requisicao.esta_aceita?
       retorno = @requisicao.cancelar_requisicao motivo.to_i, corpo_do_email, destinatarios
-      if retorno
-        #Confirmacao.deliver_enviar_email(corpo_do_email, destinatarios, @requisicao) if retorno
-      end
+#      Confirmacao.deliver_enviar_email(corpo_do_email, destinatarios, @requisicao) if retorno
     else
       flash[:erro] = "A requisição deve estar no estado 'Aceita' para ser cancelada."
     end
