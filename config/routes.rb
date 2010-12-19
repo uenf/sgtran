@@ -65,6 +65,7 @@ ActionController::Routing::Routes.draw do |map|
   # Rotas para configurações
   map.config_formulario_requisicao "/configuracoes/formulario", :controller => "configuracoes", :action => "edit"
   map.config_instituicao "/configuracoes/instituicao", :controller => "configuracoes", :action => "edit"
+  map.config_centro "/configuracoes/centro", :controller => "configuracoes", :action => "edit"
 
 
   map.connect ':controller/:action/:id'

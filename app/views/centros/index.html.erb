@@ -1,6 +1,6 @@
 <% if current_user.has_role? :admin %>
   <% admin = "True" %>
-  <a href="/centros/new" class="link_new">Adicionar Centro</a>
+  <a href="/centros/new" class="link_new">Adicionar <%= configuracoes.nome_centro %></a>
 <% end %>
 
 <table id="base_de_dados" class="tabela_base_de_dados">

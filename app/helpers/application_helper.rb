@@ -46,5 +46,10 @@ module ApplicationHelper
     content + "</td>").html_safe
   end
 
+  def configuracoes
+    @configuracao ||= Configuracao.all.first
+    @configuracao
+  end
+
 end
 

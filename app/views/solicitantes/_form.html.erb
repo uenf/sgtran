@@ -32,10 +32,10 @@
   </p>
 
   <p>
-    <%= f.label :centro_id, "Centro:"%>
+    <%= f.label :centro_id, "#{configuracoes.nome_centro}:"%>
     <%= f.select :centro_id,
                  Centro.find_all_by_status(Centro::ATIVO).collect {|centro| [centro.nome, centro.id]},
-                 {:include_blank => "Selecione um Centro"} %>
+                 {:include_blank => "Selecione um #{configuracoes.nome_centro}"} %>
   </p>
 
   <p>

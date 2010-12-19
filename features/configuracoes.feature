@@ -81,7 +81,6 @@ Para que ele possa se adaptar as minhas necessidades
     E eu pressiono "Salvar"
     Então eu devo ver "Configurações atualizadas com sucesso."
 
-  @now
   Cenário: Editar a mensagem do termo do formulário de requisição
     Dado que eu tenho uma configuração inicial
     E que eu sou um usuário administrador logado
@@ -90,4 +89,15 @@ Para que ele possa se adaptar as minhas necessidades
     E eu preencho "Termo" com "<b>Algum termo aqui</b>"
     E eu pressiono "Salvar"
     Então eu devo ver "Configurações atualizadas com sucesso."
+
+  @now
+  Cenário: Mudar nome do centro no sistema
+    Dado que eu tenho uma configuração inicial
+    E que eu sou um usuário administrador logado
+    Quando eu clico em "Configurações"
+    E eu clico em "Mudar 'Centro' para 'Setor'"
+    E eu preencho "Novo nome" com "Setor"
+    E eu pressiono "Salvar"
+    Então eu devo ver "Configurações atualizadas com sucesso."
+    E todos os campos Centro devem estar como Setor
 

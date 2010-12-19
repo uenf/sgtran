@@ -6,6 +6,8 @@ module ConfiguracoesHelper
       return "formulario_requisicao"
     elsif path == "/configuracoes/instituicao"
       return "formulario_instituicao"
+    elsif path == "/configuracoes/centro"
+      return 'formulario_centro'
     end
   end
 
