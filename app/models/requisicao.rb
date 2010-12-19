@@ -301,5 +301,9 @@ class Requisicao < ActiveRecord::Base
 
   end
 
+  def pode_ser_excluida?
+    self.viagem.nil?
+  end
+
 end
 

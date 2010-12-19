@@ -546,7 +546,6 @@ describe Requisicao do
     viagem = Factory.create :viagem, :motorista_ids => [motorista.id]
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     objetivo_de_reserva = Factory.create :objetivo_de_reserva
-    motivo = Factory.create :motivo
     solicitante = Factory.create :solicitante
     requisicao_1 = Factory.create :requisicao, :categoria_de_veiculo_id => categoria_de_veiculo.id,
                                              :objetivo_de_reserva_id => objetivo_de_reserva.id,
@@ -567,7 +566,6 @@ describe Requisicao do
     viagem = Factory.create :viagem, :motorista_ids => [motorista.id]
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     objetivo_de_reserva = Factory.create :objetivo_de_reserva
-    motivo = Factory.create :motivo
     solicitante = Factory.create :solicitante
     requisicao_1 = Factory.create :requisicao, :categoria_de_veiculo_id => categoria_de_veiculo.id,
                                              :objetivo_de_reserva_id => objetivo_de_reserva.id,
@@ -590,7 +588,6 @@ describe Requisicao do
     viagem = Factory.create :viagem, :motorista_ids => [motorista.id]
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     objetivo_de_reserva = Factory.create :objetivo_de_reserva
-    motivo = Factory.create :motivo
     solicitante = Factory.create :solicitante
     estado = Factory.create :estado, :sigla => "RJ"
     cidade_1 = Factory.create :cidade,
@@ -612,6 +609,34 @@ describe Requisicao do
     end
 
     it "cidade de destino" do
+    end
+
+  end
+
+  describe 'verificar se é possível excluir uma requisição' do
+
+    it 'sem viagem' do
+      categoria_de_veiculo = Factory.create :categoria_de_veiculo
+      objetivo_de_reserva = Factory.create :objetivo_de_reserva
+      solicitante = Factory.create :solicitante
+      requisicao = Factory.create :requisicao, :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                               :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                                               :solicitante_id => solicitante.id
+      requisicao.pode_ser_excluida?.should be_true
+    end
+
+    it 'com viagem' do
+      motorista = Factory.create :motorista
+      viagem = Factory.create :viagem, :motorista_ids => [motorista.id]
+      categoria_de_veiculo = Factory.create :categoria_de_veiculo
+      objetivo_de_reserva = Factory.create :objetivo_de_reserva
+      solicitante = Factory.create :solicitante
+      requisicao = Factory.create :requisicao, :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                                               :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                                               :viagem_id => viagem.id,
+                                               :solicitante_id => solicitante.id,
+                                               :estado => Requisicao::ESPERA
+      requisicao.pode_ser_excluida?.should be_false
     end
 
   end
