@@ -35,7 +35,6 @@
           <%= calendar_date_select_tag "requisicao_data_de_reserva_br",
                                         @requisicao.data_de_reserva ? @requisicao.data_de_reserva.to_date.to_s_br : "",
                                         :name => "requisicao[data_de_reserva_br]",
-                                        :year_range => [Time.now.year],
                                         :month_year => "label",
                                         :class => "campo_de_poucos_digitos" %>
         </p>

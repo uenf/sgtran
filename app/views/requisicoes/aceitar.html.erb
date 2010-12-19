@@ -46,7 +46,6 @@
           <%= calendar_date_select_tag "viagem_data_de_saida",
                                       @viagem.data_partida ? @viagem.data_partida.to_date.to_s_br : "",
                                       :name => "data_saida",
-                                      :year_range => [0.years.ago, 2.years.from_now],
                                       :month_year => "label",
                                       :class => "campo_de_poucos_digitos"%> <br class="pular_linha"/>
 
@@ -70,7 +69,6 @@
           <%= calendar_date_select_tag "viagem_data_de_chegada",
                                       @viagem.data_chegada ? @viagem.data_chegada.to_date.to_s_br : "",
                                       :name => "data_chegada",
-                                      :year_range => [0.years.ago, 2.years.from_now],
                                       :month_year => "label",
                                       :class => "campo_de_poucos_digitos"%>
           <br class="pular_linha"/>
