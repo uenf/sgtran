@@ -78,7 +78,7 @@ class RequisicoesController < ApplicationController
     if @requisicao.analisar_requisicao @solicitante
       @requisicao.reload
       session[:requisicao] = @requisicao.id
-      #Confirmacao.deliver_email_confirmacao_de_cadastro_de_requisicao(@requisicao)
+      Confirmacao.deliver_email_confirmacao_de_cadastro_de_requisicao(@requisicao)
       redirect_to(confirmar_requisicao_path)
     else
       render :action => "new", :layout => "front_end"
@@ -138,7 +138,7 @@ class RequisicoesController < ApplicationController
       render :layout => "front_end"
       session[:requisicao] = @requisicao
       #incluindo linha para enviar o emailtesteuenf para ailton informando que professor cancelou a requisição
-      #Confirmacao.deliver_email_cancelamento_professor(@requisicao)
+      Confirmacao.deliver_email_cancelamento_professor(@requisicao)
     else
       render :action => "cancelar_requisicao", :layout => "front_end"
     end
@@ -218,7 +218,7 @@ class RequisicoesController < ApplicationController
       if @viagem.valid?
         @viagem.save!
         @requisicao.aceitar @viagem
-        #Confirmacao.deliver_enviar_email_aceitar(corpo_do_email, destinatarios, @requisicao) if not params[:email]
+        Confirmacao.deliver_enviar_email_aceitar(corpo_do_email, destinatarios, @requisicao) if not params[:email]
         redirect_to :controller => "viagem", :action => "show", :id => @viagem.id
       else
         session[:viagem] = @viagem
@@ -229,7 +229,7 @@ class RequisicoesController < ApplicationController
       if params[:id_da_viagem]
         @viagem = @requisicao.aceitar_com_viagem_existente(params[:id_da_viagem])
         if @viagem
-          #Confirmacao.deliver_enviar_email_aceitar(corpo_do_email, destinatarios, @requisicao) if not params[:email]
+          Confirmacao.deliver_enviar_email_aceitar(corpo_do_email, destinatarios, @requisicao) if not params[:email]
           redirect_to :controller => "viagem", :action => "show", :id => @viagem.id
         else
           session[:requisicao] = {:id => @requisicao.id, :erro => " não foi selecionada."}
@@ -276,7 +276,7 @@ class RequisicoesController < ApplicationController
     corpo_email = params[:corpo_email]
     destinatarios = params[:destinatarios]
     if @requisicao.rejeitar(motivo)
-      #Confirmacao.deliver_enviar_email(corpo_email, destinatarios, @requisicao)
+      Confirmacao.deliver_enviar_email(corpo_email, destinatarios, @requisicao)
       redirect_to requisicao_path(@requisicao)
     else
       flash[:erro] = "Erro ao rejeitar a requisição. " + @requisicao.errors.full_messages.to_sentence
