@@ -78,6 +78,28 @@ Dado /^que a requisição esteja no meu conjunto de requisições$/ do
   @conjunto_de_requisicoes[@requisicao.id] = @requisicao
 end
 
+Dado /^que hoje é (.+)$/ do |dia_da_semana|
+  if dia_da_semana == "Sexta-feira"
+    def Requisicao.hoje
+      (Date.new.end_of_week - 2.days).strftime("%A")
+    end
+  elsif dia_da_semana == "Sábado"
+    def Requisicao.hoje
+      (Date.new.end_of_week - 1.days).strftime("%A")
+    end
+  else
+    def Requisicao.hoje
+      Date.new.end_of_week.strftime("%A")
+    end
+  end
+end
+
+Dado /^que agora é (\d+)$/ do |hora|
+  def Requisicao.hora_atual
+    hora.to_i
+  end
+end
+
 Quando /^eu preencho data de "([^\"]*)" com "([^\"]*)"$/ do |campo, data|
   data = data.split(/Daqui a /)[1].to_i
   fill_in(campo, :with => (Date.today + data.days).strftime("%d/%m/%Y"))

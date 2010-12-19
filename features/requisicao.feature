@@ -305,7 +305,6 @@ Funcionalidade: Solicitar viagem
     Então eu devo ver "Requisição excluída com sucesso."
     E eu devo estar na página da lista de requisições
 
-  @now
   Cenário: Não é possível deletar uma requisição com viagem
     Dado que eu tenho uma configuração inicial
     E que eu sou um usuário administrador logado
@@ -314,4 +313,31 @@ Funcionalidade: Solicitar viagem
     E que a requisição esteja ligada à viagem
     E que eu estou na página de detalhes da requisição
     Então eu não devo ver "Excluir"
+
+  @now
+  Esquema do Cenário: Não é possível enviar uma requisição durante o fim de semana
+    Dado que eu tenho uma configuração inicial
+    E que eu tenha a categoria de veículo "Automóvel até 4 passageiros" padrão
+    E que eu tenha um objetivo de reserva "Aula de Campo" <Obrigatoriedade>
+    E que eu tenha um solicitante com e-mail "ronaldo@corinthians.com", matrícula "00210" e centro "P5"
+    E que hoje é <Dia>
+    E que agora é <Hora>
+    E que eu estou na página de requisição
+    Quando eu preencho "Matrícula" com "210"
+    E eu preencho "E-mail" com "ronaldo@corinthians.com"
+    E eu preencho "Celular" com "9999-9999"
+    E eu preencho "Data" com uma data de "<Dias para requisição>" dias seguintes a partir de hoje
+    E eu seleciono "Automóvel até 4 passageiros" em "Veículo"
+    E eu seleciono "Aula de Campo" em "Objetivo"
+    E eu preencho "Passageiros:" com "Zina, Ronaldo e Alfinete"
+    E eu preencho "Roteiro:" com "Ir ao Pacaembu"
+    E eu preencho "Observações" com "<Observações>"
+    E eu marco "Li e concordo com os termos"
+    E eu pressiono "Enviar requisição"
+    Então eu devo ver "<Resposta>"
+
+    Exemplos:
+    | Dia         | Hora | Dias para requisição | Resposta                                                              |
+    | Sexta-feira | 17   | 1                    | Requisição enviada com sucesso!                                       |
+    | Sexta-feira | 18   | 1                    | Requisição não pode ser feita após o expediente para o fim de semana. |
 

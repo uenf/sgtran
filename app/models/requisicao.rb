@@ -36,6 +36,13 @@ class Requisicao < ActiveRecord::Base
   def validar_data
     unless self.data_de_reserva.nil?
       @configuracao = Configuracao.all.first
+
+      if @configuracao.fim_de_semana
+        if self.para_o_fim_de_semana?
+          errors.add(:base, "Requisição não pode ser feita após o expediente para o fim de semana.")
+        end
+      end
+
       if not (@configuracao.nil? or @configuracao.data_inicial_proibicao.nil? or @configuracao.data_final_proibicao.nil?) and
         self.data_de_reserva.between?(@configuracao.data_inicial_proibicao, @configuracao.data_final_proibicao)
         errors.add(:base, "Excepcionalmente entre as datas #{@configuracao.data_inicial_proibicao.to_s_br} \
@@ -303,6 +310,23 @@ class Requisicao < ActiveRecord::Base
 
   def pode_ser_excluida?
     self.viagem.nil?
+  end
+
+  def self.hora
+    puts Time.now.strftime("%H")
+    Time.now.strftime("%H").to_i
+  end
+
+  def self.hoje
+    puts Date.today.strftime("%A")
+    Date.today.strftime("%A")
+  end
+
+  def para_o_fim_de_semana?
+    if Requisicao.hoje == 'Domingo' and Requisicao.hora >= 18
+      return true
+    end
+    false
   end
 
 end

@@ -90,7 +90,16 @@ Para que ele possa se adaptar as minhas necessidades
     E eu pressiono "Salvar"
     Então eu devo ver "Configurações atualizadas com sucesso."
 
-  @now
+  Cenário: Colocar formulário de requisição do ar
+    Dado que eu tenho uma configuração inicial
+    E que o formulário de requisição está fora do ar
+    E que eu sou um usuário administrador logado
+    Quando eu clico em "Configurações"
+    E eu clico em "Formulário de requisição"
+    E eu marco "Não permitir requisição durante o fim de semana:"
+    E eu pressiono "Salvar"
+    Então eu devo ver "Configurações atualizadas com sucesso."
+
   Cenário: Mudar nome do centro no sistema
     Dado que eu tenho uma configuração inicial
     E que eu sou um usuário administrador logado

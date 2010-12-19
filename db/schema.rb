@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(:version => 20101122194231) do
     t.boolean  "ano_corrente",           :default => true
     t.text     "conteudo_termo"
     t.string   "nome_centro",            :default => "Centro"
+    t.boolean  "fim_de_semana",          :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
   end

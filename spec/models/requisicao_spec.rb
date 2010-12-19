@@ -176,6 +176,29 @@ describe Requisicao do
 
     end
 
+    describe 'requisição para o fim de semana' do
+
+      it 'sexta-feira após 18h pedir para sábado' do
+        class Requisicao
+          def self.hora; 18; end
+          def self.hoje; Date.today.end_of_week - 2.days; end
+        end
+
+        categoria_de_veiculo = Factory.create :categoria_de_veiculo,
+                                                :numero_minimo_dias => 0,
+                                                :numero_maximo_dias => 0
+        objetivo_de_reserva = Factory.create :objetivo_de_reserva
+        requisicao = Factory.build :requisicao,
+                           :categoria_de_veiculo_id => categoria_de_veiculo.id,
+                           :objetivo_de_reserva_id => objetivo_de_reserva.id,
+                           :data_de_reserva => Date.new.end_of_week - 1.day
+        requisicao.para_o_fim_de_semana?.should be_true
+        requisicao.save.should be_false
+        requisicao.errors.to_a.should include("Requisição não pode ser feita após o expediente para o fim de semana.")
+      end
+
+    end
+
   end
 
   it "Deve retornar falso caso não tenha marcado as regras" do
