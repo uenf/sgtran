@@ -166,11 +166,11 @@ Funcionalidade: Solicitar viagem
 
   Cenário: Mudar a viagem de uma requisição com uma nova viagem quando a viagem tem uma requisição
     Dado que eu tenho uma configuração inicial
-    Dado que eu sou um usuário administrador logado
+    E que eu sou um usuário administrador logado
     E que eu tenho uma requisição com estado "Aceita" e id "25"
     E que eu tenho uma viagem com o estado "Aguardando"
     E que a requisição esteja ligada à viagem
-    Dado que eu tenho uma requisição com estado "Aceita" e id "27"
+    E que eu tenho uma requisição com estado "Aceita" e id "27"
     E que a requisição esteja ligada à viagem
     E que eu tenho um motorista com nome "Gustavo Santos"
     E que eu tenha um veículo da categoria "Automóvel até 4 passageiros", modelo "Gol" e placa "KQI 5899"
@@ -287,7 +287,6 @@ Funcionalidade: Solicitar viagem
     | não obrigatório | Alguma observação | Requisição enviada com sucesso |
     | não obrigatório |                   | Requisição enviada com sucesso |
 
-  @now
   Cenário: O texto do termo deve ser definido por mim
     Dado que eu tenho uma configuração inicial
     E que o termo deve conter "<b>Texto do termo aqui</b>"
@@ -296,4 +295,14 @@ Funcionalidade: Solicitar viagem
     E que eu tenha um solicitante com e-mail "ronaldo@corinthians.com", matrícula "00210" e centro "P5"
     E que eu estou na página de requisição
     Então eu devo ver "Texto do termo aqui"
+
+  @now
+  Cenário: Deletar uma requisição
+    Dado que eu tenho uma configuração inicial
+    E que eu sou um usuário administrador logado
+    E que eu tenho uma requisição com estado "Em Espera" e id "25"
+    E que eu estou na página de detalhes da requisição
+    Quando eu clico em "Excluir"
+    Então eu devo ver "Requisição excluída com sucesso."
+    E eu devo estar na página da lista de requisições
 

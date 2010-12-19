@@ -503,6 +503,9 @@ table.tabela_padrao tr td.cancelada {
 #opcoes_da_visao ul #opcao_alterar {
     list-style-image: url("/images/atualizar.png");
 }
+#opcoes_da_visao ul #opcao_excluir {
+    list-style-image: url("/images/excluir.png");
+}
 
     /*********************************************/
 
