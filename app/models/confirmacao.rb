@@ -32,7 +32,8 @@ class Confirmacao < ActionMailer::Base
     from "Astran <#{EMAIL_ASTRAN}>"
     subject "Reserva de Veículo - Protocolo n. #{requisicao.id}"
     sent_on Time.now # hora de envio do email
-    body :requisicao => requisicao, :corpo_do_email => corpo_do_email # objetos que serão passados para o helper do template
+    # objetos que serão passados para o helper do template
+    body :requisicao => requisicao, :corpo_do_email => corpo_do_email, :configuracoes => Configuracao.all.first
     content_type "text/html"
     template "email_padrao" # informa qual template será utilizado
   end
@@ -47,7 +48,8 @@ class Confirmacao < ActionMailer::Base
     from "Astran <#{EMAIL_ASTRAN}>"
     subject "Reserva de Veículo - Protocolo n. #{requisicao.id}"
     sent_on Time.now # hora de envio do email
-    body :requisicao => requisicao, :corpo_do_email => corpo_do_email # objetos que serão passados para o helper do template
+    # objetos que serão passados para o helper do template
+    body :requisicao => requisicao, :corpo_do_email => corpo_do_email, :configuracoes => Configuracao.all.first
     content_type "text/html"
     template "email_padrao_aceitar" # informa qual template será utilizado
   end
@@ -59,7 +61,8 @@ class Confirmacao < ActionMailer::Base
     from "Astran <#{EMAIL_ASTRAN}>"
     subject "Reserva de Veículo - Protocolo n. #{requisicao.id}"
     sent_on Time.now # hora de envio do email
-    body :requisicao => requisicao, :solicitante => solicitante # objetos que serão passados para o helper do template
+    # objetos que serão passados para o helper do template
+    body :requisicao => requisicao, :solicitante => solicitante, :configuracoes => Configuracao.all.first
     content_type "text/html"
     template "email_confirmacao" # informa qual template será utilizado
   end

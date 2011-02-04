@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
+  helper_method :current_user, :configuracoes
 
   rescue_from Acl9::AccessDenied, :with => :access_denied
   rescue_from ActiveRecord::RecordNotFound, :with => :render_404
@@ -33,8 +34,6 @@ class ApplicationController < ActionController::Base
   def local_request?
     false
   end
-
-  helper_method :current_user
 
   private
   def current_session
