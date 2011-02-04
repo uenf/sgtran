@@ -14,9 +14,8 @@
   <div id="logotipo"></div>
   <div id="nome_sistema">
     <h1>Sistema de gerenciamento de transporte</h1>
-    <h2>Universidade Estadual do Norte Fluminense Darcy Ribeiro</h2>
-    <h3>Prefeitura da UENF</h3>
-    <h4>Assessoria de Transporte</h4>
+    <h2><%= configuracao.instituicao if configuracao.instituicao %></h2>
+    <h3><%= configuracao.nome_do_setor if configuracao.nome_do_setor %></h3>
   </div>
 </div>
 
@@ -26,7 +25,6 @@
   <div id="dados_gerais">
     <p>
       SGTRAN - Sistema de Gerenciamento de Transporte v.:0.0.1 <br />
-      <!--&copy; 2009 - Universidae Estadual do Norte Fluminense Dary Ribeiro-->
     </p>
   </div>
   <div id="tecnologias">
