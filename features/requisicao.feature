@@ -296,6 +296,7 @@ Funcionalidade: Solicitar viagem
     E que eu estou na página de requisição
     Então eu devo ver "Texto do termo aqui"
 
+  @now
   Cenário: Deletar uma requisição
     Dado que eu tenho uma configuração inicial
     E que eu sou um usuário administrador logado
@@ -303,6 +304,7 @@ Funcionalidade: Solicitar viagem
     E que eu estou na página de detalhes da requisição
     Quando eu clico em "Excluir"
     Então eu devo ver "Requisição excluída com sucesso."
+    E a requisição com id "25" não deve mais existir
     E eu devo estar na página da lista de requisições
 
   Cenário: Não é possível deletar uma requisição com viagem
@@ -314,7 +316,6 @@ Funcionalidade: Solicitar viagem
     E que eu estou na página de detalhes da requisição
     Então eu não devo ver "Excluir"
 
-  @now
   Esquema do Cenário: Não é possível enviar uma requisição durante o fim de semana
     Dado que eu tenho uma configuração inicial
     E que eu tenha a categoria de veículo "Automóvel até 4 passageiros" padrão

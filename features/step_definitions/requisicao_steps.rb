@@ -215,3 +215,7 @@ Então /^que o Timecop volta ao normal$/ do
   Timecop.return
 end
 
+Então /^a requisição com id "([^"]*)" não deve mais existir$/ do |id|
+  lambda { Requisicao.find(id) }.should raise_error ActiveRecord::RecordNotFound
+end
+
