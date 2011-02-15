@@ -11,6 +11,7 @@ class CreateConfiguracoes < ActiveRecord::Migration
       t.text :conteudo_termo
       t.string :nome_centro, :default => 'Centro'
       t.boolean :fim_de_semana, :default => true
+      t.string :email, :default => "agendas@uenf.br"
 
       t.timestamps
     end

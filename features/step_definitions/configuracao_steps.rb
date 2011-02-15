@@ -22,6 +22,11 @@ Dado /^que é possível requisitar veículo (.+) ano$/ do |opcao|
   end
 end
 
+Dado /^que a instituição tem o e\-mail "([^"]*)"$/ do |email|
+  @configuracao.update_attribute(:email, email)
+end
+
+
 Dado /^que o termo deve conter "([^"]*)"$/ do |conteudo|
   @configuracao.update_attribute(:conteudo_termo, conteudo)
 end
