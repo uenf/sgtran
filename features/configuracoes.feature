@@ -110,3 +110,12 @@ Para que ele possa se adaptar as minhas necessidades
     Então eu devo ver "Configurações atualizadas com sucesso."
     E todos os campos Centro devem estar como Setor
 
+  Cenário: Adicionar o e-mail da instituição para envio ao usuário
+    Dado que eu tenho uma configuração inicial
+    E que eu sou um usuário administrador logado
+    Quando eu clico em "Configurações"
+    E eu clico em "Instituição utilizadora"
+    E eu preencho "E-mail" com "agendas@email.com"
+    E eu pressiono "Salvar"
+    Então eu devo ver "Configurações atualizadas com sucesso."
+

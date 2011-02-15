@@ -1,6 +1,5 @@
 class Confirmacao < ActionMailer::Base
 
-  EMAIL_ASTRAN = "agendas@uenf.br"
 
   helper do
     def saudacao
@@ -18,8 +17,13 @@ class Confirmacao < ActionMailer::Base
     def endereco
       "http://www.astran.uenf.br"
     end
+
   end
 
+  def configuracoes
+    @configuracao ||= Configuracao.all.first
+    @configuracao
+  end
 
   def enviar_email(corpo_do_email, destinatarios, requisicao)
     #********** falta setar aqui o email correto que ailton deseja receber os avisos **********
@@ -27,9 +31,9 @@ class Confirmacao < ActionMailer::Base
     destinatarios = destinatarios.split(";") if destinatarios
 
     recipients solicitante.email
-    cc EMAIL_ASTRAN
+    cc configuracoes.email
     bcc destinatarios if destinatarios
-    from "Astran <#{EMAIL_ASTRAN}>"
+    from "Astran <#{configuracoes.email}>"
     subject "Reserva de Veículo - Protocolo n. #{requisicao.id}"
     sent_on Time.now # hora de envio do email
     # objetos que serão passados para o helper do template
@@ -43,9 +47,9 @@ class Confirmacao < ActionMailer::Base
     solicitante = Solicitante.find(requisicao.solicitante_id)
     destinatarios = destinatarios.split(";") if destinatarios
     recipients solicitante.email
-    cc EMAIL_ASTRAN
+    cc configuracoes.email
     bcc destinatarios if destinatarios
-    from "Astran <#{EMAIL_ASTRAN}>"
+    from "Astran <#{configuracoes.email}>"
     subject "Reserva de Veículo - Protocolo n. #{requisicao.id}"
     sent_on Time.now # hora de envio do email
     # objetos que serão passados para o helper do template
@@ -57,8 +61,8 @@ class Confirmacao < ActionMailer::Base
   def email_confirmacao_de_cadastro_de_requisicao(requisicao)
     solicitante = Solicitante.find(requisicao.solicitante_id)
     recipients solicitante.email
-    cc EMAIL_ASTRAN
-    from "Astran <#{EMAIL_ASTRAN}>"
+    cc configuracoes.email
+    from "Astran <#{configuracoes.email}>"
     subject "Reserva de Veículo - Protocolo n. #{requisicao.id}"
     sent_on Time.now # hora de envio do email
     # objetos que serão passados para o helper do template
@@ -70,8 +74,8 @@ class Confirmacao < ActionMailer::Base
   def email_cancelamento_professor(requisicao)
     solicitante = Solicitante.find(requisicao.solicitante_id)
 
-    recipients EMAIL_ASTRAN
-    from "Astran <#{EMAIL_ASTRAN}>"
+    recipients configuracoes.email
+    from "Astran <#{configuracoes.email}>"
     subject "Cancelamento da Reserva de Veículo - Protocolo n. #{requisicao.id}"
     sent_on Time.now # hora de envio do email
     body :requisicao => requisicao # objetos que serão passados para o helper do template

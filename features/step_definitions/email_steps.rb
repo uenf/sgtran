@@ -73,6 +73,10 @@ When /^(?:I|they|"([^"]*?)") opens? the email$/ do |address|
   open_email(address)
 end
 
+Quando /^"([^"]*)" abre o e\-mail$/ do |address|
+  open_email(address)
+end
+
 When /^(?:I|they|"([^"]*?)") opens? the email with subject "([^"]*?)"$/ do |address, subject|
   open_email(address, :with_subject => subject)
 end
@@ -102,6 +106,10 @@ Then /^(?:I|they) should see \/([^"]*?)\/ in the email body$/ do |text|
 end
 
 Then /^(?:I|they) should see the email delivered from "([^"]*?)"$/ do |text|
+  current_email.should be_delivered_from(text)
+end
+
+Then /^eu devo ver o e-mail enviado por "([^"]*?)"$/ do |text|
   current_email.should be_delivered_from(text)
 end
 

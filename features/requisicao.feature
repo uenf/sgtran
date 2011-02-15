@@ -314,7 +314,6 @@ Funcionalidade: Solicitar viagem
     E que eu estou na página de detalhes da requisição
     Então eu não devo ver "Excluir"
 
-  @now
   Esquema do Cenário: Não é possível enviar uma requisição durante o fim de semana
     Dado que eu tenho uma configuração inicial
     E que eu tenha a categoria de veículo "Automóvel até 4 passageiros" padrão
