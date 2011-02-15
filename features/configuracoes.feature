@@ -29,6 +29,15 @@ Para que ele possa se adaptar as minhas necessidades
     Quando eu clico em "Requisições"
     Então eu devo ver "ASTRAN"
 
+  Cenário: Mudar telefones da instituição no sistema
+    Dado que eu tenho uma configuração inicial
+    E que eu sou um usuário administrador logado
+    Quando eu clico em "Configurações"
+    E eu clico em "Instituição utilizadora"
+    E eu preencho "Telefone(s):" com "97025 / 97026"
+    E eu pressiono "Salvar"
+    Então eu devo ver "Configurações atualizadas com sucesso."
+
   Cenário: Somente usuário administrador podem entrar nas configurações
     Dado que eu tenho uma configuração inicial
     E que eu sou um usuário visitante logado
