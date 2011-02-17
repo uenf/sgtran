@@ -114,12 +114,6 @@ class Requisicao < ActiveRecord::Base
     end
   end
 
-  private
-  def gerar_chave_de_seguranca
-    self.chave_de_seguranca = ActiveSupport::SecureRandom.hex(20)
-  end
-
-  public
   def cancelar_pelo_professor(motivo)
     if self.pode_ser_cancelada_pelo_professor?
       if not motivo.empty?
@@ -141,7 +135,6 @@ class Requisicao < ActiveRecord::Base
     end
   end
 
-  public
   def aceitar viagem
     self.estado = ACEITA
     viagem_antiga = self.viagem
@@ -152,7 +145,7 @@ class Requisicao < ActiveRecord::Base
     self.save_with_validation false
 
     if viagem_antiga and viagem_antiga.requisicoes.empty?
-      viagem_antiga.update_attributes(:estado => Viagem::CANCELADA)
+      viagem_antiga.destroy
     end
   end
 
@@ -167,7 +160,7 @@ class Requisicao < ActiveRecord::Base
       self.save_with_validation false
 
       if viagem_antiga and viagem_antiga.pode_ser_cancelada?
-        viagem_antiga.update_attributes(:estado => Viagem::CANCELADA)
+        viagem_antiga.destroy
       end
       return viagem
 
@@ -317,8 +310,12 @@ class Requisicao < ActiveRecord::Base
       (dia_atual == "Sábado") or (dia_atual == "Domingo")
         return true if self.data_de_reserva <= (Date.today + dias[dia_atual].days)
     end
-
     false
+  end
+
+  private
+  def gerar_chave_de_seguranca
+    self.chave_de_seguranca = ActiveSupport::SecureRandom.hex(20)
   end
 
 end

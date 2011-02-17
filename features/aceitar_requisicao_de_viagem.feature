@@ -183,7 +183,7 @@ Funcionalidade: Aceitar requisição de viagem
     E eu seleciono "Gol - KQI 5899 - Automóvel até 4 passageiros" em "Veículo"
     E eu pressiono "Concluir"
     Então a requisição deve estar ligada à última viagem
-    E eu devo ter 0 viagem cancelada
+    E eu devo ter 2 viagem
 
   Cenário: Mudar a viagem de uma requisição com uma nova viagem quando a viagem tem uma requisição
     Dado que eu tenho uma configuração inicial
@@ -201,7 +201,7 @@ Funcionalidade: Aceitar requisição de viagem
     E eu seleciono "Gol - KQI 5899 - Automóvel até 4 passageiros" em "Veículo"
     E eu pressiono "Concluir"
     Então a requisição deve estar ligada à última viagem
-    E eu devo ter 1 viagem cancelada
+    E eu devo ter 1 viagem
 
   Cenário: Mudar a viagem de uma requisição com uma viagem existente
     Dado que eu tenho uma configuração inicial
@@ -219,5 +219,5 @@ Funcionalidade: Aceitar requisição de viagem
     E eu escolho uma viagem existente diferente da requisição
     E eu pressiono "Concluir"
     Então a requisição deve estar ligada à primeira viagem
-    Então eu devo ter 1 viagem cancelada
+    Então eu devo ter 1 viagem
 

@@ -189,7 +189,6 @@ Então /^a viagem deve estar atendida$/ do
   @viagem.estado.should == Viagem::ATENDIDA
 end
 
-
 Então /^a viagem não deve ter nenhuma requisição$/ do
   Requisicao.find_all_by_viagem_id(@viagem.id).should be_empty
 end
@@ -200,10 +199,6 @@ end
 
 Entao /^a viagem não deve atender essa requisição$/ do
   Requisicao.find_all_by_viagem_id(@viagem.id).should_not include @requisicao
-end
-
-Então /^eu devo ter (\d+) viagem cancelada$/ do |quantidade|
-  Viagem.find_all_by_estado(Viagem::CANCELADA).should have(quantidade.to_i).viagens
 end
 
 Então /^eu devo ter (\d+) viage(ns|m)$/ do |quantidade, opcao|
