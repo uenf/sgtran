@@ -4,7 +4,7 @@ rerun.txt
 log.txt
 public/stylesheets/scaffold.css
 config/database.yml
+config/deploy.rb
 app/controllers/requisicoes_controller.rb.teste
 tmp/*
 .rvmrc
-
