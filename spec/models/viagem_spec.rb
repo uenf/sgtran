@@ -2,6 +2,10 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe Viagem do
 
+  before(:each) do
+    Factory.create :configuracao
+  end
+
   should_validate_presence_of :motorista_ids
 
   it "Data de partida não pode ser posterior à data de chegada" do
@@ -285,7 +289,7 @@ describe Viagem do
   it "deve verificar se uma viagem pode ser cancelada" do
     motorista = Factory.create :motorista
     viagem = Factory.create :viagem, :motorista_ids => [motorista.id]
-    Viagem.pode_ser_cancelada?(viagem).should be_true
+    viagem.pode_ser_cancelada?.should be_true
 
     categoria_de_veiculo = Factory.create :categoria_de_veiculo
     centro = Factory.create :centro
@@ -297,16 +301,15 @@ describe Viagem do
                                                :objetivo_de_reserva_id => objetivo_de_reserva.id,
                                                :estado => Requisicao::ACEITA,
                                                :viagem_id => viagem.id
-    Viagem.pode_ser_cancelada?(viagem).should be_false
+    viagem.reload.pode_ser_cancelada?.should be_false
   end
 
-  it "deve cancelar uma viagem que não atende nenhuma requisição" do
-    motorista = Factory.create :motorista
-    viagem = Factory.create :viagem, :motorista_ids => [motorista.id]
-    Viagem.cancelar_viagem_que_nao_atende_nenhuma_requisicao viagem
-    viagem.reload
-    viagem.estado.should == Viagem::CANCELADA
-  end
+#  it "deve cancelar uma viagem que não atende nenhuma requisição" do
+#    motorista = Factory.create :motorista
+#    viagem = Factory.create :viagem, :motorista_ids => [motorista.id]
+#    viagem.reload
+#    viagem.estado.should == Viagem::CANCELADA
+#  end
 
   describe "associações" do
     should_have_many :requisicoes

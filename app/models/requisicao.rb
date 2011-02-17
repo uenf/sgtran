@@ -144,36 +144,33 @@ class Requisicao < ActiveRecord::Base
   public
   def aceitar viagem
     self.estado = ACEITA
-    viagem_antiga = self.viagem_id
+    viagem_antiga = self.viagem
+
     self.viagem_id = viagem.id
     self.motivo_id = nil
     self.motivo_observacao = nil
-    if self.save_with_validation false
-      if viagem_antiga and Requisicao.find_all_by_viagem_id(viagem_antiga).empty?
-        Viagem.cancelar_viagem_que_nao_atende_nenhuma_requisicao viagem_antiga
-      end
+    self.save_with_validation false
+
+    if viagem_antiga and viagem_antiga.requisicoes.empty?
+      viagem_antiga.update_attributes(:estado => Viagem::CANCELADA)
     end
   end
 
   def aceitar_com_viagem_existente(viagem_id)
     if self.pode_ser_aceita?
       viagem = Viagem.find(viagem_id)
-      viagem_old = self.viagem_id
+      viagem_antiga = self.viagem
 
       self.estado    = ACEITA
       self.viagem_id = viagem.id
       self.motivo_id = nil
+      self.save_with_validation false
 
-      if self.save_with_validation false
-        if viagem_old
-          if Viagem.pode_ser_cancelada? viagem_old
-            Viagem.cancelar_viagem_que_nao_atende_nenhuma_requisicao viagem_old
-          end
-        end
-        viagem
-      else
-        nil
+      if viagem_antiga and viagem_antiga.pode_ser_cancelada?
+        viagem_antiga.update_attributes(:estado => Viagem::CANCELADA)
       end
+      return viagem
+
     end
   end
 

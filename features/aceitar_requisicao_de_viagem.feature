@@ -8,25 +8,21 @@ Funcionalidade: Aceitar requisição de viagem
 
     Esquema do Cenário: Aceitar requisição com uma nova viagem
       Dado que eu tenho uma configuração inicial
-      Dado que eu sou um usuário administrador logado
-      Dado que eu tenho uma requisição com estado "Em Espera" e id "25"
+      E que eu sou um usuário administrador logado
+      E que eu tenho uma requisição com estado "Em Espera" e id "25"
       E que eu tenho um motorista com nome "Gustavo Santos"
       E que eu tenho um motorista com nome "Eduardo Silva"
       E que eu tenha um veículo da categoria "Automóvel até 4 passageiros", modelo "Gol" e placa "KQI 5899"
       E que eu estou na página de detalhes da requisição
-
       Quando eu clico em "Aceitar"
       Então eu devo estar na página de aceitar requisição
-
       Quando eu escolho "Nova"
       E eu preencho "Data de saída" com a data daqui a "<data de saída>" dias
       E eu preencho "Data de chegada" com a data daqui a "<data de chegada>" dias
       E eu seleciono "<horario>" no campo hora "Horário de saída"
       E eu seleciono "Gustavo Santos" em "Motoristas"
       E eu seleciono "<veiculo_selecao>" em "Veículo"
-
       E eu pressiono "Concluir"
-
       Então eu devo ver "Data de saída: " com a data daqui a "<data de saída>" dias
       E eu devo ver "Data de chegada: " com a data daqui a "<data de chegada>" dias
       E eu devo ver "Horário de partida: <horario>"
@@ -47,8 +43,8 @@ Funcionalidade: Aceitar requisição de viagem
 
   Cenário: Aceitar requisição com uma nova viagem e não enviar e-mail
     Dado que eu tenho uma configuração inicial
-    Dado que eu sou um usuário administrador logado
-    Dado que eu tenho uma requisição com estado "Em Espera" e id "25"
+    E que eu sou um usuário administrador logado
+    E que eu tenho uma requisição com estado "Em Espera" e id "25"
     E que eu tenho um motorista com nome "Gustavo Santos"
     E que eu tenho um motorista com nome "Eduardo Silva"
     E que eu tenha um veículo da categoria "Automóvel até 4 passageiros", modelo "Gol" e placa "KQI 5899"
@@ -68,8 +64,8 @@ Funcionalidade: Aceitar requisição de viagem
 
   Cenário: Aceitar requisição com uma nova viagem e mais de um motorista
     Dado que eu tenho uma configuração inicial
-    Dado que eu sou um usuário administrador logado
-    Dado que eu tenho uma requisição com estado "Em Espera" e id "25"
+    E que eu sou um usuário administrador logado
+    E que eu tenho uma requisição com estado "Em Espera" e id "25"
     E que eu tenho um motorista com nome "Gustavo Santos"
     E que eu tenho um motorista com nome "Eduardo Silva"
     E que eu tenho um motorista com nome "Pedro Correia"
@@ -87,8 +83,8 @@ Funcionalidade: Aceitar requisição de viagem
 
   Esquema do Cenário: Aceitar com uma viagem já existente
     Dado que eu tenho uma configuração inicial
-    Dado que eu sou um usuário administrador logado
-    Dado que eu tenho uma requisição com estado "Em Espera" e id "25"
+    E que eu sou um usuário administrador logado
+    E que eu tenho uma requisição com estado "Em Espera" e id "25"
     E que eu tenha uma viagem
     E que eu estou na página de detalhes da requisição
     Quando eu clico em "Aceitar"
@@ -106,8 +102,8 @@ Funcionalidade: Aceitar requisição de viagem
 
   Cenário: Aceitar uma requisição apenas se o estado for Em Espera
     Dado que eu tenho uma configuração inicial
-    Dado que eu sou um usuário administrador logado
-    Dado que eu tenho uma requisição com estado "Cancelada pelo Sistema" e id "25"
+    E que eu sou um usuário administrador logado
+    E que eu tenho uma requisição com estado "Cancelada pelo Sistema" e id "25"
     E que eu estou na página de aceitar a requisição
     Então eu devo ver "A requisição deve estar no estado 'Em Espera' para ser aceita"
     E eu devo estar na página de detalhes da requisição
@@ -115,8 +111,8 @@ Funcionalidade: Aceitar requisição de viagem
 
   Cenário: Data de chegada anterior à data de partida
     Dado que eu tenho uma configuração inicial
-    Dado que eu sou um usuário administrador logado
-    Dado que eu tenho uma requisição com estado "Em Espera" e id "25"
+    E que eu sou um usuário administrador logado
+    E que eu tenho uma requisição com estado "Em Espera" e id "25"
     E que eu tenho um motorista com nome "Gustavo Santos"
     E que eu estou na página de detalhes da requisição
     Quando eu clico em "Aceitar"
@@ -129,8 +125,8 @@ Funcionalidade: Aceitar requisição de viagem
 
   Cenário: Motorista não selecionado
     Dado que eu tenho uma configuração inicial
-    Dado que eu sou um usuário administrador logado
-    Dado que eu tenho uma requisição com estado "Em Espera" e id "25"
+    E que eu sou um usuário administrador logado
+    E que eu tenho uma requisição com estado "Em Espera" e id "25"
     E que eu tenho um motorista com nome "Gustavo Santos"
     E que eu estou na página de detalhes da requisição
     Quando eu clico em "Aceitar"
@@ -143,8 +139,8 @@ Funcionalidade: Aceitar requisição de viagem
 
   Cenário: Aceitar uma requisição com uma viagem em estado Aguardando
     Dado que eu tenho uma configuração inicial
-    Dado que eu sou um usuário administrador logado
-    Dado que eu tenho uma requisição com estado "Em Espera" e id "25"
+    E que eu sou um usuário administrador logado
+    E que eu tenho uma requisição com estado "Em Espera" e id "25"
     E que eu tenho uma viagem com o estado "Aguardando"
     E que eu estou na página de detalhes da requisição
     Quando eu clico em "Aceitar"
@@ -155,8 +151,8 @@ Funcionalidade: Aceitar requisição de viagem
 
   Esquema do Cenário: Não aceitar uma requisição com uma viagem em estado Atendida ou Cancelada
     Dado que eu tenho uma configuração inicial
-    Dado que eu sou um usuário administrador logado
-    Dado que eu tenho uma requisição com estado "Em Espera" e id "25"
+    E que eu sou um usuário administrador logado
+    E que eu tenho uma requisição com estado "Em Espera" e id "25"
     E que eu tenho uma viagem com o estado "<Estado>"
     E que eu estou na página de detalhes da requisição
     Quando eu clico em "Aceitar"
@@ -168,4 +164,60 @@ Funcionalidade: Aceitar requisição de viagem
     | Estado    |
     | Cancelada |
     | Atendida  |
+
+  Cenário: Mudar a viagem de uma requisição com uma nova viagem quando a viagem tem uma requisição
+    Dado que eu tenho uma configuração inicial
+    E que eu sou um usuário administrador logado
+    E que eu tenho uma requisição com estado "Aceita" e id "25"
+    E que eu tenho uma viagem com o estado "Aguardando"
+    E que a requisição esteja ligada à viagem
+    E que eu tenho uma requisição com estado "Aceita" e id "27"
+    E que a requisição esteja ligada à viagem
+    E que eu tenho um motorista com nome "Gustavo Santos"
+    E que eu tenha um veículo da categoria "Automóvel até 4 passageiros", modelo "Gol" e placa "KQI 5899"
+    E que eu estou na página de detalhes da requisição
+    Quando eu clico em "Alterar viagem"
+    Então eu devo estar na página de aceitar a requisição
+    Quando eu marco o radiobutton "escolha_de_viagem_nova"
+    E eu seleciono "Gustavo Santos" em "Motoristas"
+    E eu seleciono "Gol - KQI 5899 - Automóvel até 4 passageiros" em "Veículo"
+    E eu pressiono "Concluir"
+    Então a requisição deve estar ligada à última viagem
+    E eu devo ter 0 viagem cancelada
+
+  Cenário: Mudar a viagem de uma requisição com uma nova viagem quando a viagem tem uma requisição
+    Dado que eu tenho uma configuração inicial
+    E que eu sou um usuário administrador logado
+    E que eu tenho uma requisição com estado "Aceita" e id "25"
+    E que eu tenho uma viagem com o estado "Aguardando"
+    E que a requisição esteja ligada à viagem
+    E que eu tenho um motorista com nome "Gustavo Santos"
+    E que eu tenha um veículo da categoria "Automóvel até 4 passageiros", modelo "Gol" e placa "KQI 5899"
+    E que eu estou na página de detalhes da requisição
+    Quando eu clico em "Alterar viagem"
+    Então eu devo estar na página de aceitar a requisição
+    Quando eu marco o radiobutton "escolha_de_viagem_nova"
+    E eu seleciono "Gustavo Santos" em "Motoristas"
+    E eu seleciono "Gol - KQI 5899 - Automóvel até 4 passageiros" em "Veículo"
+    E eu pressiono "Concluir"
+    Então a requisição deve estar ligada à última viagem
+    E eu devo ter 1 viagem cancelada
+
+  Cenário: Mudar a viagem de uma requisição com uma viagem existente
+    Dado que eu tenho uma configuração inicial
+    E que eu sou um usuário administrador logado
+    E que eu tenho uma requisição com estado "Aceita" e id "25"
+    E que eu tenho uma viagem com o estado "Aguardando"
+    E que a requisição esteja ligada à viagem
+    E que eu tenho uma requisição com estado "Aceita" e id "27"
+    E que eu tenho uma viagem com o estado "Aguardando"
+    E que a requisição esteja ligada à viagem
+    E que eu estou na página de detalhes da requisição
+    Quando eu clico em "Alterar viagem"
+    Então eu devo estar na página de aceitar a requisição
+    Quando eu marco o radiobutton "escolha_de_viagem_existente"
+    E eu escolho uma viagem existente diferente da requisição
+    E eu pressiono "Concluir"
+    Então a requisição deve estar ligada à primeira viagem
+    Então eu devo ter 1 viagem cancelada
 
