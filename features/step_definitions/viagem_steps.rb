@@ -206,7 +206,7 @@ Então /^eu devo ter (\d+) viagem cancelada$/ do |quantidade|
   Viagem.find_all_by_estado(Viagem::CANCELADA).should have(quantidade.to_i).viagens
 end
 
-Então /^eu devo ter (\d+) viagens$/ do |quantidade|
+Então /^eu devo ter (\d+) viage(ns|m)$/ do |quantidade, opcao|
   Viagem.all.should have(quantidade.to_i).viagens
 end
 
