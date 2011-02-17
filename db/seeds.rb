@@ -106,27 +106,6 @@ open("#{Rails.root}/db/seeds_files/objetivos_de_reserva.txt") do |objetivos|
   end
 end
 
-#Requisicao.delete_all
-#open("#{Rails.root}/db/seeds_files/requisicoes_seed.txt") do |requisicoes|
-#  requisicoes.read.each do |r|
-#    if r != "\n"
-#      sol, categoria_veiculo, celular, objetivo, passageiros, roteiro, observacao = r.chomp.split("|")
-#      data = Date.tomorrow.tomorrow
-#      solicitante = Solicitante.find_by_matricula(sol)
-#      categoria_de_veiculo = CategoriaDeVeiculo.find_by_nome(categoria_veiculo)
-#      objetivo_de_reserva = ObjetivoDeReserva.find_by_texto(objetivo)
-#      Requisicao.create!(:solicitante_id => solicitante.id,
-#                          :categoria_de_veiculo_id => categoria_de_veiculo.id,
-#                          :celular => celular,
-#                          :data_de_reserva => data,
-#                          :objetivo_de_reserva_id => objetivo_de_reserva.id,
-#                          :nome_telefone_passageiros => passageiros,
-#                          :roteiro_da_agenda => roteiro,
-#                          :observacao => observacao)
-#    end
-#  end
-#end
-
 Motivo.delete_all
 open("#{Rails.root}/db/seeds_files/motivos_seed.txt") do |motivos|
   motivos.read.each_line do |motivo|
@@ -148,15 +127,15 @@ open("#{Rails.root}/db/seeds_files/estados_seed.txt") do |estados|
   end
 end
 
-#Cidade.delete_all
-#open("#{Rails.root}/db/seeds_files/cidades_seed.txt") do |cidades|
-#  cidades.read.each_line do |cidade|
-#    if cidade != "\n"
-#      estado_id, nome = cidade.chomp.split("|")
-#      Cidade.create!(:estado_id => estado_id, :nome => nome)
-#    end
-#  end
-#end
+Cidade.delete_all
+open("#{Rails.root}/db/seeds_files/cidades_seed.txt") do |cidades|
+  cidades.read.each_line do |cidade|
+    if cidade != "\n"
+      estado_id, nome = cidade.chomp.split("|")
+      Cidade.create!(:estado_id => estado_id, :nome => nome)
+    end
+  end
+end
 
 Configuracao.delete_all
 Configuracao.create!
