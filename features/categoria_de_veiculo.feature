@@ -19,13 +19,13 @@ Para que eu possa utiliza-la no sistema
 
     Exemplos:
 
-    | Nome                        | Mínimo | Máximo | Sentença                                                                   |
-    | Automóvel até 4 passageiros | 1      | 15     | Categoria de veículo criada com sucesso!                                   |
-    | Automóvel até 4 passageiros | 0      | 15     | Categoria de veículo criada com sucesso!                                   |
-    | Automóvel até 4 passageiros | 0      | 0      | Categoria de veículo criada com sucesso!                                   |
-    | Automóvel até 4 passageiros | 13     | 0      | O número mínimo de dias não pode ser maior do que o número máximo de dias. |
-    | Automóvel até 4 passageiros | 13     | 13     | O número mínimo de dias não pode ser igual ao número máximo de dias. |
-    |                             | 1      | 15     | Nome não pode ser vazio                                                    |
+    | Nome                        | Mínimo | Máximo | Sentença                                 |
+    | Automóvel até 4 passageiros | 1      | 15     | Categoria de veículo criada com sucesso! |
+    | Automóvel até 4 passageiros | 0      | 15     | Categoria de veículo criada com sucesso! |
+    | Automóvel até 4 passageiros | 0      | 0      | Categoria de veículo criada com sucesso! |
+    | Automóvel até 4 passageiros | 13     | 0      | Categoria de veículo criada com sucesso! |
+    | Automóvel até 4 passageiros | 13     | 13     | Categoria de veículo criada com sucesso! |
+    |                             | 1      | 15     | Nome não pode ser vazio                  |
 
   Esquema do Cenário: Editar categoria de veículo
     Dado que eu tenho uma configuração inicial
