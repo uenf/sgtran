@@ -19,10 +19,9 @@ describe ViagensController do
   end
 
   describe "GET index" do
-    it "assigns all viagens as @viagens" do
-      Viagem.stub!(:find).with(:all, :conditions => "estado = '"+ Viagem::AGUARDANDO + "'", :order => "data_partida ASC").and_return([mock_viagem])
+    it "assigns an empty array to @viagens" do
       get :index
-      assigns[:viagens].should == [mock_viagem]
+      assigns[:viagens].should == []
     end
   end
 

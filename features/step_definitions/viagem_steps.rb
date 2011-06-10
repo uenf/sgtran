@@ -127,6 +127,11 @@ Dado /^que eu tenho uma viagem com esse veículo$/ do
                            :data_chegada => Date.today
 end
 
+Dado /^que eu tenho (\d+) viagens$/ do |count|
+  count.to_i.times { Dado %{que eu tenha uma viagem} }
+end
+
+
 
 Quando /^eu escolho a viagem existente$/ do
   field = "id_da_viagem_" + "#{@viagem.id}"

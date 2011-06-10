@@ -10,7 +10,7 @@ class ViagensController < ApplicationController
   layout "sistema"
 
   def index
-    @viagens = Viagem.all(:conditions => "estado = '" + Viagem::AGUARDANDO + "'", :order => "data_partida ASC")
+    @viagens = []
   end
 
   def filtrar

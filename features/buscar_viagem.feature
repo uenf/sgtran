@@ -104,3 +104,10 @@ Funcionalidade: Buscar uma viagem
       Então eu devo ver "KKK"
       E eu não devo ver "GGG"
 
+  Cenário: Página de viagem inicialmente vazia
+    Dado que eu tenho uma configuração inicial
+    E que eu sou um usuário administrador logado
+    E que eu tenho 10 viagens
+    Quando eu vou para a página de visualização de viagens
+    Então eu não devo ver a tabela "viagens"
+

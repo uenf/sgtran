@@ -116,6 +116,16 @@ Entao /^eu não devo ver "([^\"]*)" em "([^\"]*)"$/ do |text, selector|
   end
 end
 
+Entao /^eu não devo ver a tabela "([^"]*)"$/ do |id_tabela|
+  begin
+    within("##{id_tabela}") do |content|
+    end
+    fail "O elemento com id \"#{id_tabela}\" existe."
+  rescue Webrat::NotFoundError
+  end
+end
+
+
 #
 # ------------------------------------------------------------------------------
 #
